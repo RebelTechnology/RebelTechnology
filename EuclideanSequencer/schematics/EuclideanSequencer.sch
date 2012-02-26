@@ -9211,6 +9211,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="C1" library="rcl" deviceset="C-US" device="050-024X044" value="100n"/>
 <part name="P+14" library="supply1" deviceset="+5V" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
+<part name="R3" library="rcl" deviceset="R-EU_" device="0204/7" value="10K"/>
+<part name="P+15" library="supply1" deviceset="+5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -9329,6 +9331,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <instance part="C1" gate="G$1" x="-2.54" y="83.82"/>
 <instance part="P+14" gate="1" x="86.36" y="111.76"/>
 <instance part="GND10" gate="1" x="91.44" y="83.82"/>
+<instance part="R3" gate="G$1" x="15.24" y="83.82" rot="MR90"/>
+<instance part="P+15" gate="1" x="15.24" y="99.06"/>
 </instances>
 <busses>
 </busses>
@@ -9458,6 +9462,11 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="93.98" y1="99.06" x2="86.36" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="86.36" y1="99.06" x2="86.36" y2="109.22" width="0.1524" layer="91"/>
 <pinref part="P+14" gate="1" pin="+5V"/>
+</segment>
+<segment>
+<pinref part="R3" gate="G$1" pin="2"/>
+<pinref part="P+15" gate="1" pin="+5V"/>
+<wire x1="15.24" y1="88.9" x2="15.24" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -9637,10 +9646,14 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="83.82" y1="5.08" x2="-2.54" y2="5.08" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="5.08" x2="-2.54" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="PC6(/RESET)"/>
-<wire x1="-2.54" y1="73.66" x2="33.02" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="73.66" x2="15.24" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="2"/>
+<wire x1="15.24" y1="73.66" x2="33.02" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="73.66" x2="-2.54" y2="78.74" width="0.1524" layer="91"/>
 <junction x="-2.54" y="73.66"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="15.24" y1="73.66" x2="15.24" y2="78.74" width="0.1524" layer="91"/>
+<junction x="15.24" y="73.66"/>
 </segment>
 </net>
 <net name="N$11" class="0">
