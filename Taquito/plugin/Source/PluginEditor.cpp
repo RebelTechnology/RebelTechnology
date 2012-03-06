@@ -19,8 +19,10 @@ TaquitoAudioProcessorEditor::TaquitoAudioProcessorEditor (TaquitoAudioProcessor*
       infoLabel (String::empty),
       breathLabel ("", "Breath:"),
       positionLabel ("", "Position:"),
+      pressureLabel ("", "Pressure:"),
       breathSlider ("breath"),
-      positionSlider ("position")
+      positionSlider ("position"),
+      pressureSlider ("pressure")
 {
     // add some sliders..
     addAndMakeVisible (&breathSlider);
