@@ -221,9 +221,12 @@ void TaquitoAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer&
 void TaquitoAudioProcessor::timerCallback()
 {
   taquito.read();
-  setParameterNotifyingHost(TaquitoAudioProcessor::breathParam, taquito.getBreath());
-  setParameterNotifyingHost(TaquitoAudioProcessor::positionParam, taquito.getPosition());
-  setParameterNotifyingHost(TaquitoAudioProcessor::pressureParam, taquito.getPressure());
+  if(breath != taquito.getBreath())
+    setParameterNotifyingHost(TaquitoAudioProcessor::breathParam, taquito.getBreath());
+  if(position != taquito.getPosition())
+    setParameterNotifyingHost(TaquitoAudioProcessor::positionParam, taquito.getPosition());
+  if(pressure != taquito.getPressure())
+    setParameterNotifyingHost(TaquitoAudioProcessor::pressureParam, taquito.getPressure());
 }
 
 //==============================================================================
