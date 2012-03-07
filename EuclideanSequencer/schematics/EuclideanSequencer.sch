@@ -8752,9 +8752,9 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="R3" library="rcl" deviceset="R-EU_" device="0204/7" value="10K"/>
 <part name="P+15" library="supply1" deviceset="+5V" device=""/>
 <part name="SC" library="SparkFun" deviceset="SWITCH-SPST" device="PTH"/>
-<part name="LED1" library="SparkFun" deviceset="LED" device="3MM"/>
-<part name="LED2" library="SparkFun" deviceset="LED" device="3MM"/>
-<part name="LED3" library="SparkFun" deviceset="LED" device="3MM"/>
+<part name="LEDB" library="SparkFun" deviceset="LED" device="3MM"/>
+<part name="LEDA" library="SparkFun" deviceset="LED" device="3MM"/>
+<part name="LEDC" library="SparkFun" deviceset="LED" device="3MM"/>
 <part name="R9" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="R10" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="R12" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
@@ -8859,9 +8859,9 @@ In this library the device names are the same as the pin names of the symbols, t
 <instance part="R3" gate="G$1" x="15.24" y="83.82" rot="MR90"/>
 <instance part="P+15" gate="1" x="15.24" y="99.06"/>
 <instance part="SC" gate="1" x="147.32" y="-2.54" rot="R180"/>
-<instance part="LED1" gate="G$1" x="86.36" y="10.16"/>
-<instance part="LED2" gate="G$1" x="93.98" y="10.16"/>
-<instance part="LED3" gate="G$1" x="101.6" y="10.16"/>
+<instance part="LEDB" gate="G$1" x="86.36" y="10.16"/>
+<instance part="LEDA" gate="G$1" x="93.98" y="10.16"/>
+<instance part="LEDC" gate="G$1" x="101.6" y="10.16"/>
 <instance part="R9" gate="G$1" x="86.36" y="0" rot="R270"/>
 <instance part="R10" gate="G$1" x="93.98" y="0" rot="R270"/>
 <instance part="R12" gate="G$1" x="101.6" y="0" rot="R270"/>
@@ -9214,7 +9214,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <net name="N$9" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PB4(MISO)"/>
-<pinref part="LED2" gate="G$1" pin="A"/>
+<pinref part="LEDA" gate="G$1" pin="A"/>
 <wire x1="93.98" y1="17.78" x2="81.28" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="93.98" y1="12.7" x2="93.98" y2="17.78" width="0.1524" layer="91"/>
 </segment>
@@ -9223,7 +9223,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <segment>
 <pinref part="IC1" gate="G$1" pin="PB5(SCK)"/>
 <wire x1="81.28" y1="15.24" x2="101.6" y2="15.24" width="0.1524" layer="91"/>
-<pinref part="LED3" gate="G$1" pin="A"/>
+<pinref part="LEDC" gate="G$1" pin="A"/>
 <wire x1="101.6" y1="12.7" x2="101.6" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -9455,19 +9455,19 @@ In this library the device names are the same as the pin names of the symbols, t
 </net>
 <net name="N$24" class="0">
 <segment>
-<pinref part="LED1" gate="G$1" pin="C"/>
+<pinref part="LEDB" gate="G$1" pin="C"/>
 <pinref part="R9" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$28" class="0">
 <segment>
-<pinref part="LED2" gate="G$1" pin="C"/>
+<pinref part="LEDA" gate="G$1" pin="C"/>
 <pinref part="R10" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$30" class="0">
 <segment>
-<pinref part="LED3" gate="G$1" pin="C"/>
+<pinref part="LEDC" gate="G$1" pin="C"/>
 <pinref part="R12" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -9520,7 +9520,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <net name="N$12" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PB3(MOSI/OC2)"/>
-<pinref part="LED1" gate="G$1" pin="A"/>
+<pinref part="LEDB" gate="G$1" pin="A"/>
 <wire x1="81.28" y1="20.32" x2="86.36" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="86.36" y1="20.32" x2="86.36" y2="12.7" width="0.1524" layer="91"/>
 </segment>
