@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.1">
+<eagle version="6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -8709,7 +8709,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="P+7" library="supply1" deviceset="+5V" device=""/>
 <part name="C3" library="rcl" deviceset="C-US" device="050-024X044" value="100n"/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
-<part name="R2" library="rcl" deviceset="R-EU_" device="0204/7" value="10K"/>
+<part name="R2" library="rcl" deviceset="R-EU_" device="0204/7" value="100K"/>
 <part name="SA" library="SparkFun" deviceset="SWITCH-SPST" device="KIT"/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
@@ -8777,6 +8777,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="R15" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="P+16" library="supply1" deviceset="+5V" device=""/>
 <part name="U$2" library="SparkFun" deviceset="M08X2" device=""/>
+<part name="R16" library="rcl" deviceset="R-EU_" device="0204/7" value="1M"/>
+<part name="GND8" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8886,6 +8888,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <attribute name="VALUE" x="216.154" y="44.196" size="1.778" layer="96"/>
 </instance>
 <instance part="U$2" gate="G$1" x="236.22" y="73.66" rot="R180"/>
+<instance part="R16" gate="G$1" x="25.4" y="-45.72" rot="MR270"/>
+<instance part="GND8" gate="1" x="25.4" y="-53.34"/>
 </instances>
 <busses>
 </busses>
@@ -9210,6 +9214,10 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="195.58" y1="12.7" x2="198.12" y2="12.7" width="0.1524" layer="91"/>
 <junction x="198.12" y="12.7"/>
 </segment>
+<segment>
+<pinref part="R16" gate="G$1" pin="2"/>
+<pinref part="GND8" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="N$9" class="0">
 <segment>
@@ -9318,8 +9326,11 @@ In this library the device names are the same as the pin names of the symbols, t
 <net name="N$17" class="0">
 <segment>
 <pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="33.02" y1="-40.64" x2="20.32" y2="-40.64" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="-40.64" x2="25.4" y2="-40.64" width="0.1524" layer="91"/>
 <pinref part="Q1" gate="G1" pin="B"/>
+<pinref part="R16" gate="G$1" pin="1"/>
+<wire x1="25.4" y1="-40.64" x2="20.32" y2="-40.64" width="0.1524" layer="91"/>
+<junction x="25.4" y="-40.64"/>
 </segment>
 </net>
 <net name="N$19" class="0">
