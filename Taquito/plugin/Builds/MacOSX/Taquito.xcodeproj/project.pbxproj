@@ -27,11 +27,11 @@
 		43046488BEEC3E83700C5E21 /* juce_RTAS_Wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27FA0D7CE10068BE6DA80A6 /* juce_RTAS_Wrapper.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		46D8E712438855830D0810E4 /* juce_events.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7E9B9F045E7FF67B13138AF /* juce_events.mm */; };
 		4C381B32A257760743413AB1 /* TaquitoClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 233421C3F44546F9642998B2 /* TaquitoClient.cpp */; };
-		4EC684A494F176F19E090A85 /* PluginEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6870609598EB1E9321D110D /* PluginEditor.cpp */; };
 		4F0E45FD8CD21D381AFB2ED3 /* juce_RTAS_DigiCode3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EF32810E9D98970A922EB51 /* juce_RTAS_DigiCode3.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		520C5C262A611118D7B08FE8 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0067D38BEFEB26C8EAA13F4F /* CoreAudio.framework */; };
 		527042012707E5D25E6ED270 /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A12F500A56C405F277BEE045 /* CAStreamBasicDescription.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		55DA5B6F8B92686AE72B9F3E /* AUInputElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDFA3F6F8D085EAD72D4BE58 /* AUInputElement.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
+		5AF4A48C7FE8694592ABC615 /* TaquitoAudioProcessorEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B14FBA19F6C92D4CFBADD065 /* TaquitoAudioProcessorEditor.cpp */; };
 		5B7BDA46D291DF88CF504FDA /* juce_RTAS_DigiCode1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62E64B649ED794BAD86EC182 /* juce_RTAS_DigiCode1.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		5CFF7021FE39DC305C597599 /* AUOutputBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0075C97D0821A2E5189F56 /* AUOutputBase.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		6293240F68FF0E05F30B3174 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4559DEB0C929B6B851605223 /* Cocoa.framework */; };
@@ -447,6 +447,7 @@
 		7F7E5B99CE16D4884837DD7C /* juce_AudioThumbnail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_AudioThumbnail.h; path = ../../JuceLibraryCode/modules/juce_audio_utils/gui/juce_AudioThumbnail.h; sourceTree = SOURCE_ROOT; };
 		7F91AA1CF995A8CE9A72A0ED /* juce_ResizableBorderComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ResizableBorderComponent.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/layout/juce_ResizableBorderComponent.h; sourceTree = SOURCE_ROOT; };
 		7FF1986A4B75B3D3DF24B712 /* juce_CPlusPlusCodeTokeniser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_CPlusPlusCodeTokeniser.cpp; path = ../../JuceLibraryCode/modules/juce_gui_extra/code_editor/juce_CPlusPlusCodeTokeniser.cpp; sourceTree = SOURCE_ROOT; };
+		805EB6F64625F0FDC6E10CBA /* TaquitoAudioProcessorEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TaquitoAudioProcessorEditor.h; path = ../../Source/TaquitoAudioProcessorEditor.h; sourceTree = SOURCE_ROOT; };
 		8076CA210E74B6D1716840AE /* CAAUParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CAAUParameter.h; path = Extras/CoreAudio/PublicUtility/CAAUParameter.h; sourceTree = DEVELOPER_DIR; };
 		815A00610290AE8E55191B27 /* juce_ios_UIViewComponentPeer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = juce_ios_UIViewComponentPeer.mm; path = ../../JuceLibraryCode/modules/juce_gui_basics/native/juce_ios_UIViewComponentPeer.mm; sourceTree = SOURCE_ROOT; };
 		81F02607B9AA210EF2741F41 /* juce_IIRFilterAudioSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_IIRFilterAudioSource.h; path = ../../JuceLibraryCode/modules/juce_audio_basics/sources/juce_IIRFilterAudioSource.h; sourceTree = SOURCE_ROOT; };
@@ -626,6 +627,7 @@
 		AFA90774C7D4CE55F2F33A00 /* juce_win32_ASIO.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_win32_ASIO.cpp; path = ../../JuceLibraryCode/modules/juce_audio_devices/native/juce_win32_ASIO.cpp; sourceTree = SOURCE_ROOT; };
 		B0915B267AB6C5F447A3D455 /* juce_Array.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Array.h; path = ../../JuceLibraryCode/modules/juce_core/containers/juce_Array.h; sourceTree = SOURCE_ROOT; };
 		B0A04F6FEEE47EED5F899776 /* juce_AudioDataConverters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_AudioDataConverters.h; path = ../../JuceLibraryCode/modules/juce_audio_basics/buffers/juce_AudioDataConverters.h; sourceTree = SOURCE_ROOT; };
+		B14FBA19F6C92D4CFBADD065 /* TaquitoAudioProcessorEditor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = TaquitoAudioProcessorEditor.cpp; path = ../../Source/TaquitoAudioProcessorEditor.cpp; sourceTree = SOURCE_ROOT; };
 		B16194C341EB86F973B4A03E /* juce_Atomic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Atomic.h; path = ../../JuceLibraryCode/modules/juce_core/memory/juce_Atomic.h; sourceTree = SOURCE_ROOT; };
 		B171E441F38465941E040558 /* juce_ByteOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ByteOrder.h; path = ../../JuceLibraryCode/modules/juce_core/memory/juce_ByteOrder.h; sourceTree = SOURCE_ROOT; };
 		B1C96742E70632BF2E63909A /* juce_QuickTimeAudioFormat.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_QuickTimeAudioFormat.cpp; path = ../../JuceLibraryCode/modules/juce_audio_formats/codecs/juce_QuickTimeAudioFormat.cpp; sourceTree = SOURCE_ROOT; };
@@ -706,7 +708,6 @@
 		C5D6EA5BEB4B9ABCA5A2AC3B /* juce_Reverb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Reverb.h; path = ../../JuceLibraryCode/modules/juce_audio_basics/effects/juce_Reverb.h; sourceTree = SOURCE_ROOT; };
 		C5EF23FC44EF799345FADDF4 /* juce_DrawableRectangle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_DrawableRectangle.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/drawables/juce_DrawableRectangle.h; sourceTree = SOURCE_ROOT; };
 		C5F728ACE1AA861665C69F6D /* juce_FillType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_FillType.h; path = ../../JuceLibraryCode/modules/juce_graphics/colour/juce_FillType.h; sourceTree = SOURCE_ROOT; };
-		C6870609598EB1E9321D110D /* PluginEditor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginEditor.cpp; path = ../../Source/PluginEditor.cpp; sourceTree = SOURCE_ROOT; };
 		C6F53813AF9E98684C4829EE /* juce_ThreadLocalValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ThreadLocalValue.h; path = ../../JuceLibraryCode/modules/juce_core/threads/juce_ThreadLocalValue.h; sourceTree = SOURCE_ROOT; };
 		C73EE778F3ADC0564249AB42 /* juce_CaretComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_CaretComponent.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/keyboard/juce_CaretComponent.cpp; sourceTree = SOURCE_ROOT; };
 		C772B0371E8903981A7D3628 /* juce_MarkerList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_MarkerList.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/positioning/juce_MarkerList.h; sourceTree = SOURCE_ROOT; };
@@ -811,7 +812,6 @@
 		E4DB5748AE020B0FBE8162E2 /* juce_PopupMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_PopupMenu.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/menus/juce_PopupMenu.h; sourceTree = SOURCE_ROOT; };
 		E4DC1947D0A64DBBB071986D /* juce_StringPool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_StringPool.h; path = ../../JuceLibraryCode/modules/juce_core/text/juce_StringPool.h; sourceTree = SOURCE_ROOT; };
 		E526A88BAA6E4DDEB168439D /* juce_ChannelRemappingAudioSource.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ChannelRemappingAudioSource.cpp; path = ../../JuceLibraryCode/modules/juce_audio_basics/sources/juce_ChannelRemappingAudioSource.cpp; sourceTree = SOURCE_ROOT; };
-		E564169FC9C825874BB3AE6A /* PluginEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginEditor.h; path = ../../Source/PluginEditor.h; sourceTree = SOURCE_ROOT; };
 		E5DA28FB25F3B37E5D4346E5 /* DiscRecording.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiscRecording.framework; path = System/Library/Frameworks/DiscRecording.framework; sourceTree = SDKROOT; };
 		E61AFEB15B0FAA56EA293C81 /* juce_CharacterFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_CharacterFunctions.h; path = ../../JuceLibraryCode/modules/juce_core/text/juce_CharacterFunctions.h; sourceTree = SOURCE_ROOT; };
 		E61EE504AFE869553AD965CB /* juce_GenericAudioProcessorEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_GenericAudioProcessorEditor.h; path = ../../JuceLibraryCode/modules/juce_audio_processors/processors/juce_GenericAudioProcessorEditor.h; sourceTree = SOURCE_ROOT; };
@@ -1669,14 +1669,14 @@
 		7BC85157C32F4C4C90532601 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				B14FBA19F6C92D4CFBADD065 /* TaquitoAudioProcessorEditor.cpp */,
+				805EB6F64625F0FDC6E10CBA /* TaquitoAudioProcessorEditor.h */,
 				BEA7FE1D075D58A79F0D610E /* hid.c */,
 				1F153E0500778BCB163D2A78 /* hidapi.h */,
 				233421C3F44546F9642998B2 /* TaquitoClient.cpp */,
 				9AC0074ED7669DADB616CDF4 /* TaquitoClient.h */,
 				41B9FA01167315A15611C959 /* PluginProcessor.cpp */,
 				69170D4B29DABD4897D3701B /* PluginProcessor.h */,
-				C6870609598EB1E9321D110D /* PluginEditor.cpp */,
-				E564169FC9C825874BB3AE6A /* PluginEditor.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -2689,10 +2689,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AF4A48C7FE8694592ABC615 /* TaquitoAudioProcessorEditor.cpp in Sources */,
 				1974C2FBF1C621EEB04FB7D8 /* hid.c in Sources */,
 				4C381B32A257760743413AB1 /* TaquitoClient.cpp in Sources */,
 				07787A7CB663E19D58C9EDFC /* PluginProcessor.cpp in Sources */,
-				4EC684A494F176F19E090A85 /* PluginEditor.cpp in Sources */,
 				A193CA610EBDAEDEC2591BC5 /* AUBase.cpp in Sources */,
 				1F0A889C232842CD2DFA6303 /* AUBuffer.cpp in Sources */,
 				DDE3EFE1864AAEBDF6B37939 /* AUCarbonViewBase.cpp in Sources */,

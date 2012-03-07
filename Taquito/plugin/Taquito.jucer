@@ -39,6 +39,10 @@
   </EXPORTFORMATS>
   <MAINGROUP id="oL4bo" name="Taquito">
     <GROUP id="qnfGd0" name="Source">
+      <FILE id="V5hKRp" name="TaquitoAudioProcessorEditor.cpp" compile="1"
+            resource="0" file="Source/TaquitoAudioProcessorEditor.cpp"/>
+      <FILE id="Yr1tLu" name="TaquitoAudioProcessorEditor.h" compile="0"
+            resource="0" file="Source/TaquitoAudioProcessorEditor.h"/>
       <FILE id="v4vVaz" name="hid.c" compile="1" resource="0" file="Source/hid.c"/>
       <FILE id="axyf0O" name="hidapi.h" compile="0" resource="0" file="Source/hidapi.h"/>
       <FILE id="VYXTHM" name="TaquitoClient.cpp" compile="1" resource="0"
@@ -48,9 +52,6 @@
             file="Source/PluginProcessor.cpp"/>
       <FILE id="NpZKu" name="PluginProcessor.h" compile="0" resource="0"
             file="Source/PluginProcessor.h"/>
-      <FILE id="H6fhAc" name="PluginEditor.cpp" compile="1" resource="0"
-            file="Source/PluginEditor.cpp"/>
-      <FILE id="c6Yone" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_QUICKTIME="disabled" JUCE_PLUGINHOST_VST="enabled" JUCE_PLUGINHOST_AU="disabled"/>

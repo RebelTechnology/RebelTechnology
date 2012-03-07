@@ -81,8 +81,15 @@ public:
     };
 
   float breath, position, pressure;
+  int breathController, positionController, pressureController;
+  float breathThreshold, pressureThreshold;
+  int channel, octave;
 
 private:
+  void updateController(int cid, int value, MidiBuffer& midiMessages);
+  int8_t lastnote;
+  int ccvalues[127];
+
     TaquitoClient taquito;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TaquitoAudioProcessor);
