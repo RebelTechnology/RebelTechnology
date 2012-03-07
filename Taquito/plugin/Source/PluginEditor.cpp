@@ -16,7 +16,7 @@
 TaquitoAudioProcessorEditor::TaquitoAudioProcessorEditor (TaquitoAudioProcessor* ownerFilter)
     : AudioProcessorEditor (ownerFilter),
       midiKeyboard (ownerFilter->keyboardState, MidiKeyboardComponent::horizontalKeyboard),
-      infoLabel (String::empty),
+      infoLabel ("", "Taquito"),
       breathLabel ("", "Breath:"),
       positionLabel ("", "Position:"),
       pressureLabel ("", "Pressure:"),
@@ -88,9 +88,9 @@ void TaquitoAudioProcessorEditor::paint (Graphics& g)
 void TaquitoAudioProcessorEditor::resized()
 {
     infoLabel.setBounds (10, 4, 400, 25);
-    breathSlider.setBounds (20, 60, 150, 40);
-    positionSlider.setBounds (200, 60, 150, 40);
-    pressureSlider.setBounds (380, 60, 150, 40);
+    breathSlider.setBounds (20, 60, 80, 40);
+    positionSlider.setBounds (140, 60, 80, 40);
+    pressureSlider.setBounds (260, 60, 80, 40);
 
     const int keyboardHeight = 70;
     midiKeyboard.setBounds (4, getHeight() - keyboardHeight - 4, getWidth() - 8, keyboardHeight);

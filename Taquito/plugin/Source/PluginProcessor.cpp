@@ -152,6 +152,16 @@ void TaquitoAudioProcessor::releaseResources()
 int8_t lastnote = -1;
 int channel = 1;
 int octave = 4;
+int8_t modulation = 0;
+int8_t breath = 0;
+
+int8_t TaquitoAudioProcessor::getBreathController(){
+  return 7;
+}
+
+int8_t TaquitoAudioProcessor::getPressureController(){
+  return 1;
+}
 
 void TaquitoAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
@@ -161,13 +171,38 @@ void TaquitoAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer&
 //         float* channelData = buffer.getSampleData (channel);
     }
 
-    if(lastnote != -1){
+    if(taquito.getBreath() > 0.1){
+      if(taquito.getPressure()){
+	float width = 1.0/25.0;
+	float value = taquito.getPosition();
+	if(value > width)
+	  value -= width/4;
+	else
+	  value = 0.0;
+	int8_t note = (int8_t)(value/width) + octave*12;
+	if(note == lastnote - 1 && (value/width+octave*12-note) < width/2)
+	  note = lastnote;
+	//       lastnote = taquito.getPosition()*25 + octave*12;
+	if(note != lastnote){
+	  midiMessages.addEvent(MidiMessage::noteOn(channel, note, taquito.getBreath()*127), 1);
+	  midiMessages.addEvent(MidiMessage::noteOff(channel, lastnote), 0);
+	  lastnote = note;
+	}
+      }
+    }else if(lastnote != -1){
       midiMessages.addEvent(MidiMessage::noteOff(channel, lastnote), 0);
       lastnote = -1;
     }
-    if(taquito.getPressure() > 0.2){
-      lastnote = taquito.getPosition()*25 + octave*12;
-      midiMessages.addEvent(MidiMessage::noteOn(channel, lastnote, taquito.getPressure()), 1);
+
+    int value = taquito.getPressure()*127;
+    if(value != modulation){
+      midiMessages.addEvent(MidiMessage::controllerEvent(channel, getPressureController(), value), 0);
+      modulation = value;
+    }
+    int value = taquito.getBreath()*127;
+    if(value != breath){
+      midiMessages.addEvent(MidiMessage::controllerEvent(channel, getBreathController(), value), 0);
+      breath = value;
     }
 
     keyboardState.processNextMidiBuffer (midiMessages, 0, numSamples, true);

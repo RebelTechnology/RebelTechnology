@@ -25,9 +25,10 @@ TaquitoClient::TaquitoClient() {
 
 #define MAX_SENSOR_VALUE_FLOAT 1023.0
 #define MAX_BREATH_VALUE_FLOAT 700.0
+#define BREATH_THRESHOLD 60
 
 float TaquitoClient::getBreath(){
-  return data[1]/MAX_BREATH_VALUE_FLOAT;
+  return data[1] > BREATH_THRESHOLD ? data[1]/MAX_BREATH_VALUE_FLOAT : 0;
 }
 
 float TaquitoClient::getPosition(){
