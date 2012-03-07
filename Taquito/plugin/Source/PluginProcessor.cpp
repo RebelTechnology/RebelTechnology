@@ -9,7 +9,7 @@
 */
 
 #include "PluginProcessor.h"
-#include "PluginEditor.h"
+#include "TaquitoAudioProcessorEditor.h"
 
 
 //==============================================================================
@@ -23,6 +23,17 @@ TaquitoAudioProcessor::TaquitoAudioProcessor()
   lastUIHeight = 200;
 
   startTimer (50);
+
+  breathThreshold = 0.1;
+  pressureThreshold = 0.1;
+  channel = 1;
+  octave = 4;
+  breathController = 7;
+  pressureController = 1;
+  positionController = -1;
+  memset(ccvalues, 0, sizeof(ccvalues));
+  lastnote = -1;
+
 }
 
 TaquitoAudioProcessor::~TaquitoAudioProcessor()
@@ -136,7 +147,12 @@ void TaquitoAudioProcessor::changeProgramName (int index, const String& newName)
 void TaquitoAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     // Use this method as the place to do any pre-playback
-  taquito.connect();
+  try{
+    taquito.connect();
+//   }catch(std::exception exc){
+  }catch(...){
+    // todo
+  }
   keyboardState.reset();
   // initialisation that you need..
 }
@@ -149,63 +165,49 @@ void TaquitoAudioProcessor::releaseResources()
   // spare memory, etc.
 }
 
-int8_t lastnote = -1;
-int channel = 1;
-int octave = 4;
-int8_t modulation = 0;
-int8_t breath = 0;
-
-int8_t TaquitoAudioProcessor::getBreathController(){
-  return 7;
-}
-
-int8_t TaquitoAudioProcessor::getPressureController(){
-  return 1;
+void TaquitoAudioProcessor::updateController(int cid, int value, MidiBuffer& midiMessages){
+  if(cid & 0x7f == 0 && ccvalues[cid] != value){
+    midiMessages.addEvent(MidiMessage::controllerEvent(channel, cid, value), 0);
+    ccvalues[cid] = value;
+  }
 }
 
 void TaquitoAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
     const int numSamples = buffer.getNumSamples();
-    for (int channel = 0; channel < getNumInputChannels(); ++channel)
-    {
+//     for (int channel = 0; channel < getNumInputChannels(); ++channel)
+//     {
 //         float* channelData = buffer.getSampleData (channel);
-    }
+//     }
 
-    if(taquito.getBreath() > 0.1){
-      if(taquito.getPressure()){
-	float width = 1.0/25.0;
-	float value = taquito.getPosition();
-	if(value > width)
-	  value -= width/4;
-	else
-	  value = 0.0;
-	int8_t note = (int8_t)(value/width) + octave*12;
-	if(note == lastnote - 1 && (value/width+octave*12-note) < width/2)
-	  note = lastnote;
-	//       lastnote = taquito.getPosition()*25 + octave*12;
-	if(note != lastnote){
-	  midiMessages.addEvent(MidiMessage::noteOn(channel, note, taquito.getBreath()*127), 1);
-	  midiMessages.addEvent(MidiMessage::noteOff(channel, lastnote), 0);
-	  lastnote = note;
-	}
+  if(taquito.getBreath() > breathThreshold){
+    if(taquito.getPressure() > pressureThreshold){
+      float width = 1.0/25.0;
+      float value = taquito.getPosition();
+      if(value > width)
+	value -= width/4;
+      else
+	value = 0.0;
+      int8_t note = (int8_t)(value/width) + octave*12;
+      if(note == lastnote - 1 && (value/width+octave*12-note) < width/2)
+	note = lastnote;
+      //       lastnote = taquito.getPosition()*25 + octave*12;
+      if(note != lastnote){
+	midiMessages.addEvent(MidiMessage::noteOn(channel, note, taquito.getBreath()*127), 1);
+	midiMessages.addEvent(MidiMessage::noteOff(channel, lastnote), 0);
+	lastnote = note;
       }
-    }else if(lastnote != -1){
-      midiMessages.addEvent(MidiMessage::noteOff(channel, lastnote), 0);
-      lastnote = -1;
     }
+  }else if(lastnote != -1){
+    midiMessages.addEvent(MidiMessage::noteOff(channel, lastnote), 0);
+    lastnote = -1;
+  }
 
-    int value = taquito.getPressure()*127;
-    if(value != modulation){
-      midiMessages.addEvent(MidiMessage::controllerEvent(channel, getPressureController(), value), 0);
-      modulation = value;
-    }
-    int value = taquito.getBreath()*127;
-    if(value != breath){
-      midiMessages.addEvent(MidiMessage::controllerEvent(channel, getBreathController(), value), 0);
-      breath = value;
-    }
+  updateController(pressureController, taquito.getPressure()*127, midiMessages);
+  updateController(breathController, taquito.getBreath()*127, midiMessages);
+  updateController(positionController, taquito.getPosition()*127, midiMessages);
 
-    keyboardState.processNextMidiBuffer (midiMessages, 0, numSamples, true);
+  keyboardState.processNextMidiBuffer (midiMessages, 0, numSamples, true);
 
     // In case we have more outputs than inputs, we'll clear any output
     // channels that didn't contain input data, (because these aren't
