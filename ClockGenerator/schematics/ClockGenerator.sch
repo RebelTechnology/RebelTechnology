@@ -8817,8 +8817,8 @@ Source: http://www.lumberg.com/Produkte/PDFs/KLBR2.pdf&lt;br&gt;
 <part name="P+13" library="supply1" deviceset="+12V" device=""/>
 <part name="Q2" library="transistor-npn" deviceset="2N3904" device=""/>
 <part name="R1" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
-<part name="R3" library="rcl" deviceset="R-EU_" device="0204/7" value="4k7"/>
-<part name="R2" library="rcl" deviceset="R-EU_" device="0204/7" value="10K"/>
+<part name="R3" library="rcl" deviceset="R-EU_" device="0204/7" value="100"/>
+<part name="R2" library="rcl" deviceset="R-EU_" device="0204/7" value="1K5"/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="D1" library="SparkFun" deviceset="DIODE" device="PTH"/>
@@ -8826,16 +8826,16 @@ Source: http://www.lumberg.com/Produkte/PDFs/KLBR2.pdf&lt;br&gt;
 <part name="C4" library="SparkFun" deviceset="CAP_POL" device="PTH1"/>
 <part name="SUPPLY1" library="supply2" deviceset="V-" device=""/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
-<part name="R4" library="rcl" deviceset="R-EU_" device="0204/7" value="2K2"/>
+<part name="R4" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="P+9" library="supply1" deviceset="+12V" device=""/>
 <part name="Q3" library="transistor-npn" deviceset="2N3904" device=""/>
 <part name="R5" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
-<part name="R7" library="rcl" deviceset="R-EU_" device="0204/7" value="4k7"/>
-<part name="R6" library="rcl" deviceset="R-EU_" device="0204/7" value="10K"/>
+<part name="R7" library="rcl" deviceset="R-EU_" device="0204/7" value="100"/>
+<part name="R6" library="rcl" deviceset="R-EU_" device="0204/7" value="1K5"/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
-<part name="R8" library="rcl" deviceset="R-EU_" device="0204/7" value="2K2"/>
+<part name="R8" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="P+11" library="supply1" deviceset="+12V" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="JP1" library="SparkFun" deviceset="M06" device="SIP"/>
@@ -8848,7 +8848,6 @@ Source: http://www.lumberg.com/Produkte/PDFs/KLBR2.pdf&lt;br&gt;
 <part name="LED3" library="SparkFun" deviceset="LED" device="3MM"/>
 <part name="R9" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="R10" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
-<part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="OUTA" library="con-lumberg" deviceset="KLBR?" device="2"/>
 <part name="OUTB" library="con-lumberg" deviceset="KLBR?" device="2"/>
 <part name="RATEB" library="Rebel" deviceset="POT-ALPS_ALPS290024" device=""/>
@@ -8857,6 +8856,7 @@ Source: http://www.lumberg.com/Produkte/PDFs/KLBR2.pdf&lt;br&gt;
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="U$2" library="SparkFun" deviceset="M08X2" device=""/>
+<part name="GND2" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8916,7 +8916,6 @@ Source: http://www.lumberg.com/Produkte/PDFs/KLBR2.pdf&lt;br&gt;
 <instance part="LED3" gate="G$1" x="93.98" y="7.62"/>
 <instance part="R9" gate="G$1" x="86.36" y="-2.54" rot="R270"/>
 <instance part="R10" gate="G$1" x="93.98" y="-2.54" rot="R270"/>
-<instance part="GND23" gate="1" x="86.36" y="-10.16"/>
 <instance part="OUTA" gate="G$1" x="254" y="-35.56"/>
 <instance part="OUTB" gate="G$1" x="144.78" y="-35.56"/>
 <instance part="RATEB" gate="G$1" x="127" y="91.44"/>
@@ -8927,6 +8926,7 @@ Source: http://www.lumberg.com/Produkte/PDFs/KLBR2.pdf&lt;br&gt;
 </instance>
 <instance part="GND1" gate="1" x="175.26" y="81.28"/>
 <instance part="U$2" gate="G$1" x="236.22" y="73.66" rot="R180"/>
+<instance part="GND2" gate="1" x="86.36" y="-15.24"/>
 </instances>
 <busses>
 </busses>
@@ -9122,33 +9122,18 @@ Source: http://www.lumberg.com/Produkte/PDFs/KLBR2.pdf&lt;br&gt;
 <wire x1="111.76" y1="-38.1" x2="111.76" y2="-53.34" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="R9" gate="G$1" pin="2"/>
-<pinref part="GND23" gate="1" pin="GND"/>
-<junction x="86.36" y="-7.62"/>
-<pinref part="R10" gate="G$1" pin="2"/>
-<wire x1="93.98" y1="-7.62" x2="86.36" y2="-7.62" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="RATEA" gate="G$1" pin="2"/>
 <pinref part="GND1" gate="1" pin="GND"/>
 <wire x1="172.72" y1="86.36" x2="175.26" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="175.26" y1="86.36" x2="175.26" y2="83.82" width="0.1524" layer="91"/>
 </segment>
-</net>
-<net name="N$9" class="0">
 <segment>
-<pinref part="IC1" gate="G$1" pin="PB4(MISO)"/>
-<pinref part="LED2" gate="G$1" pin="A"/>
-<wire x1="86.36" y1="17.78" x2="81.28" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="10.16" x2="86.36" y2="17.78" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$11" class="0">
-<segment>
-<pinref part="IC1" gate="G$1" pin="PB5(SCK)"/>
-<wire x1="81.28" y1="15.24" x2="93.98" y2="15.24" width="0.1524" layer="91"/>
-<pinref part="LED3" gate="G$1" pin="A"/>
-<wire x1="93.98" y1="10.16" x2="93.98" y2="15.24" width="0.1524" layer="91"/>
+<pinref part="R9" gate="G$1" pin="2"/>
+<pinref part="R10" gate="G$1" pin="2"/>
+<wire x1="93.98" y1="-7.62" x2="86.36" y2="-7.62" width="0.1524" layer="91"/>
+<pinref part="GND2" gate="1" pin="GND"/>
+<wire x1="86.36" y1="-12.7" x2="86.36" y2="-7.62" width="0.1524" layer="91"/>
+<junction x="86.36" y="-7.62"/>
 </segment>
 </net>
 <net name="PWR_BUS" class="0">
@@ -9374,6 +9359,22 @@ Source: http://www.lumberg.com/Produkte/PDFs/KLBR2.pdf&lt;br&gt;
 <pinref part="IC1" gate="G$1" pin="PD7(AIN1)"/>
 <pinref part="SW1" gate="1" pin="O"/>
 <wire x1="104.14" y1="33.02" x2="81.28" y2="33.02" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="PB4(MISO)"/>
+<pinref part="LED3" gate="G$1" pin="A"/>
+<wire x1="81.28" y1="17.78" x2="93.98" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="17.78" x2="93.98" y2="10.16" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="PB5(SCK)"/>
+<pinref part="LED2" gate="G$1" pin="A"/>
+<wire x1="81.28" y1="15.24" x2="86.36" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="15.24" x2="86.36" y2="10.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
