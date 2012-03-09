@@ -8758,19 +8758,19 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="R10" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="R12" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
-<part name="CLKA" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
-<part name="CLKB" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
-<part name="CLKTH" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
-<part name="FILLA" library="Rebel" deviceset="POT-ALPS_ALPS290024" device=""/>
-<part name="FILLB" library="Rebel" deviceset="POT-ALPS_ALPS290024" device=""/>
-<part name="STEPA" library="Rebel" deviceset="POT-ALPS_ALPS290024" device=""/>
-<part name="ROTB" library="Rebel" deviceset="POT-ALPS_ALPS290024" device=""/>
-<part name="ROTA" library="Rebel" deviceset="POT-ALPS_ALPS290024" device=""/>
-<part name="STEPB" library="Rebel" deviceset="POT-ALPS_ALPS290024" device=""/>
-<part name="CLKIN" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
-<part name="RSTIN" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
+<part name="CLKA" library="Rebel" deviceset="CON-LUMBERG_1502_03" device="" value=""/>
+<part name="CLKB" library="Rebel" deviceset="CON-LUMBERG_1502_03" device="" value=""/>
+<part name="CLKTH" library="Rebel" deviceset="CON-LUMBERG_1502_03" device="" value=""/>
+<part name="FILLA" library="Rebel" deviceset="POT-ALPS_ALPS290024" device="" value="10K"/>
+<part name="FILLB" library="Rebel" deviceset="POT-ALPS_ALPS290024" device="" value="10K"/>
+<part name="STEPA" library="Rebel" deviceset="POT-ALPS_ALPS290024" device="" value="10K"/>
+<part name="ROTB" library="Rebel" deviceset="POT-ALPS_ALPS290024" device="" value="10K"/>
+<part name="ROTA" library="Rebel" deviceset="POT-ALPS_ALPS290024" device="" value="10K"/>
+<part name="STEPB" library="Rebel" deviceset="POT-ALPS_ALPS290024" device="" value="10K"/>
+<part name="CLKIN" library="Rebel" deviceset="CON-LUMBERG_1502_03" device="" value=""/>
+<part name="RSTIN" library="Rebel" deviceset="CON-LUMBERG_1502_03" device="" value=""/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
-<part name="R14" library="rcl" deviceset="R-EU_" device="0204/7" value="10K"/>
+<part name="R14" library="rcl" deviceset="R-EU_" device="0204/7" value="100K"/>
 <part name="Q4" library="transistor-npn" deviceset="2N3904" device=""/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
 <part name="R15" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
@@ -8778,6 +8778,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="U$2" library="SparkFun" deviceset="M08X2" device=""/>
 <part name="R16" library="rcl" deviceset="R-EU_" device="0204/7" value="1M"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
+<part name="R17" library="rcl" deviceset="R-EU_" device="0204/7" value="1M"/>
+<part name="GND14" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8889,6 +8891,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <instance part="U$2" gate="G$1" x="236.22" y="73.66" rot="R180"/>
 <instance part="R16" gate="G$1" x="25.4" y="-45.72" rot="MR270"/>
 <instance part="GND8" gate="1" x="25.4" y="-53.34"/>
+<instance part="R17" gate="G$1" x="213.36" y="12.7" rot="MR270"/>
+<instance part="GND14" gate="1" x="213.36" y="5.08"/>
 </instances>
 <busses>
 </busses>
@@ -9217,6 +9221,10 @@ In this library the device names are the same as the pin names of the symbols, t
 <pinref part="R16" gate="G$1" pin="2"/>
 <pinref part="GND8" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="R17" gate="G$1" pin="2"/>
+<pinref part="GND14" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="N$9" class="0">
 <segment>
@@ -9525,6 +9533,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <pinref part="Q4" gate="G1" pin="B"/>
 <pinref part="R14" gate="G$1" pin="2"/>
 <wire x1="213.36" y1="17.78" x2="215.9" y2="17.78" width="0.1524" layer="91"/>
+<pinref part="R17" gate="G$1" pin="1"/>
+<junction x="213.36" y="17.78"/>
 </segment>
 </net>
 <net name="N$12" class="0">
