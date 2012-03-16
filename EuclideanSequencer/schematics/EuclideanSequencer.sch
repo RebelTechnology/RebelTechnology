@@ -7762,15 +7762,15 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="4" y1="5.6" x2="-5" y2="5.6" width="0.127" layer="51"/>
 <wire x1="-5" y1="5.6" x2="-5" y2="-4.9" width="0.127" layer="51"/>
 <wire x1="4" y1="-4.9" x2="4" y2="5.6" width="0.2032" layer="21"/>
-<wire x1="-5" y1="5.6" x2="0" y2="5.6" width="0.127" layer="21"/>
-<wire x1="2" y1="5.6" x2="4" y2="5.6" width="0.127" layer="21"/>
-<wire x1="-5" y1="5.6" x2="-5" y2="0" width="0.127" layer="21"/>
-<wire x1="-5" y1="-2.5" x2="-5" y2="-5" width="0.127" layer="21"/>
-<wire x1="-5" y1="-5" x2="0" y2="-5" width="0.127" layer="21"/>
-<wire x1="2" y1="-5" x2="4" y2="-5" width="0.127" layer="21"/>
-<pad name="P$1" x="-3.8" y="-1.4" drill="1.5"/>
-<pad name="P$2" x="1" y="4.4" drill="1.5"/>
-<pad name="P$3" x="0.9" y="-3.7" drill="1.5"/>
+<wire x1="-5" y1="5.6" x2="-1.27" y2="5.6" width="0.127" layer="21"/>
+<wire x1="3.27" y1="5.6" x2="4" y2="5.6" width="0.127" layer="21"/>
+<wire x1="-5" y1="5.6" x2="-5" y2="0.635" width="0.127" layer="21"/>
+<wire x1="-5" y1="-3.135" x2="-5" y2="-5" width="0.127" layer="21"/>
+<wire x1="-5" y1="-5" x2="-1.27" y2="-5" width="0.127" layer="21"/>
+<wire x1="2.635" y1="-5" x2="4" y2="-5" width="0.127" layer="21"/>
+<pad name="P$1" x="-3.8" y="-1.4" drill="3.1" diameter="4" shape="square"/>
+<pad name="P$2" x="1" y="4.4" drill="3.1" diameter="4" shape="square"/>
+<pad name="P$3" x="0.9" y="-3.7" drill="3.1" diameter="4" shape="square" rot="R90"/>
 <text x="-5" y="7" size="1.27" layer="25">&gt;NAME</text>
 <text x="-5" y="-8" size="1.27" layer="27">&gt;VALUE</text>
 </package>
