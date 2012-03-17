@@ -117,7 +117,8 @@
 <hole x="96.52" y="44.45" drill="3"/>
 <hole x="96.52" y="6.35" drill="3"/>
 <text x="66.929" y="2.54" size="1.778" layer="25" font="vector">Euclidean Seq</text>
-<text x="75.184" y="46.2915" size="1.27" layer="16" font="vector" rot="MR0">elements rev02</text>
+<text x="97.0915" y="11.176" size="1.27" layer="16" font="vector" rot="MR90">elements rev02</text>
+<text x="95.3135" y="25.654" size="1.27" layer="21" font="vector" rot="SR270">elements rev02</text>
 </plain>
 <libraries>
 <library name="atmel">
