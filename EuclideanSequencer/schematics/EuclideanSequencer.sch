@@ -14196,17 +14196,17 @@ In this library the device names are the same as the pin names of the symbols, t
 <pad name="P$6" x="4.5" y="0" drill="2.032" diameter="4" rot="R90"/>
 </package>
 <package name="SWITCH-SPDT">
-<wire x1="-3.6" y1="6.6" x2="-3.6" y2="-6.6" width="0.2032" layer="21"/>
-<wire x1="3.6" y1="-6.6" x2="3.6" y2="6.6" width="0.2032" layer="21"/>
-<pad name="1" x="0" y="5.2" drill="2" diameter="2" shape="long"/>
+<wire x1="-3.6" y1="6.35" x2="-3.6" y2="-6.35" width="0.2032" layer="21"/>
+<wire x1="3.6" y1="-6.35" x2="3.6" y2="6.35" width="0.2032" layer="21"/>
+<pad name="1" x="0" y="4.699" drill="2" diameter="2" shape="long"/>
 <pad name="2" x="0" y="0" drill="2" diameter="2.54" shape="long"/>
-<pad name="3" x="0" y="-5.2" drill="2" diameter="2" shape="long"/>
+<pad name="3" x="0" y="-4.699" drill="2" diameter="2" shape="long"/>
 <text x="-3.81" y="7.62" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.81" y="-9.525" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
-<wire x1="-3.6" y1="6.6" x2="-1.905" y2="6.6" width="0.2032" layer="21"/>
-<wire x1="1.905" y1="6.6" x2="3.6" y2="6.6" width="0.2032" layer="21"/>
-<wire x1="1.905" y1="-6.6" x2="3.6" y2="-6.6" width="0.2032" layer="21"/>
-<wire x1="-3.6" y1="-6.6" x2="-1.905" y2="-6.6" width="0.2032" layer="21"/>
+<wire x1="-3.6" y1="6.35" x2="-1.905" y2="6.35" width="0.2032" layer="21"/>
+<wire x1="1.905" y1="6.35" x2="3.6" y2="6.35" width="0.2032" layer="21"/>
+<wire x1="1.905" y1="-6.35" x2="3.6" y2="-6.35" width="0.2032" layer="21"/>
+<wire x1="-3.6" y1="-6.35" x2="-1.905" y2="-6.35" width="0.2032" layer="21"/>
 </package>
 <package name="AYZ0202">
 <description>&lt;b&gt;DPDT Slide Switch SMD&lt;/b&gt;
@@ -14373,6 +14373,19 @@ Through-hole SPDT Switch&lt;br&gt;
 <text x="-1.27" y="-1.27" size="0.6096" layer="27">&gt;Value</text>
 <hole x="-1.5" y="0" drill="0.9"/>
 <hole x="1.5" y="0" drill="0.9"/>
+</package>
+<package name="SWITCH-SPDT-SALECOM-T8014">
+<wire x1="-3.6" y1="6.35" x2="-3.6" y2="-6.35" width="0.2032" layer="21"/>
+<wire x1="3.6" y1="-6.35" x2="3.6" y2="6.35" width="0.2032" layer="21"/>
+<pad name="1" x="0" y="4.699" drill="2.54" diameter="2.54" shape="long"/>
+<pad name="2" x="0" y="0" drill="2.54" diameter="2.54" shape="long"/>
+<pad name="3" x="0" y="-4.699" drill="2.54" diameter="2.54" shape="long"/>
+<text x="-3.81" y="7.62" size="1.778" layer="25" ratio="10">&gt;NAME</text>
+<text x="-3.81" y="-9.525" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
+<wire x1="-3.6" y1="6.35" x2="-1.905" y2="6.35" width="0.2032" layer="21"/>
+<wire x1="1.905" y1="6.35" x2="3.6" y2="6.35" width="0.2032" layer="21"/>
+<wire x1="1.905" y1="-6.35" x2="3.6" y2="-6.35" width="0.2032" layer="21"/>
+<wire x1="-3.6" y1="-6.35" x2="-1.905" y2="-6.35" width="0.2032" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -14551,6 +14564,16 @@ Simple slide switch. Spark Fun Electronics SKU : COM-00102</description>
 <technology name=""/>
 </technologies>
 </device>
+<device name="" package="SWITCH-SPDT-SALECOM-T8014">
+<connects>
+<connect gate="1" pin="O" pad="1"/>
+<connect gate="1" pin="P" pad="2"/>
+<connect gate="1" pin="S" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 </devicesets>
@@ -14650,9 +14673,9 @@ Simple slide switch. Spark Fun Electronics SKU : COM-00102</description>
 <part name="R17" library="rcl" deviceset="R-EU_" device="0204/7" value="1M"/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
-<part name="S1" library="Rebel" deviceset="SWITCH-SPST" device="PTH"/>
-<part name="S2" library="Rebel" deviceset="SWITCH-SPST" device="PTH"/>
-<part name="S3" library="Rebel" deviceset="SWITCH-SPST" device="PTH"/>
+<part name="S1" library="Rebel" deviceset="SWITCH-SPST" device=""/>
+<part name="S2" library="Rebel" deviceset="SWITCH-SPST" device=""/>
+<part name="S3" library="Rebel" deviceset="SWITCH-SPST" device=""/>
 <part name="C2" library="rcl" deviceset="CPOL-EU" device="E5-6"/>
 <part name="D1" library="SparkFun" deviceset="DIODE" device="PTH"/>
 </parts>
