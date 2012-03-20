@@ -11,8 +11,9 @@ UPLOAD_RATE = 19200
 
 ARDUINO = $(INSTALL_DIR)/hardware/cores/arduino
 
-CXXSRC = Harmelodium.cpp main.cpp
-SRC = wiring_serial.c wiring_digital.c wiring_analog.c pins_arduino.c
+CXXSRC = Harmelodium.cpp main.cpp adc_freerunner.cpp globals.cpp
+SRC = wiring_serial.c 
+# wiring_digital.c wiring_analog.c pins_arduino.c
 
 ############################################################################
 
