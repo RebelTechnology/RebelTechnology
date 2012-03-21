@@ -3570,7 +3570,7 @@ Source: avr.lbr</description>
 <text x="-5" y="7" size="1.27" layer="25">&gt;NAME</text>
 <text x="-5" y="-8" size="1.27" layer="27">&gt;VALUE</text>
 </package>
-<package name="POT-ALPS_RK09L1120">
+<package name="POT-ALPS-RK09L1120">
 <wire x1="-5.35" y1="-5.936" x2="-4.5" y2="-5.936" width="0.2032" layer="21"/>
 <wire x1="-4.5" y1="-5.936" x2="4.5" y2="-5.936" width="0.2032" layer="21"/>
 <wire x1="4.5" y1="-5.936" x2="5.35" y2="-5.936" width="0.2032" layer="21"/>
@@ -3593,7 +3593,7 @@ Source: avr.lbr</description>
 <wire x1="-3" y1="-20.936" x2="3" y2="-20.936" width="0.127" layer="21"/>
 <wire x1="3" y1="-20.936" x2="3" y2="-10.936" width="0.127" layer="21"/>
 </package>
-<package name="POT-ALPS_POT">
+<package name="POT-ALPS-RK09L1140">
 <circle x="0" y="0" radius="3" width="0.127" layer="51"/>
 <wire x1="-4.9" y1="5.5" x2="4.9" y2="5.5" width="0.127" layer="51"/>
 <wire x1="4.9" y1="5.5" x2="4.9" y2="-5" width="0.127" layer="51"/>
@@ -3830,7 +3830,7 @@ Through-hole SPDT Switch&lt;br&gt;
 <text x="-2.54" y="4.064" size="1.778" layer="95">&gt;NAME</text>
 <text x="-2.54" y="-6.096" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
-<symbol name="POT-ALPS_RK09L">
+<symbol name="POT-ALPS-RK09L">
 <wire x1="4.318" y1="1.27" x2="4.318" y2="0" width="0.254" layer="94"/>
 <wire x1="4.318" y1="0" x2="4.318" y2="-1.27" width="0.254" layer="94"/>
 <wire x1="4.318" y1="-1.27" x2="-4.318" y2="-1.27" width="0.254" layer="94"/>
@@ -3884,13 +3884,13 @@ Through-hole SPDT Switch&lt;br&gt;
 </device>
 </devices>
 </deviceset>
-<deviceset name="POT-ALPS_RK09L">
+<deviceset name="POT-ALPS-RK09L">
 <gates>
-<gate name="G$1" symbol="POT-ALPS_RK09L" x="0" y="0"/>
+<gate name="G$1" symbol="POT-ALPS-RK09L" x="0" y="0"/>
 <gate name="G$2" symbol="POTSHELL" x="-15.24" y="5.08" addlevel="request"/>
 </gates>
 <devices>
-<device name="" package="POT-ALPS_RK09L1120">
+<device name="1120" package="POT-ALPS-RK09L1120">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -3901,7 +3901,7 @@ Through-hole SPDT Switch&lt;br&gt;
 <technology name=""/>
 </technologies>
 </device>
-<device name="RK09L1140" package="POT-ALPS_POT">
+<device name="1140" package="POT-ALPS-RK09L1140">
 <connects>
 <connect gate="G$1" pin="1" pad="P$1"/>
 <connect gate="G$1" pin="2" pad="P$2"/>
@@ -4325,10 +4325,10 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="DELOUT" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
 <part name="DIVOUT" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
 <part name="CMBOUT" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
-<part name="DIVMAN" library="Rebel" deviceset="POT-ALPS_RK09L" device="RK09L1140"/>
-<part name="DIVCV" library="Rebel" deviceset="POT-ALPS_RK09L" device="RK09L1140"/>
-<part name="DELMAN" library="Rebel" deviceset="POT-ALPS_RK09L" device="RK09L1140"/>
-<part name="DELCV" library="Rebel" deviceset="POT-ALPS_RK09L" device="RK09L1140"/>
+<part name="DIVMAN" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
+<part name="DIVCV" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
+<part name="DELMAN" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
+<part name="DELCV" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="S1" library="Rebel" deviceset="SWITCH-SPST" device=""/>
 <part name="LED1" library="SparkFun" deviceset="LED" device="3MM"/>
 <part name="LED2" library="SparkFun" deviceset="LED" device="3MM"/>
