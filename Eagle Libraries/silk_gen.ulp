@@ -1,0 +1,605 @@
+#usage "<b>Generate new silk screen layers</b>\n"
+       "<p>"
+       "Some board manufacturers specify a minimum width for silk "
+       "screen lines (eg. Olimex requires 10 mil). The EAGLE "
+       "libraries normally contain 5 mil wide silk screen lines. "
+       "This ULP creates two new silk screen layers with all the "
+       "usual silk screen elements on them, but with the line widths "
+       "modified to fit within the specified minimum and maximum "
+       "width limits."
+       "<p>"
+       "Texts are also changed. The new ratio is set to the minimum "
+       "needed to achieve the required line width. If the original "
+       "text ratio is greater than the minimum required, it is not "
+       "changed. Silk screen texts are always rendered using the "
+       "vector font regardless of the input font style."
+       "<p>"
+       "Two new layers called _tsilk and _bsilk will be created and "
+       "the new silk screens will be drawn on those layers. When "
+       "generating GERBER data for the silk screens, remember to "
+       "use _tsilk and _bsilk instead of the usual silk screen "
+       "layers."
+       "<p>"
+       "<author>Original authors: Richard Hammerl 26-05-1998. "
+       "Changed for EAGLE 4.0 26-02-2002, support@cadsoft.de. "
+       "Fixed for EAGLE 4.11, OLIMEX special 04-11-2003, Y.Onodera. "
+       "Further fixed and modified by Antti Arola 11.03.2005. "
+       "Several features by Bill Westfield. "
+       "Many improvements and cleanups by Alex Holden 21-03-2006"
+       "</author>"
+
+// THIS PROGRAM IS PROVIDED AS IS AND WITHOUT WARRANTY OF ANY KIND, EXPRESSED
+// OR IMPLIED.
+
+// You can change these values to modify the ULP's behaviour:
+int tsilknum = 121;          // Number of the top silkscreen layer.
+string tsilkname = "_tsilk"; // Name of the top silkscreen layer.
+string tsilkcolor = "yellow";// Color of the top silkscreen layer.
+int bsilknum = 122;          // Number of the bottom silkscreen layer.
+string bsilkname = "_bsilk"; // Name of the bottom silkscreen layer.
+string bsilkcolor = "yellow";// Color of the bottom silkscreen layer.
+real minwidth = 10.0;        // Default minimum silk screen line width (mils).
+real maxwidth = 0.0;         // Default maximum width (0 = no limit).
+int delete_old = 1;          // Whether to clear old silk screen layers.
+int copy_tplace = 1;         // Whether to copy the tPlace layer.
+int copy_tnames = 1;         // Whether to copy the tNames layer.
+int copy_tvalues = 0;        // Whether to copy the tValues layer.
+int copy_tdocu = 0;          // Whether to copy the tDocu layer.
+int copy_bplace = 1;         // Whether to copy the bPlace layer.
+int copy_bnames = 1;         // Whether to copy the bNames layer.
+int copy_bvalues = 0;        // Whether to copy the bValues layer.
+int copy_bdocu = 0;          // Whether to copy the bDocu layer.
+int copy_dimension = 1;      // Whether to copy the Dimension layer.
+int hatch_fill = 0;          // Whether to use the hatch fill style.
+int no_fill = 0;             // Whether to draw rectangles and discs in outline.
+int hide_sources = 1;        // Whether to hide the source layers.
+int disable_undo = 1;        // Whether to disable undo during script execution.
+int show_script = 0;         // Whether to show the script before executing it.
+
+////////////////////////////////////////////////////////////////////////////////
+///// Don't change anything below here unless you know what you're doing. //////
+////////////////////////////////////////////////////////////////////////////////
+
+real cursize = -1.0;
+int clearsilks = 0, saved_grid_unit = GRID_UNIT_MIL;
+string saved_visible_layers[], textorientation, h, cmd;
+int destlayer, curdestlayer = -1, curlinestyle = -1, curratio = -1;
+
+void header()
+{
+  string s;
+  if(disable_undo) cmd += "set undo_log off;\n";
+  h = "";sprintf(h, "layer %d %s;\n", tsilknum, tsilkname);cmd += h;
+  h = "";sprintf(h, "layer %d %s;\n", bsilknum, bsilkname);cmd += h;
+  h = "";sprintf(h, "set color_layer %d %s;\n", tsilknum, tsilkcolor);cmd += h;
+  h = "";sprintf(h, "set color_layer %d %s;\n", bsilknum, bsilkcolor);cmd += h;
+  cmd += "set wire_bend 2;\n";
+  cmd += "change font vector;\n";
+  if(hatch_fill) s = "hatch";
+  else s = "solid";
+  h = "";sprintf(h, "change pour %s;\n", s);cmd += h;
+  cmd += "grid mil;\n";
+}
+
+real calctextwidth(int size, int ratio)
+{
+  return u2mil(size) * (ratio/100.0);
+}
+
+int calctextratio(int size, real width)
+{
+  return ceil((width / u2mil(size)) * 100);
+}
+
+void set_layer()
+{
+  if(destlayer != curdestlayer) {
+    h = "";sprintf(h, "layer %d;\n", destlayer);cmd += h;
+    curdestlayer = destlayer;
+  }
+}
+
+void set_line_style(int newlinestyle)
+{
+  string s;
+  if(newlinestyle != curlinestyle) {
+    switch(newlinestyle) {
+      case WIRE_STYLE_LONGDASH:
+        s = "longdash";
+        break;
+      case WIRE_STYLE_SHORTDASH:
+        s = "shortdash";
+        break;
+      case WIRE_STYLE_DASHDOT:
+        s = "dashdot";
+        break;
+      default:
+        s = "continuous";
+    }
+    h = "";sprintf(h, "change style %s;\n", s);cmd += h;
+    curlinestyle = newlinestyle;
+  }
+}
+
+void set_ratio(int newratio)
+{
+  if(newratio != curratio) {
+    h = "";sprintf(h, "change ratio %d;\n", newratio);cmd += h;
+    curratio = newratio;
+  }
+}
+
+void set_size(real newsize)
+{
+  if(newsize != cursize) {
+    h = "";sprintf(h, "change size %5.3f;\n", newsize);cmd += h;
+    cursize = newsize;
+  }
+}
+
+real calcwidth(int width)
+{
+  real w = u2mil(width);
+  if(minwidth && w < minwidth) return minwidth;
+  else if(maxwidth && w > maxwidth) return maxwidth;
+  else return w;
+}
+
+void do_wire(UL_WIRE W, int sourcelayer)
+{
+  string style;
+
+  if(W.arc) {
+    if(W.arc.layer == sourcelayer) {
+      set_layer();
+      h = "";sprintf(h, "arc %5.3f ccw (%5.3f %5.3f) (%5.3f %5.3f) "
+                        "(%5.3f %5.3f);\n", calcwidth(W.arc.width),
+                        u2mil(W.arc.x1), u2mil(W.arc.y1),
+                        u2mil(2*(W.arc.xc)-W.arc.x1),
+                        u2mil(2*(W.arc.yc) - W.arc.y1),
+                        u2mil(W.arc.x2), u2mil(W.arc.y2));cmd += h;
+    }
+  } else {
+    if(W.layer == sourcelayer) {
+      set_layer();
+      set_line_style(W.style);
+      h = "";sprintf(h, "wire %5.3f (%5.3f %5.3f) (%5.3f %5.3f);\n",
+                        calcwidth(W.width), u2mil(W.x1), u2mil(W.y1),
+                        u2mil(W.x2), u2mil(W.y2));cmd += h;
+    }
+  }
+}
+
+void do_circle(UL_CIRCLE C)
+{
+  real width;
+
+  // Circles with a width of 0 are filled.
+  if(C.width == 0 && !no_fill) width = 0;
+  else width = calcwidth(C.width);
+
+  set_layer();
+  h = "";sprintf(h, "circle %5.3f (%5.3f %5.3f) (%5.3f %5.3f);\n", width,
+                    u2mil(C.x), u2mil(C.y), u2mil(C.x + C.radius),
+                    u2mil(C.y));cmd += h;
+}
+
+void do_rectangle(UL_RECTANGLE R)
+{
+  real x1, x2, x3, x4, y1, y2, y3, y4, halfmin;
+  real xt, yt, xll, xur, yll, yur, a;  /* Angle transformation for outlines */
+  set_layer();
+  if(no_fill) {
+    set_line_style(WIRE_STYLE_CONTINUOUS);
+    halfmin = minwidth / 2.0;
+
+    xll = u2mil(R.x1) + halfmin;  /* Original LL, UR coords */
+    xur = u2mil(R.x2) - halfmin;
+    yll = u2mil(R.y1) + halfmin;
+    yur = u2mil(R.y2) - halfmin;
+
+    xt = xll + ((xur-xll)/2);  /* Translation params to origin */
+    yt = yll + (yur-yll)/2;
+
+    a = R.angle * (PI / 180.0);  /* Rotation in radians */
+
+    /* First point xll, yll */
+    x1 = (xt + ((xll-xt)*cos(a) - (yll-yt)*sin(a)));
+    y1 = (yt + ((xll-xt)*sin(a) + (yll-yt)*cos(a)));
+
+    /* Second point xll, yur */
+
+    x2 = (xt + ((xll-xt)*cos(a) - (yur-yt)*sin(a)));
+    y2 = (yt + ((xll-xt)*sin(a) + (yur-yt)*cos(a)));
+
+    /* Third point xur yur */
+    x3 = (xt + ((xur-xt)*cos(a) - (yur-yt)*sin(a)));
+    y3 = (yt + ((xur-xt)*sin(a) + (yur-yt)*cos(a)));
+
+    /* Forth point xur yll */
+    x4 = (xt + ((xur-xt)*cos(a) - (yll-yt)*sin(a)));
+    y4 = (yt + ((xur-xt)*sin(a) + (yll-yt)*cos(a)));
+
+    h = "";sprintf(h, "wire %5.3f (%5.3f %5.3f) (%5.3f %5.3f) (%5.3f %5.3f) "
+                      "(%5.3f %5.3f) (%5.3f %5.3f);\n", minwidth, x1, y1,
+                      x2, y2, x3, y3, x4, y4, x1, y1);cmd += h;
+  } else {
+    h = "";sprintf(h, "rect R%1.0f (%5.3f %5.3f) (%5.3f %5.3f);\n", R.angle,
+                   u2mil(R.x1), u2mil(R.y1), u2mil(R.x2), u2mil(R.y2));cmd += h;
+  }
+}
+
+void do_polygon(UL_POLYGON P)
+{
+  set_layer();
+  P.wires(WP) {
+    h = "";sprintf(h, "polygon %5.3f (%5.3f %5.3f)\n ", calcwidth(WP.width),
+                      u2mil(WP.x1), u2mil(WP.y1));cmd += h;
+    break;
+  }
+  P.wires(WP) {
+    h = "";sprintf(h, " %+f (%5.3f %5.3f)", WP.curve, u2mil(WP.x2),
+                      u2mil(WP.y2));cmd += h;
+  }
+  h = "";sprintf(h, ";\n");cmd += h;
+}
+
+void do_text(UL_TEXT T)
+{
+  int newratio;
+  real origwidth;
+  string textorientation;
+
+  if(destlayer == tsilknum) textorientation = "R";
+  else textorientation = "MR";
+
+  origwidth = calctextwidth(T.size, T.ratio);
+  if(minwidth && origwidth < minwidth)
+    newratio = calctextratio(T.size, minwidth);
+  else if(maxwidth && origwidth > maxwidth)
+    newratio = calctextratio(T.size, maxwidth);
+  else newratio = T.ratio;
+
+  if(newratio > 31) {
+    sprintf(h, "!Text \"%s\" is too small to support the requested minimum "
+               "line width.\nText size is %5.3f mils; a ratio of %d is needed,"
+               " but the maximum possible ratio is 31.\n", T.value,
+               u2mil(T.size), newratio);
+    if(dlgMessageBox(h, "OK", "Cancel") == 1) exit(1);
+    newratio = 31;
+  }
+
+  set_layer();
+  set_ratio(newratio);
+  set_size(u2mil(T.size));
+  h = "";sprintf(h, "text '%s' %s%1.0f (%5.3f %5.3f);\n", T.value,
+                    textorientation, T.angle, u2mil(T.x), u2mil(T.y));cmd += h;
+}
+
+void do_element(UL_ELEMENT E, int sourcelayer) 
+{
+  E.package.wires(W) do_wire(W, sourcelayer);
+  E.package.circles(C) if(C.layer == sourcelayer) do_circle(C);
+  E.package.rectangles(R) if(R.layer == sourcelayer) do_rectangle(R);
+  E.package.polygons(P) if(P.layer == sourcelayer) do_polygon(P);
+  E.package.texts(T) if(T.layer == sourcelayer) do_text(T);
+  E.texts(T) if(T.layer == sourcelayer) do_text(T);
+}
+
+int silkscreens_already_exist(UL_BOARD B)
+{
+  int found = 0;
+  B.layers(L) if(L.number == tsilknum || L.number == bsilknum) found = 1;
+  return found;
+}
+
+void save_visible_layers(UL_BOARD B)
+{
+  int i = 0;
+  B.layers(L) if(L.visible) saved_visible_layers[i++] = L.name;
+  saved_visible_layers[i] = "";
+}
+
+void restore_visible_layers(UL_BOARD B)
+{
+  int i;
+  cmd += "display none";
+  for(i = 0; saved_visible_layers[i] != ""; i++) {
+    h = "";sprintf(h, " %s", saved_visible_layers[i]);cmd += h;
+  }
+  cmd += ";\n";
+}
+
+void clear_silkscreen_layers(UL_BOARD B)
+{
+  real x1 = u2mil(B.area.x1);
+  real x2 = u2mil(B.area.x2);
+  real y1 = u2mil(B.area.y1);
+  real y2 = u2mil(B.area.y2);
+  save_visible_layers(B);
+  h = "";sprintf(h, "display ?? none %s %s;\n", tsilkname, bsilkname);cmd += h;
+  h = "";sprintf(h, "group (%5.3f %5.3f) (%5.3f %5.3f) (%5.3f %5.3f) "
+                    "(%5.3f %5.3f) (%5.3f %5.3f);\n", x1, y1, x2, y1,
+                    x2, y2, x1, y2, x1, y1);cmd += h;
+  cmd += "delete (> 0 0);\n";
+  restore_visible_layers(B);
+}
+
+void hide_source_layers()
+{
+  cmd += "display";
+  if(copy_tplace) cmd += " -tPlace";
+  if(copy_tnames) cmd += " -tNames";
+  if(copy_tvalues) cmd += " -tValues";
+  if(copy_tdocu) cmd += " -tDocu";
+  if(copy_bplace) cmd += " -bPlace";
+  if(copy_bnames) cmd += " -bNames";
+  if(copy_bvalues) cmd += " -bValues";
+  if(copy_bdocu) cmd += " -bDocu";
+  if(copy_dimension) cmd += " -Dimension";
+  cmd += ";\n";
+}
+
+void show_source_layers()
+{
+  cmd += "display";
+  if(copy_tplace) cmd += " tPlace -tNames -tValues";
+  if(copy_tnames) cmd += " tNames";
+  if(copy_tvalues) cmd += " tValues";
+  if(copy_tdocu) cmd += " tDocu";
+  if(copy_bplace) cmd += " bPlace -bNames -bValues";
+  if(copy_bnames) cmd += " bNames";
+  if(copy_bvalues) cmd += " bValues";
+  if(copy_bdocu) cmd += " bDocu";
+  if(copy_dimension) cmd += " Dimension";
+  cmd += ";\n";
+}
+
+int configuration_dialog()
+{
+  return dlgDialog("Silk Screen Configuration") {
+    dlgGroup("Silk screen line widths in mils (0 = no limit)") {
+      dlgHBoxLayout {
+        dlgLabel("Minimum: ");
+        dlgRealEdit(minwidth, 0.0, 999.9);
+        dlgLabel("  Maximum: ");
+        dlgRealEdit(maxwidth, 0.0, 999.9);
+      }
+    }
+    dlgGroup("Which layers should the silk screens be copied from?") {
+      dlgHBoxLayout{
+        dlgVBoxLayout {
+          dlgCheckBox("tPlace", copy_tplace);
+          dlgCheckBox("tNames", copy_tnames);
+          dlgCheckBox("tValues", copy_tvalues);
+          dlgCheckBox("tDocu", copy_tdocu);
+        }
+	dlgVBoxLayout {
+          dlgCheckBox("bPlace", copy_bplace);
+          dlgCheckBox("bNames", copy_bnames);
+          dlgCheckBox("bValues", copy_bvalues);
+          dlgCheckBox("bDocu", copy_bdocu);
+        }
+        dlgVBoxLayout {
+          dlgCheckBox("Dimension", copy_dimension);
+	  dlgStretch(1);
+	}
+      }
+    }
+    dlgGroup("Options") {
+      dlgCheckBox("Delete previously generated silk screen layers", delete_old);
+      dlgCheckBox("Hide the original silk screen layers", hide_sources);
+      dlgCheckBox("Show the generated script before executing it", show_script);
+      dlgCheckBox("Draw filled rectangles and circles in outline only",no_fill);
+      dlgCheckBox("Use hatch instead of solid pour style", hatch_fill);
+      dlgCheckBox("Disable undo while executing the script", disable_undo);
+    }
+    dlgLabel("  The Generate button creates two new layers, _tsilk and "
+             "_bsilk,  \n  and copies everything from the selected source "
+	     "layers to them.  \n   The Remove button removes the _tsilk and "
+	     "_bsilk layers.");
+    dlgHBoxLayout {
+      dlgStretch(1);
+      dlgPushButton("+Generate") dlgAccept(1);
+      dlgPushButton("Remove") dlgAccept(2);
+      dlgPushButton("-Cancel") dlgReject(0);
+      dlgStretch(1);
+    }
+  };
+}
+
+int script_dialog()
+{
+  return dlgDialog("Silk Screen Drawing Script") {
+    dlgHBoxLayout { dlgSpacing(600); }
+    dlgHBoxLayout {
+      dlgStretch(1);
+      dlgLabel("Click execute to run this script.");
+      dlgStretch(1);
+    }
+    dlgHBoxLayout {
+      dlgVBoxLayout { dlgSpacing(400); }
+      dlgTextEdit(cmd);
+    }
+    dlgHBoxLayout {
+      dlgStretch(1);
+      dlgPushButton("+Execute") dlgAccept();
+      dlgPushButton("-Cancel") dlgReject();
+      dlgStretch(1);
+    }
+  };
+}
+
+// As well as setting destlayer, also returns 0 if the specified source
+// layer is not one of the ones we were asked to copy. If the source is
+// Dimension, sets a destlayer of tsilknum, and you then have to do the copy
+// a second time with the destlayer set to bsilknum because Dimension gets
+// copied to both silk screens.
+int setdestlayer(int sourcelayer)
+{
+  destlayer = tsilknum;
+  switch(sourcelayer) {
+    case LAYER_DIMENSION:
+      return copy_dimension;
+    case LAYER_TPLACE:
+      return copy_tplace;
+    case LAYER_TNAMES:
+      return copy_tnames;
+    case LAYER_TVALUES:
+      return copy_tvalues;
+    case LAYER_TDOCU:
+      return copy_tdocu;
+    case LAYER_BPLACE:
+      destlayer = bsilknum;
+      return copy_bplace;
+    case LAYER_BNAMES:
+      destlayer = bsilknum;
+      return copy_bnames;
+    case LAYER_BVALUES:
+      destlayer = bsilknum;
+      return copy_bvalues;
+    case LAYER_BDOCU:
+      destlayer = bsilknum;
+      return copy_bdocu;
+    default:
+      return 0;
+  }
+}
+
+void run_script()
+{
+  if(!show_script || script_dialog()) exit(cmd);
+  else exit(0);
+}
+
+void save_grid(UL_BOARD B)
+{
+  saved_grid_unit = B.grid.unit;
+}
+
+void restore_grid()
+{
+  switch(saved_grid_unit) {
+    case GRID_UNIT_MIC:
+      cmd += "grid mic;\n";
+      break;
+    case GRID_UNIT_MM:
+      cmd += "grid mm;\n";
+      break;
+    case GRID_UNIT_INCH:
+      cmd += "grid inch;\n";
+      break;
+    case GRID_UNIT_MIL:
+    default:
+      cmd += "grid mil;\n";
+      break;
+  }
+}
+
+void remove_silks(UL_BOARD B)
+{
+  if(silkscreens_already_exist(B)) {
+    // clear_silkscreen_layers() needs the grid unit to be mils.
+    save_grid(B);
+    cmd += "grid mil;\n";
+    clear_silkscreen_layers(B);
+    restore_grid();
+    h = ""; sprintf(h, "layer ?? -%d -%d;\n", tsilknum, bsilknum);cmd += h;
+  }
+  // The meaning of the "Hide source layers" option is inverted when removing
+  // the silk screens.
+  if(hide_sources) show_source_layers();
+  run_script(); // Doesn't return.
+}
+
+if(board) {
+  board(B) {
+
+    save_grid(B);
+
+    switch(configuration_dialog()) {
+      case 0:  // Cancel button or window closed.
+        exit(0);
+      case 2: // Remove button.
+        remove_silks(B);
+    }
+
+    if(minwidth && maxwidth && minwidth > maxwidth) {
+      dlgMessageBox(":Minimum width must be less than maximum width.");
+      exit(1);
+    }
+
+    if(silkscreens_already_exist(B) && delete_old) clearsilks = 1;
+
+    header();
+
+    if(clearsilks) clear_silkscreen_layers(B);
+    if(hide_sources) hide_source_layers();
+
+    B.elements(E) {
+      destlayer = tsilknum;
+      if(copy_dimension) do_element(E, LAYER_DIMENSION);
+      if(copy_tplace) do_element(E, LAYER_TPLACE);
+      if(copy_tnames) do_element(E, LAYER_TNAMES);
+      if(copy_tvalues) do_element(E, LAYER_TVALUES);
+      if(copy_tdocu) do_element(E, LAYER_TDOCU);
+      destlayer = bsilknum;
+      if(copy_dimension) do_element(E, LAYER_DIMENSION);
+      if(copy_bplace) do_element(E, LAYER_BPLACE);
+      if(copy_bnames) do_element(E, LAYER_BNAMES);
+      if(copy_bvalues) do_element(E, LAYER_BVALUES);
+      if(copy_bdocu) do_element(E, LAYER_BDOCU);
+    }
+    B.wires(W) {
+      if(setdestlayer(W.layer)) {
+        do_wire(W, W.layer);
+	if(W.layer == LAYER_DIMENSION) {
+	  destlayer = bsilknum;
+	  do_wire(W, W.layer);
+	}
+      }
+    }
+    B.circles(C) {
+      if(setdestlayer(C.layer)) {
+        do_circle(C);
+	if(C.layer == LAYER_DIMENSION) {
+	  destlayer = bsilknum;
+	  do_circle(C);
+	}
+      }
+    }
+    B.rectangles(R) {
+      if(setdestlayer(R.layer)) {
+        do_rectangle(R);
+	if(R.layer == LAYER_DIMENSION) {
+	  destlayer = bsilknum;
+	  do_rectangle(R);
+	}
+      }
+    }
+    B.polygons(P) {
+      if(setdestlayer(P.layer)) {
+        do_polygon(P);
+	if(P.layer == LAYER_DIMENSION) {
+	  destlayer = bsilknum;
+	  do_polygon(P);
+	}
+      }
+    }
+    B.texts(T) {
+      if(setdestlayer(T.layer)) {
+        do_text(T);
+        if(T.layer == LAYER_DIMENSION) {
+	  destlayer = bsilknum;
+          do_text(T);
+	}
+      }
+    }
+  }
+
+  if(disable_undo) cmd += "set undo_log on;\n";
+  restore_grid();
+
+  run_script(); // Doesn't return.
+
+} else dlgMessageBox("Error: this ULP only works on board layouts.");
