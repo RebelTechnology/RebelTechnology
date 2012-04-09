@@ -9,7 +9,8 @@ static uint16_t prescalers[] = {1, 8, 32, 64, 128, 256, 1024};
 
 class Timer {
 public:
-  virtual void init(){}
+  virtual void start(){}
+  virtual void stop(){}
   virtual void setPrescaler(uint8_t divisor){}
   virtual void setTopLimit(uint16_t limit){}
   /* expects a value 0.0-1.0 */
@@ -45,14 +46,20 @@ public:
 
 class Timer1 : public Timer {
 public:
-  void init(){
+  void start(){
 /*     pinMode(9, OUTPUT);  // OC1A */
 /*     pinMode(10, OUTPUT); // OC1B */
-
     TIMER1_DDR_A |= _BV(TIMER1_OUTPUT_A);
     TIMER1_DDR_B |= _BV(TIMER1_OUTPUT_B);
-
-    TCCR1A = _BV(COM1A0) | _BV(COM1B1) | _BV(WGM11) | _BV(WGM10);
+    // WGM10 and WGM11 : PWM, Phase Correct, 10-bit
+/*     TCCR1A = _BV(COM1A1) | _BV(COM1B1) | _BV(WGM11) | _BV(WGM10); */
+    // WGM10 : PWM, Phase Correct, 8-bit
+    TCCR1A = _BV(COM1A1) | _BV(COM1B1) | _BV(WGM10);
+  }
+  void stop(){
+    TCCR1A = 0;
+    TIMER1_PORT_A &= ~_BV(TIMER1_OUTPUT_A);
+    TIMER1_PORT_B &= ~_BV(TIMER1_OUTPUT_B);    
   }
   void setPrescaler(uint8_t divisor){
     TCCR1B = _BV(WGM13) | divisor;
@@ -67,14 +74,20 @@ public:
 
 class Timer2 : public Timer {
 public:
-  void init(){
+  void start(){
 /*     pinMode(11, OUTPUT); // OC2A */
 /*     pinMode(3, OUTPUT);  // OC2B */
-
     TIMER2_DDR_A |= _BV(TIMER2_OUTPUT_A);
     TIMER2_DDR_B |= _BV(TIMER2_OUTPUT_B);
-
+    // Toggle OC2A on Compare Match
+    // Clear OC2B on Compare Match
+    // PWM, Phase Correct
     TCCR2A = _BV(COM2A0) | _BV(COM2B1) | _BV(WGM20);
+  }
+  void stop(){
+    TCCR2A = 0;
+    TIMER2_PORT_A &= ~_BV(TIMER2_OUTPUT_A);
+    TIMER2_PORT_B &= ~_BV(TIMER2_OUTPUT_B);
   }
   void setPrescaler(uint8_t divisor){
     if(divisor > 7)

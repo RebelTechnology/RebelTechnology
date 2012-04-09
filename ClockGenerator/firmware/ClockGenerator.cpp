@@ -13,20 +13,21 @@
 #endif // SERIAL_DEBUG
 
 #define GENERATOR_TOP_FREQUENCY 31250
+#define GENERATOR_TOP_FREQUENCY 15625
 
 inline bool isChained(){
-  return !(GENERATOR_SWITCH__PINS & _BV(GENERATOR_SWITCH_PIN_A));
+  return !(GENERATOR_SWITCH_PINS & _BV(GENERATOR_SWITCH_PIN_B));
 }
 
 inline bool isFree(){
-  return !(GENERATOR_SWITCH__PINS & _BV(GENERATOR_SWITCH_PIN_B));
+  return !(GENERATOR_SWITCH_PINS & _BV(GENERATOR_SWITCH_PIN_A));
 }
 
 class FrequencyController : public ContinuousController {
 public:
   Timer* timer;
   virtual void hasChanged(float v){
-    timer->setFrequency(v*GENERATOR_TOP_FREQUENCY);
+    timer->setFrequency(v<0?0:v*GENERATOR_TOP_FREQUENCY);
 #ifdef SERIAL_DEBUG
     printByte('.');
 #endif /* SERIAL_DEBUG */
@@ -61,9 +62,7 @@ void setup(){
   GENERATOR_SWITCH_DDR &= ~_BV(GENERATOR_SWITCH_PIN_B);
   GENERATOR_SWITCH_PORT |= _BV(GENERATOR_SWITCH_PIN_B);
 
-  timer1.init();
-  timer2.init();
-  timer1.setDutyCycle(0.5);
+  timer2.start();
 
   rateA.timer = &timer2;
   dutyA.timer = &timer2;
@@ -83,14 +82,34 @@ void setup(){
 #endif
 }
 
+bool timer1stopped = true;
+
+#define RATE_MIDPOINT
+
 void loop(){
 
   rateA.update(getAnalogValue(GENERATOR_RATE_A_CONTROL));
   dutyA.update(getAnalogValue(GENERATOR_DUTY_A_CONTROL));
-  if(isChained()){
 
+  if(isChained()){
+    rateB.update(getAnalogValue(GENERATOR_RATE_A_CONTROL)
+		 +getAnalogValue(GENERATOR_RATE_B_CONTROL)
+		 -ADC_VALUE_RANGE/2);
+    if(timer1stopped){
+      timer1.start();
+      timer1.setDutyCycle(0.5);
+      timer1stopped = false;
+    }
   }else if(isFree()){
     rateB.update(getAnalogValue(GENERATOR_RATE_B_CONTROL));
+    if(timer1stopped){
+      timer1.start();
+      timer1.setDutyCycle(0.5);
+      timer1stopped = false;
+    }
+  }else if(!timer1stopped){
+    timer1.stop();
+    timer1stopped = true;
   }
 
 #ifdef SERIAL_DEBUG
@@ -104,6 +123,10 @@ void loop(){
     printString("b: [");
     printInteger(rateB.value*GENERATOR_TOP_FREQUENCY);
     printString("] ");
+    if(isChained())
+      printString(" chained ");
+    if(isFree())
+      printString(" free ");
     printNewline();
   }
 #endif
