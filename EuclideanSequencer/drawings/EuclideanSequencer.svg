@@ -19,7 +19,7 @@
    enable-background="new 0 0 2027.125 1244.648"
    xml:space="preserve"
    inkscape:version="0.48.2 r9819"
-   sodipodi:docname="EuclideanSequencer.eps"><metadata
+   sodipodi:docname="EuclideanSequencer.svg"><metadata
    id="metadata1346"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
          rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
@@ -211,16 +211,18 @@
    id="namedview1342"
    showgrid="true"
    inkscape:zoom="1.3979437"
-   inkscape:cx="419.77804"
-   inkscape:cy="231.8622"
+   inkscape:cx="257.46049"
+   inkscape:cy="225.76123"
    inkscape:window-x="0"
    inkscape:window-y="0"
    inkscape:window-maximized="1"
    inkscape:current-layer="layer2"
-   inkscape:snap-object-midpoints="true"
+   inkscape:snap-object-midpoints="false"
    inkscape:snap-center="false"
    showguides="true"
-   inkscape:guide-bbox="true"><inkscape:grid
+   inkscape:guide-bbox="true"
+   inkscape:object-paths="true"
+   inkscape:snap-nodes="true"><inkscape:grid
      type="xygrid"
      id="grid18395"
      empspacing="5"
@@ -832,159 +834,159 @@
      sodipodi:ry="4.75"
      transform="translate(-1054.6507,337.38339)" /><g
      id="g440"
-     transform="translate(-1054.6945,336.58852)">
+     transform="matrix(1.218549,0,0,1.218549,-1314.5479,217.83139)">
 	<path
    d="m 1176.438,568.025 c -7.882,-4.429 -13.207,-12.868 -13.207,-22.551 0,-14.275 11.573,-25.849 25.85,-25.849 14.273,0 25.847,11.572 25.847,25.849 0,9.689 -5.332,18.137 -13.225,22.562"
    id="path442"
    inkscape:connector-curvature="0"
-   style="fill:none;stroke:#030303;stroke-width:0.5" />
+   style="fill:none;stroke:#030303;stroke-width:0.41032407" />
 	<line
    x1="1181.724"
    y1="518.09998"
    x2="1182.369"
    y2="520.51001"
    id="line444"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548615" />
 	<line
    x1="1173.714"
    y1="518.89899"
    x2="1176.1379"
    y2="523.09601"
    id="line446"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064813" />
 	<line
    x1="1169.021"
    y1="525.44202"
    x2="1170.7841"
    y2="527.20599"
    id="line448"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548615" />
 	<line
    x1="1162.5291"
    y1="530.164"
    x2="1166.6801"
    y2="532.56097"
    id="line450"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064813" />
 	<line
    x1="1161.6899"
    y1="538.15002"
    x2="1164.103"
    y2="538.79797"
    id="line452"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548615" />
 	<line
    x1="1158.4091"
    y1="545.487"
    x2="1163.224"
    y2="545.487"
    id="line454"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064813" />
 	<line
    x1="1161.696"
    y1="552.82202"
    x2="1164.1071"
    y2="552.177"
    id="line456"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548615" />
 	<line
    x1="1162.522"
    y1="560.81598"
    x2="1166.691"
    y2="558.409"
    id="line458"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064813" />
 	<line
    x1="1169.038"
    y1="565.52502"
    x2="1170.803"
    y2="563.76099"
    id="line460"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548615" />
 	<line
    x1="1173.83"
    y1="571.89502"
    x2="1176.156"
    y2="567.86603"
    id="line462"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064813" />
 	<line
    x1="1204.354"
    y1="571.92499"
    x2="1202.006"
    y2="567.85303"
    id="line464"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064813" />
 	<line
    x1="1209.12"
    y1="565.508"
    x2="1207.3571"
    y2="563.74402"
    id="line466"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548615" />
 	<line
    x1="1215.535"
    y1="560.73999"
    x2="1211.462"
    y2="558.38702"
    id="line468"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064813" />
 	<line
    x1="1216.449"
    y1="552.79999"
    x2="1214.041"
    y2="552.15198"
    id="line470"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548615" />
 	<line
    x1="1219.578"
    y1="545.46301"
    x2="1214.918"
    y2="545.46301"
    id="line472"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064813" />
 	<line
    x1="1216.443"
    y1="538.12598"
    x2="1214.033"
    y2="538.77301"
    id="line474"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548615" />
 	<line
    x1="1215.506"
    y1="530.198"
    x2="1211.45"
    y2="532.539"
    id="line476"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064813" />
 	<line
    x1="1209.104"
    y1="525.42603"
    x2="1207.3409"
    y2="527.18799"
    id="line478"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548615" />
 	<line
    x1="1204.407"
    y1="518.88898"
    x2="1201.985"
    y2="523.08197"
    id="line480"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064813" />
 	<line
    x1="1196.396"
    y1="518.09497"
    x2="1195.748"
    y2="520.505"
    id="line482"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548615" />
 	<line
    x1="1189.059"
    y1="514.85303"
    x2="1189.059"
    y2="519.62598"
    id="line484"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064813" />
 	<circle
    cx="1189.163"
    cy="545.40198"
@@ -998,159 +1000,159 @@
    d="m 1215.014,545.40198 c 0,14.27711 -11.5739,25.851 -25.851,25.851 -14.2771,0 -25.851,-11.57389 -25.851,-25.851 0,-14.27712 11.5739,-25.851 25.851,-25.851 14.2771,0 25.851,11.57388 25.851,25.851 z" />
 </g><g
      id="g488"
-     transform="translate(-1054.0835,336.4125)">
+     transform="matrix(1.2185466,0,0,1.2185466,-1294.1313,217.61799)">
 	<path
    d="m 1085.827,568.204 c -7.882,-4.429 -13.207,-12.866 -13.207,-22.551 0,-14.275 11.573,-25.848 25.85,-25.848 14.273,0 25.848,11.572 25.848,25.848 0,9.691 -5.333,18.137 -13.226,22.562"
    id="path490"
    inkscape:connector-curvature="0"
-   style="fill:none;stroke:#030303;stroke-width:0.5" />
+   style="fill:none;stroke:#030303;stroke-width:0.41032487" />
 	<line
    x1="1091.11"
    y1="518.27802"
    x2="1091.7581"
    y2="520.68799"
    id="line492"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1083.103"
    y1="519.07703"
    x2="1085.524"
    y2="523.27399"
    id="line494"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1078.408"
    y1="525.62097"
    x2="1080.173"
    y2="527.38501"
    id="line496"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1071.917"
    y1="530.34399"
    x2="1076.066"
    y2="532.73901"
    id="line498"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1071.078"
    y1="538.32898"
    x2="1073.488"
    y2="538.974"
    id="line500"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1067.798"
    y1="545.66498"
    x2="1072.61"
    y2="545.66498"
    id="line502"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1071.085"
    y1="553.00098"
    x2="1073.495"
    y2="552.354"
    id="line504"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1071.91"
    y1="560.99402"
    x2="1076.079"
    y2="558.58899"
    id="line506"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1078.427"
    y1="565.703"
    x2="1080.188"
    y2="563.93903"
    id="line508"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1083.219"
    y1="572.073"
    x2="1085.545"
    y2="568.04602"
    id="line510"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1113.7419"
    y1="572.10101"
    x2="1111.394"
    y2="568.03101"
    id="line512"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1118.509"
    y1="565.68402"
    x2="1116.745"
    y2="563.92401"
    id="line514"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1124.925"
    y1="560.91998"
    x2="1120.85"
    y2="558.565"
    id="line516"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1125.838"
    y1="552.97601"
    x2="1123.4301"
    y2="552.33002"
    id="line518"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1128.967"
    y1="545.64001"
    x2="1124.307"
    y2="545.64001"
    id="line520"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1125.8311"
    y1="538.30402"
    x2="1123.422"
    y2="538.95099"
    id="line522"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1124.896"
    y1="530.37598"
    x2="1120.839"
    y2="532.71899"
    id="line524"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1118.4919"
    y1="525.60303"
    x2="1116.729"
    y2="527.36603"
    id="line526"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1113.796"
    y1="519.06702"
    x2="1111.373"
    y2="523.26001"
    id="line528"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1105.782"
    y1="518.27301"
    x2="1105.137"
    y2="520.68201"
    id="line530"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1098.4449"
    y1="515.03101"
    x2="1098.4449"
    y2="519.80402"
    id="line532"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<circle
    cx="1098.552"
    cy="545.578"
@@ -1164,159 +1166,159 @@
    d="m 1124.403,545.578 c 0,14.27712 -11.5739,25.851 -25.851,25.851 -14.2771,0 -25.851,-11.57388 -25.851,-25.851 0,-14.27711 11.5739,-25.851 25.851,-25.851 14.2771,0 25.851,11.57389 25.851,25.851 z" />
 </g><g
      id="g824"
-     transform="translate(-1054.6751,335.90102)">
+     transform="matrix(1.2185682,0,0,1.2185682,-1314.5467,187.47598)">
 	<path
    d="m 1176.419,703.717 c -7.883,-4.43 -13.207,-12.867 -13.207,-22.553 0,-14.273 11.572,-25.848 25.849,-25.848 14.274,0 25.847,11.573 25.847,25.848 0,9.691 -5.332,18.139 -13.225,22.562"
    id="path826"
    inkscape:connector-curvature="0"
-   style="fill:none;stroke:#030303;stroke-width:0.5" />
+   style="fill:none;stroke:#030303;stroke-width:0.41031763" />
 	<line
    x1="1181.701"
    y1="653.78998"
    x2="1182.349"
    y2="656.20001"
    id="line828"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61547643" />
 	<line
    x1="1173.691"
    y1="654.591"
    x2="1176.115"
    y2="658.78601"
    id="line830"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82063526" />
 	<line
    x1="1168.999"
    y1="661.13397"
    x2="1170.764"
    y2="662.896"
    id="line832"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61547643" />
 	<line
    x1="1162.509"
    y1="665.854"
    x2="1166.657"
    y2="668.25098"
    id="line834"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82063526" />
 	<line
    x1="1161.67"
    y1="673.84198"
    x2="1164.079"
    y2="674.48602"
    id="line836"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61547643" />
 	<line
    x1="1158.389"
    y1="681.177"
    x2="1163.201"
    y2="681.177"
    id="line838"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82063526" />
 	<line
    x1="1161.676"
    y1="688.51202"
    x2="1164.087"
    y2="687.86603"
    id="line840"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61547643" />
 	<line
    x1="1162.501"
    y1="696.508"
    x2="1166.671"
    y2="694.09998"
    id="line842"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82063526" />
 	<line
    x1="1169.0179"
    y1="701.21698"
    x2="1170.78"
    y2="699.45099"
    id="line844"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61547643" />
 	<line
    x1="1173.8101"
    y1="707.586"
    x2="1176.136"
    y2="703.55701"
    id="line846"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82063526" />
 	<line
    x1="1204.333"
    y1="707.61298"
    x2="1201.983"
    y2="703.54498"
    id="line848"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82063526" />
 	<line
    x1="1209.1"
    y1="701.19501"
    x2="1207.337"
    y2="699.43402"
    id="line850"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61547643" />
 	<line
    x1="1215.516"
    y1="696.42999"
    x2="1211.438"
    y2="694.07599"
    id="line852"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82063526" />
 	<line
    x1="1216.428"
    y1="688.48798"
    x2="1214.021"
    y2="687.84399"
    id="line854"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61547643" />
 	<line
    x1="1219.557"
    y1="681.151"
    x2="1214.896"
    y2="681.151"
    id="line856"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82063526" />
 	<line
    x1="1216.422"
    y1="673.81598"
    x2="1214.012"
    y2="674.46503"
    id="line858"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61547643" />
 	<line
    x1="1215.484"
    y1="665.888"
    x2="1211.4301"
    y2="668.229"
    id="line860"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82063526" />
 	<line
    x1="1209.083"
    y1="661.11401"
    x2="1207.318"
    y2="662.88"
    id="line862"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61547643" />
 	<line
    x1="1204.387"
    y1="654.57898"
    x2="1201.965"
    y2="658.771"
    id="line864"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82063526" />
 	<line
    x1="1196.373"
    y1="653.78497"
    x2="1195.728"
    y2="656.19299"
    id="line866"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61547643" />
 	<line
    x1="1189.036"
    y1="650.54498"
    x2="1189.036"
    y2="655.31598"
    id="line868"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82063526" />
 	<circle
    cx="1189.1429"
    cy="681.09003"
@@ -1330,159 +1332,159 @@
    d="m 1214.9939,681.09003 c 0,14.27711 -11.5738,25.851 -25.851,25.851 -14.2771,0 -25.851,-11.57389 -25.851,-25.851 0,-14.27712 11.5739,-25.851 25.851,-25.851 14.2772,0 25.851,11.57388 25.851,25.851 z" />
 </g><g
      id="g872"
-     transform="translate(-1054.2135,335.64053)">
+     transform="matrix(1.2185466,0,0,1.2185466,-1294.2897,187.17351)">
 	<path
    d="m 1085.957,703.975 c -7.882,-4.428 -13.206,-12.867 -13.206,-22.55 0,-14.275 11.572,-25.85 25.849,-25.85 14.273,0 25.848,11.573 25.848,25.85 0,9.689 -5.333,18.136 -13.226,22.56"
    id="path874"
    inkscape:connector-curvature="0"
-   style="fill:none;stroke:#030303;stroke-width:0.5" />
+   style="fill:none;stroke:#030303;stroke-width:0.41032487" />
 	<line
    x1="1091.24"
    y1="654.052"
    x2="1091.8879"
    y2="656.46198"
    id="line876"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1083.229"
    y1="654.849"
    x2="1085.6541"
    y2="659.04797"
    id="line878"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1078.538"
    y1="661.39301"
    x2="1080.303"
    y2="663.15601"
    id="line880"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1072.048"
    y1="666.11401"
    x2="1076.196"
    y2="668.51099"
    id="line882"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1071.208"
    y1="674.10101"
    x2="1073.618"
    y2="674.74597"
    id="line884"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1067.928"
    y1="681.43701"
    x2="1072.74"
    y2="681.43701"
    id="line886"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1071.215"
    y1="688.771"
    x2="1073.626"
    y2="688.12598"
    id="line888"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1072.04"
    y1="696.76599"
    x2="1076.21"
    y2="694.35901"
    id="line890"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1078.557"
    y1="701.47498"
    x2="1080.319"
    y2="699.71301"
    id="line892"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1083.349"
    y1="707.84399"
    x2="1085.675"
    y2="703.81598"
    id="line894"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1113.8719"
    y1="707.87299"
    x2="1111.522"
    y2="703.80298"
    id="line896"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1118.639"
    y1="701.45502"
    x2="1116.876"
    y2="699.69299"
    id="line898"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1125.0551"
    y1="696.68903"
    x2="1120.979"
    y2="694.33801"
    id="line900"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1125.968"
    y1="688.74799"
    x2="1123.5601"
    y2="688.10199"
    id="line902"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1129.097"
    y1="681.41199"
    x2="1124.437"
    y2="681.41199"
    id="line904"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1125.962"
    y1="674.07599"
    x2="1123.552"
    y2="674.72302"
    id="line906"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1125.022"
    y1="666.14801"
    x2="1120.969"
    y2="668.48901"
    id="line908"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1118.6219"
    y1="661.37598"
    x2="1116.8571"
    y2="663.138"
    id="line910"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1113.926"
    y1="654.841"
    x2="1111.504"
    y2="659.03198"
    id="line912"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1105.912"
    y1="654.047"
    x2="1105.267"
    y2="656.45398"
    id="line914"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1098.575"
    y1="650.80298"
    x2="1098.575"
    y2="655.57599"
    id="line916"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<circle
    cx="1098.682"
    cy="681.34998"
@@ -1496,26 +1498,26 @@
    d="m 1124.533,681.34998 c 0,14.27711 -11.5739,25.851 -25.851,25.851 -14.2771,0 -25.851,-11.57389 -25.851,-25.851 0,-14.27712 11.5739,-25.851 25.851,-25.851 14.2771,0 25.851,11.57388 25.851,25.851 z" />
 </g><g
      id="g1054"
-     transform="translate(-1054.5136,338.39053)">
+     transform="matrix(0.6,0,0,0.6,-596.9352,533.39633)">
 		<g
    id="g1056">
 			<path
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    inkscape:connector-curvature="0"
    id="path1058"
    d="m 1138.17,553.937 c -3.603,-2.024 -6.035,-5.878 -6.035,-10.302 0,-6.522 5.288,-11.812 11.812,-11.812 6.521,0 11.81,5.288 11.81,11.812 0,4.427 -2.437,8.285 -6.043,10.306" />
 			<path
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    inkscape:connector-curvature="0"
    id="path1060"
    d="M 1133.716,549.545" />
 			<path
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    inkscape:connector-curvature="0"
    id="path1062"
    d="M 1138.039,553.864" />
 			<path
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    inkscape:connector-curvature="0"
    id="path1064"
    d="M 1136.978,555.705" />
@@ -1541,28 +1543,28 @@
    points="1153.31,553.903 1146.326,556.373 1150.437,550.228 " />
 	</g><g
      id="g1072"
-     transform="translate(-1054.1142,336.1915)">
+     transform="matrix(0.6,0,0,0.6,-596.5286,559.0111)">
 		<line
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    id="line1074"
    y2="624.229"
    x2="1132.702"
    y1="602.53601"
    x1="1132.702" />
 		<line
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    id="line1076"
    y2="624.11499"
    x2="1155.226"
    y1="602.59399"
    x1="1155.226" />
 		<path
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    inkscape:connector-curvature="0"
    id="path1078"
    d="M 1155.11,613.299" />
 		<line
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    id="line1080"
    y2="613.29901"
    x2="1149.759"
@@ -1574,9 +1576,9 @@
    points="1155.104,613.322 1147.078,610.646 1147.021,616.055 " />
 	</g><g
      id="g1084"
-     transform="translate(-1054.4955,335.79849)">
+     transform="matrix(0.6,0,0,0.6,-596.9099,585.75329)">
 		<line
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    id="line1086"
    y2="681.19202"
    x2="1155.001"
@@ -1585,70 +1587,70 @@
 		<g
    id="g1088">
 			<line
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    id="line1090"
    y2="691.86298"
    x2="1133.262"
    y1="670.578"
    x1="1133.262" />
 			<line
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    id="line1092"
    y2="691.86298"
    x2="1143.965"
    y1="670.578"
    x1="1143.965" />
 			<line
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    id="line1094"
    y2="691.86298"
    x2="1147.233"
    y1="670.578"
    x1="1147.233" />
 			<line
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    id="line1096"
    y2="691.86298"
    x2="1149.3149"
    y1="670.578"
    x1="1149.3149" />
 			<line
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    id="line1098"
    y2="691.86298"
    x2="1150.803"
    y1="670.578"
    x1="1150.803" />
 			<line
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    id="line1100"
    y2="691.86298"
    x2="1151.99"
    y1="670.578"
    x1="1151.99" />
 			<line
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    id="line1102"
    y2="691.86298"
    x2="1153.182"
    y1="670.578"
    x1="1153.182" />
 			<line
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    id="line1104"
    y2="691.86298"
    x2="1153.774"
    y1="670.578"
    x1="1153.774" />
 			<line
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    id="line1106"
    y2="691.86298"
    x2="1154.667"
    y1="670.578"
    x1="1154.667" />
 			<line
-   style="fill:none;stroke:#030303"
+   style="fill:none;stroke:#030303;stroke-width:1.66666663"
    id="line1108"
    y2="691.86298"
    x2="1140.396"
@@ -1731,7 +1733,7 @@
    inkscape:connector-curvature="0" />
 </g><g
      id="g1318"
-     transform="translate(-1052.7445,332.1325)">
+     transform="translate(-1052.7445,326.9345)">
 	<g
    id="g1320">
 		<path
@@ -1741,7 +1743,7 @@
    style="fill:#231f20" />
 	</g>
 </g><path
-     d="m 133.33351,836.9905 c 0.679,0 2.113,-0.062 2.113,0.035 2.789,0.154 2.101,4.118 0.819,5.452 4.168,1.704 0.38,9.211 -3.779,6.108 -0.322,1.425 0.873,4.363 -1.165,4.071 -0.027,-4.777 -1.865,-13.819 2.012,-15.666 z m -0.844,10.724 c 0.707,0.552 1.438,1.082 2.907,0.872 1.507,-1.035 1.438,-4.421 0.292,-5.817 -0.246,-0.627 -1.854,0.109 -2.036,-0.581 0.446,-1.028 1.292,0.148 2.036,-0.583 0.468,-1.076 0.423,-3.043 -0.292,-3.781 -4.494,-1.331 -2.45,6.229 -2.907,9.89 z"
+     d="m 134.14947,828.93115 c 0.679,0 2.113,-0.062 2.113,0.035 2.789,0.154 2.101,4.118 0.819,5.452 4.168,1.704 0.38,9.211 -3.779,6.108 -0.322,1.425 0.873,4.363 -1.165,4.071 -0.027,-4.777 -1.865,-13.819 2.012,-15.666 z m -0.844,10.724 c 0.707,0.552 1.438,1.082 2.907,0.872 1.507,-1.035 1.438,-4.421 0.292,-5.817 -0.246,-0.627 -1.854,0.109 -2.036,-0.581 0.446,-1.028 1.292,0.148 2.036,-0.583 0.468,-1.076 0.423,-3.043 -0.292,-3.781 -4.494,-1.331 -2.45,6.229 -2.907,9.89 z"
      id="path1324"
      inkscape:connector-curvature="0"
      style="fill:#231f20" /><g
@@ -1817,326 +1819,160 @@
      r="4.5"
      id="circle18131"
      transform="matrix(3.5433072,0,0,3.5433072,-8.7599958e-4,789.33384)" /><g
-     transform="translate(-1054.2135,268.14053)"
-     id="g18445">
-	<path
-   style="fill:none;stroke:#030303;stroke-width:0.5"
-   inkscape:connector-curvature="0"
-   id="path18447"
-   d="m 1085.957,703.975 c -7.882,-4.428 -13.206,-12.867 -13.206,-22.55 0,-14.275 11.572,-25.85 25.849,-25.85 14.273,0 25.848,11.573 25.848,25.85 0,9.689 -5.333,18.136 -13.226,22.56" />
-	<line
-   style="fill:none;stroke:#030303;stroke-width:0.75"
-   id="line18449"
-   y2="656.46198"
-   x2="1091.8879"
-   y1="654.052"
-   x1="1091.24" />
-	<line
-   style="fill:none;stroke:#030303"
-   id="line18451"
-   y2="659.04797"
-   x2="1085.6541"
-   y1="654.849"
-   x1="1083.229" />
-	<line
-   style="fill:none;stroke:#030303;stroke-width:0.75"
-   id="line18453"
-   y2="663.15601"
-   x2="1080.303"
-   y1="661.39301"
-   x1="1078.538" />
-	<line
-   style="fill:none;stroke:#030303"
-   id="line18455"
-   y2="668.51099"
-   x2="1076.196"
-   y1="666.11401"
-   x1="1072.048" />
-	<line
-   style="fill:none;stroke:#030303;stroke-width:0.75"
-   id="line18457"
-   y2="674.74597"
-   x2="1073.618"
-   y1="674.10101"
-   x1="1071.208" />
-	<line
-   style="fill:none;stroke:#030303"
-   id="line18459"
-   y2="681.43701"
-   x2="1072.74"
-   y1="681.43701"
-   x1="1067.928" />
-	<line
-   style="fill:none;stroke:#030303;stroke-width:0.75"
-   id="line18461"
-   y2="688.12598"
-   x2="1073.626"
-   y1="688.771"
-   x1="1071.215" />
-	<line
-   style="fill:none;stroke:#030303"
-   id="line18463"
-   y2="694.35901"
-   x2="1076.21"
-   y1="696.76599"
-   x1="1072.04" />
-	<line
-   style="fill:none;stroke:#030303;stroke-width:0.75"
-   id="line18465"
-   y2="699.71301"
-   x2="1080.319"
-   y1="701.47498"
-   x1="1078.557" />
-	<line
-   style="fill:none;stroke:#030303"
-   id="line18467"
-   y2="703.81598"
-   x2="1085.675"
-   y1="707.84399"
-   x1="1083.349" />
-	<line
-   style="fill:none;stroke:#030303"
-   id="line18469"
-   y2="703.80298"
-   x2="1111.522"
-   y1="707.87299"
-   x1="1113.8719" />
-	<line
-   style="fill:none;stroke:#030303;stroke-width:0.75"
-   id="line18471"
-   y2="699.69299"
-   x2="1116.876"
-   y1="701.45502"
-   x1="1118.639" />
-	<line
-   style="fill:none;stroke:#030303"
-   id="line18473"
-   y2="694.33801"
-   x2="1120.979"
-   y1="696.68903"
-   x1="1125.0551" />
-	<line
-   style="fill:none;stroke:#030303;stroke-width:0.75"
-   id="line18475"
-   y2="688.10199"
-   x2="1123.5601"
-   y1="688.74799"
-   x1="1125.968" />
-	<line
-   style="fill:none;stroke:#030303"
-   id="line18477"
-   y2="681.41199"
-   x2="1124.437"
-   y1="681.41199"
-   x1="1129.097" />
-	<line
-   style="fill:none;stroke:#030303;stroke-width:0.75"
-   id="line18479"
-   y2="674.72302"
-   x2="1123.552"
-   y1="674.07599"
-   x1="1125.962" />
-	<line
-   style="fill:none;stroke:#030303"
-   id="line18481"
-   y2="668.48901"
-   x2="1120.969"
-   y1="666.14801"
-   x1="1125.022" />
-	<line
-   style="fill:none;stroke:#030303;stroke-width:0.75"
-   id="line18483"
-   y2="663.138"
-   x2="1116.8571"
-   y1="661.37598"
-   x1="1118.6219" />
-	<line
-   style="fill:none;stroke:#030303"
-   id="line18485"
-   y2="659.03198"
-   x2="1111.504"
-   y1="654.841"
-   x1="1113.926" />
-	<line
-   style="fill:none;stroke:#030303;stroke-width:0.75"
-   id="line18487"
-   y2="656.45398"
-   x2="1105.267"
-   y1="654.047"
-   x1="1105.912" />
-	<line
-   style="fill:none;stroke:#030303"
-   id="line18489"
-   y2="655.57599"
-   x2="1098.575"
-   y1="650.80298"
-   x1="1098.575" />
-	<circle
-   d="m 1124.533,681.34998 c 0,14.27711 -11.5739,25.851 -25.851,25.851 -14.2771,0 -25.851,-11.57389 -25.851,-25.851 0,-14.27712 11.5739,-25.851 25.851,-25.851 14.2771,0 25.851,11.57388 25.851,25.851 z"
-   style="fill:none"
-   sodipodi:ry="25.851"
-   sodipodi:rx="25.851"
-   sodipodi:cy="681.34998"
-   sodipodi:cx="1098.682"
-   id="circle18491"
-   r="25.851"
-   cy="681.34998"
-   cx="1098.682" />
-</g><g
      id="g18493"
-     transform="translate(-964.21354,268.14053)">
+     transform="matrix(1.2185466,0,0,1.2185466,-1204.2897,119.67351)">
 	<path
    d="m 1085.957,703.975 c -7.882,-4.428 -13.206,-12.867 -13.206,-22.55 0,-14.275 11.572,-25.85 25.849,-25.85 14.273,0 25.848,11.573 25.848,25.85 0,9.689 -5.333,18.136 -13.226,22.56"
    id="path18495"
    inkscape:connector-curvature="0"
-   style="fill:none;stroke:#030303;stroke-width:0.5" />
+   style="fill:none;stroke:#030303;stroke-width:0.41032487" />
 	<line
    x1="1091.24"
    y1="654.052"
    x2="1091.8879"
    y2="656.46198"
    id="line18497"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1083.229"
    y1="654.849"
    x2="1085.6541"
    y2="659.04797"
    id="line18499"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1078.538"
    y1="661.39301"
    x2="1080.303"
    y2="663.15601"
    id="line18501"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1072.048"
    y1="666.11401"
    x2="1076.196"
    y2="668.51099"
    id="line18503"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1071.208"
    y1="674.10101"
    x2="1073.618"
    y2="674.74597"
    id="line18505"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1067.928"
    y1="681.43701"
    x2="1072.74"
    y2="681.43701"
    id="line18507"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1071.215"
    y1="688.771"
    x2="1073.626"
    y2="688.12598"
    id="line18509"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1072.04"
    y1="696.76599"
    x2="1076.21"
    y2="694.35901"
    id="line18511"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1078.557"
    y1="701.47498"
    x2="1080.319"
    y2="699.71301"
    id="line18513"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1083.349"
    y1="707.84399"
    x2="1085.675"
    y2="703.81598"
    id="line18515"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1113.8719"
    y1="707.87299"
    x2="1111.522"
    y2="703.80298"
    id="line18517"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1118.639"
    y1="701.45502"
    x2="1116.876"
    y2="699.69299"
    id="line18519"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1125.0551"
    y1="696.68903"
    x2="1120.979"
    y2="694.33801"
    id="line18521"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1125.968"
    y1="688.74799"
    x2="1123.5601"
    y2="688.10199"
    id="line18523"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1129.097"
    y1="681.41199"
    x2="1124.437"
    y2="681.41199"
    id="line18525"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1125.962"
    y1="674.07599"
    x2="1123.552"
    y2="674.72302"
    id="line18527"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1125.022"
    y1="666.14801"
    x2="1120.969"
    y2="668.48901"
    id="line18529"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1118.6219"
    y1="661.37598"
    x2="1116.8571"
    y2="663.138"
    id="line18531"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1113.926"
    y1="654.841"
    x2="1111.504"
    y2="659.03198"
    id="line18533"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<line
    x1="1105.912"
    y1="654.047"
    x2="1105.267"
    y2="656.45398"
    id="line18535"
-   style="fill:none;stroke:#030303;stroke-width:0.75" />
+   style="fill:none;stroke:#030303;stroke-width:0.61548734" />
 	<line
    x1="1098.575"
    y1="650.80298"
    x2="1098.575"
    y2="655.57599"
    id="line18537"
-   style="fill:none;stroke:#030303" />
+   style="fill:none;stroke:#030303;stroke-width:0.82064974" />
 	<circle
    cx="1098.682"
    cy="681.34998"
@@ -2155,29 +1991,195 @@
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cccccc" /><g
      id="g5249"
-     transform="translate(127.28694,-11.943065)"><line
+     transform="translate(129.36623,-11.943065)"><line
        x1="-45.483688"
        y1="1156.1982"
        x2="-45.483688"
        y2="1164.179"
        id="line5235"
-       style="fill:none;stroke:#030303;stroke-width:1.00000004;stroke-miterlimit:4;stroke-dasharray:none" /><path
+       style="fill:none;stroke:#030303;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" /><path
        d="M -45.404197,1160.1512"
        id="path5237"
        inkscape:connector-curvature="0"
        style="fill:none;stroke:#030303;stroke-width:0.68556148" /><line
-       x1="-30.19915"
+       x1="-33.28978"
        y1="1160.1512"
        x2="-41.735779"
        y2="1160.1512"
        id="line5239"
-       style="fill:none;stroke:#030303;stroke-width:1.00000004;stroke-miterlimit:4;stroke-dasharray:none" /><polygon
+       style="fill:none;stroke:#030303;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" /><polygon
        transform="matrix(-0.68556145,0,0,0.68556145,746.49469,739.69709)"
-       points="1147.021,616.055 1155.104,613.322 1147.078,610.646 "
+       points="1155.104,613.322 1147.078,610.646 1147.021,616.055 "
        id="polygon5241"
        style="fill:#030303" /></g><path
      sodipodi:nodetypes="cccccc"
      inkscape:connector-curvature="0"
      id="path7514"
      d="m 17.315358,1196.988 3.5984,0 0,-6 2.8539,0 0,6 2.85391,0"
-     style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" /></g></svg>
+     style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" /><g
+     transform="matrix(1.2185466,0,0,1.2185466,-1294.2897,119.67351)"
+     id="g8547">
+	<path
+   style="fill:none;stroke:#030303;stroke-width:0.41032487"
+   inkscape:connector-curvature="0"
+   id="path8549"
+   d="m 1085.957,703.975 c -7.882,-4.428 -13.206,-12.867 -13.206,-22.55 0,-14.275 11.572,-25.85 25.849,-25.85 14.273,0 25.848,11.573 25.848,25.85 0,9.689 -5.333,18.136 -13.226,22.56" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.61548734"
+   id="line8551"
+   y2="656.46198"
+   x2="1091.8879"
+   y1="654.052"
+   x1="1091.24" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.82064974"
+   id="line8553"
+   y2="659.04797"
+   x2="1085.6541"
+   y1="654.849"
+   x1="1083.229" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.61548734"
+   id="line8555"
+   y2="663.15601"
+   x2="1080.303"
+   y1="661.39301"
+   x1="1078.538" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.82064974"
+   id="line8557"
+   y2="668.51099"
+   x2="1076.196"
+   y1="666.11401"
+   x1="1072.048" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.61548734"
+   id="line8559"
+   y2="674.74597"
+   x2="1073.618"
+   y1="674.10101"
+   x1="1071.208" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.82064974"
+   id="line8561"
+   y2="681.43701"
+   x2="1072.74"
+   y1="681.43701"
+   x1="1067.928" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.61548734"
+   id="line8563"
+   y2="688.12598"
+   x2="1073.626"
+   y1="688.771"
+   x1="1071.215" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.82064974"
+   id="line8565"
+   y2="694.35901"
+   x2="1076.21"
+   y1="696.76599"
+   x1="1072.04" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.61548734"
+   id="line8567"
+   y2="699.71301"
+   x2="1080.319"
+   y1="701.47498"
+   x1="1078.557" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.82064974"
+   id="line8569"
+   y2="703.81598"
+   x2="1085.675"
+   y1="707.84399"
+   x1="1083.349" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.82064974"
+   id="line8571"
+   y2="703.80298"
+   x2="1111.522"
+   y1="707.87299"
+   x1="1113.8719" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.61548734"
+   id="line8573"
+   y2="699.69299"
+   x2="1116.876"
+   y1="701.45502"
+   x1="1118.639" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.82064974"
+   id="line8575"
+   y2="694.33801"
+   x2="1120.979"
+   y1="696.68903"
+   x1="1125.0551" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.61548734"
+   id="line8577"
+   y2="688.10199"
+   x2="1123.5601"
+   y1="688.74799"
+   x1="1125.968" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.82064974"
+   id="line8579"
+   y2="681.41199"
+   x2="1124.437"
+   y1="681.41199"
+   x1="1129.097" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.61548734"
+   id="line8581"
+   y2="674.72302"
+   x2="1123.552"
+   y1="674.07599"
+   x1="1125.962" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.82064974"
+   id="line8583"
+   y2="668.48901"
+   x2="1120.969"
+   y1="666.14801"
+   x1="1125.022" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.61548734"
+   id="line8585"
+   y2="663.138"
+   x2="1116.8571"
+   y1="661.37598"
+   x1="1118.6219" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.82064974"
+   id="line8587"
+   y2="659.03198"
+   x2="1111.504"
+   y1="654.841"
+   x1="1113.926" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.61548734"
+   id="line8589"
+   y2="656.45398"
+   x2="1105.267"
+   y1="654.047"
+   x1="1105.912" />
+	<line
+   style="fill:none;stroke:#030303;stroke-width:0.82064974"
+   id="line8591"
+   y2="655.57599"
+   x2="1098.575"
+   y1="650.80298"
+   x1="1098.575" />
+	<circle
+   d="m 1124.533,681.34998 c 0,14.27711 -11.5739,25.851 -25.851,25.851 -14.2771,0 -25.851,-11.57389 -25.851,-25.851 0,-14.27712 11.5739,-25.851 25.851,-25.851 14.2771,0 25.851,11.57388 25.851,25.851 z"
+   style="fill:none"
+   sodipodi:ry="25.851"
+   sodipodi:rx="25.851"
+   sodipodi:cy="681.34998"
+   sodipodi:cx="1098.682"
+   id="circle8593"
+   r="25.851"
+   cy="681.34998"
+   cx="1098.682" />
+</g></g></svg>
