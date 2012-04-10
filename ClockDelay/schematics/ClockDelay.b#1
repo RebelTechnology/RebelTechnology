@@ -3269,8 +3269,6 @@ Extended by Federico Battaglin &lt;author&gt;&amp;lt;federico.rd@fdpinternationa
 <wire x1="77.47" y1="49.53" x2="78.74" y2="48.26" width="0.6096" layer="1"/>
 <wire x1="78.74" y1="48.26" x2="81.28" y2="48.26" width="0.6096" layer="1"/>
 <wire x1="81.28" y1="48.26" x2="83.82" y2="45.72" width="0.6096" layer="1"/>
-<wire x1="83.185" y1="29.21" x2="80.645" y2="26.67" width="0.6096" layer="16"/>
-<wire x1="80.645" y1="26.67" x2="80.645" y2="21.59" width="0.6096" layer="16"/>
 <wire x1="80.645" y1="21.59" x2="78.105" y2="21.59" width="0.6096" layer="1"/>
 <wire x1="69.215" y1="11.43" x2="65.405" y2="7.62" width="0.6096" layer="1"/>
 <wire x1="60.325" y1="7.62" x2="65.405" y2="7.62" width="0.6096" layer="1"/>
@@ -3294,6 +3292,11 @@ Extended by Federico Battaglin &lt;author&gt;&amp;lt;federico.rd@fdpinternationa
 <wire x1="83.185" y1="4.445" x2="78.105" y2="9.525" width="0.6096" layer="1"/>
 <wire x1="78.105" y1="9.525" x2="78.105" y2="11.43" width="0.6096" layer="1"/>
 <wire x1="78.105" y1="19.05" x2="78.105" y2="21.59" width="0.6096" layer="16"/>
+<wire x1="80.645" y1="21.59" x2="80.645" y2="22.225" width="0.6096" layer="16"/>
+<wire x1="80.645" y1="22.225" x2="81.915" y2="23.495" width="0.6096" layer="16"/>
+<wire x1="81.915" y1="23.495" x2="81.915" y2="27.305" width="0.6096" layer="16"/>
+<wire x1="81.915" y1="27.305" x2="83.185" y2="28.575" width="0.6096" layer="16"/>
+<wire x1="83.185" y1="28.575" x2="83.185" y2="29.21" width="0.6096" layer="16"/>
 </signal>
 <signal name="N$7">
 <contactref element="R201" pad="2"/>
