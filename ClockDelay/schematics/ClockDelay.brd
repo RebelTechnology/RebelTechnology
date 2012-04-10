@@ -3104,6 +3104,7 @@ Extended by Federico Battaglin &lt;author&gt;&amp;lt;federico.rd@fdpinternationa
 <contactref element="DIVCV" pad="P$4"/>
 <contactref element="DIVMAN" pad="P$6"/>
 <contactref element="DIVMAN" pad="P$4"/>
+<via x="97.79" y="2.54" extent="1-16" drill="2.2" shape="octagon"/>
 </signal>
 <signal name="+12V">
 <contactref element="IC1" pad="8"/>
