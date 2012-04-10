@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<boards
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <board name="1hp" width="5.00" height="128.50">
+    <svg:circle cx="7.5" cy="3" r="1.6"/>
+    <svg:circle cx="7.5" cy="125.5" r="1.6"/>
+  </board>
+  <board name="1.5hp" width="7.50" height="128.50">
+    <svg:circle cx="7.5" cy="3" r="1.6"/>
+    <svg:circle cx="7.5" cy="125.5" r="1.6"/>
+  </board>
+  <board name="2hp" width="9.80" height="128.50">
+    <svg:circle cx="7.5" cy="3" r="1.6"/>
+    <svg:circle cx="7.5" cy="125.5" r="1.6"/>
+  </board>
+  <board name="4hp" width="20.00" height="128.50">
+    <svg:circle cx="7.5" cy="3" r="1.6"/>
+    <svg:circle cx="7.5" cy="125.5" r="1.6"/>
+  </board>
+  <board name="6hp" width="30.00" height="128.50">
+    <svg:circle cx="7.5" cy="3" r="1.6"/>
+    <svg:circle cx="7.5" cy="125.5" r="1.6"/>
+  </board>
+  <board name="8hp" width="40.30" height="128.50">
+    <svg:circle cx="7.5" cy="3" r="1.6"/>
+    <svg:circle cx="7.5" cy="125.5" r="1.6"/>
+  </board>
+  <board name="10hp" width="50.50" height="128.50">
+    <svg:circle cx="7.5" cy="3" r="1.6"/>
+    <svg:circle cx="7.5" cy="125.5" r="1.6"/>
+    <svg:circle cx="43.06" cy="3" r="1.6"/>
+    <svg:circle cx="43.06" cy="125.5" r="1.6"/>
+  </board>
+  <board name="12hp" width="60.60" height="128.50">
+    <svg:circle cx="7.5" cy="3" r="1.6"/>
+    <svg:circle cx="7.5" cy="125.5" r="1.6"/>
+    <svg:circle cx="53.22" cy="3" r="1.6"/>
+    <svg:circle cx="53.22" cy="125.5" r="1.6"/>
+  </board>
+</boards>
