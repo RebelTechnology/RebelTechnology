@@ -1,4 +1,4 @@
-<board type="12hp">
+<board type="10hp">
 
   <!-- pots -->
   <hole x="-0.5" y="0.75" radius="4.5"/>
