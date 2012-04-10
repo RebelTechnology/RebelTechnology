@@ -12,25 +12,40 @@
 #include "serial.h"
 #endif // SERIAL_DEBUG
 
-#define GENERATOR_TOP_FREQUENCY 31250
+// #define GENERATOR_TOP_FREQUENCY 31250
 #define GENERATOR_TOP_FREQUENCY 15625
 
+#define GENERATOR_CONTROLLER_DELTA 0.001
+
 inline bool isChained(){
-  return !(GENERATOR_SWITCH_PINS & _BV(GENERATOR_SWITCH_PIN_B));
+  return !(GENERATOR_SWITCH_PINS & _BV(GENERATOR_SWITCH_PIN_A));
 }
 
 inline bool isFree(){
-  return !(GENERATOR_SWITCH_PINS & _BV(GENERATOR_SWITCH_PIN_A));
+  return !(GENERATOR_SWITCH_PINS & _BV(GENERATOR_SWITCH_PIN_B));
 }
 
 class FrequencyController : public ContinuousController {
 public:
   Timer* timer;
   virtual void hasChanged(float v){
-    timer->setFrequency(v<0?0:v*GENERATOR_TOP_FREQUENCY);
+    timer->setRate(v);
 #ifdef SERIAL_DEBUG
-    printByte('.');
-#endif /* SERIAL_DEBUG */
+    printByte('|');
+#endif
+  }
+};
+
+class RelativeFrequencyController : public ContinuousController {
+public:
+  Timer* timer;
+  ContinuousController* other;
+  virtual void hasChanged(float v){
+    v = other->value*v*2;
+    timer->setRate(v);
+#ifdef SERIAL_DEBUG
+    printByte('*');
+#endif
   }
 };
 
@@ -41,18 +56,17 @@ public:
     timer->setDutyCycle(v);
 #ifdef SERIAL_DEBUG
     printByte('-');
-#endif /* SERIAL_DEBUG */
+#endif
   }
 };
 
-Timer1 timer1;
-Timer2 timer2;
+Timer1 timer1; // 16-bit Timer/Counter 1
+Timer2 timer2; // 8-bit Timer/Counter 2
 
 FrequencyController rateA;
 DutyCycleController dutyA;
 FrequencyController rateB;
-
-#define GENERATOR_CONTROLLER_DELTA 0.001
+RelativeFrequencyController rateAB;
 
 void setup(){
   cli();
@@ -62,15 +76,19 @@ void setup(){
   GENERATOR_SWITCH_DDR &= ~_BV(GENERATOR_SWITCH_PIN_B);
   GENERATOR_SWITCH_PORT |= _BV(GENERATOR_SWITCH_PIN_B);
 
-  timer2.start();
+  timer1.setDutyCycle(0.5);
+  timer2.setDutyCycle(0.5);
 
-  rateA.timer = &timer2;
-  dutyA.timer = &timer2;
-  rateB.timer = &timer1;
+  rateA.timer = &timer1;
+  dutyA.timer = &timer1;
+  rateB.timer = &timer2;
+  rateAB.timer = &timer1;
+  rateAB.other = &rateB;
 
   rateA.delta = GENERATOR_CONTROLLER_DELTA;
   dutyA.delta = GENERATOR_CONTROLLER_DELTA;
   rateB.delta = GENERATOR_CONTROLLER_DELTA;
+  rateAB.delta = GENERATOR_CONTROLLER_DELTA;
 
   setup_adc();
 
@@ -80,48 +98,45 @@ void setup(){
   beginSerial(9600);
   printString("hello\n");
 #endif
+
+  timer1.start();
+  timer2.start();
 }
 
-bool timer1stopped = true;
-
-#define RATE_MIDPOINT
-
 void loop(){
-
-  rateA.update(getAnalogValue(GENERATOR_RATE_A_CONTROL));
-  dutyA.update(getAnalogValue(GENERATOR_DUTY_A_CONTROL));
-
+  rateB.update(getAnalogValue(GENERATOR_RATE_B_CONTROL));
   if(isChained()){
-    rateB.update(getAnalogValue(GENERATOR_RATE_A_CONTROL)
-		 +getAnalogValue(GENERATOR_RATE_B_CONTROL)
-		 -ADC_VALUE_RANGE/2);
-    if(timer1stopped){
+    rateAB.update(getAnalogValue(GENERATOR_RATE_A_CONTROL));
+    if(timer1.isStopped())
       timer1.start();
-      timer1.setDutyCycle(0.5);
-      timer1stopped = false;
-    }
   }else if(isFree()){
-    rateB.update(getAnalogValue(GENERATOR_RATE_B_CONTROL));
-    if(timer1stopped){
+    rateA.update(getAnalogValue(GENERATOR_RATE_A_CONTROL));
+    if(timer1.isStopped())
       timer1.start();
-      timer1.setDutyCycle(0.5);
-      timer1stopped = false;
-    }
-  }else if(!timer1stopped){
+  }else if(!timer1.isStopped()){
     timer1.stop();
-    timer1stopped = true;
+    rateA.value = -1.0;
+    rateAB.value = -1.0;
   }
+
+  dutyA.update(getAnalogValue(GENERATOR_DUTY_A_CONTROL));
 
 #ifdef SERIAL_DEBUG
   if(serialAvailable() > 0){
     serialRead();
     printString("a: [");
-    printInteger(rateA.value*GENERATOR_TOP_FREQUENCY);
+    printInteger(timer1.frequency);
     printString(", ");
-    printInteger(dutyA.value*255);
+    printInteger(timer1.duty*255);
+    if(timer1.isStopped())
+      printString(" stopped");
     printString("] ");
     printString("b: [");
-    printInteger(rateB.value*GENERATOR_TOP_FREQUENCY);
+    printInteger(timer2.frequency);
+    printString(", ");
+    printInteger(timer2.duty*255);
+    if(timer2.isStopped())
+      printString(" stopped");
     printString("] ");
     if(isChained())
       printString(" chained ");
