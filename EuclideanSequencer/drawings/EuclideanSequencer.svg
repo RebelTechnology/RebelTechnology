@@ -216,7 +216,7 @@
    inkscape:window-x="0"
    inkscape:window-y="0"
    inkscape:window-maximized="1"
-   inkscape:current-layer="layer2"
+   inkscape:current-layer="layer1"
    inkscape:snap-object-midpoints="false"
    inkscape:snap-center="false"
    showguides="true"
@@ -1536,11 +1536,11 @@
 		<polygon
    style="fill:#030303"
    id="polygon1068"
-   points="1135.022,553.947 1142.022,556.364 1137.868,550.251 " />
+   points="1142.022,556.364 1137.868,550.251 1135.022,553.947 " />
 		<polygon
    style="fill:#030303"
    id="polygon1070"
-   points="1153.31,553.903 1146.326,556.373 1150.437,550.228 " />
+   points="1146.326,556.373 1150.437,550.228 1153.31,553.903 " />
 	</g><g
      id="g1072"
      transform="matrix(0.6,0,0,0.6,-596.5286,559.0111)">
@@ -1573,7 +1573,7 @@
 		<polygon
    style="fill:#030303"
    id="polygon1082"
-   points="1155.104,613.322 1147.078,610.646 1147.021,616.055 " />
+   points="1147.078,610.646 1147.021,616.055 1155.104,613.322 " />
 	</g><g
      id="g1084"
      transform="matrix(0.6,0,0,0.6,-596.9099,585.75329)">
@@ -2009,7 +2009,7 @@
        id="line5239"
        style="fill:none;stroke:#030303;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" /><polygon
        transform="matrix(-0.68556145,0,0,0.68556145,746.49469,739.69709)"
-       points="1155.104,613.322 1147.078,610.646 1147.021,616.055 "
+       points="1147.078,610.646 1147.021,616.055 1155.104,613.322 "
        id="polygon5241"
        style="fill:#030303" /></g><path
      sodipodi:nodetypes="cccccc"
