@@ -74,9 +74,9 @@ uint8_t getKeyValue(){
 //   uint16_t code = (HARMELODIUM_BUTTON_BANK_A_PINS & BANK_A_MASK) << 8 | (HARMELODIUM_BUTTON_BANK_B_PINS & BANK_B_MASK);
   uint8_t value = tonic;
   if(!(HARMELODIUM_BUTTON_BANK_B_PINS & _BV(HARMELODIUM_BUTTON_B1_PIN)))
-    value += 5; // P4
-  if(!(HARMELODIUM_BUTTON_BANK_B_PINS & _BV(HARMELODIUM_BUTTON_B2_PIN)))
     value += 7; // P5
+  if(!(HARMELODIUM_BUTTON_BANK_B_PINS & _BV(HARMELODIUM_BUTTON_B2_PIN)))
+    value += 5; // P4
   if(!(HARMELODIUM_BUTTON_BANK_A_PINS & _BV(HARMELODIUM_BUTTON_A1_PIN)))
     value += 4; // M3
   if(!(HARMELODIUM_BUTTON_BANK_A_PINS & _BV(HARMELODIUM_BUTTON_A2_PIN)))
@@ -104,7 +104,7 @@ void noteOn(int8_t pitch, int8_t velocity){
 }
 
 #define NO_NOTE -1
-uint16_t lastbang;
+uint32_t lastbang;
 int8_t lastnote = NO_NOTE;
 uint16_t timeout = 40;
 uint16_t duration = 200;
@@ -112,7 +112,7 @@ uint16_t duration = 200;
 #define min(a,b) ((a)<(b)?(a):(b))
 
 void loop(){
-  uint16_t now = millis();
+  uint32_t now = millis();
   uint16_t threshold = getAnalogValue(HARMELODIUM_FADER_CONTROL);
   uint16_t bang = getAnalogValue(HARMELODIUM_PIEZO_CONTROL);
   if(bang > threshold && now > lastbang + timeout){
