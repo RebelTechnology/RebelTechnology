@@ -28,9 +28,16 @@ public:
   float frequency;
   float minimum;
   float maximum;
-  virtual void start(){}
-  virtual void stop(){}
-//   virtual bool isStopped(){return true;}
+  bool running;
+  virtual void start(){
+    running = true;
+  }
+  virtual void stop(){
+    running = false;
+  }
+  bool isStopped(){
+    return !running;
+  }
   virtual void setFrequency(float f){
     frequency = f;
     updateFrequency();
@@ -53,47 +60,40 @@ public:
   void setMidiNote(uint8_t note){
     setFrequency(midiToFreq(note));
   }
+#ifdef SERIAL_DEBUG
+  virtual void dump(){
+    printString("f ");
+    printInteger(frequency);
+    printString(", d ");
+    printInteger(duty*255);
+    if(isStopped())
+      printString(" stopped");
+  }
+#endif
 protected:
   virtual void updateFrequency(){}
   virtual void updateDutyCycle(){} 
 };
 
-// enum ClockedTimerState {
-//   STOPPED_LOW = 0,
-//   STOPPED_HIGH = 1,
-//   RUNNING_LOW = 2,
-//   RUNNING_HIGH = 3
-// };
-
 class ClockedTimer : public Timer {
 private:
-  volatile bool running;
   volatile uint16_t time;
   uint16_t period;
   uint16_t duration;
 public:
-  ClockedTimer() : running(false) {
+  ClockedTimer() {
     minimum = CLOCKED_TIMER_MIN_FREQUENCY;
     maximum = CLOCKED_TIMER_MAX_FREQUENCY;
   }
-  virtual void start(){
+  void start(){
     time = 0;
     running = true;
   }
-  virtual void stop(){
-    running = false;
-  }
-  virtual bool isStopped(){
-    return running;
-  }
   void clock(){
-//     state = (ClockedTimerState)(state | isOn());
-//     switch(state){
-//     }    
     if(running){
       if(++time > period){
-	  time = 0;
-	  on();
+	time = 0;
+	on();
       }else if(time > duration){
 	off();
       }else{
@@ -113,12 +113,17 @@ public:
   }
   virtual void on(){}
   virtual void off(){}
-  // set the frequency as a percentage of max speed, 0.0-1.0
-//   virtual void setRate(float r){
-//     r *= CLOCKED_TIMER_MAX_FREQUENCY;
-//     r = max(CLOCKED_TIMER_MIN_FREQUENCY, r);
-//     setFrequency(r);    
-//   }
+#ifdef SERIAL_DEBUG
+  virtual void dump(){
+    Timer::dump();
+    printString(", t ");
+    printInteger(time);
+    printString(", p ");
+    printInteger(period);
+    printString(", d ");
+    printInteger(duration);
+  }
+#endif
 };
 
 #endif /* _TIMER_H_ */

@@ -1,3 +1,8 @@
+#define SERIAL_DEBUG
+#ifdef SERIAL_DEBUG
+#include "serial.h"
+#endif // SERIAL_DEBUG
+
 #include <inttypes.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -6,12 +11,6 @@
 #include "HardwareTimer.h"
 #include "adc_freerunner.h"
 #include "ContinuousController.h"
-
-#define SERIAL_DEBUG
-
-#ifdef SERIAL_DEBUG
-#include "serial.h"
-#endif // SERIAL_DEBUG
 
 // #define GENERATOR_TOP_FREQUENCY 31250
 #define GENERATOR_TOP_FREQUENCY 15625
@@ -42,9 +41,6 @@ public:
   Timer* timer;
   virtual void hasChanged(float v){
     timer->setRate(v);
-#ifdef SERIAL_DEBUG
-    printByte('|');
-#endif
   }
 };
 
@@ -55,9 +51,6 @@ public:
   virtual void hasChanged(float v){
     v = other->value*v*2;
     timer->setRate(v);
-#ifdef SERIAL_DEBUG
-    printByte('*');
-#endif
   }
 };
 
@@ -66,9 +59,6 @@ public:
   Timer* timer;
   virtual void hasChanged(float v){
     timer->setDutyCycle(v);
-#ifdef SERIAL_DEBUG
-    printByte('-');
-#endif
   }
 };
 
@@ -90,6 +80,11 @@ void setup(){
   GENERATOR_SWITCH_PORT |= _BV(GENERATOR_SWITCH_PIN_A);
   GENERATOR_SWITCH_DDR &= ~_BV(GENERATOR_SWITCH_PIN_B);
   GENERATOR_SWITCH_PORT |= _BV(GENERATOR_SWITCH_PIN_B);
+
+  TIMER1_DDR_A |= _BV(TIMER1_OUTPUT_A);
+  TIMER1_DDR_B |= _BV(TIMER1_OUTPUT_B);
+  TIMER2_DDR_A |= _BV(TIMER2_OUTPUT_A);
+  TIMER2_DDR_B |= _BV(TIMER2_OUTPUT_B);
 
   // configure Timer 0 to Fast PWM, 0xff top.
   TCCR0A |= _BV(WGM01) | _BV(WGM00);
@@ -126,21 +121,26 @@ void setup(){
   printString("hello\n");
 #endif
 
+  timer0.stop();
   timer1.start();
   timer2.start();
 }
 
 #define RATE_C_CUTOFF_FREQUENCY 256
 
+bool isCutoff(){
+  return timer0.frequency > RATE_C_CUTOFF_FREQUENCY;
+}
+
 void loop(){
   rateB.update(getAnalogValue(GENERATOR_RATE_B_CONTROL));
   rateC.update(getAnalogValue(GENERATOR_RATE_B_CONTROL));
-  if(timer0.frequency < RATE_C_CUTOFF_FREQUENCY && timer0.isStopped()){
-    timer2.stop();
-    timer0.start();
-  }else if(timer2.isStopped()){
+  if(isCutoff() && timer2.isStopped()){
     timer0.stop();
     timer2.start();
+  }else if(timer0.isStopped()){
+    timer2.stop();
+    timer0.start();
   }
   if(isChained()){
     rateAB.update(getAnalogValue(GENERATOR_RATE_A_CONTROL));
@@ -161,35 +161,25 @@ void loop(){
   if(serialAvailable() > 0){
     serialRead();
     printString("0: [");
-    printInteger(timer0.frequency);
-    printString(", ");
-    printInteger(timer0.duty*255);
-    if(timer0.isStopped())
-      printString(" stopped");
+    timer0.dump();
     printString("] ");
     printString("1: [");
-    printInteger(timer1.frequency);
-    printString(", ");
-    printInteger(timer1.duty*255);
-    if(timer1.isStopped())
-      printString(" stopped");
+    timer1.dump();
     printString("] ");
     printString("2: [");
-    printInteger(timer2.frequency);
-    printString(", ");
-    printInteger(timer2.duty*255);
-    if(timer2.isStopped())
-      printString(" stopped");
+    timer2.dump();
     printString("] ");
     if(isChained())
       printString(" chained ");
     if(isFree())
       printString(" free ");
+    if(isCutoff())
+      printString(" cutoff ");
     printNewline();
   }
 #endif
 }
 
-ISR(TIMER1_OVF_vect){
+ISR(TIMER0_OVF_vect){
   timer0.clock();
 }
