@@ -3,6 +3,7 @@
 #include <avr/interrupt.h>
 #include "device.h"
 #include "Timer.h"
+#include "HardwareTimer.h"
 #include "adc_freerunner.h"
 #include "ContinuousController.h"
 
