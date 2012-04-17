@@ -19,8 +19,8 @@ static uint16_t timer2prescalers[] = {1, 8, 32, 64, 128, 256, 1024};
 #define TIMER2_MAX_FREQUENCY 15625.0 // artificial upperlimit
 
 #define CLOCKED_TIMER_MIN_FREQUENCY 0
-#define CLOCKED_TIMER_MAX_FREQUENCY 1000.0
-#define CLOCKED_TIMER_FREQUENCY_MULTIPLIER 1000
+#define CLOCKED_TIMER_MAX_FREQUENCY 1024.0
+#define CLOCKED_TIMER_FREQUENCY_MULTIPLIER 1024
 
 class Timer {
 public:
@@ -67,8 +67,8 @@ protected:
 
 class ClockedTimer : public Timer {
 private:
-  int running;
-  uint16_t time;
+  volatile bool running;
+  volatile uint16_t time;
   uint16_t period;
   uint16_t duration;
 public:
@@ -104,6 +104,8 @@ public:
     }
   }
   void updateFrequency(){
+    if(frequency <= 0)
+      frequency += 0.00001;
     period = (uint16_t)(CLOCKED_TIMER_FREQUENCY_MULTIPLIER/frequency);
   }
   void updateDutyCycle(){

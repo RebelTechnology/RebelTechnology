@@ -3,7 +3,7 @@
 #define GENERATOR_DUTY_A_CONTROL            1
 #define GENERATOR_RATE_B_CONTROL            0
 
-#define GENERATOR_SWITCH_DDR               DDRB
+#define GENERATOR_SWITCH_DDR                DDRB
 #define GENERATOR_SWITCH_PINS               PINB
 #define GENERATOR_SWITCH_PORT               PORTB
 #define GENERATOR_SWITCH_PIN_A              PORTB4
@@ -22,5 +22,12 @@
 #define TIMER2_DDR_B                        DDRB
 #define TIMER2_PORT_B                       PORTB
 #define TIMER2_OUTPUT_B                     PORTB2
+
+#define TIMER0_DDR_A                        DDRB
+#define TIMER0_PORT_A                       PORTB
+#define TIMER0_OUTPUT_A                     PORTB1
+#define TIMER0_DDR_B                        DDRB
+#define TIMER0_PORT_B                       PORTB
+#define TIMER0_OUTPUT_B                     PORTB2
 
 

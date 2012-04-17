@@ -2,6 +2,7 @@
 #define _HARDWARE_TIMER_H_
 
 #include "Timer.h"
+#include "device.h"
 
 class HardwareTimer : public Timer {
 public:
