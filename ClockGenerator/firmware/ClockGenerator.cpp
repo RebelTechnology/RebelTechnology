@@ -17,14 +17,17 @@
 
 #define GENERATOR_CONTROLLER_DELTA 0.001
 
+// #define RATE_C_CUTOFF_FREQUENCY 256
+#define RATE_C_CUTOFF_FREQUENCY 2045 // todo: change, check prescaler
+
 class Timer0 : public ClockedTimer {
   void on(){
-    TIMER0_PORT_A |= _BV(TIMER0_OUTPUT_A);
-    TIMER0_PORT_B |= _BV(TIMER0_OUTPUT_B);
+    TIMER0_PORT_B &= ~_BV(TIMER0_OUTPUT_B); // clock inverted
+    TIMER0_PORT_A |= _BV(TIMER0_OUTPUT_A); // LED on
   }
   void off(){
+    TIMER0_PORT_B |= _BV(TIMER0_OUTPUT_B);
     TIMER0_PORT_A &= ~_BV(TIMER0_OUTPUT_A);
-    TIMER0_PORT_B &= ~_BV(TIMER0_OUTPUT_B);
   }
 };
 
@@ -64,7 +67,7 @@ public:
 
 Timer1 timer1; // 16-bit Timer/Counter 1
 Timer2 timer2; // 8-bit Timer/Counter 2
-ClockedTimer timer0; // manually triggered from Timer0 interrupt
+Timer0 timer0; // manually triggered from Timer0 interrupt
 
 FrequencyController rateA;
 DutyCycleController dutyA;
@@ -88,17 +91,19 @@ void setup(){
 
   // configure Timer 0 to Fast PWM, 0xff top.
   TCCR0A |= _BV(WGM01) | _BV(WGM00);
-  // set timer 0 prescale factor to 64
-  TCCR0B |= _BV(CS01) | _BV(CS00);
+//   TCCR0B |= _BV(CS01) | _BV(CS00); // prescaler: 64
+  TCCR0B |= _BV(CS01);  // prescaler: 8
   // enable timer 0 overflow interrupt
   TIMSK0 |= _BV(TOIE0);
 
   timer0.setDutyCycle(0.5);
+  timer0.maximum = RATE_C_CUTOFF_FREQUENCY; // todo: remove
   timer1.setDutyCycle(0.5);
   timer2.setDutyCycle(0.5);
 
   rateA.timer = &timer1;
-  dutyA.timer = &timer1;
+//   dutyA.timer = &timer1;
+  dutyA.timer = &timer2;
   rateB.timer = &timer2;
   rateAB.timer = &timer1;
   rateAB.other = &rateB;
@@ -125,8 +130,6 @@ void setup(){
   timer1.start();
   timer2.start();
 }
-
-#define RATE_C_CUTOFF_FREQUENCY 256
 
 bool isCutoff(){
   return timer0.frequency > RATE_C_CUTOFF_FREQUENCY;
@@ -156,6 +159,7 @@ void loop(){
     rateAB.value = -1.0;
   }
   dutyA.update(getAnalogValue(GENERATOR_DUTY_A_CONTROL));
+  dutyC.update(getAnalogValue(GENERATOR_DUTY_A_CONTROL));
 
 #ifdef SERIAL_DEBUG
   if(serialAvailable() > 0){

@@ -4,6 +4,11 @@
 #include "Timer.h"
 #include "device.h"
 
+#define FREQ_CONSTANT (F_CPU / 2)
+static uint16_t timer0prescalers[] = {1, 8, 64, 256, 1024};
+static uint16_t timer1prescalers[] = {1, 8, 64, 256, 1024};
+static uint16_t timer2prescalers[] = {1, 8, 32, 64, 128, 256, 1024};
+
 class HardwareTimer : public Timer {
 public:
   virtual void setPrescaler(uint8_t divisor){}
@@ -36,7 +41,8 @@ public:
   }
   void start(){
     // WGM10 | WGM11 | WGM13 : PWM, Phase Correct, OCR1A top, mode 11
-    TCCR1A = _BV(COM1A1) | _BV(COM1A0) | _BV(COM1B1) | _BV(COM1B0) | _BV(WGM11) | _BV(WGM10);
+//     TCCR1A = _BV(COM1A1) | _BV(COM1A0) | _BV(COM1B1) | _BV(COM1B0) | _BV(WGM11) | _BV(WGM10);
+    TCCR1A = _BV(COM1A1) | _BV(COM1B1) | _BV(WGM11) | _BV(WGM10);
     running = true;
   }
   void stop(){

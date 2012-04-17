@@ -6,21 +6,19 @@
 #include <math.h>
 #include <inttypes.h>
 
-#define FREQ_CONSTANT (F_CPU / 2)
-static uint16_t timer1prescalers[] = {1, 8, 64, 256, 1024};
-static uint16_t timer2prescalers[] = {1, 8, 32, 64, 128, 256, 1024};
-
 #define TIMER1_MAX_TOP_VALUE 65535
 #define TIMER2_MAX_TOP_VALUE 255
 
 #define TIMER1_MIN_FREQUENCY 0.12
 #define TIMER1_MAX_FREQUENCY 15625.0 // artificial upper limit
 #define TIMER2_MIN_FREQUENCY 30.64
-#define TIMER2_MAX_FREQUENCY 15625.0 // artificial upperlimit
+#define TIMER2_MAX_FREQUENCY 8192.0 // artificial upperlimit
+// #define TIMER2_MAX_FREQUENCY 15625.0 // artificial upperlimit
 
 #define CLOCKED_TIMER_MIN_FREQUENCY 0
-#define CLOCKED_TIMER_MAX_FREQUENCY 1024.0
-#define CLOCKED_TIMER_FREQUENCY_MULTIPLIER 1024
+#define CLOCKED_TIMER_MAX_FREQUENCY TIMER2_MAX_FREQUENCY
+// #define CLOCKED_TIMER_FREQUENCY_MULTIPLIER 1024
+#define CLOCKED_TIMER_FREQUENCY_MULTIPLIER (1024*8)
 
 class Timer {
 public:
