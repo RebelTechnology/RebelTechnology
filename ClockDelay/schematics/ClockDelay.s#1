@@ -3359,11 +3359,10 @@ type RDH, grid 15 mm</description>
 <wire x1="-5" y1="-3.135" x2="-5" y2="-5" width="0.127" layer="21"/>
 <wire x1="-5" y1="-5" x2="-1.27" y2="-5" width="0.127" layer="21"/>
 <wire x1="2.635" y1="-5" x2="4" y2="-5" width="0.127" layer="21"/>
-<pad name="P$1" x="-3.8" y="-1.4" drill="3" diameter="3" shape="octagon"/>
-<pad name="P$2" x="1" y="4.4" drill="3" diameter="3" shape="octagon"/>
-<pad name="P$3" x="0.9" y="-3.7" drill="3" diameter="3" shape="octagon" rot="R90"/>
-<text x="-5" y="7" size="1.27" layer="25">&gt;NAME</text>
-<text x="-5" y="-8" size="1.27" layer="27">&gt;VALUE</text>
+<pad name="P$1" x="-3.8" y="-1.4" drill="2.8" shape="octagon"/>
+<pad name="P$2" x="1" y="4.4" drill="2.8" shape="octagon"/>
+<pad name="P$3" x="0.9" y="-3.7" drill="2.8" shape="octagon" rot="R90"/>
+<text x="-5" y="0.65" size="1.27" layer="25" font="vector">&gt;NAME</text>
 </package>
 <package name="POT-ALPS-RK09L1140">
 <circle x="0" y="0" radius="3" width="0.127" layer="51"/>
@@ -3386,10 +3385,10 @@ type RDH, grid 15 mm</description>
 <pad name="3" x="2.5" y="-7.5" drill="1" diameter="1.9304" rot="R90"/>
 <pad name="2" x="0" y="-7.5" drill="1" diameter="1.9304" rot="R270"/>
 <pad name="1" x="-2.5" y="-7.5" drill="1" diameter="1.9304" rot="R90"/>
-<text x="-3.35" y="6.16" size="1.27" layer="25" font="vector">&gt;NAME</text>
+<text x="-3.35" y="3.62" size="1.27" layer="25" font="vector">&gt;NAME</text>
 <text x="3.35" y="-3.11" size="1.27" layer="27" font="vector" rot="R180">&gt;VALUE</text>
-<pad name="P$5" x="-4.5" y="0" drill="2.032" diameter="4"/>
-<pad name="P$6" x="4.5" y="0" drill="2.032" diameter="4" rot="R90"/>
+<pad name="P$5" x="-4.5" y="0" drill="2" shape="octagon"/>
+<pad name="P$6" x="4.5" y="0" drill="2" shape="octagon" rot="R90"/>
 </package>
 <package name="SWITCH-SPDT">
 <wire x1="-3.6" y1="6.35" x2="-3.6" y2="-6.35" width="0.2032" layer="21"/>
@@ -3573,11 +3572,10 @@ Through-hole SPDT Switch&lt;br&gt;
 <package name="SWITCH-SPDT-SALECOM-T8014">
 <wire x1="-3.6" y1="6.35" x2="-3.6" y2="-6.35" width="0.2032" layer="21"/>
 <wire x1="3.6" y1="-6.35" x2="3.6" y2="6.35" width="0.2032" layer="21"/>
-<pad name="1" x="0" y="4.699" drill="2.54" diameter="2.54" shape="long"/>
-<pad name="2" x="0" y="0" drill="2.54" diameter="2.54" shape="long"/>
-<pad name="3" x="0" y="-4.699" drill="2.54" diameter="2.54" shape="long"/>
-<text x="-3.81" y="7.62" size="1.778" layer="25" ratio="10">&gt;NAME</text>
-<text x="-3.81" y="-9.525" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
+<pad name="1" x="0" y="4.699" drill="2.2" shape="octagon"/>
+<pad name="2" x="0" y="0" drill="2.2" shape="octagon"/>
+<pad name="3" x="0" y="-4.699" drill="2.2" shape="octagon"/>
+<text x="-3.81" y="7.62" size="1.27" layer="25" font="vector" ratio="10">&gt;NAME</text>
 <wire x1="-3.6" y1="6.35" x2="-1.905" y2="6.35" width="0.2032" layer="21"/>
 <wire x1="1.905" y1="6.35" x2="3.6" y2="6.35" width="0.2032" layer="21"/>
 <wire x1="1.905" y1="-6.35" x2="3.6" y2="-6.35" width="0.2032" layer="21"/>
@@ -3593,10 +3591,10 @@ Through-hole SPDT Switch&lt;br&gt;
 <pad name="3" x="2.5" y="-0.036" drill="1" diameter="1.9304" rot="R90"/>
 <pad name="2" x="0" y="-0.036" drill="1" diameter="1.9304" rot="R270"/>
 <pad name="1" x="-2.5" y="-0.036" drill="1" diameter="1.9304" rot="R90"/>
-<text x="-3.35" y="6.414" size="1.27" layer="25" font="vector">&gt;NAME</text>
-<text x="3.35" y="-4.126" size="1.27" layer="27" font="vector" rot="R180">&gt;VALUE</text>
-<pad name="SHLD1" x="-4.5" y="4.1" drill="2.032" diameter="4"/>
-<pad name="SHLD2" x="4.5" y="4.1" drill="2.032" diameter="4" rot="R90"/>
+<text x="-3.35" y="-5.016" size="1.27" layer="25" font="vector">&gt;NAME</text>
+<text x="3.35" y="-7.936" size="1.27" layer="27" font="vector" rot="R180">&gt;VALUE</text>
+<pad name="SHLD1" x="-4.5" y="4.1" drill="2" shape="octagon"/>
+<pad name="SHLD2" x="4.5" y="4.1" drill="2" shape="octagon" rot="R90"/>
 <wire x1="-4.5" y1="-5.936" x2="-4.5" y2="-10.936" width="0.127" layer="21"/>
 <wire x1="-4.5" y1="-10.936" x2="-3" y2="-10.936" width="0.127" layer="21"/>
 <wire x1="-3" y1="-10.936" x2="3" y2="-10.936" width="0.127" layer="21"/>

@@ -19889,7 +19889,7 @@ high speed (Philips)</description>
 </classes>
 <parts>
 <part name="IC1" library="linear" deviceset="TL072" device="P"/>
-<part name="R102" library="resistor" deviceset="R-EU_" device="0204/7" value="50K"/>
+<part name="R102" library="resistor" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="R101" library="resistor" deviceset="R-EU_" device="0204/7" value="120K"/>
 <part name="R103" library="resistor" deviceset="R-EU_" device="0204/7" value="100K"/>
 <part name="R104" library="resistor" deviceset="R-EU_" device="0204/7" value="220"/>
@@ -19903,7 +19903,7 @@ high speed (Philips)</description>
 <part name="D101" library="diode" deviceset="1N4148" device="DO35-7"/>
 <part name="P+1" library="supply1" deviceset="+12V" device=""/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
-<part name="R202" library="resistor" deviceset="R-EU_" device="0204/7" value="50K"/>
+<part name="R202" library="resistor" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="R201" library="resistor" deviceset="R-EU_" device="0204/7" value="120K"/>
 <part name="R203" library="resistor" deviceset="R-EU_" device="0204/7" value="100K"/>
 <part name="R204" library="resistor" deviceset="R-EU_" device="0204/7" value="220"/>

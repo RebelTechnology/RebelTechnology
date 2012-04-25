@@ -2979,13 +2979,13 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 </autorouter>
 <elements>
 <element name="IC1" library="linear" package="DIL08" value="TL072P" x="53.975" y="37.465" rot="R180"/>
-<element name="R102" library="resistor" package="0204/7" value="50K" x="69.215" y="49.53"/>
+<element name="R102" library="resistor" package="0204/7" value="51K" x="69.215" y="49.53"/>
 <element name="R101" library="resistor" package="0204/7" value="120K" x="59.055" y="46.355" rot="R180"/>
 <element name="R103" library="resistor" package="0204/7" value="100K" x="59.055" y="49.53" rot="R180"/>
 <element name="R104" library="resistor" package="0204/7" value="220" x="78.74" y="49.53"/>
 <element name="DIVIN" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="31.75" y="38.1" locked="yes" rot="R90"/>
 <element name="D101" library="diode" package="DO35-7" value="1N4148DO35-7" x="69.215" y="46.355"/>
-<element name="R202" library="resistor" package="0204/7" value="50K" x="77.47" y="1.905"/>
+<element name="R202" library="resistor" package="0204/7" value="51K" x="77.47" y="1.905"/>
 <element name="R201" library="resistor" package="0204/7" value="120K" x="77.47" y="4.445" rot="R180"/>
 <element name="R203" library="resistor" package="0204/7" value="100K" x="67.31" y="1.905" rot="R180"/>
 <element name="R204" library="resistor" package="0204/7" value="220" x="67.31" y="4.445"/>
