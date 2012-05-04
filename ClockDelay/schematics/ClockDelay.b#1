@@ -2979,13 +2979,13 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 </autorouter>
 <elements>
 <element name="IC1" library="linear" package="DIL08" value="TL072P" x="53.975" y="37.465" rot="R180"/>
-<element name="R102" library="resistor" package="0204/7" value="50K" x="69.215" y="49.53"/>
+<element name="R102" library="resistor" package="0204/7" value="51K" x="69.215" y="49.53"/>
 <element name="R101" library="resistor" package="0204/7" value="120K" x="59.055" y="46.355" rot="R180"/>
 <element name="R103" library="resistor" package="0204/7" value="100K" x="59.055" y="49.53" rot="R180"/>
 <element name="R104" library="resistor" package="0204/7" value="220" x="78.74" y="49.53"/>
 <element name="DIVIN" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="31.75" y="38.1" locked="yes" rot="R90"/>
 <element name="D101" library="diode" package="DO35-7" value="1N4148DO35-7" x="69.215" y="46.355"/>
-<element name="R202" library="resistor" package="0204/7" value="50K" x="77.47" y="1.905"/>
+<element name="R202" library="resistor" package="0204/7" value="51K" x="77.47" y="1.905"/>
 <element name="R201" library="resistor" package="0204/7" value="120K" x="77.47" y="4.445" rot="R180"/>
 <element name="R203" library="resistor" package="0204/7" value="100K" x="67.31" y="1.905" rot="R180"/>
 <element name="R204" library="resistor" package="0204/7" value="220" x="67.31" y="4.445"/>
@@ -3161,15 +3161,12 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <wire x1="1.27" y1="2.54" x2="1.27" y2="3.81" width="0.6096" layer="16"/>
 <wire x1="17.78" y1="20.32" x2="17.78" y2="24.13" width="0.6096" layer="1"/>
 <wire x1="17.78" y1="24.13" x2="18.415" y2="24.765" width="0.6096" layer="1"/>
-<wire x1="18.415" y1="24.765" x2="18.415" y2="28.575" width="0.6096" layer="1"/>
-<wire x1="18.415" y1="28.575" x2="20.32" y2="30.48" width="0.6096" layer="1"/>
+<wire x1="18.415" y1="24.765" x2="18.415" y2="29.845" width="0.6096" layer="1"/>
 <wire x1="57.785" y1="33.655" x2="56.515" y2="32.385" width="0.6096" layer="1"/>
 <wire x1="56.515" y1="32.385" x2="49.53" y2="32.385" width="0.6096" layer="1"/>
 <wire x1="49.53" y1="32.385" x2="48.26" y2="31.115" width="0.6096" layer="1"/>
-<wire x1="48.26" y1="31.115" x2="20.955" y2="31.115" width="0.6096" layer="1"/>
+<wire x1="48.26" y1="31.115" x2="19.685" y2="31.115" width="0.6096" layer="1"/>
 <wire x1="17.78" y1="40.64" x2="17.78" y2="33.02" width="0.6096" layer="1"/>
-<wire x1="17.78" y1="33.02" x2="20.32" y2="30.48" width="0.6096" layer="1"/>
-<wire x1="20.32" y1="30.48" x2="20.955" y2="31.115" width="0.6096" layer="1"/>
 <wire x1="69.215" y1="13.97" x2="77.47" y2="13.97" width="0.6096" layer="1"/>
 <wire x1="77.47" y1="13.97" x2="81.28" y2="10.16" width="0.6096" layer="1"/>
 <wire x1="81.4" y1="10.2" x2="81.36" y2="10.16" width="0.6096" layer="1"/>
@@ -3178,6 +3175,8 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <wire x1="65.405" y1="33.655" x2="68.58" y2="36.83" width="0.6096" layer="1"/>
 <wire x1="68.58" y1="36.83" x2="71.12" y2="36.83" width="0.6096" layer="1"/>
 <wire x1="71.12" y1="36.83" x2="72.35" y2="35.6" width="0.6096" layer="1"/>
+<wire x1="19.685" y1="31.115" x2="17.78" y2="33.02" width="0.6096" layer="1"/>
+<wire x1="19.685" y1="31.115" x2="18.415" y2="29.845" width="0.6096" layer="1"/>
 </signal>
 <signal name="N$2">
 <contactref element="IC1" pad="2"/>
