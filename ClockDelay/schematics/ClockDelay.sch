@@ -3604,6 +3604,101 @@ Through-hole SPDT Switch&lt;br&gt;
 <wire x1="-3" y1="-20.936" x2="3" y2="-20.936" width="0.127" layer="21"/>
 <wire x1="3" y1="-20.936" x2="3" y2="-10.936" width="0.127" layer="21"/>
 </package>
+<package name="LED3MM">
+<description>&lt;B&gt;LED&lt;/B&gt;&lt;p&gt;
+3 mm, round</description>
+<wire x1="1.27" y1="-1.4732" x2="1.27" y2="1.4732" width="0.254" layer="51"/>
+<wire x1="-1.524" y1="0" x2="-1.1708" y2="0.9756" width="0.1524" layer="51" curve="-39.80361"/>
+<wire x1="-1.524" y1="0" x2="-1.1391" y2="-1.0125" width="0.1524" layer="51" curve="41.633208"/>
+<wire x1="0" y1="1.524" x2="1.2401" y2="0.8858" width="0.1524" layer="21" curve="-54.461337"/>
+<wire x1="-1.2192" y1="0.9144" x2="0" y2="1.524" width="0.1524" layer="21" curve="-53.130102"/>
+<wire x1="0" y1="-1.524" x2="1.203" y2="-0.9356" width="0.1524" layer="21" curve="52.126876"/>
+<wire x1="-1.203" y1="-0.9356" x2="0" y2="-1.524" width="0.1524" layer="21" curve="52.126876"/>
+<wire x1="-0.635" y1="0" x2="0" y2="0.635" width="0.1524" layer="51" curve="-90"/>
+<wire x1="-1.016" y1="0" x2="0" y2="1.016" width="0.1524" layer="51" curve="-90"/>
+<wire x1="0" y1="-0.635" x2="0.635" y2="0" width="0.1524" layer="51" curve="90"/>
+<wire x1="0" y1="-1.016" x2="1.016" y2="0" width="0.1524" layer="51" curve="90"/>
+<wire x1="0" y1="2.032" x2="1.27" y2="1.4732" width="0.254" layer="21" curve="-50.1931"/>
+<wire x1="-1.7929" y1="0.9562" x2="0" y2="2.032" width="0.254" layer="21" curve="-61.926949"/>
+<wire x1="0" y1="-2.032" x2="1.27" y2="-1.4732" width="0.254" layer="21" curve="49.763"/>
+<wire x1="-1.7643" y1="-1.0082" x2="0" y2="-2.032" width="0.254" layer="21" curve="60.255215"/>
+<wire x1="-2.032" y1="0" x2="-1.7891" y2="0.9634" width="0.254" layer="51" curve="-28.301701"/>
+<wire x1="-2.032" y1="0" x2="-1.7306" y2="-1.065" width="0.254" layer="51" curve="31.60822"/>
+<pad name="A" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="K" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<text x="-2.286" y="-1.905" size="1.016" layer="25" font="vector" ratio="10" rot="R90">&gt;NAME</text>
+<text x="2.921" y="-1.905" size="0.6096" layer="27" font="vector" ratio="10" rot="R90">&gt;VALUE</text>
+</package>
+<package name="0204/7">
+<description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
+type 0204, grid 7.5 mm</description>
+<wire x1="3.81" y1="0" x2="2.921" y2="0" width="0.508" layer="51"/>
+<wire x1="-3.81" y1="0" x2="-2.921" y2="0" width="0.508" layer="51"/>
+<wire x1="-2.54" y1="0.762" x2="-2.286" y2="1.016" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-2.54" y1="-0.762" x2="-2.286" y2="-1.016" width="0.1524" layer="21" curve="90"/>
+<wire x1="2.286" y1="-1.016" x2="2.54" y2="-0.762" width="0.1524" layer="21" curve="90"/>
+<wire x1="2.286" y1="1.016" x2="2.54" y2="0.762" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-2.54" y1="-0.762" x2="-2.54" y2="0.762" width="0.1524" layer="21"/>
+<wire x1="-2.286" y1="1.016" x2="-1.905" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-1.778" y1="0.889" x2="-1.905" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-2.286" y1="-1.016" x2="-1.905" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="-1.778" y1="-0.889" x2="-1.905" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="1.778" y1="0.889" x2="1.905" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="1.778" y1="0.889" x2="-1.778" y2="0.889" width="0.1524" layer="21"/>
+<wire x1="1.778" y1="-0.889" x2="1.905" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="1.778" y1="-0.889" x2="-1.778" y2="-0.889" width="0.1524" layer="21"/>
+<wire x1="2.286" y1="1.016" x2="1.905" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="2.286" y1="-1.016" x2="1.905" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="2.54" y1="-0.762" x2="2.54" y2="0.762" width="0.1524" layer="21"/>
+<pad name="1" x="-3.81" y="0" drill="0.8128" shape="octagon"/>
+<pad name="2" x="3.81" y="0" drill="0.8128" shape="octagon"/>
+<text x="-1.6256" y="-0.4826" size="1.016" layer="25" font="vector" ratio="10">&gt;NAME</text>
+<rectangle x1="2.54" y1="-0.254" x2="2.921" y2="0.254" layer="21"/>
+<rectangle x1="-2.921" y1="-0.254" x2="-2.54" y2="0.254" layer="21"/>
+<text x="-2.54" y="1.2954" size="1.016" layer="27" font="vector" ratio="10">&gt;VALUE</text>
+</package>
+<package name="PTC">
+<wire x1="-3.81" y1="1.524" x2="3.81" y2="1.524" width="0.2032" layer="21"/>
+<wire x1="3.81" y1="1.524" x2="3.81" y2="-1.524" width="0.2032" layer="21"/>
+<wire x1="3.81" y1="-1.524" x2="-3.81" y2="-1.524" width="0.2032" layer="21"/>
+<wire x1="-3.81" y1="-1.524" x2="-3.81" y2="1.524" width="0.2032" layer="21"/>
+<pad name="P$1" x="-2.54" y="0" drill="0.8" diameter="1.8796"/>
+<pad name="P$2" x="2.54" y="0" drill="0.8" diameter="1.8796"/>
+<text x="0" y="0" size="1.016" layer="25" font="vector" align="center">&gt;Name</text>
+<text x="-3.81" y="-2.14" size="0.4318" layer="27">&gt;Value</text>
+</package>
+<package name="DIODE-1N4001">
+<wire x1="3.175" y1="1.27" x2="1.905" y2="1.27" width="0.254" layer="21"/>
+<wire x1="1.905" y1="1.27" x2="-3.175" y2="1.27" width="0.254" layer="21"/>
+<wire x1="-3.175" y1="1.27" x2="-3.175" y2="0" width="0.254" layer="21"/>
+<wire x1="-3.175" y1="0" x2="-3.175" y2="-1.27" width="0.254" layer="21"/>
+<wire x1="-3.175" y1="-1.27" x2="1.905" y2="-1.27" width="0.254" layer="21"/>
+<wire x1="1.905" y1="-1.27" x2="3.175" y2="-1.27" width="0.254" layer="21"/>
+<wire x1="3.175" y1="-1.27" x2="3.175" y2="0" width="0.254" layer="21"/>
+<wire x1="3.175" y1="0" x2="3.175" y2="1.27" width="0.254" layer="21"/>
+<wire x1="1.905" y1="1.27" x2="1.905" y2="-1.27" width="0.254" layer="21"/>
+<wire x1="-3.175" y1="0" x2="-3.81" y2="0" width="0.254" layer="21"/>
+<wire x1="3.175" y1="0" x2="3.81" y2="0" width="0.254" layer="21"/>
+<pad name="A" x="-5.08" y="0" drill="1" diameter="1.9812"/>
+<pad name="C" x="5.08" y="0" drill="1" diameter="1.9812"/>
+<text x="0" y="0" size="1.016" layer="25" font="vector" align="center">&gt;Name</text>
+<text x="-2.921" y="1.651" size="0.6096" layer="21" font="vector" ratio="12">&gt;Value</text>
+</package>
+<package name="DIODE-1N4148">
+<wire x1="-1.905" y1="0.762" x2="1.905" y2="0.762" width="0.2032" layer="21"/>
+<wire x1="1.905" y1="0.762" x2="1.905" y2="0" width="0.2032" layer="21"/>
+<wire x1="1.905" y1="0" x2="1.905" y2="-0.762" width="0.2032" layer="21"/>
+<wire x1="1.905" y1="-0.762" x2="-1.905" y2="-0.762" width="0.2032" layer="21"/>
+<wire x1="-1.905" y1="-0.762" x2="-1.905" y2="0" width="0.2032" layer="21"/>
+<wire x1="-1.905" y1="0" x2="-1.905" y2="0.762" width="0.2032" layer="21"/>
+<wire x1="1.905" y1="0" x2="2.794" y2="0" width="0.2032" layer="21"/>
+<wire x1="-1.905" y1="0" x2="-2.794" y2="0" width="0.2032" layer="21"/>
+<wire x1="1.27" y1="0.635" x2="1.27" y2="-0.635" width="0.2032" layer="21"/>
+<pad name="A" x="-3.81" y="0" drill="0.8128"/>
+<pad name="C" x="3.81" y="0" drill="0.8128"/>
+<text x="0" y="0" size="0.8128" layer="25" font="vector" align="center">&gt;Name</text>
+<text x="-2.032" y="1.397" size="0.6096" layer="21" font="vector">&gt;Value</text>
+</package>
 </packages>
 <symbols>
 <symbol name="CON-LUMBERG_JACK-SWITCH">
@@ -3657,6 +3752,64 @@ Through-hole SPDT Switch&lt;br&gt;
 <pin name="P" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
 <pin name="S" x="5.08" y="-2.54" visible="off" length="short" direction="pas" rot="R180"/>
 <pin name="O" x="5.08" y="2.54" visible="off" length="short" direction="pas" rot="R180"/>
+</symbol>
+<symbol name="LED">
+<wire x1="1.27" y1="0" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-2.54" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="-1.27" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="-2.032" y1="-0.762" x2="-3.429" y2="-2.159" width="0.1524" layer="94"/>
+<wire x1="-1.905" y1="-1.905" x2="-3.302" y2="-3.302" width="0.1524" layer="94"/>
+<text x="3.556" y="-4.572" size="1.778" layer="95" rot="R90">&gt;NAME</text>
+<text x="5.715" y="-4.572" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="C" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
+<pin name="A" x="0" y="2.54" visible="off" length="short" direction="pas" rot="R270"/>
+<polygon width="0.1524" layer="94">
+<vertex x="-3.429" y="-2.159"/>
+<vertex x="-3.048" y="-1.27"/>
+<vertex x="-2.54" y="-1.778"/>
+</polygon>
+<polygon width="0.1524" layer="94">
+<vertex x="-3.302" y="-3.302"/>
+<vertex x="-2.921" y="-2.413"/>
+<vertex x="-2.413" y="-2.921"/>
+</polygon>
+</symbol>
+<symbol name="R-EU">
+<wire x1="-2.54" y1="-0.889" x2="2.54" y2="-0.889" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0.889" x2="-2.54" y2="0.889" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-0.889" x2="2.54" y2="0.889" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-0.889" x2="-2.54" y2="0.889" width="0.254" layer="94"/>
+<text x="-3.81" y="1.4986" size="1.778" layer="95">&gt;NAME</text>
+<text x="-3.81" y="-3.302" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+</symbol>
+<symbol name="PTC">
+<wire x1="5.08" y1="1.27" x2="5.08" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-1.27" x2="-2.54" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-1.27" x2="-2.54" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="1.27" x2="5.08" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-1.524" y1="-2.54" x2="3.81" y2="2.54" width="0.254" layer="94"/>
+<wire x1="3.81" y1="2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
+<text x="-2.54" y="3.048" size="1.778" layer="95">&gt;NAME</text>
+<text x="-3.302" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="1" x="-5.08" y="0" visible="off" length="short"/>
+<pin name="2" x="7.62" y="0" visible="off" length="short" rot="R180"/>
+</symbol>
+<symbol name="DIODE">
+<wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
+<text x="2.54" y="0.4826" size="1.778" layer="95">&gt;NAME</text>
+<text x="2.54" y="-2.3114" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
+<pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -3799,6 +3952,86 @@ Simple slide switch. Spark Fun Electronics SKU : COM-00102</description>
 <connect gate="1" pin="O" pad="1"/>
 <connect gate="1" pin="P" pad="2"/>
 <connect gate="1" pin="S" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LED" prefix="LED" uservalue="yes">
+<description>&lt;b&gt;LED&lt;/b&gt;&lt;p&gt;
+</description>
+<gates>
+<gate name="G$1" symbol="LED" x="0" y="0"/>
+</gates>
+<devices>
+<device name="3MM" package="LED3MM">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="K"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="R-EU_" prefix="R" uservalue="yes">
+<description>&lt;B&gt;RESISTOR&lt;/B&gt;, European symbol</description>
+<gates>
+<gate name="G$1" symbol="R-EU" x="0" y="0"/>
+</gates>
+<devices>
+<device name="0204/7" package="0204/7">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="PTC" prefix="F">
+<description>&lt;b&gt;Resettable Fuse PTC&lt;/b&gt;
+Resettable Fuse. Bourns MF-R, Raychem PolySwitch RXE.</description>
+<gates>
+<gate name="G$1" symbol="PTC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="PTH" package="PTC">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+<connect gate="G$1" pin="2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="DIODE" prefix="D" uservalue="yes">
+<description>&lt;b&gt;Diode&lt;/b&gt;
+These are standard reverse protection diodes and small signal diodes. SMA package can handle up to about 1A. SOD-323 can handle about 200mA. Watch the SOD-323 package when ordering, there are some mfgs out there that are 5-pin packages.</description>
+<gates>
+<gate name="G$1" symbol="DIODE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="1N4001" package="DIODE-1N4001">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="1N4148" package="DIODE-1N4148">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -19889,10 +20122,10 @@ high speed (Philips)</description>
 </classes>
 <parts>
 <part name="IC1" library="linear" deviceset="TL072" device="P"/>
-<part name="R102" library="resistor" deviceset="R-EU_" device="0204/7" value="51K"/>
-<part name="R101" library="resistor" deviceset="R-EU_" device="0204/7" value="120K"/>
-<part name="R103" library="resistor" deviceset="R-EU_" device="0204/7" value="100K"/>
-<part name="R104" library="resistor" deviceset="R-EU_" device="0204/7" value="220"/>
+<part name="R102" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
+<part name="R101" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
+<part name="R103" library="Rebel" deviceset="R-EU_" device="0204/7" value="100K"/>
+<part name="R104" library="Rebel" deviceset="R-EU_" device="0204/7" value="220"/>
 <part name="DIVIN" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="+12V" device=""/>
@@ -19900,19 +20133,19 @@ high speed (Philips)</description>
 <part name="P-1" library="supply1" deviceset="-12V" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
-<part name="D101" library="diode" deviceset="1N4148" device="DO35-7"/>
+<part name="D101" library="Rebel" deviceset="DIODE" device="1N4148"/>
 <part name="P+1" library="supply1" deviceset="+12V" device=""/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
-<part name="R202" library="resistor" deviceset="R-EU_" device="0204/7" value="51K"/>
-<part name="R201" library="resistor" deviceset="R-EU_" device="0204/7" value="120K"/>
-<part name="R203" library="resistor" deviceset="R-EU_" device="0204/7" value="100K"/>
-<part name="R204" library="resistor" deviceset="R-EU_" device="0204/7" value="220"/>
+<part name="R202" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
+<part name="R201" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
+<part name="R203" library="Rebel" deviceset="R-EU_" device="0204/7" value="100K"/>
+<part name="R204" library="Rebel" deviceset="R-EU_" device="0204/7" value="220"/>
 <part name="DELIN" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
-<part name="D201" library="diode" deviceset="1N4148" device="DO35-7"/>
+<part name="D201" library="Rebel" deviceset="DIODE" device="1N4148"/>
 <part name="P+5" library="supply1" deviceset="+12V" device=""/>
 <part name="P+6" library="supply1" deviceset="+5V" device=""/>
 <part name="CLKIN" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
@@ -19934,83 +20167,83 @@ high speed (Philips)</description>
 <part name="C1" library="rcl" deviceset="C-US" device="050-024X044" value="100n"/>
 <part name="P+14" library="supply1" deviceset="+5V" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
-<part name="R1" library="rcl" deviceset="R-EU_" device="0204/7" value="10K"/>
+<part name="R1" library="Rebel" deviceset="R-EU_" device="0204/7" value="10K"/>
 <part name="P+15" library="supply1" deviceset="+5V" device=""/>
-<part name="R2" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
-<part name="R3" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
-<part name="R4" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
+<part name="R2" library="Rebel" deviceset="R-EU_" device="0204/7" value="1K"/>
+<part name="R3" library="Rebel" deviceset="R-EU_" device="0204/7" value="1K"/>
+<part name="R4" library="Rebel" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
-<part name="R301" library="rcl" deviceset="R-EU_" device="0204/7" value="100K"/>
-<part name="R303" library="rcl" deviceset="R-EU_" device="0204/7" value="10K"/>
+<part name="R301" library="Rebel" deviceset="R-EU_" device="0204/7" value="100K"/>
+<part name="R303" library="Rebel" deviceset="R-EU_" device="0204/7" value="10K"/>
 <part name="Q601" library="transistor-npn" deviceset="2N3904" device=""/>
-<part name="R601" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
-<part name="R603" library="rcl" deviceset="R-EU_" device="0204/7" value="100"/>
-<part name="R604" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
+<part name="R601" library="Rebel" deviceset="R-EU_" device="0204/7" value="1K"/>
+<part name="R603" library="Rebel" deviceset="R-EU_" device="0204/7" value="100"/>
+<part name="R604" library="Rebel" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
-<part name="R602" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
+<part name="R602" library="Rebel" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="Q301" library="transistor-npn" deviceset="2N3904" device=""/>
 <part name="P+10" library="supply1" deviceset="+5V" device=""/>
-<part name="R302" library="rcl" deviceset="R-EU_" device="0204/7" value="1M"/>
+<part name="R302" library="Rebel" deviceset="R-EU_" device="0204/7" value="1M"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="Q501" library="transistor-npn" deviceset="2N3904" device=""/>
-<part name="R501" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
-<part name="R503" library="rcl" deviceset="R-EU_" device="0204/7" value="100"/>
-<part name="R504" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
+<part name="R501" library="Rebel" deviceset="R-EU_" device="0204/7" value="1K"/>
+<part name="R503" library="Rebel" deviceset="R-EU_" device="0204/7" value="100"/>
+<part name="R504" library="Rebel" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
-<part name="R502" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
+<part name="R502" library="Rebel" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="Q701" library="transistor-npn" deviceset="2N3904" device=""/>
-<part name="R701" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
-<part name="R703" library="rcl" deviceset="R-EU_" device="0204/7" value="100"/>
-<part name="R704" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
+<part name="R701" library="Rebel" deviceset="R-EU_" device="0204/7" value="1K"/>
+<part name="R703" library="Rebel" deviceset="R-EU_" device="0204/7" value="100"/>
+<part name="R704" library="Rebel" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
-<part name="R702" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
+<part name="R702" library="Rebel" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
 <part name="RSTIN" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
-<part name="R401" library="rcl" deviceset="R-EU_" device="0204/7" value="100K"/>
-<part name="R403" library="rcl" deviceset="R-EU_" device="0204/7" value="10K"/>
+<part name="R401" library="Rebel" deviceset="R-EU_" device="0204/7" value="100K"/>
+<part name="R403" library="Rebel" deviceset="R-EU_" device="0204/7" value="10K"/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="Q401" library="transistor-npn" deviceset="2N3904" device=""/>
 <part name="P+4" library="supply1" deviceset="+5V" device=""/>
-<part name="R402" library="rcl" deviceset="R-EU_" device="0204/7" value="1M"/>
+<part name="R402" library="Rebel" deviceset="R-EU_" device="0204/7" value="1M"/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
 <part name="CLKTHRU" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
 <part name="P+8" library="supply1" deviceset="+12V" device=""/>
 <part name="P+9" library="supply1" deviceset="+12V" device=""/>
 <part name="P+11" library="supply1" deviceset="+12V" device=""/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
-<part name="D102" library="diode" deviceset="1N4148" device="DO35-7"/>
-<part name="D202" library="diode" deviceset="1N4148" device="DO35-7"/>
+<part name="D102" library="Rebel" deviceset="DIODE" device="1N4148"/>
+<part name="D202" library="Rebel" deviceset="DIODE" device="1N4148"/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
 <part name="P+12" library="supply1" deviceset="+5V" device=""/>
 <part name="P+13" library="supply1" deviceset="+12V" device=""/>
-<part name="D1" library="SparkFun" deviceset="DIODE" device="PTH"/>
+<part name="D1" library="Rebel" deviceset="DIODE" device="1N4001"/>
 <part name="U$2" library="SparkFun" deviceset="M08X2" device=""/>
 <part name="C2" library="rcl" deviceset="CPOL-EU" device="E5-6" value="100u"/>
-<part name="D2" library="SparkFun" deviceset="DIODE" device="PTH"/>
-<part name="F1" library="SparkFun" deviceset="PTC" device="PTH"/>
-<part name="F2" library="SparkFun" deviceset="PTC" device="PTH"/>
+<part name="D2" library="Rebel" deviceset="DIODE" device="1N4001"/>
+<part name="F1" library="Rebel" deviceset="PTC" device="PTH"/>
+<part name="F2" library="Rebel" deviceset="PTC" device="PTH"/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="P+16" library="supply1" deviceset="+5V" device=""/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
-<part name="F3" library="SparkFun" deviceset="PTC" device="PTH"/>
-<part name="D3" library="SparkFun" deviceset="DIODE" device="PTH"/>
+<part name="F3" library="Rebel" deviceset="PTC" device="PTH"/>
+<part name="D3" library="Rebel" deviceset="DIODE" device="1N4001"/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="P-2" library="supply1" deviceset="-12V" device=""/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
-<part name="LED1" library="led" deviceset="LED" device="3MM"/>
-<part name="LED2" library="led" deviceset="LED" device="3MM"/>
-<part name="LED3" library="led" deviceset="LED" device="3MM"/>
+<part name="LED1" library="Rebel" deviceset="LED" device="3MM"/>
+<part name="LED2" library="Rebel" deviceset="LED" device="3MM"/>
+<part name="LED3" library="Rebel" deviceset="LED" device="3MM"/>
 <part name="GND" library="testpad" deviceset="TP" device="PAD1-20"/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
 </parts>
