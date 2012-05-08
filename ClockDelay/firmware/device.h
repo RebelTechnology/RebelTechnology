@@ -5,11 +5,11 @@
 #define DIVIDE_ADC_CHANNEL              0
 #define DELAY_ADC_CHANNEL               1
 
-#define MODE_SWITCH_DDR                 DDRB
-#define MODE_SWITCH_PINS                PINB
-#define MODE_SWITCH_PORT                PORTB
-#define MODE_SWITCH_PIN_A               PORTB4
-#define MODE_SWITCH_PIN_B               PORTB5
+#define MODE_SWITCH_DDR                 DDRD
+#define MODE_SWITCH_PINS                PIND
+#define MODE_SWITCH_PORT                PORTD
+#define MODE_SWITCH_PIN_A               PORTD4
+#define MODE_SWITCH_PIN_B               PORTD5
 
 #define CLOCKDELAY_CLOCK_DDR            DDRD
 #define CLOCKDELAY_CLOCK_PORT           PORTD

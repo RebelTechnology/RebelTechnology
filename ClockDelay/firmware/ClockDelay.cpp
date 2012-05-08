@@ -76,13 +76,23 @@ public:
   void fall(){
     off();
   }
-  virtual void on(){
-    DIVIDE_OUTPUT_PORT |= _BV(DIVIDE_OUTPUT_PIN_A);
-    DIVIDE_OUTPUT_PORT &= ~_BV(DIVIDE_OUTPUT_PIN_B);
+  void on(){
+#ifdef SERIAL_DEBUG
+    printString(" %on\n");
+#endif
+    DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN_A);
+    DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN_B);
+    // we can assume this here:
+//     if(mode == DIVIDE_AND_COUNT_MODE)
+    COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN);
   }
   void off(){
-    DIVIDE_OUTPUT_PORT &= ~_BV(DIVIDE_OUTPUT_PIN_A);
-    DIVIDE_OUTPUT_PORT |= _BV(DIVIDE_OUTPUT_PIN_B);
+#ifdef SERIAL_DEBUG
+    printString(" %off\n");
+#endif
+    DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN_A);
+    DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN_B);
+    COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN);
   }
 #ifdef SERIAL_DEBUG
   virtual void dump(){
@@ -99,7 +109,7 @@ ClockCounter counter;
 class ClockDivider {
 public:
   inline void reset(){
-    pos = 0;
+    pos = value;
   }
   bool next(){
     if(++pos >= value){
@@ -111,27 +121,30 @@ public:
 public:
   uint8_t pos;
   uint8_t value;
-  inline bool isLow(){
+  inline bool isOff(){
     return DIVIDE_OUTPUT_PINS & _BV(DIVIDE_OUTPUT_PIN_A);
   }
-  inline bool isHigh(){
-    return !(DIVIDE_OUTPUT_PINS & _BV(DIVIDE_OUTPUT_PIN_A));
-  }
   void rise(){
-    if(isLow() && next())
+    if(isOff() && next())
       on();
   }
   void fall(){
-    if(isHigh() && next())
+    if(!isOff() && next())
       off();
   }
-  virtual void on(){
-    DIVIDE_OUTPUT_PORT |= _BV(DIVIDE_OUTPUT_PIN_A);
-    DIVIDE_OUTPUT_PORT &= ~_BV(DIVIDE_OUTPUT_PIN_B);
-  }
-  void off(){
+  void on(){
+#ifdef SERIAL_DEBUG
+    printString(" /on\n");
+#endif
     DIVIDE_OUTPUT_PORT &= ~_BV(DIVIDE_OUTPUT_PIN_A);
     DIVIDE_OUTPUT_PORT |= _BV(DIVIDE_OUTPUT_PIN_B);
+  }
+  void off(){
+#ifdef SERIAL_DEBUG
+    printString(" /off\n");
+#endif
+    DIVIDE_OUTPUT_PORT |= _BV(DIVIDE_OUTPUT_PIN_A);
+    DIVIDE_OUTPUT_PORT &= ~_BV(DIVIDE_OUTPUT_PIN_B);
   }
 #ifdef SERIAL_DEBUG
   virtual void dump(){
@@ -150,16 +163,14 @@ public:
   void on(){
     DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN_A);
     DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN_B);
-    if(mode != SWING_MODE || divider.pos == 0){
+    if(mode != SWING_MODE || divider.pos == 0)
       COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN);
-    }
   }
   void off(){
     DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN_A);
     DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN_B);
-    if(mode != SWING_MODE || divider.pos == 0){
+    if(mode != SWING_MODE || divider.pos == 0)
       COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN);
-    }
   }
 };
 
@@ -169,7 +180,7 @@ class FrequencyController : public ContinuousController {
 public:
   Timer* timer;
   virtual void hasChanged(float v){
-    timer->setRate(v);
+    timer->setRate(1.0-v);
   }
 };
 
@@ -185,7 +196,7 @@ class DividerController : public DiscreteController {
 public:
   ClockDivider* divider;
   virtual void hasChanged(int8_t v){
-    divider->value = v;
+    divider->value = v+1;
   }
 };
 
@@ -196,13 +207,13 @@ CounterController counterControl;
 void setup(){
   cli();
 
-  // define interrupt 0 and 1
+  // define hardware interrupts 0 and 1
   EICRA = (1<<ISC10) | (1<<ISC01) | (1<<ISC00);
+  // todo: change int0 to falling edge, since signal is inverted
   // trigger int0 on the rising edge.
   // trigger int1 on any logical change.
   // pulses that last longer than one clock period will generate an interrupt.
-  EIMSK =  (1<<INT1) | (1<<INT0);
-  // enables INT0 and INT1
+  EIMSK =  (1<<INT1) | (1<<INT0); // enables INT0 and INT1
   CLOCKDELAY_CLOCK_DDR &= ~_BV(CLOCKDELAY_CLOCK_PIN);
   CLOCKDELAY_CLOCK_PORT |= _BV(CLOCKDELAY_CLOCK_PIN); // enable pull-up resistor
 
@@ -213,6 +224,12 @@ void setup(){
   MODE_SWITCH_PORT |= _BV(MODE_SWITCH_PIN_A);
   MODE_SWITCH_DDR &= ~_BV(MODE_SWITCH_PIN_B);
   MODE_SWITCH_PORT |= _BV(MODE_SWITCH_PIN_B);
+
+  DIVIDE_OUTPUT_DDR |= _BV(DIVIDE_OUTPUT_PIN_A);
+  DIVIDE_OUTPUT_DDR |= _BV(DIVIDE_OUTPUT_PIN_B);
+  DELAY_OUTPUT_DDR |= _BV(DELAY_OUTPUT_PIN_A);
+  DELAY_OUTPUT_DDR |= _BV(DELAY_OUTPUT_PIN_B);
+  COMBINED_OUTPUT_DDR |= _BV(COMBINED_OUTPUT_PIN);
 
   // At 16MHz CPU clock and prescaler 64, Timer 0 should run at 1024Hz.
   // configure Timer 0 to Fast PWM, 0xff top.
@@ -239,47 +256,15 @@ void setup(){
 
   setup_adc();
 
+  divider.reset();
+  counter.reset();
+  delay.reset();
+
   sei();
 
 #ifdef SERIAL_DEBUG
   beginSerial(9600);
   printString("hello\n");
-#endif
-}
-
-void loop(){
-  updateMode();
-  dividerControl.update(getAnalogValue(DIVIDE_ADC_CHANNEL));
-  counterControl.update(getAnalogValue(DELAY_ADC_CHANNEL));
-  delayControl.update(getAnalogValue(DELAY_ADC_CHANNEL));
-
-//   switch(mode){
-//   case DIVIDE_AND_COUNT_MODE:
-//     delay.stop();
-//     break;
-//   case DIVIDE_AND_DELAY_MODE:
-//   case SWING_MODE:
-//     break;
-//   }
-  
-#ifdef SERIAL_DEBUG
-  if(serialAvailable() > 0){
-    serialRead();
-    printString("divider: [");
-    divider.dump();
-    printString("] ");
-    printString("counter: [");
-    counter.dump();
-    printString("] ");
-    printString("delay: [");
-    delay.dump();
-    printString("] ");
-    if(isDelayMode())
-      printString(" delay ");
-    if(isCountMode())
-      printString(" count ");
-    printNewline();
-  }
 #endif
 }
 
@@ -301,28 +286,79 @@ SIGNAL(INT0_vect){
 
 /* Clock interrupt */
 SIGNAL(INT1_vect){
-//   switch(mode){
-//   case DIVIDE_AND_COUNT_MODE:
-//     break;
-//   case DIVIDE_AND_DELAY_MODE:
-//   case SWING_MODE:
-//     delay.clock();
-//     break;
-//   }
   if(clockIsHigh()){
     divider.rise();
     if(mode == DIVIDE_AND_COUNT_MODE)
       counter.rise();
-    CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_C_PIN);
+    // todo: enable
+//     CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_C_PIN);
   }else{
     divider.fall();
     if(mode == DIVIDE_AND_COUNT_MODE)
       counter.fall();
-    CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_C_PIN);
+//     CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_C_PIN);
   }
-
 //   if(clockIsHigh())
 //     CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_C_PIN);
 //   else
 //     CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_C_PIN);
+}
+
+void loop(){
+  updateMode();
+  dividerControl.update(getAnalogValue(DIVIDE_ADC_CHANNEL));
+  counterControl.update(getAnalogValue(DELAY_ADC_CHANNEL));
+  delayControl.update(getAnalogValue(DELAY_ADC_CHANNEL));
+
+//   switch(mode){
+//   case DIVIDE_AND_COUNT_MODE:
+//     delay.stop();
+//     break;
+//   case DIVIDE_AND_DELAY_MODE:
+//   case SWING_MODE:
+//     break;
+//   }
+  
+#ifdef SERIAL_DEBUG
+  if(serialAvailable() > 0){
+    switch(serialRead()){
+    case '.':
+      CLOCKDELAY_CLOCK_PORT ^= ~_BV(CLOCKDELAY_CLOCK_PIN);
+      INT1_vect();
+//       CLOCKDELAY_CLOCK_PORT &= ~_BV(CLOCKDELAY_CLOCK_PIN);
+//       INT1_vect();
+//       CLOCKDELAY_CLOCK_PORT |= _BV(CLOCKDELAY_CLOCK_PIN);
+//       INT1_vect();
+      break;
+    case ':':
+      CLOCKDELAY_RESET_PORT &= ~_BV(CLOCKDELAY_RESET_PIN);
+      TIMER0_OVF_vect();
+      CLOCKDELAY_RESET_PORT |= _BV(CLOCKDELAY_RESET_PIN);
+      TIMER0_OVF_vect();
+      break;
+    }      
+    printString("div[");
+    divider.dump();
+    printString("] ");
+    printString("cnt[");
+    counter.dump();
+    printString("] ");
+    printString("del[");
+    delay.dump();
+    printString("] ");
+    printBinary(DELAY_OUTPUT_PINS);
+    switch(mode){
+    case DIVIDE_AND_COUNT_MODE:
+      printString(" count ");
+      break;
+    case DIVIDE_AND_DELAY_MODE:
+      printString(" delay ");
+      break;
+    case SWING_MODE:
+      printString(" swing ");
+      break;
+    }
+    printNewline();
+  }
+#endif
 }
