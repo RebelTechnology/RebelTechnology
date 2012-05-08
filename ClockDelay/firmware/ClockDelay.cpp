@@ -208,9 +208,9 @@ void setup(){
   cli();
 
   // define hardware interrupts 0 and 1
-  EICRA = (1<<ISC10) | (1<<ISC01) | (1<<ISC00);
-  // todo: change int0 to falling edge, since signal is inverted
-  // trigger int0 on the rising edge.
+//   EICRA = (1<<ISC10) | (1<<ISC01) | (1<<ISC00); // trigger int0 on rising edge
+  EICRA = (1<<ISC10) | (1<<ISC01);
+  // trigger int0 on the falling edge, since input is inverted
   // trigger int1 on any logical change.
   // pulses that last longer than one clock period will generate an interrupt.
   EIMSK =  (1<<INT1) | (1<<INT0); // enables INT0 and INT1
@@ -265,6 +265,9 @@ void setup(){
 #ifdef SERIAL_DEBUG
   beginSerial(9600);
   printString("hello\n");
+  // todo: remove
+  CLOCKDELAY_CLOCK_DDR |= _BV(CLOCKDELAY_CLOCK_PIN);
+  CLOCKDELAY_RESET_DDR |= _BV(CLOCKDELAY_RESET_PIN);
 #endif
 }
 
@@ -287,12 +290,18 @@ SIGNAL(INT0_vect){
 /* Clock interrupt */
 SIGNAL(INT1_vect){
   if(clockIsHigh()){
+#ifdef SERIAL_DEBUG
+    printString(" rise\n");
+#endif
     divider.rise();
     if(mode == DIVIDE_AND_COUNT_MODE)
       counter.rise();
     // todo: enable
 //     CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_C_PIN);
   }else{
+#ifdef SERIAL_DEBUG
+    printString(" fall\n");
+#endif
     divider.fall();
     if(mode == DIVIDE_AND_COUNT_MODE)
       counter.fall();
