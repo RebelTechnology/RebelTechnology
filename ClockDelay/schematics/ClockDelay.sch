@@ -3607,7 +3607,7 @@ Through-hole SPDT Switch&lt;br&gt;
 <package name="LED3MM">
 <description>&lt;B&gt;LED&lt;/B&gt;&lt;p&gt;
 3 mm, round</description>
-<wire x1="1.27" y1="-1.4732" x2="1.27" y2="1.4732" width="0.254" layer="51"/>
+<wire x1="1.27" y1="-1.016" x2="1.27" y2="1.016" width="0.254" layer="51"/>
 <wire x1="-1.524" y1="0" x2="-1.1708" y2="0.9756" width="0.1524" layer="51" curve="-39.80361"/>
 <wire x1="-1.524" y1="0" x2="-1.1391" y2="-1.0125" width="0.1524" layer="51" curve="41.633208"/>
 <wire x1="0" y1="1.524" x2="1.2401" y2="0.8858" width="0.1524" layer="21" curve="-54.461337"/>
@@ -3628,6 +3628,8 @@ Through-hole SPDT Switch&lt;br&gt;
 <pad name="K" x="1.27" y="0" drill="0.8128" shape="octagon"/>
 <text x="-2.286" y="-1.905" size="1.016" layer="25" font="vector" ratio="10" rot="R90">&gt;NAME</text>
 <text x="2.921" y="-1.905" size="0.6096" layer="27" font="vector" ratio="10" rot="R90">&gt;VALUE</text>
+<wire x1="1.27" y1="1.016" x2="1.27" y2="1.4732" width="0.254" layer="21"/>
+<wire x1="1.27" y1="-1.016" x2="1.27" y2="-1.4732" width="0.254" layer="21"/>
 </package>
 <package name="0204/7">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;

@@ -102,13 +102,25 @@
 </layers>
 <board>
 <plain>
-<wire x1="0" y1="0" x2="100" y2="0" width="0" layer="20"/>
 <wire x1="100" y1="0" x2="100" y2="50.5" width="0" layer="20"/>
 <wire x1="100" y1="50.5" x2="0" y2="50.5" width="0" layer="20"/>
 <wire x1="0" y1="50.5" x2="0" y2="0" width="0" layer="20"/>
 <text x="37.465" y="29.845" size="1.778" layer="21" font="vector">Rebel Technology</text>
 <text x="24.765" y="19.685" size="1.778" layer="21" font="vector">Clock Delay</text>
 <text x="37.465" y="17.145" size="1.778" layer="21" font="vector">Rev 01</text>
+<text x="94.615" y="46.355" size="1.016" layer="21" font="vector" rot="R270">gnd</text>
+<text x="92.075" y="46.355" size="1.016" layer="21" font="vector" rot="R270">5v</text>
+<text x="89.535" y="46.355" size="1.016" layer="21" font="vector" rot="R270">rx</text>
+<text x="86.995" y="46.355" size="1.016" layer="21" font="vector" rot="R270">tx</text>
+<text x="84.455" y="46.355" size="1.016" layer="21" font="vector" rot="R270">rst</text>
+<text x="26.035" y="50.165" size="1.016" layer="21" font="vector" align="top-center">-12</text>
+<text x="36.195" y="50.165" size="1.016" layer="21" font="vector" align="top-center">12</text>
+<text x="38.735" y="50.165" size="1.016" layer="21" font="vector" align="top-center">5</text>
+<text x="31.115" y="50.165" size="1.016" layer="21" font="vector" align="top-center">GROUND</text>
+<text x="23.495" y="46.355" size="1.016" layer="30" font="vector" rot="MR270" align="center">-12</text>
+<text x="98.425" y="12.7" size="1.016" layer="30" font="vector" rot="MR270" align="center">Rebel Technology</text>
+<wire x1="100" y1="0" x2="0" y2="0" width="0" layer="20"/>
+<text x="97.79" y="15.24" size="1.016" layer="21" rot="R270">50577</text>
 </plain>
 <libraries>
 <library name="linear">
@@ -1310,7 +1322,7 @@ type 0204, grid 7.5 mm</description>
 <package name="LED3MM">
 <description>&lt;B&gt;LED&lt;/B&gt;&lt;p&gt;
 3 mm, round</description>
-<wire x1="1.27" y1="-1.4732" x2="1.27" y2="1.4732" width="0.254" layer="51"/>
+<wire x1="1.27" y1="-1.016" x2="1.27" y2="1.016" width="0.254" layer="51"/>
 <wire x1="-1.524" y1="0" x2="-1.1708" y2="0.9756" width="0.1524" layer="51" curve="-39.80361"/>
 <wire x1="-1.524" y1="0" x2="-1.1391" y2="-1.0125" width="0.1524" layer="51" curve="41.633208"/>
 <wire x1="0" y1="1.524" x2="1.2401" y2="0.8858" width="0.1524" layer="21" curve="-54.461337"/>
@@ -1331,6 +1343,8 @@ type 0204, grid 7.5 mm</description>
 <pad name="K" x="1.27" y="0" drill="0.8128" shape="octagon"/>
 <text x="-2.286" y="-1.905" size="1.016" layer="25" font="vector" ratio="10" rot="R90">&gt;NAME</text>
 <text x="2.921" y="-1.905" size="0.6096" layer="27" font="vector" ratio="10" rot="R90">&gt;VALUE</text>
+<wire x1="1.27" y1="1.016" x2="1.27" y2="1.4732" width="0.254" layer="21"/>
+<wire x1="1.27" y1="-1.016" x2="1.27" y2="-1.4732" width="0.254" layer="21"/>
 </package>
 <package name="0204/7">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
@@ -3059,72 +3073,109 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 </pass>
 </autorouter>
 <elements>
-<element name="IC1" library="linear" package="DIL08" value="TL072P" x="53.975" y="37.465" rot="R180"/>
+<element name="IC1" library="linear" package="DIL08" value="TL072P" x="53.975" y="37.465" smashed="yes" rot="R180">
+<attribute name="NAME" x="52.324" y="36.449" size="1.6764" layer="25" ratio="10"/>
+</element>
 <element name="R102" library="Rebel" package="0204/7" value="51K" x="69.215" y="49.53"/>
 <element name="R101" library="Rebel" package="0204/7" value="120K" x="59.055" y="46.355" rot="R180"/>
 <element name="R103" library="Rebel" package="0204/7" value="100K" x="59.055" y="49.53" rot="R180"/>
 <element name="R104" library="Rebel" package="0204/7" value="220" x="78.74" y="49.53"/>
-<element name="DIVIN" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="31.75" y="38.1" locked="yes" rot="R90"/>
+<element name="DIVIN" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="31.75" y="38.1" locked="yes" smashed="yes" rot="R90">
+<attribute name="NAME" x="31.1" y="33.1" size="1.27" layer="25" font="vector" rot="R90"/>
+</element>
 <element name="D101" library="Rebel" package="DIODE-1N4148" value="" x="69.215" y="46.355" rot="R180"/>
 <element name="R202" library="Rebel" package="0204/7" value="51K" x="77.47" y="1.905"/>
 <element name="R201" library="Rebel" package="0204/7" value="120K" x="77.47" y="4.445" rot="R180"/>
 <element name="R203" library="Rebel" package="0204/7" value="100K" x="67.31" y="1.905" rot="R180"/>
 <element name="R204" library="Rebel" package="0204/7" value="220" x="67.31" y="4.445"/>
-<element name="DELIN" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="31.75" y="12.7" locked="yes" rot="R270"/>
+<element name="DELIN" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="31.75" y="12.7" locked="yes" smashed="yes" rot="R270">
+<attribute name="NAME" x="32.4" y="15.16" size="1.27" layer="25" font="vector" rot="R270"/>
+</element>
 <element name="D201" library="Rebel" package="DIODE-1N4148" value="" x="88.9" y="4.445" rot="R180"/>
-<element name="CLKIN" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="6.35" y="38.1" locked="yes" rot="R270"/>
-<element name="DELOUT" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="19.05" y="12.7" locked="yes" rot="R270"/>
-<element name="DIVOUT" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="19.05" y="38.1" locked="yes" rot="R90"/>
-<element name="CMBOUT" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="6.35" y="25.4" locked="yes" rot="R270"/>
+<element name="CLKIN" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="6.35" y="38.1" locked="yes" smashed="yes" rot="R270">
+<attribute name="NAME" x="5.73" y="40.56" size="1.27" layer="25" font="vector" rot="R270"/>
+</element>
+<element name="DELOUT" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="19.05" y="12.7" locked="yes" smashed="yes" rot="R270">
+<attribute name="NAME" x="19.7" y="16.43" size="1.27" layer="25" font="vector" rot="R270"/>
+</element>
+<element name="DIVOUT" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="19.05" y="38.1" locked="yes" smashed="yes" rot="R90">
+<attribute name="NAME" x="18.4" y="34.37" size="1.27" layer="25" font="vector" rot="R90"/>
+</element>
+<element name="CMBOUT" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="6.35" y="25.4" locked="yes" smashed="yes" rot="R270">
+<attribute name="NAME" x="7" y="29.13" size="1.27" layer="25" font="vector" rot="R270"/>
+</element>
 <element name="DIVMAN" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="88.9" y="38.1" locked="yes" rot="R270"/>
 <element name="DIVCV" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="69.85" y="38.1" locked="yes" rot="R270"/>
 <element name="DELMAN" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="88.9" y="12.7" locked="yes" rot="R270"/>
 <element name="DELCV" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="69.85" y="12.7" locked="yes" rot="R270"/>
-<element name="S1" library="Rebel" package="SWITCH-SPDT-SALECOM-T8014" value="" x="44.45" y="25.4" locked="yes" rot="R270"/>
-<element name="IC2" library="atmel" package="DIL28-3" value="MEGA168" x="81.915" y="25.4" rot="R180">
+<element name="S1" library="Rebel" package="SWITCH-SPDT-SALECOM-T8014" value="" x="44.45" y="25.4" locked="yes" smashed="yes" rot="R270"/>
+<element name="IC2" library="atmel" package="DIL28-3" value="MEGA168" x="81.915" y="25.4" smashed="yes" rot="R180">
 <attribute name="OC_NEWARK" value="unknown" x="81.915" y="25.4" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MPN" value="" x="81.915" y="25.4" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MF" value="" x="81.915" y="25.4" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="81.915" y="25.4" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="93.345" y="24.2824" size="1.778" layer="25" ratio="10"/>
 </element>
 <element name="Y1" library="SparkFun" package="RESONATOR-PTH" value="16Mhz" x="78.105" y="31.75" rot="R180"/>
-<element name="C3" library="rcl" package="C050-024X044" value="100n" x="80.645" y="19.05"/>
-<element name="JP1" library="SparkFun" package="1X06" value="" x="97.79" y="47.625" rot="R180"/>
-<element name="C1" library="rcl" package="C050-024X044" value="100n" x="98.425" y="41.91" rot="R270"/>
+<element name="C3" library="rcl" package="C050-024X044" value="100n" x="80.645" y="19.05" smashed="yes">
+<attribute name="NAME" x="79.756" y="16.637" size="1.27" layer="25" ratio="10"/>
+</element>
+<element name="JP1" library="SparkFun" package="1X06" value="" x="97.79" y="47.625" smashed="yes" rot="R180">
+<attribute name="VALUE" x="99.06" y="50.8" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="C1" library="rcl" package="C050-024X044" value="100n" x="98.425" y="41.91" smashed="yes" rot="R270">
+<attribute name="NAME" x="98.552" y="38.989" size="1.27" layer="25" ratio="10" rot="R270"/>
+</element>
 <element name="R1" library="Rebel" package="0204/7" value="10K" x="96.52" y="38.1" rot="R90"/>
 <element name="R2" library="Rebel" package="0204/7" value="1K" x="52.07" y="25.4" rot="R270"/>
 <element name="R3" library="Rebel" package="0204/7" value="1K" x="39.37" y="36.83" rot="R270"/>
 <element name="R4" library="Rebel" package="0204/7" value="1K" x="40.64" y="12.7" rot="R270"/>
 <element name="R301" library="Rebel" package="0204/7" value="100K" x="56.515" y="4.445" rot="R180"/>
 <element name="R303" library="Rebel" package="0204/7" value="10K" x="56.515" y="7.62" rot="R180"/>
-<element name="Q601" library="transistor-npn" package="TO92" value="2N3904" x="58.42" y="19.685" rot="R270"/>
+<element name="Q601" library="transistor-npn" package="TO92" value="2N3904" x="58.42" y="19.685" smashed="yes" rot="R270">
+<attribute name="NAME" x="61.595" y="22.225" size="1.27" layer="25" ratio="10" rot="R270"/>
+</element>
 <element name="R601" library="Rebel" package="0204/7" value="1K" x="52.07" y="19.05" rot="R180"/>
 <element name="R603" library="Rebel" package="0204/7" value="100" x="52.07" y="12.7"/>
 <element name="R604" library="Rebel" package="0204/7" value="1K" x="52.07" y="10.16"/>
 <element name="R602" library="Rebel" package="0204/7" value="1K" x="52.07" y="16.51"/>
-<element name="Q301" library="transistor-npn" package="TO92" value="2N3904" x="50.165" y="3.175" rot="R90"/>
+<element name="Q301" library="transistor-npn" package="TO92" value="2N3904" x="50.165" y="3.175" smashed="yes" rot="R90">
+<attribute name="NAME" x="52.07" y="7.62" size="1.27" layer="25" ratio="10" rot="R180"/>
+</element>
 <element name="R302" library="Rebel" package="0204/7" value="1M" x="56.515" y="1.905" rot="R180"/>
-<element name="Q501" library="transistor-npn" package="TO92" value="2N3904" x="44.45" y="3.175" rot="R270"/>
+<element name="Q501" library="transistor-npn" package="TO92" value="2N3904" x="44.45" y="3.175" smashed="yes" rot="R270">
+<attribute name="NAME" x="46.355" y="7.62" size="1.27" layer="25" ratio="10" rot="R180"/>
+</element>
 <element name="R501" library="Rebel" package="0204/7" value="1K" x="29.21" y="6.985" rot="R180"/>
 <element name="R503" library="Rebel" package="0204/7" value="100" x="38.1" y="4.445"/>
 <element name="R504" library="Rebel" package="0204/7" value="1K" x="38.1" y="1.905"/>
 <element name="R502" library="Rebel" package="0204/7" value="1K" x="29.21" y="3.175"/>
-<element name="Q701" library="transistor-npn" package="TO92" value="2N3904" x="20.32" y="3.175" rot="R270"/>
+<element name="Q701" library="transistor-npn" package="TO92" value="2N3904" x="20.32" y="3.175" smashed="yes" rot="R270">
+<attribute name="NAME" x="23.495" y="7.62" size="1.27" layer="25" ratio="10" rot="R180"/>
+</element>
 <element name="R701" library="Rebel" package="0204/7" value="1K" x="12.7" y="7.62"/>
 <element name="R703" library="Rebel" package="0204/7" value="100" x="13.97" y="5.08"/>
 <element name="R704" library="Rebel" package="0204/7" value="1K" x="13.97" y="1.905"/>
 <element name="R702" library="Rebel" package="0204/7" value="1K" x="5.08" y="3.81"/>
-<element name="RSTIN" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="19.05" y="25.4" locked="yes" rot="R90"/>
+<element name="RSTIN" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="19.05" y="25.4" locked="yes" smashed="yes" rot="R90">
+<attribute name="NAME" x="18.4" y="22.94" size="1.27" layer="25" font="vector" rot="R90"/>
+</element>
 <element name="R401" library="Rebel" package="0204/7" value="100K" x="26.035" y="26.035" rot="R270"/>
 <element name="R403" library="Rebel" package="0204/7" value="10K" x="28.575" y="28.575" rot="R270"/>
-<element name="Q401" library="transistor-npn" package="TO92" value="2N3904" x="33.02" y="26.035" rot="R90"/>
+<element name="Q401" library="transistor-npn" package="TO92" value="2N3904" x="33.02" y="26.035" smashed="yes" rot="R90">
+<attribute name="NAME" x="34.925" y="30.48" size="1.27" layer="25" ratio="10" rot="R180"/>
+</element>
 <element name="R402" library="Rebel" package="0204/7" value="1M" x="36.195" y="26.035" rot="R90"/>
-<element name="CLKTHRU" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="6.35" y="12.7" locked="yes" rot="R270"/>
+<element name="CLKTHRU" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="6.35" y="12.7" locked="yes" smashed="yes" rot="R270">
+<attribute name="NAME" x="7" y="17.7" size="1.27" layer="25" font="vector" rot="R270"/>
+</element>
 <element name="D102" library="Rebel" package="DIODE-1N4148" value="" x="78.74" y="43.815" rot="R90"/>
 <element name="D202" library="Rebel" package="DIODE-1N4148" value="" x="88.9" y="1.905" rot="R180"/>
 <element name="D1" library="Rebel" package="DIODE-1N4001" value="" x="6.35" y="43.815"/>
-<element name="U$2" library="SparkFun" package="2X8" value="M08X2" x="26.035" y="45.085"/>
-<element name="C2" library="rcl" package="E5-6" value="100u" x="49.53" y="46.355" rot="R90"/>
+<element name="U$2" library="SparkFun" package="2X8" value="M08X2" x="26.035" y="45.085" smashed="yes"/>
+<element name="C2" library="rcl" package="E5-6" value="100u" x="49.53" y="46.355" smashed="yes" rot="R90">
+<attribute name="NAME" x="52.578" y="49.657" size="1.27" layer="25" ratio="10" rot="R270"/>
+</element>
 <element name="D2" library="Rebel" package="DIODE-1N4001" value="" x="6.35" y="46.355"/>
 <element name="F1" library="Rebel" package="PTC" value="PTCPTH" x="22.225" y="46.355" rot="R270"/>
 <element name="F2" library="Rebel" package="PTC" value="PTCPTH" x="16.51" y="45.72" rot="R180"/>
@@ -3252,12 +3303,11 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <wire x1="77.47" y1="13.97" x2="81.28" y2="10.16" width="0.6096" layer="1"/>
 <wire x1="81.4" y1="10.2" x2="81.36" y2="10.16" width="0.6096" layer="1"/>
 <wire x1="81.36" y1="10.16" x2="81.28" y2="10.16" width="0.6096" layer="1"/>
-<wire x1="72.35" y1="35.6" x2="81.4" y2="35.6" width="0.6096" layer="1"/>
-<wire x1="65.405" y1="33.655" x2="68.58" y2="36.83" width="0.6096" layer="1"/>
-<wire x1="68.58" y1="36.83" x2="71.12" y2="36.83" width="0.6096" layer="1"/>
-<wire x1="71.12" y1="36.83" x2="72.35" y2="35.6" width="0.6096" layer="1"/>
+<wire x1="65.405" y1="33.655" x2="68.58" y2="36.195" width="0.6096" layer="1"/>
 <wire x1="19.685" y1="31.115" x2="17.78" y2="33.02" width="0.6096" layer="1"/>
 <wire x1="19.685" y1="31.115" x2="18.415" y2="29.845" width="0.6096" layer="1"/>
+<wire x1="68.58" y1="36.195" x2="80.805" y2="36.195" width="0.6096" layer="1"/>
+<wire x1="80.805" y1="36.195" x2="81.4" y2="35.6" width="0.6096" layer="1"/>
 </signal>
 <signal name="N$2">
 <contactref element="IC1" pad="2"/>
@@ -3359,11 +3409,10 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <wire x1="80.645" y1="21.59" x2="78.105" y2="21.59" width="0.6096" layer="1"/>
 <wire x1="69.215" y1="11.43" x2="65.405" y2="7.62" width="0.6096" layer="1"/>
 <wire x1="60.325" y1="7.62" x2="65.405" y2="7.62" width="0.6096" layer="1"/>
-<wire x1="90.805" y1="45.72" x2="92.71" y2="47.625" width="0.6096" layer="1"/>
+<wire x1="90.17" y1="45.085" x2="92.71" y2="47.625" width="0.6096" layer="1"/>
 <wire x1="92.71" y1="47.625" x2="96.52" y2="43.815" width="0.6096" layer="1"/>
 <wire x1="96.52" y1="43.815" x2="96.52" y2="41.91" width="0.6096" layer="1"/>
-<wire x1="45.72" y1="41.91" x2="34.29" y2="41.91" width="0.6096" layer="1"/>
-<wire x1="34.29" y1="41.91" x2="24.13" y2="41.91" width="0.6096" layer="1"/>
+<wire x1="45.72" y1="41.91" x2="33.02" y2="41.91" width="0.6096" layer="1"/>
 <wire x1="11.43" y1="43.815" x2="22.225" y2="43.815" width="0.6096" layer="1"/>
 <wire x1="22.225" y1="43.815" x2="24.13" y2="41.91" width="0.6096" layer="1"/>
 <wire x1="49.53" y1="43.815" x2="47.625" y2="43.815" width="0.6096" layer="1"/>
@@ -3385,12 +3434,16 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <wire x1="79.375" y1="43.815" x2="81.915" y2="43.815" width="0.6096" layer="1"/>
 <wire x1="81.915" y1="43.815" x2="83.185" y2="42.545" width="0.6096" layer="1"/>
 <wire x1="83.185" y1="42.545" x2="83.185" y2="29.21" width="0.6096" layer="1"/>
-<wire x1="83.185" y1="42.545" x2="86.36" y2="45.72" width="0.6096" layer="1"/>
-<wire x1="86.36" y1="45.72" x2="90.805" y2="45.72" width="0.6096" layer="1"/>
+<wire x1="83.185" y1="42.545" x2="85.725" y2="45.085" width="0.6096" layer="1"/>
+<wire x1="85.725" y1="45.085" x2="90.17" y2="45.085" width="0.6096" layer="1"/>
 <wire x1="75.565" y1="47.625" x2="66.675" y2="47.625" width="0.6096" layer="1"/>
 <wire x1="66.675" y1="47.625" x2="65.405" y2="46.355" width="0.6096" layer="1"/>
 <wire x1="28.575" y1="32.385" x2="28.575" y2="36.195" width="0.6096" layer="1"/>
-<wire x1="28.575" y1="36.195" x2="34.29" y2="41.91" width="0.6096" layer="1"/>
+<wire x1="28.575" y1="36.195" x2="31.75" y2="39.37" width="0.6096" layer="1"/>
+<wire x1="30.48" y1="41.91" x2="24.13" y2="41.91" width="0.6096" layer="1"/>
+<wire x1="31.75" y1="39.37" x2="31.75" y2="40.64" width="0.6096" layer="1"/>
+<wire x1="31.75" y1="40.64" x2="30.48" y2="41.91" width="0.6096" layer="1"/>
+<wire x1="33.02" y1="41.91" x2="31.75" y2="40.64" width="0.6096" layer="1"/>
 </signal>
 <signal name="N$7">
 <contactref element="R201" pad="2"/>
@@ -3497,12 +3550,12 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <wire x1="71.755" y1="24.765" x2="71.755" y2="30.48" width="0.3048" layer="16"/>
 <wire x1="71.755" y1="30.48" x2="71.12" y2="31.115" width="0.3048" layer="16"/>
 <contactref element="LED2" pad="A"/>
-<wire x1="66.04" y1="33.02" x2="60.325" y2="33.02" width="0.3048" layer="16"/>
-<wire x1="60.325" y1="33.02" x2="59.69" y2="33.655" width="0.3048" layer="16"/>
-<wire x1="59.69" y1="33.655" x2="59.69" y2="36.195" width="0.3048" layer="16"/>
 <wire x1="59.69" y1="36.195" x2="59.055" y2="36.83" width="0.3048" layer="16"/>
 <wire x1="59.055" y1="36.83" x2="44.45" y2="36.83" width="0.3048" layer="16"/>
-<wire x1="66.04" y1="33.02" x2="67.945" y2="31.115" width="0.3048" layer="16"/>
+<wire x1="59.69" y1="36.195" x2="59.69" y2="34.29" width="0.3048" layer="16"/>
+<wire x1="59.69" y1="34.29" x2="60.325" y2="33.655" width="0.3048" layer="16"/>
+<wire x1="60.325" y1="33.655" x2="65.405" y2="33.655" width="0.3048" layer="16"/>
+<wire x1="65.405" y1="33.655" x2="67.945" y2="31.115" width="0.3048" layer="16"/>
 <wire x1="67.945" y1="31.115" x2="71.12" y2="31.115" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$19">
@@ -3712,9 +3765,8 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <contactref element="R703" pad="2"/>
 <contactref element="CMBOUT" pad="P$2"/>
 <wire x1="17.78" y1="1.905" x2="17.78" y2="5.08" width="0.3048" layer="16"/>
-<wire x1="17.78" y1="5.08" x2="15.24" y2="5.08" width="0.3048" layer="16"/>
-<wire x1="15.24" y1="5.08" x2="13.97" y2="6.35" width="0.3048" layer="16"/>
-<wire x1="13.97" y1="6.35" x2="8.255" y2="6.35" width="0.3048" layer="16"/>
+<wire x1="17.78" y1="5.08" x2="16.51" y2="6.35" width="0.3048" layer="16"/>
+<wire x1="16.51" y1="6.35" x2="8.255" y2="6.35" width="0.3048" layer="16"/>
 <wire x1="8.255" y1="6.35" x2="6.985" y2="7.62" width="0.3048" layer="16"/>
 <wire x1="6.985" y1="7.62" x2="6.985" y2="13.97" width="0.3048" layer="16"/>
 <wire x1="6.985" y1="13.97" x2="10.75" y2="17.735" width="0.3048" layer="16"/>
@@ -3770,13 +3822,14 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <wire x1="24.765" y1="20.955" x2="20.955" y2="24.765" width="0.3048" layer="1"/>
 <wire x1="20.955" y1="24.765" x2="19.685" y2="24.765" width="0.3048" layer="1"/>
 <via x="19.685" y="24.765" extent="1-16" drill="0.6" shape="square"/>
-<wire x1="19.685" y1="24.765" x2="17.145" y2="24.765" width="0.3048" layer="16"/>
+<wire x1="19.685" y1="24.765" x2="18.415" y2="23.495" width="0.3048" layer="16"/>
 <wire x1="8.255" y1="13.97" x2="8.255" y2="8.255" width="0.3048" layer="16"/>
 <wire x1="8.255" y1="8.255" x2="8.89" y2="7.62" width="0.3048" layer="16"/>
 <wire x1="51.308" y1="22.733" x2="49.53" y2="20.955" width="0.3048" layer="1"/>
-<wire x1="17.145" y1="24.765" x2="11.43" y2="19.05" width="0.3048" layer="16"/>
-<wire x1="11.43" y1="19.05" x2="11.43" y2="17.145" width="0.3048" layer="16"/>
 <wire x1="11.43" y1="17.145" x2="8.255" y2="13.97" width="0.3048" layer="16"/>
+<wire x1="18.415" y1="23.495" x2="15.875" y2="23.495" width="0.3048" layer="16"/>
+<wire x1="15.875" y1="23.495" x2="11.43" y2="19.05" width="0.3048" layer="16"/>
+<wire x1="11.43" y1="19.05" x2="11.43" y2="17.145" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$39">
 <contactref element="C1" pad="2"/>
