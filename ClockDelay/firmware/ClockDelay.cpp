@@ -7,15 +7,11 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include "device.h"
-#include "Timer.h"
 #include "adc_freerunner.h"
 #include "DiscreteController.h"
 #include "ContinuousController.h"
 
 #define CLOCKDELAY_CONTROLLER_DELTA 0.001
-
-#define CLOCKED_TIMER_MIN_FREQUENCY 0.0312 /* 0.0312Hz, period apprx 32 secs */
-#define CLOCKED_TIMER_MAX_FREQUENCY 512 /* 512Hz, period apprx 2ms */
 
 inline bool clockIsHigh(){
   return !(CLOCKDELAY_CLOCK_PINS & _BV(CLOCKDELAY_CLOCK_PIN));
@@ -77,9 +73,6 @@ public:
     off();
   }
   void on(){
-#ifdef SERIAL_DEBUG
-    printString(" %on\n");
-#endif
     DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN_A);
     DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN_B);
     // we can assume this here:
@@ -87,9 +80,6 @@ public:
     COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN);
   }
   void off(){
-#ifdef SERIAL_DEBUG
-    printString(" %off\n");
-#endif
     DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN_A);
     DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN_B);
     COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN);
@@ -133,16 +123,10 @@ public:
       off();
   }
   void on(){
-#ifdef SERIAL_DEBUG
-    printString(" /on\n");
-#endif
     DIVIDE_OUTPUT_PORT &= ~_BV(DIVIDE_OUTPUT_PIN_A);
     DIVIDE_OUTPUT_PORT |= _BV(DIVIDE_OUTPUT_PIN_B);
   }
   void off(){
-#ifdef SERIAL_DEBUG
-    printString(" /off\n");
-#endif
     DIVIDE_OUTPUT_PORT |= _BV(DIVIDE_OUTPUT_PIN_A);
     DIVIDE_OUTPUT_PORT &= ~_BV(DIVIDE_OUTPUT_PIN_B);
   }
@@ -158,29 +142,82 @@ public:
 
 ClockDivider divider;
 
-class ClockDelay : public ClockedTimer {
+class ClockDelay {
 public:
-  void on(){
+  uint16_t riseMark;
+  uint16_t fallMark;
+  uint16_t value;
+  volatile uint16_t pos;
+  volatile bool running;
+  inline void start(){
+    pos = 0;
+    running = true;
+  }
+  inline void stop(){
+    running = false;
+  }
+  inline void reset(){
+    stop();
+  }
+  inline void rise(){
+    riseMark = value;
+    start();
+  }
+  inline void fall(){
+    fallMark = riseMark+pos;
+  }
+  inline bool isOff(){
+    return DELAY_OUTPUT_PINS & _BV(DELAY_OUTPUT_PIN_A);
+  }
+  inline void clock(){
+    if(running){
+      if(pos > riseMark){
+	on();
+      }else if(pos > fallMark){
+	off();
+	stop(); // one-shot
+      }
+    }
+  }
+  virtual void on(){
     DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN_A);
     DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN_B);
-    if(mode != SWING_MODE || divider.pos == 0)
-      COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN);
   }
-  void off(){
+  virtual void off(){
     DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN_A);
     DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN_B);
-    if(mode != SWING_MODE || divider.pos == 0)
-      COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN);
+  }
+#ifdef SERIAL_DEBUG
+  virtual void dump(){
+    printString("rise ");
+    printInteger(riseMark);
+    printString(", fall ");
+    printInteger(fallMark);
+    printString(", pos ");
+    printInteger(pos);
+    printString(", value ");
+    printInteger(value);
+  }
+#endif
+};
+
+class ClockSwing : public ClockDelay {
+  void on(){
+    COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN);
+  }
+ void off(){
+    COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN);
   }
 };
 
 ClockDelay delay; // manually triggered from Timer0 interrupt
+ClockSwing swinger;
 
-class FrequencyController : public ContinuousController {
+class DelayController : public ContinuousController {
 public:
-  Timer* timer;
+  ClockDelay* delay;
   virtual void hasChanged(float v){
-    timer->setRate(1.0-v);
+    delay->value = v*1023;
   }
 };
 
@@ -200,7 +237,8 @@ public:
   }
 };
 
-FrequencyController delayControl;
+DelayController delayControl;
+DelayController swingControl;
 DividerController dividerControl;
 CounterController counterControl;
 
@@ -239,12 +277,15 @@ void setup(){
   // enable timer 0 overflow interrupt
   TIMSK0 |= _BV(TOIE0);
 
-  delay.minimum = 1.0; // 1Hz
-  delay.maximum = 512.0; // 512Hz, period apprx 2ms
-  delay.setDutyCycle(0.5);
+//   delay.minimum = 1.0; // 1Hz
+//   delay.maximum = 512.0; // 512Hz, period apprx 2ms
+//   delay.setDutyCycle(0.5);
 
-  delayControl.timer = &delay;
+  delayControl.delay = &delay;
   delayControl.delta = CLOCKDELAY_CONTROLLER_DELTA;
+
+  swingControl.delay = &swinger;
+  swingControl.delta = CLOCKDELAY_CONTROLLER_DELTA;
 
   dividerControl.divider = &divider;
   dividerControl.range = 16;
@@ -259,6 +300,7 @@ void setup(){
   divider.reset();
   counter.reset();
   delay.reset();
+  swinger.reset();
 
   sei();
 
@@ -273,39 +315,55 @@ void setup(){
 
 /* Timer 0 overflow interrupt */
 ISR(TIMER0_OVF_vect){
-  if(mode != DIVIDE_AND_COUNT_MODE)
-    delay.clock();
+//   if(mode != DIVIDE_AND_COUNT_MODE)
+  delay.clock();
+  swinger.clock();
 }
 
 /* Reset interrupt */
 SIGNAL(INT0_vect){
-  delay.reset();
   divider.reset();
   counter.reset();
+  delay.reset();
+  swinger.reset();
   // hold everything until reset is released
-  // todo: enable and test
-//   while(resetIsHigh());
+  while(resetIsHigh());
 }
 
 /* Clock interrupt */
 SIGNAL(INT1_vect){
   if(clockIsHigh()){
-#ifdef SERIAL_DEBUG
-    printString(" rise\n");
-#endif
     divider.rise();
-    if(mode == DIVIDE_AND_COUNT_MODE)
+    switch(mode){
+    case SWING_MODE:
+      if(divider.pos == 0)
+	swinger.rise();
+      else
+	COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN); // pass through clock
+      break;
+    case DIVIDE_AND_COUNT_MODE:
       counter.rise();
-    // todo: enable
-//     CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_C_PIN);
+      break;
+    case DIVIDE_AND_DELAY_MODE:
+      delay.rise();
+      break;
+    }
   }else{
-#ifdef SERIAL_DEBUG
-    printString(" fall\n");
-#endif
-    divider.fall();
-    if(mode == DIVIDE_AND_COUNT_MODE)
+    switch(mode){
+    case SWING_MODE:
+      if(divider.pos == 0)
+	swinger.fall();
+      else
+	COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN); // pass through clock
+      break;
+    case DIVIDE_AND_COUNT_MODE:
       counter.fall();
-//     CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_C_PIN);
+      break;
+    case DIVIDE_AND_DELAY_MODE:
+      delay.fall();
+      break;
+    }
+    divider.fall();
   }
 //   if(clockIsHigh())
 //     CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_C_PIN);
@@ -354,6 +412,9 @@ void loop(){
     printString("] ");
     printString("del[");
     delay.dump();
+    printString("] ");
+    printString("swing[");
+    swinger.dump();
     printString("] ");
     printBinary(DELAY_OUTPUT_PINS);
     switch(mode){
