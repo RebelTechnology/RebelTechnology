@@ -1,4 +1,4 @@
-#define SERIAL_DEBUG
+// #define SERIAL_DEBUG
 #ifdef SERIAL_DEBUG
 #include "serial.h"
 #endif // SERIAL_DEBUG
@@ -69,20 +69,19 @@ public:
     else
       off();
   }
-  void fall(){
+  inline void fall(){
     off();
   }
-  void on(){
+  inline bool isOff(){
+    return DELAY_OUTPUT_PINS & _BV(DELAY_OUTPUT_PIN_A);
+  }
+  inline void on(){
     DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN_A);
     DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN_B);
-    // we can assume this here:
-//     if(mode == DIVIDE_AND_COUNT_MODE)
-    COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN);
   }
-  void off(){
+  inline void off(){
     DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN_A);
     DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN_B);
-    COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN);
   }
 #ifdef SERIAL_DEBUG
   virtual void dump(){
@@ -343,9 +342,13 @@ SIGNAL(INT1_vect){
       break;
     case DIVIDE_AND_COUNT_MODE:
       counter.rise();
+      if(!divider.isOff() && !counter.isOff())
+	COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN);
       break;
     case DIVIDE_AND_DELAY_MODE:
       delay.rise();
+      if(!divider.isOff())
+	swinger.rise();
       break;
     }
   }else{
@@ -358,9 +361,12 @@ SIGNAL(INT1_vect){
       break;
     case DIVIDE_AND_COUNT_MODE:
       counter.fall();
+      COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN);
       break;
     case DIVIDE_AND_DELAY_MODE:
       delay.fall();
+      if(!divider.isOff())
+	swinger.fall();
       break;
     }
     divider.fall();
@@ -376,15 +382,7 @@ void loop(){
   dividerControl.update(getAnalogValue(DIVIDE_ADC_CHANNEL));
   counterControl.update(getAnalogValue(DELAY_ADC_CHANNEL));
   delayControl.update(getAnalogValue(DELAY_ADC_CHANNEL));
-
-//   switch(mode){
-//   case DIVIDE_AND_COUNT_MODE:
-//     delay.stop();
-//     break;
-//   case DIVIDE_AND_DELAY_MODE:
-//   case SWING_MODE:
-//     break;
-//   }
+  swingControl.update(getAnalogValue(DELAY_ADC_CHANNEL));
   
 #ifdef SERIAL_DEBUG
   if(serialAvailable() > 0){
