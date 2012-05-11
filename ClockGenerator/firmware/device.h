@@ -9,7 +9,7 @@ OC2B     PORTD3    OUTB        TIMER2_OUTPUT_B
 
   Timer 0: 8 bit software interrupt every ~1ms, OUTB
   Timer 1: 16 bit hardware, OUTA
-  Timer 8: 8 bit hardware, OUTB
+  Timer 2: 8 bit hardware, OUTB
  */
 
 #define GENERATOR_RATE_A_CONTROL            2
