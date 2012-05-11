@@ -102,9 +102,11 @@ public:
     }
   }
   void updateFrequency(){
-    if(frequency <= 0)
-      frequency += 0.00001;
-    period = (uint16_t)(CLOCKED_TIMER_FREQUENCY_MULTIPLIER/frequency);
+    if(frequency <= 0){
+      period = 2;
+    }else{
+      period = (uint16_t)(CLOCKED_TIMER_FREQUENCY_MULTIPLIER/frequency);
+    }
   }
   void updateDutyCycle(){
     duration = period*duty;
