@@ -1,0 +1,58 @@
+Partlist
+
+Exported from EuclideanSequencer.sch at 04/04/2012 17:23
+
+EAGLE Version 6.1.0 Copyright (c) 1988-2012 CadSoft
+
+Assembly variant: 
+
+Part     Value          Device              Package                   Library        Sheet
+
+C1       100n           C-US050-024X044     C050-024X044              rcl            1
+C2                      CPOL-EUE5-6         E5-6                      rcl            1
+C3       100n           C-US050-024X044     C050-024X044              rcl            1
+CLKA                    CON-LUMBERG_1502_03 CON-LUMBERG_1502_03       Rebel          1
+CLKB                    CON-LUMBERG_1502_03 CON-LUMBERG_1502_03       Rebel          1
+CLKIN                   CON-LUMBERG_1502_03 CON-LUMBERG_1502_03       Rebel          1
+CLKTH                   CON-LUMBERG_1502_03 CON-LUMBERG_1502_03       Rebel          1
+D1                      DIODEPTH            DIODE-1N4001              SparkFun       1
+D2                      DIODEPTH            DIODE-1N4001              SparkFun       1
+FILLA    10K            POT-ALPS_ALPS290024 POT-ALPS_POT              Rebel          1
+FILLB    10K            POT-ALPS_ALPS290024 POT-ALPS_POT              Rebel          1
+IC1      MEGA168        MEGA8-P             DIL28-3                   atmel          1
+JP1                     M06SIP              1X06                      SparkFun       1
+LEDA                    LED3MM              LED3MM                    SparkFun       1
+LEDB                    LED3MM              LED3MM                    SparkFun       1
+LEDC                    LED3MM              LED3MM                    SparkFun       1
+Q1       2N3904         2N3904              TO92                      transistor-npn 1
+Q2       2N3904         2N3904              TO92                      transistor-npn 1
+Q3       2N3904         2N3904              TO92                      transistor-npn 1
+Q4       2N3904         2N3904              TO92                      transistor-npn 1
+R1       1K             R-EU_0204/7         0204/7                    rcl            1
+R2       100K           R-EU_0204/7         0204/7                    rcl            1
+R3       10K            R-EU_0204/7         0204/7                    rcl            1
+R4       1K             R-EU_0204/7         0204/7                    rcl            1
+R5       10K            R-EU_0204/7         0204/7                    rcl            1
+R6       100            R-EU_0204/7         0204/7                    rcl            1
+R7       1K             R-EU_0204/7         0204/7                    rcl            1
+R8       1K             R-EU_0204/7         0204/7                    rcl            1
+R9       1K             R-EU_0204/7         0204/7                    rcl            1
+R10      1K             R-EU_0204/7         0204/7                    rcl            1
+R11      100            R-EU_0204/7         0204/7                    rcl            1
+R12      1K             R-EU_0204/7         0204/7                    rcl            1
+R13      1K             R-EU_0204/7         0204/7                    rcl            1
+R14      100K           R-EU_0204/7         0204/7                    rcl            1
+R15      10K            R-EU_0204/7         0204/7                    rcl            1
+R16      1M             R-EU_0204/7         0204/7                    rcl            1
+R17      1M             R-EU_0204/7         0204/7                    rcl            1
+R18      1K             R-EU_0204/7         0204/7                    rcl            1
+ROTA     10K            POT-ALPS_ALPS290024 POT-ALPS_POT              Rebel          1
+ROTB     10K            POT-ALPS_ALPS290024 POT-ALPS_POT              Rebel          1
+RSTIN                   CON-LUMBERG_1502_03 CON-LUMBERG_1502_03       Rebel          1
+S1                      SWITCH-SPST         SWITCH-SPDT-SALECOM-T8014 Rebel          1
+S2                      SWITCH-SPST         SWITCH-SPDT-SALECOM-T8014 Rebel          1
+S3                      SWITCH-SPST         SWITCH-SPDT-SALECOM-T8014 Rebel          1
+STEPA    10K            POT-ALPS_ALPS290024 POT-ALPS_POT              Rebel          1
+STEPB    10K            POT-ALPS_ALPS290024 POT-ALPS_POT              Rebel          1
+U$2      M08X2          M08X2               2X8                       SparkFun       1
+Y1       16Mhz          RESONATORPTH        RESONATOR-PTH             SparkFun       1
