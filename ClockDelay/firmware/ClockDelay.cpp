@@ -1,4 +1,4 @@
-// #define SERIAL_DEBUG
+#define SERIAL_DEBUG
 #ifdef SERIAL_DEBUG
 #include "serial.h"
 #endif // SERIAL_DEBUG
@@ -73,15 +73,15 @@ public:
     off();
   }
   inline bool isOff(){
-    return DELAY_OUTPUT_PINS & _BV(DELAY_OUTPUT_PIN_A);
+    return DELAY_OUTPUT_PINS & _BV(DELAY_OUTPUT_PIN);
   }
   inline void on(){
-    DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN_A);
-    DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN_B);
+    DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN);
+    CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_3_PIN);
   }
   inline void off(){
-    DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN_A);
-    DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN_B);
+    DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN);
+    CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_3_PIN);
   }
 #ifdef SERIAL_DEBUG
   virtual void dump(){
@@ -111,7 +111,7 @@ public:
   uint8_t pos;
   uint8_t value;
   inline bool isOff(){
-    return DIVIDE_OUTPUT_PINS & _BV(DIVIDE_OUTPUT_PIN_A);
+    return DIVIDE_OUTPUT_PINS & _BV(DIVIDE_OUTPUT_PIN);
   }
   void rise(){
     if(isOff() && next())
@@ -122,12 +122,12 @@ public:
       off();
   }
   void on(){
-    DIVIDE_OUTPUT_PORT &= ~_BV(DIVIDE_OUTPUT_PIN_A);
-    DIVIDE_OUTPUT_PORT |= _BV(DIVIDE_OUTPUT_PIN_B);
+    DIVIDE_OUTPUT_PORT &= ~_BV(DIVIDE_OUTPUT_PIN);
+    CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_2_PIN);
   }
   void off(){
-    DIVIDE_OUTPUT_PORT |= _BV(DIVIDE_OUTPUT_PIN_A);
-    DIVIDE_OUTPUT_PORT &= ~_BV(DIVIDE_OUTPUT_PIN_B);
+    DIVIDE_OUTPUT_PORT |= _BV(DIVIDE_OUTPUT_PIN);
+    CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_2_PIN);
   }
 #ifdef SERIAL_DEBUG
   virtual void dump(){
@@ -166,11 +166,11 @@ public:
     fallMark = riseMark+pos;
   }
   inline bool isOff(){
-    return DELAY_OUTPUT_PINS & _BV(DELAY_OUTPUT_PIN_A);
+    return DELAY_OUTPUT_PINS & _BV(DELAY_OUTPUT_PIN);
   }
   inline void clock(){
     if(running){
-      if(pos > riseMark){
+      if(++pos > riseMark){
 	on();
       }else if(pos > fallMark){
 	off();
@@ -179,12 +179,12 @@ public:
     }
   }
   virtual void on(){
-    DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN_A);
-    DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN_B);
+    DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN);
+    CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_3_PIN);
   }
   virtual void off(){
-    DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN_A);
-    DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN_B);
+    DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN);
+    CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_3_PIN);
   }
 #ifdef SERIAL_DEBUG
   virtual void dump(){
@@ -215,7 +215,7 @@ ClockSwing swinger;
 class DelayController : public ContinuousController {
 public:
   ClockDelay* delay;
-  virtual void hasChanged(float v){
+  void hasChanged(float v){
     delay->value = v*1023;
   }
 };
@@ -223,7 +223,7 @@ public:
 class CounterController : public DiscreteController {
 public:
   ClockCounter* counter;
-  virtual void hasChanged(int8_t v){
+  void hasChanged(int8_t v){
     counter->value = v;
   }
 };
@@ -231,7 +231,7 @@ public:
 class DividerController : public DiscreteController {
 public:
   ClockDivider* divider;
-  virtual void hasChanged(int8_t v){
+  void hasChanged(int8_t v){
     divider->value = v+1;
   }
 };
@@ -262,11 +262,12 @@ void setup(){
   MODE_SWITCH_DDR &= ~_BV(MODE_SWITCH_PIN_B);
   MODE_SWITCH_PORT |= _BV(MODE_SWITCH_PIN_B);
 
-  DIVIDE_OUTPUT_DDR |= _BV(DIVIDE_OUTPUT_PIN_A);
-  DIVIDE_OUTPUT_DDR |= _BV(DIVIDE_OUTPUT_PIN_B);
-  DELAY_OUTPUT_DDR |= _BV(DELAY_OUTPUT_PIN_A);
-  DELAY_OUTPUT_DDR |= _BV(DELAY_OUTPUT_PIN_B);
+  DIVIDE_OUTPUT_DDR |= _BV(DIVIDE_OUTPUT_PIN);
+  DELAY_OUTPUT_DDR |= _BV(DELAY_OUTPUT_PIN);
   COMBINED_OUTPUT_DDR |= _BV(COMBINED_OUTPUT_PIN);
+  CLOCKDELAY_LEDS_DDR |= _BV(CLOCKDELAY_LED_1_PIN);
+  CLOCKDELAY_LEDS_DDR |= _BV(CLOCKDELAY_LED_2_PIN);
+  CLOCKDELAY_LEDS_DDR |= _BV(CLOCKDELAY_LED_3_PIN);
 
   // At 16MHz CPU clock and prescaler 64, Timer 0 should run at 1024Hz.
   // configure Timer 0 to Fast PWM, 0xff top.
@@ -306,9 +307,6 @@ void setup(){
 #ifdef SERIAL_DEBUG
   beginSerial(9600);
   printString("hello\n");
-  // todo: remove
-  CLOCKDELAY_CLOCK_DDR |= _BV(CLOCKDELAY_CLOCK_PIN);
-  CLOCKDELAY_RESET_DDR |= _BV(CLOCKDELAY_RESET_PIN);
 #endif
 }
 
@@ -351,6 +349,7 @@ SIGNAL(INT1_vect){
 	swinger.rise();
       break;
     }
+    CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_1_PIN);
   }else{
     switch(mode){
     case SWING_MODE:
@@ -370,11 +369,12 @@ SIGNAL(INT1_vect){
       break;
     }
     divider.fall();
+    CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_1_PIN);
   }
-//   if(clockIsHigh())
-//     CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_C_PIN);
-//   else
-//     CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_C_PIN);
+  if(clockIsHigh())
+    CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_1_PIN);
+  else
+    CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_1_PIN);
 }
 
 void loop(){
