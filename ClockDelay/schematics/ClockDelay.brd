@@ -3187,6 +3187,8 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <element name="GND" library="testpad" package="P1-20" value="TPPAD1-20" x="96.52" y="3.81" rot="R270">
 <attribute name="TP_SIGNAL_NAME" value="" x="96.52" y="3.81" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
+<element name="R205" library="Rebel" package="0204/7" value="120K" x="5.08" y="-3.81"/>
+<element name="R105" library="Rebel" package="0204/7" value="120K" x="5.08" y="-7.62"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -3308,6 +3310,10 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <wire x1="19.685" y1="31.115" x2="18.415" y2="29.845" width="0.6096" layer="1"/>
 <wire x1="68.58" y1="36.195" x2="80.805" y2="36.195" width="0.6096" layer="1"/>
 <wire x1="80.805" y1="36.195" x2="81.4" y2="35.6" width="0.6096" layer="1"/>
+<contactref element="R205" pad="1"/>
+<contactref element="R105" pad="1"/>
+<wire x1="1.27" y1="-3.81" x2="1.27" y2="-7.62" width="0" layer="19" extent="1-1"/>
+<wire x1="3.175" y1="0.635" x2="1.27" y2="-3.81" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="N$2">
 <contactref element="IC1" pad="2"/>
@@ -3320,6 +3326,8 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <wire x1="64.135" y1="48.4124" x2="65.405" y2="49.53" width="0.3048" layer="1"/>
 <wire x1="56.642" y1="48.4124" x2="55.5244" y2="49.53" width="0.3048" layer="1"/>
 <wire x1="55.5244" y1="49.53" x2="55.245" y2="49.53" width="0.3048" layer="1"/>
+<contactref element="R105" pad="2"/>
+<wire x1="8.89" y1="-7.62" x2="55.245" y2="41.275" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$3">
 <contactref element="R101" pad="1"/>
@@ -3466,6 +3474,8 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <wire x1="62.865" y1="19.05" x2="62.865" y2="30.48" width="0.3048" layer="16"/>
 <wire x1="62.865" y1="30.48" x2="61.595" y2="31.75" width="0.3048" layer="16"/>
 <wire x1="61.595" y1="31.75" x2="54.61" y2="31.75" width="0.3048" layer="16"/>
+<contactref element="R205" pad="2"/>
+<wire x1="8.89" y1="-3.81" x2="62.23" y2="3.81" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="N$8">
 <contactref element="R201" pad="1"/>
