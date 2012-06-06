@@ -3187,8 +3187,8 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <element name="GND" library="testpad" package="P1-20" value="TPPAD1-20" x="96.52" y="3.81" rot="R270">
 <attribute name="TP_SIGNAL_NAME" value="" x="96.52" y="3.81" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="R205" library="Rebel" package="0204/7" value="120K" x="5.08" y="-3.81"/>
-<element name="R105" library="Rebel" package="0204/7" value="120K" x="5.08" y="-7.62"/>
+<element name="R205" library="Rebel" package="0204/7" value="120K" x="78.105" y="10.795" rot="R270"/>
+<element name="R105" library="Rebel" package="0204/7" value="120K" x="59.055" y="43.815" rot="R180"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -3312,30 +3312,33 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <wire x1="80.805" y1="36.195" x2="81.4" y2="35.6" width="0.6096" layer="1"/>
 <contactref element="R205" pad="1"/>
 <contactref element="R105" pad="1"/>
-<wire x1="1.27" y1="-3.81" x2="1.27" y2="-7.62" width="0" layer="19" extent="1-1"/>
-<wire x1="3.175" y1="0.635" x2="1.27" y2="-3.81" width="0" layer="19" extent="16-16"/>
+<wire x1="68.58" y1="36.195" x2="65.405" y2="39.37" width="0.6096" layer="1"/>
+<wire x1="65.405" y1="39.37" x2="65.405" y2="41.275" width="0.6096" layer="1"/>
+<wire x1="65.405" y1="41.275" x2="62.865" y2="43.815" width="0.6096" layer="1"/>
+<wire x1="77.47" y1="13.97" x2="78.105" y2="14.605" width="0.6096" layer="1"/>
 </signal>
 <signal name="N$2">
 <contactref element="IC1" pad="2"/>
 <contactref element="R101" pad="2"/>
 <contactref element="R102" pad="1"/>
 <contactref element="R103" pad="2"/>
-<wire x1="55.245" y1="49.53" x2="55.245" y2="46.355" width="0.3048" layer="16"/>
-<wire x1="55.245" y1="41.275" x2="55.245" y2="46.355" width="0.3048" layer="1"/>
+<wire x1="55.245" y1="41.275" x2="55.245" y2="43.815" width="0.3048" layer="1"/>
 <wire x1="56.642" y1="48.4124" x2="64.135" y2="48.4124" width="0.3048" layer="1"/>
 <wire x1="64.135" y1="48.4124" x2="65.405" y2="49.53" width="0.3048" layer="1"/>
 <wire x1="56.642" y1="48.4124" x2="55.5244" y2="49.53" width="0.3048" layer="1"/>
 <wire x1="55.5244" y1="49.53" x2="55.245" y2="49.53" width="0.3048" layer="1"/>
 <contactref element="R105" pad="2"/>
-<wire x1="8.89" y1="-7.62" x2="55.245" y2="41.275" width="0" layer="19" extent="1-1"/>
+<wire x1="55.245" y1="43.815" x2="55.245" y2="46.355" width="0.3048" layer="1"/>
+<wire x1="55.245" y1="46.355" x2="55.245" y2="49.53" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$3">
 <contactref element="R101" pad="1"/>
 <contactref element="DIVMAN" pad="2"/>
-<wire x1="67.945" y1="38.1" x2="62.865" y2="43.18" width="0.3048" layer="1"/>
-<wire x1="62.865" y1="43.18" x2="62.865" y2="46.355" width="0.3048" layer="16"/>
-<wire x1="67.945" y1="38.1" x2="81.4" y2="38.1" width="0.3048" layer="1"/>
-<via x="62.865" y="43.18" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="81.4" y1="38.1" x2="70.485" y2="38.1" width="0.3048" layer="1"/>
+<wire x1="70.485" y1="38.1" x2="64.135" y2="44.45" width="0.3048" layer="1"/>
+<wire x1="64.135" y1="44.45" x2="64.135" y2="45.72" width="0.3048" layer="1"/>
+<wire x1="64.135" y1="45.72" x2="63.5" y2="46.355" width="0.3048" layer="1"/>
+<wire x1="63.5" y1="46.355" x2="62.865" y2="46.355" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$4">
 <contactref element="IC1" pad="1"/>
@@ -3343,12 +3346,14 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <contactref element="R102" pad="2"/>
 <wire x1="57.785" y1="41.275" x2="57.785" y2="43.815" width="0.3048" layer="1"/>
 <wire x1="57.785" y1="43.815" x2="59.055" y2="45.085" width="0.3048" layer="1"/>
-<wire x1="59.055" y1="45.085" x2="69.215" y2="45.085" width="0.3048" layer="1"/>
-<via x="69.215" y="45.085" extent="1-16" drill="0.6" shape="square"/>
-<wire x1="69.215" y1="45.085" x2="69.215" y2="48.895" width="0.3048" layer="16"/>
+<wire x1="59.055" y1="45.085" x2="61.595" y2="45.085" width="0.3048" layer="1"/>
+<via x="61.595" y="45.085" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="69.215" y1="48.895" x2="69.85" y2="49.53" width="0.3048" layer="16"/>
 <wire x1="69.85" y1="49.53" x2="73.025" y2="49.53" width="0.3048" layer="16"/>
 <wire x1="73.025" y1="49.53" x2="74.93" y2="49.53" width="0.3048" layer="16"/>
+<wire x1="69.215" y1="48.895" x2="69.215" y2="45.72" width="0.3048" layer="16"/>
+<wire x1="69.215" y1="45.72" x2="68.58" y2="45.085" width="0.3048" layer="16"/>
+<wire x1="68.58" y1="45.085" x2="61.595" y2="45.085" width="0.3048" layer="16"/>
 </signal>
 <signal name="-12V">
 <contactref element="IC1" pad="4"/>
@@ -3365,10 +3370,10 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <signal name="N$5">
 <contactref element="R103" pad="1"/>
 <contactref element="DIVCV" pad="2"/>
-<wire x1="62.865" y1="49.53" x2="62.23" y2="49.53" width="0.3048" layer="16"/>
-<wire x1="62.23" y1="49.53" x2="60.96" y2="48.26" width="0.3048" layer="16"/>
-<wire x1="60.96" y1="48.26" x2="60.96" y2="39.49" width="0.3048" layer="16"/>
-<wire x1="60.96" y1="39.49" x2="62.35" y2="38.1" width="0.3048" layer="16"/>
+<wire x1="62.865" y1="49.53" x2="60.96" y2="49.53" width="0.3048" layer="16"/>
+<wire x1="60.96" y1="49.53" x2="60.325" y2="48.895" width="0.3048" layer="16"/>
+<wire x1="60.325" y1="48.895" x2="60.325" y2="40.125" width="0.3048" layer="16"/>
+<wire x1="60.325" y1="40.125" x2="62.35" y2="38.1" width="0.3048" layer="16"/>
 </signal>
 <signal name="DIVIN">
 <contactref element="R104" pad="2"/>
@@ -3475,7 +3480,9 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <wire x1="62.865" y1="30.48" x2="61.595" y2="31.75" width="0.3048" layer="16"/>
 <wire x1="61.595" y1="31.75" x2="54.61" y2="31.75" width="0.3048" layer="16"/>
 <contactref element="R205" pad="2"/>
-<wire x1="8.89" y1="-3.81" x2="62.23" y2="3.81" width="0" layer="19" extent="16-16"/>
+<wire x1="73.66" y1="4.445" x2="73.66" y2="6.35" width="0.3048" layer="16"/>
+<wire x1="73.66" y1="6.35" x2="74.295" y2="6.985" width="0.3048" layer="16"/>
+<wire x1="74.295" y1="6.985" x2="78.105" y2="6.985" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$8">
 <contactref element="R201" pad="1"/>
