@@ -36,7 +36,7 @@ enum OperatingMode {
   SWING_MODE                      = 3
 };
 
-OperatingMode mode;
+volatile OperatingMode mode;
 
 inline void updateMode(){
   if(isCountMode()){
@@ -139,8 +139,6 @@ public:
 #endif
 };
 
-ClockDivider divider;
-
 class ClockDelay {
 public:
   uint16_t riseMark;
@@ -170,11 +168,11 @@ public:
   }
   inline void clock(){
     if(running){
-      if(++pos > riseMark){
-	on();
-      }else if(pos > fallMark){
+      if(pos > fallMark){
 	off();
 	stop(); // one-shot
+      }else if(++pos > riseMark){
+	on();
       }
     }
   }
@@ -209,6 +207,7 @@ class ClockSwing : public ClockDelay {
   }
 };
 
+ClockDivider divider;
 ClockDelay delay; // manually triggered from Timer0 interrupt
 ClockSwing swinger;
 
@@ -301,6 +300,7 @@ void setup(){
   counter.reset();
   delay.reset();
   swinger.reset();
+  updateMode();
 
   sei();
 
@@ -371,10 +371,6 @@ SIGNAL(INT1_vect){
     divider.fall();
     CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_1_PIN);
   }
-  if(clockIsHigh())
-    CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_1_PIN);
-  else
-    CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_1_PIN);
 }
 
 void loop(){
