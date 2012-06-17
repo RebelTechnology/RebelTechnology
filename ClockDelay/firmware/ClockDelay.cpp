@@ -54,7 +54,7 @@ public:
     pos = 0;
   }
   bool next(){
-    if(++pos >= value){
+    if(++pos > value){
       pos = 0;
       return true;
     }
@@ -89,16 +89,18 @@ public:
     printInteger(pos);
     printString(", value ");
     printInteger(value);
+    if(isOff())
+      printString(" off");
+    else
+      printString(" on");
   }
 #endif
 };
 
-ClockCounter counter;
-
 class ClockDivider {
 public:
   inline void reset(){
-    pos = value;
+    pos = 0;
   }
   bool next(){
     if(++pos >= value){
@@ -135,6 +137,10 @@ public:
     printInteger(pos);
     printString(", value ");
     printInteger(value);
+    if(isOff())
+      printString(" off");
+    else
+      printString(" on");
   }
 #endif
 };
@@ -168,11 +174,11 @@ public:
   }
   inline void clock(){
     if(running){
-      if(pos > fallMark){
+      if(++pos == riseMark){
+	on();
+      }else if(pos == fallMark){
 	off();
 	stop(); // one-shot
-      }else if(++pos > riseMark){
-	on();
       }
     }
   }
@@ -194,6 +200,14 @@ public:
     printInteger(pos);
     printString(", value ");
     printInteger(value);
+    if(running)
+      printString(" running");
+    else
+      printString(" stopped");
+    if(isOff())
+      printString(" off");
+    else
+      printString(" on");
   }
 #endif
 };
@@ -207,6 +221,7 @@ class ClockSwing : public ClockDelay {
   }
 };
 
+ClockCounter counter;
 ClockDivider divider;
 ClockDelay delay; // manually triggered from Timer0 interrupt
 ClockSwing swinger;
@@ -267,6 +282,13 @@ void setup(){
   CLOCKDELAY_LEDS_DDR |= _BV(CLOCKDELAY_LED_1_PIN);
   CLOCKDELAY_LEDS_DDR |= _BV(CLOCKDELAY_LED_2_PIN);
   CLOCKDELAY_LEDS_DDR |= _BV(CLOCKDELAY_LED_3_PIN);
+
+  DIVIDE_OUTPUT_PORT |= _BV(DIVIDE_OUTPUT_PIN);
+  DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN);
+  COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN);
+  CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_1_PIN);
+  CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_2_PIN);
+  CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_3_PIN);
 
   // At 16MHz CPU clock and prescaler 64, Timer 0 should run at 1024Hz.
   // configure Timer 0 to Fast PWM, 0xff top.
