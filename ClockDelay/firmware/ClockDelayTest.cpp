@@ -139,12 +139,10 @@ BOOST_AUTO_TEST_CASE(testDivide){
     toggleClock();
     BOOST_CHECK(!divideIsHigh());
   }
-  printNewline();
   for(int i=0; i<15; ++i){
     toggleClock();
     BOOST_CHECK(divideIsHigh());
   }
-  printNewline();
   for(int i=0; i<15; ++i){
     toggleClock();
     BOOST_CHECK(!divideIsHigh());
@@ -155,9 +153,26 @@ BOOST_AUTO_TEST_CASE(testDivide){
 
 BOOST_AUTO_TEST_CASE(testCount){
   PinFixture fixture;
-  setCountMode();
-  setDivide(0.3);
+  setDivide(0.5);
   setDelay(0.3);
+  setCountMode();
+  loop();
+  BOOST_CHECK_EQUAL(counter.value, 8);
+  BOOST_CHECK(!delayIsHigh());
+  BOOST_CHECK_EQUAL(mode, DIVIDE_AND_COUNT_MODE);
+  for(int i=0; i<14; ++i){
+    toggleClock();
+    BOOST_CHECK(!delayIsHigh());
+    counter.dump();
+    printNewline();
+  }
+
+  for(int i=0; i<14; ++i){
+    toggleClock();
+    BOOST_CHECK(!delayIsHigh());
+    counter.dump();
+    printNewline();
+  }
 
 }
 
