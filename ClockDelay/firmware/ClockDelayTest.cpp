@@ -62,11 +62,13 @@ void callTimer(int times = 1){
 }
 
 void setDivide(float value){
-  adc_values[0] = value*ADC_VALUE_RANGE;
+  adc_values[0] = ADC_VALUE_RANGE-1-value*1023*4;
+// ADC_VALUE_RANGE-1-value*(ADC_VALUE_RANGE-1);
 }
 
 void setDelay(float value){
-  adc_values[1] = value*ADC_VALUE_RANGE;
+  adc_values[1] = ADC_VALUE_RANGE-1-value*1023*4;
+// ADC_VALUE_RANGE-1-value*(ADC_VALUE_RANGE-1);
 }
 
 bool divideIsHigh(){
@@ -81,6 +83,16 @@ bool combinedIsHigh(){
   return !(PORTB & _BV(PORTB2));
 }
 
+struct DefaultFixture {
+  PinFixture pins;
+  DefaultFixture(){
+    loop();
+    setDivide(0.0);
+    setDelay(0.0);
+    loop();
+  }
+};
+
 BOOST_AUTO_TEST_CASE(universeInOrder)
 {
     BOOST_CHECK(2+2 == 4);
@@ -88,15 +100,37 @@ BOOST_AUTO_TEST_CASE(universeInOrder)
 
 BOOST_AUTO_TEST_CASE(testDefaults){
   PinFixture fixture;
-  updateMode();
+  loop();
   BOOST_CHECK(!resetIsHigh());
   BOOST_CHECK(!clockIsHigh());
   BOOST_CHECK(!isCountMode());
   BOOST_CHECK(!isDelayMode());  
 }
 
+BOOST_AUTO_TEST_CASE(testControlRanges){
+  DefaultFixture fixture;
+  setDelay(0.0);
+  setDivide(0.0);
+  loop();
+  BOOST_CHECK_EQUAL(divider.value, 1);
+  BOOST_CHECK_EQUAL(counter.value, 0);
+  BOOST_CHECK_EQUAL(delay.value, 0);
+  setDelay(1.0);
+  setDivide(1.0);
+  loop();
+  BOOST_CHECK_EQUAL(divider.value, 16);
+  BOOST_CHECK_EQUAL(counter.value, 15);
+  BOOST_CHECK_EQUAL(delay.value, 1022);
+  setDelay(0.5);
+  setDivide(0.5);
+  loop();
+  BOOST_CHECK_EQUAL(divider.value, 8);
+  BOOST_CHECK_EQUAL(counter.value, 7);
+  BOOST_CHECK_EQUAL(delay.value, 511);
+}
+
 BOOST_AUTO_TEST_CASE(testModes){
-  PinFixture fixture;
+  DefaultFixture fixture;
   setDelayMode();
   updateMode();
   BOOST_CHECK(!isCountMode());
@@ -115,7 +149,7 @@ BOOST_AUTO_TEST_CASE(testModes){
 }
 
 BOOST_AUTO_TEST_CASE(testClock){
-  PinFixture fixture;
+  DefaultFixture fixture;
   setClock(true);
   BOOST_CHECK(clockIsHigh());
   setClock(false);
@@ -127,7 +161,12 @@ BOOST_AUTO_TEST_CASE(testClock){
 }
 
 BOOST_AUTO_TEST_CASE(testDivide){
-  PinFixture fixture;
+  DefaultFixture fixture;
+  loop();
+  setDivide(0.0);
+  loop();
+  BOOST_CHECK_EQUAL(divider.value, 1);
+
   setDivide(0.5);
   setDelay(0.5);
   setCountMode();
@@ -152,59 +191,107 @@ BOOST_AUTO_TEST_CASE(testDivide){
 }
 
 BOOST_AUTO_TEST_CASE(testCount){
-  PinFixture fixture;
+  DefaultFixture fixture;
   setDivide(0.5);
-  setDelay(0.3);
+  setDelay(0.5);
   setCountMode();
   loop();
-  BOOST_CHECK_EQUAL(counter.value, 8);
+  BOOST_CHECK_EQUAL(counter.value, 7);
   BOOST_CHECK(!delayIsHigh());
   BOOST_CHECK_EQUAL(mode, DIVIDE_AND_COUNT_MODE);
   for(int i=0; i<14; ++i){
     toggleClock();
     BOOST_CHECK(!delayIsHigh());
-    counter.dump();
-    printNewline();
   }
-
-  for(int i=0; i<14; ++i){
+  toggleClock();
+  BOOST_CHECK(delayIsHigh());
+  for(int i=0; i<15; ++i){
     toggleClock();
     BOOST_CHECK(!delayIsHigh());
-    counter.dump();
+  }
+  toggleClock();
+  BOOST_CHECK(delayIsHigh());
+}
+
+BOOST_AUTO_TEST_CASE(testDelayLongPulse){
+  DefaultFixture fixture;
+  setDivide(0.5);
+  setDelay(0.5);
+  setDelayMode();
+  loop();
+  BOOST_CHECK_EQUAL(delay.value, 511);
+  BOOST_CHECK(!delayIsHigh());
+  BOOST_CHECK_EQUAL(mode, DIVIDE_AND_DELAY_MODE);
+  callTimer(100);
+  BOOST_CHECK(!delayIsHigh());
+  int i;
+  setClock(true);
+  for(i=0; !delayIsHigh(); ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 511);
+  setClock(false);
+  for(i=0; delayIsHigh(); ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 511);
+}
+
+BOOST_AUTO_TEST_CASE(testDelayShortPulse){
+  DefaultFixture fixture;
+  setDivide(0.5);
+  setDelay(0.2);
+  setDelayMode();
+  loop();
+  BOOST_CHECK_EQUAL(delay.value, 204);
+  int i;
+  setClock(true);
+  callTimer(100);
+  setClock(false);
+  for(i=0; !delayIsHigh(); ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 104);
+  for(i=0; delayIsHigh(); ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 100);
+}
+
+BOOST_AUTO_TEST_CASE(testSwing){
+  DefaultFixture fixture;
+  setDivide(0.2);
+  setDelay(0.2);
+  setSwingMode();
+  loop();
+  BOOST_CHECK_EQUAL(divider.value, 3);
+  BOOST_CHECK_EQUAL(delay.value, 204);
+  BOOST_CHECK_EQUAL(mode, SWING_MODE);
+  int i;
+  for(i=0; clockIsHigh() == combinedIsHigh(); ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, 5);
+  BOOST_CHECK(swinger.running == true);
+  callTimer(80);
+  setClock(false);
+  for(i=0; !combinedIsHigh(); ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 204-80);
+  for(i=0; combinedIsHigh(); ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 80);
+  BOOST_CHECK(swinger.running == false);
+  BOOST_CHECK(clockIsHigh() == false);
+  BOOST_CHECK(combinedIsHigh() == false);
+  BOOST_CHECK(divideIsHigh() == true);
+
+  for(int i=0; i<20; ++i){
+    toggleClock();
+    printString(clockIsHigh() ? "high " : "low ");
+    divider.dump();
+    printNewline();
+    printString(combinedIsHigh() ? "high " : "low ");
+    swinger.dump();
     printNewline();
   }
 
-}
-
-BOOST_AUTO_TEST_CASE(testDelay){
-  PinFixture fixture;
-  setDelayMode();
-  setDivide(0.3);
-  setDelay(0.3);
-  loop();
-  BOOST_CHECK(!delayIsHigh());
-  callTimer(100);
-  BOOST_CHECK(!delayIsHigh());
-  setClock(true);
-  BOOST_CHECK(!delayIsHigh());
-  callTimer(100);
-  BOOST_CHECK(!delayIsHigh());
-  callTimer(300);
-  BOOST_CHECK(delayIsHigh());
-
-  setClock(false);
-
-//   toggleClock(100);
-  
-//   for(int i=0; i<10; i++){
-//     doClock(5);
-//     loop();
-//     callTimer(9);
-//     divider.dump();
-//     printNewline();
-//     counter.dump();
-//     printNewline();
-//     swinger.dump();
-//     printNewline();
-//   }
+  for(i=0; clockIsHigh() == combinedIsHigh(); ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, 5);
 }
