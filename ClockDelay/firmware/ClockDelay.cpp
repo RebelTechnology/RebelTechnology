@@ -318,7 +318,7 @@ ISR(TIMER0_OVF_vect){
 }
 
 /* Reset interrupt */
-SIGNAL(INT0_vect){
+ISR(INT0_vect){
   divider.reset();
   counter.reset();
   delay.reset();
@@ -328,7 +328,7 @@ SIGNAL(INT0_vect){
 }
 
 /* Clock interrupt */
-SIGNAL(INT1_vect){
+ISR(INT1_vect){
   if(clockIsHigh()){
     divider.rise();
     switch(mode){
