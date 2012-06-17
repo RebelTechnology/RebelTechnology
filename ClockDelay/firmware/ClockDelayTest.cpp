@@ -1,5 +1,5 @@
 /*
-g++ -I. -I/opt/local/include -L/opt/local/lib -o test -lboost_unit_test_framework  test.cpp avr/io.c wiring/serial.c adc_freerunner.cpp avr/interrupt.c 
+g++ -I./simulator -I/opt/local/include -L/opt/local/lib -o ClockDelayTest -lboost_unit_test_framework  ClockDelayTest.cpp simulator/avr/io.c simulator/wiring/serial.c adc_freerunner.cpp avr/interrupt.c && ./ClockDelayTest
 */
 // #define mcu atmega168
 #define BOOST_TEST_DYN_LINK
@@ -10,6 +10,7 @@ g++ -I. -I/opt/local/include -L/opt/local/lib -o test -lboost_unit_test_framewor
 
 struct PinFixture {
   PinFixture() {
+    setup();
     PIND |= _BV(PORTD2);
     PIND |= _BV(PORTD3);
     PIND |= _BV(PORTD4);
@@ -52,4 +53,15 @@ BOOST_AUTO_TEST_CASE(testModes){
   BOOST_CHECK(!isCountMode());
   BOOST_CHECK(!isDelayMode());  
   BOOST_CHECK(mode == SWING_MODE);
+}
+
+BOOST_AUTO_TEST_CASE(testClock){
+  PinFixture fixture;
+  for(int i=0; i<10000; i++){
+    INT1_vect();
+    INT1_vect();
+    loop();
+    INT1_vect();
+    INT1_vect();
+  }
 }
