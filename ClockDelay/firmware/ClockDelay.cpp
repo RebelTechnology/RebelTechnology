@@ -22,11 +22,11 @@ inline bool resetIsHigh(){
 }
 
 inline bool isCountMode(){
-  return !(MODE_SWITCH_PINS & _BV(MODE_SWITCH_PIN_A));
+  return !(MODE_SWITCH_PINS & _BV(MODE_SWITCH_PIN_B));
 }
 
 inline bool isDelayMode(){
-  return !(MODE_SWITCH_PINS & _BV(MODE_SWITCH_PIN_B));
+  return !(MODE_SWITCH_PINS & _BV(MODE_SWITCH_PIN_A));
 }
 
 enum OperatingMode {
