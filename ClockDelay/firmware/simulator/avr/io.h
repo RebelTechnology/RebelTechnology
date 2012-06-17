@@ -25,8 +25,12 @@ extern "C" {
   extern uint8_t ADCSRA, ADMUX;
   extern uint8_t ADCL, ADCH;
   extern uint8_t DDRB, DDRC, DDRD;
-  extern uint8_t PINB, PINC, PIND;
   extern uint8_t PORTB, PORTC, PORTD;
+
+/*   extern uint8_t PINB, PINC, PIND; */
+#define PINB PORTB
+#define PINC PORTC
+#define PIND PORTD
 
 /*   extern uint8_t UDR0; */
 /*   extern uint8_t PORTB0, PORTB1, PORTB2, PORTB3, PORTB4, PORTB5, PORTB6, PORTB7; */
