@@ -508,21 +508,6 @@ void checkDivideAndCount(float div, float cnt){
   BOOST_CHECK(pulses > count/2);
   int cycles = pulses*2+count*2+1;
   int i;
-//   for(i=0; !divideIsHigh() && i<100; ++i)
-//     pulseClock();
-//   BOOST_CHECK_EQUAL(i, pulses);
-//   for(i=0; !combinedIsHigh(); ++i)
-//     toggleClock();
-//   BOOST_CHECK_EQUAL(i, count);
-//   toggleClock();
-//   for(i=0; divideIsHigh() && i<100; ++i)
-//     pulseClock();
-//   BOOST_CHECK_EQUAL(i, pulses-count/2);
-//   for(i=0; !combinedIsHigh(); ++i)
-//     toggleClock();
-//   BOOST_CHECK_EQUAL(i, count);
-//   toggleClock();
-
   for(i=0; !combinedIsHigh(); ++i)
     toggleClock();
   BOOST_CHECK_EQUAL(i, cycles);

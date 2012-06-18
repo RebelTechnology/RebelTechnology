@@ -378,11 +378,6 @@ ISR(INT1_vect){
       break;
     case DIVIDE_AND_COUNT_MODE:
       counter.rise();
-//       if(divider.toggled){
-// 	divcounter.reset();
-// 	divider.toggled = false;
-//       }
-//       divcounter.rise();
       if(divider.toggled){
 	divcounter.rise();
 	if(!divcounter.isOff())
