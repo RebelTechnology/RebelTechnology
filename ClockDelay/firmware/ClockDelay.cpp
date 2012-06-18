@@ -101,6 +101,7 @@ class ClockDivider {
 public:
   inline void reset(){
     pos = 0;
+    toggled = false;
   }
   bool next(){
     if(++pos >= value){
@@ -112,16 +113,21 @@ public:
 public:
   uint8_t pos;
   uint8_t value;
+  bool toggled;
   inline bool isOff(){
     return DIVIDE_OUTPUT_PINS & _BV(DIVIDE_OUTPUT_PIN);
   }
   void rise(){
-    if(isOff() && next())
+    if(isOff() && next()){
       on();
+      toggled = true;
+    }
   }
   void fall(){
-    if(!isOff() && next())
+    if(!isOff() && next()){
       off();
+      toggled = true;
+    }
   }
   void on(){
     DIVIDE_OUTPUT_PORT &= ~_BV(DIVIDE_OUTPUT_PIN);
@@ -355,19 +361,21 @@ ISR(INT1_vect){
     divider.rise();
     switch(mode){
     case SWING_MODE:
-      if(divider.pos == 0)
+      if(divider.toggled){
 	swinger.rise();
-      else
+      }else
 	COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN); // pass through clock
       break;
     case DIVIDE_AND_COUNT_MODE:
       counter.rise();
-      if(!divider.isOff() && !counter.isOff())
+      if(divider.toggled && !counter.isOff()){
 	COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN);
+	divider.toggled = false;
+      }
       break;
     case DIVIDE_AND_DELAY_MODE:
       delay.rise();
-      if(!divider.isOff())
+      if(divider.toggled)
 	swinger.rise();
       break;
     }
@@ -375,9 +383,10 @@ ISR(INT1_vect){
   }else{
     switch(mode){
     case SWING_MODE:
-      if(divider.pos == 0)
+      if(divider.toggled){
 	swinger.fall();
-      else
+	divider.toggled = false;
+      }else
 	COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN); // pass through clock
       break;
     case DIVIDE_AND_COUNT_MODE:
@@ -386,8 +395,10 @@ ISR(INT1_vect){
       break;
     case DIVIDE_AND_DELAY_MODE:
       delay.fall();
-      if(!divider.isOff())
+      if(divider.toggled){
 	swinger.fall();
+	divider.toggled = false;
+      }
       break;
     }
     divider.fall();
