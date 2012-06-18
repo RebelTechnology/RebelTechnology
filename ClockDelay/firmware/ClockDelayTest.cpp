@@ -247,6 +247,26 @@ BOOST_AUTO_TEST_CASE(testDelayLongPulse){
   BOOST_CHECK_EQUAL(i, 511);
 }
 
+BOOST_AUTO_TEST_CASE(testDelaySlowPulse){
+  DefaultFixture fixture;
+  setDivide(0.5);
+  setDelay(0.5);
+  setDelayMode();
+  loop();
+  int i;
+  setClock(true);
+  for(i=0; !delayIsHigh(); ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 511);
+  for(i=0; delayIsHigh() && i<1000; ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 1000);
+  setClock(false);
+  for(i=0; delayIsHigh(); ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 511);
+}
+
 BOOST_AUTO_TEST_CASE(testDelayShortPulse){
   DefaultFixture fixture;
   setDivide(0.5);
