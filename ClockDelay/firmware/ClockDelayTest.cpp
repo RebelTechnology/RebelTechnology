@@ -334,6 +334,33 @@ BOOST_AUTO_TEST_CASE(testDivideByOneAndCount){
   BOOST_CHECK_EQUAL(i, 1000);  
 }
 
+BOOST_AUTO_TEST_CASE(testDivideAndDelay){
+  DefaultFixture fixture;
+  setDivide(0.5);
+  setDelay(0.1);
+  setDelayMode();
+  loop();
+  BOOST_CHECK_EQUAL(divider.value, 8);
+  BOOST_CHECK_EQUAL(delay.value, 102);
+  BOOST_CHECK_EQUAL(mode, DIVIDE_AND_DELAY_MODE);
+  int i;
+  for(i=0; !combinedIsHigh() && i<15; ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, 15);  
+  BOOST_CHECK(divideIsHigh());  
+  BOOST_CHECK(clockIsHigh());  
+  for(i=0; !combinedIsHigh() && i<60; ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 60);
+  setClock(false);
+  for(i=0; !combinedIsHigh(); ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 102-60);
+  for(i=0; combinedIsHigh(); ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 60);
+}
+
 // BOOST_AUTO_TEST_CASE(testDummy){
 //   DefaultFixture fixture;
 //   setDivide(0.6);
