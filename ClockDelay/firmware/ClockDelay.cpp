@@ -72,14 +72,14 @@ public:
   inline void fall(){
     off();
   }
-  inline bool isOff(){
+  virtual bool isOff(){
     return DELAY_OUTPUT_PINS & _BV(DELAY_OUTPUT_PIN);
   }
-  inline void on(){
+  virtual void on(){
     DELAY_OUTPUT_PORT &= ~_BV(DELAY_OUTPUT_PIN);
     CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_3_PIN);
   }
-  inline void off(){
+  virtual void off(){
     DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN);
     CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_3_PIN);
   }
@@ -178,9 +178,6 @@ public:
   inline void fall(){
     fallMark = riseMark+pos;
   }
-  inline bool isOff(){
-    return DELAY_OUTPUT_PINS & _BV(DELAY_OUTPUT_PIN);
-  }
   inline void clock(){
     if(running){
       if(++pos == riseMark){
@@ -198,6 +195,9 @@ public:
   virtual void off(){
     DELAY_OUTPUT_PORT |= _BV(DELAY_OUTPUT_PIN);
     CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_3_PIN);
+  }
+  virtual bool isOff(){
+    return DELAY_OUTPUT_PINS & _BV(DELAY_OUTPUT_PIN);
   }
 #ifdef SERIAL_DEBUG
   virtual void dump(){
@@ -222,11 +222,28 @@ public:
 };
 
 class ClockSwing : public ClockDelay {
+public:
   void on(){
     COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN);
   }
  void off(){
     COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN);
+  }
+  bool isOff(){
+    return COMBINED_OUTPUT_PINS & _BV(COMBINED_OUTPUT_PIN);
+  }
+};
+
+class DividingCounter : public ClockCounter {
+public:
+  void on(){
+    COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN);
+  }
+ void off(){
+    COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN);
+  }
+  bool isOff(){
+    return COMBINED_OUTPUT_PINS & _BV(COMBINED_OUTPUT_PIN);
   }
 };
 
@@ -235,34 +252,42 @@ ClockDivider divider;
 ClockDelay delay; // manually triggered from Timer0 interrupt
 ClockSwing swinger;
 
+DividingCounter divcounter;
+
 class DelayController : public ContinuousController {
 public:
-  ClockDelay* delay;
   void hasChanged(float v){
-    delay->value = v*1023+1;
+    delay.value = v*1023+1;
+    swinger.value = delay.value;
   }
 };
 
 class CounterController : public DiscreteController {
 public:
-  ClockCounter* counter;
   void hasChanged(int8_t v){
-    counter->value = v;
+    counter.value = v;
+    divcounter.value = v;
   }
 };
 
 class DividerController : public DiscreteController {
 public:
-  ClockDivider* divider;
   void hasChanged(int8_t v){
-    divider->value = v;
+    divider.value = v;
   }
 };
 
 DelayController delayControl;
-DelayController swingControl;
 DividerController dividerControl;
 CounterController counterControl;
+
+void reset(){
+  divider.reset();
+  counter.reset();
+  divcounter.reset();
+  delay.reset();
+  swinger.reset();
+}
 
 void setup(){
   cli();
@@ -302,35 +327,19 @@ void setup(){
   // At 16MHz CPU clock and prescaler 64, Timer 0 should run at 1024Hz.
   // configure Timer 0 to Fast PWM, 0xff top.
   TCCR0A |= _BV(WGM01) | _BV(WGM00);
-  TCCR0B |= _BV(CS01) | _BV(CS00); // prescaler: 64.
-//   TCCR0B |= _BV(CS01);  // prescaler: 8
+//   TCCR0B |= _BV(CS01) | _BV(CS00); // prescaler: 64.
+  TCCR0B |= _BV(CS01);  // prescaler: 8
   // enable timer 0 overflow interrupt
   TIMSK0 |= _BV(TOIE0);
 
-//   delay.minimum = 1.0; // 1Hz
-//   delay.maximum = 512.0; // 512Hz, period apprx 2ms
-//   delay.setDutyCycle(0.5);
-
-  delayControl.delay = &delay;
   delayControl.delta = CLOCKDELAY_CONTROLLER_DELTA;
-
-  swingControl.delay = &swinger;
-  swingControl.delta = CLOCKDELAY_CONTROLLER_DELTA;
-
-  dividerControl.divider = &divider;
   dividerControl.range = 16;
   dividerControl.value = -1;
-
-  counterControl.counter = &counter;
   counterControl.range = 16;
   counterControl.value = -1;
 
   setup_adc();
-
-  divider.reset();
-  counter.reset();
-  delay.reset();
-  swinger.reset();
+  reset();
   updateMode();
 
   sei();
@@ -350,10 +359,7 @@ ISR(TIMER0_OVF_vect){
 
 /* Reset interrupt */
 ISR(INT0_vect){
-  divider.reset();
-  counter.reset();
-  delay.reset();
-  swinger.reset();
+  reset();
   // hold everything until reset is released
   while(resetIsHigh());
 }
@@ -371,9 +377,10 @@ ISR(INT1_vect){
       break;
     case DIVIDE_AND_COUNT_MODE:
       counter.rise();
-      if(divider.toggled && !counter.isOff()){
-	COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN);
-	divider.toggled = false;
+      if(divider.toggled){
+	divcounter.rise();
+	if(!divcounter.isOff())
+	  divider.toggled = false;
       }
       break;
     case DIVIDE_AND_DELAY_MODE:
@@ -394,7 +401,7 @@ ISR(INT1_vect){
       break;
     case DIVIDE_AND_COUNT_MODE:
       counter.fall();
-      COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN);
+      divcounter.fall();
       break;
     case DIVIDE_AND_DELAY_MODE:
       delay.fall();
@@ -414,7 +421,6 @@ void loop(){
   dividerControl.update(getAnalogValue(DIVIDE_ADC_CHANNEL));
   counterControl.update(getAnalogValue(DELAY_ADC_CHANNEL));
   delayControl.update(getAnalogValue(DELAY_ADC_CHANNEL));
-  swingControl.update(getAnalogValue(DELAY_ADC_CHANNEL));
   
 #ifdef SERIAL_DEBUG
   if(serialAvailable() > 0){
