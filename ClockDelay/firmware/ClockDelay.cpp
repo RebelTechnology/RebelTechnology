@@ -104,7 +104,7 @@ public:
     toggled = false;
   }
   bool next(){
-    if(++pos >= value){
+    if(++pos > value){
       pos = 0;
       return true;
     }
@@ -118,16 +118,18 @@ public:
     return DIVIDE_OUTPUT_PINS & _BV(DIVIDE_OUTPUT_PIN);
   }
   void rise(){
-    if(isOff() && next()){
-      on();
+    if(next()){
+      toggle();
       toggled = true;
     }
   }
   void fall(){
-    if(!isOff() && next()){
+    if(value == 0)
       off();
-      toggled = true;
-    }
+  }
+  void toggle(){
+    DIVIDE_OUTPUT_PORT ^= _BV(DIVIDE_OUTPUT_PIN);
+    CLOCKDELAY_LEDS_PORT ^= _BV(CLOCKDELAY_LED_2_PIN);
   }
   void on(){
     DIVIDE_OUTPUT_PORT &= ~_BV(DIVIDE_OUTPUT_PIN);
@@ -237,7 +239,7 @@ class DelayController : public ContinuousController {
 public:
   ClockDelay* delay;
   void hasChanged(float v){
-    delay->value = v*1023;
+    delay->value = v*1023+1;
   }
 };
 
@@ -253,7 +255,7 @@ class DividerController : public DiscreteController {
 public:
   ClockDivider* divider;
   void hasChanged(int8_t v){
-    divider->value = v+1;
+    divider->value = v;
   }
 };
 
