@@ -372,11 +372,17 @@ ISR(INT1_vect){
     case SWING_MODE:
       if(divider.toggled){
 	swinger.rise();
-      }else
+      }else{
 	COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN); // pass through clock
+      }
       break;
     case DIVIDE_AND_COUNT_MODE:
       counter.rise();
+//       if(divider.toggled){
+// 	divcounter.reset();
+// 	divider.toggled = false;
+//       }
+//       divcounter.rise();
       if(divider.toggled){
 	divcounter.rise();
 	if(!divcounter.isOff())
@@ -396,8 +402,9 @@ ISR(INT1_vect){
       if(divider.toggled){
 	swinger.fall();
 	divider.toggled = false;
-      }else
+      }else{
 	COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN); // pass through clock
+      }
       break;
     case DIVIDE_AND_COUNT_MODE:
       counter.fall();
