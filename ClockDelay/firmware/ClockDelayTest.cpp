@@ -481,19 +481,63 @@ BOOST_AUTO_TEST_CASE(testDivideAndCount){
   int i;
   for(i=0; !combinedIsHigh(); ++i)
     toggleClock();
-  BOOST_CHECK_EQUAL(i, 15+7);
+  // the first pulse is delayed: divcounter.value*2
+  // following pulses are offset with the same period as the divider: divider.value*2+1
+  BOOST_CHECK_EQUAL(i, 15+8);
   toggleClock();
   for(i=0; !combinedIsHigh(); ++i)
     toggleClock();
-  BOOST_CHECK_EQUAL(i, 15+7);
+  BOOST_CHECK_EQUAL(i, 15);
   toggleClock();
   for(i=0; !combinedIsHigh(); ++i)
     toggleClock();
-  BOOST_CHECK_EQUAL(i, 15+7);
+  BOOST_CHECK_EQUAL(i, 15);
   toggleClock();
   for(i=0; !combinedIsHigh(); ++i)
     toggleClock();
-  BOOST_CHECK_EQUAL(i, 15+7);
+  BOOST_CHECK_EQUAL(i, 15);
+}
+
+void checkDivideAndCount(float div, float cnt){
+  setDivide(div);
+  setDelay(cnt);
+  loop();
+  reset();
+  int count = counter.value;
+  int pulses = divider.value;
+  BOOST_CHECK(pulses > count/2);
+  int cycles = pulses*2+count*2+1;
+  int i;
+//   for(i=0; !divideIsHigh() && i<100; ++i)
+//     pulseClock();
+//   BOOST_CHECK_EQUAL(i, pulses);
+//   for(i=0; !combinedIsHigh(); ++i)
+//     toggleClock();
+//   BOOST_CHECK_EQUAL(i, count);
+//   toggleClock();
+//   for(i=0; divideIsHigh() && i<100; ++i)
+//     pulseClock();
+//   BOOST_CHECK_EQUAL(i, pulses-count/2);
+//   for(i=0; !combinedIsHigh(); ++i)
+//     toggleClock();
+//   BOOST_CHECK_EQUAL(i, count);
+//   toggleClock();
+
+  for(i=0; !combinedIsHigh(); ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, cycles);
+  toggleClock();
+  for(i=0; !combinedIsHigh(); ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, pulses*2+1);
+  toggleClock();
+}
+
+BOOST_AUTO_TEST_CASE(testDivideAndCountToAny){
+  DefaultFixture fixture;
+  setCountMode();
+  for(float f=0.2; f<=1.0; f+=0.1)
+    checkDivideAndCount(f, f/2);
 }
 
 BOOST_AUTO_TEST_CASE(testDivideByOneAndCount){
