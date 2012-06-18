@@ -56,6 +56,15 @@ void toggleClock(int times = 1){
   }
 }
 
+void pulseClock(int times = 1){
+  for(int i=0; i<times; ++i){
+    PIND &= ~_BV(PORTD3); // clock high
+    INT1_vect();
+    PIND |= _BV(PORTD3); // clock low
+    INT1_vect();
+  }
+}
+
 void callTimer(int times = 1){
   for(int i=0; i<times; ++i)
     TIMER0_OVF_vect();
@@ -107,26 +116,43 @@ BOOST_AUTO_TEST_CASE(testDefaults){
   BOOST_CHECK(!isDelayMode());  
 }
 
-BOOST_AUTO_TEST_CASE(testControlRanges){
+BOOST_AUTO_TEST_CASE(testDivideControlRange){
   DefaultFixture fixture;
-  setDelay(0.0);
   setDivide(0.0);
   loop();
-  BOOST_CHECK_EQUAL(divider.value, 1);
-  BOOST_CHECK_EQUAL(counter.value, 0);
-  BOOST_CHECK_EQUAL(delay.value, 0);
-  setDelay(1.0);
+  BOOST_CHECK_EQUAL(divider.value, 0);
   setDivide(1.0);
   loop();
-  BOOST_CHECK_EQUAL(divider.value, 16);
-  BOOST_CHECK_EQUAL(counter.value, 15);
-  BOOST_CHECK_EQUAL(delay.value, 1022);
-  setDelay(0.5);
+  BOOST_CHECK_EQUAL(divider.value, 15);
   setDivide(0.5);
   loop();
-  BOOST_CHECK_EQUAL(divider.value, 8);
+  BOOST_CHECK_EQUAL(divider.value, 7);
+}
+
+BOOST_AUTO_TEST_CASE(testCounterControlRange){
+  DefaultFixture fixture;
+  setDelay(0.0);
+  loop();
+  BOOST_CHECK_EQUAL(counter.value, 0);
+  setDelay(1.0);
+  loop();
+  BOOST_CHECK_EQUAL(counter.value, 15);
+  setDelay(0.5);
+  loop();
   BOOST_CHECK_EQUAL(counter.value, 7);
-  BOOST_CHECK_EQUAL(delay.value, 511);
+}
+
+BOOST_AUTO_TEST_CASE(testDelayControlRange){
+  DefaultFixture fixture;
+  setDelay(0.0);
+  loop();
+  BOOST_CHECK_EQUAL(delay.value, 1);
+  setDelay(1.0);
+  loop();
+  BOOST_CHECK_EQUAL(delay.value, 1023);
+  setDelay(0.5);
+  loop();
+  BOOST_CHECK_EQUAL(delay.value, 512);
 }
 
 BOOST_AUTO_TEST_CASE(testModes){
@@ -162,40 +188,56 @@ BOOST_AUTO_TEST_CASE(testClock){
 
 BOOST_AUTO_TEST_CASE(testDivide){
   DefaultFixture fixture;
-  loop();
-  setDivide(0.0);
-  loop();
-  BOOST_CHECK_EQUAL(divider.value, 1);
   setDivide(0.5);
   setDelay(0.5);
   setCountMode();
   loop();
-  BOOST_CHECK_EQUAL(divider.value, 8);
+  BOOST_CHECK_EQUAL(divider.value, 7);
   BOOST_CHECK(!divideIsHigh());
   BOOST_CHECK_EQUAL(mode, DIVIDE_AND_COUNT_MODE);
-  for(int i=0; i<14; ++i){
+  int i;
+  for(i=0; !divideIsHigh(); ++i)
     toggleClock();
-    BOOST_CHECK(!divideIsHigh());
-  }
-  for(int i=0; i<15; ++i){
-    toggleClock();
-    BOOST_CHECK(divideIsHigh());
-  }
-  for(int i=0; i<15; ++i){
-    toggleClock();
-    BOOST_CHECK(!divideIsHigh());
-  }
-  toggleClock();
+  BOOST_CHECK_EQUAL(i, 15); // first run doesn't include falling half-cycle
   BOOST_CHECK(divideIsHigh());
+  BOOST_CHECK(clockIsHigh());
+  for(i=0; divideIsHigh(); ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, 16);
+  BOOST_CHECK(!divideIsHigh());
+  BOOST_CHECK(clockIsHigh());
+  for(i=0; !divideIsHigh(); ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, 16);
+  for(i=0; divideIsHigh(); ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, 16);
+}
+
+void checkDivide(float div){
+  setDivide(div);
+  loop();
+//   int pulses = div*16+1;
+  int pulses = divider.value+1;
+  int i;
+  for(i=0; !divideIsHigh() && i<100; ++i)
+    pulseClock();
+  BOOST_CHECK_EQUAL(i, pulses);
+  for(i=0; divideIsHigh() && i<100; ++i)
+    pulseClock();
+  BOOST_CHECK_EQUAL(i, pulses);
+}
+
+BOOST_AUTO_TEST_CASE(testDivideByAny){
+  DefaultFixture fixture;
+  for(float f=0.2; f<=1.0; f+=0.1)
+    checkDivide(f);
 }
 
 BOOST_AUTO_TEST_CASE(testDivideByOne){
   DefaultFixture fixture;
   setDivide(0.0);
-  setDelay(0.5);
-  setCountMode();
   loop();
-  BOOST_CHECK_EQUAL(divider.value, 1);
   int i;
   for(i=0; clockIsHigh() == divideIsHigh() && i<1000; ++i)
     toggleClock();
@@ -209,20 +251,42 @@ BOOST_AUTO_TEST_CASE(testCount){
   setCountMode();
   loop();
   BOOST_CHECK_EQUAL(counter.value, 7);
-  BOOST_CHECK(!delayIsHigh());
   BOOST_CHECK_EQUAL(mode, DIVIDE_AND_COUNT_MODE);
-  for(int i=0; i<14; ++i){
+  int i;
+  for(i=0; !delayIsHigh(); ++i)
     toggleClock();
-    BOOST_CHECK(!delayIsHigh());
-  }
-  toggleClock();
+  BOOST_CHECK_EQUAL(i, 15);
   BOOST_CHECK(delayIsHigh());
-  for(int i=0; i<15; ++i){
+  toggleClock();
+  for(i=0; !delayIsHigh(); ++i)
     toggleClock();
-    BOOST_CHECK(!delayIsHigh());
-  }
+  BOOST_CHECK_EQUAL(i, 15);
   toggleClock();
-  BOOST_CHECK(delayIsHigh());
+  for(i=0; !delayIsHigh(); ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, 15);
+}
+
+void checkCount(float cnt){
+  setDelay(cnt);
+  loop();
+  int count = counter.value*2+1;
+  int i;
+  for(i=0; !delayIsHigh() && i<100; ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, count);
+  toggleClock();
+  for(i=0; !delayIsHigh() && i<100; ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, count);
+  toggleClock();
+}
+
+BOOST_AUTO_TEST_CASE(testCountToAny){
+  DefaultFixture fixture;
+  setCountMode();
+  for(float f=0.0; f<=1.0; f+=0.1)
+    checkCount(f);
 }
 
 BOOST_AUTO_TEST_CASE(testDelayLongPulse){
@@ -231,7 +295,7 @@ BOOST_AUTO_TEST_CASE(testDelayLongPulse){
   setDelay(0.5);
   setDelayMode();
   loop();
-  BOOST_CHECK_EQUAL(delay.value, 511);
+  BOOST_CHECK_EQUAL(delay.value, 512);
   BOOST_CHECK(!delayIsHigh());
   BOOST_CHECK_EQUAL(mode, DIVIDE_AND_DELAY_MODE);
   callTimer(100);
@@ -240,11 +304,11 @@ BOOST_AUTO_TEST_CASE(testDelayLongPulse){
   setClock(true);
   for(i=0; !delayIsHigh(); ++i)
     callTimer();
-  BOOST_CHECK_EQUAL(i, 511);
+  BOOST_CHECK_EQUAL(i, 512);
   setClock(false);
   for(i=0; delayIsHigh(); ++i)
     callTimer();
-  BOOST_CHECK_EQUAL(i, 511);
+  BOOST_CHECK_EQUAL(i, 512);
 }
 
 BOOST_AUTO_TEST_CASE(testDelaySlowPulse){
@@ -257,14 +321,51 @@ BOOST_AUTO_TEST_CASE(testDelaySlowPulse){
   setClock(true);
   for(i=0; !delayIsHigh(); ++i)
     callTimer();
-  BOOST_CHECK_EQUAL(i, 511);
+  BOOST_CHECK_EQUAL(i, 512);
   for(i=0; delayIsHigh() && i<1000; ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, 1000);
   setClock(false);
   for(i=0; delayIsHigh(); ++i)
     callTimer();
-  BOOST_CHECK_EQUAL(i, 511);
+  BOOST_CHECK_EQUAL(i, 512);
+}
+
+BOOST_AUTO_TEST_CASE(testZeroDelay){
+  DefaultFixture fixture;
+  setDivide(0.5);
+  setDelay(0.0);
+  setDelayMode();
+  loop();
+  BOOST_CHECK_EQUAL(delay.value, 1);
+  int i;
+  for(i=0; (clockIsHigh() == delayIsHigh()) && i<100; ++i){
+    toggleClock();
+    callTimer();
+  }
+  BOOST_CHECK_EQUAL(i, 100);
+}
+
+BOOST_AUTO_TEST_CASE(testZeroSwing){
+  DefaultFixture fixture;
+  setDivide(0.5);
+  setDelay(0.0);
+  setSwingMode();
+  loop();
+  int i;
+  for(i=0; clockIsHigh() == combinedIsHigh(); ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, 15);
+  BOOST_CHECK(clockIsHigh());
+  BOOST_CHECK(!combinedIsHigh());
+  callTimer(20);
+  toggleClock();
+  for(i=0; combinedIsHigh(); ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 1);
+  for(i=0; clockIsHigh() == combinedIsHigh(); ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, 15);
 }
 
 BOOST_AUTO_TEST_CASE(testDelayShortPulse){
@@ -273,17 +374,55 @@ BOOST_AUTO_TEST_CASE(testDelayShortPulse){
   setDelay(0.2);
   setDelayMode();
   loop();
-  BOOST_CHECK_EQUAL(delay.value, 204);
+  BOOST_CHECK_EQUAL(delay.value, 205);
   int i;
   setClock(true);
   callTimer(100);
   setClock(false);
   for(i=0; !delayIsHigh(); ++i)
     callTimer();
-  BOOST_CHECK_EQUAL(i, 104);
+  BOOST_CHECK_EQUAL(i, 105);
   for(i=0; delayIsHigh(); ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, 100);
+}
+
+void checkSwing(float div, float del){
+  setDivide(div);
+  setDelay(del);
+  setSwingMode();
+  loop();
+//   int cycles = (divider.value-1)*2+1;
+//   int cycles = divider.value;
+  int cycles = divider.value*2+1;
+  int time = delay.value/2+1;
+  int ticks = delay.value-time;
+  int i;
+  for(i=0; clockIsHigh() == combinedIsHigh(); ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, cycles);
+  BOOST_CHECK(swinger.running == true);
+  BOOST_CHECK(clockIsHigh());
+  callTimer(time);
+  setClock(false);
+  for(i=0; !combinedIsHigh(); ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, ticks);
+  for(i=0; combinedIsHigh(); ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, time);
+}
+
+BOOST_AUTO_TEST_CASE(testSwingRepeat){
+  DefaultFixture fixture;
+  for(int i=0; i<10; ++i)
+    checkSwing(0.2, 0.2);
+}
+
+BOOST_AUTO_TEST_CASE(testSwingChangeRepeat){
+  DefaultFixture fixture;
+  for(int i=0; i<20; ++i)
+    checkSwing(i/19.0, i/19.0);
 }
 
 BOOST_AUTO_TEST_CASE(testSwing){
@@ -292,19 +431,20 @@ BOOST_AUTO_TEST_CASE(testSwing){
   setDelay(0.2);
   setSwingMode();
   loop();
-  BOOST_CHECK_EQUAL(divider.value, 3);
-  BOOST_CHECK_EQUAL(delay.value, 204);
+  BOOST_CHECK_EQUAL(divider.value, 2);
+  BOOST_CHECK_EQUAL(delay.value, 205);
   BOOST_CHECK_EQUAL(mode, SWING_MODE);
   int i;
   for(i=0; clockIsHigh() == combinedIsHigh(); ++i)
     toggleClock();
   BOOST_CHECK_EQUAL(i, 5);
   BOOST_CHECK(swinger.running == true);
+  BOOST_CHECK(clockIsHigh());
   callTimer(80);
   setClock(false);
   for(i=0; !combinedIsHigh(); ++i)
     callTimer();
-  BOOST_CHECK_EQUAL(i, 204-80);
+  BOOST_CHECK_EQUAL(i, 205-80);
   for(i=0; combinedIsHigh(); ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, 80);
@@ -315,29 +455,45 @@ BOOST_AUTO_TEST_CASE(testSwing){
   for(i=0; clockIsHigh() == combinedIsHigh(); ++i)
     toggleClock();
   BOOST_CHECK_EQUAL(i, 5);
+  // repeat
+  callTimer(80);
+  setClock(false);
+  for(i=0; !combinedIsHigh(); ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 205-80);
+  for(i=0; combinedIsHigh(); ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 80);
+  for(i=0; clockIsHigh() == combinedIsHigh(); ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, 5);
 }
 
 BOOST_AUTO_TEST_CASE(testDivideAndCount){
   DefaultFixture fixture;
-  setDivide(0.6);
+  setDivide(0.5);
   setDelay(0.3);
   setCountMode();
   loop();
-  BOOST_CHECK_EQUAL(divider.value, 10);
-  BOOST_CHECK_EQUAL(counter.value, 4);
+  BOOST_CHECK_EQUAL(divider.value, 7);
+  BOOST_CHECK_EQUAL(divcounter.value, 4);
   BOOST_CHECK_EQUAL(mode, DIVIDE_AND_COUNT_MODE);
   int i;
   for(i=0; !combinedIsHigh(); ++i)
     toggleClock();
-  BOOST_CHECK_EQUAL(i, 2*10+4);
+  BOOST_CHECK_EQUAL(i, 15+7);
   toggleClock();
   for(i=0; !combinedIsHigh(); ++i)
     toggleClock();
-  BOOST_CHECK_EQUAL(i, 2*10+4);
+  BOOST_CHECK_EQUAL(i, 15+7);
   toggleClock();
   for(i=0; !combinedIsHigh(); ++i)
     toggleClock();
-  BOOST_CHECK_EQUAL(i, 2*10+4);
+  BOOST_CHECK_EQUAL(i, 15+7);
+  toggleClock();
+  for(i=0; !combinedIsHigh(); ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, 15+7);
 }
 
 BOOST_AUTO_TEST_CASE(testDivideByOneAndCount){
@@ -346,7 +502,6 @@ BOOST_AUTO_TEST_CASE(testDivideByOneAndCount){
   setDelay(0.5);
   setCountMode();
   loop();
-  BOOST_CHECK_EQUAL(divider.value, 1);
   BOOST_CHECK_EQUAL(counter.value, 7);
   int i;
   for(i=0; delayIsHigh() == combinedIsHigh() && i<1000; ++i)
@@ -360,8 +515,7 @@ BOOST_AUTO_TEST_CASE(testDivideAndDelay){
   setDelay(0.1);
   setDelayMode();
   loop();
-  BOOST_CHECK_EQUAL(divider.value, 8);
-  BOOST_CHECK_EQUAL(delay.value, 102);
+  BOOST_CHECK_EQUAL(delay.value, 103);
   BOOST_CHECK_EQUAL(mode, DIVIDE_AND_DELAY_MODE);
   int i;
   for(i=0; !combinedIsHigh() && i<15; ++i)
@@ -375,10 +529,24 @@ BOOST_AUTO_TEST_CASE(testDivideAndDelay){
   setClock(false);
   for(i=0; !combinedIsHigh(); ++i)
     callTimer();
-  BOOST_CHECK_EQUAL(i, 102-60);
+  BOOST_CHECK_EQUAL(i, 103-60);
   for(i=0; combinedIsHigh(); ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, 60);
+}
+
+BOOST_AUTO_TEST_CASE(testDivideByOneAndDelay){
+  DefaultFixture fixture;
+  setDivide(0.0);
+  setDelay(0.3);
+  setDelayMode();
+  loop();
+  int i;
+  for(i=0; delayIsHigh() == combinedIsHigh() && i<1000; ++i){
+    toggleClock();
+    callTimer(1000);
+  }
+  BOOST_CHECK_EQUAL(i, 1000);  
 }
 
 // BOOST_AUTO_TEST_CASE(testDummy){
