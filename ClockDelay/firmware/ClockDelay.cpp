@@ -1,4 +1,4 @@
-#define SERIAL_DEBUG
+//#define SERIAL_DEBUG
 #ifdef SERIAL_DEBUG
 #include "serial.h"
 #endif // SERIAL_DEBUG
@@ -160,6 +160,7 @@ public:
   volatile bool running;
   inline void start(){
     pos = 0;
+    fallMark = 0;
     running = true;
   }
   inline void stop(){
