@@ -166,7 +166,6 @@ BOOST_AUTO_TEST_CASE(testDivide){
   setDivide(0.0);
   loop();
   BOOST_CHECK_EQUAL(divider.value, 1);
-
   setDivide(0.5);
   setDelay(0.5);
   setCountMode();
@@ -188,6 +187,19 @@ BOOST_AUTO_TEST_CASE(testDivide){
   }
   toggleClock();
   BOOST_CHECK(divideIsHigh());
+}
+
+BOOST_AUTO_TEST_CASE(testDivideByOne){
+  DefaultFixture fixture;
+  setDivide(0.0);
+  setDelay(0.5);
+  setCountMode();
+  loop();
+  BOOST_CHECK_EQUAL(divider.value, 1);
+  int i;
+  for(i=0; clockIsHigh() == divideIsHigh() && i<1000; ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, 1000);
 }
 
 BOOST_AUTO_TEST_CASE(testCount){
@@ -280,18 +292,61 @@ BOOST_AUTO_TEST_CASE(testSwing){
   BOOST_CHECK(clockIsHigh() == false);
   BOOST_CHECK(combinedIsHigh() == false);
   BOOST_CHECK(divideIsHigh() == true);
-
-  for(int i=0; i<20; ++i){
-    toggleClock();
-    printString(clockIsHigh() ? "high " : "low ");
-    divider.dump();
-    printNewline();
-    printString(combinedIsHigh() ? "high " : "low ");
-    swinger.dump();
-    printNewline();
-  }
-
   for(i=0; clockIsHigh() == combinedIsHigh(); ++i)
     toggleClock();
   BOOST_CHECK_EQUAL(i, 5);
 }
+
+BOOST_AUTO_TEST_CASE(testDivideAndCount){
+  DefaultFixture fixture;
+  setDivide(0.6);
+  setDelay(0.3);
+  setCountMode();
+  loop();
+  BOOST_CHECK_EQUAL(divider.value, 10);
+  BOOST_CHECK_EQUAL(counter.value, 4);
+  BOOST_CHECK_EQUAL(mode, DIVIDE_AND_COUNT_MODE);
+  int i;
+  for(i=0; !combinedIsHigh(); ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, 2*10+4);
+  toggleClock();
+  for(i=0; !combinedIsHigh(); ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, 2*10+4);
+  toggleClock();
+  for(i=0; !combinedIsHigh(); ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, 2*10+4);
+}
+
+BOOST_AUTO_TEST_CASE(testDivideByOneAndCount){
+  DefaultFixture fixture;
+  setDivide(0.0);
+  setDelay(0.5);
+  setCountMode();
+  loop();
+  BOOST_CHECK_EQUAL(divider.value, 1);
+  BOOST_CHECK_EQUAL(counter.value, 7);
+  int i;
+  for(i=0; delayIsHigh() == combinedIsHigh() && i<1000; ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, 1000);  
+}
+
+// BOOST_AUTO_TEST_CASE(testDummy){
+//   DefaultFixture fixture;
+//   setDivide(0.6);
+//   setDelay(0.2);
+//   setCountMode();
+//   loop();
+//   for(int i=0; i<20; ++i){
+//     toggleClock();
+//     printString(clockIsHigh() ? "in  high " : "in  low ");
+//     divider.dump();
+//     printNewline();
+//     printString(combinedIsHigh() ? "out high " : "out low ");
+//     counter.dump();
+//     printNewline();
+//   }
+// }
