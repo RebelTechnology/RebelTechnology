@@ -6,16 +6,20 @@
 #include "DiscreteController.h"
 #include "OneLineFormulas.h"
 
-// #define SERIAL_DEBUG
+#define SERIAL_DEBUG
 
 #ifdef SERIAL_DEBUG
 #include "serial.h"
 #endif // SERIAL_DEBUG
 
-static uint16_t timer0prescalers[] = {1, 8, 64, 256, 1024};
-static uint16_t timer1prescalers[] = {1, 8, 64, 256, 1024};
-static uint16_t timer2prescalers[] = {1, 8, 32, 64, 128, 256, 1024};
+#define RESET_DDR   DDRD
+#define RESET_PINS  PIND
+#define RESET_PORT  PORTD
+#define RESET_PIN   PORTD2
 
+inline bool resetIsHigh(){
+  return !(RESET_PINS & _BV(RESET_PIN));  // INT0
+}
 
 inline bool isSwitchUp(){
   return !(GENERATOR_SWITCH_PINS & _BV(GENERATOR_SWITCH_PIN_B));
@@ -25,11 +29,11 @@ inline bool isSwitchDown(){
   return !(GENERATOR_SWITCH_PINS & _BV(GENERATOR_SWITCH_PIN_A));
 }
 
-uint8_t bank;
-uint8_t program;
-uint8_t index;
-uint16_t toplimit;
-uint32_t time = 0;
+volatile uint8_t bank;
+volatile uint8_t program;
+volatile uint8_t index = 0;
+volatile uint16_t toplimit;
+volatile uint32_t time = 0;
 
 void updateIndex(){
   index = bank*8+program+1;
@@ -55,7 +59,7 @@ class ProgramController : public DiscreteController {
 
 class PrescalerController : public DiscreteController {
   void hasChanged(int8_t v){
-    setPrescaler(v+1);
+    setPrescaler(7-v);
   }
 };
 
@@ -65,6 +69,11 @@ PrescalerController prescalerControl;
 
 void setup(){
   cli();
+
+  RESET_DDR &= ~_BV(RESET_PIN); // INT0, reset
+  RESET_PORT |= _BV(RESET_PIN);
+  EICRA = _BV(ISC01); // trigger on falling edge
+  EIMSK = _BV(INT0); // enable INT0
 
   GENERATOR_SWITCH_DDR &= ~_BV(GENERATOR_SWITCH_PIN_A);
   GENERATOR_SWITCH_PORT |= _BV(GENERATOR_SWITCH_PIN_A);
@@ -78,10 +87,6 @@ void setup(){
   bankControl.range = 8;
   programControl.range = 8;
   prescalerControl.range = 7;
-  index = 0;
-  bank = 0;
-  program = 0;
-  toplimit = 0;
   setPrescaler(0);
   // Set WGM to mode 1, prescaler to 1:1
   // and PWM output on pin 11
@@ -116,7 +121,6 @@ void loop(){
     time = 0;
   }else if(isSwitchDown()){
     time = 0;
-    index = 1;
     cli();
     while(isSwitchDown()); // wait
     sei();
@@ -134,12 +138,23 @@ void loop(){
       printString(" up ");
     if(isSwitchDown())
       printString(" down ");
+    if(resetIsHigh())
+      printString(" reset ");
     printNewline();
   }
 #endif
 }
 
-ISR(TIMER2_OVF_vect) {
+/* INT0 */
+SIGNAL(INT0_vect){
+  time = 0;
+  toplimit = 0;
+  OCR2A = toplimit;
+  OCR2B = toplimit;
+  while(resetIsHigh());
+}
+
+SIGNAL(TIMER2_OVF_vect) {
   // set top limit
   OCR2A = toplimit;
   OCR2B = toplimit;
