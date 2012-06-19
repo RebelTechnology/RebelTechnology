@@ -1,0 +1,17 @@
+<module type="4hp">
+
+  <!-- pots -->
+  <hole x="0.0" y="0.75" radius="4.75"/>
+  <hole x="0.0" y="1.50" radius="4.75"/>
+  <hole x="0.0" y="-0.25" radius="4.75"/>
+
+  <!-- switches -->
+  <hole x="0.0" y="-1.25" radius="2.5"/>
+
+  <!-- leds -->
+  <hole x="0.0" y="-0.75" radius="1.5"/>
+
+  <!-- jacks -->
+  <hole x="0.059" y="-1.75" radius="3.25"/>
+
+</module>
