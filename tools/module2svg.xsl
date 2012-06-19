@@ -20,32 +20,16 @@
        xmlns:dc="http://purl.org/dc/elements/1.1/"
        xmlns:cc="http://creativecommons.org/ns#"
        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-       xmlns:svg="http://www.w3.org/2000/svg"
-       version="1.1"
-       width="210mm"
-       height="297mm"
-       viewBox="0 0 210 297"
-       id="svg16476">
-      <metadata id="metadata4">     
-	<rdf:RDF>
-	  <cc:Work
-             rdf:about="">
-            <dc:format>image/svg+xml</dc:format>
-            <dc:type
-               rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-            <dc:title></dc:title>
-	  </cc:Work>
-	</rdf:RDF>
-      </metadata>
+       xmlns:svg="http://www.w3.org/2000/svg" version="1.1"
+	 width="210mm" height="297mm"
+	 viewBox="0 0 210 297">
       <xsl:apply-templates select="module"/>
     </svg>
   </xsl:template>
 
   <xsl:template match="module">
-    <xsl:message>hello module</xsl:message>
     <xsl:variable name="type" select="@type"/>
-    <g id="module1" 
-       style="fill:none;stroke-width:0.1;stroke:black">
+    <g style="fill:none;stroke-width:0.1;stroke:black">
       <rect x="0.0" y="0.0" width="{$width}" height="{$height}"/>
       <xsl:copy-of select="$module/*"/> 
       <xsl:apply-templates/>
