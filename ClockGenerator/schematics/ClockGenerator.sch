@@ -8969,7 +8969,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <busses>
 </busses>
 <nets>
-<net name="N$1" class="0">
+<net name="ADC0" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PC0(ADC0)"/>
 <wire x1="81.28" y1="73.66" x2="127" y2="73.66" width="0.1524" layer="91"/>
@@ -8977,7 +8977,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="127" y1="73.66" x2="127" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="ADC1" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PC1(ADC1)"/>
 <wire x1="81.28" y1="71.12" x2="147.32" y2="71.12" width="0.1524" layer="91"/>
@@ -9386,7 +9386,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <junction x="15.24" y="73.66"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="ADC2" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PC2(ADC2)"/>
 <wire x1="81.28" y1="68.58" x2="167.64" y2="68.58" width="0.1524" layer="91"/>

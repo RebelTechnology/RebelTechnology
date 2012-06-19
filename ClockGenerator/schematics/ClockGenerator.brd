@@ -1906,7 +1906,7 @@ design rules under a new name.</description>
 <element name="SW1" library="Rebel" package="SWITCH-SPDT-SALECOM-T8020" value="SWITCH-TOGGLE" x="57.15" y="13.97"/>
 </elements>
 <signals>
-<signal name="N$1">
+<signal name="ADC0">
 <contactref element="IC1" pad="23"/>
 <contactref element="RATEB" pad="2"/>
 <wire x1="44.45" y1="5.044" x2="44.45" y2="4.445" width="0.4064" layer="1"/>
@@ -1921,7 +1921,7 @@ design rules under a new name.</description>
 <wire x1="66.675" y1="14.605" x2="72.39" y2="14.605" width="0.4064" layer="1"/>
 <wire x1="72.39" y1="14.605" x2="74.93" y2="17.145" width="0.4064" layer="1" curve="90"/>
 </signal>
-<signal name="N$2">
+<signal name="ADC1">
 <contactref element="IC1" pad="24"/>
 <contactref element="DUTYA" pad="2"/>
 <wire x1="69.85" y1="5.044" x2="69.85" y2="8.89" width="0.4064" layer="1"/>
@@ -1977,8 +1977,7 @@ design rules under a new name.</description>
 <wire x1="69.85" y1="19.05" x2="71.12" y2="20.32" width="0.6096" layer="1" curve="-90"/>
 <wire x1="41.91" y1="5.004" x2="41.91" y2="3.81" width="0.6096" layer="1"/>
 <wire x1="41.91" y1="3.81" x2="44.45" y2="1.27" width="0.6096" layer="1" curve="90"/>
-<wire x1="52.07" y1="2.54" x2="54.61" y2="5.08" width="0.6096" layer="1" curve="-90"/>
-<wire x1="54.61" y1="5.08" x2="67.314" y2="5.08" width="0.6096" layer="1"/>
+<wire x1="53.34" y1="5.08" x2="67.314" y2="5.08" width="0.6096" layer="1"/>
 <wire x1="67.314" y1="5.08" x2="67.35" y2="5.044" width="0.6096" layer="1" curve="-90"/>
 <wire x1="41.91" y1="5.004" x2="41.95" y2="5.044" width="0.6096" layer="1" curve="-90"/>
 <wire x1="44.45" y1="1.27" x2="50.8" y2="1.27" width="0.6096" layer="1"/>
@@ -1987,6 +1986,8 @@ design rules under a new name.</description>
 <wire x1="15.24" y1="22.86" x2="17.78" y2="20.32" width="0.6096" layer="1" curve="90"/>
 <wire x1="73.025" y1="29.845" x2="17.145" y2="29.845" width="0.6096" layer="1"/>
 <wire x1="17.145" y1="29.845" x2="15.24" y2="27.94" width="0.6096" layer="1" curve="90"/>
+<wire x1="53.34" y1="5.08" x2="52.07" y2="3.81" width="0.6096" layer="1" curve="90"/>
+<wire x1="52.07" y1="3.81" x2="52.07" y2="2.54" width="0.6096" layer="1"/>
 </signal>
 <signal name="GND">
 <contactref element="R2" pad="1"/>
@@ -2043,13 +2044,11 @@ design rules under a new name.</description>
 <wire x1="10.795" y1="23.495" x2="9.525" y2="22.225" width="0.6096" layer="1" curve="90"/>
 <wire x1="9.525" y1="22.225" x2="9.525" y2="19.685" width="0.6096" layer="1"/>
 <wire x1="9.525" y1="19.685" x2="11.43" y2="17.78" width="0.6096" layer="1" curve="90"/>
-<wire x1="28.575" y1="22.225" x2="25.4" y2="19.05" width="0.6096" layer="1" curve="90"/>
-<wire x1="25.4" y1="19.05" x2="24.13" y2="17.78" width="0.6096" layer="1" curve="-90"/>
-<wire x1="24.13" y1="17.78" x2="11.43" y2="17.78" width="0.6096" layer="1"/>
-<wire x1="28.575" y1="22.225" x2="29.21" y2="22.225" width="0.6096" layer="1"/>
-<wire x1="29.21" y1="22.225" x2="31.115" y2="24.13" width="0.6096" layer="1" curve="90"/>
-<wire x1="31.115" y1="24.13" x2="34.925" y2="27.94" width="0.6096" layer="1" curve="-90"/>
-<wire x1="34.925" y1="27.94" x2="36.83" y2="27.94" width="0.6096" layer="1"/>
+<wire x1="27.305" y1="17.78" x2="11.43" y2="17.78" width="0.6096" layer="1"/>
+<wire x1="31.115" y1="25.4" x2="33.655" y2="27.94" width="0.6096" layer="1" curve="-90"/>
+<wire x1="33.655" y1="27.94" x2="36.83" y2="27.94" width="0.6096" layer="1"/>
+<wire x1="27.305" y1="17.78" x2="31.115" y2="21.59" width="0.6096" layer="1" curve="90"/>
+<wire x1="31.115" y1="21.59" x2="31.115" y2="25.4" width="0.6096" layer="1"/>
 </signal>
 <signal name="N$21">
 <contactref element="Q1" pad="2"/>
@@ -2086,13 +2085,13 @@ design rules under a new name.</description>
 <wire x1="6.35" y1="6.35" x2="10.16" y2="10.16" width="0.4064" layer="1" curve="-90"/>
 <wire x1="10.16" y1="10.16" x2="19.05" y2="10.16" width="0.4064" layer="1"/>
 <wire x1="19.05" y1="10.16" x2="21.59" y2="12.7" width="0.4064" layer="1" curve="90"/>
-<wire x1="29.21" y1="15.24" x2="31.75" y2="17.78" width="0.4064" layer="1" curve="90"/>
-<wire x1="31.75" y1="17.78" x2="31.75" y2="20.955" width="0.4064" layer="1"/>
-<wire x1="31.75" y1="20.955" x2="36.83" y2="26.035" width="0.4064" layer="1" curve="-90"/>
-<wire x1="36.83" y1="26.035" x2="37.465" y2="26.035" width="0.4064" layer="1"/>
+<wire x1="30.48" y1="15.24" x2="33.02" y2="17.78" width="0.4064" layer="1" curve="90"/>
 <wire x1="37.465" y1="26.035" x2="39.37" y2="24.13" width="0.4064" layer="1" curve="-90"/>
 <wire x1="21.59" y1="12.7" x2="24.13" y2="15.24" width="0.4064" layer="1" curve="-90"/>
-<wire x1="24.13" y1="15.24" x2="29.21" y2="15.24" width="0.4064" layer="1"/>
+<wire x1="24.13" y1="15.24" x2="30.48" y2="15.24" width="0.4064" layer="1"/>
+<wire x1="37.465" y1="26.035" x2="34.925" y2="26.035" width="0.4064" layer="1"/>
+<wire x1="34.925" y1="26.035" x2="33.02" y2="24.13" width="0.4064" layer="1" curve="90"/>
+<wire x1="33.02" y1="24.13" x2="33.02" y2="17.78" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$14">
 <contactref element="R3" pad="1"/>
@@ -2129,11 +2128,12 @@ design rules under a new name.</description>
 <wire x1="36.83" y1="24.13" x2="36.83" y2="20.32" width="0.4064" layer="1"/>
 <wire x1="36.83" y1="20.32" x2="35.56" y2="20.32" width="0.4064" layer="1"/>
 <wire x1="35.56" y1="20.32" x2="34.29" y2="19.05" width="0.4064" layer="1" curve="90"/>
-<wire x1="34.29" y1="19.05" x2="34.29" y2="17.78" width="0.4064" layer="1"/>
-<wire x1="34.29" y1="17.78" x2="30.48" y2="13.97" width="0.4064" layer="1" curve="-90"/>
+<wire x1="34.29" y1="19.05" x2="34.29" y2="16.51" width="0.4064" layer="1"/>
 <wire x1="27.94" y1="8.89" x2="25.4" y2="6.35" width="0.4064" layer="1" curve="-90"/>
 <wire x1="27.94" y1="8.89" x2="27.94" y2="11.43" width="0.4064" layer="1"/>
 <wire x1="27.94" y1="11.43" x2="30.48" y2="13.97" width="0.4064" layer="1" curve="-90"/>
+<wire x1="30.48" y1="13.97" x2="31.75" y2="13.97" width="0.4064" layer="1"/>
+<wire x1="34.29" y1="16.51" x2="31.75" y2="13.97" width="0.4064" layer="1" curve="-90"/>
 </signal>
 <signal name="N$27">
 <contactref element="R7" pad="1"/>
@@ -2182,7 +2182,7 @@ design rules under a new name.</description>
 <wire x1="92.075" y1="24.765" x2="93.98" y2="22.86" width="0.4064" layer="1" curve="-90"/>
 <wire x1="93.98" y1="22.86" x2="93.98" y2="22.225" width="0.4064" layer="1"/>
 </signal>
-<signal name="N$3">
+<signal name="ADC2">
 <contactref element="IC1" pad="25"/>
 <contactref element="RATEA" pad="2"/>
 <wire x1="88.9" y1="5.044" x2="88.9" y2="8.255" width="0.4064" layer="1"/>
