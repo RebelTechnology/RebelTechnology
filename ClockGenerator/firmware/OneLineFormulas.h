@@ -273,8 +273,8 @@ uint16_t calculate(uint8_t index, uint32_t t){
   break;
   case 65:
 // ryg 2011-10-04 http://pouet.net/topic.php?which=8357&page=8
-    out = ((t>>4)*(13&(0x8898a989>>(t>>11&30)))&255)+((((t>>9|(t>>2)|t>>8)*10+4*((t>>2)&t>>15|t>>8))&255)>>1)
-  ;
+    out = ((t>>4)*(13&(0x8898a989>>(t>>11&30)))&255)+((((t>>9|(t>>2)|t>>8)*10+4*((t>>2)&t>>15|t>>8))&255)>>1);
+    break;
   }
 return out;
 }
