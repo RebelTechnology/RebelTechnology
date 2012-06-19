@@ -15,10 +15,6 @@
 #define TIMER2_MAX_FREQUENCY 8192.0 // artificial upperlimit
 // #define TIMER2_MAX_FREQUENCY 15625.0 // artificial upperlimit
 
-#define CLOCKED_TIMER_MIN_FREQUENCY 0
-#define CLOCKED_TIMER_MAX_FREQUENCY TIMER2_MAX_FREQUENCY
-// #define CLOCKED_TIMER_FREQUENCY_MULTIPLIER 1024
-#define CLOCKED_TIMER_FREQUENCY_MULTIPLIER (1024*8)
 
 class Timer {
 public:
@@ -48,8 +44,8 @@ public:
   }
   // set the frequency as a percentage of max speed, 0.0-1.0
   void setRate(float r){
-    r *= maximum;
-    r = max(minimum, r);
+    r *= (maximum-minimum);
+    r += minimum;
     setFrequency(r);
   }
   float midiToFreq(uint8_t note){
@@ -79,9 +75,8 @@ private:
   uint16_t period;
   uint16_t duration;
 public:
+  uint16_t multiplier;
   ClockedTimer() {
-    minimum = CLOCKED_TIMER_MIN_FREQUENCY;
-    maximum = CLOCKED_TIMER_MAX_FREQUENCY;
   }
   void start(){
     time = 0;
@@ -105,7 +100,7 @@ public:
     if(frequency <= 0){
       period = 2;
     }else{
-      period = (uint16_t)(CLOCKED_TIMER_FREQUENCY_MULTIPLIER/frequency);
+      period = (uint16_t)(multiplier/frequency);
     }
   }
   void updateDutyCycle(){
