@@ -122,7 +122,7 @@
 <text x="80.645" y="45.212" size="0.762" layer="21" font="vector" rot="R270">TX</text>
 <text x="78.105" y="45.212" size="0.762" layer="21" font="vector" rot="R270">RST</text>
 <text x="13.462" y="50.165" size="1.27" layer="30" font="vector" rot="MR270">-12v</text>
-<text x="99.06" y="10.16" size="1.016" layer="21" font="vector" rot="R90">50577</text>
+<text x="99.06" y="10.16" size="1.016" layer="21" font="vector" rot="R90">53373</text>
 </plain>
 <libraries>
 <library name="atmel">
