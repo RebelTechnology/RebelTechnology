@@ -9,9 +9,6 @@
 #include "device.h"
 #include "adc_freerunner.h"
 #include "DiscreteController.h"
-#include "ContinuousController.h"
-
-#define CLOCKDELAY_CONTROLLER_DELTA 0.001
 
 inline bool clockIsHigh(){
   return !(CLOCKDELAY_CLOCK_PINS & _BV(CLOCKDELAY_CLOCK_PIN));
@@ -251,14 +248,14 @@ ClockCounter counter;
 ClockDivider divider;
 ClockDelay delay; // manually triggered from Timer0 interrupt
 ClockSwing swinger;
-
 DividingCounter divcounter;
 
-class DelayController : public ContinuousController {
+class DelayController {
 public:
-  void hasChanged(float v){
-    delay.value = v*1023+1;
-    swinger.value = delay.value;
+  void update(uint16_t value){
+    value = (value>>2)+1; // divide by 4, add 1
+    delay.value = value;
+    swinger.value = value;
   }
 };
 
@@ -332,7 +329,6 @@ void setup(){
   // enable timer 0 overflow interrupt
   TIMSK0 |= _BV(TOIE0);
 
-  delayControl.delta = CLOCKDELAY_CONTROLLER_DELTA;
   dividerControl.range = 16;
   dividerControl.value = -1;
   counterControl.range = 16;
