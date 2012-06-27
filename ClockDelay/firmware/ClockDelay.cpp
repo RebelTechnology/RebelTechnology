@@ -209,9 +209,11 @@ class ClockSwing : public ClockDelay {
 public:
   void on(){
     COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN);
+    CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_1_PIN);
   }
  void off(){
     COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN);
+    CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_1_PIN);
   }
   bool isOff(){
     return COMBINED_OUTPUT_PINS & _BV(COMBINED_OUTPUT_PIN);
@@ -222,9 +224,11 @@ class DividingCounter : public ClockCounter {
 public:
   void on(){
     COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN);
+    CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_1_PIN);
   }
  void off(){
     COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN);
+    CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_1_PIN);
   }
   bool isOff(){
     return COMBINED_OUTPUT_PINS & _BV(COMBINED_OUTPUT_PIN);
@@ -372,6 +376,7 @@ ISR(INT1_vect){
 	swinger.rise();
       }else{
 	COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN); // pass through clock
+	CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_1_PIN);
       }
       break;
     case DIVIDE_MODE:
@@ -382,7 +387,6 @@ ISR(INT1_vect){
 	  divider.toggled = false;
       }
       break;
-    CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_1_PIN);
     }
   }else{
     switch(mode){
@@ -393,6 +397,7 @@ ISR(INT1_vect){
 	divider.toggled = false;
       }else{
 	COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN); // pass through clock
+	CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_1_PIN);
       }
       break;
     case DIVIDE_MODE:
@@ -401,7 +406,6 @@ ISR(INT1_vect){
       break;
     }
     divider.fall();
-    CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_1_PIN);
   }
 }
 
