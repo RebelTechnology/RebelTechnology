@@ -28,22 +28,9 @@ inline bool isDelayMode(){
 
 enum OperatingMode {
   DISABLED_MODE                   = 0,
-  DIVIDE_AND_DELAY_MODE           = 1,
-  DIVIDE_AND_COUNT_MODE           = 2,
-  SWING_MODE                      = 3
+  DIVIDE_MODE                     = 1,
+  DELAY_MODE                      = 2
 };
-
-volatile OperatingMode mode;
-
-inline void updateMode(){
-  if(isCountMode()){
-    mode = DIVIDE_AND_COUNT_MODE;
-  }else if(isDelayMode()){
-    mode = DIVIDE_AND_DELAY_MODE;
-  }else{
-    mode = SWING_MODE;
-  }
-}
 
 class ClockCounter {
 public:
@@ -286,6 +273,21 @@ void reset(){
   swinger.reset();
 }
 
+volatile OperatingMode mode;
+
+inline void updateMode(){
+  if(isCountMode()){
+    mode = DIVIDE_MODE;
+  }else if(isDelayMode()){
+    cli();
+    reset();
+    while(isDelayMode());
+    sei();
+  }else{
+    mode = DELAY_MODE;
+  }
+}
+
 void setup(){
   cli();
 
@@ -348,7 +350,6 @@ void setup(){
 
 /* Timer 0 overflow interrupt */
 ISR(TIMER0_OVF_vect){
-//   if(mode != DIVIDE_AND_COUNT_MODE)
   delay.clock();
   swinger.clock();
 }
@@ -365,14 +366,15 @@ ISR(INT1_vect){
   if(clockIsHigh()){
     divider.rise();
     switch(mode){
-    case SWING_MODE:
+    case DELAY_MODE:
+      delay.rise();
       if(divider.toggled){
 	swinger.rise();
       }else{
 	COMBINED_OUTPUT_PORT &= ~_BV(COMBINED_OUTPUT_PIN); // pass through clock
       }
       break;
-    case DIVIDE_AND_COUNT_MODE:
+    case DIVIDE_MODE:
       counter.rise();
       if(divider.toggled){
 	divcounter.rise();
@@ -380,16 +382,12 @@ ISR(INT1_vect){
 	  divider.toggled = false;
       }
       break;
-    case DIVIDE_AND_DELAY_MODE:
-      delay.rise();
-      if(divider.toggled)
-	swinger.rise();
-      break;
-    }
     CLOCKDELAY_LEDS_PORT |= _BV(CLOCKDELAY_LED_1_PIN);
+    }
   }else{
     switch(mode){
-    case SWING_MODE:
+    case DELAY_MODE:
+      delay.fall();
       if(divider.toggled){
 	swinger.fall();
 	divider.toggled = false;
@@ -397,16 +395,9 @@ ISR(INT1_vect){
 	COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN); // pass through clock
       }
       break;
-    case DIVIDE_AND_COUNT_MODE:
+    case DIVIDE_MODE:
       counter.fall();
       divcounter.fall();
-      break;
-    case DIVIDE_AND_DELAY_MODE:
-      delay.fall();
-      if(divider.toggled){
-	swinger.fall();
-	divider.toggled = false;
-      }
       break;
     }
     divider.fall();
@@ -452,14 +443,11 @@ void loop(){
     printString("] ");
     printBinary(DELAY_OUTPUT_PINS);
     switch(mode){
-    case DIVIDE_AND_COUNT_MODE:
+    case DIVIDE_MODE:
       printString(" count ");
       break;
-    case DIVIDE_AND_DELAY_MODE:
+    case DELAY_MODE:
       printString(" delay ");
-      break;
-    case SWING_MODE:
-      printString(" swing ");
       break;
     }
     printNewline();
