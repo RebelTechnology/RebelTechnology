@@ -149,7 +149,7 @@ BOOST_AUTO_TEST_CASE(testDelayControlRange){
   BOOST_CHECK_EQUAL(delay.value, 1);
   setDelay(1.0);
   loop();
-  BOOST_CHECK_EQUAL(delay.value, 1023);
+  BOOST_CHECK_EQUAL(delay.value, 1024);
   setDelay(0.5);
   loop();
   BOOST_CHECK_EQUAL(delay.value, 512);
