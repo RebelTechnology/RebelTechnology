@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../serial.h"
+#include "serial.h"
 
 void beginSerial(long baud)
 {
