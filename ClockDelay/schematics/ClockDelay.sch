@@ -21061,6 +21061,11 @@ high speed (Philips)</description>
 <wire x1="86.36" y1="-167.64" x2="86.36" y2="-165.1" width="0.1524" layer="91"/>
 <junction x="86.36" y="-167.64"/>
 </segment>
+<segment>
+<pinref part="S1" gate="1" pin="S"/>
+<wire x1="177.8" y1="-154.94" x2="193.04" y2="-154.94" width="0.1524" layer="91"/>
+<label x="185.42" y="-154.94" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="N$22" class="0">
 <segment>
@@ -21249,14 +21254,8 @@ high speed (Philips)</description>
 </net>
 <net name="MODEB" class="0">
 <segment>
-<pinref part="S1" gate="1" pin="S"/>
-<wire x1="177.8" y1="-154.94" x2="193.04" y2="-154.94" width="0.1524" layer="91"/>
-<label x="185.42" y="-154.94" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="IC2" gate="G$1" pin="PD7(AIN1)"/>
 <wire x1="218.44" y1="-101.6" x2="241.3" y2="-101.6" width="0.1524" layer="91"/>
-<label x="233.68" y="-101.6" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MODEA" class="0">
