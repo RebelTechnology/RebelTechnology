@@ -275,6 +275,12 @@ void reset(){
   divcounter.reset();
   delay.reset();
   swinger.reset();
+  DIVIDE_OUTPUT_PORT   |= _BV(DIVIDE_OUTPUT_PIN);
+  DELAY_OUTPUT_PORT    |= _BV(DELAY_OUTPUT_PIN);
+  COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN);
+  CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_1_PIN);
+  CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_2_PIN);
+  CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_3_PIN);
 }
 
 volatile OperatingMode mode;
@@ -360,7 +366,7 @@ ISR(TIMER0_OVF_vect){
 
 /* Reset interrupt */
 ISR(INT0_vect){
-  reset();
+  reset();  
   // hold everything until reset is released
   while(resetIsHigh());
 }
