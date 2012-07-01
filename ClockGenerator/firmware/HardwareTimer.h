@@ -3,6 +3,7 @@
 
 #include "Timer.h"
 #include "device.h"
+#include "avr/io.h"
 
 #define FREQ_CONSTANT (F_CPU / 2)
 static uint16_t timer0prescalers[] = {1, 8, 64, 256, 1024};
@@ -27,8 +28,8 @@ public:
   }
 #endif
 protected:
-  virtual uint8_t getPrescaler(float freq);
-  virtual uint16_t getTopLimit(float freq, uint8_t pre);
+  virtual uint8_t getPrescaler(float freq){};
+  virtual uint16_t getTopLimit(float freq, uint8_t pre){};
 };
 
 /** 16-bit Timer/Counter 1 */
