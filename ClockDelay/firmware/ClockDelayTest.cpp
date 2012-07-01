@@ -21,16 +21,21 @@ struct PinFixture {
 };
 
 void setCountMode(){
-  PIND |= _BV(PORTD6);
-  PIND &= ~_BV(PORTD7);
+  PIND &= ~_BV(PORTD6);
 }
 
 void setDelayMode(){
   PIND |= _BV(PORTD6);
-  PIND |= _BV(PORTD7);
 }
 
-void setClock(bool high){
+void setReset(bool high = true){
+  if(high)
+    PIND &= ~_BV(PORTD2);
+  else
+    PIND |= _BV(PORTD2);
+}
+
+void setClock(bool high = true){
   if(high)
     PIND &= ~_BV(PORTD3);
   else
@@ -235,18 +240,39 @@ BOOST_AUTO_TEST_CASE(testCount){
   BOOST_CHECK_EQUAL(counter.value, 7);
   BOOST_CHECK_EQUAL(mode, DIVIDE_MODE);
   int i;
-  for(i=0; !delayIsHigh(); ++i)
+  for(i=0; !delayIsHigh() && i<1000; ++i)
     toggleClock();
   BOOST_CHECK_EQUAL(i, 15);
   BOOST_CHECK(delayIsHigh());
   toggleClock();
-  for(i=0; !delayIsHigh(); ++i)
+  for(i=0; !delayIsHigh() && i<1000; ++i)
     toggleClock();
   BOOST_CHECK_EQUAL(i, 15);
   toggleClock();
-  for(i=0; !delayIsHigh(); ++i)
+  for(i=0; !delayIsHigh() && i<1000; ++i)
     toggleClock();
   BOOST_CHECK_EQUAL(i, 15);
+}
+
+BOOST_AUTO_TEST_CASE(testCountRetrigger){
+  DefaultFixture fixture;
+  setDivide(0.9);
+  setDelay(0.1);
+  setCountMode();
+  loop();
+  int i;
+  for(i=0; !combinedIsHigh() && i<1000; ++i)
+    toggleClock();
+  int period = i;
+  toggleClock();
+  BOOST_CHECK(!combinedIsHigh());
+  for(i=0; !combinedIsHigh() && i<period; ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, period);
+  toggleClock();
+  for(i=0; !combinedIsHigh() && i<period; ++i)
+    toggleClock();
+  BOOST_CHECK_EQUAL(i, period);
 }
 
 void checkCount(float cnt){
@@ -284,11 +310,11 @@ BOOST_AUTO_TEST_CASE(testDelayLongPulse){
   BOOST_CHECK(!delayIsHigh());
   int i;
   setClock(true);
-  for(i=0; !delayIsHigh(); ++i)
+  for(i=0; !delayIsHigh() && i<1000; ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, 512);
   setClock(false);
-  for(i=0; delayIsHigh(); ++i)
+  for(i=0; delayIsHigh() && i<1000; ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, 512);
 }
@@ -301,16 +327,38 @@ BOOST_AUTO_TEST_CASE(testDelaySlowPulse){
   loop();
   int i;
   setClock(true);
-  for(i=0; !delayIsHigh(); ++i)
+  for(i=0; !delayIsHigh() && i<1000; ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, 512);
   for(i=0; delayIsHigh() && i<1000; ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, 1000);
   setClock(false);
-  for(i=0; delayIsHigh(); ++i)
+  for(i=0; delayIsHigh() && i<1000; ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, 512);
+}
+
+BOOST_AUTO_TEST_CASE(testDelayRetrigger){
+  DefaultFixture fixture;
+  setDivide(0.5);
+  setDelay(0.1);
+  setDelayMode();
+  loop();
+  int i;
+  setClock(true);
+  for(i=0; !delayIsHigh() && i<1000; ++i)
+    callTimer();
+  BOOST_CHECK(delayIsHigh());
+  for(i=0; delayIsHigh() && i<1000; ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 1000);
+  setClock(false);
+  for(i=0; delayIsHigh(); ++i)
+    callTimer();
+  for(i=0; !delayIsHigh() && i<1000; ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 1000);
 }
 
 BOOST_AUTO_TEST_CASE(testZeroDelay){
@@ -350,6 +398,29 @@ BOOST_AUTO_TEST_CASE(testZeroSwing){
   BOOST_CHECK_EQUAL(i, 15);
 }
 
+BOOST_AUTO_TEST_CASE(testResetHold){
+  DefaultFixture fixture;
+  setDivide(0.1);
+  setDelay(0.1);
+  setDelayMode();
+  loop();
+  setReset(true);
+  int i;
+  for(i=0; !clockIsHigh() && ! delayIsHigh() && !combinedIsHigh() && i<1000; ++i)
+    callTimer();
+  BOOST_CHECK_EQUAL(i, 1000);
+  while(!clockIsHigh())
+    toggleClock();
+  for(i=0; !clockIsHigh() && ! delayIsHigh() && !combinedIsHigh() && i<1000; ++i)
+    callTimer();  
+  BOOST_CHECK_EQUAL(i, 1000);
+  while(clockIsHigh())
+    toggleClock();
+  for(i=0; !clockIsHigh() && ! delayIsHigh() && !combinedIsHigh() && i<1000; ++i)
+    callTimer();  
+  BOOST_CHECK_EQUAL(i, 1000);
+}
+
 BOOST_AUTO_TEST_CASE(testDelayShortPulse){
   DefaultFixture fixture;
   setDivide(0.5);
@@ -361,10 +432,10 @@ BOOST_AUTO_TEST_CASE(testDelayShortPulse){
   setClock(true);
   callTimer(100);
   setClock(false);
-  for(i=0; !delayIsHigh(); ++i)
+  for(i=0; !delayIsHigh() && i<1000; ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, 105);
-  for(i=0; delayIsHigh(); ++i)
+  for(i=0; delayIsHigh() && i<1000; ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, 100);
 }
@@ -378,17 +449,17 @@ void checkSwing(float div, float del){
   int time = delay.value/2+1;
   int ticks = delay.value-time;
   int i;
-  for(i=0; clockIsHigh() == combinedIsHigh(); ++i)
+  for(i=0; clockIsHigh() == combinedIsHigh() && i<1000; ++i)
     toggleClock();
   BOOST_CHECK_EQUAL(i, cycles);
   BOOST_CHECK(swinger.running == true);
   BOOST_CHECK(clockIsHigh());
   callTimer(time);
   setClock(false);
-  for(i=0; !combinedIsHigh(); ++i)
+  for(i=0; !combinedIsHigh() && i<1000; ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, ticks);
-  for(i=0; combinedIsHigh(); ++i)
+  for(i=0; combinedIsHigh() && i<1000; ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, time);
 }
@@ -415,36 +486,36 @@ BOOST_AUTO_TEST_CASE(testSwing){
   BOOST_CHECK_EQUAL(delay.value, 205);
   BOOST_CHECK_EQUAL(mode, DELAY_MODE);
   int i;
-  for(i=0; clockIsHigh() == combinedIsHigh(); ++i)
+  for(i=0; clockIsHigh() == combinedIsHigh() && i<1000; ++i)
     toggleClock();
   BOOST_CHECK_EQUAL(i, 5);
   BOOST_CHECK(swinger.running == true);
   BOOST_CHECK(clockIsHigh());
   callTimer(80);
   setClock(false);
-  for(i=0; !combinedIsHigh(); ++i)
+  for(i=0; !combinedIsHigh() && i<1000; ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, 205-80);
-  for(i=0; combinedIsHigh(); ++i)
+  for(i=0; combinedIsHigh() && i<1000; ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, 80);
   BOOST_CHECK(swinger.running == false);
   BOOST_CHECK(clockIsHigh() == false);
   BOOST_CHECK(combinedIsHigh() == false);
   BOOST_CHECK(divideIsHigh() == true);
-  for(i=0; clockIsHigh() == combinedIsHigh(); ++i)
+  for(i=0; clockIsHigh() == combinedIsHigh() && i<1000; ++i)
     toggleClock();
   BOOST_CHECK_EQUAL(i, 5);
   // repeat
   callTimer(80);
   setClock(false);
-  for(i=0; !combinedIsHigh(); ++i)
+  for(i=0; !combinedIsHigh() && i<1000; ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, 205-80);
-  for(i=0; combinedIsHigh(); ++i)
+  for(i=0; combinedIsHigh() && i<1000; ++i)
     callTimer();
   BOOST_CHECK_EQUAL(i, 80);
-  for(i=0; clockIsHigh() == combinedIsHigh(); ++i)
+  for(i=0; clockIsHigh() == combinedIsHigh() && i<1000; ++i)
     toggleClock();
   BOOST_CHECK_EQUAL(i, 5);
 }
