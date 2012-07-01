@@ -19,11 +19,11 @@ inline bool resetIsHigh(){
 }
 
 inline bool isCountMode(){
-  return !(MODE_SWITCH_PINS & _BV(MODE_SWITCH_PIN_B));
+  return !(MODE_SWITCH_PINS & _BV(MODE_SWITCH_PIN_A));
 }
 
 inline bool isDelayMode(){
-  return !(MODE_SWITCH_PINS & _BV(MODE_SWITCH_PIN_A));
+  return !(MODE_SWITCH_PINS & _BV(MODE_SWITCH_PIN_B));
 }
 
 enum OperatingMode {
@@ -36,6 +36,7 @@ class ClockCounter {
 public:
   inline void reset(){
     pos = 0;
+    off();
   }
   bool next(){
     if(++pos > value){
@@ -86,6 +87,7 @@ public:
   inline void reset(){
     pos = 0;
     toggled = false;
+    off();
   }
   bool next(){
     if(++pos > value){
@@ -154,6 +156,7 @@ public:
   }
   inline void reset(){
     stop();
+    off();
   }
   inline void rise(){
     riseMark = value;
@@ -275,12 +278,6 @@ void reset(){
   divcounter.reset();
   delay.reset();
   swinger.reset();
-  DIVIDE_OUTPUT_PORT   |= _BV(DIVIDE_OUTPUT_PIN);
-  DELAY_OUTPUT_PORT    |= _BV(DELAY_OUTPUT_PIN);
-  COMBINED_OUTPUT_PORT |= _BV(COMBINED_OUTPUT_PIN);
-  CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_1_PIN);
-  CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_2_PIN);
-  CLOCKDELAY_LEDS_PORT &= ~_BV(CLOCKDELAY_LED_3_PIN);
 }
 
 volatile OperatingMode mode;
