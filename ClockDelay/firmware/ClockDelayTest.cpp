@@ -1,6 +1,6 @@
 /*
-g++ -I../../Libraries/wiring -I../../Libraries/avrsim -I/opt/local/include -L/opt/local/lib -o ClockDelayTest -lboost_unit_test_framework  ClockDelayTest.cpp ../../Libraries/avrsim/avr/io.c simulator/wiring/serial.c adc_freerunner.cpp simulator/avr/interrupt.c && ./ClockDelayTest
-w*/
+g++ -I../../Libraries/wiring -I../../Libraries/avrsim -I/opt/local/include -L/opt/local/lib -o ClockDelayTest -lboost_unit_test_framework  ClockDelayTest.cpp ../../Libraries/avrsim/avr/io.c ../../Libraries/wiring/serial.c adc_freerunner.cpp ../../Libraries/avrsim/avr/interrupt.c && ./ClockDelayTest
+*/
 // #define mcu atmega168
 #define BOOST_TEST_DYN_LINK
 #define BOOST_TEST_MODULE Test
