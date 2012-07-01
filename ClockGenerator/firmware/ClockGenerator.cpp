@@ -1,4 +1,4 @@
-// #define SERIAL_DEBUG
+#define SERIAL_DEBUG
 #ifdef SERIAL_DEBUG
 #include "serial.h"
 #endif // SERIAL_DEBUG
@@ -75,17 +75,18 @@ void setup(){
   GENERATOR_SWITCH_DDR &= ~_BV(GENERATOR_SWITCH_PIN_B);
   GENERATOR_SWITCH_PORT |= _BV(GENERATOR_SWITCH_PIN_B);
 
+  TIMER0_DDR_A |= _BV(TIMER0_OUTPUT_A);
+  TIMER0_DDR_B |= _BV(TIMER0_OUTPUT_B);
   TIMER1_DDR_A |= _BV(TIMER1_OUTPUT_A);
   TIMER1_DDR_B |= _BV(TIMER1_OUTPUT_B);
-  TIMER2_DDR_A |= _BV(TIMER2_OUTPUT_A);
-  TIMER2_DDR_B |= _BV(TIMER2_OUTPUT_B);
 
   // configure Timer 0 to Fast PWM, 0xff top.
   TCCR0A |= _BV(WGM01) | _BV(WGM00);
-//   TCCR0B |= _BV(CS01) | _BV(CS00); // prescaler: 64
-  TCCR0B |= _BV(CS01);  // prescaler: 8
-  // enable timer 0 overflow interrupt
-  TIMSK0 |= _BV(TOIE0);
+  TCCR0B |= _BV(CS01) | _BV(CS00); // prescaler: 64
+//   TCCR0B |= _BV(CS01);  // prescaler: 8
+  TIMSK0 |= _BV(TOIE0); // enable timer 0 overflow interrupt
+
+  TIMSK1 |= _BV(TOIE1); // enable timer 1 overflow interrupt
 
   timer0.setDutyCycle(0.5);
   timer0.minimum = 1;
