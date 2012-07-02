@@ -120,7 +120,7 @@
 <text x="23.495" y="46.355" size="1.016" layer="30" font="vector" rot="MR270" align="center">-12</text>
 <text x="98.425" y="12.7" size="1.016" layer="30" font="vector" rot="MR270" align="center">Rebel Technology</text>
 <wire x1="100" y1="0" x2="0" y2="0" width="0" layer="20"/>
-<text x="97.79" y="15.24" size="1.016" layer="21" rot="R270">50577</text>
+<text x="97.79" y="15.24" size="1.016" layer="21" rot="R270">54025</text>
 </plain>
 <libraries>
 <library name="linear">
