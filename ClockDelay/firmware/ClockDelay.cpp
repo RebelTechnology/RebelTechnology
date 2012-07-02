@@ -422,12 +422,8 @@ void loop(){
   if(serialAvailable() > 0){
     switch(serialRead()){
     case '.':
-      CLOCKDELAY_CLOCK_PORT ^= ~_BV(CLOCKDELAY_CLOCK_PIN);
+      CLOCKDELAY_CLOCK_PORT ^= _BV(CLOCKDELAY_CLOCK_PIN);
       INT1_vect();
-//       CLOCKDELAY_CLOCK_PORT &= ~_BV(CLOCKDELAY_CLOCK_PIN);
-//       INT1_vect();
-//       CLOCKDELAY_CLOCK_PORT |= _BV(CLOCKDELAY_CLOCK_PIN);
-//       INT1_vect();
       break;
     case ':':
       CLOCKDELAY_RESET_PORT &= ~_BV(CLOCKDELAY_RESET_PIN);
