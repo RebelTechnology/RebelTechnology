@@ -20230,7 +20230,7 @@ high speed (Philips)</description>
 <part name="P+13" library="supply1" deviceset="+12V" device=""/>
 <part name="D1" library="Rebel" deviceset="DIODE" device="1N4001"/>
 <part name="U$2" library="SparkFun" deviceset="M08X2" device=""/>
-<part name="C2" library="rcl" deviceset="CPOL-EU" device="E5-6" value="100u"/>
+<part name="C2" library="rcl" deviceset="CPOL-EU" device="E5-6" value="10u"/>
 <part name="D2" library="Rebel" deviceset="DIODE" device="1N4001"/>
 <part name="F1" library="Rebel" deviceset="PTC" device="PTH"/>
 <part name="F2" library="Rebel" deviceset="PTC" device="PTH"/>
