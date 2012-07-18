@@ -21144,16 +21144,11 @@ high speed (Philips)</description>
 <junction x="170.18" y="5.08"/>
 </segment>
 </net>
-<net name="N$13" class="0">
-<segment>
-<wire x1="154.94" y1="-175.26" x2="149.86" y2="-175.26" width="0.1524" layer="91"/>
-<pinref part="ROTMAN" gate="G$1" pin="2"/>
-</segment>
-</net>
 <net name="ROT" class="0">
 <segment>
 <label x="162.56" y="-175.26" size="1.778" layer="95"/>
-<wire x1="154.94" y1="-175.26" x2="170.18" y2="-175.26" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="-175.26" x2="170.18" y2="-175.26" width="0.1524" layer="91"/>
+<pinref part="ROTMAN" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="PC0(ADC0)"/>
