@@ -107,7 +107,7 @@
 <wire x1="0" y1="50.5" x2="0" y2="0" width="0" layer="20"/>
 <text x="37.465" y="29.845" size="1.778" layer="21" font="vector">Rebel Technology</text>
 <text x="24.765" y="19.685" size="1.778" layer="21" font="vector">Clock Delay</text>
-<text x="37.465" y="17.145" size="1.778" layer="21" font="vector">Rev 01</text>
+<text x="37.465" y="17.145" size="1.778" layer="21" font="vector">Rev 02</text>
 <text x="94.615" y="46.355" size="1.016" layer="21" font="vector" rot="R270">gnd</text>
 <text x="92.075" y="46.355" size="1.016" layer="21" font="vector" rot="R270">5v</text>
 <text x="89.535" y="46.355" size="1.016" layer="21" font="vector" rot="R270">rx</text>
