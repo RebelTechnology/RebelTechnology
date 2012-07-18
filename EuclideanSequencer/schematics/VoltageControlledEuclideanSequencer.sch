@@ -21019,7 +21019,7 @@ high speed (Philips)</description>
 <pinref part="R502" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="DIVOUT" class="0">
+<net name="SEQOUT" class="0">
 <segment>
 <pinref part="R501" gate="G$1" pin="1"/>
 <label x="261.62" y="0" size="1.778" layer="95"/>
@@ -21035,7 +21035,6 @@ high speed (Philips)</description>
 <segment>
 <pinref part="IC2" gate="G$1" pin="PB1(OC1A)"/>
 <wire x1="218.44" y1="-109.22" x2="241.3" y2="-109.22" width="0.1524" layer="91"/>
-<label x="233.68" y="-109.22" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CMBOUT" class="0">
@@ -21064,7 +21063,7 @@ high speed (Philips)</description>
 <label x="233.68" y="-101.6" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="MODEA" class="0">
+<net name="MODEIN" class="0">
 <segment>
 <pinref part="S1" gate="1" pin="O"/>
 <wire x1="177.8" y1="-149.86" x2="193.04" y2="-149.86" width="0.1524" layer="91"/>
@@ -21098,20 +21097,6 @@ high speed (Philips)</description>
 <pinref part="RSTIN" gate="G$1" pin="3"/>
 <pinref part="R401" gate="G$1" pin="1"/>
 <wire x1="48.26" y1="-175.26" x2="58.42" y2="-175.26" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="PWR_BUS" class="0">
-<segment>
-<wire x1="170.18" y1="22.86" x2="185.42" y2="22.86" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="15"/>
-<pinref part="U$2" gate="G$1" pin="16"/>
-</segment>
-</net>
-<net name="N$43" class="0">
-<segment>
-<wire x1="185.42" y1="20.32" x2="170.18" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="13"/>
-<pinref part="U$2" gate="G$1" pin="14"/>
 </segment>
 </net>
 <net name="N$44" class="0">
