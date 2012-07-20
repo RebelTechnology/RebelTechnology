@@ -13122,7 +13122,6 @@ Source: www.kingbright.com</description>
 <part name="POT4" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="POT6" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="S1" library="Rebel" deviceset="SWITCH-SPST" device=""/>
-<part name="R2" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="R3" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="R4" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
@@ -13181,7 +13180,6 @@ Source: www.kingbright.com</description>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="P-2" library="supply1" deviceset="-12V" device=""/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
-<part name="LED1" library="led" deviceset="LED" device="3MM"/>
 <part name="LED2" library="led" deviceset="LED" device="3MM"/>
 <part name="LED3" library="led" deviceset="LED" device="3MM"/>
 <part name="P+17" library="supply1" deviceset="+5V" device=""/>
@@ -13229,7 +13227,6 @@ Source: www.kingbright.com</description>
 <instance part="POT4" gate="G$1" x="33.02" y="-43.18" rot="R90"/>
 <instance part="POT6" gate="G$1" x="25.4" y="-63.5" rot="R90"/>
 <instance part="S1" gate="1" x="187.96" y="-129.54"/>
-<instance part="R2" gate="G$1" x="195.58" y="-86.36" rot="R180"/>
 <instance part="R3" gate="G$1" x="195.58" y="-93.98" rot="R180"/>
 <instance part="R4" gate="G$1" x="195.58" y="-101.6" rot="R180"/>
 <instance part="GND23" gate="1" x="180.34" y="-106.68"/>
@@ -13300,7 +13297,6 @@ Source: www.kingbright.com</description>
 <instance part="POT4" gate="G$2" x="165.1" y="-177.8"/>
 <instance part="POT6" gate="G$2" x="175.26" y="-177.8"/>
 <instance part="GND36" gate="1" x="144.78" y="-193.04"/>
-<instance part="LED1" gate="G$1" x="208.28" y="-86.36" rot="R270"/>
 <instance part="LED2" gate="G$1" x="208.28" y="-93.98" rot="R270"/>
 <instance part="LED3" gate="G$1" x="208.28" y="-101.6" rot="R270"/>
 <instance part="P+17" gate="1" x="137.16" y="-101.6"/>
@@ -13633,9 +13629,6 @@ Source: www.kingbright.com</description>
 <wire x1="187.96" y1="-93.98" x2="187.96" y2="-101.6" width="0.1524" layer="91"/>
 <wire x1="187.96" y1="-101.6" x2="190.5" y2="-101.6" width="0.1524" layer="91"/>
 <junction x="187.96" y="-93.98"/>
-<pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="190.5" y1="-86.36" x2="187.96" y2="-86.36" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="-86.36" x2="187.96" y2="-93.98" width="0.1524" layer="91"/>
 <pinref part="GND23" gate="1" pin="GND"/>
 <wire x1="187.96" y1="-93.98" x2="180.34" y2="-93.98" width="0.1524" layer="91"/>
 <wire x1="180.34" y1="-93.98" x2="180.34" y2="-104.14" width="0.1524" layer="91"/>
@@ -13727,13 +13720,6 @@ Source: www.kingbright.com</description>
 <wire x1="10.16" y1="-53.34" x2="25.4" y2="-53.34" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="-53.34" x2="25.4" y2="-55.88" width="0.1524" layer="91"/>
 <pinref part="POT6" gate="G$1" pin="3"/>
-</segment>
-</net>
-<net name="N$23" class="0">
-<segment>
-<pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="200.66" y1="-86.36" x2="203.2" y2="-86.36" width="0.1524" layer="91"/>
-<pinref part="LED1" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$24" class="0">
@@ -13838,20 +13824,6 @@ Source: www.kingbright.com</description>
 <pinref part="JACK6" gate="G$1" pin="3"/>
 <pinref part="R401" gate="G$1" pin="1"/>
 <wire x1="58.42" y1="-187.96" x2="68.58" y2="-187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="PWR_BUS" class="0">
-<segment>
-<wire x1="170.18" y1="22.86" x2="185.42" y2="22.86" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="15"/>
-<pinref part="U$2" gate="G$1" pin="16"/>
-</segment>
-</net>
-<net name="N$43" class="0">
-<segment>
-<wire x1="185.42" y1="20.32" x2="170.18" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="13"/>
-<pinref part="U$2" gate="G$1" pin="14"/>
 </segment>
 </net>
 <net name="N$44" class="0">
@@ -14079,11 +14051,6 @@ Source: www.kingbright.com</description>
 <pinref part="U$1" gate="G$1" pin="8"/>
 <wire x1="111.76" y1="-35.56" x2="119.38" y2="-35.56" width="0.1524" layer="91"/>
 <label x="111.76" y="-35.56" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="LED1" gate="G$1" pin="A"/>
-<wire x1="223.52" y1="-86.36" x2="210.82" y2="-86.36" width="0.1524" layer="91"/>
-<label x="215.9" y="-86.36" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="S1" gate="1" pin="S"/>
