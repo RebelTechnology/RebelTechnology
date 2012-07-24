@@ -247,7 +247,7 @@ DividingCounter divcounter;
 class DelayController {
 public:
   void update(uint16_t value){
-    value = (value>>2)+1; // divide by 4, add 1
+    value = (value>>1)+1; // divide by 2, add 1
     delay.value = value;
     swinger.value = value;
   }
