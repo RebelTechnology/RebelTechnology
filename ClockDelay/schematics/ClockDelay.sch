@@ -20126,7 +20126,7 @@ high speed (Philips)</description>
 <part name="IC1" library="linear" deviceset="TL072" device="P"/>
 <part name="R102" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="R101" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
-<part name="R103" library="Rebel" deviceset="R-EU_" device="0204/7" value="100K"/>
+<part name="R103" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="R104" library="Rebel" deviceset="R-EU_" device="0204/7" value="220"/>
 <part name="DIVIN" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
@@ -20140,7 +20140,7 @@ high speed (Philips)</description>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
 <part name="R202" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="R201" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
-<part name="R203" library="Rebel" deviceset="R-EU_" device="0204/7" value="100K"/>
+<part name="R203" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="R204" library="Rebel" deviceset="R-EU_" device="0204/7" value="220"/>
 <part name="DELIN" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
