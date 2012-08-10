@@ -3079,19 +3079,19 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <element name="R102" library="Rebel" package="0204/7" value="51K" x="69.215" y="49.53"/>
 <element name="R101" library="Rebel" package="0204/7" value="120K" x="59.055" y="46.355" rot="R180"/>
 <element name="R103" library="Rebel" package="0204/7" value="51K" x="59.055" y="49.53" rot="R180"/>
-<element name="R104" library="Rebel" package="0204/7" value="220" x="78.74" y="49.53"/>
+<element name="R104" library="Rebel" package="0204/7" value="51K" x="78.74" y="49.53"/>
 <element name="DIVIN" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="31.75" y="38.1" locked="yes" smashed="yes" rot="R90">
 <attribute name="NAME" x="31.1" y="33.1" size="1.27" layer="25" font="vector" rot="R90"/>
 </element>
-<element name="D101" library="Rebel" package="DIODE-1N4148" value="" x="69.215" y="46.355" rot="R180"/>
+<element name="D101" library="Rebel" package="DIODE-1N4148" value="DNC" x="69.215" y="46.355" rot="R180"/>
 <element name="R202" library="Rebel" package="0204/7" value="51K" x="77.47" y="1.905"/>
 <element name="R201" library="Rebel" package="0204/7" value="120K" x="77.47" y="4.445" rot="R180"/>
 <element name="R203" library="Rebel" package="0204/7" value="51K" x="67.31" y="1.905" rot="R180"/>
-<element name="R204" library="Rebel" package="0204/7" value="220" x="67.31" y="4.445"/>
+<element name="R204" library="Rebel" package="0204/7" value="51K" x="67.31" y="4.445"/>
 <element name="DELIN" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="31.75" y="12.7" locked="yes" smashed="yes" rot="R270">
 <attribute name="NAME" x="32.4" y="15.16" size="1.27" layer="25" font="vector" rot="R270"/>
 </element>
-<element name="D201" library="Rebel" package="DIODE-1N4148" value="" x="88.9" y="4.445" rot="R180"/>
+<element name="D201" library="Rebel" package="DIODE-1N4148" value="DNC" x="88.9" y="4.445" rot="R180"/>
 <element name="CLKIN" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="6.35" y="38.1" locked="yes" smashed="yes" rot="R270">
 <attribute name="NAME" x="5.73" y="40.56" size="1.27" layer="25" font="vector" rot="R270"/>
 </element>
@@ -3169,8 +3169,8 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <element name="CLKTHRU" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="6.35" y="12.7" locked="yes" smashed="yes" rot="R270">
 <attribute name="NAME" x="7" y="17.7" size="1.27" layer="25" font="vector" rot="R270"/>
 </element>
-<element name="D102" library="Rebel" package="DIODE-1N4148" value="" x="78.74" y="43.815" rot="R90"/>
-<element name="D202" library="Rebel" package="DIODE-1N4148" value="" x="88.9" y="1.905" rot="R180"/>
+<element name="D102" library="Rebel" package="DIODE-1N4148" value="DNC" x="78.74" y="43.815" rot="R90"/>
+<element name="D202" library="Rebel" package="DIODE-1N4148" value="DNC" x="88.9" y="1.905" rot="R180"/>
 <element name="D1" library="Rebel" package="DIODE-1N4001" value="" x="6.35" y="43.815"/>
 <element name="U$2" library="SparkFun" package="2X8" value="M08X2" x="26.035" y="45.085" smashed="yes"/>
 <element name="C2" library="rcl" package="E5-6" value="10u" x="49.53" y="46.355" smashed="yes" rot="R90">

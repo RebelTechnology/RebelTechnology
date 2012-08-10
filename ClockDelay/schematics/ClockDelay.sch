@@ -20127,7 +20127,7 @@ high speed (Philips)</description>
 <part name="R102" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="R101" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
 <part name="R103" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
-<part name="R104" library="Rebel" deviceset="R-EU_" device="0204/7" value="220"/>
+<part name="R104" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="DIVIN" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="+12V" device=""/>
@@ -20135,19 +20135,19 @@ high speed (Philips)</description>
 <part name="P-1" library="supply1" deviceset="-12V" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
-<part name="D101" library="Rebel" deviceset="DIODE" device="1N4148"/>
+<part name="D101" library="Rebel" deviceset="DIODE" device="1N4148" value="DNC"/>
 <part name="P+1" library="supply1" deviceset="+12V" device=""/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
 <part name="R202" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="R201" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
 <part name="R203" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
-<part name="R204" library="Rebel" deviceset="R-EU_" device="0204/7" value="220"/>
+<part name="R204" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="DELIN" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
-<part name="D201" library="Rebel" deviceset="DIODE" device="1N4148"/>
+<part name="D201" library="Rebel" deviceset="DIODE" device="1N4148" value="DNC"/>
 <part name="P+5" library="supply1" deviceset="+12V" device=""/>
 <part name="P+6" library="supply1" deviceset="+5V" device=""/>
 <part name="CLKIN" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
@@ -20221,8 +20221,8 @@ high speed (Philips)</description>
 <part name="P+9" library="supply1" deviceset="+12V" device=""/>
 <part name="P+11" library="supply1" deviceset="+12V" device=""/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
-<part name="D102" library="Rebel" deviceset="DIODE" device="1N4148"/>
-<part name="D202" library="Rebel" deviceset="DIODE" device="1N4148"/>
+<part name="D102" library="Rebel" deviceset="DIODE" device="1N4148" value="DNC"/>
+<part name="D202" library="Rebel" deviceset="DIODE" device="1N4148" value="DNC"/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
