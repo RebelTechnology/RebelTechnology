@@ -8,6 +8,7 @@ F_CPU = 16000000
 # UPLOAD_RATE = 57600
 MCU = atmega168
 UPLOAD_RATE = 19200
+WIRING = ../../Libraries/wiring
 
 ARDUINO = $(INSTALL_DIR)/hardware/cores/arduino
 
@@ -18,7 +19,6 @@ SRC = wiring_serial.c
 
 AVR_TOOLS_PATH = $(INSTALL_DIR)/hardware/tools/avr/bin
 FORMAT = ihex
-
 
 # Name of this Makefile (used for "make depend").
 MAKEFILE = Makefile
@@ -35,8 +35,8 @@ CDEFS = -DF_CPU=$(F_CPU)
 CXXDEFS = -DF_CPU=$(F_CPU)
 
 # Place -I options here
-CINCS = -I$(ARDUINO)
-CXXINCS = -I$(ARDUINO)
+CINCS = -I$(ARDUINO) -I$(WIRING)
+CXXINCS = -I$(ARDUINO) -I$(WIRING)
 
 # Compiler flag to set the C Standard level.
 # c89   - "ANSI" C

@@ -15,7 +15,6 @@
 #define TIMER2_MAX_FREQUENCY 8192.0 // artificial upperlimit
 // #define TIMER2_MAX_FREQUENCY 15625.0 // artificial upperlimit
 
-
 class Timer {
 public:
   float duty;
