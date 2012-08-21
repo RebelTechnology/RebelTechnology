@@ -68,13 +68,14 @@ protected:
   virtual void updateDutyCycle(){} 
 };
 
+template<typename T>
 class ClockedTimer : public Timer {
 private:
-  volatile uint16_t time;
-  uint16_t period;
-  uint16_t duration;
+  volatile T time;
+  T period;
+  T duration;
 public:
-  uint16_t multiplier;
+  T multiplier;
   ClockedTimer() {
   }
   void start(){
@@ -99,7 +100,7 @@ public:
     if(frequency <= 0){
       period = 2;
     }else{
-      period = (uint16_t)(multiplier/frequency);
+      period = (T)(multiplier/frequency);
     }
   }
   void updateDutyCycle(){
@@ -116,6 +117,8 @@ public:
     printInteger(period);
     printString(", d ");
     printInteger(duration);
+    printString(", m ");
+    printInteger(multiplier);
   }
 #endif
 };

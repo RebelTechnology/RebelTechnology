@@ -22,25 +22,19 @@ OC2B     PORTD3    OUTB        TIMER2_OUTPUT_B
 #define GENERATOR_SWITCH_PIN_A              PORTB4
 #define GENERATOR_SWITCH_PIN_B              PORTB5
 
-#define TIMER2_DDR_A                        DDRB
-#define TIMER2_PORT_A                       PORTB
-#define TIMER2_OUTPUT_A                     PORTB3
-#define TIMER2_DDR_B                        DDRD
-#define TIMER2_PORT_B                       PORTD
-#define TIMER2_OUTPUT_B                     PORTD3
+#define TIMERA_DDR_A                        DDRB
+#define TIMERA_PORT_A                       PORTB
+#define TIMERA_OUTPUT_A                     PORTB3
+#define TIMERA_DDR_B                        DDRD
+#define TIMERA_PORT_B                       PORTD
+#define TIMERA_OUTPUT_B                     PORTD3
 
-#define TIMER1_DDR_A                        DDRB
-#define TIMER1_PORT_A                       PORTB
-#define TIMER1_OUTPUT_A                     PORTB2
-#define TIMER1_DDR_B                        DDRB
-#define TIMER1_PORT_B                       PORTB
-#define TIMER1_OUTPUT_B                     PORTB1
+#define TIMERB_DDR_A                        DDRB
+#define TIMERB_PORT_A                       PORTB
+#define TIMERB_OUTPUT_A                     PORTB2
+#define TIMERB_DDR_B                        DDRB
+#define TIMERB_PORT_B                       PORTB
+#define TIMERB_OUTPUT_B                     PORTB1
 
-#define TIMER0_DDR_A                        TIMER2_DDR_A
-#define TIMER0_PORT_A                       TIMER2_PORT_A
-#define TIMER0_OUTPUT_A                     TIMER2_OUTPUT_A
-#define TIMER0_DDR_B                        TIMER2_DDR_A
-#define TIMER0_PORT_B                       TIMER2_PORT_B
-#define TIMER0_OUTPUT_B                     TIMER2_OUTPUT_B
 
 

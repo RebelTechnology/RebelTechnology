@@ -1,4 +1,4 @@
-#define SERIAL_DEBUG
+// #define SERIAL_DEBUG
 #ifdef SERIAL_DEBUG
 #include "serial.h"
 #endif // SERIAL_DEBUG
@@ -8,20 +8,30 @@
 #include <avr/interrupt.h>
 #include "device.h"
 #include "Timer.h"
-#include "HardwareTimer.h"
 #include "adc_freerunner.h"
 #include "ContinuousController.h"
 
 #define GENERATOR_CONTROLLER_DELTA 0.001
 
-class Timer0 : public ClockedTimer {
+class TimerA : public ClockedTimer<uint32_t> {
   void on(){
-    TIMER0_PORT_B &= ~_BV(TIMER0_OUTPUT_B); // clock inverted
-    TIMER0_PORT_A |= _BV(TIMER0_OUTPUT_A); // LED on
+    TIMERA_PORT_B &= ~_BV(TIMERA_OUTPUT_B); // clock inverted
+    TIMERA_PORT_A |= _BV(TIMERA_OUTPUT_A); // LED on
   }
   void off(){
-    TIMER0_PORT_B |= _BV(TIMER0_OUTPUT_B);
-    TIMER0_PORT_A &= ~_BV(TIMER0_OUTPUT_A);
+    TIMERA_PORT_B |= _BV(TIMERA_OUTPUT_B);
+    TIMERA_PORT_A &= ~_BV(TIMERA_OUTPUT_A);
+  }
+};
+
+class TimerB : public ClockedTimer<uint32_t> {
+  void on(){
+    TIMERB_PORT_B &= ~_BV(TIMERB_OUTPUT_B); // clock inverted
+    TIMERB_PORT_A |= _BV(TIMERB_OUTPUT_A); // LED on
+  }
+  void off(){
+    TIMERB_PORT_B |= _BV(TIMERB_OUTPUT_B);
+    TIMERB_PORT_A &= ~_BV(TIMERB_OUTPUT_A);
   }
 };
 
@@ -41,16 +51,6 @@ public:
   }
 };
 
-class RelativeFrequencyController : public ContinuousController {
-public:
-  Timer* timer;
-  ContinuousController* other;
-  virtual void hasChanged(float v){
-    v = other->value*v*2;
-    timer->setRate(v);
-  }
-};
-
 class DutyCycleController : public ContinuousController {
 public:
   Timer* timer;
@@ -59,8 +59,8 @@ public:
   }
 };
 
-Timer1 timer1; // 16-bit Timer/Counter 1
-Timer0 timer0; // manually triggered from Timer0 interrupt
+TimerA timerA;
+TimerB timerB;
 
 FrequencyController rateA;
 DutyCycleController dutyA;
@@ -75,29 +75,36 @@ void setup(){
   GENERATOR_SWITCH_DDR &= ~_BV(GENERATOR_SWITCH_PIN_B);
   GENERATOR_SWITCH_PORT |= _BV(GENERATOR_SWITCH_PIN_B);
 
-  TIMER0_DDR_A |= _BV(TIMER0_OUTPUT_A);
-  TIMER0_DDR_B |= _BV(TIMER0_OUTPUT_B);
-  TIMER1_DDR_A |= _BV(TIMER1_OUTPUT_A);
-  TIMER1_DDR_B |= _BV(TIMER1_OUTPUT_B);
+  TIMERA_DDR_A |= _BV(TIMERA_OUTPUT_A);
+  TIMERA_DDR_B |= _BV(TIMERA_OUTPUT_B);
+  TIMERB_DDR_A |= _BV(TIMERB_OUTPUT_A);
+  TIMERB_DDR_B |= _BV(TIMERB_OUTPUT_B);
 
   // configure Timer 0 to Fast PWM, 0xff top.
   TCCR0A |= _BV(WGM01) | _BV(WGM00);
   TCCR0B |= _BV(CS01) | _BV(CS00); // prescaler: 64
 //   TCCR0B |= _BV(CS01);  // prescaler: 8
   TIMSK0 |= _BV(TOIE0); // enable timer 0 overflow interrupt
+//   OCR0A = 0;
 
-  TIMSK1 |= _BV(TOIE1); // enable timer 1 overflow interrupt
+  rateA.timer = &timerA;
+  dutyA.timer = &timerA;
+  rateB.timer = &timerB;
+  dutyB.timer = &timerB;
 
-  timer0.setDutyCycle(0.5);
-  timer0.minimum = 1;
-  timer0.maximum = 16384;
-  timer0.multiplier = 65535;
-  timer1.setDutyCycle(0.5);
+//   uint32_t multiplier = F_CPU / (2*64*(1+0xff)); // MCU clock frequency divided by prescaler;
+  // see Datasheet Section 14.7.4
+  uint32_t multiplier = F_CPU / (64*256); // MCU clock frequency divided by prescaler times 256 
+    
+  timerA.setDutyCycle(0.5);
+  timerA.minimum = 0.001;
+  timerA.maximum = 20;
+  timerA.multiplier = multiplier;
 
-  rateA.timer = &timer1;
-  dutyA.timer = &timer1;
-  rateB.timer = &timer0;
-  dutyB.timer = &timer0;
+  timerB.setDutyCycle(0.5);
+  timerB.minimum = 0.001;
+  timerB.maximum = 20;
+  timerB.multiplier = multiplier;
 
   rateA.delta = GENERATOR_CONTROLLER_DELTA;
   dutyA.delta = GENERATOR_CONTROLLER_DELTA;
@@ -113,9 +120,17 @@ void setup(){
   printString("hello\n");
 #endif
 
-  timer0.start();
-  timer1.start();
+  timerA.start();
+  timerB.start();
 }
+
+// #define FAST_PRESCALER      (CS01)
+// #define MEDIUM_PRESCALER    (CS01|CS00)
+// #define SLOW_PRESCALER      (CS02|CS00)
+
+#define FAST_MULTIPLIER        (F_CPU / (64*16ull))
+#define MEDIUM_MULTIPLIER      (F_CPU / (64*256ull))
+#define SLOW_MULTIPLIER        (F_CPU / (64*4096ull))
 
 void loop(){
   rateA.update(getAnalogValue(GENERATOR_RATE_A_CONTROL));
@@ -123,14 +138,37 @@ void loop(){
   dutyA.update(getAnalogValue(GENERATOR_DUTY_A_CONTROL));
   dutyB.update(getAnalogValue(GENERATOR_DUTY_A_CONTROL));
 
+  if(isFree() && (timerA.multiplier != FAST_MULTIPLIER)){
+    timerA.multiplier = FAST_MULTIPLIER;
+    timerA.updateFrequency();
+    timerA.updateDutyCycle();
+  }else if(isChained() && (timerA.multiplier != SLOW_MULTIPLIER)){
+    timerA.multiplier = SLOW_MULTIPLIER;
+    timerA.updateFrequency();
+    timerA.updateDutyCycle();
+  }else if(timerA.multiplier != MEDIUM_MULTIPLIER){
+    timerA.multiplier = MEDIUM_MULTIPLIER;
+    timerA.updateFrequency();
+    timerA.updateDutyCycle();
+  }
+
+//   static int prescaler = MEDIUM_PRESCALER;
+//   if(isFree() && (prescaler != FAST_PRESCALER)){
+//     TCCR0B = prescaler = FAST_PRESCALER;
+//   }else if(isChained() && (prescaler != SLOW_PRESCALER)){
+//     TCCR0B = prescaler = SLOW_PRESCALER;
+//   }else if(prescaler != MEDIUM_PRESCALER){
+//     TCCR0B = prescaler = MEDIUM_PRESCALER;
+//   }
+
 #ifdef SERIAL_DEBUG
   if(serialAvailable() > 0){
     serialRead();
     printString("0: [");
-    timer0.dump();
+    timerA.dump();
     printString("] ");
     printString("1: [");
-    timer1.dump();
+    timerB.dump();
     printString("] ");
     if(isChained())
       printString(" chained ");
@@ -142,5 +180,6 @@ void loop(){
 }
 
 ISR(TIMER0_OVF_vect){
-  timer0.clock();
+  timerA.clock();
+  timerB.clock();
 }
