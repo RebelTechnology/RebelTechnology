@@ -25,16 +25,16 @@ OC2B     PORTD3    OUTB        TIMER2_OUTPUT_B
 #define TIMERA_DDR_A                        DDRB
 #define TIMERA_PORT_A                       PORTB
 #define TIMERA_OUTPUT_A                     PORTB3
-#define TIMERA_DDR_B                        DDRD
-#define TIMERA_PORT_B                       PORTD
-#define TIMERA_OUTPUT_B                     PORTD3
+#define TIMERA_DDR_B                        DDRB
+#define TIMERA_PORT_B                       PORTB
+#define TIMERA_OUTPUT_B                     PORTB1
 
 #define TIMERB_DDR_A                        DDRB
 #define TIMERB_PORT_A                       PORTB
 #define TIMERB_OUTPUT_A                     PORTB2
-#define TIMERB_DDR_B                        DDRB
-#define TIMERB_PORT_B                       PORTB
-#define TIMERB_OUTPUT_B                     PORTB1
+#define TIMERB_DDR_B                        DDRD
+#define TIMERB_PORT_B                       PORTD
+#define TIMERB_OUTPUT_B                     PORTD3
 
 
 
