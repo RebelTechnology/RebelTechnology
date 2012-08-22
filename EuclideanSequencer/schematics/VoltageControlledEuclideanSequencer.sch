@@ -20616,7 +20616,7 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <part name="IC1" library="linear" deviceset="TL072" device="P"/>
 <part name="R102" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="R101" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
-<part name="R103" library="Rebel" deviceset="R-EU_" device="0204/7" value="100K"/>
+<part name="R103" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="R104" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="FILL" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
@@ -20628,7 +20628,7 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <part name="P+1" library="supply1" deviceset="+12V" device=""/>
 <part name="R202" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="R201" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
-<part name="R203" library="Rebel" deviceset="R-EU_" device="0204/7" value="100K"/>
+<part name="R203" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="R204" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="STEP" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
@@ -20834,7 +20834,7 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <instance part="P-4" gate="1" x="33.02" y="-81.28"/>
 <instance part="GND21" gate="1" x="144.78" y="-187.96"/>
 <instance part="ROTMAN" gate="G$1" x="144.78" y="-175.26" rot="R90"/>
-<instance part="ROTMAN" gate="G$2" x="297.18" y="-170.18"/>
+<instance part="ROTMAN" gate="G$2" x="287.02" y="-170.18"/>
 <instance part="P+9" gate="1" x="144.78" y="-157.48"/>
 </instances>
 <busses>
@@ -21084,8 +21084,8 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <junction x="256.54" y="-177.8"/>
 <junction x="276.86" y="-177.8"/>
 <pinref part="ROTMAN" gate="G$2" pin="P$1"/>
-<wire x1="297.18" y1="-175.26" x2="297.18" y2="-177.8" width="0.1524" layer="91"/>
-<wire x1="297.18" y1="-177.8" x2="276.86" y2="-177.8" width="0.1524" layer="91"/>
+<wire x1="287.02" y1="-175.26" x2="287.02" y2="-177.8" width="0.1524" layer="91"/>
+<wire x1="287.02" y1="-177.8" x2="276.86" y2="-177.8" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND" gate="G$1" pin="TP"/>
@@ -21411,14 +21411,12 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <segment>
 <pinref part="IC2" gate="G$1" pin="PD5(T1)"/>
 <wire x1="218.44" y1="-96.52" x2="241.3" y2="-96.52" width="0.1524" layer="91"/>
-<label x="233.68" y="-96.52" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TRIG" class="0">
 <segment>
 <pinref part="IC2" gate="G$1" pin="PD4(XCK/T0)"/>
 <wire x1="218.44" y1="-93.98" x2="241.3" y2="-93.98" width="0.1524" layer="91"/>
-<label x="233.68" y="-93.98" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$23" class="0">
@@ -21495,7 +21493,6 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <segment>
 <pinref part="IC2" gate="G$1" pin="PB2(SS/OC1B)"/>
 <wire x1="218.44" y1="-111.76" x2="241.3" y2="-111.76" width="0.1524" layer="91"/>
-<label x="233.68" y="-111.76" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$39" class="0">
@@ -21514,7 +21511,6 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <segment>
 <pinref part="IC2" gate="G$1" pin="PD7(AIN1)"/>
 <wire x1="218.44" y1="-101.6" x2="241.3" y2="-101.6" width="0.1524" layer="91"/>
-<label x="233.68" y="-101.6" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MODEIN" class="0">
