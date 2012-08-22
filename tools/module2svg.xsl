@@ -2,6 +2,7 @@
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" 
 	       xmlns:svg="http://www.w3.org/2000/svg"
 	       xmlns:exslt="http://exslt.org/common"
+	       xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
 	       xmlns="http://www.w3.org/2000/svg" >
 
 
@@ -41,6 +42,17 @@
 	    cy="{$height div 2-@y*$inch}"
 	    r="{@radius}"/>
 
+  </xsl:template>
+
+  <xsl:template match="pot">
+  <path
+     d="m {$width div 2+@x*$inch},{$height div 2 - @y*$inch - 4.75} c -2.6220187,0 -4.7546972,2.123364 -4.7546972,4.745368 0,2.143796 1.4261951,3.960351 3.3776012,4.54998 l 0,2.679746 2.642536,0 0,-2.651834 c 2.003484,-0.55658 3.479956,-2.397067 3.479956,-4.577892 0,-2.622004 -2.123369,-4.745368 -4.745396,-4.745368 z"
+     style="fill:none;stroke:#000000;stroke-width:0.09990668;"
+     inkscape:connector-curvature="0" />
+  </xsl:template>
+
+  <xsl:template match="svg:*">
+    <xsl:copy-of select="."/>
   </xsl:template>
 
 </xsl:transform>
