@@ -1,0 +1,26 @@
+<module type="10hp">
+
+  <hole x="0" y="1.25" radius="14"/>
+
+  <!-- pots -->
+
+<!--   <hole x="0.5" y="0" radius="4.75"/> -->
+<!--   <hole x="-0.5" y="0" radius="4.75"/> -->
+  <pot x="0.5" y="0"/>
+  <pot x="-0.5" y="0"/>
+
+  <!-- leds -->
+<!--   <hole x="0.0" y="-0.25" radius="1.5"/> -->
+
+  <!-- switches -->
+  <hole x="0.0" y="-0.75" radius="3.25"/>
+
+  <!-- jacks -->
+  <hole x="-0.5" y="-1.25" radius="3.25"/>
+  <hole x="0.5" y="-1.25" radius="3.25"/>
+<!--   <hole x="-0.5" y="-1.75" radius="3.25"/> -->
+<!--   <hole x="0.5" y="-1.75" radius="3.25"/> -->
+  <hole x="-0.25" y="-1.75" radius="3.25"/>
+  <hole x="0.25" y="-1.75" radius="3.25"/>
+
+</module>
