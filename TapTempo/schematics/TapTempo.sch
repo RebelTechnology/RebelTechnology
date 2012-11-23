@@ -20554,7 +20554,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <label x="0" y="-119.38" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="TRIGIN" class="0">
+<net name="GATEIN" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PD3(INT1)"/>
 <wire x1="218.44" y1="-91.44" x2="241.3" y2="-91.44" width="0.1524" layer="91"/>
@@ -20676,19 +20676,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <pinref part="R702" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="DIVOUT" class="0">
-<segment>
-<pinref part="IC1" gate="G$1" pin="PB0(ICP)"/>
-<wire x1="218.44" y1="-106.68" x2="241.3" y2="-106.68" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="DELOUT" class="0">
-<segment>
-<pinref part="IC1" gate="G$1" pin="PB1(OC1A)"/>
-<wire x1="218.44" y1="-109.22" x2="241.3" y2="-109.22" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="CLKOUT" class="0">
+<net name="TRIGOUT" class="0">
 <segment>
 <pinref part="R701" gate="G$1" pin="1"/>
 <label x="261.62" y="-139.7" size="1.778" layer="95"/>
@@ -20710,12 +20698,6 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <wire x1="152.4" y1="-60.96" x2="170.18" y2="-60.96" width="0.1524" layer="91"/>
 <wire x1="152.4" y1="-60.96" x2="152.4" y2="-55.88" width="0.1524" layer="91"/>
 <junction x="152.4" y="-60.96"/>
-</segment>
-</net>
-<net name="MODEB" class="0">
-<segment>
-<pinref part="IC1" gate="G$1" pin="PD7(AIN1)"/>
-<wire x1="218.44" y1="-101.6" x2="241.3" y2="-101.6" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="MODESW" class="0">
@@ -20821,14 +20803,14 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <pinref part="R2" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="SW1" class="0">
+<net name="TRIGIN" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PD2(INT0)"/>
 <wire x1="218.44" y1="-88.9" x2="251.46" y2="-88.9" width="0.1524" layer="91"/>
 <label x="233.68" y="-88.9" size="1.778" layer="95"/>
 <wire x1="251.46" y1="-88.9" x2="251.46" y2="-83.82" width="0.1524" layer="91"/>
 <pinref part="BUTTON" gate="G$1" pin="1"/>
-<label x="274.32" y="-83.82" size="1.778" layer="95"/>
+<label x="276.86" y="-83.82" size="1.778" layer="95"/>
 <wire x1="251.46" y1="-83.82" x2="287.02" y2="-83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -20839,9 +20821,9 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <label x="0" y="-124.46" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="G$1" pin="PB4(MISO)"/>
-<wire x1="218.44" y1="-116.84" x2="241.3" y2="-116.84" width="0.1524" layer="91"/>
-<label x="233.68" y="-116.84" size="1.778" layer="95"/>
+<pinref part="IC1" gate="G$1" pin="PB3(MOSI/OC2)"/>
+<wire x1="218.44" y1="-114.3" x2="241.3" y2="-114.3" width="0.1524" layer="91"/>
+<label x="233.68" y="-114.3" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SCK" class="0">
