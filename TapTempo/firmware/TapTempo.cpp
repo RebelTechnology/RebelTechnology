@@ -14,6 +14,19 @@
 MCP492xController dac1;
 
 /*
+  prescaler 8
+  1.880 Hz saw at fastest setting
+  timer overflow called each 0.129mS (smallest overflow limit = 256).
+
+  27.78 mHz saw at middle
+  overflow called each 8.788mS
+
+  14.88 mHz at slowest
+  overflow called each 16.4mS
+
+ */
+
+/*
 notes:
 
 TapTempo Rev 01:
@@ -33,18 +46,18 @@ inline bool gateIsHigh(){
   return !(TAPTEMPO_GATE_PINS & _BV(TAPTEMPO_GATE_PIN));
 }
 
-inline bool isCountMode(){
+inline bool isSlowMode(){
   return !(MODE_SWITCH_PINS & _BV(MODE_SWITCH_PIN_A));
 }
 
-inline bool isDelayMode(){
+inline bool isFastMode(){
   return !(MODE_SWITCH_PINS & _BV(MODE_SWITCH_PIN_B));
 }
 
 enum OperatingMode {
-  DISABLED_MODE                   = 0,
-  DIVIDE_MODE                     = 1,
-  DELAY_MODE                      = 2
+  MEDIUM_SPEED_MODE                   = 0,
+  HIGH_SPEED_MODE                     = 1,
+  LOW_SPEED_MODE                      = 2
 };
 
 // #define SHIFT_LIMIT 2147483648L
@@ -53,51 +66,55 @@ enum OperatingMode {
 // #define STEP_RATIO 12
 #define STEP_RATIO 1
 
-#define RETRIGGER_THRESHOLD 4
+#define RETRIGGER_THRESHOLD 8
+
+#define TRIGGER_LIMIT 4294967295LL
 
 class TapTempo {
 private:
   volatile uint32_t counter;
   volatile uint32_t limit;
-  volatile uint16_t ramp;
-//   volatile uint32_t step;
   volatile uint32_t trig;
+  volatile uint16_t ramp;
   
 public:
-  TapTempo() : counter(0), limit(4096L), ramp(0), trig(0) {}
+  TapTempo() : counter(0), limit(4096L), trig(0), ramp(0) {}
 //   void shiftLimit(float amount){
 //     setLimit(limit + SHIFT_LIMIT*amount);
 //   }
-  void setLimit(uint32_t l){
-    limit = l;
+//   void setLimit(uint32_t l){
+//     limit = l;
 //     step = limit >> STEP_RATIO;
-  }
+//   }
   void trigger(){
     if(trig > RETRIGGER_THRESHOLD){
       high();
-      setLimit(trig);
+      limit = trig;
       trig = 0;
     }
   }
   void clock(){
-    trig++;
+//     if(!++trig)
+//       trig = TRIGGER_LIMIT;
+    if(trig < TRIGGER_LIMIT)
+      trig++;
     if(++counter > limit){
       toggle();
       counter = 0;
     }
-//     dac1.send(ramp++);
-//     if(counter % step == 0){
-      if(ramp < RAMP_LIMIT){
-	dac1.send(ramp++);
-      }
-//     }
+    dac1.send(ramp++);
+    if(ramp == RAMP_LIMIT)
+      ramp = 0;
+//       if(ramp < RAMP_LIMIT){
+// 	dac1.send(ramp++);
+//       }
   }
   void low(){
     TAPTEMPO_GATE_OUTPUT_PORT |= _BV(TAPTEMPO_GATE_OUTPUT_PIN);
   }
   void high(){
     TAPTEMPO_GATE_OUTPUT_PORT &= ~_BV(TAPTEMPO_GATE_OUTPUT_PIN);
-    ramp = 0;
+//     ramp = 0;
   }
   void toggle(){
     if(isHigh())
@@ -110,9 +127,7 @@ public:
   }
 #ifdef SERIAL_DEBUG
   virtual void dump(){
-    printString("trg ");
-    printInteger(trig);
-    printString(" cnt ");
+    printString("cnt ");
     printInteger(counter);
     printString(", lim ");
     printInteger(limit);
@@ -147,16 +162,16 @@ void reset(){
 volatile OperatingMode mode;
 
 inline void updateMode(){
-  if(isCountMode()){
-    mode = DIVIDE_MODE;
-  }else if(isDelayMode()){
-    mode = DELAY_MODE;
+  if(isFastMode()){
+    mode = HIGH_SPEED_MODE;
+  }else if(isSlowMode()){
+    mode = LOW_SPEED_MODE;
 //     cli();
 //     reset();
 //     while(isDelayMode());
 //     sei();
   }else{
-    mode = DISABLED_MODE;
+    mode = MEDIUM_SPEED_MODE;
   }
 }
 
@@ -204,7 +219,9 @@ void setup(){
 //     OCR1B = 1929;                       // 0.001024*1929 ~= 1.975 SIG_OUTPUT_COMPARE1B will be triggered 25ms before SIG_OUTPUT_COMPARE1A
 
   TIMSK1 = _BV(OCIE1A); // Enable Interrupt Timer/Counter1, Output Compare A
-  TCCR1B = _BV(CS11) | _BV(WGM12);    // Clock/8, Mode=CTC
+//   TCCR1B = _BV(CS10) | _BV(WGM12);  // Clock/1, Mode=CTC
+  TCCR1B = _BV(CS11) | _BV(WGM12);  // Clock/8, Mode=CTC
+  // prescale = 8 means 250Khz / OCR1A overflow interrupt rate?
 //   TCCR1B = _BV(CS11) | _BV(CS10) | _BV(WGM12);    // Clock/64, Mode=CTC
 //   TCCR1B = _BV(CS12) | _BV(WGM12);    // Clock/256, Mode=CTC
   OCR1A = 4096L;
@@ -259,19 +276,33 @@ ISR(INT1_vect){
 
 // #define MAX_OVERFLOW_LIMIT 65535L
 // #define MAX_OVERFLOW_LIMIT 32767L
-#define MAX_OVERFLOW_LIMIT 36864
+// #define MAX_OVERFLOW_LIMIT 36864L
+// 2MHz / prescaler 8 / 1024 = 244Hz, every 4.096mS
+// 2MHz / prescaler 8 / 256 = 976Hz, every ~ 1mS
+// #define MAX_OVERFLOW_LIMIT (32767L+256L)
 
 void loop(){
   updateMode();
-
-  uint16_t tempi = getAnalogValue(TEMPO_ADC_CHANNEL) << 3;
-  OCR1A = MAX_OVERFLOW_LIMIT - tempi;
+  uint16_t period = getAnalogValue(TEMPO_ADC_CHANNEL);
+//   period |= 0x01; // minimum 1
+//   period |= 0x0fL; // minimum 15
+  period |= 0x0ffL; // minimum 255
+  switch(mode){
+  case HIGH_SPEED_MODE:
+    break;
+  case MEDIUM_SPEED_MODE:
+    period <<= 1;
+    break;
+  case LOW_SPEED_MODE:
+    period <<= 2;
+    break;
+  }
+  OCR1A = period;
 
 //   tempoControl.update(getAnalogValue(TEMPO_ADC_CHANNEL));
   
 #ifdef SERIAL_DEBUG
   if(serialAvailable() > 0){
-
 //     // test dac
 //     static uint8_t dactest;
 //     dac1.send(dactest++);
@@ -282,11 +313,11 @@ void loop(){
     printString("] ");
     printInteger(OCR1A);
     switch(mode){
-    case DIVIDE_MODE:
-      printString(" divide ");
+    case HIGH_SPEED_MODE:
+      printString(" fast ");
       break;
-    case DELAY_MODE:
-      printString(" delay ");
+    case LOW_SPEED_MODE:
+      printString(" slow ");
       break;
     }
     if(gateIsHigh())

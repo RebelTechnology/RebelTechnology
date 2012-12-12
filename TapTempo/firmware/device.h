@@ -8,7 +8,7 @@
 #define MODE_SWITCH_PINS                PIND
 #define MODE_SWITCH_PORT                PORTD
 #define MODE_SWITCH_PIN_A               PORTD6
-#define MODE_SWITCH_PIN_B               PORTD7
+#define MODE_SWITCH_PIN_B               PORTD4
 
 #define TAPTEMPO_TRIGGER_DDR            DDRD
 #define TAPTEMPO_TRIGGER_PORT           PORTD
