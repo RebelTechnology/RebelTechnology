@@ -6,7 +6,8 @@
 #define SCK_PIN  PB5      // SCK clock pin
 #define SCK_PORT PORTB
 #define SDI_DDR  DDRB
-#define SDI_PIN  PB3      // SDI MOSI pin: master out, slave in
+// #define SDI_PIN  PB3      // SDI MOSI pin: master out, slave in
+#define SDI_PIN  PB4   // changed because of PCB error
 #define SDI_PORT PORTB
 
 static void spi_transfer(uint8_t value) {
