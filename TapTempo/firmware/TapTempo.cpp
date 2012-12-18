@@ -73,8 +73,7 @@ enum OperatingMode {
 #define TRIGGER_LIMIT 4294967295LL
 
 // #define DDS_FREQUENCY 16384
-// #define DDS_FREQUENCY 13750
-#define DDS_FREQUENCY 13800
+#define DDS_FREQUENCY 13780
 
 class TapTempo {
 private:
@@ -110,7 +109,7 @@ public:
       toggle();
       counter = 0;
     }
-    dac1.send((uint16_t)dds.getValue() << 4);
+    dac1.send(dds.getValue());
 //     dac1.send(ramp++);
 //     if(ramp == RAMP_LIMIT)
 //       ramp = 0;

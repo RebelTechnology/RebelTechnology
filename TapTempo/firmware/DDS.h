@@ -6,12 +6,12 @@
 class DDS {
 public:
   void init();
-  uint8_t getValue();
+  uint16_t getValue();
   void setFrequency(double freq);
 
 private:
-  volatile uint16_t accumulator;   // phase accumulator
-  volatile uint16_t tuning;  // dds tuning word
+  volatile uint32_t accumulator;   // phase accumulator
+  volatile uint32_t tuning;  // dds tuning word
 };
 
 
