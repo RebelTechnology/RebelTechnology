@@ -10,8 +10,10 @@
 #include "adc_freerunner.h"
 #include "ContinuousController.h"
 #include "MCP492xController.h"
+#include "DDS.h"
 
 MCP492xController dac1;
+DDS dds;
 
 /*
   prescaler 8
@@ -70,6 +72,10 @@ enum OperatingMode {
 
 #define TRIGGER_LIMIT 4294967295LL
 
+// #define DDS_FREQUENCY 16384
+// #define DDS_FREQUENCY 13750
+#define DDS_FREQUENCY 13800
+
 class TapTempo {
 private:
   volatile uint32_t counter;
@@ -89,8 +95,10 @@ public:
   void trigger(){
     if(trig > RETRIGGER_THRESHOLD){
       high();
-      limit = trig;
+      limit = trig>>1; // toggle at period divided by 2
       trig = 0;
+      counter = 0;
+      dds.setFrequency(DDS_FREQUENCY/limit);
     }
   }
   void clock(){
@@ -102,9 +110,10 @@ public:
       toggle();
       counter = 0;
     }
-    dac1.send(ramp++);
-    if(ramp == RAMP_LIMIT)
-      ramp = 0;
+    dac1.send((uint16_t)dds.getValue() << 4);
+//     dac1.send(ramp++);
+//     if(ramp == RAMP_LIMIT)
+//       ramp = 0;
 //       if(ramp < RAMP_LIMIT){
 // 	dac1.send(ramp++);
 //       }
@@ -179,16 +188,14 @@ void setup(){
   cli();
 
   dac1.init(DAC1_CS_PIN, DAC_SHDN_BIT);
+  dds.init(); // initialised to 1kHz, measured at about 8Hz
 
   // define hardware interrupts 0 and 1
-//   EICRA = (1<<ISC10) | (1<<ISC01) | (1<<ISC00); // trigger int0 on rising edge
+//   EICRA = (1<<ISC10) | (1<<ISC01) | (1<<ISC00); // trigger int0 on rising edge, int1 on any change
   EICRA = _BV(ISC11) | _BV(ISC01); // falling edge triggers INT1 and INT0
 
-//   EICRA = (1<<ISC10) | (1<<ISC01);
-  // trigger int0 on the falling edge, since input is inverted
-  // trigger int1 on any logical change.
   // pulses that last longer than one clock period will generate an interrupt.
-  EIMSK =  (1<<INT1) | (1<<INT0); // enables INT0 and INT1
+  EIMSK =  _BV(INT1) | _BV(INT0); // enables INT0 and INT1
   TAPTEMPO_TRIGGER_DDR &= ~_BV(TAPTEMPO_TRIGGER_PIN);
   TAPTEMPO_TRIGGER_PORT |= _BV(TAPTEMPO_TRIGGER_PIN); // enable pull-up resistor
 

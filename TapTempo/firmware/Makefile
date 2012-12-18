@@ -11,7 +11,7 @@ UPLOAD_RATE = 19200
 
 ARDUINO = $(INSTALL_DIR)/hardware/cores/arduino
 
-CXXSRC = TapTempo.cpp MCP492xController.cpp spi_bitbang.cpp adc_freerunner.cpp main.cpp
+CXXSRC = TapTempo.cpp MCP492xController.cpp DDS.cpp spi_bitbang.cpp adc_freerunner.cpp main.cpp
 SRC = wiring_serial.c
 
 ############################################################################

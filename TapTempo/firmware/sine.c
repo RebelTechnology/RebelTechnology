@@ -11,15 +11,19 @@
 int main(int argc, char **argv){
   int len = DEFAULT_LENGTH;
   int lim = DEFAULT_HEIGHT;
+  float ph = 0;
   if(argc > 1)
     len = atoi(argv[1]);
-  if(argc > 1)
+  if(argc > 2)
     lim = atoi(argv[2]);
-  int sinwave[len];
+  if(argc > 3)
+    ph = M_PI*atoi(argv[3])/4.0;
   int i;
-  FILE *sinmif,*cosmif,*trimif;
-  for(i=0;i<len;i++){ 
-    sinwave[i]=(int)((sin(i*2*M_PI/(lim-1))+1)*(lim/2));
-    printf("%d:%d\n", i, sinwave[i]);
+  printf("/* sine wavetable %d x %d */\n", lim, len);
+  printf("int sine[%d] = { ", len);
+  for(i=0; i<len; i++){ 
+    int s =(int)((sin(i*2*M_PI/(len-1)+ph)+1)*(lim/2));
+    printf("%d, ", s);
   }
+  printf(" };\n");
 }
