@@ -63,11 +63,10 @@ enum OperatingMode {
 };
 
 #define RAMP_LIMIT 4096L
-#define RETRIGGER_THRESHOLD 8
 #define TRIGGER_LIMIT 4294967295LL
 
 // #define DDS_FREQUENCY 16384
-#define DDS_FREQUENCY 13780
+// #define DDS_FREQUENCY 13780
 
 class TapTempo {
 private:
@@ -75,16 +74,20 @@ private:
   volatile uint32_t limit;
   volatile uint32_t trig;
   volatile uint16_t ramp;
+public:
+  volatile uint16_t threshold;
   
 public:
-  TapTempo() : counter(0), limit(4096L), trig(0), ramp(0) {}
+  TapTempo() : counter(0), limit(4096L), trig(0), ramp(0), threshold(32) {}
   void trigger(){
-    if(trig > RETRIGGER_THRESHOLD){
+    if(trig > threshold){
       high();
+      dds.setPeriod(trig);
+      dds.reset();
       limit = trig>>1; // toggle at period divided by 2
       trig = 0;
       counter = 0;
-      dds.setFrequency(DDS_FREQUENCY/limit);
+//       dds.setFrequency(DDS_FREQUENCY/limit);
     }
   }
   void clock(){
@@ -208,16 +211,14 @@ void setup(){
   //
 //   TIMSK1 = _BV(OCIE1A) | _BV(OCIE1B); // Enable Interrupt Timer/Counter1, Output Compare A & B (SIG_OUTPUT_COMPARE1A/SIG_OUTPUT_COMPARE1B)
 //   TCCR1B = _BV(CS12) | _BV(CS10) | _BV(WGM12);    // Clock/1024, 0.001024 seconds per tick, Mode=CTC
-//   OCR1A = 1954;                       // 0.001024*1954 ~= 2 SIG_OUTPUT_COMPARE1A will be triggered every 2 seconds
-//     OCR1B = 1929;                       // 0.001024*1929 ~= 1.975 SIG_OUTPUT_COMPARE1B will be triggered 25ms before SIG_OUTPUT_COMPARE1A
 
   TIMSK1 = _BV(OCIE1A); // Enable Interrupt Timer/Counter1, Output Compare A
-//   TCCR1B = _BV(CS10) | _BV(WGM12);  // Clock/1, Mode=CTC
-  TCCR1B = _BV(CS11) | _BV(WGM12);  // Clock/8, Mode=CTC
+  TCCR1B = _BV(CS10) | _BV(WGM12);  // Clock/1, Mode=CTC
+//   TCCR1B = _BV(CS11) | _BV(WGM12);  // Clock/8, Mode=CTC
   // prescale = 8 means 250Khz / OCR1A overflow interrupt rate?
 //   TCCR1B = _BV(CS11) | _BV(CS10) | _BV(WGM12);    // Clock/64, Mode=CTC
 //   TCCR1B = _BV(CS12) | _BV(WGM12);    // Clock/256, Mode=CTC
-  OCR1A = 4096L;
+  OCR1A = 8; // 31250Hz with prescaler=8
 
 //   // At 16MHz CPU clock and prescaler 64, Timer 0 should run at 1024Hz.
 //   // configure Timer 0 to Fast PWM, 0xff top.
@@ -267,19 +268,14 @@ ISR(INT1_vect){
 //   while(gateIsHigh());
 }
 
-// #define MAX_OVERFLOW_LIMIT 65535L
-// #define MAX_OVERFLOW_LIMIT 32767L
-// #define MAX_OVERFLOW_LIMIT 36864L
-// 2MHz / prescaler 8 / 1024 = 244Hz, every 4.096mS
-// 2MHz / prescaler 8 / 256 = 976Hz, every ~ 1mS
-// #define MAX_OVERFLOW_LIMIT (32767L+256L)
+#define MINIMUM_PERIOD 1024
+#define MAXIMUM_PERIOD (MINIMUM_PERIOD + ADC_VALUE_RANGE)
 
 void loop(){
   updateMode();
   uint16_t period = getAnalogValue(TEMPO_ADC_CHANNEL);
+  period += MINIMUM_PERIOD;
 //   period |= 0x01; // minimum 1
-//   period |= 0x0fL; // minimum 15
-  period |= 0x0ffL; // minimum 255
   switch(mode){
   case HIGH_SPEED_MODE:
     break;
@@ -291,6 +287,15 @@ void loop(){
     break;
   }
   OCR1A = period;
+//   tempo.threshold = 81 - (period >> 8); // threshold ranges from 1 to 77 on low-high speed
+  tempo.threshold = 161 - (period >> 7); // threshold ranges from 1 to 163 on low-high speed
+//   tempo.threshold = 321 - (period >> 6); // threshold ranges from 1 to 305 on low-high speed
+//   tempo.threshold = 161 - (period >> 6); // threshold ranges from 1 to 145 on mid-high speed
+  // below thresholds calculated for high speed only
+//   tempo.threshold = 24 - (period >> 8); // threshold ranges from 4 to 20
+//   tempo.threshold = 42 - (period >> 7); // threshold ranges from 2 to 34
+//   tempo.threshold = 81 - (period >> 6); // threshold ranges from 1 to 67
+//   tempo.threshold = 161 - (period >> 5); // threshold ranges from 1 to 131
 
 //   tempoControl.update(getAnalogValue(TEMPO_ADC_CHANNEL));
   
