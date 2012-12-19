@@ -62,14 +62,8 @@ enum OperatingMode {
   LOW_SPEED_MODE                      = 2
 };
 
-// #define SHIFT_LIMIT 2147483648L
-#define SHIFT_LIMIT 65536L
 #define RAMP_LIMIT 4096L
-// #define STEP_RATIO 12
-#define STEP_RATIO 1
-
 #define RETRIGGER_THRESHOLD 8
-
 #define TRIGGER_LIMIT 4294967295LL
 
 // #define DDS_FREQUENCY 16384
@@ -84,13 +78,6 @@ private:
   
 public:
   TapTempo() : counter(0), limit(4096L), trig(0), ramp(0) {}
-//   void shiftLimit(float amount){
-//     setLimit(limit + SHIFT_LIMIT*amount);
-//   }
-//   void setLimit(uint32_t l){
-//     limit = l;
-//     step = limit >> STEP_RATIO;
-//   }
   void trigger(){
     if(trig > RETRIGGER_THRESHOLD){
       high();
