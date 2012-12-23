@@ -8,7 +8,7 @@
 
 
 #define TICKER_TAPE_BYTES 512L
-#define TICKER_TAPE_BITS (TICKER_TAPE_BYTES*8-1)
+#define TICKER_TAPE_BITS (TICKER_TAPE_BYTES*8)
 
 enum OperatingMode {
   MEDIUM_SPEED_MODE                   = 0,
@@ -20,11 +20,11 @@ enum OperatingMode {
 };
 
 inline bool triggerIsHigh(){
-  return !(TAPTEMPO_TRIGGER_PINS & _BV(TAPTEMPO_TRIGGER_PIN));
+  return !(TICKER_TAPE_TRIGGER_PINS & _BV(TICKER_TAPE_TRIGGER_PIN));
 }
 
 inline bool gateIsHigh(){
-  return !(TAPTEMPO_GATE_PINS & _BV(TAPTEMPO_GATE_PIN));
+  return !(TICKER_TAPE_GATE_PINS & _BV(TICKER_TAPE_GATE_PIN));
 }
 
 inline bool isRecordMode(){
@@ -66,7 +66,7 @@ public:
   }
 
   void clock(){
-    counter = (counter + 1) & TICKER_TAPE_BITS;
+    counter = (counter + 1) & (TICKER_TAPE_BITS - 1);
 //     if(++counter == TICKER_TAPE_BITS)
 //       counter = 0;
     switch(mode){
@@ -91,10 +91,10 @@ public:
   }
 
   void low(){
-    TAPTEMPO_GATE_OUTPUT_PORT |= _BV(TAPTEMPO_GATE_OUTPUT_PIN);
+    TICKER_TAPE_GATE_OUTPUT_PORT |= _BV(TICKER_TAPE_GATE_OUTPUT_PIN);
   }
   void high(){
-    TAPTEMPO_GATE_OUTPUT_PORT &= ~_BV(TAPTEMPO_GATE_OUTPUT_PIN);
+    TICKER_TAPE_GATE_OUTPUT_PORT &= ~_BV(TICKER_TAPE_GATE_OUTPUT_PIN);
   }
   void toggle(){
     if(isHigh())
@@ -103,7 +103,7 @@ public:
       high();
   }
   inline bool isHigh(){
-    return !(TAPTEMPO_GATE_OUTPUT_PINS & _BV(TAPTEMPO_GATE_OUTPUT_PIN));
+    return !(TICKER_TAPE_GATE_OUTPUT_PINS & _BV(TICKER_TAPE_GATE_OUTPUT_PIN));
   }
 #ifdef SERIAL_DEBUG
   virtual void dump(){
