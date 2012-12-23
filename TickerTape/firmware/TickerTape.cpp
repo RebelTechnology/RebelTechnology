@@ -1,4 +1,4 @@
-#define SERIAL_DEBUG
+// #define SERIAL_DEBUG
 #ifdef SERIAL_DEBUG
 #include "serial.h"
 #endif // SERIAL_DEBUG
@@ -124,6 +124,8 @@ void loop(){
   tape.updateMode();
   uint16_t period = getAnalogValue(TEMPO_ADC_CHANNEL);
   period += MINIMUM_PERIOD;
+  if(!isFastMode())
+    period <<= 1;
 //   period |= 0x01; // minimum 1
   OCR1A = period;
   
@@ -132,16 +134,16 @@ void loop(){
 //     // test dac
 //     static uint8_t dactest;
 //     dac1.send(dactest++);
-
-    serialRead();
-    printString("tape[");
-    tape.dump();
-    printString("] ");
+    printString("cnt ");    
     printInteger(OCR1A);
     if(gateIsHigh())
-      printString(" gate ");
+      printString(" gate");
     if(triggerIsHigh())
-      printString(" trigger ");
+      printString(" trigger");
+    serialRead();
+    printString(" tape[");
+    tape.dump();
+    printString("]");
     printNewline();
   }
 #endif

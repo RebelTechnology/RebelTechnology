@@ -51,6 +51,10 @@ void callClock(TickerTape& tape, int times = 1){
     tape.clock();
 }
 
+bool outputGateIsHigh(){
+  return PINB & ~_BV(PORTB2);
+}
+
 int countSetBits(TickerTape& tape){
   int res = 0;
   for(int i=0; i<TICKER_TAPE_BYTES; ++i)
@@ -129,6 +133,7 @@ BOOST_AUTO_TEST_CASE(testRecordPlaybackAndErase){
   int cnt = countSetBits(tape);
   setPlaybackMode(tape);
   callClock(tape, 10000);
+  tape.dump();
   BOOST_CHECK_EQUAL(countSetBits(tape), cnt);
   setRecordMode(tape);
   setTrigger(false);

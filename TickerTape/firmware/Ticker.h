@@ -6,17 +6,17 @@
 #include "serial.h"
 #endif // SERIAL_DEBUG
 
+#ifdef SERIAL_DEBUG
+#define TICKER_TAPE_BYTES 768
+#else
+#define TICKER_TAPE_BYTES 896
+#endif
 
-#define TICKER_TAPE_BYTES 512L
 #define TICKER_TAPE_BITS (TICKER_TAPE_BYTES*8)
 
 enum OperatingMode {
-  MEDIUM_SPEED_MODE                   = 0,
-  HIGH_SPEED_MODE                     = 1,
-  LOW_SPEED_MODE                      = 2,
-
-  RECORD_MODE                         = 3,
-  PLAYBACK_MODE                       = 4
+  RECORD_MODE                         = 0,
+  PLAYBACK_MODE                       = 1
 };
 
 inline bool triggerIsHigh(){
@@ -31,26 +31,37 @@ inline bool isRecordMode(){
   return !(MODE_SWITCH_PINS & _BV(MODE_SWITCH_PIN_B));
 }
 
-inline bool isPlayMode(){
+inline bool isFastMode(){
   return !(MODE_SWITCH_PINS & _BV(MODE_SWITCH_PIN_A));
 }
 
+#define RETRIGGER_THRESHOLD 4
+
 class TickerTape {
-private:
-public:
+ private:
+ public:
   uint8_t bits[TICKER_TAPE_BYTES];
   volatile uint16_t counter;
+  volatile uint16_t limit;
   volatile OperatingMode mode;
   
-public:
-  TickerTape() : counter(0) {
+ public:
+ TickerTape() : counter(0), limit(TICKER_TAPE_BYTES) {
     memset(bits, 0, TICKER_TAPE_BYTES);
   }
 
   void updateMode(){
     if(isRecordMode()){
-      mode = RECORD_MODE;
+      if(mode == PLAYBACK_MODE && counter > RETRIGGER_THRESHOLD){
+/*       if(mode == PLAYBACK_MODE){ */
+	counter = 0;
+	mode = RECORD_MODE;
+      }
     }else{
+      if(mode == RECORD_MODE && counter > RETRIGGER_THRESHOLD){
+/*       if(mode == RECORD_MODE){ */
+	limit = counter;
+      }
       mode = PLAYBACK_MODE;
     }
   }
@@ -66,17 +77,22 @@ public:
   }
 
   void clock(){
-    counter = (counter + 1) & (TICKER_TAPE_BITS - 1);
-//     if(++counter == TICKER_TAPE_BITS)
-//       counter = 0;
+    //     if(++counter == TICKER_TAPE_BITS)
+    //       counter = 0;
     switch(mode){
     case RECORD_MODE:
-      if(gateIsHigh() | triggerIsHigh())
+      counter = (counter + 1) & (TICKER_TAPE_BITS - 1);
+      if(gateIsHigh() | triggerIsHigh()){
 	bits[counter >> 3] |= _BV(counter & 0x07);
-      else
+	high();
+      }else{
 	bits[counter >> 3] &= ~_BV(counter & 0x07);
+	low();
+      }
       break;
     case PLAYBACK_MODE:
+      if(++counter > limit)
+	counter = 0;
       if(bits[counter >> 3] & _BV(counter & 0x07))
 	high();
       else
@@ -109,6 +125,8 @@ public:
   virtual void dump(){
     printString("cnt ");
     printInteger(counter);
+    printString(" lim ");
+    printInteger(limit);
     switch(mode){
     case RECORD_MODE:
       printString(" rec ");
@@ -122,6 +140,14 @@ public:
     else
       printString("low ");
     for(uint16_t i=0; i<TICKER_TAPE_BITS; ++i){
+/*     for(uint16_t i=0; i<limit; ++i){ */
+      if(counter == i)
+	printByte('>');
+      if(limit == i){
+	printByte('|');
+	if(mode == PLAYBACK_MODE)
+	  break;
+      }
       if(bits[i>>3] & _BV(i & 0x07))
 	printByte('+');
       else
