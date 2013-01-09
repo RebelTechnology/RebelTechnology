@@ -50,8 +50,8 @@ void setup(){
 
   // define hardware interrupts 0 and 1
 //   EICRA = (1<<ISC10) | (1<<ISC01) | (1<<ISC00); // trigger int0 on rising edge, int1 on any change
-//   EICRA = _BV(ISC11) | _BV(ISC01); // falling edge triggers INT1 and INT0
-  EICRA = (1<<ISC10) | (1<<ISC11) | (1<<ISC01) | (1<<ISC00); // trigger int0 on rising edge, int1 on rising edge
+  EICRA = _BV(ISC11) | _BV(ISC01); // falling edge triggers INT1 and INT0 (inverted by transistor)
+//   EICRA = (1<<ISC10) | (1<<ISC11) | (1<<ISC01) | (1<<ISC00); // rising edge triggers INT0 and INT1
   EIMSK =  _BV(INT1) | _BV(INT0); // enables INT0 and INT1
 
   TICKER_TAPE_TRIGGER_DDR &= ~_BV(TICKER_TAPE_TRIGGER_PIN);
@@ -115,10 +115,9 @@ void setup(){
 }
 
 ISR(SIG_OUTPUT_COMPARE1A){
-//   ledOn();
+  random.clock();
   if(isClockMode())
     random.trigger();
-//   ledOff();
 }
 
 // ISR(SIG_OUTPUT_COMPARE1B){
@@ -141,12 +140,9 @@ ISR(INT1_vect){
     random.trigger();
 }
 
-#define MINIMUM_PERIOD 128
-#define MAXIMUM_PERIOD (MINIMUM_PERIOD + ADC_VALUE_RANGE)
-
 void loop(){
   uint16_t period = getAnalogValue(TEMPO_ADC_CHANNEL);
-  period |= 0xf;
+  period |= 0x7f;
   period <<= 3;
   // with prescaler=8, period=[1016-65528], interrupt should run at ~ 2kHz - 30Hz, 512 bytes in 0.26s to 17s.
   OCR1A = period;

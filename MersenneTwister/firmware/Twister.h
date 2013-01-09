@@ -24,8 +24,9 @@ void ledToggle(){
 class MersenneTwister {
  private:
  public:
-  uint32_t		random_value;
-/*   static mt_state	state; */
+  uint16_t counter;
+  uint16_t limit;
+  uint16_t random;
   MCP492xController dac1;
   mt_state state;
 //   uint8_t bitshift;
@@ -33,6 +34,7 @@ class MersenneTwister {
  public:
  MersenneTwister()
 //   : bitshift(0) {
+   : counter(0), random(0xff)
   {
     dac1.init(DAC1_CS_PIN, DAC_SHDN_BIT);
   }
@@ -41,12 +43,19 @@ class MersenneTwister {
     mts_seed32new(&state, seed);
   }
 
+  void clock(){
+    if(++counter > limit){
+      toggle();
+      limit = random;
+      counter = 0;
+    }
+  }
+
   void trigger(){
     ledOn();
-    random_value = mts_lrand(&state);
+    random = mts_lrand(&state) & 0x0fff; // 12-bit random number
 //     uint16_t cv = 0x0fff & (random_value << bitshift);
-    uint16_t cv = 0x0fff & random_value;
-    dac1.send(cv);
+    dac1.send(random);
     ledOff();
   }
 

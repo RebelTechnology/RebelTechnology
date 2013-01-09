@@ -1,17 +1,14 @@
 #ifndef MTWIST_H
 #define MTWIST_H
 
+/* #define MT_STATE_SIZE	624 */
+/* #define RECURRENCE_OFFSET 397 */
 
-
-#define RECURRENCE_OFFSET 397
-#define MT_STATE_SIZE	624
-
-/* #define MT_STATE_SIZE	208 */
-/* #define RECURRENCE_OFFSET 133 */
+#define MT_STATE_SIZE	208
+#define RECURRENCE_OFFSET 133
 
 /* #define MT_STATE_SIZE	156 */
 /* #define RECURRENCE_OFFSET 99 */
-
 
 /*
  * $Id: mtwist.h,v 1.22 2012-12-30 16:24:49-08 geoff Exp $
