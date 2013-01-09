@@ -107,6 +107,12 @@ void setup(){
 //   TIMSK0 |= _BV(TOIE0);
 
   setup_adc();
+
+  uint32_t seed = 5489;
+  for(uint8_t i=0; i<ADC_CHANNELS; ++i)
+    seed ^= getAnalogValue(i);
+  random.seed(seed);
+
   reset();
 
   sei();

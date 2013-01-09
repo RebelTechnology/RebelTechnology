@@ -29,10 +29,13 @@ class MersenneTwister {
   uint8_t bitshift;
 
  public:
- MersenneTwister(uint32_t seed) : 
+ MersenneTwister() : 
   bitshift(0) {
-    mt_seed32new(seed);
     dac1.init(DAC1_CS_PIN, DAC_SHDN_BIT);
+  }
+
+  void seed(uint32_t seed){
+    mt_seed32new(seed);
   }
 
   void trigger(){
