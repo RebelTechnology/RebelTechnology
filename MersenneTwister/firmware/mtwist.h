@@ -1,6 +1,18 @@
 #ifndef MTWIST_H
 #define MTWIST_H
 
+
+
+#define RECURRENCE_OFFSET 397
+#define MT_STATE_SIZE	624
+
+/* #define MT_STATE_SIZE	208 */
+/* #define RECURRENCE_OFFSET 133 */
+
+/* #define MT_STATE_SIZE	156 */
+/* #define RECURRENCE_OFFSET 99 */
+
+
 /*
  * $Id: mtwist.h,v 1.22 2012-12-30 16:24:49-08 geoff Exp $
  *
@@ -144,10 +156,10 @@
  * It was found experimentally using methods described in Matsumoto
  * and Nishimura's paper.  It is exceedingly magic; don't change it.
  */
-#define MT_STATE_SIZE	624		/* Size of the MT state vector */
+/* #define MT_STATE_SIZE	624		/\* Size of the MT state vector *\/ */
 
 /*
- * Internal state for an MT RNG.  The user can keep multiple mt_state
+ * internal state for an MT RNG.  The user can keep multiple mt_state
  * structures around as a way of generating multiple streams of random
  * numbers.
  *
@@ -221,39 +233,39 @@ extern void		mts_refresh(mt_state* state);
 /*
  * Functions for manipulating the default generator.
  */
-extern void		mt_seed32(uint32_t seed);
-					/* Set random seed for default gen. */
-extern void		mt_seed32new(uint32_t seed);
-					/* Set random seed for default gen. */
-extern void		mt_seedfull(uint32_t seeds[MT_STATE_SIZE]);
-					/* Set complicated seed for default */
-extern uint32_t		mt_seed(void);	/* Choose seed from random input. */
-					/* ..Prefers /dev/urandom; uses time */
-					/* ..if /dev/urandom unavailable. */
-					/* ..Only gives 32 bits of entropy. */
-extern uint32_t		mt_goodseed(void);
-					/* Choose seed from more random */
-					/* ..input than mts_seed.  Prefers */
-					/* ../dev/random; uses time if that */
-					/* ..is unavailable.  Only gives 32 */
-					/* ..bits of entropy. */
-extern void		mt_bestseed(void);
-					/* Choose seed from extremely random */
-					/* ..input (can be *very* slow). */
-					/* ..Prefers /dev/random and reads */
-					/* ..the entire state from there. */
-					/* ..If /dev/random is unavailable, */
-					/* ..falls back to mt_goodseed().  */
-					/* ..Not usually worth the cost.  */
-extern mt_state*	mt_getstate(void);
-					/* Get current state of default */
-					/* ..generator */
-/* extern int		mt_savestate(FILE* statefile); */
-/* 					/\* Save state to a file (ASCII) *\/ */
-/* 					/\* ..Returns NZ if succeeded. *\/ */
-/* extern int		mt_loadstate(FILE* statefile); */
-/* 					/\* Load state from a file (ASCII) *\/ */
-/* 					/\* ..Returns NZ if succeeded. *\/ */
+/* extern void		mt_seed32(uint32_t seed); */
+/* 					/\* Set random seed for default gen. *\/ */
+/* extern void		mt_seed32new(uint32_t seed); */
+/* 					/\* Set random seed for default gen. *\/ */
+/* extern void		mt_seedfull(uint32_t seeds[MT_STATE_SIZE]); */
+/* 					/\* Set complicated seed for default *\/ */
+/* extern uint32_t		mt_seed(void);	/\* Choose seed from random input. *\/ */
+/* 					/\* ..Prefers /dev/urandom; uses time *\/ */
+/* 					/\* ..if /dev/urandom unavailable. *\/ */
+/* 					/\* ..Only gives 32 bits of entropy. *\/ */
+/* extern uint32_t		mt_goodseed(void); */
+/* 					/\* Choose seed from more random *\/ */
+/* 					/\* ..input than mts_seed.  Prefers *\/ */
+/* 					/\* ../dev/random; uses time if that *\/ */
+/* 					/\* ..is unavailable.  Only gives 32 *\/ */
+/* 					/\* ..bits of entropy. *\/ */
+/* extern void		mt_bestseed(void); */
+/* 					/\* Choose seed from extremely random *\/ */
+/* 					/\* ..input (can be *very* slow). *\/ */
+/* 					/\* ..Prefers /dev/random and reads *\/ */
+/* 					/\* ..the entire state from there. *\/ */
+/* 					/\* ..If /dev/random is unavailable, *\/ */
+/* 					/\* ..falls back to mt_goodseed().  *\/ */
+/* 					/\* ..Not usually worth the cost.  *\/ */
+/* extern mt_state*	mt_getstate(void); */
+/* 					/\* Get current state of default *\/ */
+/* 					/\* ..generator *\/ */
+/* /\* extern int		mt_savestate(FILE* statefile); *\/ */
+/* /\* 					/\\* Save state to a file (ASCII) *\\/ *\/ */
+/* /\* 					/\\* ..Returns NZ if succeeded. *\\/ *\/ */
+/* /\* extern int		mt_loadstate(FILE* statefile); *\/ */
+/* /\* 					/\\* Load state from a file (ASCII) *\\/ *\/ */
+/* /\* 					/\\* ..Returns NZ if succeeded. *\\/ *\/ */
 
 #ifdef __cplusplus
     }
@@ -283,17 +295,17 @@ extern double		mts_ldrand(mt_state* state);
 					/* Generate floating value, any gen. */
 					/* Slower, with 64-bit precision */
 
-extern uint32_t		mt_lrand(void);	/* Generate 32-bit random value */
-#ifdef UINT64_MAX
-extern uint64_t		mt_llrand(void);
-					/* Generate 64-bit random value */
-#endif /* UINT64_MAX */
-extern double		mt_drand(void);
-					/* Generate floating value */
-					/* Fast, with only 32-bit precision */
-extern double		mt_ldrand(void);
-					/* Generate floating value */
-					/* Slower, with 64-bit precision */
+/* extern uint32_t		mt_lrand(void);	/\* Generate 32-bit random value *\/ */
+/* #ifdef UINT64_MAX */
+/* extern uint64_t		mt_llrand(void); */
+/* 					/\* Generate 64-bit random value *\/ */
+/* #endif /\* UINT64_MAX *\/ */
+/* extern double		mt_drand(void); */
+/* 					/\* Generate floating value *\/ */
+/* 					/\* Fast, with only 32-bit precision *\/ */
+/* extern double		mt_ldrand(void); */
+/* 					/\* Generate floating value *\/ */
+/* 					/\* Slower, with 64-bit precision *\/ */
 
 /*
  * Tempering parameters.  These are perhaps the most magic of all the magic
@@ -341,8 +353,8 @@ extern double		mt_ldrand(void);
 	}								\
 	while (0)
 
-extern mt_state		mt_default_state;
-					/* State of the default generator */
+/* extern mt_state		mt_default_state; */
+/* 					/\* State of the default generator *\/ */
 extern double		mt_32_to_double;
 					/* Multiplier to convert long to dbl */
 extern double		mt_64_to_double;
@@ -527,138 +539,138 @@ MT_EXTERN MT_INLINE double mts_ldrand(
 #endif /* UINT64_MAX */
     }
 
-/*
- * Generate a random number in the range 0 to 2^32-1, inclusive, working
- * from the default state vector.
- *
- * See mts_lrand for full commentary.
- */
-MT_EXTERN MT_INLINE uint32_t mt_lrand()
-    {
-    register uint32_t	random_value;	/* Pseudorandom value generated */
+/* /\* */
+/*  * Generate a random number in the range 0 to 2^32-1, inclusive, working */
+/*  * from the default state vector. */
+/*  * */
+/*  * See mts_lrand for full commentary. */
+/*  *\/ */
+/* MT_EXTERN MT_INLINE uint32_t mt_lrand() */
+/*     { */
+/*     register uint32_t	random_value;	/\* Pseudorandom value generated *\/ */
 
-    if (mt_default_state.stateptr <= 0)
-	mts_refresh(&mt_default_state);
+/*     if (mt_default_state.stateptr <= 0) */
+/* 	mts_refresh(&mt_default_state); */
 
-    random_value = mt_default_state.statevec[--mt_default_state.stateptr];
-    MT_PRE_TEMPER(random_value);
+/*     random_value = mt_default_state.statevec[--mt_default_state.stateptr]; */
+/*     MT_PRE_TEMPER(random_value); */
 
-    return MT_FINAL_TEMPER(random_value);
-    }
+/*     return MT_FINAL_TEMPER(random_value); */
+/*     } */
 
-#ifdef UINT64_MAX
-/*
- * Generate a random number in the range 0 to 2^64-1, inclusive, working
- * from the default state vector.
- *
- * See mts_llrand for full commentary.
- */
-MT_EXTERN MT_INLINE uint64_t mt_llrand()
-    {
-    register uint32_t	random_value_1;	/* 1st pseudorandom value generated */
-    register uint32_t	random_value_2;	/* 2nd pseudorandom value generated */
+/* #ifdef UINT64_MAX */
+/* /\* */
+/*  * Generate a random number in the range 0 to 2^64-1, inclusive, working */
+/*  * from the default state vector. */
+/*  * */
+/*  * See mts_llrand for full commentary. */
+/*  *\/ */
+/* MT_EXTERN MT_INLINE uint64_t mt_llrand() */
+/*     { */
+/*     register uint32_t	random_value_1;	/\* 1st pseudorandom value generated *\/ */
+/*     register uint32_t	random_value_2;	/\* 2nd pseudorandom value generated *\/ */
 
-    /*
-     * For maximum speed, we'll handle the two overflow cases
-     * together.  That will save us one test in the common case, at
-     * the expense of an extra one in the overflow case.
-     */
-    if (--mt_default_state.stateptr <= 0)
-	{
-	if (mt_default_state.stateptr < 0)
-	    {
-	    mts_refresh(&mt_default_state);
-	    random_value_1 =
-	      mt_default_state.statevec[--mt_default_state.stateptr];
-	    }
-	else
-	    {
-	    random_value_1 =
-	      mt_default_state.statevec[mt_default_state.stateptr];
-	    mts_refresh(&mt_default_state);
-	    }
-	}
-    else
-	random_value_1 =
-	  mt_default_state.statevec[--mt_default_state.stateptr];
+/*     /\* */
+/*      * For maximum speed, we'll handle the two overflow cases */
+/*      * together.  That will save us one test in the common case, at */
+/*      * the expense of an extra one in the overflow case. */
+/*      *\/ */
+/*     if (--mt_default_state.stateptr <= 0) */
+/* 	{ */
+/* 	if (mt_default_state.stateptr < 0) */
+/* 	    { */
+/* 	    mts_refresh(&mt_default_state); */
+/* 	    random_value_1 = */
+/* 	      mt_default_state.statevec[--mt_default_state.stateptr]; */
+/* 	    } */
+/* 	else */
+/* 	    { */
+/* 	    random_value_1 = */
+/* 	      mt_default_state.statevec[mt_default_state.stateptr]; */
+/* 	    mts_refresh(&mt_default_state); */
+/* 	    } */
+/* 	} */
+/*     else */
+/* 	random_value_1 = */
+/* 	  mt_default_state.statevec[--mt_default_state.stateptr]; */
 
-    MT_TEMPER(random_value_1);
+/*     MT_TEMPER(random_value_1); */
 
-    random_value_2 = mt_default_state.statevec[--mt_default_state.stateptr];
-    MT_PRE_TEMPER(random_value_2);
+/*     random_value_2 = mt_default_state.statevec[--mt_default_state.stateptr]; */
+/*     MT_PRE_TEMPER(random_value_2); */
 
-    return ((uint64_t) random_value_1 << 32)
-      | (uint64_t) MT_FINAL_TEMPER(random_value_2);
-    }
-#endif /* UINT64_MAX */
+/*     return ((uint64_t) random_value_1 << 32) */
+/*       | (uint64_t) MT_FINAL_TEMPER(random_value_2); */
+/*     } */
+/* #endif /\* UINT64_MAX *\/ */
 
-/*
- * Generate a double-precision random number between 0 (inclusive) and 1.0
- * (exclusive).  This function is optimized for speed, but it only generates
- * 32 bits of precision.  Use mt_ldrand to get 64 bits of precision.
- */
-MT_EXTERN MT_INLINE double mt_drand()
-    {
-    register uint32_t	random_value;	/* Pseudorandom value generated */
+/* /\* */
+/*  * Generate a double-precision random number between 0 (inclusive) and 1.0 */
+/*  * (exclusive).  This function is optimized for speed, but it only generates */
+/*  * 32 bits of precision.  Use mt_ldrand to get 64 bits of precision. */
+/*  *\/ */
+/* MT_EXTERN MT_INLINE double mt_drand() */
+/*     { */
+/*     register uint32_t	random_value;	/\* Pseudorandom value generated *\/ */
 
-    if (mt_default_state.stateptr <= 0)
-	mts_refresh(&mt_default_state);
+/*     if (mt_default_state.stateptr <= 0) */
+/* 	mts_refresh(&mt_default_state); */
 
-    random_value = mt_default_state.statevec[--mt_default_state.stateptr];
-    MT_TEMPER(random_value);
+/*     random_value = mt_default_state.statevec[--mt_default_state.stateptr]; */
+/*     MT_TEMPER(random_value); */
 
-    return random_value * mt_32_to_double;
-    }
+/*     return random_value * mt_32_to_double; */
+/*     } */
 
-/*
- * Generate a double-precision random number between 0 (inclusive) and 1.0
- * (exclusive).  This function generates 64 bits of precision.  Use
- * mts_drand for more speed but less precision.
- */
-MT_EXTERN MT_INLINE double mt_ldrand(void)
-    {
-#ifdef UINT64_MAX
-    uint64_t		final_value;	/* Final (integer) value */
-#endif /* UINT64_MAX */
-    register uint32_t	random_value_1;	/* 1st pseudorandom value generated */
-    register uint32_t	random_value_2;	/* 2nd pseudorandom value generated */
+/* /\* */
+/*  * Generate a double-precision random number between 0 (inclusive) and 1.0 */
+/*  * (exclusive).  This function generates 64 bits of precision.  Use */
+/*  * mts_drand for more speed but less precision. */
+/*  *\/ */
+/* MT_EXTERN MT_INLINE double mt_ldrand(void) */
+/*     { */
+/* #ifdef UINT64_MAX */
+/*     uint64_t		final_value;	/\* Final (integer) value *\/ */
+/* #endif /\* UINT64_MAX *\/ */
+/*     register uint32_t	random_value_1;	/\* 1st pseudorandom value generated *\/ */
+/*     register uint32_t	random_value_2;	/\* 2nd pseudorandom value generated *\/ */
 
-    /*
-     * For maximum speed, we'll handle the two overflow cases
-     * together.  That will save us one test in the common case, at
-     * the expense of an extra one in the overflow case.
-     */
-    if (--mt_default_state.stateptr <= 0)
-	{
-	if (mt_default_state.stateptr < 0)
-	    {
-	    mts_refresh(&mt_default_state);
-	    random_value_1 =
-	      mt_default_state.statevec[--mt_default_state.stateptr];
-	    }
-	else
-	    {
-	    random_value_1 =
-	      mt_default_state.statevec[mt_default_state.stateptr];
-	    mts_refresh(&mt_default_state);
-	    }
-	}
-    else
-	random_value_1 =
-	  mt_default_state.statevec[--mt_default_state.stateptr];
+/*     /\* */
+/*      * For maximum speed, we'll handle the two overflow cases */
+/*      * together.  That will save us one test in the common case, at */
+/*      * the expense of an extra one in the overflow case. */
+/*      *\/ */
+/*     if (--mt_default_state.stateptr <= 0) */
+/* 	{ */
+/* 	if (mt_default_state.stateptr < 0) */
+/* 	    { */
+/* 	    mts_refresh(&mt_default_state); */
+/* 	    random_value_1 = */
+/* 	      mt_default_state.statevec[--mt_default_state.stateptr]; */
+/* 	    } */
+/* 	else */
+/* 	    { */
+/* 	    random_value_1 = */
+/* 	      mt_default_state.statevec[mt_default_state.stateptr]; */
+/* 	    mts_refresh(&mt_default_state); */
+/* 	    } */
+/* 	} */
+/*     else */
+/* 	random_value_1 = */
+/* 	  mt_default_state.statevec[--mt_default_state.stateptr]; */
 
-    MT_TEMPER(random_value_1);
+/*     MT_TEMPER(random_value_1); */
 
-    random_value_2 = mt_default_state.statevec[--mt_default_state.stateptr];
-    MT_TEMPER(random_value_2);
+/*     random_value_2 = mt_default_state.statevec[--mt_default_state.stateptr]; */
+/*     MT_TEMPER(random_value_2); */
 
-#ifdef UINT64_MAX
-    final_value = ((uint64_t) random_value_1 << 32) | (uint64_t) random_value_2;
-    return final_value * mt_64_to_double;
-#else /* UINT64_MAX */
-    return random_value_1 * mt_32_to_double + random_value_2 * mt_64_to_double;
-#endif /* UINT64_MAX */
-    }
+/* #ifdef UINT64_MAX */
+/*     final_value = ((uint64_t) random_value_1 << 32) | (uint64_t) random_value_2; */
+/*     return final_value * mt_64_to_double; */
+/* #else /\* UINT64_MAX *\/ */
+/*     return random_value_1 * mt_32_to_double + random_value_2 * mt_64_to_double; */
+/* #endif /\* UINT64_MAX *\/ */
+/*     } */
 #endif /* MT_GENERATE_CODE_IN_HEADER */
 
 

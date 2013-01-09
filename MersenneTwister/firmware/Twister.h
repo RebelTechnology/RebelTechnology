@@ -6,6 +6,7 @@
 #endif // SERIAL_DEBUG
 
 #include "MCP492xController.h"
+
 #include "mtwist.h"
 
 void ledOn(){
@@ -26,27 +27,31 @@ class MersenneTwister {
   uint32_t		random_value;
 /*   static mt_state	state; */
   MCP492xController dac1;
-  uint8_t bitshift;
+  mt_state state;
+//   uint8_t bitshift;
 
  public:
- MersenneTwister() : 
-  bitshift(0) {
+ MersenneTwister()
+//   : bitshift(0) {
+  {
     dac1.init(DAC1_CS_PIN, DAC_SHDN_BIT);
   }
 
   void seed(uint32_t seed){
-    mt_seed32new(seed);
+    mts_seed32new(&state, seed);
   }
 
   void trigger(){
-    ledToggle();
-    random_value = mt_lrand();
-    uint16_t cv = 0x0fff & (random_value << bitshift);
+    ledOn();
+    random_value = mts_lrand(&state);
+//     uint16_t cv = 0x0fff & (random_value << bitshift);
+    uint16_t cv = 0x0fff & random_value;
     dac1.send(cv);
+    ledOff();
   }
 
-  void reset(){
-  }
+//   void reset(){
+//   }
 
   void low(){
     TICKER_TAPE_GATE_OUTPUT_PORT |= _BV(TICKER_TAPE_GATE_OUTPUT_PIN);
@@ -71,8 +76,8 @@ class MersenneTwister {
   virtual void dump(){
     printString("rnd ");
     printInteger(random_value);
-    printString(" sft ");
-    printInteger(bitshift);
+//     printString(" sft ");
+//     printInteger(bitshift);
   }
 #endif
 };

@@ -199,7 +199,7 @@ static uint32_t		mts_devseed(mt_state* state, char* seed_dev);
  */
 
 /* MT_STATE_SIZE is defined in the header file. */
-#define RECURRENCE_OFFSET 397		/* Offset into state space for the */
+/* #define RECURRENCE_OFFSET 397		/\* Offset into state space for the *\/ */
 					/* ..recurrence relation.  The */
 					/* ..recurrence mashes together two */
 					/* ..values that are separated by */
@@ -275,7 +275,7 @@ static uint32_t		mts_devseed(mt_state* state, char* seed_dev);
  * specify a state.  For those applications, we will provide a default
  * state, and functions to use it.
  */
-mt_state		mt_default_state;
+/* mt_state		mt_default_state; */
 
 /*
  * To generate double-precision random numbers, we need to divide the result
@@ -834,27 +834,27 @@ void mts_refresh(
 /*     return 1; */
 /*     } */
 
-/*
- * Initialize the default Mersenne Twist PRNG from a 32-bit seed.
- *
- * See mts_seed32 for full commentary.
- */
-void mt_seed32(
-    uint32_t		seed)		/* 32-bit seed to start from */
-    {
-    mts_seed32(&mt_default_state, seed);
-    }
+/* /\* */
+/*  * Initialize the default Mersenne Twist PRNG from a 32-bit seed. */
+/*  * */
+/*  * See mts_seed32 for full commentary. */
+/*  *\/ */
+/* void mt_seed32( */
+/*     uint32_t		seed)		/\* 32-bit seed to start from *\/ */
+/*     { */
+/*     mts_seed32(&mt_default_state, seed); */
+/*     } */
 
-/*
- * Initialize the default Mersenne Twist PRNG from a 32-bit seed.
- *
- * See mts_seed32new for full commentary.
- */
-void mt_seed32new(
-    uint32_t		seed)		/* 32-bit seed to start from */
-    {
-    mts_seed32new(&mt_default_state, seed);
-    }
+/* /\* */
+/*  * Initialize the default Mersenne Twist PRNG from a 32-bit seed. */
+/*  * */
+/*  * See mts_seed32new for full commentary. */
+/*  *\/ */
+/* void mt_seed32new( */
+/*     uint32_t		seed)		/\* 32-bit seed to start from *\/ */
+/*     { */
+/*     mts_seed32new(&mt_default_state, seed); */
+/*     } */
 
 /*
  * Initialize a Mersenne Twist RNG from a 624-int seed.
@@ -897,10 +897,10 @@ void mt_seed32new(
  * restoration.  The state should not be modified; instead, it should
  * be reused later as a parameter to one of the mts_xxx functions.
  */
-mt_state* mt_getstate()
-    {
-    return &mt_default_state;
-    }
+/* mt_state* mt_getstate() */
+/*     { */
+/*     return &mt_default_state; */
+/*     } */
 
 /*
  * Save state to a file.  The save format is compatible with Richard

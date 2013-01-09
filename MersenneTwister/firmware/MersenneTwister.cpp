@@ -1,4 +1,5 @@
 // #define SERIAL_DEBUG
+
 #ifdef SERIAL_DEBUG
 #include "serial.h"
 #endif // SERIAL_DEBUG
@@ -9,18 +10,6 @@
 #include "device.h"
 #include "adc_freerunner.h"
 #include "Twister.h"
-
-/*
-  prescaler 8
-  1.880 Hz saw at fastest setting
-  timer overflow called each 0.129mS (smallest overflow limit = 256).
-
-  27.78 mHz saw at middle
-  overflow called each 8.788mS
-
-  14.88 mHz at slowest
-  overflow called each 16.4mS
-*/
 
 inline bool triggerIsHigh(){
   return !(TICKER_TAPE_TRIGGER_PINS & _BV(TICKER_TAPE_TRIGGER_PIN));
@@ -39,7 +28,7 @@ inline bool isClockMode(){
 }
 
 inline bool isGateMode(){
-  return !isClockMode() && isTriggerMode();
+  return !isClockMode() && !isTriggerMode();
 }
 
 inline bool isExternalClockMode(){
@@ -52,9 +41,9 @@ inline bool isInternalClockMode(){
 
 MersenneTwister random;
 
-void reset(){
-  random.reset();
-}
+// void reset(){
+//   random.reset();
+// }
 
 void setup(){
   cli();
@@ -62,8 +51,8 @@ void setup(){
   // define hardware interrupts 0 and 1
 //   EICRA = (1<<ISC10) | (1<<ISC01) | (1<<ISC00); // trigger int0 on rising edge, int1 on any change
 //   EICRA = _BV(ISC11) | _BV(ISC01); // falling edge triggers INT1 and INT0
-  // let's do not enable int0 and int1
-//   EIMSK =  _BV(INT1) | _BV(INT0); // enables INT0 and INT1
+  EICRA = (1<<ISC10) | (1<<ISC11) | (1<<ISC01) | (1<<ISC00); // trigger int0 on rising edge, int1 on rising edge
+  EIMSK =  _BV(INT1) | _BV(INT0); // enables INT0 and INT1
 
   TICKER_TAPE_TRIGGER_DDR &= ~_BV(TICKER_TAPE_TRIGGER_PIN);
   TICKER_TAPE_TRIGGER_PORT |= _BV(TICKER_TAPE_TRIGGER_PIN); // enable pull-up resistor
@@ -92,8 +81,8 @@ void setup(){
   TIMSK1 = _BV(OCIE1A); // Enable Interrupt Timer/Counter1, Output Compare A
   // Set timer mode and prescaler
 //   TCCR1B = _BV(CS10) | _BV(WGM12);                       // Clock/1, Mode=CTC
-//   TCCR1B = _BV(CS11) | _BV(WGM12);                       // Clock/8, Mode=CTC
-  TCCR1B = _BV(CS11) | _BV(CS10) | _BV(WGM12);           // Clock/64, Mode=CTC
+  TCCR1B = _BV(CS11) | _BV(WGM12);                       // Clock/8, Mode=CTC
+//   TCCR1B = _BV(CS11) | _BV(CS10) | _BV(WGM12);           // Clock/64, Mode=CTC
 //   TCCR1B = _BV(CS12) | _BV(WGM12);                       // Clock/256, Mode=CTC
   OCR1A = 8; // 31250Hz with prescaler=8
 
@@ -108,12 +97,14 @@ void setup(){
 
   setup_adc();
 
-  uint32_t seed = 5489;
-  for(uint8_t i=0; i<ADC_CHANNELS; ++i)
-    seed ^= getAnalogValue(i);
-  random.seed(seed);
+//   uint32_t seed = 5489;
+//   for(uint8_t i=0; i<ADC_CHANNELS; ++i)
+//     seed ^= getAnalogValue(i);
+//   random.seed(seed);
 
-  reset();
+  random.seed(5489);
+
+//   reset();
 
   sei();
 
@@ -162,19 +153,22 @@ void loop(){
   
 #ifdef SERIAL_DEBUG
   if(serialAvailable() > 0){
-//     // test dac
-//     static uint8_t dactest;
-//     dac1.send(dactest++);
-    printString("cnt ");    
-    printInteger(OCR1A);
-    if(gateIsHigh())
-      printString(" gate");
-    if(triggerIsHigh())
-      printString(" trigger");
     serialRead();
-    printString(" twister[");
+//     if(gateIsHigh())
+//       printString(" gate");
+//     if(triggerIsHigh())
+//       printString(" trigger");
+//     printString(" twister[");
+    if(isTriggerMode())
+      printString(" t ");
+    if(isGateMode())
+      printString(" g ");
+    if(isClockMode())
+      printString(" c ");
+    printString("[");
     random.dump();
-    printString("]");
+    printString("] o: ");
+    printInteger(OCR1A);
     printNewline();
   }
 #endif

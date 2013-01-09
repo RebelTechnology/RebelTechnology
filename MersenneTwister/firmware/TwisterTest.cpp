@@ -1026,10 +1026,14 @@ static uint32_t	correct_values[] =
     };
 
 BOOST_AUTO_TEST_CASE(testRandom){
-  MersenneTwister twister();
+  MersenneTwister twister;
   twister.seed(5489);
   for(int i=0;  i < sizeof correct_values / sizeof correct_values[0];  i++){
     twister.trigger();
     BOOST_CHECK_EQUAL(twister.random_value, correct_values[i]);
   }
+}
+
+BOOST_AUTO_TEST_CASE(universeStillInOrder){
+    BOOST_CHECK(2+2 == 4);
 }
