@@ -65,12 +65,26 @@
 <layer number="105" name="tPlate" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="106" name="bPlate" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="107" name="Crop" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="108" name="fp8" color="7" fill="1" visible="no" active="yes"/>
+<layer number="109" name="fp9" color="7" fill="1" visible="no" active="yes"/>
+<layer number="110" name="fp0" color="7" fill="1" visible="no" active="yes"/>
+<layer number="111" name="LPC17xx" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="112" name="tSilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="116" name="Patch_BOT" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="121" name="_tsilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="122" name="_bsilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="123" name="tTestmark" color="7" fill="1" visible="no" active="yes"/>
+<layer number="124" name="bTestmark" color="7" fill="1" visible="no" active="yes"/>
 <layer number="125" name="_tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="126" name="_bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="131" name="tAdjust" color="7" fill="1" visible="no" active="yes"/>
+<layer number="132" name="bAdjust" color="7" fill="1" visible="no" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="152" name="_bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="199" name="Contour" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="200" name="200bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="201" name="201bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="202" name="202bmp" color="7" fill="1" visible="yes" active="yes"/>
@@ -96,6 +110,8 @@
 <layer number="222" name="222bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="223" name="223bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="224" name="224bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="248" name="Housing" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="249" name="Edge" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="251" name="SMDround" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="254" name="cooling" color="7" fill="1" visible="yes" active="yes"/>
@@ -20896,30 +20912,6 @@ high speed (Philips)</description>
 <pinref part="DELCV" gate="G$1" pin="3"/>
 </segment>
 </net>
-<net name="N$14" class="0">
-<segment>
-<pinref part="IC2" gate="G$1" pin="PC2(ADC2)"/>
-<wire x1="218.44" y1="-66.04" x2="241.3" y2="-66.04" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$15" class="0">
-<segment>
-<pinref part="IC2" gate="G$1" pin="PC3(ADC3)"/>
-<wire x1="218.44" y1="-68.58" x2="241.3" y2="-68.58" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$16" class="0">
-<segment>
-<pinref part="IC2" gate="G$1" pin="PC4(ADC4/SDA)"/>
-<wire x1="218.44" y1="-71.12" x2="241.3" y2="-71.12" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$17" class="0">
-<segment>
-<pinref part="IC2" gate="G$1" pin="PC5(ADC5/SCL)"/>
-<wire x1="218.44" y1="-73.66" x2="241.3" y2="-73.66" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$18" class="0">
 <segment>
 <pinref part="IC2" gate="G$1" pin="PB4(MISO)"/>
@@ -21025,20 +21017,6 @@ high speed (Philips)</description>
 <wire x1="218.44" y1="-114.3" x2="223.52" y2="-114.3" width="0.1524" layer="91"/>
 <wire x1="223.52" y1="-114.3" x2="223.52" y2="-121.92" width="0.1524" layer="91"/>
 <pinref part="LED1" gate="G$1" pin="A"/>
-</segment>
-</net>
-<net name="ALTA" class="0">
-<segment>
-<pinref part="IC2" gate="G$1" pin="PD5(T1)"/>
-<wire x1="218.44" y1="-96.52" x2="241.3" y2="-96.52" width="0.1524" layer="91"/>
-<label x="233.68" y="-96.52" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="TRIGA" class="0">
-<segment>
-<pinref part="IC2" gate="G$1" pin="PD4(XCK/T0)"/>
-<wire x1="218.44" y1="-93.98" x2="241.3" y2="-93.98" width="0.1524" layer="91"/>
-<label x="233.68" y="-93.98" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$23" class="0">
@@ -21202,12 +21180,6 @@ high speed (Philips)</description>
 <wire x1="152.4" y1="-60.96" x2="170.18" y2="-60.96" width="0.1524" layer="91"/>
 <wire x1="152.4" y1="-60.96" x2="152.4" y2="-55.88" width="0.1524" layer="91"/>
 <junction x="152.4" y="-60.96"/>
-</segment>
-</net>
-<net name="MODEB" class="0">
-<segment>
-<pinref part="IC2" gate="G$1" pin="PD7(AIN1)"/>
-<wire x1="218.44" y1="-101.6" x2="241.3" y2="-101.6" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="MODEA" class="0">
