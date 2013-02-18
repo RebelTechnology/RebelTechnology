@@ -118,10 +118,10 @@
 </layers>
 <board>
 <plain>
-<wire x1="0.8" y1="0.4" x2="100.8" y2="0.4" width="0" layer="20"/>
-<wire x1="100.8" y1="0.4" x2="100.8" y2="50.4" width="0" layer="20"/>
-<wire x1="100.8" y1="50.4" x2="0.8" y2="50.4" width="0" layer="20"/>
-<wire x1="0.8" y1="50.4" x2="0.8" y2="0.4" width="0" layer="20"/>
+<wire x1="1.054" y1="0.4" x2="101.054" y2="0.4" width="0" layer="20"/>
+<wire x1="101.054" y1="0.4" x2="101.054" y2="50.4" width="0" layer="20"/>
+<wire x1="101.054" y1="50.4" x2="1.054" y2="50.4" width="0" layer="20"/>
+<wire x1="1.054" y1="50.4" x2="1.054" y2="0.4" width="0" layer="20"/>
 </plain>
 <libraries>
 <library name="stm32">
