@@ -11595,6 +11595,33 @@ Source: www.farnell.com/datasheets/247.pdf</description>
 <wire x1="5.08" y1="-5.08" x2="5.08" y2="-6.35" width="0.127" layer="21"/>
 <wire x1="5.08" y1="5.08" x2="5.08" y2="6.35" width="0.127" layer="21"/>
 </package>
+<package name="CSTCE_G_A">
+<wire x1="-1.65" y1="0.55" x2="-1.65" y2="-0.45" width="0.127" layer="21"/>
+<wire x1="-1.65" y1="-0.45" x2="-1.5" y2="-0.65" width="0.127" layer="21" curve="90"/>
+<wire x1="-1.5" y1="-0.65" x2="1.5" y2="-0.65" width="0.127" layer="21"/>
+<wire x1="1.5" y1="-0.65" x2="1.65" y2="-0.45" width="0.127" layer="21" curve="90"/>
+<wire x1="1.65" y1="-0.45" x2="1.65" y2="0.5" width="0.127" layer="21"/>
+<wire x1="1.65" y1="0.5" x2="1.5" y2="0.65" width="0.127" layer="21" curve="90"/>
+<wire x1="1.5" y1="0.65" x2="-1.5" y2="0.65" width="0.127" layer="21"/>
+<wire x1="-1.5" y1="0.65" x2="-1.65" y2="0.55" width="0.127" layer="21" curve="90"/>
+<text x="-2.9" y="0.83" size="1.27" layer="25">&gt;NAME</text>
+<smd name="P$1" x="-1.2" y="0" dx="0.4" dy="1.5" layer="1"/>
+<smd name="P$3" x="1.2" y="0" dx="0.4" dy="1.5" layer="1"/>
+<smd name="P$2" x="0" y="0" dx="0.4" dy="1.5" layer="1"/>
+</package>
+<package name="0603">
+<wire x1="-1.473" y1="0.983" x2="1.473" y2="0.983" width="0.0508" layer="39"/>
+<wire x1="1.473" y1="0.983" x2="1.473" y2="-0.983" width="0.0508" layer="39"/>
+<wire x1="1.473" y1="-0.983" x2="-1.473" y2="-0.983" width="0.0508" layer="39"/>
+<wire x1="-1.473" y1="-0.983" x2="-1.473" y2="0.983" width="0.0508" layer="39"/>
+<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
+<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
+<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
+<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
+<text x="-2.159" y="0.762" size="1.27" layer="25">&gt;NAME</text>
+<rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
+<rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="POT-ALPS-RK09L">
@@ -11634,6 +11661,50 @@ Source: www.farnell.com/datasheets/247.pdf</description>
 <pin name="SW" x="-5.08" y="0" visible="pad" length="short" direction="pas"/>
 <pin name="SLEEVE" x="-5.08" y="-2.54" visible="pad" length="short" direction="pas"/>
 <text x="-2.54" y="4.064" size="1.778" layer="95">&gt;NAME</text>
+</symbol>
+<symbol name="RESONATOR">
+<wire x1="-0.635" y1="4.445" x2="0.635" y2="4.445" width="0.254" layer="94"/>
+<wire x1="0.635" y1="4.445" x2="0.635" y2="0.635" width="0.254" layer="94"/>
+<wire x1="0.635" y1="0.635" x2="-0.635" y2="0.635" width="0.254" layer="94"/>
+<wire x1="-0.635" y1="0.635" x2="-0.635" y2="4.445" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="4.445" x2="-1.27" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="2.54" x2="-1.27" y2="0.635" width="0.254" layer="94"/>
+<wire x1="1.27" y1="4.445" x2="1.27" y2="2.54" width="0.254" layer="94"/>
+<wire x1="1.27" y1="2.54" x2="1.27" y2="0.635" width="0.254" layer="94"/>
+<wire x1="1.905" y1="-0.635" x2="3.175" y2="-0.635" width="0.254" layer="94"/>
+<wire x1="3.175" y1="-0.635" x2="4.445" y2="-0.635" width="0.254" layer="94"/>
+<wire x1="1.905" y1="-1.27" x2="3.175" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="3.175" y1="-1.27" x2="4.445" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-4.445" y1="-0.635" x2="-3.175" y2="-0.635" width="0.254" layer="94"/>
+<wire x1="-3.175" y1="-0.635" x2="-1.905" y2="-0.635" width="0.254" layer="94"/>
+<wire x1="-1.905" y1="-1.27" x2="-3.175" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-3.175" y1="-1.27" x2="-4.445" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-3.175" y1="-1.27" x2="-3.175" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-3.175" y1="-2.54" x2="3.175" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="3.175" y1="-2.54" x2="3.175" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="3.175" y1="-0.635" x2="3.175" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-3.175" y1="-0.635" x2="-3.175" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-3.175" y1="2.54" x2="-1.27" y2="2.54" width="0.254" layer="94"/>
+<wire x1="1.27" y1="2.54" x2="3.175" y2="2.54" width="0.254" layer="94"/>
+<text x="-3.81" y="-6.35" size="1.778" layer="95" rot="R180">&gt;NAME</text>
+<text x="12.7" y="-6.35" size="1.778" layer="96" rot="R180">&gt;VALUE</text>
+<pin name="IN" x="-5.08" y="2.54" visible="off" length="short"/>
+<pin name="OUT" x="5.08" y="2.54" visible="off" length="short" rot="R180"/>
+<pin name="GND" x="0" y="-5.08" visible="off" length="short" rot="R90"/>
+</symbol>
+<symbol name="INDUCTOR">
+<wire x1="-5.08" y1="0" x2="-3.81" y2="1.27" width="0.254" layer="94" curve="-90" cap="flat"/>
+<wire x1="-2.54" y1="0" x2="-3.81" y2="1.27" width="0.254" layer="94" curve="90" cap="flat"/>
+<wire x1="-2.54" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94" curve="-90" cap="flat"/>
+<wire x1="0" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94" curve="90" cap="flat"/>
+<wire x1="0" y1="0" x2="1.27" y2="1.27" width="0.254" layer="94" curve="-90" cap="flat"/>
+<wire x1="2.54" y1="0" x2="1.27" y2="1.27" width="0.254" layer="94" curve="90" cap="flat"/>
+<wire x1="2.54" y1="0" x2="3.81" y2="1.27" width="0.254" layer="94" curve="-90" cap="flat"/>
+<wire x1="5.08" y1="0" x2="3.81" y2="1.27" width="0.254" layer="94" curve="90" cap="flat"/>
+<text x="5.08" y="-1.27" size="1.778" layer="95" rot="R180">&gt;NAME</text>
+<text x="5.08" y="3.81" size="1.778" layer="96" rot="R180">&gt;VALUE</text>
+<pin name="2" x="7.62" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="1" x="-7.62" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -11677,6 +11748,43 @@ Source: www.farnell.com/datasheets/247.pdf</description>
 <connect gate="G$1" pin="SLEEVE" pad="SHL SLV"/>
 <connect gate="G$1" pin="SW" pad="SW"/>
 <connect gate="G$1" pin="TIP" pad="TIP"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="CERAMIC_RESONATOR">
+<description>Murata Ceralock Ceramic Resonators.
+CSTCC_G 2.00 - 3.99MHz
+CSTCR_G 4.00 - 7.99MHz
+CSTCE_G 8.00 - 13.99MHz</description>
+<gates>
+<gate name="G$1" symbol="RESONATOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="CSTCE_G_A">
+<connects>
+<connect gate="G$1" pin="GND" pad="P$2"/>
+<connect gate="G$1" pin="IN" pad="P$1"/>
+<connect gate="G$1" pin="OUT" pad="P$3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="INDUCTOR">
+<gates>
+<gate name="G$1" symbol="INDUCTOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="0603">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -14678,65 +14786,6 @@ Standard 3-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </deviceset>
 </devicesets>
 </library>
-<library name="inductors">
-<description>&lt;b&gt;Inductors and Filters&lt;/b&gt;&lt;p&gt;
-Based on the previous library ind-a.lbr&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="0402">
-<description>&lt;b&gt;EMIFIL (R) Chip Ferrite Bead for GHz Noise&lt;/b&gt;&lt;p&gt;
-Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
-<wire x1="-0.245" y1="0.224" x2="0.245" y2="0.224" width="0.1524" layer="51"/>
-<wire x1="0.245" y1="-0.224" x2="-0.245" y2="-0.224" width="0.1524" layer="51"/>
-<wire x1="-1.473" y1="0.483" x2="1.473" y2="0.483" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="0.483" x2="1.473" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="-0.483" x2="-1.473" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="-1.473" y1="-0.483" x2="-1.473" y2="0.483" width="0.0508" layer="39"/>
-<smd name="1" x="-0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
-<smd name="2" x="0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
-<text x="-0.635" y="0.635" size="1.27" layer="25">&gt;NAME</text>
-<text x="-0.635" y="-1.905" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
-<rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
-</package>
-</packages>
-<symbols>
-<symbol name="L">
-<text x="-3.81" y="1.3716" size="1.778" layer="95">&gt;NAME</text>
-<text x="-3.81" y="-2.921" size="1.778" layer="96">&gt;VALUE</text>
-<rectangle x1="-2.54" y1="-0.889" x2="2.54" y2="0.889" layer="94"/>
-<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="BML15H" prefix="L">
-<description>&lt;b&gt;EMIFIL (R) Chip Ferrite Bead for GHz Noise&lt;/b&gt;&lt;p&gt;
-Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
-<gates>
-<gate name="G$1" symbol="L" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="0402">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="B121SN1"/>
-<technology name="B221SN1"/>
-<technology name="D102SN1"/>
-<technology name="D182SN1"/>
-<technology name="D601SN1"/>
-<technology name="G102SN1"/>
-<technology name="G601SN1"/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="burr-brown">
 <description>&lt;b&gt;Burr-Brown Components&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
@@ -16312,7 +16361,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="R602" library="resistor" deviceset="R-EU_" device="R0603" value="10K"/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="L1" library="inductors" deviceset="BML15H" device="" technology="G601SN1"/>
+<part name="L1" library="Rebel" deviceset="INDUCTOR" device=""/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
@@ -16409,7 +16458,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="C3" library="resistor" deviceset="C-EU" device="C0603" value="2u2"/>
 <part name="C4" library="resistor" deviceset="C-EU" device="C0603" value="2u2"/>
 <part name="C7" library="resistor" deviceset="C-EU" device="C0603" value="1u"/>
-<part name="C13" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C10" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="+3V15" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND43" library="supply1" deviceset="GND" device=""/>
 <part name="C2" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
@@ -16441,6 +16490,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="P-8" library="supply1" deviceset="-12V" device=""/>
 <part name="P+8" library="supply1" deviceset="+12V" device=""/>
 <part name="JP24" library="SparkFun" deviceset="M03" device="PTH"/>
+<part name="ZTT" library="Rebel" deviceset="CERAMIC_RESONATOR" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -16541,11 +16591,11 @@ Source: Fairchild .. BAT54.pdf</description>
 <instance part="C802" gate="G$1" x="195.58" y="45.72"/>
 <instance part="U$1" gate="G$1" x="101.6" y="17.78" rot="R90"/>
 <instance part="GND23" gate="1" x="106.68" y="15.24"/>
-<instance part="Q1" gate="G$1" x="114.3" y="17.78" rot="R90"/>
-<instance part="C11" gate="G$1" x="119.38" y="15.24" rot="R90"/>
-<instance part="C12" gate="G$1" x="119.38" y="20.32" rot="R90"/>
-<instance part="GND24" gate="1" x="124.46" y="10.16"/>
-<instance part="GND25" gate="1" x="129.54" y="10.16"/>
+<instance part="Q1" gate="G$1" x="121.92" y="17.78" rot="R90"/>
+<instance part="C11" gate="G$1" x="127" y="15.24" rot="R90"/>
+<instance part="C12" gate="G$1" x="127" y="20.32" rot="R90"/>
+<instance part="GND24" gate="1" x="132.08" y="10.16"/>
+<instance part="GND25" gate="1" x="137.16" y="10.16"/>
 <instance part="JP3" gate="G$1" x="-35.56" y="60.96" rot="MR180"/>
 <instance part="JP2" gate="G$1" x="-5.08" y="60.96" rot="MR180"/>
 <instance part="JP4" gate="G$1" x="22.86" y="60.96" rot="MR180"/>
@@ -16614,7 +16664,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <instance part="C3" gate="G$1" x="162.56" y="-15.24"/>
 <instance part="C4" gate="G$1" x="172.72" y="-20.32"/>
 <instance part="C7" gate="G$1" x="99.06" y="-40.64"/>
-<instance part="C13" gate="G$1" x="180.34" y="7.62"/>
+<instance part="C10" gate="G$1" x="180.34" y="7.62"/>
 <instance part="+3V15" gate="G$1" x="180.34" y="20.32"/>
 <instance part="GND43" gate="1" x="180.34" y="-5.08"/>
 <instance part="C2" gate="G$1" x="157.48" y="7.62"/>
@@ -16648,6 +16698,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <instance part="P-8" gate="1" x="355.6" y="55.88"/>
 <instance part="P+8" gate="1" x="355.6" y="73.66"/>
 <instance part="JP24" gate="G$1" x="-7.62" y="-17.78"/>
+<instance part="ZTT" gate="G$1" x="114.3" y="17.78" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -16866,17 +16917,20 @@ Source: Fairchild .. BAT54.pdf</description>
 <pinref part="U$1" gate="G$1" pin="GND"/>
 <pinref part="GND23" gate="1" pin="GND"/>
 <wire x1="104.14" y1="17.78" x2="106.68" y2="17.78" width="0.1524" layer="91"/>
+<pinref part="ZTT" gate="G$1" pin="GND"/>
+<wire x1="109.22" y1="17.78" x2="106.68" y2="17.78" width="0.1524" layer="91"/>
+<junction x="106.68" y="17.78"/>
 </segment>
 <segment>
 <pinref part="C11" gate="G$1" pin="2"/>
 <pinref part="GND24" gate="1" pin="GND"/>
-<wire x1="124.46" y1="15.24" x2="124.46" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="15.24" x2="132.08" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C12" gate="G$1" pin="2"/>
 <pinref part="GND25" gate="1" pin="GND"/>
-<wire x1="124.46" y1="20.32" x2="129.54" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="20.32" x2="129.54" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="20.32" x2="137.16" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="20.32" x2="137.16" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="JP7" gate="G$1" pin="8"/>
@@ -16954,7 +17008,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <pinref part="IC3" gate="B" pin="+IN"/>
 </segment>
 <segment>
-<pinref part="C13" gate="G$1" pin="2"/>
+<pinref part="C10" gate="G$1" pin="2"/>
 <pinref part="GND43" gate="1" pin="GND"/>
 <wire x1="180.34" y1="2.54" x2="180.34" y2="-2.54" width="0.1524" layer="91"/>
 </segment>
@@ -17259,7 +17313,6 @@ Source: Fairchild .. BAT54.pdf</description>
 <segment>
 <pinref part="L1" gate="G$1" pin="2"/>
 <pinref part="+3V3" gate="G$1" pin="+3V3"/>
-<wire x1="119.38" y1="-30.48" x2="121.92" y2="-30.48" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="-30.48" x2="121.92" y2="-17.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -17304,7 +17357,7 @@ Source: Fairchild .. BAT54.pdf</description>
 </segment>
 <segment>
 <pinref part="+3V15" gate="G$1" pin="+3V3"/>
-<pinref part="C13" gate="G$1" pin="1"/>
+<pinref part="C10" gate="G$1" pin="1"/>
 <wire x1="180.34" y1="17.78" x2="180.34" y2="10.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -17330,7 +17383,6 @@ Source: Fairchild .. BAT54.pdf</description>
 <pinref part="L1" gate="G$1" pin="1"/>
 <wire x1="88.9" y1="-30.48" x2="99.06" y2="-30.48" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="-30.48" x2="106.68" y2="-30.48" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="-30.48" x2="109.22" y2="-30.48" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="-38.1" x2="99.06" y2="-30.48" width="0.1524" layer="91"/>
 <junction x="99.06" y="-30.48"/>
 <pinref part="C8" gate="G$1" pin="1"/>
@@ -17416,12 +17468,15 @@ Source: Fairchild .. BAT54.pdf</description>
 <pinref part="U$1" gate="G$1" pin="OUT"/>
 <wire x1="91.44" y1="22.86" x2="96.52" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="Q1" gate="G$1" pin="2"/>
-<wire x1="96.52" y1="22.86" x2="114.3" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="114.3" y1="22.86" x2="114.3" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="22.86" x2="116.84" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="22.86" x2="121.92" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="22.86" x2="121.92" y2="20.32" width="0.1524" layer="91"/>
 <junction x="96.52" y="22.86"/>
 <pinref part="C12" gate="G$1" pin="1"/>
-<wire x1="116.84" y1="20.32" x2="114.3" y2="20.32" width="0.1524" layer="91"/>
-<junction x="114.3" y="20.32"/>
+<wire x1="124.46" y1="20.32" x2="121.92" y2="20.32" width="0.1524" layer="91"/>
+<junction x="121.92" y="20.32"/>
+<pinref part="ZTT" gate="G$1" pin="IN"/>
+<junction x="116.84" y="22.86"/>
 </segment>
 </net>
 <net name="N$20" class="0">
@@ -17430,12 +17485,15 @@ Source: Fairchild .. BAT54.pdf</description>
 <wire x1="96.52" y1="12.7" x2="88.9" y2="12.7" width="0.1524" layer="91"/>
 <pinref part="U1" gate="PORTD/OSC" pin="PD1/OSC=&gt;"/>
 <pinref part="Q1" gate="G$1" pin="1"/>
-<wire x1="96.52" y1="12.7" x2="114.3" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="114.3" y1="12.7" x2="114.3" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="12.7" x2="116.84" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="12.7" x2="121.92" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="12.7" x2="121.92" y2="15.24" width="0.1524" layer="91"/>
 <junction x="96.52" y="12.7"/>
 <pinref part="C11" gate="G$1" pin="1"/>
-<wire x1="116.84" y1="15.24" x2="114.3" y2="15.24" width="0.1524" layer="91"/>
-<junction x="114.3" y="15.24"/>
+<wire x1="124.46" y1="15.24" x2="121.92" y2="15.24" width="0.1524" layer="91"/>
+<junction x="121.92" y="15.24"/>
+<pinref part="ZTT" gate="G$1" pin="OUT"/>
+<junction x="116.84" y="12.7"/>
 </segment>
 </net>
 <net name="PC10" class="0">
