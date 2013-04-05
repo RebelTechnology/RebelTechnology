@@ -33405,11 +33405,8 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 <wire x1="39.585" y1="34.925" x2="39.585" y2="34.505" width="0.3048" layer="1"/>
 <wire x1="38.1" y1="33.655" x2="38.735" y2="33.655" width="0.3048" layer="1"/>
 <wire x1="38.735" y1="33.655" x2="39.585" y2="34.505" width="0.3048" layer="1"/>
-<wire x1="42.545" y1="26.455" x2="42.125" y2="26.455" width="0.3048" layer="1"/>
 <wire x1="39.99" y1="28.42" x2="40.795" y2="28.42" width="0.3048" layer="1"/>
-<wire x1="40.795" y1="28.42" x2="41.275" y2="27.94" width="0.3048" layer="1"/>
-<wire x1="41.275" y1="27.94" x2="41.275" y2="27.305" width="0.3048" layer="1"/>
-<wire x1="41.275" y1="27.305" x2="42.125" y2="26.455" width="0.3048" layer="1"/>
+<wire x1="40.795" y1="28.42" x2="42.545" y2="26.67" width="0.3048" layer="1"/>
 <wire x1="45.085" y1="26.455" x2="44.235" y2="26.455" width="0.3048" layer="1"/>
 <wire x1="44.235" y1="26.455" x2="43.815" y2="26.035" width="0.3048" layer="1"/>
 <wire x1="42.545" y1="26.455" x2="43.395" y2="26.455" width="0.3048" layer="1"/>
@@ -33417,12 +33414,10 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 <wire x1="47.795" y1="26.985" x2="48.575" y2="26.985" width="0.3048" layer="1"/>
 <wire x1="48.575" y1="26.985" x2="49.53" y2="27.94" width="0.3048" layer="1"/>
 <via x="49.53" y="27.94" extent="1-16" drill="0.6" shape="square"/>
-<wire x1="47.795" y1="23.175" x2="48.575" y2="23.175" width="0.3048" layer="1"/>
-<wire x1="48.575" y1="23.175" x2="49.53" y2="24.13" width="0.3048" layer="1"/>
-<via x="49.53" y="24.13" extent="1-16" drill="0.6" shape="square"/>
-<wire x1="47.795" y1="30.795" x2="48.575" y2="30.795" width="0.3048" layer="1"/>
-<wire x1="48.575" y1="30.795" x2="49.53" y2="31.75" width="0.3048" layer="1"/>
-<via x="49.53" y="31.75" extent="1-16" drill="0.6" shape="square"/>
+<via x="49.53" y="20.955" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="47.795" y1="30.795" x2="47.305" y2="30.795" width="0.3048" layer="1"/>
+<wire x1="47.305" y1="30.795" x2="46.355" y2="31.75" width="0.3048" layer="1"/>
+<via x="46.355" y="31.75" extent="1-16" drill="0.6" shape="square"/>
 <via x="43.815" y="26.035" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="37.54" y1="20.97" x2="37.54" y2="20.03" width="0.3048" layer="1"/>
 <wire x1="37.54" y1="20.03" x2="38.52" y2="19.05" width="0.3048" layer="1"/>
@@ -33436,7 +33431,6 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 <via x="39.37" y="17.78" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="40.22" y1="16.51" x2="40.22" y2="16.93" width="0.3048" layer="1"/>
 <wire x1="40.22" y1="16.93" x2="39.37" y2="17.78" width="0.3048" layer="1"/>
-<via x="38.735" y="33.655" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="27.09" y1="36.83" x2="27.09" y2="35.98" width="0.3048" layer="1"/>
 <wire x1="27.09" y1="35.98" x2="26.67" y2="35.56" width="0.3048" layer="1"/>
 <via x="26.67" y="35.56" extent="1-16" drill="0.6" shape="square"/>
@@ -33448,6 +33442,13 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 <wire x1="44.03" y1="19.05" x2="44.03" y2="18.2" width="0.3048" layer="1"/>
 <wire x1="44.03" y1="18.2" x2="44.45" y2="17.78" width="0.3048" layer="1"/>
 <via x="44.45" y="17.78" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="47.795" y1="23.175" x2="47.945" y2="23.175" width="0.3048" layer="1"/>
+<wire x1="47.945" y1="23.175" x2="48.895" y2="22.225" width="0.3048" layer="1"/>
+<wire x1="49.53" y1="20.955" x2="48.895" y2="21.59" width="0.3048" layer="1"/>
+<wire x1="48.895" y1="21.59" x2="48.895" y2="22.225" width="0.3048" layer="1"/>
+<wire x1="42.545" y1="26.67" x2="42.545" y2="26.455" width="0.3048" layer="1"/>
+<via x="39.37" y="36.195" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="39.37" y1="34.925" x2="39.37" y2="36.195" width="0.3048" layer="1"/>
 <wire x1="69.85" y1="8.2" x2="68.58" y2="1.69" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$2">
@@ -33567,13 +33568,8 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 <signal name="DI0">
 <contactref element="Q301" pad="3"/>
 <contactref element="R603" pad="2"/>
-<contactref element="Q901" pad="3"/>
-<contactref element="R903" pad="2"/>
-<wire x1="39.37" y1="41.49" x2="37.51" y2="41.49" width="0.4064" layer="1"/>
-<wire x1="37.51" y1="41.49" x2="36.66" y2="40.64" width="0.4064" layer="1"/>
 <wire x1="39.37" y1="2.96" x2="37.51" y2="2.96" width="0.4064" layer="1"/>
 <wire x1="37.51" y1="2.96" x2="36.66" y2="3.81" width="0.4064" layer="1"/>
-<wire x1="36.66" y1="3.81" x2="36.66" y2="40.64" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="NRST">
 <contactref element="JP1" pad="5"/>
@@ -33581,11 +33577,11 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 <wire x1="36.83" y1="12.7" x2="38.1" y2="11.43" width="0.3048" layer="1"/>
 <wire x1="38.1" y1="11.43" x2="41.275" y2="11.43" width="0.3048" layer="1"/>
 <via x="41.275" y="11.43" extent="1-16" drill="0.6" shape="square"/>
-<wire x1="41.275" y1="11.43" x2="41.275" y2="24.765" width="0.3048" layer="16"/>
-<via x="41.275" y="24.765" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="41.275" y1="11.43" x2="41.275" y2="24.13" width="0.3048" layer="16"/>
+<via x="41.275" y="24.13" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="39.99" y1="25.92" x2="40.755" y2="25.92" width="0.3048" layer="1"/>
 <wire x1="40.755" y1="25.92" x2="41.275" y2="25.4" width="0.3048" layer="1"/>
-<wire x1="41.275" y1="25.4" x2="41.275" y2="24.765" width="0.3048" layer="1"/>
+<wire x1="41.275" y1="25.4" x2="41.275" y2="24.13" width="0.3048" layer="1"/>
 </signal>
 <signal name="SWDIO">
 <contactref element="JP1" pad="4"/>
@@ -33760,10 +33756,13 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 <wire x1="30.54" y1="22.92" x2="32.0675" y2="24.4475" width="0.3048" layer="1"/>
 <wire x1="30.48" y1="22.92" x2="30.48" y2="22.86" width="0.3048" layer="1"/>
 <wire x1="30.48" y1="22.86" x2="29.845" y2="22.225" width="0.3048" layer="1"/>
-<wire x1="47.31" y1="28.895" x2="45.085" y2="31.33" width="0" layer="19" extent="1-1"/>
-<wire x1="42.33" y1="19.05" x2="40.22" y2="19.05" width="0" layer="19" extent="1-1"/>
-<wire x1="39.37" y1="4.66" x2="43.3" y2="10.2" width="0" layer="19" extent="1-1"/>
-<wire x1="67.31" y1="1.79" x2="67.31" y2="10.16" width="0" layer="19" extent="1-1"/>
+<wire x1="43.3" y1="10.2" x2="43.22" y2="10.2" width="0.3048" layer="1"/>
+<wire x1="43.22" y1="10.2" x2="39.37" y2="6.35" width="0.8128" layer="1"/>
+<wire x1="39.37" y1="6.35" x2="39.37" y2="4.66" width="0.8128" layer="1"/>
+<wire x1="45.36" y1="31.33" x2="47.795" y2="28.895" width="0.3048" layer="1"/>
+<wire x1="45.085" y1="31.33" x2="45.36" y2="31.33" width="0.3048" layer="1"/>
+<wire x1="40.22" y1="19.05" x2="42.33" y2="19.05" width="0.3048" layer="1"/>
+<wire x1="67.31" y1="10.16" x2="67.31" y2="1.79" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VDDA">
 <contactref element="U1" pad="13"/>
@@ -33796,9 +33795,6 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 </signal>
 <signal name="PB1">
 <contactref element="U1" pad="27"/>
-</signal>
-<signal name="PB2">
-<contactref element="U1" pad="28"/>
 </signal>
 <signal name="PB4">
 <contactref element="U1" pad="56"/>
@@ -33860,9 +33856,6 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 <signal name="PC9">
 <contactref element="U1" pad="40"/>
 </signal>
-<signal name="PC2">
-<contactref element="U1" pad="10"/>
-</signal>
 <signal name="PC11">
 <contactref element="U1" pad="52"/>
 </signal>
@@ -33877,15 +33870,6 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 </signal>
 <signal name="PA0">
 <contactref element="U1" pad="14"/>
-</signal>
-<signal name="PA2">
-<contactref element="U1" pad="16"/>
-</signal>
-<signal name="PA1">
-<contactref element="U1" pad="15"/>
-</signal>
-<signal name="PA3">
-<contactref element="U1" pad="17"/>
 </signal>
 <signal name="PA4">
 <contactref element="U1" pad="20"/>
@@ -33903,29 +33887,20 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 <signal name="PA5">
 <contactref element="U1" pad="21"/>
 <contactref element="R503" pad="2"/>
-<wire x1="36.04" y1="32.37" x2="36.04" y2="33.81" width="0.3048" layer="1"/>
-<wire x1="36.04" y1="33.81" x2="31.75" y2="38.1" width="0.3048" layer="1"/>
-<wire x1="31.75" y1="38.1" x2="30.48" y2="38.1" width="0.3048" layer="1"/>
-<via x="30.48" y="38.1" extent="1-16" drill="0.6" shape="square"/>
-<wire x1="30.48" y1="38.1" x2="30.48" y2="46.99" width="0.4064" layer="16"/>
-<wire x1="30.48" y1="46.99" x2="29.21" y2="48.26" width="0.4064" layer="16"/>
+<wire x1="30.48" y1="39.37" x2="30.48" y2="46.99" width="0.3048" layer="16"/>
+<wire x1="30.48" y1="46.99" x2="29.21" y2="48.26" width="0.3048" layer="16"/>
 <via x="29.21" y="48.26" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="29.21" y1="48.26" x2="29.21" y2="49.6325" width="0.4064" layer="1"/>
+<wire x1="30.48" y1="39.37" x2="34.29" y2="35.56" width="0.3048" layer="16"/>
+<wire x1="36.04" y1="32.37" x2="36.04" y2="33.81" width="0.3048" layer="1"/>
+<wire x1="36.04" y1="33.81" x2="34.29" y2="35.56" width="0.3048" layer="1"/>
+<via x="34.29" y="35.56" extent="1-16" drill="0.6" shape="square"/>
 </signal>
 <signal name="PA6">
 <contactref element="U1" pad="22"/>
 </signal>
 <signal name="PA7">
 <contactref element="U1" pad="23"/>
-</signal>
-<signal name="PC0">
-<contactref element="U1" pad="8"/>
-</signal>
-<signal name="PC1">
-<contactref element="U1" pad="9"/>
-</signal>
-<signal name="PC3">
-<contactref element="U1" pad="11"/>
 </signal>
 <signal name="PC4">
 <contactref element="U1" pad="24"/>
@@ -33953,9 +33928,32 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 </signal>
 <signal name="ADC2">
 <contactref element="POT2" pad="2"/>
+<contactref element="U1" pad="10"/>
+<wire x1="62.35" y1="12.7" x2="62.23" y2="12.7" width="0.3048" layer="1"/>
+<wire x1="62.23" y1="12.7" x2="58.42" y2="16.51" width="0.3048" layer="1"/>
+<wire x1="58.42" y1="16.51" x2="58.42" y2="19.05" width="0.3048" layer="1"/>
+<wire x1="58.42" y1="19.05" x2="57.15" y2="20.32" width="0.3048" layer="1"/>
+<via x="57.15" y="20.32" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="57.15" y1="20.32" x2="52.07" y2="25.4" width="0.3048" layer="16"/>
+<wire x1="52.07" y1="25.4" x2="48.26" y2="25.4" width="0.3048" layer="16"/>
+<wire x1="48.26" y1="25.4" x2="46.355" y2="27.305" width="0.3048" layer="16"/>
+<wire x1="46.355" y1="27.305" x2="37.465" y2="27.305" width="0.3048" layer="16"/>
+<via x="37.465" y="27.305" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="39.99" y1="27.42" x2="37.58" y2="27.42" width="0.3048" layer="1"/>
+<wire x1="37.58" y1="27.42" x2="37.465" y2="27.305" width="0.3048" layer="1"/>
 </signal>
 <signal name="ADC3">
 <contactref element="POT3" pad="2"/>
+<contactref element="U1" pad="9"/>
+<wire x1="39.99" y1="26.92" x2="38.985" y2="26.92" width="0.3048" layer="1"/>
+<wire x1="38.985" y1="26.92" x2="38.1" y2="26.035" width="0.3048" layer="1"/>
+<via x="38.1" y="26.035" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="38.1" y1="26.035" x2="41.275" y2="26.035" width="0.3048" layer="16"/>
+<wire x1="41.275" y1="26.035" x2="43.18" y2="24.13" width="0.3048" layer="16"/>
+<wire x1="43.18" y1="24.13" x2="43.18" y2="17.78" width="0.3048" layer="16"/>
+<wire x1="43.18" y1="17.78" x2="45.085" y2="15.875" width="0.3048" layer="16"/>
+<wire x1="45.085" y1="15.875" x2="45.085" y2="14.485" width="0.3048" layer="16"/>
+<wire x1="45.085" y1="14.485" x2="43.3" y2="12.7" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$14">
 <contactref element="IC2" pad="2"/>
@@ -33990,6 +33988,15 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 </signal>
 <signal name="ADC6">
 <contactref element="R305" pad="2"/>
+<wire x1="40.89" y1="26.42" x2="43.18" y2="24.13" width="0.3048" layer="1"/>
+<wire x1="43.18" y1="24.13" x2="44.45" y2="24.13" width="0.3048" layer="1"/>
+<via x="44.45" y="24.13" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="44.45" y1="24.13" x2="51.435" y2="24.13" width="0.3048" layer="16"/>
+<via x="51.435" y="24.13" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="51.435" y1="24.13" x2="51.65" y2="24.13" width="0.3048" layer="1"/>
+<wire x1="51.65" y1="24.13" x2="52.705" y2="23.075" width="0.3048" layer="1"/>
+<contactref element="U1" pad="8"/>
+<wire x1="39.99" y1="26.42" x2="40.89" y2="26.42" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$34">
 <contactref element="Q701" pad="1"/>
@@ -34301,12 +34308,40 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 </signal>
 <signal name="ADC5">
 <contactref element="R205" pad="2"/>
+<contactref element="U1" pad="16"/>
+<wire x1="39.99" y1="30.42" x2="41.85" y2="30.42" width="0.3048" layer="1"/>
+<wire x1="41.85" y1="30.42" x2="44.45" y2="33.02" width="0.3048" layer="1"/>
+<wire x1="44.45" y1="33.02" x2="48.26" y2="33.02" width="0.3048" layer="1"/>
+<wire x1="48.26" y1="33.02" x2="50.165" y2="31.115" width="0.3048" layer="1"/>
+<wire x1="50.165" y1="31.115" x2="52.285" y2="31.115" width="0.3048" layer="1"/>
+<wire x1="52.285" y1="31.115" x2="52.705" y2="30.695" width="0.3048" layer="1"/>
 </signal>
 <signal name="ADC4">
 <contactref element="R105" pad="2"/>
+<contactref element="U1" pad="15"/>
+<wire x1="39.99" y1="29.92" x2="43.74" y2="29.92" width="0.3048" layer="1"/>
+<wire x1="43.74" y1="29.92" x2="43.815" y2="29.845" width="0.3048" layer="1"/>
+<via x="43.815" y="29.845" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="43.815" y1="29.845" x2="49.53" y2="29.845" width="0.3048" layer="16"/>
+<wire x1="49.53" y1="29.845" x2="51.435" y2="27.94" width="0.3048" layer="16"/>
+<via x="51.435" y="27.94" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="51.435" y1="27.94" x2="51.65" y2="27.94" width="0.3048" layer="1"/>
+<wire x1="51.65" y1="27.94" x2="52.705" y2="26.885" width="0.3048" layer="1"/>
 </signal>
 <signal name="ADC1">
 <contactref element="POT1" pad="2"/>
+<contactref element="U1" pad="11"/>
+<wire x1="39.99" y1="27.92" x2="38.755" y2="27.92" width="0.3048" layer="1"/>
+<wire x1="38.755" y1="27.92" x2="38.1" y2="28.575" width="0.3048" layer="1"/>
+<via x="38.1" y="28.575" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="38.1" y1="28.575" x2="47.625" y2="28.575" width="0.3048" layer="16"/>
+<wire x1="47.625" y1="28.575" x2="49.53" y2="26.67" width="0.3048" layer="16"/>
+<wire x1="49.53" y1="26.67" x2="53.34" y2="26.67" width="0.3048" layer="16"/>
+<wire x1="53.34" y1="26.67" x2="57.15" y2="22.86" width="0.3048" layer="16"/>
+<via x="57.15" y="22.86" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="57.15" y1="22.86" x2="59.69" y2="20.32" width="0.3048" layer="1"/>
+<wire x1="59.69" y1="20.32" x2="73.78" y2="20.32" width="0.3048" layer="1"/>
+<wire x1="73.78" y1="20.32" x2="81.4" y2="12.7" width="0.3048" layer="1"/>
 </signal>
 <signal name="DO1">
 <contactref element="R801" pad="1"/>
@@ -34327,6 +34362,20 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 <contactref element="R601" pad="1"/>
 <wire x1="29.21" y1="4.66" x2="25.64" y2="4.66" width="0.4064" layer="1"/>
 <wire x1="25.64" y1="4.66" x2="23.95" y2="6.35" width="0.4064" layer="1"/>
+</signal>
+<signal name="DI1">
+<contactref element="Q901" pad="3"/>
+<contactref element="R903" pad="2"/>
+<wire x1="39.37" y1="41.49" x2="37.51" y2="41.49" width="0.4064" layer="1"/>
+<wire x1="37.51" y1="41.49" x2="36.66" y2="40.64" width="0.4064" layer="1"/>
+<contactref element="U1" pad="28"/>
+<wire x1="36.195" y1="38.735" x2="36.195" y2="40.175" width="0.3048" layer="1"/>
+<wire x1="36.195" y1="40.175" x2="36.66" y2="40.64" width="0.3048" layer="1"/>
+<wire x1="32.54" y1="32.37" x2="32.54" y2="35.08" width="0.3048" layer="1"/>
+<wire x1="32.54" y1="35.08" x2="36.195" y2="38.735" width="0.3048" layer="1"/>
+</signal>
+<signal name="PA3">
+<contactref element="U1" pad="17"/>
 </signal>
 </signals>
 </board>
