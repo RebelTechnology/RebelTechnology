@@ -16555,6 +16555,11 @@ Source: www.kingbright.com</description>
 <wire x1="15.24" y1="104.14" x2="15.24" y2="106.68" width="0.1524" layer="91"/>
 <junction x="15.24" y="104.14"/>
 </segment>
+<segment>
+<pinref part="U1" gate="PORTA_H" pin="PA15"/>
+<wire x1="38.1" y1="25.4" x2="30.48" y2="25.4" width="0.1524" layer="91"/>
+<label x="30.48" y="25.4" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="NRST" class="0">
 <segment>
@@ -16833,27 +16838,6 @@ Source: www.kingbright.com</description>
 <label x="91.44" y="68.58" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="PB1" class="0">
-<segment>
-<pinref part="U1" gate="PORTB_L" pin="PB1"/>
-<wire x1="88.9" y1="66.04" x2="96.52" y2="66.04" width="0.1524" layer="91"/>
-<label x="91.44" y="66.04" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="PB4" class="0">
-<segment>
-<pinref part="U1" gate="PORTB_L" pin="PB4"/>
-<wire x1="88.9" y1="58.42" x2="96.52" y2="58.42" width="0.1524" layer="91"/>
-<label x="91.44" y="58.42" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="PB5" class="0">
-<segment>
-<pinref part="U1" gate="PORTB_L" pin="PB5"/>
-<wire x1="88.9" y1="55.88" x2="96.52" y2="55.88" width="0.1524" layer="91"/>
-<label x="91.44" y="55.88" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="PB6" class="0">
 <segment>
 <pinref part="U1" gate="PORTB_L" pin="PB6"/>
@@ -16957,13 +16941,6 @@ Source: www.kingbright.com</description>
 <pinref part="U1" gate="PORTA_H" pin="PA12"/>
 <wire x1="38.1" y1="33.02" x2="30.48" y2="33.02" width="0.1524" layer="91"/>
 <label x="30.48" y="33.02" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="PA15" class="0">
-<segment>
-<pinref part="U1" gate="PORTA_H" pin="PA15"/>
-<wire x1="38.1" y1="25.4" x2="30.48" y2="25.4" width="0.1524" layer="91"/>
-<label x="30.48" y="25.4" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PC8" class="0">
@@ -17211,6 +17188,11 @@ Source: www.kingbright.com</description>
 <pinref part="R701" gate="G$1" pin="1"/>
 <label x="-33.02" y="162.56" size="1.778" layer="95"/>
 <wire x1="-20.32" y1="162.56" x2="-33.02" y2="162.56" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="PORTB_L" pin="PB5"/>
+<wire x1="88.9" y1="55.88" x2="96.52" y2="55.88" width="0.1524" layer="91"/>
+<label x="91.44" y="55.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$13" class="0">
@@ -17484,6 +17466,11 @@ Source: www.kingbright.com</description>
 <label x="-111.76" y="162.56" size="1.778" layer="95"/>
 <wire x1="-99.06" y1="162.56" x2="-111.76" y2="162.56" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="U1" gate="PORTB_L" pin="PB1"/>
+<wire x1="88.9" y1="66.04" x2="96.52" y2="66.04" width="0.1524" layer="91"/>
+<label x="91.44" y="66.04" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="N$21" class="0">
 <segment>
@@ -17520,6 +17507,13 @@ Source: www.kingbright.com</description>
 <wire x1="27.94" y1="60.96" x2="38.1" y2="60.96" width="0.1524" layer="91"/>
 <label x="30.48" y="60.96" size="1.778" layer="95"/>
 <pinref part="U1" gate="PORTA_L" pin="PA3"/>
+</segment>
+</net>
+<net name="PB4" class="0">
+<segment>
+<pinref part="U1" gate="PORTB_L" pin="PB4"/>
+<wire x1="88.9" y1="58.42" x2="96.52" y2="58.42" width="0.1524" layer="91"/>
+<label x="91.44" y="58.42" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
