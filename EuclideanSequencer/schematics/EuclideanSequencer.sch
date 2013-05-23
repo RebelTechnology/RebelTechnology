@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.1">
+<eagle version="6.3">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -15538,7 +15538,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <attribute name="VALUE" x="213.36" y="83.82" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="GND27" gate="1" x="213.36" y="63.5"/>
-<instance part="GND" gate="G$1" x="241.3" y="109.22" rot="R180"/>
+<instance part="GND" gate="G$1" x="241.3" y="109.22"/>
 </instances>
 <busses>
 </busses>
@@ -15882,6 +15882,10 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="GND26" gate="1" pin="GND"/>
 <wire x1="213.36" y1="96.52" x2="213.36" y2="99.06" width="0.1524" layer="91"/>
 <junction x="213.36" y="99.06"/>
+<pinref part="GND" gate="G$1" pin="PP"/>
+<wire x1="231.14" y1="99.06" x2="241.3" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="241.3" y1="99.06" x2="241.3" y2="106.68" width="0.1524" layer="91"/>
+<junction x="231.14" y="99.06"/>
 </segment>
 <segment>
 <pinref part="GND27" gate="1" pin="GND"/>
