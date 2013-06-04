@@ -123,9 +123,6 @@
 <wire x1="101.054" y1="50.4" x2="1.054" y2="50.4" width="0.0254" layer="20"/>
 <wire x1="1.054" y1="50.4" x2="1.054" y2="0.4" width="0.0254" layer="20"/>
 <text x="73.66" y="1.27" size="1.9304" layer="21" font="vector">Rebel Technology</text>
-<text x="57.4675" y="37.7825" size="0.8128" layer="21" font="vector" rot="SR270">PC10</text>
-<text x="43.815" y="38.1" size="0.8128" layer="21" font="vector" rot="SR270">PA13</text>
-<text x="45.72" y="0.635" size="0.8128" layer="21" font="vector" rot="SR0">PB11</text>
 <text x="24.765" y="3.4925" size="0.8128" layer="21" font="vector" rot="SR0">PC5</text>
 <text x="22.225" y="3.4925" size="0.8128" layer="21" font="vector" rot="SR0">PC4</text>
 <text x="17.145" y="3.4925" size="0.8128" layer="21" font="vector" rot="SR0">PA6</text>
@@ -2280,7 +2277,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 </autorouter>
 <elements>
 <element name="U1" library="stm32" package="TQFP64" value="STM32F10XRXT6" x="21.59" y="15.24" smashed="yes">
-<attribute name="NAME" x="19.05" y="12.319" size="1.778" layer="25"/>
+<attribute name="NAME" x="22.86" y="11.684" size="1.778" layer="25"/>
 <attribute name="VALUE" x="17.526" y="13.4699" size="1.778" layer="27"/>
 </element>
 <element name="POT4" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="88.9" y="38.1"/>
@@ -2324,11 +2321,11 @@ We've spent an enormous amount of time creating and checking these footprints an
 <attribute name="VALUE" x="48.006" y="39.878" size="1.27" layer="27" ratio="10"/>
 </element>
 <element name="C801" library="resistor" package="PANASONIC_A" value="10u" x="53.975" y="38.735" smashed="yes" rot="R180">
-<attribute name="NAME" x="50.3275" y="40.385" size="1.016" layer="25" rot="R270"/>
+<attribute name="NAME" x="52.325" y="35.7225" size="1.016" layer="25"/>
 <attribute name="VALUE" x="55.625" y="41.56" size="1.016" layer="27" rot="R180"/>
 </element>
 <element name="C802" library="resistor" package="PANASONIC_A" value="10u" x="47.625" y="38.735" smashed="yes">
-<attribute name="NAME" x="51.2725" y="37.085" size="1.016" layer="25" rot="R90"/>
+<attribute name="NAME" x="45.975" y="35.7225" size="1.016" layer="25"/>
 <attribute name="VALUE" x="45.975" y="35.91" size="1.016" layer="27"/>
 </element>
 <element name="U$1" library="adafruit" package="CSTCR-G" value="8MHz" x="6.35" y="16.51" smashed="yes" rot="R90">
@@ -2385,61 +2382,191 @@ We've spent an enormous amount of time creating and checking these footprints an
 <element name="ZTT" library="Rebel" package="CSTCE_G_A" value="CERAMIC_RESONATOR" x="8.255" y="16.51" smashed="yes" rot="R270">
 <attribute name="NAME" x="9.085" y="19.41" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="U2" library="audioint" package="28-SSOP" value="WM8731" x="59.69" y="17.78"/>
-<element name="X1" library="audioint" package="HC49U/SMT" value="11.2896MHz" x="53.34" y="26.67" rot="R180"/>
-<element name="MIC" library="audioint" package="JMP/3P/SIP" value="" x="81.28" y="24.13" rot="R270"/>
-<element name="OUT" library="audioint" package="JMP/3P/SIP" value="" x="99.06" y="10.16" rot="R270"/>
-<element name="R703" library="resistor" package="R0603" value="100R" x="95.25" y="12.7" rot="R90"/>
-<element name="R702" library="resistor" package="R0603" value="100R" x="95.25" y="8.89" rot="R90"/>
-<element name="R701" library="resistor" package="R0603" value="47k" x="92.71" y="12.7" rot="R270"/>
-<element name="R700" library="resistor" package="R0603" value="47k" x="92.71" y="8.89" rot="R270"/>
-<element name="IN" library="audioint" package="JMP/3P/SIP" value="" x="99.06" y="17.78" rot="R270"/>
-<element name="R603" library="resistor" package="R0603" value="1K" x="83.82" y="16.51" rot="R270"/>
-<element name="R602" library="resistor" package="R0603" value="1K" x="83.82" y="20.32" rot="R90"/>
-<element name="R601" library="resistor" package="R0603" value="1M" x="85.09" y="20.32" rot="R90"/>
-<element name="R600" library="resistor" package="R0603" value="1M" x="85.09" y="16.51" rot="R270"/>
-<element name="C602" library="resistor" package="C0603" value="47pF" x="95.25" y="16.51" rot="R90"/>
-<element name="C603" library="resistor" package="C0603" value="47pF" x="95.25" y="20.32" rot="R270"/>
-<element name="C304" library="resistor" package="C0603" value="100n" x="54.61" y="10.16" rot="R270"/>
-<element name="C306" library="resistor" package="C0603" value="100n" x="52.07" y="22.86"/>
-<element name="C700" library="resistor" package="PANASONIC_A" value="10u" x="88.9" y="12.7" rot="R180"/>
-<element name="C701" library="resistor" package="PANASONIC_A" value="10u" x="88.9" y="8.89" rot="R180"/>
-<element name="C600" library="resistor" package="PANASONIC_A" value="0.1uF" x="88.9" y="16.51" rot="R180"/>
-<element name="C601" library="resistor" package="PANASONIC_A" value="0.1uF" x="88.9" y="20.32" rot="R180"/>
-<element name="C308" library="resistor" package="C1206" value="10u" x="69.85" y="25.4"/>
-<element name="C309" library="resistor" package="C0603" value="100n" x="64.77" y="24.13"/>
-<element name="C303" library="resistor" package="C0603" value="100n" x="65.405" y="9.8425" rot="R270"/>
-<element name="C307" library="resistor" package="C1206" value="10u" x="46.99" y="22.86" rot="R180"/>
-<element name="C305" library="resistor" package="C1206" value="10u" x="54.61" y="5.08" rot="R270"/>
+<element name="U2" library="audioint" package="28-SSOP" value="WM8731" x="59.69" y="17.78" smashed="yes">
+<attribute name="NAME" x="64.008" y="18.378" size="1.778" layer="25" ratio="10" rot="R180"/>
+<attribute name="VALUE" x="66.668" y="13.253" size="1.778" layer="27" ratio="10" rot="R90"/>
+</element>
+<element name="X1" library="audioint" package="HC49U/SMT" value="11.2896MHz" x="53.34" y="26.67" smashed="yes" rot="R180">
+<attribute name="NAME" x="54.483" y="26.67" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="59.563" y="31.75" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="MIC" library="audioint" package="JMP/3P/SIP" value="" x="80.645" y="24.13" smashed="yes" rot="R270">
+<attribute name="NAME" x="77.851" y="26.416" size="1.27" layer="25" ratio="10" rot="R270"/>
+<attribute name="VALUE" x="77.597" y="27.686" size="1.27" layer="27" ratio="10" rot="R270"/>
+</element>
+<element name="OUT" library="audioint" package="JMP/3P/SIP" value="" x="99.06" y="10.16" smashed="yes" rot="R270">
+<attribute name="NAME" x="100.711" y="13.716" size="1.27" layer="25" ratio="10" rot="R270"/>
+<attribute name="VALUE" x="96.012" y="13.716" size="1.27" layer="27" ratio="10" rot="R270"/>
+</element>
+<element name="R703" library="resistor" package="R0603" value="100R" x="95.25" y="12.7" smashed="yes" rot="R90">
+<attribute name="NAME" x="94.361" y="11.176" size="0.8128" layer="25" rot="R90"/>
+<attribute name="VALUE" x="97.282" y="11.811" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="R702" library="resistor" package="R0603" value="100R" x="95.25" y="8.89" smashed="yes" rot="R90">
+<attribute name="NAME" x="94.869" y="7.874" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="97.282" y="8.001" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="R701" library="resistor" package="R0603" value="47k" x="92.71" y="12.7" smashed="yes" rot="R270">
+<attribute name="NAME" x="91.821" y="11.176" size="0.8128" layer="25" rot="R90"/>
+<attribute name="VALUE" x="90.678" y="13.589" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="R700" library="resistor" package="R0603" value="47k" x="92.71" y="8.89" smashed="yes" rot="R270">
+<attribute name="NAME" x="92.329" y="7.874" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="90.678" y="9.779" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="IN" library="audioint" package="JMP/3P/SIP" value="" x="99.06" y="17.78" smashed="yes" rot="R270">
+<attribute name="NAME" x="100.711" y="21.336" size="1.27" layer="25" ratio="10" rot="R270"/>
+<attribute name="VALUE" x="96.012" y="21.336" size="1.27" layer="27" ratio="10" rot="R270"/>
+</element>
+<element name="R603" library="resistor" package="R0603" value="1K" x="83.185" y="16.51" smashed="yes" rot="R270">
+<attribute name="NAME" x="82.169" y="14.859" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="81.153" y="17.399" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="R602" library="resistor" package="R0603" value="1K" x="83.185" y="20.32" smashed="yes" rot="R90">
+<attribute name="NAME" x="83.566" y="21.971" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="85.217" y="19.431" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="R601" library="resistor" package="R0603" value="1M" x="85.09" y="20.32" smashed="yes" rot="R90">
+<attribute name="NAME" x="85.471" y="21.971" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="87.122" y="19.431" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="R600" library="resistor" package="R0603" value="1M" x="85.09" y="16.51" smashed="yes" rot="R270">
+<attribute name="NAME" x="84.074" y="14.859" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="83.058" y="17.399" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="C602" library="resistor" package="C0603" value="47pF" x="96.52" y="16.51" smashed="yes" rot="R90">
+<attribute name="NAME" x="95.758" y="14.986" size="0.8128" layer="25" rot="R90"/>
+<attribute name="VALUE" x="98.552" y="15.621" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="C603" library="resistor" package="C0603" value="47pF" x="96.52" y="20.32" smashed="yes" rot="R270">
+<attribute name="NAME" x="97.028" y="21.971" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="94.488" y="21.209" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="C304" library="resistor" package="C0603" value="100n" x="54.61" y="10.16" smashed="yes" rot="R270">
+<attribute name="NAME" x="55.372" y="11.684" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="52.578" y="11.049" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="C306" library="resistor" package="C0603" value="100n" x="52.07" y="22.86" smashed="yes">
+<attribute name="NAME" x="50.673" y="19.431" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="51.181" y="20.828" size="1.27" layer="27"/>
+</element>
+<element name="C700" library="resistor" package="PANASONIC_A" value="10u" x="88.9" y="12.7" smashed="yes" rot="R180">
+<attribute name="NAME" x="85.57" y="14.35" size="1.016" layer="25" rot="R270"/>
+<attribute name="VALUE" x="90.55" y="15.525" size="1.016" layer="27" rot="R180"/>
+</element>
+<element name="C701" library="resistor" package="PANASONIC_A" value="10u" x="88.9" y="8.89" smashed="yes" rot="R180">
+<attribute name="NAME" x="91.185" y="7.14" size="1.016" layer="25" rot="R180"/>
+<attribute name="VALUE" x="90.55" y="11.715" size="1.016" layer="27" rot="R180"/>
+</element>
+<element name="C600" library="resistor" package="PANASONIC_A" value="0.1uF" x="88.9" y="16.51" smashed="yes" rot="R180">
+<attribute name="NAME" x="85.57" y="18.795" size="1.016" layer="25" rot="R270"/>
+<attribute name="VALUE" x="90.55" y="19.335" size="1.016" layer="27" rot="R180"/>
+</element>
+<element name="C601" library="resistor" package="PANASONIC_A" value="0.1uF" x="88.9" y="20.32" smashed="yes" rot="R180">
+<attribute name="NAME" x="87.25" y="22.07" size="1.016" layer="25"/>
+<attribute name="VALUE" x="90.55" y="23.145" size="1.016" layer="27" rot="R180"/>
+</element>
+<element name="C308" library="resistor" package="C1206" value="10u" x="69.85" y="25.4" smashed="yes">
+<attribute name="NAME" x="67.31" y="26.543" size="1.27" layer="25"/>
+<attribute name="VALUE" x="68.58" y="22.987" size="1.27" layer="27"/>
+</element>
+<element name="C309" library="resistor" package="C0603" value="100n" x="64.77" y="24.13" smashed="yes">
+<attribute name="NAME" x="62.611" y="24.892" size="1.27" layer="25"/>
+<attribute name="VALUE" x="63.881" y="22.098" size="1.27" layer="27"/>
+</element>
+<element name="C303" library="resistor" package="C0603" value="100n" x="65.405" y="9.8425" smashed="yes" rot="R270">
+<attribute name="NAME" x="66.167" y="12.0015" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="63.373" y="10.7315" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="C307" library="resistor" package="C1206" value="10u" x="46.99" y="22.86" smashed="yes" rot="R180">
+<attribute name="NAME" x="44.577" y="19.685" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="48.26" y="25.273" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="C305" library="resistor" package="C1206" value="10u" x="54.61" y="5.08" smashed="yes" rot="R270">
+<attribute name="NAME" x="52.705" y="1.143" size="1.27" layer="25"/>
+<attribute name="VALUE" x="52.197" y="6.35" size="1.27" layer="27" rot="R270"/>
+</element>
 <element name="C302" library="resistor" package="C1206" value="10u" x="69.85" y="5.08" rot="R270"/>
-<element name="C301" library="resistor" package="C0603" value="100n" x="58.42" y="10.16" rot="R270"/>
-<element name="C300" library="resistor" package="C1206" value="10u" x="58.42" y="5.08" rot="R270"/>
-<element name="C311" library="resistor" package="C0603" value="16pF" x="50.8" y="30.48"/>
-<element name="C310" library="resistor" package="C0603" value="16pF" x="54.61" y="30.48" rot="R180"/>
+<element name="C301" library="resistor" package="C0603" value="100n" x="58.42" y="10.16" smashed="yes" rot="R270">
+<attribute name="NAME" x="59.182" y="11.684" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="56.388" y="11.049" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="C300" library="resistor" package="C1206" value="10u" x="58.42" y="5.08" smashed="yes" rot="R270">
+<attribute name="NAME" x="57.785" y="1.143" size="1.27" layer="25"/>
+<attribute name="VALUE" x="56.007" y="6.35" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="C311" library="resistor" package="C0603" value="16pF" x="50.8" y="30.48" smashed="yes">
+<attribute name="NAME" x="48.006" y="31.242" size="1.27" layer="25"/>
+<attribute name="VALUE" x="49.911" y="28.448" size="1.27" layer="27"/>
+</element>
+<element name="C310" library="resistor" package="C0603" value="16pF" x="54.61" y="30.48" smashed="yes" rot="R180">
+<attribute name="NAME" x="53.721" y="31.242" size="1.27" layer="25"/>
+<attribute name="VALUE" x="55.499" y="32.512" size="1.27" layer="27" rot="R180"/>
+</element>
 <element name="R4" library="resistor" package="R0603" value="22R" x="24.13" y="40.3225" rot="R270"/>
 <element name="R5" library="resistor" package="R0603" value="22R" x="26.9875" y="40.3225" rot="R270"/>
 <element name="HP" library="audioint" package="JMP/3P/SIP" value="" x="62.23" y="6.35" rot="R90"/>
-<element name="R6" library="resistor" package="R0603" value="10R" x="65.405" y="5.08" rot="R90"/>
-<element name="C13" library="resistor" package="C0603" value="220nF" x="67.31" y="5.08" rot="R270"/>
-<element name="IC4" library="linear" package="SO08" value="TL072D" x="76.2" y="19.05"/>
-<element name="JP5" library="SparkFun" package="1X02" value="" x="67.31" y="19.05" rot="R90"/>
-<element name="JP6" library="SparkFun" package="1X02" value="" x="81.28" y="19.05" rot="R270"/>
-<element name="R9" library="resistor" package="R0603" value="1k" x="71.12" y="16.8275" rot="R270"/>
-<element name="R10" library="resistor" package="R0603" value="1k" x="71.12" y="21.59" rot="R90"/>
-<element name="L2" library="Rebel" package="0603" value="INDUCTOR" x="93.98" y="16.51" rot="R270"/>
-<element name="L3" library="Rebel" package="0603" value="INDUCTOR" x="93.98" y="20.32" rot="R90"/>
-<element name="R7" library="resistor" package="R0603" value="1M" x="92.71" y="16.51" rot="R90"/>
-<element name="R8" library="resistor" package="R0603" value="1M" x="92.71" y="20.32" rot="R270"/>
-<element name="JP7" library="SparkFun" package="1X02" value="" x="67.31" y="16.51" rot="R270"/>
+<element name="R6" library="resistor" package="R0603" value="10R" x="65.405" y="5.08" smashed="yes" rot="R90">
+<attribute name="NAME" x="65.024" y="4.064" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="67.437" y="4.191" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="C13" library="resistor" package="C0603" value="220nF" x="67.31" y="5.08" smashed="yes" rot="R270">
+<attribute name="NAME" x="66.802" y="4.064" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="65.278" y="5.969" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="IC2" library="linear" package="SO08" value="TL072D" x="76.2" y="19.05" smashed="yes">
+<attribute name="NAME" x="78.105" y="19.558" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="80.137" y="17.145" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="JP5" library="SparkFun" package="1X02" value="" x="67.31" y="19.05" smashed="yes" rot="R90">
+<attribute name="VALUE" x="70.485" y="17.78" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="JP6" library="SparkFun" package="1X02" value="" x="80.645" y="19.05" smashed="yes" rot="R270">
+<attribute name="VALUE" x="77.47" y="20.32" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="R9" library="resistor" package="R0603" value="1k" x="71.12" y="16.8275" smashed="yes" rot="R270">
+<attribute name="NAME" x="72.009" y="17.7165" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="69.088" y="17.7165" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="R10" library="resistor" package="R0603" value="1k" x="71.12" y="21.59" smashed="yes" rot="R90">
+<attribute name="NAME" x="70.231" y="20.701" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="73.152" y="20.701" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="L2" library="Rebel" package="0603" value="INDUCTOR" x="94.615" y="16.51" smashed="yes" rot="R270">
+<attribute name="NAME" x="93.853" y="14.986" size="0.8128" layer="25" rot="R90"/>
+</element>
+<element name="L3" library="Rebel" package="0603" value="INDUCTOR" x="94.615" y="20.32" smashed="yes" rot="R90">
+<attribute name="NAME" x="95.123" y="21.971" size="1.27" layer="25" rot="R90"/>
+</element>
+<element name="R7" library="resistor" package="R0603" value="1M" x="92.71" y="16.51" smashed="yes" rot="R90">
+<attribute name="NAME" x="91.821" y="14.986" size="0.8128" layer="25" rot="R90"/>
+<attribute name="VALUE" x="94.742" y="15.621" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="R8" library="resistor" package="R0603" value="1M" x="92.71" y="20.32" smashed="yes" rot="R270">
+<attribute name="NAME" x="93.091" y="21.971" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="90.678" y="21.209" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="JP7" library="SparkFun" package="1X02" value="" x="67.31" y="16.51" smashed="yes" rot="R270">
+<attribute name="VALUE" x="64.135" y="17.78" size="1.27" layer="27" rot="R270"/>
+</element>
 <element name="J1" library="SparkFun" package="POWER_JACK_PTH" value="" x="76.2" y="53.34" rot="R180"/>
 <element name="JP8" library="SparkFun" package="1X02" value="" x="73.66" y="6.35"/>
 <element name="JP9" library="SparkFun" package="1X02" value="" x="73.66" y="35.56" rot="R180"/>
 <element name="LED1" library="SparkFun" package="LED-1206" value="" x="50.8" y="3.81" rot="R270"/>
 <element name="LED2" library="SparkFun" package="LED-1206" value="" x="46.99" y="3.81" rot="R270"/>
 <element name="LED3" library="Rebel" package="LED3MM" value="" x="50.8" y="12.7"/>
-<element name="R2" library="resistor" package="R0603" value="1k" x="50.8" y="8.89" rot="R270"/>
-<element name="R3" library="resistor" package="R0603" value="1k" x="46.99" y="8.89" rot="R270"/>
-<element name="R11" library="resistor" package="R0603" value="1k" x="43.18" y="8.89" rot="R90"/>
+<element name="R11" library="resistor" package="R0603" value="1k" x="50.8" y="8.89" smashed="yes" rot="R270">
+<attribute name="NAME" x="51.689" y="10.414" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="48.768" y="9.779" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="R12" library="resistor" package="R0603" value="1k" x="46.99" y="8.89" smashed="yes" rot="R270">
+<attribute name="NAME" x="47.879" y="10.414" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="44.958" y="9.779" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="R13" library="resistor" package="R0603" value="1k" x="43.18" y="8.89" smashed="yes" rot="R90">
+<attribute name="NAME" x="44.069" y="10.414" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="45.212" y="8.001" size="1.27" layer="27" rot="R90"/>
+</element>
 <element name="JP10" library="SparkFun" package="1X06" value="" x="2.54" y="25.4" rot="R90"/>
 <element name="JP11" library="SparkFun" package="1X02" value="" x="2.54" y="41.91"/>
 <element name="JP2" library="SparkFun" package="1X10" value="M10&quot;" x="33.655" y="1.905" rot="R180"/>
@@ -2522,7 +2649,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <via x="53.6575" y="21.2725" extent="1-16" drill="0.6"/>
 <via x="15.24" y="20.6375" extent="1-16" drill="0.6"/>
 <contactref element="C13" pad="2"/>
-<contactref element="IC4" pad="4"/>
+<contactref element="IC2" pad="4"/>
 <via x="64.77" y="22.86" extent="1-16" drill="0.6"/>
 <contactref element="U2" pad="P$11"/>
 <contactref element="C300" pad="2"/>
@@ -2554,10 +2681,10 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="15.89" y1="13.49" x2="16.99" y2="13.49" width="0.3048" layer="1"/>
 <wire x1="16.99" y1="13.49" x2="17.78" y2="12.7" width="0.3048" layer="1"/>
 <via x="16.1925" y="8.5725" extent="1-16" drill="0.6"/>
-<via x="47.625" y="30.7975" extent="1-16" drill="0.6"/>
+<via x="43.815" y="30.7975" extent="1-16" drill="0.6"/>
 <via x="54.2925" y="48.895" extent="1-16" drill="0.6"/>
 <via x="21.9075" y="17.4625" extent="1-16" drill="0.6"/>
-<via x="28.2575" y="32.0675" extent="1-16" drill="0.6"/>
+<via x="13.0175" y="12.3825" extent="1-16" drill="0.6"/>
 <via x="69.85" y="19.05" extent="1-16" drill="0.6"/>
 <via x="24.4475" y="14.9225" extent="1-16" drill="0.6"/>
 <via x="24.4475" y="32.0675" extent="1-16" drill="0.6"/>
@@ -2735,10 +2862,9 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="63.975" y1="28.575" x2="66" y2="30.6" width="0.6096" layer="1"/>
 <wire x1="40.6" y1="30.6" x2="40.52" y2="30.6" width="0.6096" layer="1"/>
 <wire x1="40.52" y1="30.6" x2="38.735" y2="32.385" width="0.6096" layer="1"/>
-<wire x1="38.735" y1="32.385" x2="34.925" y2="32.385" width="0.6096" layer="1"/>
-<wire x1="34.925" y1="32.385" x2="33.02" y2="30.48" width="0.6096" layer="1"/>
-<via x="33.02" y="30.48" extent="1-16" drill="0.6"/>
-<wire x1="33.02" y1="30.48" x2="33.02" y2="21.2725" width="0.6096" layer="16"/>
+<wire x1="38.735" y1="32.385" x2="33.02" y2="32.385" width="0.6096" layer="1"/>
+<via x="33.02" y="32.385" extent="1-16" drill="0.6"/>
+<wire x1="33.02" y1="32.385" x2="33.02" y2="21.2725" width="0.6096" layer="16"/>
 <via x="33.02" y="21.2725" extent="1-16" drill="0.6"/>
 <wire x1="33.02" y1="21.2725" x2="52.07" y2="21.2725" width="0.6096" layer="1"/>
 <wire x1="15.2" y1="30.6" x2="15.2" y2="22.82" width="0.6096" layer="16"/>
@@ -2755,7 +2881,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="59.055" y1="6.35" x2="60.325" y2="5.08" width="0.6096" layer="1"/>
 <wire x1="60.325" y1="5.08" x2="60.325" y2="3.175" width="0.6096" layer="1"/>
 <wire x1="60.325" y1="3.175" x2="61.595" y2="1.905" width="0.6096" layer="1"/>
-<contactref element="R2" pad="1"/>
+<contactref element="R11" pad="1"/>
 <wire x1="18.84" y1="9.54" x2="18.84" y2="10.585" width="0.3048" layer="1"/>
 <wire x1="19.475" y1="11.1125" x2="19.3675" y2="11.1125" width="0.3048" layer="1"/>
 <wire x1="19.3675" y1="11.1125" x2="18.84" y2="10.585" width="0.3048" layer="1"/>
@@ -2863,7 +2989,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="24.765" y1="4.7625" x2="28.2575" y2="4.7625" width="0.3048" layer="1"/>
 <contactref element="JP2" pad="2"/>
 <wire x1="31.115" y1="1.905" x2="28.2575" y2="4.7625" width="0.3048" layer="1"/>
-<contactref element="R11" pad="1"/>
+<contactref element="R13" pad="1"/>
 <wire x1="43.18" y1="8.04" x2="43.18" y2="6.35" width="0.3048" layer="1"/>
 <wire x1="43.18" y1="6.35" x2="41.5925" y2="4.7625" width="0.3048" layer="1"/>
 <via x="33.9725" y="4.7625" extent="1-16" drill="0.6"/>
@@ -2877,7 +3003,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="25.0825" y1="5.3975" x2="30.1625" y2="5.3975" width="0.3048" layer="1"/>
 <contactref element="JP2" pad="1"/>
 <wire x1="33.655" y1="1.905" x2="30.1625" y2="5.3975" width="0.3048" layer="1"/>
-<contactref element="R3" pad="1"/>
+<contactref element="R12" pad="1"/>
 <wire x1="33.655" y1="1.905" x2="42.545" y2="1.905" width="0.3048" layer="1"/>
 <wire x1="42.545" y1="1.905" x2="45.4025" y2="4.7625" width="0.3048" layer="1"/>
 <wire x1="45.4025" y1="4.7625" x2="45.4025" y2="8.1525" width="0.3048" layer="1"/>
@@ -3070,16 +3196,16 @@ We've spent an enormous amount of time creating and checking these footprints an
 <contactref element="MIC" pad="3"/>
 <wire x1="62.29" y1="21.5322" x2="62.29" y2="25.1425" width="0.4064" layer="1"/>
 <wire x1="62.29" y1="25.1425" x2="63.8175" y2="26.67" width="0.4064" layer="1"/>
-<wire x1="63.8175" y1="26.67" x2="76.2" y2="26.67" width="0.4064" layer="1"/>
-<wire x1="76.2" y1="26.67" x2="81.28" y2="21.59" width="0.4064" layer="1"/>
+<wire x1="63.8175" y1="26.67" x2="75.565" y2="26.67" width="0.4064" layer="1"/>
+<wire x1="75.565" y1="26.67" x2="80.645" y2="21.59" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$43">
 <contactref element="U2" pad="P$18"/>
 <contactref element="MIC" pad="1"/>
 <wire x1="61.64" y1="21.5322" x2="61.64" y2="26.08" width="0.4064" layer="1"/>
 <wire x1="61.64" y1="26.08" x2="63.1825" y2="27.6225" width="0.4064" layer="1"/>
-<wire x1="63.1825" y1="27.6225" x2="80.3275" y2="27.6225" width="0.4064" layer="1"/>
-<wire x1="80.3275" y1="27.6225" x2="81.28" y2="26.67" width="0.4064" layer="1"/>
+<wire x1="63.1825" y1="27.6225" x2="79.6925" y2="27.6225" width="0.4064" layer="1"/>
+<wire x1="79.6925" y1="27.6225" x2="80.645" y2="26.67" width="0.4064" layer="1"/>
 </signal>
 <signal name="CLKOUT">
 <contactref element="U2" pad="P$2"/>
@@ -3283,13 +3409,13 @@ We've spent an enormous amount of time creating and checking these footprints an
 <signal name="N$37">
 <contactref element="R603" pad="1"/>
 <contactref element="JP6" pad="2"/>
-<contactref element="IC4" pad="3"/>
+<contactref element="IC2" pad="3"/>
 <wire x1="76.835" y1="16.45" x2="76.835" y2="17.78" width="0.4064" layer="1"/>
 <wire x1="76.835" y1="17.78" x2="77.47" y2="18.415" width="0.4064" layer="1"/>
-<wire x1="77.47" y1="18.415" x2="79.375" y2="18.415" width="0.4064" layer="1"/>
-<wire x1="79.375" y1="18.415" x2="81.28" y2="16.51" width="0.4064" layer="1"/>
-<wire x1="83.82" y1="17.36" x2="82.13" y2="17.36" width="0.4064" layer="1"/>
-<wire x1="82.13" y1="17.36" x2="81.28" y2="16.51" width="0.4064" layer="1"/>
+<wire x1="77.47" y1="18.415" x2="78.74" y2="18.415" width="0.4064" layer="1"/>
+<wire x1="78.74" y1="18.415" x2="80.645" y2="16.51" width="0.4064" layer="1"/>
+<wire x1="83.185" y1="17.36" x2="81.495" y2="17.36" width="0.4064" layer="1"/>
+<wire x1="81.495" y1="17.36" x2="80.645" y2="16.51" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$44">
 <contactref element="U2" pad="P$10"/>
@@ -3376,7 +3502,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <contactref element="U2" pad="P$14"/>
 <contactref element="C303" pad="1"/>
 <contactref element="C302" pad="1"/>
-<contactref element="IC4" pad="8"/>
+<contactref element="IC2" pad="8"/>
 <contactref element="JP8" pad="1"/>
 <wire x1="73.085" y1="21.65" x2="73.025" y2="21.59" width="0.8128" layer="1"/>
 <via x="73.025" y="21.59" extent="1-16" drill="0.6"/>
@@ -3398,31 +3524,31 @@ We've spent an enormous amount of time creating and checking these footprints an
 <contactref element="IN" pad="1"/>
 <contactref element="L3" pad="2"/>
 <contactref element="C603" pad="1"/>
-<wire x1="95.25" y1="21.17" x2="93.98" y2="21.17" width="0.4064" layer="1"/>
-<wire x1="95.25" y1="21.17" x2="98.21" y2="21.17" width="0.4064" layer="1"/>
+<wire x1="96.52" y1="21.17" x2="94.615" y2="21.17" width="0.4064" layer="1"/>
+<wire x1="96.52" y1="21.17" x2="98.21" y2="21.17" width="0.4064" layer="1"/>
 <wire x1="98.21" y1="21.17" x2="99.06" y2="20.32" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$34">
 <contactref element="IN" pad="3"/>
 <contactref element="L2" pad="2"/>
 <contactref element="C602" pad="1"/>
-<wire x1="93.98" y1="15.66" x2="95.25" y2="15.66" width="0.4064" layer="1"/>
-<wire x1="95.25" y1="15.66" x2="98.64" y2="15.66" width="0.4064" layer="1"/>
+<wire x1="94.615" y1="15.66" x2="96.52" y2="15.66" width="0.4064" layer="1"/>
+<wire x1="96.52" y1="15.66" x2="98.64" y2="15.66" width="0.4064" layer="1"/>
 <wire x1="98.64" y1="15.66" x2="99.06" y2="15.24" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$38">
 <contactref element="R602" pad="1"/>
 <contactref element="JP6" pad="1"/>
-<contactref element="IC4" pad="5"/>
-<wire x1="78.105" y1="21.65" x2="78.68" y2="21.65" width="0.4064" layer="1"/>
-<wire x1="78.68" y1="21.65" x2="81.28" y2="19.05" width="0.4064" layer="1"/>
-<wire x1="83.82" y1="19.47" x2="81.7" y2="19.47" width="0.4064" layer="1"/>
-<wire x1="81.7" y1="19.47" x2="81.28" y2="19.05" width="0.4064" layer="1"/>
+<contactref element="IC2" pad="5"/>
+<wire x1="78.105" y1="21.65" x2="78.045" y2="21.65" width="0.4064" layer="1"/>
+<wire x1="78.045" y1="21.65" x2="80.645" y2="19.05" width="0.4064" layer="1"/>
+<wire x1="83.185" y1="19.47" x2="81.065" y2="19.47" width="0.4064" layer="1"/>
+<wire x1="81.065" y1="19.47" x2="80.645" y2="19.05" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$6">
 <contactref element="R10" pad="1"/>
-<contactref element="IC4" pad="6"/>
-<contactref element="IC4" pad="7"/>
+<contactref element="IC2" pad="6"/>
+<contactref element="IC2" pad="7"/>
 <wire x1="75.565" y1="21.65" x2="76.835" y2="21.65" width="0.4064" layer="1"/>
 <wire x1="71.12" y1="20.74" x2="71.12" y2="20.6375" width="0.4064" layer="1"/>
 <wire x1="71.12" y1="20.6375" x2="72.39" y2="19.3675" width="0.4064" layer="1"/>
@@ -3432,8 +3558,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 </signal>
 <signal name="N$12">
 <contactref element="R9" pad="1"/>
-<contactref element="IC4" pad="1"/>
-<contactref element="IC4" pad="2"/>
+<contactref element="IC2" pad="1"/>
+<contactref element="IC2" pad="2"/>
 <wire x1="74.235" y1="16.51" x2="74.295" y2="16.45" width="0.3048" layer="1"/>
 <wire x1="74.295" y1="16.45" x2="75.565" y2="16.45" width="0.4064" layer="1"/>
 <wire x1="71.12" y1="17.6775" x2="73.7625" y2="17.6775" width="0.4064" layer="1"/>
@@ -3446,7 +3572,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="91.05" y1="17.36" x2="90.2" y2="16.51" width="0.4064" layer="1"/>
 <contactref element="R7" pad="2"/>
 <wire x1="91.05" y1="17.36" x2="92.71" y2="17.36" width="0.4064" layer="1"/>
-<wire x1="92.71" y1="17.36" x2="93.98" y2="17.36" width="0.4064" layer="1"/>
+<wire x1="92.71" y1="17.36" x2="94.615" y2="17.36" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$3">
 <contactref element="L3" pad="1"/>
@@ -3454,13 +3580,13 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="91.05" y1="19.47" x2="90.2" y2="20.32" width="0.4064" layer="1"/>
 <contactref element="R8" pad="2"/>
 <wire x1="91.05" y1="19.47" x2="92.71" y2="19.47" width="0.4064" layer="1"/>
-<wire x1="92.71" y1="19.47" x2="93.98" y2="19.47" width="0.4064" layer="1"/>
+<wire x1="92.71" y1="19.47" x2="94.615" y2="19.47" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$7">
 <contactref element="C600" pad="+"/>
 <contactref element="R600" pad="2"/>
 <contactref element="R603" pad="2"/>
-<wire x1="83.82" y1="15.66" x2="85.09" y2="15.66" width="0.4064" layer="1"/>
+<wire x1="83.185" y1="15.66" x2="85.09" y2="15.66" width="0.4064" layer="1"/>
 <wire x1="85.09" y1="15.66" x2="86.75" y2="15.66" width="0.4064" layer="1"/>
 <wire x1="86.75" y1="15.66" x2="87.6" y2="16.51" width="0.4064" layer="1"/>
 </signal>
@@ -3470,7 +3596,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <contactref element="R601" pad="2"/>
 <wire x1="86.75" y1="21.17" x2="87.6" y2="20.32" width="0.4064" layer="1"/>
 <wire x1="86.75" y1="21.17" x2="85.09" y2="21.17" width="0.4064" layer="1"/>
-<wire x1="85.09" y1="21.17" x2="83.82" y2="21.17" width="0.4064" layer="1"/>
+<wire x1="85.09" y1="21.17" x2="83.185" y2="21.17" width="0.4064" layer="1"/>
 </signal>
 <signal name="VCC/2">
 <contactref element="U2" pad="P$16"/>
@@ -3496,17 +3622,17 @@ We've spent an enormous amount of time creating and checking these footprints an
 </signal>
 <signal name="N$10">
 <contactref element="LED1" pad="A"/>
-<contactref element="R2" pad="2"/>
+<contactref element="R11" pad="2"/>
 <wire x1="50.8" y1="5.31" x2="50.8" y2="8.04" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$11">
 <contactref element="LED2" pad="A"/>
-<contactref element="R3" pad="2"/>
+<contactref element="R12" pad="2"/>
 <wire x1="46.99" y1="5.31" x2="46.99" y2="8.04" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$13">
 <contactref element="LED3" pad="A"/>
-<contactref element="R11" pad="2"/>
+<contactref element="R13" pad="2"/>
 <wire x1="43.18" y1="9.74" x2="43.18" y2="11.43" width="0.4064" layer="1"/>
 <wire x1="43.18" y1="11.43" x2="44.45" y2="12.7" width="0.4064" layer="1"/>
 <wire x1="44.45" y1="12.7" x2="49.53" y2="12.7" width="0.4064" layer="1"/>
