@@ -16664,16 +16664,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="-3" y1="5.6" x2="-2.3" y2="5.3" width="0.08" layer="51"/>
 <wire x1="-2.3" y1="5.3" x2="-2.4" y2="5.5" width="0.08" layer="51"/>
 <wire x1="-2.3" y1="5.3" x2="-2.5" y2="5.2" width="0.08" layer="51"/>
-<smd name="P$8" x="0" y="4" dx="2.2" dy="1.9" layer="1" rot="R90"/>
-<smd name="P$9" x="0" y="-4" dx="2.2" dy="1.9" layer="1" rot="R90"/>
 <wire x1="2.9" y1="4" x2="2.9" y2="-4" width="0.2032" layer="51"/>
 <wire x1="-2.7" y1="4" x2="-0.6" y2="4" width="0.2032" layer="51"/>
 <wire x1="-0.6" y1="4" x2="0.6" y2="4" width="0.2032" layer="51"/>
 <wire x1="0.6" y1="4" x2="2.9" y2="4" width="0.2032" layer="51"/>
 <wire x1="-2.7" y1="-4" x2="2.9" y2="-4" width="0.2032" layer="51"/>
 <wire x1="1.2" y1="4.1" x2="3" y2="4.1" width="0.254" layer="21"/>
-<wire x1="3" y1="4.1" x2="3" y2="1.8" width="0.254" layer="21"/>
-<wire x1="3" y1="-1.8" x2="3" y2="-4.1" width="0.254" layer="21"/>
+<wire x1="3" y1="4.1" x2="3" y2="3.07" width="0.254" layer="21"/>
+<wire x1="3" y1="-3.07" x2="3" y2="-4.1" width="0.254" layer="21"/>
 <wire x1="3" y1="-4.1" x2="1.2" y2="-4.1" width="0.254" layer="21"/>
 <wire x1="-1.2" y1="-4.1" x2="-1.9" y2="-4.1" width="0.254" layer="21"/>
 <wire x1="-1.2" y1="4.1" x2="-1.9" y2="4.1" width="0.254" layer="21"/>
@@ -16685,6 +16683,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="-0.6" y1="-4.6" x2="-0.6" y2="-4" width="0.2032" layer="51"/>
 <text x="-1.27" y="5.969" size="0.4064" layer="25">&gt;NAME</text>
 <text x="-1.27" y="5.461" size="0.4064" layer="27">&gt;VALUE</text>
+<hole x="0" y="3.6" drill="1.4"/>
+<hole x="0" y="-3.6" drill="1.4"/>
+<hole x="2.9" y="2.425" drill="0.8"/>
+<hole x="2.9" y="-2.425" drill="0.8"/>
+<rectangle x1="-0.95" y1="2.6" x2="0.95" y2="4.9" layer="1"/>
+<rectangle x1="-0.95" y1="-4.9" x2="0.95" y2="-2.6" layer="1"/>
+<rectangle x1="-0.95" y1="2.6" x2="0.95" y2="4.9" layer="29"/>
+<rectangle x1="-0.95" y1="-4.9" x2="0.95" y2="-2.6" layer="29"/>
 </package>
 </packages>
 <symbols>
