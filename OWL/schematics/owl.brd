@@ -119,9 +119,9 @@
 <board>
 <plain>
 <wire x1="1.054" y1="0.4" x2="101.054" y2="0.4" width="0.0254" layer="20"/>
-<wire x1="101.054" y1="0.4" x2="101.054" y2="50.4" width="0.0254" layer="20"/>
-<wire x1="101.054" y1="50.4" x2="1.054" y2="50.4" width="0.0254" layer="20"/>
-<wire x1="1.054" y1="50.4" x2="1.054" y2="0.4" width="0.0254" layer="20"/>
+<wire x1="101.054" y1="0.4" x2="101.054" y2="49.13" width="0.0254" layer="20"/>
+<wire x1="101.054" y1="49.13" x2="1.054" y2="49.13" width="0.0254" layer="20"/>
+<wire x1="1.054" y1="49.13" x2="1.054" y2="0.4" width="0.0254" layer="20"/>
 <text x="73.66" y="1.27" size="1.9304" layer="21" font="vector">Rebel Technology</text>
 <text x="24.765" y="3.4925" size="0.8128" layer="21" font="vector" rot="SR0">PC5</text>
 <text x="22.225" y="3.4925" size="0.8128" layer="21" font="vector" rot="SR0">PC4</text>
@@ -2598,8 +2598,16 @@ We've spent an enormous amount of time creating and checking these footprints an
 <polygon width="0.3048" layer="16">
 <vertex x="0" y="0"/>
 <vertex x="0" y="50.8"/>
+<vertex x="58.42" y="50.8"/>
+<vertex x="58.42" y="20.32"/>
+<vertex x="59.055" y="20.32"/>
+<vertex x="59.055" y="50.8"/>
 <vertex x="101.6" y="50.8"/>
 <vertex x="101.6" y="0"/>
+<vertex x="60.325" y="0"/>
+<vertex x="60.325" y="15.24"/>
+<vertex x="59.69" y="15.24"/>
+<vertex x="59.69" y="0"/>
 </polygon>
 <contactref element="POT1" pad="P$5"/>
 <contactref element="POT1" pad="P$6"/>
@@ -2639,8 +2647,16 @@ We've spent an enormous amount of time creating and checking these footprints an
 <polygon width="0.4064" layer="1">
 <vertex x="0" y="50.8"/>
 <vertex x="0" y="0"/>
+<vertex x="59.69" y="0"/>
+<vertex x="59.69" y="15.24"/>
+<vertex x="60.325" y="15.24"/>
+<vertex x="60.325" y="0"/>
 <vertex x="101.6" y="0"/>
 <vertex x="101.6" y="50.8"/>
+<vertex x="59.055" y="50.8"/>
+<vertex x="59.055" y="20.32"/>
+<vertex x="58.42" y="20.32"/>
+<vertex x="58.42" y="50.8"/>
 </polygon>
 <contactref element="HP" pad="2"/>
 <via x="56.515" y="12.065" extent="1-16" drill="0.6"/>
@@ -2689,6 +2705,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <via x="24.4475" y="14.9225" extent="1-16" drill="0.6"/>
 <via x="24.4475" y="32.0675" extent="1-16" drill="0.6"/>
 <contactref element="U3" pad="GND"/>
+<via x="58.42" y="8.255" extent="1-16" drill="0.6"/>
 </signal>
 <signal name="+5V">
 <contactref element="IC1" pad="3"/>
