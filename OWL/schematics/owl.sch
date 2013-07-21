@@ -19956,7 +19956,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <junction x="-12.7" y="-132.08"/>
 </segment>
 </net>
-<net name="N$25" class="0">
+<net name="VDDA" class="0">
 <segment>
 <pinref part="L3" gate="G$1" pin="1"/>
 <pinref part="C19" gate="G$1" pin="1"/>
