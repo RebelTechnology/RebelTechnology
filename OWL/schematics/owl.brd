@@ -4667,6 +4667,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="36.83" y1="57.15" x2="36.195" y2="57.15" width="0.3048" layer="1"/>
 <wire x1="36.195" y1="57.15" x2="35.56" y2="57.785" width="0.3048" layer="1"/>
 <wire x1="35.56" y1="57.785" x2="35.56" y2="59.055" width="0.3048" layer="1"/>
+<contactref element="R10" pad="1"/>
+<wire x1="78.105" y1="2.325" x2="69.965" y2="49.485" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="PE1">
 <contactref element="IC3" pad="40"/>
@@ -4963,9 +4965,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 </signal>
 <signal name="N$6">
 <contactref element="U4" pad="49"/>
-</signal>
-<signal name="BOOT1">
-<contactref element="R10" pad="1"/>
 </signal>
 <signal name="PG9">
 <contactref element="U4" pad="124"/>
