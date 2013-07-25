@@ -121,10 +121,10 @@
 </layers>
 <board>
 <plain>
-<wire x1="0" y1="0" x2="60" y2="0" width="0.0254" layer="20"/>
-<wire x1="60" y1="0" x2="60" y2="57" width="0.0254" layer="20"/>
-<wire x1="60" y1="57" x2="0" y2="57" width="0.0254" layer="20"/>
-<wire x1="0" y1="57" x2="0" y2="0" width="0.0254" layer="20"/>
+<wire x1="0" y1="0.254" x2="60" y2="0.254" width="0.0254" layer="20"/>
+<wire x1="60" y1="0.254" x2="60" y2="56.515" width="0.0254" layer="20"/>
+<wire x1="60" y1="56.515" x2="0" y2="56.515" width="0.0254" layer="20"/>
+<wire x1="0" y1="56.515" x2="0" y2="0.254" width="0.0254" layer="20"/>
 <text x="59.055" y="10.16" size="1.9304" layer="21" font="vector" rot="R90">Rebel Technology</text>
 <text x="7.62" y="7.9375" size="0.8128" layer="21" font="vector" rot="SR0">PC5</text>
 <text x="5.08" y="14.2875" size="0.8128" layer="21" font="vector" rot="SR0">PC4</text>
@@ -140,6 +140,7 @@
 <text x="12.7" y="4.1275" size="1.016" layer="21" font="vector" rot="SR0">5v</text>
 <text x="14.605" y="4.1275" size="1.016" layer="21" font="vector" rot="SR0">gnd</text>
 <text x="17.78" y="4.1275" size="1.016" layer="21" font="vector" rot="SR0">3v3</text>
+<dimension x1="0" y1="0.254" x2="0" y2="56.515" x3="-3.175" y3="28.3845" textsize="1.778" textratio="2" layer="51" width="0.1" visible="yes"/>
 </plain>
 <libraries>
 <library name="resistor">
@@ -2850,14 +2851,14 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 </pass>
 </autorouter>
 <elements>
-<element name="SWD" library="SparkFun" package="1X06" value="" x="38.1" y="55.245" rot="R180"/>
+<element name="SWD" library="SparkFun" package="1X06" value="" x="36.83" y="55.245" rot="R180"/>
 <element name="C5" library="resistor" package="C0603" value="100n" x="20.32" y="22.86" smashed="yes" rot="R90">
 <attribute name="NAME" x="20.828" y="24.511" size="1.016" layer="25" rot="R90"/>
 <attribute name="VALUE" x="22.352" y="21.971" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="C6" library="resistor" package="C0603" value="100n" x="19.685" y="50.165" smashed="yes">
-<attribute name="NAME" x="21.336" y="49.657" size="1.016" layer="25"/>
-<attribute name="VALUE" x="18.796" y="48.133" size="1.27" layer="27"/>
+<element name="C6" library="resistor" package="C0603" value="100n" x="20.32" y="50.165" smashed="yes">
+<attribute name="NAME" x="21.971" y="49.657" size="1.016" layer="25"/>
+<attribute name="VALUE" x="19.431" y="48.133" size="1.27" layer="27"/>
 </element>
 <element name="C1" library="resistor" package="C0603" value="1u" x="12.7" y="22.225" smashed="yes" rot="R270">
 <attribute name="NAME" x="12.192" y="20.8915" size="1.016" layer="25" rot="R270"/>
@@ -2913,9 +2914,9 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <element name="C23" library="resistor" package="C0603" value="20pF" x="3.81" y="26.035" rot="R270"/>
 <element name="R9" library="resistor" package="R0603" value="10K" x="13.97" y="51.435"/>
 <element name="IC3" library="Rebel" package="TSOP44-II" value="IS61WV51216BLL-10TLI" x="49.2125" y="36.83" rot="R270"/>
-<element name="R10" library="resistor" package="R0603" value="10K" x="20.32" y="55.88" rot="R180"/>
+<element name="R10" library="resistor" package="R0603" value="10K" x="19.685" y="54.61" rot="R180"/>
 <element name="C7" library="resistor" package="C0603" value="100n" x="56.8325" y="36.83" rot="R90"/>
-<element name="C8" library="resistor" package="C0603" value="100n" x="40.64" y="36.195" rot="R270"/>
+<element name="C8" library="resistor" package="C0603" value="100n" x="40.9575" y="36.195" rot="R270"/>
 <element name="C3" library="resistor" package="C0603" value="100n" x="31.75" y="40.005"/>
 <element name="C4" library="resistor" package="C0603" value="100n" x="15.24" y="22.225" rot="R90"/>
 <element name="C11" library="resistor" package="C0603" value="100n" x="8.255" y="49.53" rot="R180"/>
@@ -2996,17 +2997,14 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="30.06" y1="24.13" x2="31.115" y2="24.13" width="0.3048" layer="1"/>
 <wire x1="30.06" y1="25.7175" x2="30.06" y2="24.13" width="0.3048" layer="1"/>
 <via x="31.115" y="24.13" extent="1-16" drill="0.5"/>
-<wire x1="41.89" y1="36.43" x2="40.64" y2="35.345" width="0.4064" layer="1"/>
 <wire x1="43.6125" y1="36.43" x2="44.5325" y2="36.43" width="0.4064" layer="1"/>
 <wire x1="44.5325" y1="36.43" x2="44.7675" y2="36.195" width="0.4064" layer="1"/>
 <via x="44.7675" y="36.195" extent="1-16" drill="0.5"/>
-<wire x1="41.89" y1="36.43" x2="43.6125" y2="36.43" width="0.4064" layer="1"/>
-<wire x1="21.0312" y1="47.5488" x2="21.0312" y2="49.3513" width="0.3048" layer="1"/>
 <wire x1="21.0312" y1="24.8412" x2="20.32" y2="24.13" width="0.3048" layer="1"/>
-<wire x1="21.0312" y1="26.1112" x2="21.0312" y2="27.3812" width="0.3048" layer="1"/>
-<wire x1="21.0312" y1="27.3812" x2="21.59" y2="27.94" width="0.3048" layer="1"/>
-<wire x1="21.59" y1="27.94" x2="22.225" y2="27.94" width="0.3048" layer="1"/>
-<via x="22.225" y="27.94" extent="1-16" drill="0.5"/>
+<wire x1="21.0312" y1="26.1112" x2="21.0312" y2="27.0637" width="0.3048" layer="1"/>
+<wire x1="21.0312" y1="27.0637" x2="21.59" y2="27.6225" width="0.3048" layer="1"/>
+<wire x1="21.59" y1="27.6225" x2="22.225" y2="27.6225" width="0.3048" layer="1"/>
+<via x="22.225" y="27.6225" extent="1-16" drill="0.5"/>
 <wire x1="21.0312" y1="24.8412" x2="21.0312" y2="26.1112" width="0.3048" layer="1"/>
 <contactref element="C3" pad="2"/>
 <contactref element="C4" pad="2"/>
@@ -3014,14 +3012,12 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="33.02" y1="40.005" x2="33.655" y2="40.3225" width="0.3048" layer="1"/>
 <via x="33.655" y="40.3225" extent="1-16" drill="0.5"/>
 <wire x1="16.0274" y1="23.8624" x2="15.24" y2="23.075" width="0.3048" layer="1"/>
-<via x="17.78" y="27.94" extent="1-16" drill="0.5"/>
+<via x="16.1925" y="27.6225" extent="1-16" drill="0.5"/>
 <wire x1="16.0274" y1="23.8624" x2="16.0274" y2="26.1112" width="0.3048" layer="1"/>
 <contactref element="C11" pad="2"/>
 <contactref element="C24" pad="2"/>
 <contactref element="C25" pad="2"/>
 <contactref element="C26" pad="2"/>
-<wire x1="20.535" y1="50.165" x2="20.535" y2="49.8475" width="0.2032" layer="1"/>
-<wire x1="20.535" y1="49.8475" x2="21.0312" y2="49.3513" width="0.3048" layer="1"/>
 <wire x1="15.24" y1="50.165" x2="16.0274" y2="49.3776" width="0.3048" layer="1"/>
 <wire x1="16.0274" y1="47.5488" x2="16.0274" y2="49.3776" width="0.3048" layer="1"/>
 <via x="15.875" y="50.165" extent="1-16" drill="0.5"/>
@@ -3092,17 +3088,14 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="37.5228" y1="6.305" x2="39.415" y2="6.305" width="0.4064" layer="1"/>
 <wire x1="39.415" y1="6.305" x2="40.005" y2="5.715" width="0.4064" layer="1"/>
 <via x="40.005" y="5.715" extent="1-16" drill="0.5"/>
-<via x="32.385" y="12.7" extent="1-16" drill="0.5"/>
+<via x="32.385" y="12.3825" extent="1-16" drill="0.5"/>
 <via x="43.815" y="3.81" extent="1-16" drill="0.5"/>
-<wire x1="20.535" y1="50.165" x2="21.59" y2="50.165" width="0.3048" layer="1"/>
-<via x="21.59" y="50.165" extent="1-16" drill="0.5"/>
 <wire x1="7.0612" y1="37.592" x2="5.842" y2="37.592" width="0.3048" layer="1"/>
 <wire x1="5.5" y1="37.25" x2="5.08" y2="36.83" width="0.3048" layer="1"/>
 <wire x1="5.08" y1="36.83" x2="5.08" y2="36.195" width="0.4064" layer="1"/>
 <via x="5.08" y="36.195" extent="1-16" drill="0.5"/>
 <wire x1="16.0274" y1="26.1112" x2="16.0274" y2="27.4574" width="0.3048" layer="1"/>
-<wire x1="16.0274" y1="27.4574" x2="16.51" y2="27.94" width="0.3048" layer="1"/>
-<wire x1="16.51" y1="27.94" x2="17.78" y2="27.94" width="0.3048" layer="1"/>
+<wire x1="16.0274" y1="27.4574" x2="16.1925" y2="27.6225" width="0.3048" layer="1"/>
 <wire x1="20.55" y1="10.795" x2="21.59" y2="10.795" width="0.2032" layer="1"/>
 <via x="21.59" y="10.795" extent="1-16" drill="0.5"/>
 <wire x1="20.55" y1="13.97" x2="21.59" y2="13.97" width="0.2032" layer="1"/>
@@ -3117,8 +3110,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="3.81" y1="25.185" x2="3.81" y2="24.13" width="0.3048" layer="1"/>
 <via x="3.81" y="24.13" extent="1-16" drill="0.5"/>
 <wire x1="7.405" y1="49.53" x2="7.62" y2="49.53" width="0.3048" layer="1"/>
-<wire x1="7.62" y1="49.53" x2="7.62" y2="48.26" width="0.3048" layer="1"/>
-<via x="7.62" y="48.26" extent="1-16" drill="0.5"/>
+<wire x1="7.405" y1="49.53" x2="6.35" y2="49.53" width="0.3048" layer="1"/>
+<via x="6.35" y="49.53" extent="1-16" drill="0.5"/>
 <contactref element="PWR" pad="2"/>
 <contactref element="USB" pad="5"/>
 <wire x1="32.6" y1="45.4025" x2="32.7025" y2="46.355" width="0.3048" layer="1"/>
@@ -3149,7 +3142,7 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="41.275" y1="9.8425" x2="40.64" y2="9.2075" width="0.4064" layer="2"/>
 <wire x1="40.64" y1="9.2075" x2="40.64" y2="7.9375" width="0.4064" layer="2"/>
 <wire x1="40.64" y1="7.9375" x2="41.275" y2="7.3025" width="0.4064" layer="2"/>
-<wire x1="33.44" y1="12.7" x2="32.385" y2="12.7" width="0.4064" layer="1"/>
+<wire x1="33.44" y1="12.7" x2="32.385" y2="12.3825" width="0.4064" layer="1"/>
 <wire x1="45.0272" y1="12.805" x2="47.1975" y2="12.805" width="0.4064" layer="1"/>
 <wire x1="47.1975" y1="12.805" x2="47.625" y2="13.2325" width="0.4064" layer="1"/>
 <wire x1="47.625" y1="13.2325" x2="48.1575" y2="13.2325" width="0.4064" layer="1"/>
@@ -3170,6 +3163,14 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="55.8275" y1="53.0175" x2="55.5025" y2="53.3425" width="0.4064" layer="1"/>
 <wire x1="55.5025" y1="53.3425" x2="55.5025" y2="54.3525" width="0.4064" layer="1"/>
 <wire x1="55.5025" y1="54.3525" x2="54.61" y2="55.245" width="0.4064" layer="1"/>
+<via x="21.59" y="46.0375" extent="1-16" drill="0.5" diameter="0.5"/>
+<wire x1="21.0312" y1="47.5488" x2="21.0312" y2="46.5963" width="0.3048" layer="1"/>
+<wire x1="21.0312" y1="46.5963" x2="21.59" y2="46.0375" width="0.3048" layer="1"/>
+<wire x1="21.0312" y1="47.5488" x2="21.0312" y2="50.0262" width="0.3048" layer="1"/>
+<wire x1="21.0312" y1="50.0262" x2="21.17" y2="50.165" width="0.3048" layer="1"/>
+<wire x1="43.6125" y1="36.43" x2="42.78" y2="36.43" width="0.4064" layer="1"/>
+<wire x1="42.78" y1="36.43" x2="41.695" y2="35.345" width="0.4064" layer="1"/>
+<wire x1="40.9575" y1="35.345" x2="41.695" y2="35.345" width="0.4064" layer="1"/>
 </signal>
 <signal name="+5V">
 <contactref element="JP1" pad="1"/>
@@ -3190,15 +3191,15 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <via x="20.955" y="33.655" extent="1-16" drill="0.5"/>
 <wire x1="20.955" y1="33.655" x2="21.59" y2="34.29" width="0.2032" layer="16"/>
 <wire x1="21.59" y1="34.29" x2="21.59" y2="44.45" width="0.2032" layer="16"/>
-<wire x1="21.59" y1="44.45" x2="23.495" y2="46.355" width="0.2032" layer="16"/>
-<wire x1="23.495" y1="46.355" x2="23.495" y2="48.895" width="0.2032" layer="16"/>
-<wire x1="23.495" y1="48.895" x2="26.035" y2="51.435" width="0.2032" layer="16"/>
-<wire x1="26.035" y1="51.435" x2="26.035" y2="53.34" width="0.2032" layer="16"/>
-<wire x1="26.035" y1="53.34" x2="27.94" y2="55.245" width="0.2032" layer="16"/>
+<wire x1="21.59" y1="44.45" x2="23.8125" y2="46.6725" width="0.2032" layer="16"/>
 <wire x1="7.0612" y1="33.5788" x2="8.1788" y2="33.5788" width="0.2032" layer="1"/>
-<wire x1="8.1788" y1="33.5788" x2="10.795" y2="36.195" width="0.2032" layer="1"/>
-<wire x1="10.795" y1="36.195" x2="18.415" y2="36.195" width="0.2032" layer="1"/>
-<wire x1="18.415" y1="36.195" x2="20.955" y2="33.655" width="0.2032" layer="1"/>
+<wire x1="8.1788" y1="33.5788" x2="10.4775" y2="35.8775" width="0.2032" layer="1"/>
+<wire x1="10.4775" y1="35.8775" x2="18.7325" y2="35.8775" width="0.2032" layer="1"/>
+<wire x1="18.7325" y1="35.8775" x2="20.955" y2="33.655" width="0.2032" layer="1"/>
+<wire x1="23.8125" y1="46.6725" x2="23.8125" y2="49.2125" width="0.2032" layer="16"/>
+<wire x1="23.8125" y1="49.2125" x2="24.4475" y2="49.8475" width="0.2032" layer="16"/>
+<wire x1="24.4475" y1="49.8475" x2="24.4475" y2="53.0225" width="0.2032" layer="16"/>
+<wire x1="24.4475" y1="53.0225" x2="26.67" y2="55.245" width="0.2032" layer="16"/>
 </signal>
 <signal name="SWDIO">
 <contactref element="SWD" pad="4"/>
@@ -3207,9 +3208,7 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="27.051" y1="44.069" x2="26.035" y2="45.085" width="0.2032" layer="1"/>
 <via x="26.035" y="45.085" extent="1-16" drill="0.5"/>
 <wire x1="26.035" y1="45.085" x2="26.035" y2="45.72" width="0.2032" layer="16"/>
-<wire x1="30.48" y1="55.245" x2="29.21" y2="53.975" width="0.2032" layer="16"/>
-<wire x1="29.21" y1="53.975" x2="27.94" y2="53.975" width="0.2032" layer="16"/>
-<wire x1="27.94" y1="53.975" x2="26.67" y2="52.705" width="0.2032" layer="16"/>
+<wire x1="29.21" y1="55.245" x2="26.67" y2="52.705" width="0.2032" layer="16"/>
 <wire x1="26.67" y1="52.705" x2="26.67" y2="50.8" width="0.2032" layer="16"/>
 <wire x1="26.67" y1="50.8" x2="26.035" y2="50.165" width="0.2032" layer="16"/>
 <wire x1="26.035" y1="50.165" x2="26.035" y2="45.085" width="0.2032" layer="16"/>
@@ -3220,9 +3219,10 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <via x="15.24" y="45.72" extent="1-16" drill="0.5"/>
 <wire x1="14.5288" y1="47.5488" x2="14.5288" y2="46.4312" width="0.2032" layer="1"/>
 <wire x1="14.5288" y1="46.4312" x2="15.24" y2="45.72" width="0.2032" layer="1"/>
-<wire x1="14.605" y1="52.705" x2="17.145" y2="55.245" width="0.2032" layer="16"/>
-<wire x1="17.145" y1="55.245" x2="25.4" y2="55.245" width="0.2032" layer="16"/>
-<wire x1="14.605" y1="52.705" x2="14.605" y2="46.355" width="0.2032" layer="16"/>
+<wire x1="14.605" y1="53.0225" x2="17.145" y2="55.5625" width="0.2032" layer="16"/>
+<wire x1="17.145" y1="55.5625" x2="23.8125" y2="55.5625" width="0.2032" layer="16"/>
+<wire x1="23.8125" y1="55.5625" x2="24.13" y2="55.245" width="0.2032" layer="16"/>
+<wire x1="14.605" y1="53.0225" x2="14.605" y2="46.355" width="0.2032" layer="16"/>
 <wire x1="14.605" y1="46.355" x2="15.24" y2="45.72" width="0.2032" layer="16"/>
 </signal>
 <signal name="+3V3">
@@ -3261,10 +3261,7 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="43.6125" y1="37.23" x2="44.5325" y2="37.23" width="0.4064" layer="1"/>
 <wire x1="44.5325" y1="37.23" x2="44.7675" y2="37.465" width="0.4064" layer="1"/>
 <via x="44.7675" y="37.465" extent="1-16" drill="0.5"/>
-<wire x1="20.5232" y1="48.6918" x2="20.32" y2="48.895" width="0.3048" layer="1"/>
-<wire x1="20.32" y1="48.895" x2="19.7875" y2="48.895" width="0.3048" layer="1"/>
-<via x="20.32" y="45.72" extent="1-16" drill="0.5"/>
-<wire x1="20.5232" y1="48.6918" x2="20.5232" y2="47.5488" width="0.3048" layer="1"/>
+<via x="20.0025" y="46.0375" extent="1-16" drill="0.5"/>
 <wire x1="28.4988" y1="33.5788" x2="31.2937" y2="33.5788" width="0.3048" layer="1"/>
 <wire x1="31.2937" y1="33.5788" x2="31.535" y2="33.655" width="0.2032" layer="1"/>
 <wire x1="21.5392" y1="26.1112" x2="21.5392" y2="23.2292" width="0.3048" layer="1"/>
@@ -3293,8 +3290,6 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <contactref element="C24" pad="1"/>
 <contactref element="C26" pad="1"/>
 <contactref element="C25" pad="1"/>
-<wire x1="18.835" y1="50.165" x2="18.835" y2="49.8475" width="0.2032" layer="1"/>
-<wire x1="18.835" y1="49.8475" x2="19.7875" y2="48.895" width="0.3048" layer="1"/>
 <wire x1="13.12" y1="50.165" x2="13.12" y2="49.745" width="0.2032" layer="1"/>
 <wire x1="13.12" y1="49.745" x2="13.97" y2="48.895" width="0.3048" layer="1"/>
 <wire x1="15.5194" y1="47.5488" x2="15.5194" y2="48.6156" width="0.3048" layer="1"/>
@@ -3324,7 +3319,7 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <contactref element="R301" pad="2"/>
 <wire x1="39.0525" y1="8.255" x2="40.005" y2="7.3025" width="0.4064" layer="1"/>
 <wire x1="37.5228" y1="12.805" x2="38.63" y2="12.805" width="0.4064" layer="1"/>
-<wire x1="38.63" y1="12.805" x2="39.37" y2="12.065" width="0.4064" layer="1"/>
+<wire x1="38.63" y1="12.805" x2="39.0525" y2="12.7" width="0.4064" layer="1"/>
 <contactref element="U2" pad="P$14"/>
 <contactref element="C303" pad="1"/>
 <contactref element="C302" pad="1"/>
@@ -3341,13 +3336,13 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 </polygon>
 <wire x1="37.5228" y1="4.355" x2="38.19" y2="4.355" width="0.4064" layer="1"/>
 <wire x1="38.19" y1="4.355" x2="38.735" y2="3.81" width="0.4064" layer="1"/>
-<wire x1="20.5232" y1="47.5488" x2="20.5232" y2="45.9232" width="0.2032" layer="1"/>
-<wire x1="20.5232" y1="45.9232" x2="20.32" y2="45.72" width="0.2032" layer="1"/>
+<wire x1="20.5232" y1="47.5488" x2="20.5232" y2="46.5582" width="0.3048" layer="1"/>
+<wire x1="20.5232" y1="46.5582" x2="20.0025" y2="46.0375" width="0.3048" layer="1"/>
 <via x="40.005" y="7.3025" extent="1-16" drill="0.5"/>
 <via x="40.005" y="9.8425" extent="1-16" drill="0.5"/>
 <wire x1="37.5228" y1="12.805" x2="35.245" y2="12.805" width="0.4064" layer="1"/>
 <wire x1="35.245" y1="12.805" x2="35.14" y2="12.7" width="0.4064" layer="1"/>
-<via x="39.37" y="12.065" extent="1-16" drill="0.5"/>
+<via x="39.0525" y="12.7" extent="1-16" drill="0.5"/>
 <via x="38.735" y="3.81" extent="1-16" drill="0.5"/>
 <wire x1="5.08" y1="38.95" x2="5.08" y2="40.005" width="0.4064" layer="1"/>
 <via x="5.08" y="40.005" extent="1-16" drill="0.5"/>
@@ -3363,11 +3358,11 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="9.0424" y1="47.5488" x2="9.0424" y2="49.4674" width="0.3048" layer="1"/>
 <wire x1="9.0424" y1="49.4674" x2="9.105" y2="49.53" width="0.3048" layer="1"/>
 <contactref element="PWR" pad="3"/>
-<wire x1="19.47" y1="55.88" x2="18.415" y2="55.88" width="0.3048" layer="1"/>
-<via x="18.415" y="55.88" extent="1-16" drill="0.4" diameter="0.5"/>
+<wire x1="18.835" y1="54.61" x2="17.78" y2="54.61" width="0.3048" layer="1"/>
+<via x="17.78" y="54.61" extent="1-16" drill="0.5" diameter="0.5"/>
 <wire x1="9.105" y1="49.53" x2="8.89" y2="49.53" width="0.3048" layer="1"/>
 <wire x1="8.89" y1="49.53" x2="8.89" y2="50.8" width="0.3048" layer="1"/>
-<via x="8.89" y="50.8" extent="1-16" drill="0.4" diameter="0.5"/>
+<via x="8.89" y="50.8" extent="1-16" drill="0.5" diameter="0.5"/>
 <wire x1="28.4988" y1="45.5676" x2="28.4988" y2="46.2788" width="0.3048" layer="1"/>
 <wire x1="28.4988" y1="46.2788" x2="28.575" y2="46.355" width="0.3048" layer="1"/>
 <via x="28.575" y="46.355" extent="1-16" drill="0.5" diameter="0.5"/>
@@ -3404,8 +3399,10 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="36.61" y1="4.355" x2="34.16" y2="1.905" width="0.4064" layer="1"/>
 <wire x1="40.425" y1="2.8575" x2="39.6875" y2="2.8575" width="0.4064" layer="1"/>
 <wire x1="39.6875" y1="2.8575" x2="38.735" y2="3.81" width="0.4064" layer="1"/>
+<wire x1="20.5232" y1="47.5488" x2="20.5232" y2="49.1118" width="0.3048" layer="1"/>
+<wire x1="20.5232" y1="49.1118" x2="19.47" y2="50.165" width="0.3048" layer="1"/>
 <wire x1="43.6125" y1="37.23" x2="41.1425" y2="37.23" width="0.4064" layer="1"/>
-<wire x1="41.1425" y1="37.23" x2="40.64" y2="37.045" width="0.4064" layer="1"/>
+<wire x1="41.1425" y1="37.23" x2="40.9575" y2="37.045" width="0.4064" layer="1"/>
 </signal>
 <signal name="SWCLK">
 <contactref element="SWD" pad="2"/>
@@ -3414,11 +3411,9 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="26.5176" y1="47.5488" x2="27.5463" y2="47.5488" width="0.2032" layer="1"/>
 <wire x1="27.5463" y1="47.5488" x2="27.6225" y2="47.625" width="0.2032" layer="1"/>
 <wire x1="27.6225" y1="47.625" x2="27.6225" y2="52.705" width="0.2032" layer="16"/>
-<wire x1="27.6225" y1="52.705" x2="28.2575" y2="53.34" width="0.2032" layer="16"/>
-<wire x1="28.2575" y1="53.34" x2="29.845" y2="53.34" width="0.2032" layer="16"/>
-<wire x1="29.845" y1="53.34" x2="30.48" y2="53.975" width="0.2032" layer="16"/>
-<wire x1="30.48" y1="53.975" x2="34.29" y2="53.975" width="0.2032" layer="16"/>
-<wire x1="34.29" y1="53.975" x2="35.56" y2="55.245" width="0.2032" layer="16"/>
+<wire x1="27.6225" y1="52.705" x2="28.8925" y2="53.975" width="0.2032" layer="16"/>
+<wire x1="28.8925" y1="53.975" x2="33.02" y2="53.975" width="0.2032" layer="16"/>
+<wire x1="33.02" y1="53.975" x2="34.29" y2="55.245" width="0.2032" layer="16"/>
 </signal>
 <signal name="PC10">
 <contactref element="U4" pad="111"/>
@@ -3439,36 +3434,35 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <contactref element="U4" pad="47"/>
 <wire x1="14.0208" y1="26.1112" x2="13.97" y2="26.162" width="0.2032" layer="1"/>
 <via x="15.875" y="29.845" extent="1-16" drill="0.5"/>
-<wire x1="15.875" y1="29.845" x2="15.875" y2="27.94" width="0.2032" layer="16"/>
-<wire x1="15.875" y1="27.94" x2="16.51" y2="27.305" width="0.2032" layer="16"/>
-<wire x1="16.51" y1="27.305" x2="16.51" y2="20.32" width="0.2032" layer="16"/>
-<wire x1="16.51" y1="20.32" x2="15.24" y2="19.05" width="0.2032" layer="16"/>
-<wire x1="15.24" y1="19.05" x2="13.335" y2="19.05" width="0.2032" layer="16"/>
-<wire x1="13.335" y1="19.05" x2="10.16" y2="15.875" width="0.2032" layer="16"/>
+<wire x1="15.875" y1="29.845" x2="15.875" y2="29.21" width="0.2032" layer="16"/>
+<wire x1="17.145" y1="27.94" x2="17.145" y2="20.955" width="0.2032" layer="16"/>
+<wire x1="17.145" y1="20.955" x2="14.9225" y2="18.7325" width="0.2032" layer="16"/>
+<wire x1="14.9225" y1="18.7325" x2="13.0175" y2="18.7325" width="0.2032" layer="16"/>
+<wire x1="13.0175" y1="18.7325" x2="10.16" y2="15.875" width="0.2032" layer="16"/>
 <wire x1="10.16" y1="15.875" x2="10.16" y2="11.43" width="0.2032" layer="16"/>
 <wire x1="10.16" y1="11.43" x2="11.43" y2="10.16" width="0.2032" layer="16"/>
 <wire x1="13.97" y1="26.162" x2="13.97" y2="27.305" width="0.2032" layer="1"/>
 <wire x1="13.97" y1="27.305" x2="15.875" y2="29.21" width="0.2032" layer="1"/>
 <wire x1="15.875" y1="29.21" x2="15.875" y2="29.845" width="0.2032" layer="1"/>
+<wire x1="17.145" y1="27.94" x2="15.875" y2="29.21" width="0.2032" layer="16"/>
 </signal>
 <signal name="PB2">
 <contactref element="JP2" pad="1"/>
 <contactref element="R12" pad="1"/>
 <contactref element="U4" pad="48"/>
 <wire x1="14.5288" y1="26.1112" x2="14.605" y2="26.1874" width="0.2032" layer="1"/>
-<via x="16.8275" y="29.21" extent="1-16" drill="0.5"/>
-<wire x1="16.8275" y1="29.21" x2="16.8275" y2="27.6225" width="0.2032" layer="16"/>
-<wire x1="16.8275" y1="27.6225" x2="17.145" y2="27.305" width="0.2032" layer="16"/>
-<wire x1="17.145" y1="27.305" x2="17.145" y2="19.685" width="0.2032" layer="16"/>
-<wire x1="17.145" y1="19.685" x2="15.875" y2="18.415" width="0.2032" layer="16"/>
-<wire x1="15.875" y1="18.415" x2="13.335" y2="18.415" width="0.2032" layer="16"/>
-<wire x1="13.335" y1="18.415" x2="11.43" y2="16.51" width="0.2032" layer="16"/>
-<wire x1="11.43" y1="16.51" x2="11.43" y2="12.7" width="0.2032" layer="16"/>
+<via x="17.145" y="29.21" extent="1-16" drill="0.5"/>
+<wire x1="17.78" y1="28.575" x2="17.78" y2="19.3675" width="0.2032" layer="16"/>
+<wire x1="17.78" y1="19.3675" x2="15.875" y2="17.4625" width="0.2032" layer="16"/>
+<wire x1="15.875" y1="17.4625" x2="13.335" y2="17.4625" width="0.2032" layer="16"/>
+<wire x1="13.335" y1="17.4625" x2="11.43" y2="15.5575" width="0.2032" layer="16"/>
+<wire x1="11.43" y1="15.5575" x2="11.43" y2="12.7" width="0.2032" layer="16"/>
 <wire x1="14.605" y1="26.1874" x2="14.605" y2="27.305" width="0.2032" layer="1"/>
 <wire x1="14.605" y1="27.305" x2="16.51" y2="29.21" width="0.2032" layer="1"/>
-<wire x1="16.51" y1="29.21" x2="16.8275" y2="29.21" width="0.2032" layer="1"/>
+<wire x1="16.51" y1="29.21" x2="17.145" y2="29.21" width="0.2032" layer="1"/>
 <wire x1="13.755" y1="10.795" x2="13.335" y2="10.795" width="0.2032" layer="1"/>
 <wire x1="13.335" y1="10.795" x2="11.43" y2="12.7" width="0.2032" layer="1"/>
+<wire x1="17.78" y1="28.575" x2="17.145" y2="29.21" width="0.2032" layer="16"/>
 </signal>
 <signal name="PB4">
 <contactref element="U4" pad="134"/>
@@ -3551,11 +3545,10 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <contactref element="JP2" pad="9"/>
 <contactref element="U4" pad="40"/>
 <wire x1="1.27" y1="12.7" x2="1.27" y2="20.32" width="0.2032" layer="16"/>
-<wire x1="1.27" y1="20.32" x2="8.89" y2="28.575" width="0.2032" layer="16"/>
-<via x="8.89" y="28.575" extent="1-16" drill="0.5"/>
+<wire x1="1.27" y1="20.32" x2="9.525" y2="28.575" width="0.2032" layer="16"/>
+<via x="9.525" y="28.575" extent="1-16" drill="0.5"/>
 <wire x1="10.541" y1="26.1112" x2="10.541" y2="27.559" width="0.2032" layer="1"/>
 <wire x1="10.541" y1="27.559" x2="9.525" y2="28.575" width="0.2032" layer="1"/>
-<wire x1="9.525" y1="28.575" x2="8.89" y2="28.575" width="0.2032" layer="1"/>
 </signal>
 <signal name="PA5">
 <contactref element="JP2" pad="8"/>
@@ -3654,11 +3647,11 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <signal name="BOOT0">
 <contactref element="U4" pad="138"/>
 <contactref element="R9" pad="1"/>
-<wire x1="12.0396" y1="47.5488" x2="12.0396" y2="48.9204" width="0.2032" layer="1"/>
-<wire x1="12.0396" y1="48.9204" x2="10.795" y2="50.165" width="0.2032" layer="1"/>
-<wire x1="10.795" y1="50.165" x2="10.795" y2="50.8" width="0.2032" layer="1"/>
-<wire x1="10.795" y1="50.8" x2="11.43" y2="51.435" width="0.2032" layer="1"/>
-<wire x1="11.43" y1="51.435" x2="13.12" y2="51.435" width="0.2032" layer="1"/>
+<wire x1="12.0396" y1="47.5488" x2="12.0396" y2="48.6029" width="0.2032" layer="1"/>
+<wire x1="12.0396" y1="48.6029" x2="11.1125" y2="49.53" width="0.2032" layer="1"/>
+<wire x1="11.1125" y1="49.53" x2="11.1125" y2="50.8" width="0.2032" layer="1"/>
+<wire x1="11.1125" y1="50.8" x2="11.7475" y2="51.435" width="0.2032" layer="1"/>
+<wire x1="11.7475" y1="51.435" x2="13.12" y2="51.435" width="0.2032" layer="1"/>
 </signal>
 <signal name="ADC2">
 <contactref element="U4" pad="27"/>
@@ -3679,10 +3672,9 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="9.2202" y1="32.0802" x2="9.525" y2="32.385" width="0.2032" layer="1"/>
 <via x="9.525" y="32.385" extent="1-16" drill="0.5"/>
 <wire x1="9.525" y1="32.385" x2="8.89" y2="33.02" width="0.2032" layer="16"/>
-<wire x1="8.89" y1="33.02" x2="8.89" y2="48.895" width="0.2032" layer="16"/>
-<wire x1="8.89" y1="48.895" x2="6.35" y2="51.435" width="0.2032" layer="16"/>
-<wire x1="6.35" y1="51.435" x2="5.08" y2="51.435" width="0.2032" layer="16"/>
-<wire x1="5.08" y1="51.435" x2="3.81" y2="52.705" width="0.2032" layer="16"/>
+<wire x1="8.89" y1="33.02" x2="8.89" y2="45.72" width="0.2032" layer="16"/>
+<wire x1="8.89" y1="45.72" x2="3.81" y2="50.8" width="0.2032" layer="16"/>
+<wire x1="3.81" y1="50.8" x2="3.81" y2="52.705" width="0.2032" layer="16"/>
 </signal>
 <signal name="I2C_SCL">
 <contactref element="U4" pad="69"/>
@@ -3707,11 +3699,11 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 </signal>
 <signal name="I2C_SDA">
 <contactref element="U4" pad="70"/>
-<wire x1="25.527" y1="26.1112" x2="25.527" y2="27.178" width="0.2032" layer="1"/>
-<wire x1="25.527" y1="27.178" x2="24.765" y2="27.94" width="0.2032" layer="1"/>
-<via x="24.765" y="27.94" extent="1-16" drill="0.5"/>
-<wire x1="25.4" y1="25.4" x2="25.4" y2="27.305" width="0.2032" layer="16"/>
-<wire x1="24.765" y1="27.94" x2="25.4" y2="27.305" width="0.2032" layer="16"/>
+<wire x1="25.527" y1="26.1112" x2="25.527" y2="26.8605" width="0.2032" layer="1"/>
+<wire x1="25.527" y1="26.8605" x2="24.765" y2="27.6225" width="0.2032" layer="1"/>
+<via x="24.765" y="27.6225" extent="1-16" drill="0.5"/>
+<wire x1="25.4" y1="25.4" x2="25.4" y2="26.9875" width="0.2032" layer="16"/>
+<wire x1="24.765" y1="27.6225" x2="25.4" y2="26.9875" width="0.2032" layer="16"/>
 <contactref element="U2" pad="P$23"/>
 <contactref element="R301" pad="1"/>
 <wire x1="26.035" y1="11.43" x2="28.575" y2="13.97" width="0.2032" layer="1"/>
@@ -3738,30 +3730,28 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="29.21" y1="12.7" x2="30.48" y2="12.7" width="0.2032" layer="1"/>
 <wire x1="30.48" y1="12.7" x2="31.675" y2="11.505" width="0.2032" layer="1"/>
 <wire x1="37.5228" y1="11.505" x2="31.675" y2="11.505" width="0.2032" layer="1"/>
-<wire x1="29.21" y1="12.7" x2="30.1625" y2="13.6525" width="0.2032" layer="16"/>
-<wire x1="30.1625" y1="13.6525" x2="30.1625" y2="14.2875" width="0.2032" layer="16"/>
-<wire x1="30.1625" y1="14.2875" x2="31.75" y2="15.875" width="0.2032" layer="16"/>
-<wire x1="31.75" y1="15.875" x2="31.75" y2="22.86" width="0.2032" layer="16"/>
+<wire x1="29.21" y1="12.7" x2="31.75" y2="15.24" width="0.2032" layer="16"/>
+<wire x1="31.75" y1="15.24" x2="31.75" y2="22.86" width="0.2032" layer="16"/>
 <wire x1="31.75" y1="22.86" x2="33.655" y2="24.765" width="0.2032" layer="16"/>
 <wire x1="33.655" y1="24.765" x2="33.655" y2="27.94" width="0.2032" layer="16"/>
 </signal>
 <signal name="I2S_SDO">
 <contactref element="U4" pad="76"/>
-<via x="35.56" y="29.21" extent="1-16" drill="0.5"/>
+<via x="35.56" y="27.94" extent="1-16" drill="0.5"/>
 <via x="30.48" y="11.43" extent="1-16" drill="0.5"/>
 <contactref element="U2" pad="P$4"/>
 <wire x1="37.5228" y1="10.855" x2="31.055" y2="10.855" width="0.2032" layer="1"/>
 <wire x1="31.055" y1="10.855" x2="30.48" y2="11.43" width="0.2032" layer="1"/>
 <wire x1="30.48" y1="11.43" x2="31.4325" y2="12.3825" width="0.2032" layer="16"/>
-<wire x1="31.4325" y1="12.3825" x2="31.4325" y2="13.335" width="0.2032" layer="16"/>
-<wire x1="33.02" y1="14.9225" x2="33.02" y2="22.86" width="0.2032" layer="16"/>
+<wire x1="31.4325" y1="12.3825" x2="31.4325" y2="13.0175" width="0.2032" layer="16"/>
+<wire x1="33.02" y1="14.605" x2="33.02" y2="22.86" width="0.2032" layer="16"/>
 <wire x1="33.02" y1="22.86" x2="34.925" y2="24.765" width="0.2032" layer="16"/>
 <wire x1="34.925" y1="24.765" x2="34.925" y2="27.305" width="0.2032" layer="16"/>
 <wire x1="34.925" y1="27.305" x2="35.56" y2="27.94" width="0.2032" layer="16"/>
-<wire x1="35.56" y1="27.94" x2="35.56" y2="29.21" width="0.2032" layer="16"/>
-<wire x1="28.4988" y1="29.591" x2="35.179" y2="29.591" width="0.2032" layer="1"/>
-<wire x1="35.179" y1="29.591" x2="35.56" y2="29.21" width="0.2032" layer="1"/>
-<wire x1="31.4325" y1="13.335" x2="33.02" y2="14.9225" width="0.2032" layer="16"/>
+<wire x1="28.4988" y1="29.591" x2="34.8615" y2="29.591" width="0.2032" layer="1"/>
+<wire x1="34.8615" y1="29.591" x2="35.56" y2="28.8925" width="0.2032" layer="1"/>
+<wire x1="35.56" y1="28.8925" x2="35.56" y2="27.94" width="0.2032" layer="1"/>
+<wire x1="31.4325" y1="13.0175" x2="33.02" y2="14.605" width="0.2032" layer="16"/>
 </signal>
 <signal name="I2S_LRCK">
 <contactref element="U4" pad="73"/>
@@ -3778,10 +3768,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="29.195" y1="8.905" x2="27.94" y2="10.16" width="0.2032" layer="1"/>
 <wire x1="27.94" y1="10.16" x2="27.94" y2="11.43" width="0.2032" layer="1"/>
 <wire x1="27.94" y1="11.43" x2="27.94" y2="12.7" width="0.2032" layer="16"/>
-<wire x1="27.94" y1="12.7" x2="29.21" y2="13.97" width="0.2032" layer="16"/>
-<wire x1="29.21" y1="13.97" x2="29.21" y2="14.605" width="0.2032" layer="16"/>
-<wire x1="29.21" y1="14.605" x2="31.115" y2="16.51" width="0.2032" layer="16"/>
-<wire x1="31.115" y1="16.51" x2="31.115" y2="22.86" width="0.2032" layer="16"/>
+<wire x1="27.94" y1="12.7" x2="31.115" y2="15.875" width="0.2032" layer="16"/>
+<wire x1="31.115" y1="15.875" x2="31.115" y2="22.86" width="0.2032" layer="16"/>
 <wire x1="31.115" y1="22.86" x2="32.385" y2="24.13" width="0.2032" layer="16"/>
 <wire x1="32.385" y1="24.13" x2="32.385" y2="27.6225" width="0.2032" layer="16"/>
 </signal>
@@ -3794,22 +3782,22 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="37.5228" y1="9.555" x2="29.875" y2="9.555" width="0.2032" layer="1"/>
 <wire x1="29.875" y1="9.555" x2="29.21" y2="10.16" width="0.2032" layer="1"/>
 <wire x1="29.21" y1="11.43" x2="30.7975" y2="13.0175" width="0.2032" layer="16"/>
-<wire x1="30.7975" y1="13.0175" x2="30.7975" y2="13.6525" width="0.2032" layer="16"/>
-<wire x1="32.385" y1="15.24" x2="32.385" y2="22.86" width="0.2032" layer="16"/>
+<wire x1="30.7975" y1="13.0175" x2="30.7975" y2="13.335" width="0.2032" layer="16"/>
+<wire x1="32.385" y1="14.9225" x2="32.385" y2="22.86" width="0.2032" layer="16"/>
 <wire x1="32.385" y1="22.86" x2="34.29" y2="24.765" width="0.2032" layer="16"/>
 <wire x1="34.29" y1="24.765" x2="34.29" y2="27.305" width="0.2032" layer="16"/>
 <wire x1="34.29" y1="27.305" x2="34.6075" y2="27.6225" width="0.2032" layer="16"/>
 <wire x1="34.6075" y1="27.6225" x2="34.6075" y2="28.575" width="0.2032" layer="16"/>
 <wire x1="28.4988" y1="29.083" x2="34.0995" y2="29.083" width="0.2032" layer="1"/>
 <wire x1="34.0995" y1="29.083" x2="34.6075" y2="28.575" width="0.2032" layer="1"/>
-<wire x1="32.385" y1="15.24" x2="30.7975" y2="13.6525" width="0.2032" layer="16"/>
+<wire x1="32.385" y1="14.9225" x2="30.7975" y2="13.335" width="0.2032" layer="16"/>
 </signal>
 <signal name="I2S_MCLK">
 <contactref element="U4" pad="96"/>
 <wire x1="28.4988" y1="39.5732" x2="26.8732" y2="39.5732" width="0.2032" layer="1"/>
 <wire x1="26.8732" y1="39.5732" x2="24.765" y2="37.465" width="0.2032" layer="1"/>
 <via x="24.765" y="37.465" extent="1-16" drill="0.5"/>
-<wire x1="24.765" y1="37.465" x2="24.765" y2="29.845" width="0.2032" layer="16"/>
+<wire x1="24.765" y1="37.465" x2="24.765" y2="28.8925" width="0.2032" layer="16"/>
 <via x="27.305" y="14.9225" extent="1-16" drill="0.5"/>
 <contactref element="U2" pad="P$25"/>
 <wire x1="27.305" y1="14.9225" x2="27.6225" y2="15.24" width="0.2032" layer="1"/>
@@ -3818,8 +3806,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="43.18" y1="13.97" x2="43.18" y2="11.43" width="0.2032" layer="1"/>
 <wire x1="45.0272" y1="10.855" x2="43.755" y2="10.855" width="0.2032" layer="1"/>
 <wire x1="43.755" y1="10.855" x2="43.18" y2="11.43" width="0.2032" layer="1"/>
-<wire x1="24.765" y1="29.845" x2="26.035" y2="28.575" width="0.2032" layer="16"/>
-<wire x1="26.035" y1="28.575" x2="26.035" y2="25.4" width="0.2032" layer="16"/>
+<wire x1="24.765" y1="28.8925" x2="26.035" y2="27.6225" width="0.2032" layer="16"/>
+<wire x1="26.035" y1="27.6225" x2="26.035" y2="25.4" width="0.2032" layer="16"/>
 <wire x1="26.035" y1="25.4" x2="27.305" y2="24.13" width="0.2032" layer="16"/>
 <wire x1="27.305" y1="24.13" x2="27.305" y2="14.9225" width="0.2032" layer="16"/>
 </signal>
@@ -3866,15 +3854,18 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="33.655" y1="46.99" x2="33.02" y2="47.625" width="0.2032" layer="1"/>
 <via x="33.02" y="47.625" extent="1-16" drill="0.5"/>
 <contactref element="USB" pad="2"/>
-<wire x1="33.02" y1="47.625" x2="33.02" y2="50.8" width="0.2032" layer="16"/>
-<wire x1="33.02" y1="50.8" x2="36.195" y2="53.975" width="0.2032" layer="16"/>
-<wire x1="36.195" y1="53.975" x2="39.37" y2="53.975" width="0.2032" layer="16"/>
-<wire x1="39.37" y1="53.975" x2="41.91" y2="56.515" width="0.2032" layer="16"/>
-<wire x1="45.72" y1="56.515" x2="41.91" y2="56.515" width="0.2032" layer="16"/>
-<wire x1="46.99" y1="55.245" x2="45.72" y2="56.515" width="0.2032" layer="16"/>
+<wire x1="36.195" y1="53.975" x2="38.4175" y2="53.975" width="0.2032" layer="16"/>
 <via x="46.99" y="53.0225" extent="1-16" drill="0.5" diameter="0.5"/>
 <wire x1="46.99" y1="53.0225" x2="46.99" y2="55.245" width="0.2032" layer="16"/>
 <wire x1="46.99" y1="53.0225" x2="49.6325" y2="53.0225" width="0.2032" layer="1"/>
+<wire x1="33.02" y1="47.625" x2="34.29" y2="48.895" width="0.2032" layer="16"/>
+<wire x1="34.29" y1="48.895" x2="34.29" y2="52.07" width="0.2032" layer="16"/>
+<wire x1="34.29" y1="52.07" x2="36.195" y2="53.975" width="0.2032" layer="16"/>
+<via x="38.4175" y="53.975" extent="1-16" drill="0.5" diameter="0.5"/>
+<wire x1="38.4175" y1="53.975" x2="39.0525" y2="54.61" width="0.2032" layer="1"/>
+<wire x1="39.0525" y1="54.61" x2="43.18" y2="54.61" width="0.2032" layer="1"/>
+<wire x1="43.18" y1="54.61" x2="44.7675" y2="53.0225" width="0.2032" layer="1"/>
+<wire x1="44.7675" y1="53.0225" x2="46.99" y2="53.0225" width="0.2032" layer="1"/>
 </signal>
 <signal name="USB_ID">
 <contactref element="U4" pad="102"/>
@@ -3884,14 +3875,15 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="35.2425" y1="45.085" x2="35.2425" y2="46.99" width="0.2032" layer="1"/>
 <contactref element="USB" pad="1"/>
 <wire x1="35.2425" y1="46.99" x2="35.8775" y2="47.625" width="0.2032" layer="16"/>
-<wire x1="35.8775" y1="47.625" x2="37.465" y2="47.625" width="0.2032" layer="16"/>
-<wire x1="37.465" y1="47.625" x2="38.1" y2="48.26" width="0.2032" layer="16"/>
-<wire x1="38.1" y1="48.26" x2="38.1" y2="52.07" width="0.2032" layer="16"/>
-<wire x1="41.275" y1="55.245" x2="44.45" y2="55.245" width="0.2032" layer="16"/>
+<wire x1="35.8775" y1="47.625" x2="38.1" y2="47.625" width="0.2032" layer="16"/>
+<wire x1="38.1" y1="47.625" x2="38.735" y2="48.26" width="0.2032" layer="16"/>
+<wire x1="38.735" y1="48.26" x2="38.735" y2="53.0225" width="0.2032" layer="16"/>
+<wire x1="40.005" y1="54.2925" x2="43.4975" y2="54.2925" width="0.2032" layer="16"/>
+<wire x1="43.4975" y1="54.2925" x2="44.45" y2="55.245" width="0.2032" layer="16"/>
 <wire x1="44.45" y1="55.245" x2="45.72" y2="53.975" width="0.2032" layer="1"/>
 <wire x1="45.72" y1="53.975" x2="52.07" y2="53.975" width="0.2032" layer="1"/>
 <wire x1="54.2775" y1="51.7675" x2="52.07" y2="53.975" width="0.2032" layer="1"/>
-<wire x1="41.275" y1="55.245" x2="38.1" y2="52.07" width="0.2032" layer="16"/>
+<wire x1="40.005" y1="54.2925" x2="38.735" y2="53.0225" width="0.2032" layer="16"/>
 <contactref element="USB1" pad="4"/>
 <wire x1="55.8275" y1="51.7675" x2="54.2775" y2="51.7675" width="0.2032" layer="1"/>
 </signal>
@@ -3904,9 +3896,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="36.195" y1="45.4025" x2="36.195" y2="46.355" width="0.2032" layer="1"/>
 <contactref element="USB" pad="4"/>
 <wire x1="21.59" y1="3.81" x2="21.59" y2="2.54" width="0.4064" layer="16"/>
-<wire x1="21.59" y1="2.54" x2="23.495" y2="0.635" width="0.4064" layer="16"/>
-<wire x1="23.495" y1="0.635" x2="55.245" y2="0.635" width="0.4064" layer="16"/>
-<wire x1="55.245" y1="0.635" x2="57.15" y2="2.54" width="0.4064" layer="16"/>
+<wire x1="21.59" y1="2.54" x2="23.1775" y2="0.9525" width="0.4064" layer="16"/>
+<wire x1="23.1775" y1="0.9525" x2="55.5625" y2="0.9525" width="0.4064" layer="16"/>
 <wire x1="57.15" y1="2.54" x2="57.15" y2="9.2075" width="0.4064" layer="16"/>
 <wire x1="57.15" y1="9.2075" x2="59.055" y2="11.1125" width="0.4064" layer="16"/>
 <wire x1="59.055" y1="11.1125" x2="59.055" y2="42.545" width="0.4064" layer="16"/>
@@ -3928,6 +3919,7 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="51.465" y1="50.135" x2="51.435" y2="50.165" width="0.4064" layer="1"/>
 <wire x1="55.8275" y1="49.8175" x2="51.7825" y2="49.8175" width="0.4064" layer="1"/>
 <wire x1="51.7825" y1="49.8175" x2="51.435" y2="50.165" width="0.4064" layer="1"/>
+<wire x1="55.5625" y1="0.9525" x2="57.15" y2="2.54" width="0.4064" layer="16"/>
 </signal>
 <signal name="N$10">
 <contactref element="LED1" pad="A"/>
@@ -4061,11 +4053,11 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <signal name="PD10">
 <contactref element="IC3" pad="38"/>
 <contactref element="U4" pad="79"/>
-<wire x1="54.8125" y1="40.43" x2="48.7875" y2="40.43" width="0.2032" layer="1"/>
-<wire x1="48.7875" y1="40.43" x2="46.0375" y2="43.18" width="0.2032" layer="1"/>
+<wire x1="54.8125" y1="40.43" x2="48.47" y2="40.43" width="0.2032" layer="1"/>
+<wire x1="48.47" y1="40.43" x2="46.355" y2="42.545" width="0.2032" layer="1"/>
 <via x="38.735" y="31.115" extent="1-16" drill="0.5"/>
-<wire x1="46.0375" y1="43.18" x2="46.0375" y2="45.085" width="0.2032" layer="1"/>
-<wire x1="46.0375" y1="45.085" x2="44.1325" y2="46.99" width="0.2032" layer="1"/>
+<wire x1="46.355" y1="42.545" x2="46.355" y2="44.7675" width="0.2032" layer="1"/>
+<wire x1="46.355" y1="44.7675" x2="44.1325" y2="46.99" width="0.2032" layer="1"/>
 <wire x1="44.1325" y1="46.99" x2="40.005" y2="46.99" width="0.2032" layer="1"/>
 <wire x1="40.005" y1="46.99" x2="38.1" y2="45.085" width="0.2032" layer="1"/>
 <via x="38.1" y="45.085" extent="1-16" drill="0.5"/>
@@ -4074,9 +4066,9 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="38.4175" y1="32.0675" x2="38.4175" y2="44.1325" width="0.2032" layer="16"/>
 <wire x1="38.4175" y1="44.1325" x2="38.1" y2="44.45" width="0.2032" layer="16"/>
 <wire x1="38.1" y1="44.45" x2="38.1" y2="45.085" width="0.2032" layer="16"/>
-<wire x1="28.4988" y1="31.0896" x2="37.1221" y2="31.0896" width="0.2032" layer="1"/>
-<wire x1="37.1221" y1="31.0896" x2="37.465" y2="30.7975" width="0.2032" layer="1"/>
-<wire x1="37.465" y1="30.7975" x2="38.4175" y2="30.7975" width="0.2032" layer="1"/>
+<wire x1="28.4988" y1="31.0896" x2="37.4396" y2="31.0896" width="0.2032" layer="1"/>
+<wire x1="37.4396" y1="31.0896" x2="37.7825" y2="30.7975" width="0.2032" layer="1"/>
+<wire x1="37.7825" y1="30.7975" x2="38.4175" y2="30.7975" width="0.2032" layer="1"/>
 <wire x1="38.4175" y1="30.7975" x2="38.735" y2="31.115" width="0.2032" layer="1"/>
 </signal>
 <signal name="PD15">
@@ -4103,25 +4095,25 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="28.4988" y1="36.576" x2="20.574" y2="36.576" width="0.2032" layer="1"/>
 <wire x1="20.574" y1="36.576" x2="20.32" y2="36.83" width="0.2032" layer="1"/>
 <via x="20.32" y="36.83" extent="1-16" drill="0.5"/>
-<wire x1="20.32" y1="36.83" x2="20.32" y2="43.815" width="0.2032" layer="16"/>
-<wire x1="20.32" y1="43.815" x2="19.05" y2="45.085" width="0.2032" layer="16"/>
-<wire x1="19.05" y1="45.085" x2="19.05" y2="50.8" width="0.2032" layer="16"/>
-<wire x1="19.05" y1="50.8" x2="19.685" y2="51.435" width="0.2032" layer="16"/>
+<wire x1="20.32" y1="36.83" x2="19.05" y2="38.1" width="0.2032" layer="16"/>
+<wire x1="19.05" y1="38.1" x2="19.05" y2="48.5775" width="0.2032" layer="16"/>
+<wire x1="19.05" y1="48.5775" x2="19.685" y2="49.2125" width="0.2032" layer="16"/>
+<wire x1="19.685" y1="49.2125" x2="19.685" y2="51.435" width="0.2032" layer="16"/>
 <via x="19.685" y="51.435" extent="1-16" drill="0.5"/>
 <wire x1="19.685" y1="51.435" x2="21.59" y2="51.435" width="0.2032" layer="1"/>
-<wire x1="21.59" y1="51.435" x2="22.225" y2="50.8" width="0.2032" layer="1"/>
-<wire x1="22.225" y1="50.8" x2="24.765" y2="50.8" width="0.2032" layer="1"/>
-<wire x1="24.765" y1="50.8" x2="25.4" y2="50.165" width="0.2032" layer="1"/>
+<wire x1="21.59" y1="51.435" x2="22.5425" y2="50.4825" width="0.2032" layer="1"/>
+<wire x1="22.5425" y1="50.4825" x2="25.0825" y2="50.4825" width="0.2032" layer="1"/>
+<wire x1="25.0825" y1="50.4825" x2="25.4" y2="50.165" width="0.2032" layer="1"/>
 <wire x1="25.4" y1="50.165" x2="34.29" y2="50.165" width="0.2032" layer="1"/>
 <wire x1="34.29" y1="50.165" x2="34.925" y2="49.53" width="0.2032" layer="1"/>
 <wire x1="34.925" y1="49.53" x2="44.1325" y2="49.53" width="0.2032" layer="1"/>
 <wire x1="55.88" y1="44.1325" x2="55.3775" y2="43.63" width="0.2032" layer="1"/>
 <wire x1="54.8125" y1="43.63" x2="55.3775" y2="43.63" width="0.2032" layer="1"/>
-<wire x1="46.0375" y1="47.625" x2="48.5775" y2="47.625" width="0.2032" layer="1"/>
-<wire x1="48.5775" y1="47.625" x2="50.4825" y2="45.72" width="0.2032" layer="1"/>
-<wire x1="55.5625" y1="45.72" x2="55.88" y2="45.4025" width="0.2032" layer="1"/>
+<wire x1="46.0375" y1="47.625" x2="47.625" y2="47.625" width="0.2032" layer="1"/>
+<wire x1="47.625" y1="47.625" x2="49.2125" y2="46.0375" width="0.2032" layer="1"/>
+<wire x1="55.245" y1="46.0375" x2="55.88" y2="45.4025" width="0.2032" layer="1"/>
 <wire x1="55.88" y1="45.4025" x2="55.88" y2="44.1325" width="0.2032" layer="1"/>
-<wire x1="50.4825" y1="45.72" x2="55.5625" y2="45.72" width="0.2032" layer="1"/>
+<wire x1="49.2125" y1="46.0375" x2="55.245" y2="46.0375" width="0.2032" layer="1"/>
 <wire x1="46.0375" y1="47.625" x2="44.1325" y2="49.53" width="0.2032" layer="1"/>
 </signal>
 <signal name="PF1">
@@ -4205,14 +4197,14 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <contactref element="IC3" pad="19"/>
 <contactref element="U4" pad="50"/>
 <wire x1="43.6125" y1="30.83" x2="46.3225" y2="30.83" width="0.2032" layer="1"/>
-<wire x1="46.6725" y1="15.875" x2="18.415" y2="15.875" width="0.2032" layer="1"/>
+<wire x1="46.0375" y1="15.875" x2="18.415" y2="15.875" width="0.2032" layer="1"/>
 <wire x1="18.415" y1="15.875" x2="14.2875" y2="20.0025" width="0.2032" layer="1"/>
 <via x="46.6725" y="16.51" extent="1-16" drill="0.5"/>
 <via x="46.3225" y="30.83" extent="1-16" drill="0.5"/>
 <wire x1="15.5194" y1="26.1112" x2="15.5194" y2="25.0444" width="0.2032" layer="1"/>
 <wire x1="15.5194" y1="25.0444" x2="14.2875" y2="23.8125" width="0.2032" layer="1"/>
 <wire x1="14.2875" y1="23.8125" x2="14.2875" y2="20.0025" width="0.2032" layer="1"/>
-<wire x1="46.6725" y1="15.875" x2="46.6725" y2="16.51" width="0.2032" layer="1"/>
+<wire x1="46.0375" y1="15.875" x2="46.6725" y2="16.51" width="0.2032" layer="1"/>
 <wire x1="46.3225" y1="30.83" x2="46.6725" y2="30.48" width="0.2032" layer="16"/>
 <wire x1="46.6725" y1="30.48" x2="46.6725" y2="27.94" width="0.2032" layer="16"/>
 <wire x1="46.6725" y1="27.94" x2="45.72" y2="26.9875" width="0.2032" layer="16"/>
@@ -4307,10 +4299,10 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="30.7975" y1="35.8775" x2="34.29" y2="35.8775" width="0.2032" layer="1"/>
 <via x="34.29" y="35.8775" extent="1-16" drill="0.5"/>
 <wire x1="34.29" y1="35.8775" x2="34.6075" y2="35.56" width="0.2032" layer="16"/>
-<wire x1="34.6075" y1="35.56" x2="34.6075" y2="31.4325" width="0.2032" layer="16"/>
+<wire x1="34.6075" y1="35.56" x2="34.6075" y2="30.7975" width="0.2032" layer="16"/>
 <via x="36.5125" y="20.6375" extent="1-16" drill="0.5"/>
-<wire x1="34.6075" y1="31.4325" x2="37.465" y2="28.575" width="0.2032" layer="16"/>
-<wire x1="37.465" y1="28.575" x2="37.465" y2="22.86" width="0.2032" layer="16"/>
+<wire x1="34.6075" y1="30.7975" x2="37.465" y2="27.94" width="0.2032" layer="16"/>
+<wire x1="37.465" y1="27.94" x2="37.465" y2="22.86" width="0.2032" layer="16"/>
 <wire x1="37.465" y1="22.86" x2="36.5125" y2="21.9075" width="0.2032" layer="16"/>
 <wire x1="36.5125" y1="21.9075" x2="36.5125" y2="20.6375" width="0.2032" layer="16"/>
 </signal>
@@ -4329,13 +4321,13 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="37.7825" y1="20.955" x2="37.465" y2="21.2725" width="0.2032" layer="1"/>
 <wire x1="37.465" y1="21.2725" x2="37.465" y2="22.225" width="0.2032" layer="16"/>
 <wire x1="37.465" y1="22.225" x2="38.1" y2="22.86" width="0.2032" layer="16"/>
-<wire x1="38.1" y1="22.86" x2="38.1" y2="28.575" width="0.2032" layer="16"/>
+<wire x1="38.1" y1="22.86" x2="38.1" y2="27.94" width="0.2032" layer="16"/>
 <wire x1="28.4988" y1="35.5854" x2="29.8704" y2="35.5854" width="0.2032" layer="1"/>
 <wire x1="29.8704" y1="35.5854" x2="31.115" y2="36.83" width="0.2032" layer="1"/>
 <wire x1="31.115" y1="36.83" x2="34.925" y2="36.83" width="0.2032" layer="1"/>
 <wire x1="34.925" y1="36.83" x2="35.2425" y2="36.5125" width="0.2032" layer="1"/>
-<wire x1="35.2425" y1="36.5125" x2="35.2425" y2="31.4325" width="0.2032" layer="16"/>
-<wire x1="35.2425" y1="31.4325" x2="38.1" y2="28.575" width="0.2032" layer="16"/>
+<wire x1="35.2425" y1="36.5125" x2="35.2425" y2="30.7975" width="0.2032" layer="16"/>
+<wire x1="35.2425" y1="30.7975" x2="38.1" y2="27.94" width="0.2032" layer="16"/>
 </signal>
 <signal name="PG4">
 <contactref element="IC3" pad="27"/>
@@ -4351,16 +4343,16 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="28.4988" y1="36.068" x2="29.718" y2="36.068" width="0.2032" layer="1"/>
 <via x="38.4175" y="21.9075" extent="1-16" drill="0.5"/>
 <via x="36.195" y="37.1475" extent="1-16" drill="0.5"/>
-<wire x1="35.8775" y1="35.8775" x2="35.8775" y2="31.4325" width="0.2032" layer="16"/>
-<wire x1="35.8775" y1="31.4325" x2="38.735" y2="28.575" width="0.2032" layer="16"/>
-<wire x1="38.735" y1="28.575" x2="38.735" y2="22.86" width="0.2032" layer="16"/>
+<wire x1="35.8775" y1="35.56" x2="35.8775" y2="30.7975" width="0.2032" layer="16"/>
+<wire x1="35.8775" y1="30.7975" x2="38.735" y2="27.94" width="0.2032" layer="16"/>
+<wire x1="38.735" y1="27.94" x2="38.735" y2="22.86" width="0.2032" layer="16"/>
 <wire x1="38.735" y1="22.86" x2="38.4175" y2="22.5425" width="0.2032" layer="16"/>
 <wire x1="38.4175" y1="22.5425" x2="38.4175" y2="21.9075" width="0.2032" layer="16"/>
 <wire x1="29.718" y1="36.068" x2="31.115" y2="37.465" width="0.2032" layer="1"/>
 <wire x1="31.115" y1="37.465" x2="35.8775" y2="37.465" width="0.2032" layer="1"/>
 <wire x1="35.8775" y1="37.465" x2="36.195" y2="37.1475" width="0.2032" layer="1"/>
-<wire x1="36.195" y1="37.1475" x2="36.195" y2="36.195" width="0.2032" layer="16"/>
-<wire x1="36.195" y1="36.195" x2="35.8775" y2="35.8775" width="0.2032" layer="16"/>
+<wire x1="36.195" y1="37.1475" x2="36.195" y2="35.8775" width="0.2032" layer="16"/>
+<wire x1="36.195" y1="35.8775" x2="35.8775" y2="35.56" width="0.2032" layer="16"/>
 </signal>
 <signal name="PD11">
 <contactref element="IC3" pad="43"/>
@@ -4372,9 +4364,9 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="37.1475" y1="44.7675" x2="37.1475" y2="45.72" width="0.2032" layer="16"/>
 <via x="37.1475" y="45.72" extent="1-16" drill="0.5"/>
 <wire x1="37.1475" y1="45.72" x2="37.7825" y2="46.355" width="0.2032" layer="1"/>
-<wire x1="37.7825" y1="46.355" x2="38.735" y2="46.355" width="0.2032" layer="1"/>
-<wire x1="38.735" y1="46.355" x2="40.005" y2="47.625" width="0.2032" layer="1"/>
-<wire x1="40.005" y1="47.625" x2="44.1325" y2="47.625" width="0.2032" layer="1"/>
+<wire x1="37.7825" y1="46.355" x2="38.4175" y2="46.355" width="0.2032" layer="1"/>
+<wire x1="38.4175" y1="46.355" x2="39.6875" y2="47.625" width="0.2032" layer="1"/>
+<wire x1="39.6875" y1="47.625" x2="44.1325" y2="47.625" width="0.2032" layer="1"/>
 <wire x1="54.7925" y1="44.45" x2="54.8125" y2="44.43" width="0.2032" layer="1"/>
 <wire x1="54.7925" y1="44.45" x2="47.3075" y2="44.45" width="0.2032" layer="1"/>
 <wire x1="47.3075" y1="44.45" x2="44.1325" y2="47.625" width="0.2032" layer="1"/>
@@ -4396,27 +4388,28 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="33.02" y1="32.385" x2="32.7025" y2="32.0675" width="0.2032" layer="1"/>
 <wire x1="32.7025" y1="32.0675" x2="30.1625" y2="32.0675" width="0.2032" layer="1"/>
 <wire x1="29.6418" y1="32.5882" x2="30.1625" y2="32.0675" width="0.2032" layer="1"/>
-<wire x1="39.37" y1="28.575" x2="36.83" y2="31.115" width="0.2032" layer="16"/>
-<wire x1="36.83" y1="31.115" x2="36.83" y2="32.385" width="0.2032" layer="16"/>
-<wire x1="39.37" y1="28.575" x2="39.37" y2="22.5425" width="0.2032" layer="16"/>
+<wire x1="39.37" y1="27.94" x2="36.83" y2="30.48" width="0.2032" layer="16"/>
+<wire x1="36.83" y1="30.48" x2="36.83" y2="32.385" width="0.2032" layer="16"/>
+<wire x1="39.37" y1="27.94" x2="39.37" y2="22.5425" width="0.2032" layer="16"/>
 </signal>
 <signal name="PD5">
 <contactref element="IC3" pad="17"/>
 <contactref element="U4" pad="119"/>
 <wire x1="43.6125" y1="32.43" x2="44.8125" y2="32.43" width="0.2032" layer="1"/>
 <wire x1="44.8125" y1="32.43" x2="46.0375" y2="33.655" width="0.2032" layer="1"/>
-<wire x1="46.0375" y1="33.655" x2="46.0375" y2="34.925" width="0.2032" layer="1"/>
-<wire x1="46.0375" y1="34.925" x2="48.5775" y2="37.465" width="0.2032" layer="1"/>
-<wire x1="48.5775" y1="37.465" x2="48.5775" y2="46.355" width="0.2032" layer="16"/>
-<wire x1="25.4" y1="49.53" x2="24.765" y2="50.165" width="0.2032" layer="1"/>
-<wire x1="24.765" y1="50.165" x2="22.86" y2="50.165" width="0.2032" layer="1"/>
-<wire x1="22.86" y1="50.165" x2="21.5392" y2="48.8442" width="0.2032" layer="1"/>
+<wire x1="46.0375" y1="33.655" x2="46.0375" y2="38.735" width="0.2032" layer="1"/>
+<wire x1="46.0375" y1="38.735" x2="45.4025" y2="39.37" width="0.2032" layer="1"/>
+<wire x1="45.4025" y1="39.37" x2="47.625" y2="41.5925" width="0.2032" layer="16"/>
+<wire x1="47.625" y1="41.5925" x2="47.625" y2="46.355" width="0.2032" layer="16"/>
+<wire x1="25.4" y1="49.53" x2="25.0825" y2="49.8475" width="0.2032" layer="1"/>
+<wire x1="25.0825" y1="49.8475" x2="22.5425" y2="49.8475" width="0.2032" layer="1"/>
+<wire x1="22.5425" y1="49.8475" x2="21.5392" y2="48.8442" width="0.2032" layer="1"/>
 <wire x1="21.5392" y1="47.5488" x2="21.5392" y2="48.8442" width="0.2032" layer="1"/>
-<via x="48.5775" y="37.465" extent="1-16" drill="0.5"/>
-<via x="48.5775" y="46.355" extent="1-16" drill="0.5"/>
+<via x="45.4025" y="39.37" extent="1-16" drill="0.5"/>
+<via x="47.625" y="46.355" extent="1-16" drill="0.5"/>
 <wire x1="25.4" y1="49.53" x2="34.29" y2="49.53" width="0.2032" layer="1"/>
 <wire x1="34.29" y1="49.53" x2="34.925" y2="48.895" width="0.2032" layer="1"/>
-<wire x1="46.6725" y1="46.355" x2="48.5775" y2="46.355" width="0.2032" layer="1"/>
+<wire x1="46.6725" y1="46.355" x2="47.625" y2="46.355" width="0.2032" layer="1"/>
 <wire x1="34.925" y1="48.895" x2="44.1325" y2="48.895" width="0.2032" layer="1"/>
 <wire x1="44.1325" y1="48.895" x2="46.6725" y2="46.355" width="0.2032" layer="1"/>
 </signal>
@@ -4426,108 +4419,98 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="44.1325" y1="50.165" x2="34.925" y2="50.165" width="0.2032" layer="1"/>
 <wire x1="34.925" y1="50.165" x2="34.29" y2="50.8" width="0.2032" layer="1"/>
 <wire x1="34.29" y1="50.8" x2="25.4" y2="50.8" width="0.2032" layer="1"/>
-<wire x1="24.13" y1="52.07" x2="22.225" y2="52.07" width="0.2032" layer="1"/>
-<via x="22.225" y="52.07" extent="1-16" drill="0.5"/>
-<via x="21.59" y="45.72" extent="1-16" drill="0.5"/>
+<wire x1="24.765" y1="51.435" x2="22.86" y2="51.435" width="0.2032" layer="1"/>
+<via x="22.86" y="51.435" extent="1-16" drill="0.5"/>
+<via x="22.86" y="48.895" extent="1-16" drill="0.5"/>
 <wire x1="54.8125" y1="42.83" x2="52.7375" y2="42.83" width="0.2032" layer="1"/>
 <wire x1="52.3875" y1="43.115" x2="52.7375" y2="42.83" width="0.2032" layer="1"/>
-<wire x1="52.3875" y1="46.6725" x2="52.3875" y2="43.115" width="0.2032" layer="16"/>
+<wire x1="52.3875" y1="46.99" x2="52.3875" y2="43.115" width="0.2032" layer="16"/>
 <via x="52.3875" y="43.115" extent="1-16" drill="0.5"/>
-<wire x1="46.0375" y1="48.26" x2="48.5775" y2="48.26" width="0.2032" layer="1"/>
-<wire x1="48.5775" y1="48.26" x2="50.165" y2="46.6725" width="0.2032" layer="1"/>
-<wire x1="50.165" y1="46.6725" x2="52.3875" y2="46.6725" width="0.2032" layer="1"/>
-<via x="52.3875" y="46.6725" extent="1-16" drill="0.5"/>
-<wire x1="25.4" y1="50.8" x2="24.13" y2="52.07" width="0.2032" layer="1"/>
-<wire x1="21.59" y1="45.72" x2="22.86" y2="46.99" width="0.2032" layer="16"/>
-<wire x1="22.86" y1="46.99" x2="22.86" y2="51.435" width="0.2032" layer="16"/>
-<wire x1="22.86" y1="51.435" x2="22.225" y2="52.07" width="0.2032" layer="16"/>
-<wire x1="22.0218" y1="47.5488" x2="22.0218" y2="46.1518" width="0.2032" layer="1"/>
-<wire x1="22.0218" y1="46.1518" x2="21.59" y2="45.72" width="0.2032" layer="1"/>
+<wire x1="46.0375" y1="48.26" x2="47.9425" y2="48.26" width="0.2032" layer="1"/>
+<wire x1="47.9425" y1="48.26" x2="49.2125" y2="46.99" width="0.2032" layer="1"/>
+<wire x1="49.2125" y1="46.99" x2="52.3875" y2="46.99" width="0.2032" layer="1"/>
+<via x="52.3875" y="46.99" extent="1-16" drill="0.5"/>
+<wire x1="25.4" y1="50.8" x2="24.765" y2="51.435" width="0.2032" layer="1"/>
+<wire x1="22.86" y1="48.895" x2="22.86" y2="51.435" width="0.2032" layer="16"/>
 <wire x1="46.0375" y1="48.26" x2="44.1325" y2="50.165" width="0.2032" layer="1"/>
+<wire x1="22.0218" y1="47.5488" x2="22.0218" y2="48.6918" width="0.2032" layer="1"/>
+<wire x1="22.0218" y1="48.6918" x2="22.225" y2="48.895" width="0.2032" layer="1"/>
+<wire x1="22.225" y1="48.895" x2="22.86" y2="48.895" width="0.2032" layer="1"/>
 </signal>
 <signal name="PG10">
 <contactref element="U4" pad="125"/>
 <contactref element="IC3" pad="6"/>
 <contactref element="R10" pad="1"/>
-<via x="41.5925" y="52.3875" extent="1-16" drill="0.5"/>
+<via x="41.91" y="52.3875" extent="1-16" drill="0.5"/>
 <wire x1="18.542" y1="47.5488" x2="18.542" y2="48.768" width="0.2032" layer="1"/>
 <via x="17.145" y="50.165" extent="1-16" drill="0.5"/>
 <wire x1="17.145" y1="50.165" x2="17.145" y2="52.705" width="0.2032" layer="16"/>
 <via x="17.145" y="52.705" extent="1-16" drill="0.5"/>
-<wire x1="17.145" y1="52.705" x2="19.05" y2="54.61" width="0.2032" layer="1"/>
-<wire x1="19.05" y1="54.61" x2="22.86" y2="54.61" width="0.2032" layer="1"/>
-<wire x1="22.86" y1="54.61" x2="23.495" y2="53.975" width="0.2032" layer="1"/>
-<wire x1="23.495" y1="53.975" x2="24.13" y2="53.975" width="0.2032" layer="1"/>
-<wire x1="24.13" y1="53.975" x2="25.4" y2="52.705" width="0.2032" layer="1"/>
+<wire x1="17.145" y1="52.705" x2="18.0975" y2="53.6575" width="0.2032" layer="1"/>
+<wire x1="18.0975" y1="53.6575" x2="21.2725" y2="53.6575" width="0.2032" layer="1"/>
+<wire x1="21.2725" y1="53.6575" x2="24.4475" y2="53.6575" width="0.2032" layer="1"/>
+<wire x1="24.4475" y1="53.6575" x2="25.4" y2="52.705" width="0.2032" layer="1"/>
 <wire x1="25.4" y1="52.705" x2="34.29" y2="52.705" width="0.2032" layer="1"/>
 <wire x1="34.29" y1="52.705" x2="34.925" y2="52.07" width="0.2032" layer="1"/>
-<wire x1="34.925" y1="52.07" x2="41.275" y2="52.07" width="0.2032" layer="1"/>
-<wire x1="41.275" y1="52.07" x2="41.5925" y2="52.3875" width="0.2032" layer="1"/>
+<wire x1="34.925" y1="52.07" x2="41.5925" y2="52.07" width="0.2032" layer="1"/>
+<wire x1="41.5925" y1="52.07" x2="41.91" y2="52.3875" width="0.2032" layer="1"/>
 <wire x1="18.542" y1="48.768" x2="17.145" y2="50.165" width="0.2032" layer="1"/>
-<wire x1="21.17" y1="55.88" x2="21.59" y2="55.88" width="0.2032" layer="1"/>
-<wire x1="21.59" y1="55.88" x2="22.86" y2="54.61" width="0.2032" layer="1"/>
-<wire x1="41.5925" y1="52.3875" x2="41.5925" y2="41.275" width="0.2032" layer="16"/>
-<via x="41.5925" y="41.275" extent="1-16" drill="0.5"/>
-<wire x1="43.6125" y1="41.23" x2="41.6375" y2="41.23" width="0.2032" layer="1"/>
-<wire x1="41.6375" y1="41.23" x2="41.5925" y2="41.275" width="0.2032" layer="1"/>
+<wire x1="41.91" y1="52.3875" x2="41.91" y2="41.275" width="0.2032" layer="16"/>
+<via x="41.91" y="41.275" extent="1-16" drill="0.5"/>
+<wire x1="43.6125" y1="41.23" x2="41.955" y2="41.23" width="0.2032" layer="1"/>
+<wire x1="41.955" y1="41.23" x2="41.91" y2="41.275" width="0.2032" layer="1"/>
+<wire x1="20.535" y1="54.61" x2="20.535" y2="54.395" width="0.2032" layer="1"/>
+<wire x1="20.535" y1="54.395" x2="21.2725" y2="53.6575" width="0.2032" layer="1"/>
 </signal>
 <signal name="PE1">
 <contactref element="IC3" pad="40"/>
 <contactref element="U4" pad="142"/>
-<wire x1="51.1175" y1="43.18" x2="51.1175" y2="47.625" width="0.2032" layer="16"/>
+<wire x1="51.1175" y1="43.18" x2="51.1175" y2="47.9425" width="0.2032" layer="16"/>
 <wire x1="44.1325" y1="50.8" x2="34.925" y2="50.8" width="0.2032" layer="1"/>
 <wire x1="34.925" y1="50.8" x2="34.29" y2="51.435" width="0.2032" layer="1"/>
 <wire x1="34.29" y1="51.435" x2="25.4" y2="51.435" width="0.2032" layer="1"/>
-<wire x1="25.4" y1="51.435" x2="24.13" y2="52.705" width="0.2032" layer="1"/>
-<wire x1="24.13" y1="52.705" x2="23.495" y2="52.705" width="0.2032" layer="1"/>
-<wire x1="23.495" y1="52.705" x2="22.86" y2="53.34" width="0.2032" layer="1"/>
+<wire x1="25.4" y1="51.435" x2="24.4475" y2="52.3875" width="0.2032" layer="1"/>
 <wire x1="10.033" y1="47.5488" x2="10.033" y2="51.943" width="0.2032" layer="1"/>
 <wire x1="54.8125" y1="42.03" x2="52.2675" y2="42.03" width="0.2032" layer="1"/>
 <wire x1="52.2675" y1="42.03" x2="51.1175" y2="43.18" width="0.2032" layer="1"/>
 <via x="51.1175" y="43.18" extent="1-16" drill="0.5"/>
-<wire x1="22.86" y1="53.34" x2="21.59" y2="53.34" width="0.2032" layer="1"/>
-<wire x1="21.59" y1="53.34" x2="20.955" y2="52.705" width="0.2032" layer="1"/>
-<wire x1="20.955" y1="52.705" x2="19.685" y2="52.705" width="0.2032" layer="1"/>
-<wire x1="19.685" y1="52.705" x2="18.415" y2="51.435" width="0.2032" layer="1"/>
+<wire x1="24.4475" y1="52.3875" x2="19.3675" y2="52.3875" width="0.2032" layer="1"/>
+<wire x1="19.3675" y1="52.3875" x2="18.415" y2="51.435" width="0.2032" layer="1"/>
 <wire x1="18.415" y1="51.435" x2="17.145" y2="51.435" width="0.2032" layer="1"/>
 <wire x1="17.145" y1="51.435" x2="15.875" y2="52.705" width="0.2032" layer="1"/>
 <wire x1="15.875" y1="52.705" x2="10.795" y2="52.705" width="0.2032" layer="1"/>
 <wire x1="10.795" y1="52.705" x2="10.033" y2="51.943" width="0.2032" layer="1"/>
-<wire x1="46.0375" y1="48.895" x2="48.5775" y2="48.895" width="0.2032" layer="1"/>
-<wire x1="48.5775" y1="48.895" x2="49.8475" y2="47.625" width="0.2032" layer="1"/>
-<wire x1="49.8475" y1="47.625" x2="51.1175" y2="47.625" width="0.2032" layer="1"/>
-<via x="51.1175" y="47.625" extent="1-16" drill="0.5"/>
+<wire x1="46.0375" y1="48.895" x2="48.26" y2="48.895" width="0.2032" layer="1"/>
+<wire x1="48.26" y1="48.895" x2="49.2125" y2="47.9425" width="0.2032" layer="1"/>
+<wire x1="49.2125" y1="47.9425" x2="51.1175" y2="47.9425" width="0.2032" layer="1"/>
+<via x="51.1175" y="47.9425" extent="1-16" drill="0.5"/>
 <wire x1="46.0375" y1="48.895" x2="44.1325" y2="50.8" width="0.2032" layer="1"/>
 </signal>
 <signal name="PE0">
 <contactref element="IC3" pad="39"/>
 <contactref element="U4" pad="141"/>
-<wire x1="49.8475" y1="43.18" x2="49.8475" y2="48.5775" width="0.2032" layer="16"/>
+<wire x1="49.8475" y1="43.18" x2="49.8475" y2="48.895" width="0.2032" layer="16"/>
 <wire x1="44.1325" y1="51.435" x2="34.925" y2="51.435" width="0.2032" layer="1"/>
 <wire x1="34.925" y1="51.435" x2="34.29" y2="52.07" width="0.2032" layer="1"/>
 <wire x1="34.29" y1="52.07" x2="25.4" y2="52.07" width="0.2032" layer="1"/>
-<wire x1="25.4" y1="52.07" x2="24.13" y2="53.34" width="0.2032" layer="1"/>
-<wire x1="24.13" y1="53.34" x2="23.495" y2="53.34" width="0.2032" layer="1"/>
-<wire x1="23.495" y1="53.34" x2="22.86" y2="53.975" width="0.2032" layer="1"/>
+<wire x1="25.4" y1="52.07" x2="24.4475" y2="53.0225" width="0.2032" layer="1"/>
 <wire x1="54.8125" y1="41.23" x2="51.7975" y2="41.23" width="0.2032" layer="1"/>
 <wire x1="51.7975" y1="41.23" x2="49.8475" y2="43.18" width="0.2032" layer="1"/>
 <via x="49.8475" y="43.18" extent="1-16" drill="0.5"/>
-<via x="49.8475" y="48.5775" extent="1-16" drill="0.5"/>
-<wire x1="22.86" y1="53.975" x2="21.59" y2="53.975" width="0.2032" layer="1"/>
-<wire x1="21.59" y1="53.975" x2="20.955" y2="53.34" width="0.2032" layer="1"/>
-<wire x1="20.955" y1="53.34" x2="19.05" y2="53.34" width="0.2032" layer="1"/>
-<wire x1="19.05" y1="53.34" x2="18.415" y2="52.705" width="0.2032" layer="1"/>
+<via x="49.8475" y="48.895" extent="1-16" drill="0.5"/>
+<wire x1="24.4475" y1="53.0225" x2="18.7325" y2="53.0225" width="0.2032" layer="1"/>
+<wire x1="18.7325" y1="53.0225" x2="18.415" y2="52.705" width="0.2032" layer="1"/>
 <via x="18.415" y="52.705" extent="1-16" drill="0.5"/>
 <wire x1="18.415" y1="52.705" x2="18.415" y2="50.165" width="0.2032" layer="16"/>
 <wire x1="18.415" y1="50.165" x2="17.145" y2="48.895" width="0.2032" layer="16"/>
 <wire x1="17.145" y1="48.895" x2="17.145" y2="46.355" width="0.2032" layer="16"/>
-<wire x1="10.541" y1="47.5488" x2="10.541" y2="45.339" width="0.2032" layer="1"/>
-<wire x1="10.541" y1="45.339" x2="11.43" y2="44.45" width="0.2032" layer="1"/>
+<wire x1="10.541" y1="47.5488" x2="10.541" y2="45.6565" width="0.2032" layer="1"/>
+<wire x1="10.541" y1="45.6565" x2="11.43" y2="44.7675" width="0.2032" layer="1"/>
 <wire x1="44.1325" y1="51.435" x2="46.0375" y2="49.53" width="0.2032" layer="1"/>
-<wire x1="46.0375" y1="49.53" x2="48.895" y2="49.53" width="0.2032" layer="1"/>
-<wire x1="48.895" y1="49.53" x2="49.8475" y2="48.5775" width="0.2032" layer="1"/>
-<wire x1="11.43" y1="44.45" x2="15.24" y2="44.45" width="0.2032" layer="1"/>
-<wire x1="15.24" y1="44.45" x2="16.51" y2="45.72" width="0.2032" layer="1"/>
+<wire x1="46.0375" y1="49.53" x2="49.2125" y2="49.53" width="0.2032" layer="1"/>
+<wire x1="49.2125" y1="49.53" x2="49.8475" y2="48.895" width="0.2032" layer="1"/>
+<wire x1="11.43" y1="44.7675" x2="15.5575" y2="44.7675" width="0.2032" layer="1"/>
+<wire x1="15.5575" y1="44.7675" x2="16.51" y2="45.72" width="0.2032" layer="1"/>
 <wire x1="16.51" y1="45.72" x2="17.145" y2="46.355" width="0.2032" layer="16"/>
 <via x="16.51" y="45.72" extent="1-16" drill="0.5"/>
 </signal>
@@ -4542,9 +4525,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="24.765" y1="48.895" x2="34.29" y2="48.895" width="0.2032" layer="1"/>
 <wire x1="34.29" y1="48.895" x2="34.925" y2="48.26" width="0.2032" layer="1"/>
 <wire x1="34.925" y1="48.26" x2="44.1325" y2="48.26" width="0.2032" layer="1"/>
-<wire x1="22.225" y1="44.45" x2="24.13" y2="46.355" width="0.2032" layer="16"/>
-<wire x1="24.13" y1="46.355" x2="24.13" y2="48.26" width="0.2032" layer="16"/>
-<wire x1="24.13" y1="48.26" x2="24.765" y2="48.895" width="0.2032" layer="16"/>
+<wire x1="22.225" y1="44.45" x2="24.765" y2="46.99" width="0.2032" layer="16"/>
+<wire x1="24.765" y1="46.99" x2="24.765" y2="48.895" width="0.2032" layer="16"/>
 <wire x1="54.8125" y1="45.23" x2="47.1625" y2="45.23" width="0.2032" layer="1"/>
 <wire x1="44.1325" y1="48.26" x2="47.1625" y2="45.23" width="0.2032" layer="1"/>
 </signal>
@@ -4571,14 +4553,13 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="28.4988" y1="34.0868" x2="30.2768" y2="34.0868" width="0.2032" layer="1"/>
 <wire x1="30.2768" y1="34.0868" x2="30.7975" y2="34.6075" width="0.2032" layer="1"/>
 <wire x1="30.7975" y1="34.6075" x2="33.9725" y2="34.6075" width="0.2032" layer="1"/>
-<wire x1="33.9725" y1="34.6075" x2="34.925" y2="33.655" width="0.2032" layer="1"/>
-<wire x1="34.925" y1="33.655" x2="36.83" y2="33.655" width="0.2032" layer="1"/>
+<wire x1="33.9725" y1="34.6075" x2="34.29" y2="34.29" width="0.2032" layer="1"/>
+<wire x1="34.29" y1="34.29" x2="36.195" y2="34.29" width="0.2032" layer="1"/>
 <via x="40.64" y="33.3375" extent="1-16" drill="0.5"/>
 <via x="41.065" y="40.43" extent="1-16" drill="0.5"/>
 <wire x1="43.6125" y1="40.43" x2="41.065" y2="40.43" width="0.2032" layer="1"/>
-<wire x1="36.83" y1="33.655" x2="37.465" y2="33.02" width="0.2032" layer="1"/>
-<wire x1="37.465" y1="33.02" x2="40.3225" y2="33.02" width="0.2032" layer="1"/>
-<wire x1="40.3225" y1="33.02" x2="40.64" y2="33.3375" width="0.2032" layer="1"/>
+<wire x1="36.195" y1="34.29" x2="37.1475" y2="33.3375" width="0.2032" layer="1"/>
+<wire x1="37.1475" y1="33.3375" x2="40.64" y2="33.3375" width="0.2032" layer="1"/>
 <wire x1="41.065" y1="40.43" x2="40.64" y2="40.005" width="0.2032" layer="16"/>
 <wire x1="40.64" y1="40.005" x2="40.64" y2="33.3375" width="0.2032" layer="16"/>
 </signal>
@@ -4602,21 +4583,21 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <contactref element="U4" pad="58"/>
 <via x="29.845" y="37.465" extent="1-16" drill="0.5"/>
 <via x="26.035" y="30.48" extent="1-16" drill="0.5"/>
-<wire x1="19.5326" y1="26.1112" x2="19.5326" y2="29.6926" width="0.2032" layer="1"/>
-<wire x1="19.5326" y1="29.6926" x2="20.32" y2="30.48" width="0.2032" layer="1"/>
-<wire x1="20.32" y1="30.48" x2="26.035" y2="30.48" width="0.2032" layer="1"/>
+<wire x1="19.5326" y1="26.1112" x2="19.5326" y2="29.0576" width="0.2032" layer="1"/>
+<wire x1="19.5326" y1="29.0576" x2="20.955" y2="30.48" width="0.2032" layer="1"/>
+<wire x1="20.955" y1="30.48" x2="26.035" y2="30.48" width="0.2032" layer="1"/>
 <wire x1="26.035" y1="30.48" x2="25.4" y2="31.115" width="0.2032" layer="16"/>
 <wire x1="25.4" y1="31.115" x2="25.4" y2="36.83" width="0.2032" layer="16"/>
 <wire x1="25.4" y1="36.83" x2="26.035" y2="37.465" width="0.2032" layer="16"/>
 <wire x1="26.035" y1="37.465" x2="29.845" y2="37.465" width="0.2032" layer="16"/>
 <wire x1="29.845" y1="37.465" x2="30.48" y2="38.1" width="0.2032" layer="1"/>
 <wire x1="30.48" y1="38.1" x2="36.5125" y2="38.1" width="0.2032" layer="1"/>
-<wire x1="43.6125" y1="35.63" x2="42.615" y2="35.63" width="0.2032" layer="1"/>
-<wire x1="42.615" y1="35.63" x2="41.275" y2="34.29" width="0.2032" layer="1"/>
+<wire x1="43.6125" y1="35.63" x2="42.9325" y2="35.63" width="0.2032" layer="1"/>
+<wire x1="42.9325" y1="35.63" x2="41.5925" y2="34.29" width="0.2032" layer="1"/>
 <wire x1="36.5125" y1="38.1" x2="38.1" y2="36.5125" width="0.2032" layer="1"/>
 <wire x1="38.1" y1="36.5125" x2="38.1" y2="34.6075" width="0.2032" layer="1"/>
 <wire x1="38.1" y1="34.6075" x2="38.4175" y2="34.29" width="0.2032" layer="1"/>
-<wire x1="38.4175" y1="34.29" x2="41.275" y2="34.29" width="0.2032" layer="1"/>
+<wire x1="38.4175" y1="34.29" x2="41.5925" y2="34.29" width="0.2032" layer="1"/>
 </signal>
 <signal name="PE8">
 <contactref element="IC3" pad="14"/>
@@ -4624,25 +4605,25 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="43.6125" y1="34.83" x2="43.085" y2="34.83" width="0.2032" layer="1"/>
 <wire x1="43.085" y1="34.83" x2="41.275" y2="33.02" width="0.2032" layer="1"/>
 <wire x1="27.94" y1="27.305" x2="31.4325" y2="27.305" width="0.2032" layer="1"/>
-<wire x1="20.0406" y1="26.1112" x2="20.0406" y2="28.9306" width="0.2032" layer="1"/>
-<wire x1="20.0406" y1="28.9306" x2="20.955" y2="29.845" width="0.2032" layer="1"/>
-<wire x1="20.955" y1="29.845" x2="25.4" y2="29.845" width="0.2032" layer="1"/>
+<wire x1="20.0406" y1="26.1112" x2="20.0406" y2="28.6131" width="0.2032" layer="1"/>
+<wire x1="20.0406" y1="28.6131" x2="21.2725" y2="29.845" width="0.2032" layer="1"/>
+<wire x1="21.2725" y1="29.845" x2="25.4" y2="29.845" width="0.2032" layer="1"/>
 <wire x1="25.4" y1="29.845" x2="27.94" y2="27.305" width="0.2032" layer="1"/>
 <wire x1="31.4325" y1="27.305" x2="32.0675" y2="26.67" width="0.2032" layer="1"/>
-<wire x1="32.0675" y1="26.67" x2="35.2425" y2="26.67" width="0.2032" layer="1"/>
-<wire x1="36.5125" y1="27.94" x2="39.6875" y2="27.94" width="0.2032" layer="1"/>
+<wire x1="32.0675" y1="26.67" x2="35.56" y2="26.67" width="0.2032" layer="1"/>
+<wire x1="36.83" y1="27.94" x2="39.6875" y2="27.94" width="0.2032" layer="1"/>
 <wire x1="39.6875" y1="27.94" x2="41.275" y2="29.5275" width="0.2032" layer="1"/>
 <wire x1="41.275" y1="29.5275" x2="41.275" y2="33.02" width="0.2032" layer="1"/>
-<wire x1="35.2425" y1="26.67" x2="36.5125" y2="27.94" width="0.2032" layer="1"/>
+<wire x1="35.56" y1="26.67" x2="36.83" y2="27.94" width="0.2032" layer="1"/>
 </signal>
 <signal name="PE9">
 <contactref element="IC3" pad="15"/>
 <contactref element="U4" pad="60"/>
-<wire x1="27.305" y1="26.67" x2="24.765" y2="29.21" width="0.2032" layer="1"/>
-<wire x1="27.305" y1="26.67" x2="31.4325" y2="26.67" width="0.2032" layer="1"/>
+<wire x1="27.6225" y1="26.67" x2="25.0825" y2="29.21" width="0.2032" layer="1"/>
+<wire x1="27.6225" y1="26.67" x2="31.4325" y2="26.67" width="0.2032" layer="1"/>
 <wire x1="31.4325" y1="26.67" x2="32.0675" y2="26.035" width="0.2032" layer="1"/>
 <wire x1="32.0675" y1="26.035" x2="35.56" y2="26.035" width="0.2032" layer="1"/>
-<wire x1="21.59" y1="29.21" x2="24.765" y2="29.21" width="0.2032" layer="1"/>
+<wire x1="21.59" y1="29.21" x2="25.0825" y2="29.21" width="0.2032" layer="1"/>
 <wire x1="20.5232" y1="26.1112" x2="20.5232" y2="28.1432" width="0.2032" layer="1"/>
 <wire x1="20.5232" y1="28.1432" x2="21.59" y2="29.21" width="0.2032" layer="1"/>
 <wire x1="43.6125" y1="34.03" x2="43.2375" y2="34.03" width="0.2032" layer="1"/>
@@ -4736,19 +4717,19 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <signal name="PD8">
 <contactref element="IC3" pad="36"/>
 <contactref element="U4" pad="77"/>
-<wire x1="54.8125" y1="38.83" x2="47.8475" y2="38.83" width="0.2032" layer="1"/>
-<wire x1="47.8475" y1="38.83" x2="44.7675" y2="41.91" width="0.2032" layer="1"/>
-<wire x1="44.7675" y1="41.91" x2="44.7675" y2="45.085" width="0.2032" layer="1"/>
-<wire x1="44.7675" y1="45.085" x2="44.1325" y2="45.72" width="0.2032" layer="1"/>
+<wire x1="54.8125" y1="38.83" x2="47.53" y2="38.83" width="0.2032" layer="1"/>
+<wire x1="47.53" y1="38.83" x2="45.085" y2="41.275" width="0.2032" layer="1"/>
+<wire x1="45.085" y1="41.275" x2="45.085" y2="44.7675" width="0.2032" layer="1"/>
+<wire x1="45.085" y1="44.7675" x2="44.1325" y2="45.72" width="0.2032" layer="1"/>
 <wire x1="44.1325" y1="45.72" x2="41.5925" y2="45.72" width="0.2032" layer="1"/>
 <via x="40.3225" y="32.0675" extent="1-16" drill="0.5"/>
 <wire x1="39.6875" y1="32.7025" x2="39.6875" y2="43.815" width="0.2032" layer="16"/>
 <wire x1="39.6875" y1="43.815" x2="40.64" y2="44.7675" width="0.2032" layer="16"/>
-<wire x1="28.4988" y1="30.0736" x2="36.2839" y2="30.0736" width="0.2032" layer="1"/>
+<wire x1="28.4988" y1="30.0736" x2="37.2364" y2="30.0736" width="0.2032" layer="1"/>
 <via x="40.64" y="44.7675" extent="1-16" drill="0.5"/>
 <wire x1="40.64" y1="44.7675" x2="41.5925" y2="45.72" width="0.2032" layer="1"/>
-<wire x1="36.2839" y1="30.0736" x2="36.83" y2="29.5275" width="0.2032" layer="1"/>
-<wire x1="36.83" y1="29.5275" x2="40.005" y2="29.5275" width="0.2032" layer="1"/>
+<wire x1="37.2364" y1="30.0736" x2="37.7825" y2="29.5275" width="0.2032" layer="1"/>
+<wire x1="37.7825" y1="29.5275" x2="40.005" y2="29.5275" width="0.2032" layer="1"/>
 <wire x1="40.005" y1="29.5275" x2="40.64" y2="30.1625" width="0.2032" layer="1"/>
 <wire x1="40.64" y1="30.1625" x2="40.64" y2="31.75" width="0.2032" layer="1"/>
 <wire x1="40.64" y1="31.75" x2="40.3225" y2="32.0675" width="0.2032" layer="1"/>
@@ -4757,10 +4738,10 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <signal name="PD9">
 <contactref element="IC3" pad="37"/>
 <contactref element="U4" pad="78"/>
-<wire x1="54.8125" y1="39.63" x2="48.3175" y2="39.63" width="0.2032" layer="1"/>
-<wire x1="48.3175" y1="39.63" x2="45.4025" y2="42.545" width="0.2032" layer="1"/>
-<wire x1="45.4025" y1="42.545" x2="45.4025" y2="45.085" width="0.2032" layer="1"/>
-<wire x1="45.4025" y1="45.085" x2="44.1325" y2="46.355" width="0.2032" layer="1"/>
+<wire x1="54.8125" y1="39.63" x2="48" y2="39.63" width="0.2032" layer="1"/>
+<wire x1="48" y1="39.63" x2="45.72" y2="41.91" width="0.2032" layer="1"/>
+<wire x1="45.72" y1="41.91" x2="45.72" y2="44.7675" width="0.2032" layer="1"/>
+<wire x1="45.72" y1="44.7675" x2="44.1325" y2="46.355" width="0.2032" layer="1"/>
 <wire x1="44.1325" y1="46.355" x2="40.9575" y2="46.355" width="0.2032" layer="1"/>
 <via x="39.6875" y="30.48" extent="1-16" drill="0.5"/>
 <wire x1="39.6875" y1="30.48" x2="39.6875" y2="31.4325" width="0.2032" layer="16"/>
@@ -4768,9 +4749,9 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="39.0525" y1="32.0675" x2="39.0525" y2="44.45" width="0.2032" layer="16"/>
 <wire x1="40.9575" y1="46.355" x2="39.0525" y2="44.45" width="0.2032" layer="1"/>
 <via x="39.0525" y="44.45" extent="1-16" drill="0.5"/>
-<wire x1="28.4988" y1="30.5816" x2="36.4109" y2="30.5816" width="0.2032" layer="1"/>
-<wire x1="36.4109" y1="30.5816" x2="36.83" y2="30.1625" width="0.2032" layer="1"/>
-<wire x1="36.83" y1="30.1625" x2="39.37" y2="30.1625" width="0.2032" layer="1"/>
+<wire x1="28.4988" y1="30.5816" x2="37.3634" y2="30.5816" width="0.2032" layer="1"/>
+<wire x1="37.3634" y1="30.5816" x2="37.7825" y2="30.1625" width="0.2032" layer="1"/>
+<wire x1="37.7825" y1="30.1625" x2="39.37" y2="30.1625" width="0.2032" layer="1"/>
 <wire x1="39.37" y1="30.1625" x2="39.6875" y2="30.48" width="0.2032" layer="1"/>
 </signal>
 <signal name="N$6">
