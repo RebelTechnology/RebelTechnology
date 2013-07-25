@@ -9,6 +9,8 @@
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
@@ -16487,94 +16489,6 @@ Source: 008-0260-0_E.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="SparkFun-Connectors">
-<description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
-In this library you'll find connectors and sockets- basically anything that can be plugged into or onto.&lt;br&gt;&lt;br&gt;
-We've spent an enormous amount of time creating and checking these footprints and parts, but it is the end user's responsibility to ensure correctness and suitablity for a given componet or application. If you enjoy using this library, please buy one of our products at www.sparkfun.com.
-&lt;br&gt;&lt;br&gt;
-&lt;b&gt;Licensing:&lt;/b&gt; CC v3.0 Share-Alike You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
-<packages>
-<package name="USB-AB-MICRO-SMD">
-<description>micro USB AB connector for OTG support. 5-pins: USBVCC, GND, D+, D-, USBID. Can act as host or device</description>
-<smd name="D+" x="2.85" y="0" dx="0.4" dy="1.4" layer="1" rot="R90"/>
-<smd name="D-" x="2.85" y="0.65" dx="0.4" dy="1.4" layer="1" rot="R90"/>
-<smd name="VBUS" x="2.85" y="1.3" dx="0.4" dy="1.4" layer="1" rot="R90"/>
-<smd name="ID" x="2.85" y="-0.65" dx="0.4" dy="1.4" layer="1" rot="R90"/>
-<smd name="GND" x="2.85" y="-1.3" dx="0.4" dy="1.4" layer="1" rot="R90"/>
-<smd name="P$6" x="0" y="1.25" dx="2" dy="1.9" layer="1" rot="R90"/>
-<smd name="P$7" x="0" y="-1.25" dx="2" dy="1.9" layer="1" rot="R90"/>
-<wire x1="-2.75" y1="4" x2="-2.75" y2="-4" width="0.2032" layer="51"/>
-<wire x1="-2.05" y1="5" x2="-2.05" y2="-5" width="0.2032" layer="51"/>
-<text x="-5.2" y="5.5" size="0.3048" layer="51">PCB Front</text>
-<wire x1="-3" y1="5.6" x2="-2.3" y2="5.3" width="0.08" layer="51"/>
-<wire x1="-2.3" y1="5.3" x2="-2.4" y2="5.5" width="0.08" layer="51"/>
-<wire x1="-2.3" y1="5.3" x2="-2.5" y2="5.2" width="0.08" layer="51"/>
-<wire x1="2.9" y1="4" x2="2.9" y2="-4" width="0.2032" layer="51"/>
-<wire x1="-2.7" y1="4" x2="-0.6" y2="4" width="0.2032" layer="51"/>
-<wire x1="-0.6" y1="4" x2="0.6" y2="4" width="0.2032" layer="51"/>
-<wire x1="0.6" y1="4" x2="2.9" y2="4" width="0.2032" layer="51"/>
-<wire x1="-2.7" y1="-4" x2="2.9" y2="-4" width="0.2032" layer="51"/>
-<wire x1="1.2" y1="4.1" x2="3" y2="4.1" width="0.254" layer="21"/>
-<wire x1="3" y1="4.1" x2="3" y2="3.07" width="0.254" layer="21"/>
-<wire x1="3" y1="-3.07" x2="3" y2="-4.1" width="0.254" layer="21"/>
-<wire x1="3" y1="-4.1" x2="1.2" y2="-4.1" width="0.254" layer="21"/>
-<wire x1="-1.2" y1="-4.1" x2="-1.9" y2="-4.1" width="0.254" layer="21"/>
-<wire x1="-1.2" y1="4.1" x2="-1.9" y2="4.1" width="0.254" layer="21"/>
-<wire x1="-0.6" y1="4" x2="-0.6" y2="4.6" width="0.2032" layer="51"/>
-<wire x1="-0.6" y1="4.6" x2="0.6" y2="4.6" width="0.2032" layer="51"/>
-<wire x1="0.6" y1="4.6" x2="0.6" y2="4" width="0.2032" layer="51"/>
-<wire x1="0.6" y1="-4" x2="0.6" y2="-4.6" width="0.2032" layer="51"/>
-<wire x1="0.6" y1="-4.6" x2="-0.6" y2="-4.6" width="0.2032" layer="51"/>
-<wire x1="-0.6" y1="-4.6" x2="-0.6" y2="-4" width="0.2032" layer="51"/>
-<text x="-1.27" y="5.969" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.27" y="5.461" size="0.4064" layer="27">&gt;VALUE</text>
-<hole x="0" y="3.6" drill="1.4"/>
-<hole x="0" y="-3.6" drill="1.4"/>
-<hole x="2.9" y="2.425" drill="0.8"/>
-<hole x="2.9" y="-2.425" drill="0.8"/>
-<rectangle x1="-0.95" y1="2.6" x2="0.95" y2="4.9" layer="1"/>
-<rectangle x1="-0.95" y1="-4.9" x2="0.95" y2="-2.6" layer="1"/>
-<rectangle x1="-0.95" y1="2.6" x2="0.95" y2="4.9" layer="29"/>
-<rectangle x1="-0.95" y1="-4.9" x2="0.95" y2="-2.6" layer="29"/>
-</package>
-</packages>
-<symbols>
-<symbol name="USB_AB">
-<description>USB AB, 5-pins: USBVCC, GND, D+, D-, USBID.</description>
-<wire x1="2.54" y1="6.35" x2="-2.54" y2="6.35" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="6.35" x2="-2.54" y2="-6.35" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-6.35" x2="2.54" y2="-6.35" width="0.254" layer="94"/>
-<text x="1.27" y="-6.096" size="2.54" layer="94" rot="R90">USBAB</text>
-<pin name="D+" x="-5.08" y="0" visible="pad" length="short"/>
-<pin name="D-" x="-5.08" y="-2.54" visible="pad" length="short"/>
-<pin name="VBUS" x="-5.08" y="-5.08" visible="pad" length="short"/>
-<pin name="GND" x="-5.08" y="5.08" visible="pad" length="short"/>
-<pin name="USBID" x="-5.08" y="2.54" visible="pad" length="short"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="USB-AB" prefix="U" uservalue="yes">
-<description>This is a USB AB connector that is compatible with USB OTG. i.e. this connector can serve as a host or device</description>
-<gates>
-<gate name="G$1" symbol="USB_AB" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="USB-AB-MICRO-SMD">
-<connects>
-<connect gate="G$1" pin="D+" pad="D+"/>
-<connect gate="G$1" pin="D-" pad="D-"/>
-<connect gate="G$1" pin="GND" pad="GND"/>
-<connect gate="G$1" pin="USBID" pad="ID"/>
-<connect gate="G$1" pin="VBUS" pad="VBUS"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="burr-brown">
 <description>&lt;b&gt;Burr-Brown Components&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
@@ -16863,6 +16777,110 @@ We've spent an enormous amount of time creating and checking these footprints an
 </deviceset>
 </devicesets>
 </library>
+<library name="USB_connector">
+<packages>
+<package name="HRS_ZX62D-AB-5P8_USB">
+<description>ZX62D-AB-5P8 - HRS (HIROSE)&lt;br/&gt;
+CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
+<text x="-3.81" y="1.27" size="1.016" layer="25" rot="R90">&gt;NAME</text>
+<text x="5.08" y="1.27" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
+<wire x1="4.15" y1="-2.54" x2="-4.15" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="3.45" y1="-1.24" x2="-3.5" y2="-1.24" width="0.127" layer="21" style="shortdash"/>
+<wire x1="-3.65" y1="-1.94" x2="-3.65" y2="3.06" width="0.127" layer="21"/>
+<wire x1="3.65" y1="-1.94" x2="3.65" y2="3.06" width="0.127" layer="21"/>
+<wire x1="3.65" y1="3.06" x2="-3.65" y2="3.06" width="0.127" layer="21"/>
+<pad name="G" x="-4.175" y="0.11" drill="1" diameter="1.8" shape="square"/>
+<pad name="G2" x="4.175" y="0.11" drill="1" diameter="1.8" shape="square"/>
+<wire x1="0" y1="-1.39" x2="0" y2="-1.79" width="0.0508" layer="21"/>
+<pad name="G3" x="-2.225" y="3.235" drill="0.6" diameter="0.8128" shape="offset" rot="R90"/>
+<pad name="G4" x="2.225" y="3.235" drill="0.6" diameter="0.8128" shape="offset" rot="R90"/>
+<smd name="3" x="0" y="2.91" dx="0.4" dy="1.35" layer="1"/>
+<smd name="2" x="-0.65" y="2.91" dx="0.4" dy="1.35" layer="1"/>
+<smd name="1" x="-1.3" y="2.91" dx="0.4" dy="1.35" layer="1"/>
+<smd name="4" x="0.65" y="2.91" dx="0.4" dy="1.35" layer="1"/>
+<smd name="5" x="1.3" y="2.91" dx="0.4" dy="1.35" layer="1"/>
+<wire x1="3.6" y1="-0.84" x2="2.6" y2="-0.84" width="0" layer="48"/>
+<wire x1="2.6" y1="-0.84" x2="2.05" y2="-0.84" width="0" layer="48"/>
+<wire x1="2.05" y1="-0.84" x2="0.25" y2="-0.84" width="0" layer="48"/>
+<wire x1="0.25" y1="-0.84" x2="-0.25" y2="-0.84" width="0" layer="48"/>
+<wire x1="-0.25" y1="-0.84" x2="-2.05" y2="-0.84" width="0" layer="48"/>
+<wire x1="-2.05" y1="-0.84" x2="-2.6" y2="-0.84" width="0" layer="48"/>
+<wire x1="-2.6" y1="-0.84" x2="-3.65" y2="-0.84" width="0" layer="48"/>
+<wire x1="3.65" y1="1.06" x2="2.6" y2="1.06" width="0" layer="48"/>
+<wire x1="2.6" y1="1.06" x2="2.05" y2="1.06" width="0" layer="48"/>
+<wire x1="2.05" y1="1.06" x2="0.25" y2="1.06" width="0" layer="48"/>
+<wire x1="0.25" y1="1.06" x2="-0.25" y2="1.06" width="0" layer="48"/>
+<wire x1="-0.25" y1="1.06" x2="-2.05" y2="1.06" width="0" layer="48"/>
+<wire x1="-2.05" y1="1.06" x2="-2.6" y2="1.06" width="0" layer="48"/>
+<wire x1="-2.6" y1="1.06" x2="-3.65" y2="1.06" width="0" layer="48"/>
+<wire x1="-0.25" y1="-0.84" x2="-0.25" y2="1.06" width="0" layer="48"/>
+<wire x1="0.25" y1="-0.84" x2="0.25" y2="1.06" width="0" layer="48"/>
+<wire x1="-2.05" y1="-0.84" x2="-2.05" y2="1.06" width="0" layer="48"/>
+<wire x1="2.05" y1="-0.84" x2="2.05" y2="1.06" width="0" layer="48"/>
+<wire x1="-2.6" y1="-0.84" x2="-2.6" y2="1.06" width="0" layer="48"/>
+<wire x1="2.6" y1="-0.84" x2="2.6" y2="1.06" width="0" layer="48"/>
+<wire x1="1.8" y1="1.96" x2="-1.8" y2="1.96" width="0" layer="48"/>
+<wire x1="-1.8" y1="2.06" x2="-3.7" y2="2.06" width="0" layer="48"/>
+<rectangle x1="-3.65" y1="1.96" x2="-1.8" y2="2.06" layer="41"/>
+<rectangle x1="1.8" y1="1.96" x2="3.6" y2="2.06" layer="41"/>
+<wire x1="1.8" y1="2.06" x2="3.65" y2="2.06" width="0" layer="48"/>
+<wire x1="-1.8" y1="2.06" x2="-1.8" y2="1.96" width="0" layer="48"/>
+<wire x1="1.8" y1="2.06" x2="1.8" y2="1.96" width="0" layer="48"/>
+<text x="-1.45" y="3.76" size="0.4" layer="48" ratio="10">1</text>
+<text x="1.15" y="3.76" size="0.4" layer="48" ratio="10">5</text>
+<wire x1="-3.45" y1="-1.94" x2="3.45" y2="-1.94" width="0.127" layer="21"/>
+<wire x1="0" y1="-2.09" x2="0" y2="-2.39" width="0.0508" layer="21"/>
+<wire x1="-4.15" y1="-2.54" x2="-3.65" y2="-1.94" width="0.127" layer="21"/>
+<wire x1="4.15" y1="-2.54" x2="3.65" y2="-1.94" width="0.127" layer="21"/>
+<rectangle x1="-3.65" y1="1.06" x2="3.65" y2="1.96" layer="41"/>
+<rectangle x1="-3.65" y1="-1.24" x2="3.65" y2="-0.84" layer="41"/>
+<rectangle x1="-2.6" y1="-0.84" x2="-2.05" y2="1.06" layer="41"/>
+<rectangle x1="-0.25" y1="-0.84" x2="0.25" y2="1.06" layer="41"/>
+<rectangle x1="2.05" y1="-0.84" x2="2.6" y2="1.06" layer="41"/>
+<smd name="D_0" x="-1.15" y="0.11" dx="1.8" dy="1.9" layer="1"/>
+<smd name="D_1" x="1.15" y="0.11" dx="1.8" dy="1.9" layer="1"/>
+</package>
+</packages>
+<symbols>
+<symbol name="USB_MINI.MICRO">
+<wire x1="10.16" y1="6.35" x2="0" y2="6.35" width="0.254" layer="94"/>
+<wire x1="0" y1="6.35" x2="0" y2="-8.89" width="0.254" layer="94"/>
+<wire x1="0" y1="-8.89" x2="2.54" y2="-8.89" width="0.254" layer="94"/>
+<text x="9.525" y="-3.81" size="2.54" layer="94" rot="R90">USB</text>
+<pin name="D+" x="-2.54" y="5.08" length="short"/>
+<pin name="D-" x="-2.54" y="2.54" length="short"/>
+<pin name="VCC" x="-2.54" y="0" length="short"/>
+<pin name="GND" x="-2.54" y="-2.54" length="short"/>
+<pin name="ID" x="-2.54" y="-5.08" length="short"/>
+<pin name="SHIELD" x="-2.54" y="-7.62" length="short"/>
+<wire x1="2.54" y1="-8.89" x2="10.16" y2="-8.89" width="0.254" layer="94"/>
+<text x="0" y="10.16" size="1.016" layer="95">&gt;NAME</text>
+<text x="0" y="7.62" size="1.016" layer="96">&gt;VALUE</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="USB_HRS_ZX62-B-5PA(11)MICRO.B" prefix="USB" uservalue="yes">
+<gates>
+<gate name="USB" symbol="USB_MINI.MICRO" x="-2.54" y="0"/>
+</gates>
+<devices>
+<device name="-" package="HRS_ZX62D-AB-5P8_USB">
+<connects>
+<connect gate="USB" pin="D+" pad="3"/>
+<connect gate="USB" pin="D-" pad="2"/>
+<connect gate="USB" pin="GND" pad="5"/>
+<connect gate="USB" pin="ID" pad="4"/>
+<connect gate="USB" pin="SHIELD" pad="G G2 G3 G4"/>
+<connect gate="USB" pin="VCC" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -16908,7 +16926,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="UART" library="SparkFun" deviceset="M06" device="SIP"/>
 <part name="JP2" library="SparkFun" deviceset="M05X2" device="PTH"/>
-<part name="U3" library="SparkFun-Connectors" deviceset="USB-AB" device=""/>
 <part name="U4" library="Rebel" deviceset="STM32F405ZGT6" device=""/>
 <part name="+3V23" library="supply1" deviceset="+3V3" device=""/>
 <part name="C18" library="resistor" deviceset="C-EU" device="C0603" value="1u"/>
@@ -17010,6 +17027,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="ADC" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="PWR" library="audioint" deviceset="JMP/3P/SIP" device="" value=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
+<part name="USB1" library="USB_connector" deviceset="USB_HRS_ZX62-B-5PA(11)MICRO.B" device="-"/>
 </parts>
 <sheets>
 <sheet>
@@ -17053,7 +17071,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="+3V1" gate="G$1" x="289.56" y="-132.08"/>
 <instance part="UART" gate="G$1" x="312.42" y="-27.94" rot="R180"/>
 <instance part="JP2" gate="G$1" x="-12.7" y="63.5"/>
-<instance part="U3" gate="G$1" x="226.06" y="-154.94" rot="MR0"/>
 <instance part="U4" gate="A" x="50.8" y="-114.3"/>
 <instance part="U4" gate="B" x="147.32" y="-111.76"/>
 <instance part="+3V23" gate="G$1" x="7.62" y="-91.44" rot="R90"/>
@@ -17160,6 +17177,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="ADC" gate="G$1" x="-25.4" y="10.16"/>
 <instance part="PWR" gate="G$1" x="279.4" y="5.08"/>
 <instance part="GND3" gate="1" x="266.7" y="-167.64"/>
+<instance part="USB1" gate="USB" x="218.44" y="-157.48" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -17203,9 +17221,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 </segment>
 <segment>
 <pinref part="GND12" gate="1" pin="GND"/>
-<wire x1="231.14" y1="-149.86" x2="233.68" y2="-149.86" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="-149.86" x2="233.68" y2="-162.56" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="GND"/>
+<pinref part="USB1" gate="USB" pin="SHIELD"/>
+<wire x1="233.68" y1="-149.86" x2="226.06" y2="-149.86" width="0.1524" layer="91"/>
+<pinref part="USB1" gate="USB" pin="GND"/>
+<wire x1="226.06" y1="-149.86" x2="220.98" y2="-149.86" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="-154.94" x2="226.06" y2="-154.94" width="0.1524" layer="91"/>
+<wire x1="226.06" y1="-154.94" x2="226.06" y2="-149.86" width="0.1524" layer="91"/>
+<junction x="226.06" y="-149.86"/>
 </segment>
 <segment>
 <pinref part="GND28" gate="1" pin="GND"/>
@@ -18207,15 +18230,19 @@ We've spent an enormous amount of time creating and checking these footprints an
 <net name="N$17" class="0">
 <segment>
 <pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="236.22" y1="-154.94" x2="231.14" y2="-154.94" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="D+"/>
+<wire x1="236.22" y1="-154.94" x2="228.6" y2="-154.94" width="0.1524" layer="91"/>
+<wire x1="228.6" y1="-154.94" x2="228.6" y2="-162.56" width="0.1524" layer="91"/>
+<pinref part="USB1" gate="USB" pin="D+"/>
+<wire x1="228.6" y1="-162.56" x2="220.98" y2="-162.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$21" class="0">
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="246.38" y1="-157.48" x2="231.14" y2="-157.48" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="D-"/>
+<wire x1="246.38" y1="-157.48" x2="226.06" y2="-157.48" width="0.1524" layer="91"/>
+<pinref part="USB1" gate="USB" pin="D-"/>
+<wire x1="220.98" y1="-160.02" x2="226.06" y2="-160.02" width="0.1524" layer="91"/>
+<wire x1="226.06" y1="-160.02" x2="226.06" y2="-157.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="USB_DM" class="0">
@@ -18246,10 +18273,10 @@ We've spent an enormous amount of time creating and checking these footprints an
 </net>
 <net name="USB_ID" class="0">
 <segment>
-<wire x1="231.14" y1="-152.4" x2="269.24" y2="-152.4" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="-152.4" x2="269.24" y2="-152.4" width="0.1524" layer="91"/>
 <label x="256.54" y="-152.4" size="1.778" layer="95"/>
-<pinref part="U3" gate="G$1" pin="USBID"/>
 <pinref part="USB" gate="G$1" pin="1"/>
+<pinref part="USB1" gate="USB" pin="ID"/>
 </segment>
 <segment>
 <pinref part="U4" gate="B" pin="PA10"/>
@@ -18259,10 +18286,12 @@ We've spent an enormous amount of time creating and checking these footprints an
 </net>
 <net name="USB_VBUS" class="0">
 <segment>
-<wire x1="231.14" y1="-160.02" x2="269.24" y2="-160.02" width="0.1524" layer="91"/>
+<wire x1="223.52" y1="-160.02" x2="269.24" y2="-160.02" width="0.1524" layer="91"/>
 <label x="256.54" y="-160.02" size="1.778" layer="95"/>
-<pinref part="U3" gate="G$1" pin="VBUS"/>
 <pinref part="USB" gate="G$1" pin="4"/>
+<wire x1="223.52" y1="-160.02" x2="223.52" y2="-157.48" width="0.1524" layer="91"/>
+<pinref part="USB1" gate="USB" pin="VCC"/>
+<wire x1="223.52" y1="-157.48" x2="220.98" y2="-157.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="106.68" y1="-142.24" x2="127" y2="-142.24" width="0.1524" layer="91"/>
