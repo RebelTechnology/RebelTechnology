@@ -16947,10 +16947,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="C11" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C12" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="+3V28" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V29" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="C24" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="+3V30" library="supply1" deviceset="+3V3" device=""/>
@@ -17096,10 +17093,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="GND5" gate="1" x="193.04" y="10.16"/>
 <instance part="GND9" gate="1" x="200.66" y="10.16"/>
 <instance part="C11" gate="G$1" x="215.9" y="22.86"/>
-<instance part="C12" gate="G$1" x="208.28" y="22.86"/>
-<instance part="+3V28" gate="G$1" x="208.28" y="35.56"/>
 <instance part="+3V29" gate="G$1" x="215.9" y="35.56"/>
-<instance part="GND10" gate="1" x="208.28" y="10.16"/>
 <instance part="GND18" gate="1" x="215.9" y="10.16"/>
 <instance part="C24" gate="G$1" x="223.52" y="22.86"/>
 <instance part="+3V30" gate="G$1" x="223.52" y="35.56"/>
@@ -17341,11 +17335,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pinref part="C11" gate="G$1" pin="2"/>
 <pinref part="GND18" gate="1" pin="GND"/>
 <wire x1="215.9" y1="17.78" x2="215.9" y2="12.7" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C12" gate="G$1" pin="2"/>
-<pinref part="GND10" gate="1" pin="GND"/>
-<wire x1="208.28" y1="17.78" x2="208.28" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C24" gate="G$1" pin="2"/>
@@ -17669,11 +17658,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pinref part="C3" gate="G$1" pin="1"/>
 <pinref part="+3V2" gate="G$1" pin="+3V3"/>
 <wire x1="193.04" y1="25.4" x2="193.04" y2="33.02" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="+3V28" gate="G$1" pin="+3V3"/>
-<pinref part="C12" gate="G$1" pin="1"/>
-<wire x1="208.28" y1="33.02" x2="208.28" y2="25.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="+3V29" gate="G$1" pin="+3V3"/>
