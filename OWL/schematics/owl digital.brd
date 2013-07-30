@@ -3793,8 +3793,7 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="29.21" y1="11.43" x2="29.21" y2="10.16" width="0.2032" layer="16"/>
 <via x="29.21" y="10.16" extent="1-16" drill="0.5"/>
 <contactref element="U2" pad="P$6"/>
-<wire x1="37.5228" y1="9.555" x2="29.875" y2="9.555" width="0.2032" layer="1"/>
-<wire x1="29.875" y1="9.555" x2="29.21" y2="10.16" width="0.2032" layer="1"/>
+<wire x1="37.5228" y1="9.555" x2="29.815" y2="9.555" width="0.2032" layer="1"/>
 <wire x1="32.385" y1="14.605" x2="32.385" y2="22.86" width="0.2032" layer="16"/>
 <wire x1="32.385" y1="22.86" x2="34.29" y2="24.765" width="0.2032" layer="16"/>
 <wire x1="34.29" y1="24.765" x2="34.29" y2="27.305" width="0.2032" layer="16"/>
@@ -3803,6 +3802,7 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="28.4988" y1="29.083" x2="34.0995" y2="29.083" width="0.2032" layer="1"/>
 <wire x1="34.0995" y1="29.083" x2="34.6075" y2="28.575" width="0.2032" layer="1"/>
 <wire x1="32.385" y1="14.605" x2="29.21" y2="11.43" width="0.2032" layer="16"/>
+<wire x1="29.815" y1="9.555" x2="29.21" y2="10.16" width="0.2032" layer="1"/>
 </signal>
 <signal name="I2S_MCLK">
 <contactref element="U4" pad="96"/>
