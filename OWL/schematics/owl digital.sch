@@ -16786,9 +16786,6 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <text x="5.08" y="1.27" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
 <wire x1="4.15" y1="-2.54" x2="-4.15" y2="-2.54" width="0.127" layer="21"/>
 <wire x1="3.45" y1="-1.24" x2="-3.5" y2="-1.24" width="0.127" layer="21" style="shortdash"/>
-<wire x1="-3.65" y1="-1.94" x2="-3.65" y2="3.06" width="0.127" layer="21"/>
-<wire x1="3.65" y1="-1.94" x2="3.65" y2="3.06" width="0.127" layer="21"/>
-<wire x1="3.65" y1="3.06" x2="-3.65" y2="3.06" width="0.127" layer="21"/>
 <pad name="G" x="-4.175" y="0.11" drill="1" diameter="1.8" shape="square"/>
 <pad name="G2" x="4.175" y="0.11" drill="1" diameter="1.8" shape="square"/>
 <wire x1="0" y1="-1.39" x2="0" y2="-1.79" width="0.0508" layer="21"/>
@@ -16839,6 +16836,12 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <rectangle x1="2.05" y1="-0.84" x2="2.6" y2="1.06" layer="41"/>
 <smd name="D_0" x="-1.15" y="0.11" dx="1.8" dy="1.9" layer="1"/>
 <smd name="D_1" x="1.15" y="0.11" dx="1.8" dy="1.9" layer="1"/>
+<wire x1="-3.65" y1="3.06" x2="-3.65" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-3.65" y1="-1.27" x2="-3.65" y2="-1.94" width="0.127" layer="21"/>
+<wire x1="3.65" y1="-1.27" x2="3.65" y2="-1.94" width="0.127" layer="21"/>
+<wire x1="3.65" y1="3.06" x2="3.65" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-2.95" y1="3.06" x2="-3.65" y2="3.06" width="0.127" layer="21"/>
+<wire x1="3.65" y1="3.06" x2="2.95" y2="3.06" width="0.127" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -17063,12 +17066,12 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <instance part="R5" gate="G$1" x="251.46" y="-157.48"/>
 <instance part="GND12" gate="1" x="233.68" y="-165.1"/>
 <instance part="GND28" gate="1" x="274.32" y="-2.54"/>
-<instance part="LED1" gate="G$1" x="307.34" y="-139.7" rot="R90"/>
-<instance part="LED2" gate="G$1" x="307.34" y="-152.4" rot="R90"/>
-<instance part="R11" gate="G$1" x="297.18" y="-139.7"/>
-<instance part="R12" gate="G$1" x="297.18" y="-152.4"/>
-<instance part="GND34" gate="1" x="314.96" y="-162.56"/>
-<instance part="+3V1" gate="G$1" x="289.56" y="-132.08"/>
+<instance part="LED1" gate="G$1" x="320.04" y="-139.7" rot="R90"/>
+<instance part="LED2" gate="G$1" x="320.04" y="-152.4" rot="R90"/>
+<instance part="R11" gate="G$1" x="309.88" y="-139.7"/>
+<instance part="R12" gate="G$1" x="309.88" y="-152.4"/>
+<instance part="GND34" gate="1" x="327.66" y="-162.56"/>
+<instance part="+3V1" gate="G$1" x="302.26" y="-132.08"/>
 <instance part="UART" gate="G$1" x="312.42" y="-27.94" rot="R180"/>
 <instance part="JP2" gate="G$1" x="-12.7" y="63.5"/>
 <instance part="U4" gate="A" x="50.8" y="-114.3"/>
@@ -17173,7 +17176,7 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <instance part="GND2" gate="1" x="127" y="78.74"/>
 <instance part="+3V10" gate="G$1" x="177.8" y="157.48"/>
 <instance part="+3V11" gate="G$1" x="144.78" y="157.48"/>
-<instance part="USB" gate="G$1" x="276.86" y="-157.48" rot="R180"/>
+<instance part="USB" gate="G$1" x="279.4" y="-157.48" rot="R180"/>
 <instance part="ADC" gate="G$1" x="-25.4" y="10.16"/>
 <instance part="PWR" gate="G$1" x="279.4" y="5.08"/>
 <instance part="GND3" gate="1" x="266.7" y="-167.64"/>
@@ -17239,12 +17242,12 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <segment>
 <pinref part="LED1" gate="G$1" pin="C"/>
 <pinref part="GND34" gate="1" pin="GND"/>
-<wire x1="312.42" y1="-139.7" x2="314.96" y2="-139.7" width="0.1524" layer="91"/>
-<wire x1="314.96" y1="-139.7" x2="314.96" y2="-152.4" width="0.1524" layer="91"/>
-<wire x1="314.96" y1="-152.4" x2="314.96" y2="-160.02" width="0.1524" layer="91"/>
+<wire x1="325.12" y1="-139.7" x2="327.66" y2="-139.7" width="0.1524" layer="91"/>
+<wire x1="327.66" y1="-139.7" x2="327.66" y2="-152.4" width="0.1524" layer="91"/>
+<wire x1="327.66" y1="-152.4" x2="327.66" y2="-160.02" width="0.1524" layer="91"/>
 <pinref part="LED2" gate="G$1" pin="C"/>
-<wire x1="312.42" y1="-152.4" x2="314.96" y2="-152.4" width="0.1524" layer="91"/>
-<junction x="314.96" y="-152.4"/>
+<wire x1="325.12" y1="-152.4" x2="327.66" y2="-152.4" width="0.1524" layer="91"/>
+<junction x="327.66" y="-152.4"/>
 </segment>
 <segment>
 <pinref part="UART" gate="G$1" pin="1"/>
@@ -17483,7 +17486,7 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <segment>
 <pinref part="USB" gate="G$1" pin="5"/>
 <pinref part="GND3" gate="1" pin="GND"/>
-<wire x1="269.24" y1="-162.56" x2="266.7" y2="-162.56" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="-162.56" x2="266.7" y2="-162.56" width="0.1524" layer="91"/>
 <wire x1="266.7" y1="-162.56" x2="266.7" y2="-165.1" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -17592,8 +17595,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <segment>
 <pinref part="R11" gate="G$1" pin="1"/>
 <pinref part="+3V1" gate="G$1" pin="+3V3"/>
-<wire x1="292.1" y1="-139.7" x2="289.56" y2="-139.7" width="0.1524" layer="91"/>
-<wire x1="289.56" y1="-139.7" x2="289.56" y2="-134.62" width="0.1524" layer="91"/>
+<wire x1="304.8" y1="-139.7" x2="302.26" y2="-139.7" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="-139.7" x2="302.26" y2="-134.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U4" gate="A" pin="VBAT"/>
@@ -17800,8 +17803,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 </net>
 <net name="PB0" class="0">
 <segment>
-<wire x1="-20.32" y1="66.04" x2="7.62" y2="50.8" width="0.1524" layer="91"/>
-<label x="0" y="50.8" size="1.778" layer="95"/>
+<wire x1="-20.32" y1="66.04" x2="-27.94" y2="66.04" width="0.1524" layer="91"/>
+<label x="-27.94" y="66.04" size="1.778" layer="95"/>
 <pinref part="JP2" gate="G$1" pin="3"/>
 </segment>
 <segment>
@@ -17812,8 +17815,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 </net>
 <net name="PB1" class="0">
 <segment>
-<wire x1="-5.08" y1="68.58" x2="7.62" y2="48.26" width="0.1524" layer="91"/>
-<label x="0" y="48.26" size="1.778" layer="95"/>
+<wire x1="-5.08" y1="68.58" x2="5.08" y2="68.58" width="0.1524" layer="91"/>
+<label x="0" y="68.58" size="1.778" layer="95"/>
 <pinref part="JP2" gate="G$1" pin="2"/>
 </segment>
 <segment>
@@ -17821,17 +17824,17 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="68.58" y1="-114.3" x2="78.74" y2="-114.3" width="0.1524" layer="91"/>
 <label x="73.66" y="-114.3" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="R12" gate="G$1" pin="1"/>
+<wire x1="304.8" y1="-152.4" x2="294.64" y2="-152.4" width="0.1524" layer="91"/>
+<label x="294.64" y="-152.4" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="PB2" class="0">
 <segment>
-<wire x1="-20.32" y1="68.58" x2="7.62" y2="45.72" width="0.1524" layer="91"/>
-<label x="0" y="45.72" size="1.778" layer="95"/>
+<wire x1="-20.32" y1="68.58" x2="-27.94" y2="68.58" width="0.1524" layer="91"/>
+<label x="-27.94" y="68.58" size="1.778" layer="95"/>
 <pinref part="JP2" gate="G$1" pin="1"/>
-</segment>
-<segment>
-<pinref part="R12" gate="G$1" pin="1"/>
-<wire x1="292.1" y1="-152.4" x2="276.86" y2="-152.4" width="0.1524" layer="91"/>
-<label x="276.86" y="-152.4" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="68.58" y1="-111.76" x2="78.74" y2="-111.76" width="0.1524" layer="91"/>
@@ -17970,8 +17973,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 </net>
 <net name="PA3" class="0">
 <segment>
-<wire x1="-5.08" y1="58.42" x2="7.62" y2="68.58" width="0.1524" layer="91"/>
-<label x="0" y="68.58" size="1.778" layer="95"/>
+<wire x1="-5.08" y1="58.42" x2="5.08" y2="58.42" width="0.1524" layer="91"/>
+<label x="0" y="58.42" size="1.778" layer="95"/>
 <pinref part="JP2" gate="G$1" pin="10"/>
 </segment>
 <segment>
@@ -17982,8 +17985,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 </net>
 <net name="PA4" class="0">
 <segment>
-<wire x1="-20.32" y1="58.42" x2="7.62" y2="66.04" width="0.1524" layer="91"/>
-<label x="0" y="66.04" size="1.778" layer="95"/>
+<wire x1="-20.32" y1="58.42" x2="-27.94" y2="58.42" width="0.1524" layer="91"/>
+<label x="-27.94" y="58.42" size="1.778" layer="95"/>
 <pinref part="JP2" gate="G$1" pin="9"/>
 </segment>
 <segment>
@@ -17994,8 +17997,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 </net>
 <net name="PA5" class="0">
 <segment>
-<wire x1="-5.08" y1="60.96" x2="7.62" y2="63.5" width="0.1524" layer="91"/>
-<label x="0" y="63.5" size="1.778" layer="95"/>
+<wire x1="-5.08" y1="60.96" x2="5.08" y2="60.96" width="0.1524" layer="91"/>
+<label x="0" y="60.96" size="1.778" layer="95"/>
 <pinref part="JP2" gate="G$1" pin="8"/>
 </segment>
 <segment>
@@ -18006,8 +18009,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 </net>
 <net name="PA6" class="0">
 <segment>
-<wire x1="-20.32" y1="60.96" x2="7.62" y2="60.96" width="0.1524" layer="91"/>
-<label x="0" y="60.96" size="1.778" layer="95"/>
+<wire x1="-20.32" y1="60.96" x2="-27.94" y2="60.96" width="0.1524" layer="91"/>
+<label x="-27.94" y="60.96" size="1.778" layer="95"/>
 <pinref part="JP2" gate="G$1" pin="7"/>
 </segment>
 <segment>
@@ -18018,8 +18021,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 </net>
 <net name="PA7" class="0">
 <segment>
-<wire x1="-5.08" y1="63.5" x2="7.62" y2="58.42" width="0.1524" layer="91"/>
-<label x="0" y="58.42" size="1.778" layer="95"/>
+<wire x1="-5.08" y1="63.5" x2="5.08" y2="63.5" width="0.1524" layer="91"/>
+<label x="0" y="63.5" size="1.778" layer="95"/>
 <pinref part="JP2" gate="G$1" pin="6"/>
 </segment>
 <segment>
@@ -18054,8 +18057,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 </net>
 <net name="PC4" class="0">
 <segment>
-<wire x1="-20.32" y1="63.5" x2="7.62" y2="55.88" width="0.1524" layer="91"/>
-<label x="0" y="55.88" size="1.778" layer="95"/>
+<wire x1="-20.32" y1="63.5" x2="-27.94" y2="63.5" width="0.1524" layer="91"/>
+<label x="-27.94" y="63.5" size="1.778" layer="95"/>
 <pinref part="JP2" gate="G$1" pin="5"/>
 </segment>
 <segment>
@@ -18066,8 +18069,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 </net>
 <net name="PC5" class="0">
 <segment>
-<wire x1="-5.08" y1="66.04" x2="7.62" y2="53.34" width="0.1524" layer="91"/>
-<label x="0" y="53.34" size="1.778" layer="95"/>
+<wire x1="-5.08" y1="66.04" x2="5.08" y2="66.04" width="0.1524" layer="91"/>
+<label x="0" y="66.04" size="1.778" layer="95"/>
 <pinref part="JP2" gate="G$1" pin="4"/>
 </segment>
 <segment>
@@ -18239,16 +18242,16 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <net name="N$21" class="0">
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="246.38" y1="-157.48" x2="226.06" y2="-157.48" width="0.1524" layer="91"/>
+<wire x1="246.38" y1="-157.48" x2="236.22" y2="-157.48" width="0.1524" layer="91"/>
 <pinref part="USB1" gate="USB" pin="D-"/>
-<wire x1="220.98" y1="-160.02" x2="226.06" y2="-160.02" width="0.1524" layer="91"/>
-<wire x1="226.06" y1="-160.02" x2="226.06" y2="-157.48" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="-160.02" x2="236.22" y2="-160.02" width="0.1524" layer="91"/>
+<wire x1="236.22" y1="-160.02" x2="236.22" y2="-157.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="USB_DM" class="0">
 <segment>
 <pinref part="R5" gate="G$1" pin="2"/>
-<wire x1="256.54" y1="-157.48" x2="269.24" y2="-157.48" width="0.1524" layer="91"/>
+<wire x1="256.54" y1="-157.48" x2="271.78" y2="-157.48" width="0.1524" layer="91"/>
 <label x="256.54" y="-157.48" size="1.778" layer="95"/>
 <pinref part="USB" gate="G$1" pin="3"/>
 </segment>
@@ -18261,7 +18264,7 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <net name="USB_DP" class="0">
 <segment>
 <pinref part="R4" gate="G$1" pin="2"/>
-<wire x1="246.38" y1="-154.94" x2="269.24" y2="-154.94" width="0.1524" layer="91"/>
+<wire x1="246.38" y1="-154.94" x2="271.78" y2="-154.94" width="0.1524" layer="91"/>
 <label x="256.54" y="-154.94" size="1.778" layer="95"/>
 <pinref part="USB" gate="G$1" pin="2"/>
 </segment>
@@ -18273,7 +18276,7 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 </net>
 <net name="USB_ID" class="0">
 <segment>
-<wire x1="220.98" y1="-152.4" x2="269.24" y2="-152.4" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="-152.4" x2="271.78" y2="-152.4" width="0.1524" layer="91"/>
 <label x="256.54" y="-152.4" size="1.778" layer="95"/>
 <pinref part="USB" gate="G$1" pin="1"/>
 <pinref part="USB1" gate="USB" pin="ID"/>
@@ -18286,10 +18289,12 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 </net>
 <net name="USB_VBUS" class="0">
 <segment>
-<wire x1="223.52" y1="-160.02" x2="269.24" y2="-160.02" width="0.1524" layer="91"/>
+<wire x1="223.52" y1="-157.48" x2="223.52" y2="-167.64" width="0.1524" layer="91"/>
+<wire x1="223.52" y1="-167.64" x2="241.3" y2="-167.64" width="0.1524" layer="91"/>
+<wire x1="241.3" y1="-167.64" x2="241.3" y2="-160.02" width="0.1524" layer="91"/>
+<wire x1="241.3" y1="-160.02" x2="271.78" y2="-160.02" width="0.1524" layer="91"/>
 <label x="256.54" y="-160.02" size="1.778" layer="95"/>
 <pinref part="USB" gate="G$1" pin="4"/>
-<wire x1="223.52" y1="-160.02" x2="223.52" y2="-157.48" width="0.1524" layer="91"/>
 <pinref part="USB1" gate="USB" pin="VCC"/>
 <wire x1="223.52" y1="-157.48" x2="220.98" y2="-157.48" width="0.1524" layer="91"/>
 </segment>
@@ -18308,14 +18313,14 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <segment>
 <pinref part="LED1" gate="G$1" pin="A"/>
 <pinref part="R11" gate="G$1" pin="2"/>
-<wire x1="302.26" y1="-139.7" x2="304.8" y2="-139.7" width="0.1524" layer="91"/>
+<wire x1="314.96" y1="-139.7" x2="317.5" y2="-139.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$11" class="0">
 <segment>
 <pinref part="LED2" gate="G$1" pin="A"/>
 <pinref part="R12" gate="G$1" pin="2"/>
-<wire x1="302.26" y1="-152.4" x2="304.8" y2="-152.4" width="0.1524" layer="91"/>
+<wire x1="314.96" y1="-152.4" x2="317.5" y2="-152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VCAP1" class="0">

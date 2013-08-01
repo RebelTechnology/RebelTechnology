@@ -137,9 +137,9 @@
 <text x="10.16" y="7.9375" size="0.8128" layer="21" font="vector" rot="SR0">PB1</text>
 <text x="10.16" y="14.2875" size="0.8128" layer="21" font="vector" rot="SR0">PB2</text>
 <text x="54.61" y="10.16" size="1.9304" layer="21" font="vector" rot="R90">OWL Rev02</text>
-<text x="12.7" y="4.1275" size="1.016" layer="21" font="vector" rot="SR0">5v</text>
-<text x="14.605" y="4.1275" size="1.016" layer="21" font="vector" rot="SR0">gnd</text>
-<text x="17.78" y="4.1275" size="1.016" layer="21" font="vector" rot="SR0">3v3</text>
+<text x="13.0175" y="7.9375" size="1.016" layer="21" font="vector" rot="SR0">5v</text>
+<text x="14.9225" y="7.9375" size="1.016" layer="21" font="vector" rot="SR0">gnd</text>
+<text x="17.78" y="7.9375" size="1.016" layer="21" font="vector" rot="SR0">3v3</text>
 <dimension x1="0" y1="0.254" x2="0" y2="56.515" x3="-3.175" y3="28.3845" textsize="1.778" textratio="2" layer="51" width="0.1" visible="yes"/>
 </plain>
 <libraries>
@@ -2613,9 +2613,6 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <text x="5.08" y="1.27" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
 <wire x1="4.15" y1="-2.54" x2="-4.15" y2="-2.54" width="0.127" layer="21"/>
 <wire x1="3.45" y1="-1.24" x2="-3.5" y2="-1.24" width="0.127" layer="21" style="shortdash"/>
-<wire x1="-3.65" y1="-1.94" x2="-3.65" y2="3.06" width="0.127" layer="21"/>
-<wire x1="3.65" y1="-1.94" x2="3.65" y2="3.06" width="0.127" layer="21"/>
-<wire x1="3.65" y1="3.06" x2="-3.65" y2="3.06" width="0.127" layer="21"/>
 <pad name="G" x="-4.175" y="0.11" drill="1" diameter="1.8" shape="square"/>
 <pad name="G2" x="4.175" y="0.11" drill="1" diameter="1.8" shape="square"/>
 <wire x1="0" y1="-1.39" x2="0" y2="-1.79" width="0.0508" layer="21"/>
@@ -2666,6 +2663,12 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <rectangle x1="2.05" y1="-0.84" x2="2.6" y2="1.06" layer="41"/>
 <smd name="D_0" x="-1.15" y="0.11" dx="1.8" dy="1.9" layer="1"/>
 <smd name="D_1" x="1.15" y="0.11" dx="1.8" dy="1.9" layer="1"/>
+<wire x1="-3.65" y1="3.06" x2="-3.65" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-3.65" y1="-1.27" x2="-3.65" y2="-1.94" width="0.127" layer="21"/>
+<wire x1="3.65" y1="-1.27" x2="3.65" y2="-1.94" width="0.127" layer="21"/>
+<wire x1="3.65" y1="3.06" x2="3.65" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-2.95" y1="3.06" x2="-3.65" y2="3.06" width="0.127" layer="21"/>
+<wire x1="3.65" y1="3.06" x2="2.95" y2="3.06" width="0.127" layer="21"/>
 </package>
 </packages>
 </library>
@@ -2678,7 +2681,7 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <class number="0" name="default" width="0" drill="0">
 </class>
 </classes>
-<designrules name="Rebel">
+<designrules name="Rebel *">
 <description language="de">
 &lt;b&gt;Rebel Rules&lt;/b&gt;
 &lt;p&gt;
@@ -2753,7 +2756,7 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <param name="checkGrid" value="0"/>
 <param name="checkAngle" value="0"/>
 <param name="checkFont" value="1"/>
-<param name="checkRestrict" value="0"/>
+<param name="checkRestrict" value="1"/>
 <param name="useDiameter" value="13"/>
 <param name="maxErrors" value="50"/>
 </designrules>
@@ -2943,17 +2946,25 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <element name="C305" library="resistor" package="C1206" value="10u" x="50.165" y="12.3825" rot="R90"/>
 <element name="C302" library="resistor" package="C1206" value="10u" x="35.56" y="1.905"/>
 <element name="C301" library="resistor" package="C0603" value="100n" x="33.655" y="6.35"/>
-<element name="HP" library="audioint" package="JMP/3P/SIP" value="" x="26.67" y="6.35" rot="R180"/>
+<element name="HP" library="audioint" package="JMP/3P/SIP" value="" x="26.67" y="6.35" smashed="yes" rot="R180">
+<attribute name="NAME" x="26.6065" y="7.6835" size="1.27" layer="25" ratio="10"/>
+<attribute name="VALUE" x="30.226" y="9.398" size="1.27" layer="27" ratio="10" rot="R180"/>
+</element>
 <element name="R300" library="resistor" package="R0603" value="4k7" x="24.13" y="12.7" rot="R180"/>
 <element name="R301" library="resistor" package="R0603" value="4k7" x="24.13" y="10.795" rot="R180"/>
 <element name="IN" library="audioint" package="JMP/3P/SIP" value="" x="55.88" y="6.35"/>
-<element name="OUT" library="audioint" package="JMP/3P/SIP" value="" x="26.67" y="3.81"/>
+<element name="OUT" library="audioint" package="JMP/3P/SIP" value="" x="26.67" y="3.81" smashed="yes">
+<attribute name="NAME" x="26.6065" y="1.016" size="1.27" layer="25" ratio="10"/>
+<attribute name="VALUE" x="23.114" y="0.762" size="1.27" layer="27" ratio="10"/>
+</element>
 <element name="USB" library="SparkFun" package="1X05" value="" x="44.45" y="55.245"/>
 <element name="ADC" library="SparkFun" package="1X04" value="" x="1.27" y="52.705" smashed="yes">
 <attribute name="NAME" x="-0.0762" y="50.0888" size="1.27" layer="25" ratio="10"/>
 <attribute name="VALUE" x="0" y="49.53" size="1.27" layer="27"/>
 </element>
-<element name="PWR" library="audioint" package="JMP/3P/SIP" value="" x="16.51" y="6.35"/>
+<element name="PWR" library="audioint" package="JMP/3P/SIP" value="" x="16.51" y="6.35" smashed="yes">
+<attribute name="VALUE" x="12.954" y="3.302" size="1.27" layer="27" ratio="10"/>
+</element>
 <element name="USB1" library="USB_connector" package="HRS_ZX62D-AB-5P8_USB" value="" x="58.7375" y="51.1175" rot="R90"/>
 </elements>
 <signals>
@@ -3445,10 +3456,12 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="13.97" y1="27.305" x2="15.875" y2="29.21" width="0.2032" layer="1"/>
 <wire x1="15.875" y1="29.21" x2="15.875" y2="29.845" width="0.2032" layer="1"/>
 <wire x1="17.145" y1="27.94" x2="15.875" y2="29.21" width="0.2032" layer="16"/>
+<contactref element="R12" pad="1"/>
+<wire x1="13.755" y1="10.795" x2="12.065" y2="10.795" width="0.2032" layer="1"/>
+<wire x1="12.065" y1="10.795" x2="11.43" y2="10.16" width="0.2032" layer="1"/>
 </signal>
 <signal name="PB2">
 <contactref element="JP2" pad="1"/>
-<contactref element="R12" pad="1"/>
 <contactref element="U4" pad="48"/>
 <wire x1="14.5288" y1="26.1112" x2="14.605" y2="26.1874" width="0.2032" layer="1"/>
 <via x="17.145" y="29.21" extent="1-16" drill="0.5"/>
@@ -3460,8 +3473,6 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="14.605" y1="26.1874" x2="14.605" y2="27.305" width="0.2032" layer="1"/>
 <wire x1="14.605" y1="27.305" x2="16.51" y2="29.21" width="0.2032" layer="1"/>
 <wire x1="16.51" y1="29.21" x2="17.145" y2="29.21" width="0.2032" layer="1"/>
-<wire x1="13.755" y1="10.795" x2="13.335" y2="10.795" width="0.2032" layer="1"/>
-<wire x1="13.335" y1="10.795" x2="11.43" y2="12.7" width="0.2032" layer="1"/>
 <wire x1="17.78" y1="28.575" x2="17.145" y2="29.21" width="0.2032" layer="16"/>
 </signal>
 <signal name="PB4">
@@ -3651,7 +3662,9 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="12.0396" y1="48.6029" x2="11.1125" y2="49.53" width="0.2032" layer="1"/>
 <wire x1="11.1125" y1="49.53" x2="11.1125" y2="50.8" width="0.2032" layer="1"/>
 <wire x1="11.1125" y1="50.8" x2="11.7475" y2="51.435" width="0.2032" layer="1"/>
-<wire x1="11.7475" y1="51.435" x2="13.12" y2="51.435" width="0.2032" layer="1"/>
+<wire x1="11.7475" y1="51.435" x2="12.065" y2="51.435" width="0.2032" layer="1"/>
+<via x="12.065" y="51.435" extent="1-16" drill="0.5" shape="square"/>
+<wire x1="12.065" y1="51.435" x2="13.12" y2="51.435" width="0.2032" layer="1"/>
 </signal>
 <signal name="ADC2">
 <contactref element="U4" pad="27"/>
