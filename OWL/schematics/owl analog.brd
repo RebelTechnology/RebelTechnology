@@ -2287,6 +2287,7 @@ grid 2.54 mm</description>
 <wire x1="29.75" y1="75.8075" x2="30.35" y2="75.8075" width="0.3048" layer="16"/>
 <wire x1="30.35" y1="75.8075" x2="30.675" y2="75.4825" width="0.3048" layer="16"/>
 <contactref element="U$1" pad="+3"/>
+<contactref element="JP3" pad="8"/>
 </signal>
 <signal name="+5V">
 <contactref element="F3" pad="P$2"/>
