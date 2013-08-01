@@ -24,7 +24,7 @@
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
@@ -135,7 +135,7 @@
 <text x="0" y="7.9375" size="0.8128" layer="21" font="vector" rot="SR0">PA3</text>
 <text x="7.62" y="14.2875" size="0.8128" layer="21" font="vector" rot="SR0">PB0</text>
 <text x="10.16" y="7.9375" size="0.8128" layer="21" font="vector" rot="SR0">PB1</text>
-<text x="10.16" y="14.2875" size="0.8128" layer="21" font="vector" rot="SR0">PB2</text>
+<text x="10.16" y="14.9225" size="0.8128" layer="21" font="vector" rot="SR0">PB2</text>
 <text x="54.61" y="10.16" size="1.9304" layer="21" font="vector" rot="R90">OWL Rev02</text>
 <text x="13.0175" y="7.9375" size="1.016" layer="21" font="vector" rot="SR0">5v</text>
 <text x="14.9225" y="7.9375" size="1.016" layer="21" font="vector" rot="SR0">gnd</text>
@@ -2611,11 +2611,11 @@ We've spent an enormous amount of time creating and checking these footprints an
 CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <text x="-3.81" y="1.27" size="1.016" layer="25" rot="R90">&gt;NAME</text>
 <text x="5.08" y="1.27" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
-<wire x1="4.15" y1="-2.54" x2="-4.15" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="4.15" y1="-2.54" x2="-4.15" y2="-2.54" width="0.127" layer="51"/>
 <wire x1="3.45" y1="-1.24" x2="-3.5" y2="-1.24" width="0.127" layer="21" style="shortdash"/>
 <pad name="G" x="-4.175" y="0.11" drill="1" diameter="1.8" shape="square"/>
 <pad name="G2" x="4.175" y="0.11" drill="1" diameter="1.8" shape="square"/>
-<wire x1="0" y1="-1.39" x2="0" y2="-1.79" width="0.0508" layer="21"/>
+<wire x1="0" y1="-1.39" x2="0" y2="-1.79" width="0.0508" layer="51"/>
 <pad name="G3" x="-2.225" y="3.235" drill="0.6" diameter="0.8128" shape="offset" rot="R90"/>
 <pad name="G4" x="2.225" y="3.235" drill="0.6" diameter="0.8128" shape="offset" rot="R90"/>
 <smd name="3" x="0" y="2.91" dx="0.4" dy="1.35" layer="1"/>
@@ -2652,10 +2652,10 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="1.8" y1="2.06" x2="1.8" y2="1.96" width="0" layer="48"/>
 <text x="-1.45" y="3.76" size="0.4" layer="48" ratio="10">1</text>
 <text x="1.15" y="3.76" size="0.4" layer="48" ratio="10">5</text>
-<wire x1="-3.45" y1="-1.94" x2="3.45" y2="-1.94" width="0.127" layer="21"/>
-<wire x1="0" y1="-2.09" x2="0" y2="-2.39" width="0.0508" layer="21"/>
-<wire x1="-4.15" y1="-2.54" x2="-3.65" y2="-1.94" width="0.127" layer="21"/>
-<wire x1="4.15" y1="-2.54" x2="3.65" y2="-1.94" width="0.127" layer="21"/>
+<wire x1="-3.45" y1="-1.94" x2="3.45" y2="-1.94" width="0.127" layer="51"/>
+<wire x1="0" y1="-2.09" x2="0" y2="-2.39" width="0.0508" layer="51"/>
+<wire x1="-4.15" y1="-2.54" x2="-3.65" y2="-1.94" width="0.127" layer="51"/>
+<wire x1="4.15" y1="-2.54" x2="3.65" y2="-1.94" width="0.127" layer="51"/>
 <rectangle x1="-3.65" y1="1.06" x2="3.65" y2="1.96" layer="41"/>
 <rectangle x1="-3.65" y1="-1.24" x2="3.65" y2="-0.84" layer="41"/>
 <rectangle x1="-2.6" y1="-0.84" x2="-2.05" y2="1.06" layer="41"/>
@@ -2664,8 +2664,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <smd name="D_0" x="-1.15" y="0.11" dx="1.8" dy="1.9" layer="1"/>
 <smd name="D_1" x="1.15" y="0.11" dx="1.8" dy="1.9" layer="1"/>
 <wire x1="-3.65" y1="3.06" x2="-3.65" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-3.65" y1="-1.27" x2="-3.65" y2="-1.94" width="0.127" layer="21"/>
-<wire x1="3.65" y1="-1.27" x2="3.65" y2="-1.94" width="0.127" layer="21"/>
+<wire x1="-3.65" y1="-1.27" x2="-3.65" y2="-1.94" width="0.127" layer="51"/>
+<wire x1="3.65" y1="-1.27" x2="3.65" y2="-1.94" width="0.127" layer="51"/>
 <wire x1="3.65" y1="3.06" x2="3.65" y2="1.27" width="0.127" layer="21"/>
 <wire x1="-2.95" y1="3.06" x2="-3.65" y2="3.06" width="0.127" layer="21"/>
 <wire x1="3.65" y1="3.06" x2="2.95" y2="3.06" width="0.127" layer="21"/>
@@ -2854,30 +2854,39 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 </pass>
 </autorouter>
 <elements>
-<element name="SWD" library="SparkFun" package="1X06" value="" x="36.83" y="55.245" rot="R180"/>
+<element name="SWD" library="SparkFun" package="1X06" value="" x="36.83" y="55.245" smashed="yes" rot="R180">
+<attribute name="NAME" x="38.3413" y="55.1688" size="1.27" layer="25" ratio="10"/>
+<attribute name="VALUE" x="38.1" y="58.42" size="1.27" layer="27" rot="R180"/>
+</element>
 <element name="C5" library="resistor" package="C0603" value="100n" x="20.32" y="22.86" smashed="yes" rot="R90">
-<attribute name="NAME" x="20.828" y="24.511" size="1.016" layer="25" rot="R90"/>
+<attribute name="NAME" x="19.4945" y="21.209" size="1.016" layer="25" rot="R270"/>
 <attribute name="VALUE" x="22.352" y="21.971" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="C6" library="resistor" package="C0603" value="100n" x="20.32" y="50.165" smashed="yes">
-<attribute name="NAME" x="21.971" y="49.657" size="1.016" layer="25"/>
+<attribute name="NAME" x="21.971" y="49.657" size="1.27" layer="25"/>
 <attribute name="VALUE" x="19.431" y="48.133" size="1.27" layer="27"/>
 </element>
 <element name="C1" library="resistor" package="C0603" value="1u" x="12.7" y="22.225" smashed="yes" rot="R270">
-<attribute name="NAME" x="12.192" y="20.8915" size="1.016" layer="25" rot="R270"/>
+<attribute name="NAME" x="12.192" y="19.939" size="1.27" layer="25" rot="R270"/>
 <attribute name="VALUE" x="10.668" y="23.114" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C10" library="resistor" package="C0603" value="100n" x="29.845" y="47.625"/>
 <element name="C2" library="resistor" package="C0603" value="100n" x="32.385" y="33.655" smashed="yes">
-<attribute name="NAME" x="33.7185" y="33.147" size="1.016" layer="25"/>
+<attribute name="NAME" x="33.274" y="32.893" size="1.27" layer="25" rot="R180"/>
 <attribute name="VALUE" x="31.496" y="31.623" size="1.27" layer="27"/>
 </element>
 <element name="C9" library="resistor" package="C0603" value="100n" x="29.21" y="25.7175" smashed="yes">
-<attribute name="NAME" x="30.861" y="25.2095" size="1.016" layer="25"/>
+<attribute name="NAME" x="28.6385" y="26.4795" size="1.27" layer="25"/>
 <attribute name="VALUE" x="28.321" y="23.6855" size="1.27" layer="27"/>
 </element>
-<element name="R4" library="resistor" package="R0603" value="22R" x="50.4825" y="53.0225" rot="R180"/>
-<element name="R5" library="resistor" package="R0603" value="22R" x="50.4825" y="51.435" rot="R180"/>
+<element name="R4" library="resistor" package="R0603" value="22R" x="50.4825" y="53.0225" smashed="yes" rot="R180">
+<attribute name="NAME" x="52.1335" y="52.324" size="1.016" layer="25" font="vector"/>
+<attribute name="VALUE" x="51.3715" y="55.0545" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="R5" library="resistor" package="R0603" value="22R" x="50.4825" y="51.435" smashed="yes" rot="R180">
+<attribute name="NAME" x="52.1335" y="50.7365" size="1.016" layer="25" font="vector"/>
+<attribute name="VALUE" x="51.3715" y="53.467" size="1.27" layer="27" rot="R180"/>
+</element>
 <element name="LED1" library="SparkFun" package="LED-1206" value="" x="19.05" y="13.97"/>
 <element name="LED2" library="SparkFun" package="LED-1206" value="" x="19.05" y="10.795"/>
 <element name="R11" library="resistor" package="R0603" value="1k" x="14.605" y="13.97" smashed="yes">
@@ -2889,83 +2898,181 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <attribute name="VALUE" x="13.716" y="8.763" size="1.27" layer="27"/>
 </element>
 <element name="UART" library="SparkFun" package="1X06" value="" x="1.27" y="55.245" smashed="yes">
-<attribute name="NAME" x="15.1638" y="53.2638" size="1.27" layer="25" ratio="10"/>
+<attribute name="NAME" x="15.4813" y="55.1688" size="1.27" layer="25" ratio="10"/>
 <attribute name="VALUE" x="0" y="52.07" size="1.27" layer="27"/>
 </element>
 <element name="JP2" library="SparkFun" package="AVR_ICSP" value="M05X2PTH" x="6.35" y="11.43" smashed="yes" rot="R270">
 <attribute name="VALUE" x="3.175" y="12.7" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="U4" library="Rebel" package="QFP50P2200X2200X160-144N" value="STM32F405ZGT6" x="17.78" y="36.83">
+<element name="U4" library="Rebel" package="QFP50P2200X2200X160-144N" value="STM32F405ZGT6" x="17.78" y="36.83" smashed="yes">
 <attribute name="PACKAGE" value="144LQFP" x="17.78" y="36.83" size="1.778" layer="27" display="off"/>
 <attribute name="OC_NEWARK" value="46W2200" x="17.78" y="36.83" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="STM32F405ZGT6" x="17.78" y="36.83" size="1.778" layer="27" display="off"/>
 <attribute name="SUPPLIER" value="STMicroelectronics" x="17.78" y="36.83" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="2215225" x="17.78" y="36.83" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="16.0147" y="35.8521" size="2.0828" layer="25" ratio="10" rot="SR0"/>
+<attribute name="VALUE" x="12.0142" y="22.606" size="2.0828" layer="27" ratio="10" rot="SR0"/>
 </element>
-<element name="C18" library="resistor" package="C0603" value="1u" x="8.255" y="22.225" rot="R270"/>
-<element name="C19" library="resistor" package="C0603" value="100n" x="8.255" y="22.225" rot="R270"/>
-<element name="L3" library="Rebel" package="0603" value="INDUCTOR" x="6.35" y="22.225" rot="R270"/>
-<element name="C21" library="resistor" package="C0603" value="2u2" x="31.75" y="45.4025"/>
-<element name="C20" library="resistor" package="C0603" value="2u2" x="29.21" y="24.13" rot="R180"/>
-<element name="Q2" library="crystal" package="HC49UP" value="" x="1.905" y="34.29" rot="R270">
+<element name="C18" library="resistor" package="C0603" value="1u" x="6.35" y="22.225" smashed="yes" rot="R270">
+<attribute name="NAME" x="5.5245" y="19.939" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="4.318" y="23.114" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="C19" library="resistor" package="C0603" value="100n" x="8.5725" y="22.225" smashed="yes" rot="R270">
+<attribute name="NAME" x="8.0645" y="19.939" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="6.5405" y="23.114" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="L3" library="Rebel" package="0603" value="INDUCTOR" x="4.445" y="22.225" smashed="yes" rot="R270">
+<attribute name="NAME" x="3.6195" y="19.939" size="1.27" layer="25" rot="R270"/>
+</element>
+<element name="C21" library="resistor" package="C0603" value="2u2" x="31.75" y="45.4025" smashed="yes">
+<attribute name="NAME" x="33.5915" y="44.6405" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="30.861" y="43.3705" size="1.27" layer="27"/>
+</element>
+<element name="C20" library="resistor" package="C0603" value="2u2" x="29.21" y="24.13" smashed="yes" rot="R180">
+<attribute name="NAME" x="31.0515" y="23.368" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="30.099" y="26.162" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="Q2" library="crystal" package="HC49UP" value="" x="1.905" y="34.29" smashed="yes" rot="R270">
 <attribute name="OC_NEWARK" value="unknown" x="-5.08" y="34.29" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="-5.08" y="34.29" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="" x="-5.08" y="34.29" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-5.08" y="34.29" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VALUE" x="-2.286" y="40.005" size="1.27" layer="27" ratio="10" rot="R270"/>
 </element>
-<element name="C22" library="resistor" package="C0603" value="20pF" x="3.81" y="42.545" rot="R90"/>
-<element name="C23" library="resistor" package="C0603" value="20pF" x="3.81" y="26.035" rot="R270"/>
-<element name="R9" library="resistor" package="R0603" value="10K" x="13.97" y="51.435"/>
-<element name="IC3" library="Rebel" package="TSOP44-II" value="IS61WV51216BLL-10TLI" x="49.2125" y="36.83" rot="R270"/>
-<element name="R10" library="resistor" package="R0603" value="10K" x="19.685" y="54.61" rot="R180"/>
-<element name="C7" library="resistor" package="C0603" value="100n" x="56.8325" y="36.83" rot="R90"/>
+<element name="C22" library="resistor" package="C0603" value="20pF" x="3.81" y="42.545" smashed="yes" rot="R90">
+<attribute name="NAME" x="4.318" y="44.196" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="5.842" y="41.656" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="C23" library="resistor" package="C0603" value="20pF" x="3.81" y="26.035" smashed="yes" rot="R270">
+<attribute name="NAME" x="3.048" y="23.241" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="1.778" y="26.924" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="R9" library="resistor" package="R0603" value="10K" x="13.97" y="51.7525" smashed="yes">
+<attribute name="NAME" x="13.081" y="52.6415" size="1.27" layer="25"/>
+<attribute name="VALUE" x="13.081" y="49.7205" size="1.27" layer="27"/>
+</element>
+<element name="IC3" library="Rebel" package="TSOP44-II" value="IS61WV51216BLL-10TLI" x="49.2125" y="36.83" smashed="yes" rot="R270">
+<attribute name="NAME" x="46.6725" y="36.195" size="1.27" layer="25"/>
+<attribute name="VALUE" x="47.3075" y="43.815" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="R10" library="resistor" package="R0603" value="10K" x="19.685" y="54.61" smashed="yes" rot="R180">
+<attribute name="NAME" x="19.431" y="52.6415" size="1.27" layer="25"/>
+<attribute name="VALUE" x="20.574" y="56.642" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="C7" library="resistor" package="C0603" value="100n" x="56.8325" y="36.83" smashed="yes" rot="R90">
+<attribute name="NAME" x="57.3405" y="39.116" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="58.8645" y="35.941" size="1.27" layer="27" rot="R90"/>
+</element>
 <element name="C8" library="resistor" package="C0603" value="100n" x="40.9575" y="36.195" rot="R270"/>
-<element name="C3" library="resistor" package="C0603" value="100n" x="31.75" y="40.005"/>
-<element name="C4" library="resistor" package="C0603" value="100n" x="15.24" y="22.225" rot="R90"/>
+<element name="C3" library="resistor" package="C0603" value="100n" x="31.75" y="40.005" smashed="yes">
+<attribute name="NAME" x="32.9565" y="39.243" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="30.861" y="37.973" size="1.27" layer="27"/>
+</element>
+<element name="C4" library="resistor" package="C0603" value="100n" x="15.24" y="22.225" smashed="yes" rot="R90">
+<attribute name="NAME" x="14.732" y="20.2565" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="17.272" y="21.336" size="1.27" layer="27" rot="R90"/>
+</element>
 <element name="C11" library="resistor" package="C0603" value="100n" x="8.255" y="49.53" rot="R180"/>
-<element name="C24" library="resistor" package="C0603" value="100n" x="5.08" y="31.115" rot="R270"/>
-<element name="C25" library="resistor" package="C0603" value="100n" x="5.08" y="38.1" rot="R270"/>
-<element name="C26" library="resistor" package="C0603" value="100n" x="13.97" y="50.165"/>
-<element name="C27" library="resistor" package="C0603" value="100n" x="10.795" y="22.225" rot="R270"/>
-<element name="JP1" library="SparkFun" package="1X02" value="" x="21.59" y="6.35" rot="R270"/>
+<element name="C24" library="resistor" package="C0603" value="100n" x="5.08" y="31.115" smashed="yes" rot="R270">
+<attribute name="NAME" x="4.572" y="29.7815" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="3.048" y="32.004" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="C25" library="resistor" package="C0603" value="100n" x="5.08" y="38.1" smashed="yes" rot="R270">
+<attribute name="NAME" x="4.318" y="36.2585" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="3.048" y="38.989" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="C26" library="resistor" package="C0603" value="100n" x="13.97" y="50.165" smashed="yes">
+<attribute name="NAME" x="15.3035" y="48.387" size="1.27" layer="25"/>
+<attribute name="VALUE" x="13.081" y="48.133" size="1.27" layer="27"/>
+</element>
+<element name="C27" library="resistor" package="C0603" value="100n" x="10.795" y="22.225" smashed="yes" rot="R270">
+<attribute name="NAME" x="10.287" y="19.939" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="8.763" y="23.114" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="JP1" library="SparkFun" package="1X02" value="" x="21.59" y="6.35" smashed="yes" rot="R270">
+<attribute name="VALUE" x="18.415" y="7.62" size="1.27" layer="27" rot="R270"/>
+</element>
 <element name="IC1" library="burr-brown" package="SOT223" value="REG1117" x="6.985" y="3.81" rot="R90">
 <attribute name="OC_NEWARK" value="14P6981" x="-5.715" y="-4.445" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="REG1117" x="-5.715" y="-4.445" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="" x="-5.715" y="-4.445" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_FARNELL" value="1097566" x="-5.715" y="-4.445" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="C801" library="resistor" package="PANASONIC_A" value="10u" x="13.97" y="2.8575" rot="R90"/>
+<element name="C801" library="resistor" package="PANASONIC_A" value="10u" x="13.97" y="2.8575" smashed="yes" rot="R90">
+<attribute name="NAME" x="12.5375" y="4.3825" size="1.016" layer="25" rot="R90"/>
+<attribute name="VALUE" x="16.795" y="1.2075" size="1.016" layer="27" rot="R90"/>
+</element>
 <element name="C802" library="resistor" package="PANASONIC_A" value="10u" x="18.415" y="2.8575" rot="R90"/>
-<element name="U2" library="audioint" package="28-SSOP" value="WM8731" x="41.275" y="8.255" rot="R270"/>
-<element name="MIC" library="audioint" package="JMP/3P/SIP" value="" x="55.88" y="3.81"/>
-<element name="C304" library="resistor" package="C0603" value="100n" x="47.625" y="12.3825" rot="R90"/>
-<element name="C306" library="resistor" package="C0603" value="100n" x="34.29" y="12.7" rot="R180"/>
-<element name="C308" library="resistor" package="C1206" value="10u" x="48.895" y="1.905"/>
-<element name="C309" library="resistor" package="C0603" value="100n" x="48.895" y="3.81"/>
-<element name="C303" library="resistor" package="C0603" value="100n" x="41.275" y="2.8575"/>
-<element name="C305" library="resistor" package="C1206" value="10u" x="50.165" y="12.3825" rot="R90"/>
-<element name="C302" library="resistor" package="C1206" value="10u" x="35.56" y="1.905"/>
-<element name="C301" library="resistor" package="C0603" value="100n" x="33.655" y="6.35"/>
+<element name="U2" library="audioint" package="28-SSOP" value="WM8731" x="41.275" y="8.255" smashed="yes" rot="R270">
+<attribute name="NAME" x="40.4495" y="4.482" size="1.778" layer="25" ratio="10"/>
+<attribute name="VALUE" x="36.748" y="1.277" size="1.778" layer="27" ratio="10"/>
+</element>
+<element name="MIC" library="audioint" package="JMP/3P/SIP" value="" x="55.88" y="3.81" smashed="yes">
+<attribute name="VALUE" x="52.324" y="0.762" size="1.27" layer="27" ratio="10"/>
+</element>
+<element name="C304" library="resistor" package="C0603" value="100n" x="47.625" y="12.3825" smashed="yes" rot="R90">
+<attribute name="NAME" x="48.4505" y="14.0335" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="49.657" y="11.4935" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="C306" library="resistor" package="C0603" value="100n" x="34.29" y="12.7" smashed="yes" rot="R180">
+<attribute name="NAME" x="31.8135" y="10.6045" size="1.27" layer="25"/>
+<attribute name="VALUE" x="35.179" y="14.732" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="C308" library="resistor" package="C1206" value="10u" x="48.895" y="1.905" smashed="yes">
+<attribute name="NAME" x="51.7525" y="0.508" size="1.27" layer="25"/>
+<attribute name="VALUE" x="47.625" y="-0.508" size="1.27" layer="27"/>
+</element>
+<element name="C309" library="resistor" package="C0603" value="100n" x="48.895" y="3.81" smashed="yes">
+<attribute name="NAME" x="46.736" y="4.572" size="1.27" layer="25"/>
+<attribute name="VALUE" x="48.006" y="1.778" size="1.27" layer="27"/>
+</element>
+<element name="C303" library="resistor" package="C0603" value="100n" x="41.275" y="2.8575" smashed="yes">
+<attribute name="NAME" x="43.434" y="2.0955" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="40.386" y="0.8255" size="1.27" layer="27"/>
+</element>
+<element name="C305" library="resistor" package="C1206" value="10u" x="50.165" y="12.3825" smashed="yes" rot="R90">
+<attribute name="NAME" x="50.927" y="14.9225" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="52.578" y="11.1125" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="C302" library="resistor" package="C1206" value="10u" x="35.56" y="1.905" smashed="yes">
+<attribute name="NAME" x="32.0675" y="3.048" size="1.27" layer="25"/>
+<attribute name="VALUE" x="34.29" y="-0.508" size="1.27" layer="27"/>
+</element>
+<element name="C301" library="resistor" package="C0603" value="100n" x="33.655" y="6.35" smashed="yes">
+<attribute name="NAME" x="31.8135" y="7.112" size="1.27" layer="25"/>
+<attribute name="VALUE" x="32.766" y="4.318" size="1.27" layer="27"/>
+</element>
 <element name="HP" library="audioint" package="JMP/3P/SIP" value="" x="26.67" y="6.35" smashed="yes" rot="R180">
 <attribute name="NAME" x="26.6065" y="7.6835" size="1.27" layer="25" ratio="10"/>
 <attribute name="VALUE" x="30.226" y="9.398" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
-<element name="R300" library="resistor" package="R0603" value="4k7" x="24.13" y="12.7" rot="R180"/>
-<element name="R301" library="resistor" package="R0603" value="4k7" x="24.13" y="10.795" rot="R180"/>
+<element name="R300" library="resistor" package="R0603" value="4k7" x="24.13" y="12.7" smashed="yes" rot="R180">
+<attribute name="NAME" x="25.146" y="13.2715" size="1.27" layer="25"/>
+<attribute name="VALUE" x="25.019" y="14.732" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="R301" library="resistor" package="R0603" value="4k7" x="24.13" y="10.795" smashed="yes" rot="R180">
+<attribute name="NAME" x="26.924" y="9.906" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="25.019" y="12.827" size="1.27" layer="27" rot="R180"/>
+</element>
 <element name="IN" library="audioint" package="JMP/3P/SIP" value="" x="55.88" y="6.35"/>
 <element name="OUT" library="audioint" package="JMP/3P/SIP" value="" x="26.67" y="3.81" smashed="yes">
 <attribute name="NAME" x="26.6065" y="1.016" size="1.27" layer="25" ratio="10"/>
 <attribute name="VALUE" x="23.114" y="0.762" size="1.27" layer="27" ratio="10"/>
 </element>
-<element name="USB" library="SparkFun" package="1X05" value="" x="44.45" y="55.245"/>
+<element name="USB" library="SparkFun" package="1X05" value="" x="44.45" y="55.245" smashed="yes">
+<attribute name="NAME" x="42.7863" y="52.3113" size="1.27" layer="25" ratio="10"/>
+<attribute name="VALUE" x="43.18" y="52.07" size="1.27" layer="27"/>
+</element>
 <element name="ADC" library="SparkFun" package="1X04" value="" x="1.27" y="52.705" smashed="yes">
-<attribute name="NAME" x="-0.0762" y="50.0888" size="1.27" layer="25" ratio="10"/>
+<attribute name="NAME" x="0.2413" y="50.0888" size="1.27" layer="25" ratio="10"/>
 <attribute name="VALUE" x="0" y="49.53" size="1.27" layer="27"/>
 </element>
 <element name="PWR" library="audioint" package="JMP/3P/SIP" value="" x="16.51" y="6.35" smashed="yes">
 <attribute name="VALUE" x="12.954" y="3.302" size="1.27" layer="27" ratio="10"/>
 </element>
-<element name="USB1" library="USB_connector" package="HRS_ZX62D-AB-5P8_USB" value="" x="58.7375" y="51.1175" rot="R90"/>
+<element name="USB1" library="USB_connector" package="HRS_ZX62D-AB-5P8_USB" value="" x="58.7375" y="51.1175" smashed="yes" rot="R90">
+<attribute name="VALUE" x="57.4675" y="56.1975" size="1.016" layer="27" rot="R180"/>
+</element>
 </elements>
 <signals>
 <signal name="GND">
@@ -3050,8 +3157,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="56.8325" y1="37.68" x2="56.8325" y2="38.735" width="0.4064" layer="1"/>
 <via x="56.8325" y="38.735" extent="1-16" drill="0.5"/>
 <wire x1="57.0175" y1="37.23" x2="56.8325" y2="37.68" width="0.2032" layer="1"/>
-<wire x1="14.82" y1="51.435" x2="15.875" y2="51.435" width="0.2032" layer="1"/>
-<via x="15.875" y="51.435" extent="1-16" drill="0.5"/>
+<wire x1="14.82" y1="51.7525" x2="15.875" y2="51.7525" width="0.2032" layer="1"/>
+<via x="15.875" y="51.7525" extent="1-16" drill="0.5"/>
 <contactref element="IC1" pad="1"/>
 <contactref element="C802" pad="-"/>
 <contactref element="IC1" pad="1"/>
@@ -3112,14 +3219,14 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="20.55" y1="13.97" x2="21.59" y2="13.97" width="0.2032" layer="1"/>
 <via x="21.59" y="13.97" extent="1-16" drill="0.5"/>
 <contactref element="U4" pad="31"/>
-<wire x1="3.81" y1="43.395" x2="3.81" y2="44.45" width="0.3048" layer="1"/>
-<via x="3.81" y="44.45" extent="1-16" drill="0.5"/>
+<wire x1="3.81" y1="43.395" x2="4.7625" y2="43.4975" width="0.3048" layer="1"/>
+<via x="4.7625" y="43.4975" extent="1-16" drill="0.5"/>
 <wire x1="7.0612" y1="30.5816" x2="5.3966" y2="30.5816" width="0.3048" layer="1"/>
 <wire x1="5.3966" y1="30.5816" x2="5.08" y2="30.265" width="0.3048" layer="1"/>
 <wire x1="5.08" y1="30.265" x2="5.08" y2="29.5275" width="0.3048" layer="1"/>
 <via x="4.7625" y="29.21" extent="1-16" drill="0.5"/>
-<wire x1="3.81" y1="25.185" x2="3.81" y2="24.13" width="0.3048" layer="1"/>
-<via x="3.81" y="24.13" extent="1-16" drill="0.5"/>
+<wire x1="3.81" y1="25.185" x2="4.7625" y2="25.0825" width="0.3048" layer="1"/>
+<via x="4.7625" y="25.0825" extent="1-16" drill="0.5"/>
 <wire x1="7.405" y1="49.53" x2="7.62" y2="49.53" width="0.3048" layer="1"/>
 <wire x1="7.405" y1="49.53" x2="6.35" y2="49.53" width="0.3048" layer="1"/>
 <via x="6.35" y="49.53" extent="1-16" drill="0.5"/>
@@ -3141,8 +3248,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="28.4988" y1="33.0708" x2="26.7208" y2="33.0708" width="0.3048" layer="1"/>
 <wire x1="26.7208" y1="33.0708" x2="26.67" y2="33.02" width="0.3048" layer="1"/>
 <wire x1="5.08" y1="29.5275" x2="4.7625" y2="29.21" width="0.3048" layer="1"/>
-<wire x1="8.255" y1="21.375" x2="8.255" y2="20.32" width="0.4064" layer="1"/>
-<via x="8.255" y="20.32" extent="1-16" drill="0.5" diameter="0.5"/>
+<wire x1="8.5725" y1="21.375" x2="8.5725" y2="20.32" width="0.4064" layer="1"/>
+<via x="8.5725" y="20.32" extent="1-16" drill="0.5" diameter="0.5"/>
 <wire x1="13.6606" y1="1.5494" x2="13.97" y2="1.5575" width="0.8128" layer="1"/>
 <wire x1="12.0269" y1="1.5494" x2="12.065" y2="1.5875" width="0.8128" layer="1"/>
 <via x="12.065" y="1.5875" extent="1-16" drill="0.5" diameter="0.5"/>
@@ -3182,6 +3289,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="43.6125" y1="36.43" x2="42.78" y2="36.43" width="0.4064" layer="1"/>
 <wire x1="42.78" y1="36.43" x2="41.695" y2="35.345" width="0.4064" layer="1"/>
 <wire x1="40.9575" y1="35.345" x2="41.695" y2="35.345" width="0.4064" layer="1"/>
+<wire x1="6.35" y1="21.375" x2="6.35" y2="20.32" width="0.3048" layer="1"/>
+<via x="6.35" y="20.32" extent="1-16" drill="0.5"/>
 </signal>
 <signal name="+5V">
 <contactref element="JP1" pad="1"/>
@@ -3311,8 +3420,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="7.0612" y1="38.0746" x2="5.7404" y2="38.0746" width="0.3048" layer="1"/>
 <wire x1="5.7404" y1="38.0746" x2="4.865" y2="38.95" width="0.3048" layer="1"/>
 <wire x1="5.08" y1="38.95" x2="4.865" y2="38.95" width="0.3048" layer="1"/>
-<wire x1="6.35" y1="21.375" x2="6.35" y2="20.32" width="0.4064" layer="1"/>
-<via x="6.35" y="20.32" extent="1-16" drill="0.5"/>
+<wire x1="4.445" y1="21.375" x2="4.445" y2="20.32" width="0.4064" layer="1"/>
+<via x="4.445" y="20.32" extent="1-16" drill="0.5"/>
 <contactref element="C27" pad="1"/>
 <wire x1="12.7" y1="23.075" x2="10.795" y2="23.075" width="0.3048" layer="1"/>
 <wire x1="54.8125" y1="36.43" x2="57.0175" y2="36.43" width="0.4064" layer="1"/>
@@ -3555,11 +3664,13 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <signal name="PA4">
 <contactref element="JP2" pad="9"/>
 <contactref element="U4" pad="40"/>
-<wire x1="1.27" y1="12.7" x2="1.27" y2="20.32" width="0.2032" layer="16"/>
-<wire x1="1.27" y1="20.32" x2="9.525" y2="28.575" width="0.2032" layer="16"/>
-<via x="9.525" y="28.575" extent="1-16" drill="0.5"/>
+<wire x1="1.27" y1="12.7" x2="1.27" y2="14.9225" width="0.2032" layer="16"/>
+<wire x1="1.27" y1="14.9225" x2="5.3975" y2="19.05" width="0.2032" layer="16"/>
+<wire x1="5.3975" y1="19.05" x2="5.3975" y2="23.8125" width="0.2032" layer="16"/>
+<wire x1="5.3975" y1="23.8125" x2="9.8425" y2="28.2575" width="0.2032" layer="16"/>
+<via x="9.8425" y="28.2575" extent="1-16" drill="0.5"/>
 <wire x1="10.541" y1="26.1112" x2="10.541" y2="27.559" width="0.2032" layer="1"/>
-<wire x1="10.541" y1="27.559" x2="9.525" y2="28.575" width="0.2032" layer="1"/>
+<wire x1="10.541" y1="27.559" x2="9.8425" y2="28.2575" width="0.2032" layer="1"/>
 </signal>
 <signal name="PA5">
 <contactref element="JP2" pad="8"/>
@@ -3661,10 +3772,9 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="12.0396" y1="47.5488" x2="12.0396" y2="48.6029" width="0.2032" layer="1"/>
 <wire x1="12.0396" y1="48.6029" x2="11.1125" y2="49.53" width="0.2032" layer="1"/>
 <wire x1="11.1125" y1="49.53" x2="11.1125" y2="50.8" width="0.2032" layer="1"/>
-<wire x1="11.1125" y1="50.8" x2="11.7475" y2="51.435" width="0.2032" layer="1"/>
-<wire x1="11.7475" y1="51.435" x2="12.065" y2="51.435" width="0.2032" layer="1"/>
-<via x="12.065" y="51.435" extent="1-16" drill="0.5" shape="square"/>
-<wire x1="12.065" y1="51.435" x2="13.12" y2="51.435" width="0.2032" layer="1"/>
+<wire x1="11.1125" y1="50.8" x2="12.065" y2="51.7525" width="0.2032" layer="1"/>
+<via x="12.065" y="51.7525" extent="1-16" drill="0.5" shape="square"/>
+<wire x1="12.065" y1="51.7525" x2="13.12" y2="51.7525" width="0.2032" layer="1"/>
 </signal>
 <signal name="ADC2">
 <contactref element="U4" pad="27"/>
@@ -4054,14 +4164,15 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <contactref element="L3" pad="1"/>
 <contactref element="U4" pad="33"/>
 <contactref element="C18" pad="1"/>
-<wire x1="8.255" y1="23.075" x2="6.35" y2="23.075" width="0.3048" layer="1"/>
 <wire x1="7.0612" y1="29.591" x2="6.096" y2="29.591" width="0.3048" layer="1"/>
 <wire x1="6.096" y1="29.591" x2="5.715" y2="29.21" width="0.3048" layer="1"/>
-<wire x1="5.715" y1="29.21" x2="5.715" y2="25.4" width="0.3048" layer="1"/>
-<wire x1="5.715" y1="25.4" x2="6.35" y2="24.765" width="0.3048" layer="1"/>
-<wire x1="6.35" y1="24.765" x2="6.35" y2="23.075" width="0.3048" layer="1"/>
+<wire x1="5.715" y1="29.21" x2="5.715" y2="24.4475" width="0.3048" layer="1"/>
+<wire x1="5.715" y1="24.4475" x2="4.445" y2="23.1775" width="0.3048" layer="1"/>
+<wire x1="4.445" y1="23.1775" x2="4.445" y2="23.075" width="0.3048" layer="1"/>
 <contactref element="U4" pad="32"/>
 <wire x1="7.0612" y1="30.0736" x2="7.0612" y2="29.591" width="0.3048" layer="1"/>
+<wire x1="4.445" y1="23.075" x2="6.35" y2="23.075" width="0.3048" layer="1"/>
+<wire x1="4.445" y1="23.075" x2="8.5725" y2="23.075" width="0.3048" layer="1"/>
 </signal>
 <signal name="PD10">
 <contactref element="IC3" pad="38"/>

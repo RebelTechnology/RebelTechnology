@@ -16784,11 +16784,11 @@ Source: 008-0260-0_E.pdf</description>
 CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <text x="-3.81" y="1.27" size="1.016" layer="25" rot="R90">&gt;NAME</text>
 <text x="5.08" y="1.27" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
-<wire x1="4.15" y1="-2.54" x2="-4.15" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="4.15" y1="-2.54" x2="-4.15" y2="-2.54" width="0.127" layer="51"/>
 <wire x1="3.45" y1="-1.24" x2="-3.5" y2="-1.24" width="0.127" layer="21" style="shortdash"/>
 <pad name="G" x="-4.175" y="0.11" drill="1" diameter="1.8" shape="square"/>
 <pad name="G2" x="4.175" y="0.11" drill="1" diameter="1.8" shape="square"/>
-<wire x1="0" y1="-1.39" x2="0" y2="-1.79" width="0.0508" layer="21"/>
+<wire x1="0" y1="-1.39" x2="0" y2="-1.79" width="0.0508" layer="51"/>
 <pad name="G3" x="-2.225" y="3.235" drill="0.6" diameter="0.8128" shape="offset" rot="R90"/>
 <pad name="G4" x="2.225" y="3.235" drill="0.6" diameter="0.8128" shape="offset" rot="R90"/>
 <smd name="3" x="0" y="2.91" dx="0.4" dy="1.35" layer="1"/>
@@ -16825,10 +16825,10 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="1.8" y1="2.06" x2="1.8" y2="1.96" width="0" layer="48"/>
 <text x="-1.45" y="3.76" size="0.4" layer="48" ratio="10">1</text>
 <text x="1.15" y="3.76" size="0.4" layer="48" ratio="10">5</text>
-<wire x1="-3.45" y1="-1.94" x2="3.45" y2="-1.94" width="0.127" layer="21"/>
-<wire x1="0" y1="-2.09" x2="0" y2="-2.39" width="0.0508" layer="21"/>
-<wire x1="-4.15" y1="-2.54" x2="-3.65" y2="-1.94" width="0.127" layer="21"/>
-<wire x1="4.15" y1="-2.54" x2="3.65" y2="-1.94" width="0.127" layer="21"/>
+<wire x1="-3.45" y1="-1.94" x2="3.45" y2="-1.94" width="0.127" layer="51"/>
+<wire x1="0" y1="-2.09" x2="0" y2="-2.39" width="0.0508" layer="51"/>
+<wire x1="-4.15" y1="-2.54" x2="-3.65" y2="-1.94" width="0.127" layer="51"/>
+<wire x1="4.15" y1="-2.54" x2="3.65" y2="-1.94" width="0.127" layer="51"/>
 <rectangle x1="-3.65" y1="1.06" x2="3.65" y2="1.96" layer="41"/>
 <rectangle x1="-3.65" y1="-1.24" x2="3.65" y2="-0.84" layer="41"/>
 <rectangle x1="-2.6" y1="-0.84" x2="-2.05" y2="1.06" layer="41"/>
@@ -16837,8 +16837,8 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <smd name="D_0" x="-1.15" y="0.11" dx="1.8" dy="1.9" layer="1"/>
 <smd name="D_1" x="1.15" y="0.11" dx="1.8" dy="1.9" layer="1"/>
 <wire x1="-3.65" y1="3.06" x2="-3.65" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-3.65" y1="-1.27" x2="-3.65" y2="-1.94" width="0.127" layer="21"/>
-<wire x1="3.65" y1="-1.27" x2="3.65" y2="-1.94" width="0.127" layer="21"/>
+<wire x1="-3.65" y1="-1.27" x2="-3.65" y2="-1.94" width="0.127" layer="51"/>
+<wire x1="3.65" y1="-1.27" x2="3.65" y2="-1.94" width="0.127" layer="51"/>
 <wire x1="3.65" y1="3.06" x2="3.65" y2="1.27" width="0.127" layer="21"/>
 <wire x1="-2.95" y1="3.06" x2="-3.65" y2="3.06" width="0.127" layer="21"/>
 <wire x1="3.65" y1="3.06" x2="2.95" y2="3.06" width="0.127" layer="21"/>
