@@ -18418,6 +18418,11 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <pinref part="U4" gate="A" pin="PF0"/>
 <label x="25.4" y="-101.6" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="81.28" y1="48.26" x2="91.44" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="IC3" gate="G$1" pin="A0"/>
+<label x="86.36" y="48.26" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="N$136" class="0">
 <segment>
@@ -18578,13 +18583,6 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <wire x1="119.38" y1="-96.52" x2="127" y2="-96.52" width="0.1524" layer="91"/>
 <pinref part="U4" gate="B" pin="PD12"/>
 <label x="119.38" y="-96.52" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="PFO" class="0">
-<segment>
-<wire x1="81.28" y1="48.26" x2="91.44" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="A0"/>
-<label x="86.36" y="48.26" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PF2" class="0">
