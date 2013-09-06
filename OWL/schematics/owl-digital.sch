@@ -17711,6 +17711,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="JP5" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="JP4" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
+<part name="BOOT" library="SparkFun" deviceset="M03" device="PTH"/>
 </parts>
 <sheets>
 <sheet>
@@ -17862,6 +17863,7 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="JP5" gate="G$1" x="7.62" y="-160.02"/>
 <instance part="JP4" gate="G$1" x="0" y="-81.28"/>
 <instance part="GND1" gate="1" x="182.88" y="-50.8" rot="R180"/>
+<instance part="BOOT" gate="G$1" x="-27.94" y="-10.16"/>
 </instances>
 <busses>
 </busses>
@@ -18765,6 +18767,11 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="U4" gate="B" pin="PD2"/>
 <wire x1="167.64" y1="-124.46" x2="177.8" y2="-124.46" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="BOOT" gate="G$1" pin="2"/>
+<wire x1="-20.32" y1="-10.16" x2="-12.7" y2="-10.16" width="0.1524" layer="91"/>
+<label x="-20.32" y="-10.16" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="BOOT0" class="0">
 <segment>
@@ -18773,6 +18780,11 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="167.64" y1="-78.74" x2="193.04" y2="-78.74" width="0.1524" layer="91"/>
 <pinref part="R9" gate="G$1" pin="1"/>
 <wire x1="193.04" y1="-73.66" x2="193.04" y2="-78.74" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="BOOT" gate="G$1" pin="1"/>
+<wire x1="-20.32" y1="-12.7" x2="-12.7" y2="-12.7" width="0.1524" layer="91"/>
+<label x="-20.32" y="-12.7" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC2" class="0">
@@ -19769,6 +19781,12 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="124.46" y1="71.12" x2="137.16" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="71.12" x2="137.16" y2="76.2" width="0.1524" layer="91"/>
 <pinref part="JP3" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="BOOT" gate="G$1" pin="3"/>
+<wire x1="-20.32" y1="-7.62" x2="-12.7" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
