@@ -17816,15 +17816,15 @@ Source: 008-0260-0_E.pdf</description>
 <part name="MIC" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="HP" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="P+2" library="supply1" deviceset="VCC/2" device=""/>
-<part name="JP3" library="SparkFun" deviceset="M01" device="PTH"/>
+<part name="V" library="SparkFun" deviceset="M01" device="PTH"/>
 <part name="JP5" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="JP4" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="BOOT" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="VBAT" library="SparkFun" deviceset="SOLDERJUMPER" device="TRACE"/>
 <part name="Q1" library="crystal" deviceset="CRYSTAL" device="HC49UP" value="12.288MHz"/>
-<part name="C311" library="resistor" deviceset="C-EU" device="C0603" value="22pF"/>
-<part name="C310" library="resistor" deviceset="C-EU" device="C0603" value="22pF"/>
+<part name="C311" library="resistor" deviceset="C-EU" device="C0603" value="18pF"/>
+<part name="C310" library="resistor" deviceset="C-EU" device="C0603" value="18pF"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="P+4" library="supply1" deviceset="+5V" device=""/>
@@ -17974,7 +17974,7 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="MIC" gate="G$1" x="160.02" y="104.14"/>
 <instance part="HP" gate="G$1" x="170.18" y="96.52"/>
 <instance part="P+2" gate="G$1" x="137.16" y="78.74"/>
-<instance part="JP3" gate="G$1" x="116.84" y="71.12"/>
+<instance part="V" gate="G$1" x="116.84" y="71.12"/>
 <instance part="JP5" gate="G$1" x="7.62" y="-160.02"/>
 <instance part="JP4" gate="G$1" x="0" y="-81.28"/>
 <instance part="GND1" gate="1" x="182.88" y="-50.8" rot="R180"/>
@@ -19930,7 +19930,7 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="P+2" gate="G$1" pin="VCC/2"/>
 <wire x1="124.46" y1="71.12" x2="137.16" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="71.12" x2="137.16" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="JP3" gate="G$1" pin="1"/>
+<pinref part="V" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$1" class="0">
