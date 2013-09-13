@@ -17771,8 +17771,6 @@ Source: 008-0260-0_E.pdf</description>
 <part name="C27" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="+3V33" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
-<part name="JP1" library="SparkFun" deviceset="M02" device="PTH"/>
-<part name="P+4" library="supply1" deviceset="+5V" device=""/>
 <part name="IC1" library="burr-brown" deviceset="REG1117" device=""/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
 <part name="+3V9" library="supply1" deviceset="+3V3" device=""/>
@@ -17829,6 +17827,10 @@ Source: 008-0260-0_E.pdf</description>
 <part name="C310" library="resistor" deviceset="C-EU" device="C0603" value="22pF"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
+<part name="P+4" library="supply1" deviceset="+5V" device=""/>
+<part name="+3V12" library="supply1" deviceset="+3V3" device=""/>
+<part name="GND6" library="supply1" deviceset="GND" device=""/>
+<part name="PWR2" library="audioint" deviceset="JMP/3P/SIP" device="" value=""/>
 </parts>
 <sheets>
 <sheet>
@@ -17925,10 +17927,6 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="C27" gate="G$1" x="246.38" y="22.86"/>
 <instance part="+3V33" gate="G$1" x="246.38" y="35.56"/>
 <instance part="GND29" gate="1" x="246.38" y="10.16"/>
-<instance part="JP1" gate="G$1" x="284.48" y="-63.5" rot="R180"/>
-<instance part="P+4" gate="1" x="274.32" y="-50.8" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="271.78" y="-48.26" size="1.778" layer="96" rot="MR180"/>
-</instance>
 <instance part="IC1" gate="G$1" x="264.16" y="-96.52"/>
 <instance part="P+3" gate="1" x="246.38" y="-86.36" smashed="yes">
 <attribute name="VALUE" x="248.92" y="-83.82" size="1.778" layer="96" rot="R180"/>
@@ -17987,6 +17985,12 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="C310" gate="G$1" x="246.38" y="111.76"/>
 <instance part="GND2" gate="1" x="246.38" y="101.6"/>
 <instance part="GND4" gate="1" x="261.62" y="101.6"/>
+<instance part="P+4" gate="1" x="312.42" y="15.24" smashed="yes">
+<attribute name="VALUE" x="312.42" y="17.78" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="+3V12" gate="G$1" x="304.8" y="15.24"/>
+<instance part="GND6" gate="1" x="312.42" y="-2.54"/>
+<instance part="PWR2" gate="G$1" x="317.5" y="5.08"/>
 </instances>
 <busses>
 </busses>
@@ -18287,6 +18291,12 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="GND4" gate="1" pin="GND"/>
 <wire x1="261.62" y1="104.14" x2="261.62" y2="106.68" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="GND6" gate="1" pin="GND"/>
+<wire x1="314.96" y1="5.08" x2="312.42" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="312.42" y1="5.08" x2="312.42" y2="0" width="0.1524" layer="91"/>
+<pinref part="PWR2" gate="G$1" pin="2"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -18296,12 +18306,6 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="PWR" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="JP1" gate="G$1" pin="1"/>
-<wire x1="276.86" y1="-63.5" x2="274.32" y2="-63.5" width="0.1524" layer="91"/>
-<wire x1="274.32" y1="-53.34" x2="274.32" y2="-63.5" width="0.1524" layer="91"/>
-<pinref part="P+4" gate="1" pin="+5V"/>
-</segment>
-<segment>
 <pinref part="IC1" gate="G$1" pin="VIN"/>
 <wire x1="251.46" y1="-96.52" x2="246.38" y2="-96.52" width="0.1524" layer="91"/>
 <wire x1="246.38" y1="-96.52" x2="246.38" y2="-88.9" width="0.1524" layer="91"/>
@@ -18309,6 +18313,12 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="C801" gate="G$1" pin="+"/>
 <wire x1="246.38" y1="-101.6" x2="246.38" y2="-96.52" width="0.1524" layer="91"/>
 <junction x="246.38" y="-96.52"/>
+</segment>
+<segment>
+<pinref part="P+4" gate="1" pin="+5V"/>
+<wire x1="312.42" y1="7.62" x2="312.42" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="314.96" y1="7.62" x2="312.42" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="PWR2" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="NRST" class="0">
@@ -18578,6 +18588,12 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="U2" gate="G$1" pin="HPVDD"/>
 <wire x1="180.34" y1="132.08" x2="144.78" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="+3V11" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="+3V12" gate="G$1" pin="+3V3"/>
+<wire x1="304.8" y1="2.54" x2="304.8" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="314.96" y1="2.54" x2="304.8" y2="2.54" width="0.1524" layer="91"/>
+<pinref part="PWR2" gate="G$1" pin="3"/>
 </segment>
 </net>
 <net name="SWCLK" class="0">
@@ -19119,11 +19135,6 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="106.68" y1="-142.24" x2="127" y2="-142.24" width="0.1524" layer="91"/>
 <label x="106.68" y="-142.24" size="1.778" layer="95"/>
 <pinref part="U4" gate="B" pin="PA9"/>
-</segment>
-<segment>
-<pinref part="JP1" gate="G$1" pin="2"/>
-<wire x1="276.86" y1="-66.04" x2="261.62" y2="-66.04" width="0.1524" layer="91"/>
-<label x="261.62" y="-66.04" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$10" class="0">
