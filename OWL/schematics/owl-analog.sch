@@ -17259,11 +17259,6 @@ naming: grid - package width</description>
 <wire x1="172.72" y1="142.24" x2="172.72" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="G$1" pin="S4"/>
-<wire x1="93.98" y1="83.82" x2="114.3" y2="83.82" width="0.1524" layer="91"/>
-<label x="99.06" y="83.82" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="GND3" gate="1" pin="GND"/>
 <pinref part="C903" gate="G$1" pin="-"/>
 <wire x1="355.6" y1="104.14" x2="355.6" y2="114.3" width="0.1524" layer="91"/>
