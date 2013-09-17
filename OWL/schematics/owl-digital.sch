@@ -15505,7 +15505,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="PWR2" library="audioint" deviceset="JMP/3P/SIP" device="" value=""/>
 <part name="USB2" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="JP1" library="SparkFun" deviceset="M04" device="PTH"/>
-<part name="JP3" library="SparkFun" deviceset="M04" device="PTH"/>
+<part name="JP3" library="SparkFun" deviceset="M05" device="PTH"/>
 </parts>
 <sheets>
 <sheet>
@@ -15664,7 +15664,7 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="PWR2" gate="G$1" x="317.5" y="5.08"/>
 <instance part="USB2" gate="G$1" x="276.86" y="-35.56"/>
 <instance part="JP1" gate="G$1" x="-22.86" y="-83.82"/>
-<instance part="JP3" gate="G$1" x="-22.86" y="-160.02"/>
+<instance part="JP3" gate="G$1" x="-38.1" y="-157.48"/>
 </instances>
 <busses>
 </busses>
@@ -16440,7 +16440,7 @@ Source: 008-0260-0_E.pdf</description>
 <net name="PA0" class="0">
 <segment>
 <pinref part="U4" gate="A" pin="PA0"/>
-<wire x1="33.02" y1="-157.48" x2="-17.78" y2="-157.48" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="-157.48" x2="-30.48" y2="-157.48" width="0.1524" layer="91"/>
 <label x="25.4" y="-157.48" size="1.778" layer="95"/>
 <pinref part="JP3" gate="G$1" pin="3"/>
 </segment>
@@ -16448,7 +16448,7 @@ Source: 008-0260-0_E.pdf</description>
 <net name="PA2" class="0">
 <segment>
 <pinref part="U4" gate="A" pin="PA2"/>
-<wire x1="33.02" y1="-162.56" x2="-17.78" y2="-162.56" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="-162.56" x2="-30.48" y2="-162.56" width="0.1524" layer="91"/>
 <label x="25.4" y="-162.56" size="1.778" layer="95"/>
 <pinref part="JP3" gate="G$1" pin="1"/>
 </segment>
@@ -16456,7 +16456,7 @@ Source: 008-0260-0_E.pdf</description>
 <net name="PA1" class="0">
 <segment>
 <pinref part="U4" gate="A" pin="PA1"/>
-<wire x1="33.02" y1="-160.02" x2="-17.78" y2="-160.02" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="-160.02" x2="-30.48" y2="-160.02" width="0.1524" layer="91"/>
 <label x="25.4" y="-160.02" size="1.778" layer="95"/>
 <pinref part="JP3" gate="G$1" pin="2"/>
 </segment>
@@ -16892,6 +16892,16 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="30.48" y1="-124.46" x2="33.02" y2="-124.46" width="0.1524" layer="91"/>
 <pinref part="U4" gate="A" pin="PF8"/>
 </segment>
+<segment>
+<pinref part="U4" gate="A" pin="PF9"/>
+<wire x1="20.32" y1="-127" x2="33.02" y2="-127" width="0.1524" layer="91"/>
+<label x="20.32" y="-127" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP3" gate="G$1" pin="4"/>
+<wire x1="-20.32" y1="-154.94" x2="-30.48" y2="-154.94" width="0.1524" layer="91"/>
+<label x="-27.94" y="-154.94" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="N$123" class="0">
 <segment>
@@ -16924,6 +16934,11 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="JP1" gate="G$1" pin="2"/>
 <wire x1="-17.78" y1="-83.82" x2="33.02" y2="-83.82" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="U4" gate="A" pin="PE6"/>
+<wire x1="33.02" y1="-88.9" x2="25.4" y2="-88.9" width="0.1524" layer="91"/>
+<label x="25.4" y="-88.9" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="PE3" class="0">
 <segment>
@@ -16953,20 +16968,16 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="U4" gate="B" pin="PG7"/>
 </segment>
 </net>
-<net name="N$14" class="0">
-<segment>
-<pinref part="U4" gate="A" pin="PF9"/>
-<wire x1="33.02" y1="-127" x2="27.94" y2="-127" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="PF10" class="0">
 <segment>
 <pinref part="U4" gate="A" pin="PF10"/>
-<wire x1="33.02" y1="-129.54" x2="-12.7" y2="-129.54" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="-129.54" x2="-12.7" y2="-154.94" width="0.1524" layer="91"/>
-<pinref part="JP3" gate="G$1" pin="4"/>
-<wire x1="-12.7" y1="-154.94" x2="-17.78" y2="-154.94" width="0.1524" layer="91"/>
-<label x="25.4" y="-129.54" size="1.778" layer="95"/>
+<wire x1="33.02" y1="-129.54" x2="20.32" y2="-129.54" width="0.1524" layer="91"/>
+<label x="20.32" y="-129.54" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP3" gate="G$1" pin="5"/>
+<wire x1="-30.48" y1="-152.4" x2="-20.32" y2="-152.4" width="0.1524" layer="91"/>
+<label x="-27.94" y="-152.4" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VCAP2" class="0">
