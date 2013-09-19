@@ -16881,10 +16881,6 @@ Source: 008-0260-0_E.pdf</description>
 </net>
 <net name="PF9" class="0">
 <segment>
-<wire x1="30.48" y1="-124.46" x2="33.02" y2="-124.46" width="0.1524" layer="91"/>
-<pinref part="U4" gate="A" pin="PF8"/>
-</segment>
-<segment>
 <pinref part="U4" gate="A" pin="PF9"/>
 <wire x1="20.32" y1="-127" x2="33.02" y2="-127" width="0.1524" layer="91"/>
 <label x="20.32" y="-127" size="1.778" layer="95"/>
@@ -16925,11 +16921,6 @@ Source: 008-0260-0_E.pdf</description>
 <label x="25.4" y="-83.82" size="1.778" layer="95"/>
 <pinref part="JP1" gate="G$1" pin="2"/>
 <wire x1="-17.78" y1="-83.82" x2="33.02" y2="-83.82" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="U4" gate="A" pin="PE6"/>
-<wire x1="33.02" y1="-88.9" x2="25.4" y2="-88.9" width="0.1524" layer="91"/>
-<label x="25.4" y="-88.9" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PE3" class="0">
@@ -17661,6 +17652,13 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="U4" gate="A" pin="PA2"/>
 <wire x1="33.02" y1="-162.56" x2="25.4" y2="-162.56" width="0.1524" layer="91"/>
 <label x="25.4" y="-162.56" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="PE6" class="0">
+<segment>
+<pinref part="U4" gate="A" pin="PE6"/>
+<wire x1="33.02" y1="-88.9" x2="25.4" y2="-88.9" width="0.1524" layer="91"/>
+<label x="25.4" y="-88.9" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

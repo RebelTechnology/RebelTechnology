@@ -484,33 +484,6 @@ type 0204, grid 7.5 mm</description>
 <text x="0" y="0" size="1.016" layer="25" font="vector" align="center">&gt;Name</text>
 <text x="-2.921" y="1.651" size="0.6096" layer="21" font="vector" ratio="12">&gt;Value</text>
 </package>
-<package name="4PDT">
-<wire x1="-8.5" y1="12.3" x2="8.5" y2="12.3" width="0.1524" layer="21"/>
-<wire x1="8.5" y1="-12.3" x2="-8.5" y2="-12.3" width="0.1524" layer="21"/>
-<wire x1="8.5" y1="12.3" x2="8.5" y2="-12.3" width="0.1524" layer="21"/>
-<wire x1="-8.5" y1="-12.3" x2="-8.5" y2="12.3" width="0.1524" layer="21"/>
-<pad name="1" x="-4.6" y="7.875" drill="2.3" diameter="3.1"/>
-<text x="-7.62" y="10.16" size="1.778" layer="25" ratio="10">&gt;NAME</text>
-<text x="-7.62" y="-12.065" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
-<pad name="2" x="0" y="7.875" drill="2.3" diameter="3.1"/>
-<pad name="3" x="4.6" y="7.875" drill="2.3" diameter="3.1"/>
-<pad name="4" x="-4.6" y="2.625" drill="2.3" diameter="3.1"/>
-<pad name="5" x="0" y="2.625" drill="2.3" diameter="3.1"/>
-<pad name="6" x="4.6" y="2.625" drill="2.3" diameter="3.1"/>
-<pad name="7" x="-4.6" y="-2.625" drill="2.3" diameter="3.1"/>
-<pad name="8" x="0" y="-2.625" drill="2.3" diameter="3.1"/>
-<pad name="9" x="4.6" y="-2.625" drill="2.3" diameter="3.1"/>
-<circle x="0" y="0" radius="8" width="0.2032" layer="51"/>
-<circle x="0" y="0" radius="7" width="0.2032" layer="51"/>
-<circle x="0" y="0" radius="5" width="0.2032" layer="51"/>
-<wire x1="-1" y1="-5.925" x2="-1" y2="-5" width="0.2032" layer="51"/>
-<wire x1="-1" y1="-5" x2="1" y2="-5" width="0.2032" layer="51"/>
-<wire x1="1" y1="-5" x2="1" y2="-5.9" width="0.2032" layer="51"/>
-<wire x1="1" y1="-5.925" x2="-1" y2="-5.925" width="0.2032" layer="51" curve="340.840541"/>
-<pad name="10" x="-4.6" y="-7.875" drill="2.3" diameter="3.1"/>
-<pad name="11" x="0" y="-7.875" drill="2.3" diameter="3.1"/>
-<pad name="12" x="4.6" y="-7.875" drill="2.3" diameter="3.1"/>
-</package>
 </packages>
 <symbols>
 <symbol name="POT-ALPS-RK09L">
@@ -566,52 +539,6 @@ type 0204, grid 7.5 mm</description>
 <text x="2.54" y="-2.3114" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
 <pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
-</symbol>
-<symbol name="4PDT">
-<wire x1="-10.16" y1="-3.175" x2="-10.16" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="-10.16" y1="-1.905" x2="-12.065" y2="3.175" width="0.254" layer="94"/>
-<wire x1="-8.89" y1="2.54" x2="-7.62" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-7.62" y1="2.54" x2="-7.62" y2="3.175" width="0.254" layer="94"/>
-<wire x1="-12.7" y1="2.54" x2="-11.43" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-12.7" y1="2.54" x2="-12.7" y2="3.175" width="0.254" layer="94"/>
-<wire x1="0" y1="-3.175" x2="0" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="0" y1="-1.905" x2="-1.905" y2="3.175" width="0.254" layer="94"/>
-<wire x1="1.27" y1="2.54" x2="2.54" y2="2.54" width="0.254" layer="94"/>
-<wire x1="2.54" y1="2.54" x2="2.54" y2="3.175" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="2.54" x2="-1.27" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="2.54" x2="-2.54" y2="3.175" width="0.254" layer="94"/>
-<wire x1="-0.762" y1="0" x2="-15.24" y2="0" width="0.254" layer="94" style="shortdash"/>
-<wire x1="-15.24" y1="1.651" x2="-15.24" y2="-1.778" width="0.254" layer="94"/>
-<text x="-17.78" y="1.27" size="1.778" layer="95" rot="R180">&gt;NAME</text>
-<text x="-17.78" y="-2.54" size="1.778" layer="96" rot="R180">&gt;VALUE</text>
-<pin name="P1" x="-10.16" y="-5.08" visible="pad" length="short" direction="pas" rot="R90"/>
-<pin name="S1" x="-7.62" y="5.08" visible="pad" length="short" direction="pas" rot="R270"/>
-<pin name="O1" x="-12.7" y="5.08" visible="pad" length="short" direction="pas" rot="R270"/>
-<pin name="P2" x="0" y="-5.08" visible="pad" length="short" direction="pas" rot="R90"/>
-<pin name="S2" x="2.54" y="5.08" visible="pad" length="short" direction="pas" rot="R270"/>
-<pin name="O2" x="-2.54" y="5.08" visible="pad" length="short" direction="pas" rot="R270"/>
-<wire x1="10.16" y1="-3.175" x2="10.16" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-1.905" x2="8.255" y2="3.175" width="0.254" layer="94"/>
-<wire x1="11.43" y1="2.54" x2="12.7" y2="2.54" width="0.254" layer="94"/>
-<wire x1="12.7" y1="2.54" x2="12.7" y2="3.175" width="0.254" layer="94"/>
-<wire x1="7.62" y1="2.54" x2="8.89" y2="2.54" width="0.254" layer="94"/>
-<wire x1="7.62" y1="2.54" x2="7.62" y2="3.175" width="0.254" layer="94"/>
-<wire x1="9.398" y1="0" x2="0" y2="0" width="0.254" layer="94" style="shortdash"/>
-<pin name="P3" x="10.16" y="-5.08" visible="pad" length="short" direction="pas" rot="R90"/>
-<pin name="S3" x="12.7" y="5.08" visible="pad" length="short" direction="pas" rot="R270"/>
-<pin name="O3" x="7.62" y="5.08" visible="pad" length="short" direction="pas" rot="R270"/>
-<wire x1="-15.24" y1="1.651" x2="-14.351" y2="1.651" width="0.254" layer="94"/>
-<wire x1="-16.002" y1="-1.778" x2="-15.24" y2="-1.778" width="0.254" layer="94"/>
-<wire x1="20.32" y1="-3.175" x2="20.32" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="20.32" y1="-1.905" x2="18.415" y2="3.175" width="0.254" layer="94"/>
-<wire x1="21.59" y1="2.54" x2="22.86" y2="2.54" width="0.254" layer="94"/>
-<wire x1="22.86" y1="2.54" x2="22.86" y2="3.175" width="0.254" layer="94"/>
-<wire x1="17.78" y1="2.54" x2="19.05" y2="2.54" width="0.254" layer="94"/>
-<wire x1="17.78" y1="2.54" x2="17.78" y2="3.175" width="0.254" layer="94"/>
-<wire x1="19.558" y1="0" x2="10.16" y2="0" width="0.254" layer="94" style="shortdash"/>
-<pin name="P4" x="20.32" y="-5.08" visible="pad" length="short" direction="pas" rot="R90"/>
-<pin name="S4" x="22.86" y="5.08" visible="pad" length="short" direction="pas" rot="R270"/>
-<pin name="O4" x="17.78" y="5.08" visible="pad" length="short" direction="pas" rot="R270"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -700,32 +627,6 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="4PDT">
-<gates>
-<gate name="G$1" symbol="4PDT" x="-2.54" y="0"/>
-</gates>
-<devices>
-<device name="" package="4PDT">
-<connects>
-<connect gate="G$1" pin="O1" pad="1"/>
-<connect gate="G$1" pin="O2" pad="4"/>
-<connect gate="G$1" pin="O3" pad="7"/>
-<connect gate="G$1" pin="O4" pad="10"/>
-<connect gate="G$1" pin="P1" pad="2"/>
-<connect gate="G$1" pin="P2" pad="5"/>
-<connect gate="G$1" pin="P3" pad="8"/>
-<connect gate="G$1" pin="P4" pad="11"/>
-<connect gate="G$1" pin="S1" pad="3"/>
-<connect gate="G$1" pin="S2" pad="6"/>
-<connect gate="G$1" pin="S3" pad="9"/>
-<connect gate="G$1" pin="S4" pad="12"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -16450,8 +16351,6 @@ naming: grid - package width</description>
 <part name="C902" library="rcl" deviceset="CPOL-EU" device="E2.5-7" value="10uF"/>
 <part name="P+5" library="supply1" deviceset="+5V" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
-<part name="U$2" library="Rebel" deviceset="4PDT" device=""/>
-<part name="JP6" library="SparkFun" deviceset="M09" device=""/>
 <part name="D4" library="Rebel" deviceset="DIODE" device="1N4001"/>
 <part name="R303" library="Rebel" deviceset="R-EU_" device="0204/7" value="2M"/>
 <part name="R302" library="Rebel" deviceset="R-EU_" device="0204/7" value="2M"/>
@@ -16605,8 +16504,6 @@ naming: grid - package width</description>
 <attribute name="VALUE" x="337.82" y="134.62" size="1.778" layer="96" rot="MR180"/>
 </instance>
 <instance part="GND6" gate="1" x="340.36" y="101.6"/>
-<instance part="U$2" gate="G$1" x="88.9" y="106.68" rot="R270"/>
-<instance part="JP6" gate="G$1" x="147.32" y="109.22" rot="R180"/>
 <instance part="D4" gate="G$1" x="322.58" y="121.92" rot="MR180"/>
 <instance part="R303" gate="G$1" x="27.94" y="180.34" rot="MR270"/>
 <instance part="R302" gate="G$1" x="27.94" y="231.14" rot="MR270"/>
@@ -17065,16 +16962,6 @@ naming: grid - package width</description>
 </net>
 <net name="FX_OUT_R" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="P4"/>
-<wire x1="83.82" y1="86.36" x2="66.04" y2="86.36" width="0.1524" layer="91"/>
-<label x="66.04" y="86.36" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP6" gate="G$1" pin="9"/>
-<wire x1="137.16" y1="99.06" x2="121.92" y2="99.06" width="0.1524" layer="91"/>
-<label x="121.92" y="99.06" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="JP3" gate="G$1" pin="9"/>
 <wire x1="45.72" y1="99.06" x2="30.48" y2="99.06" width="0.1524" layer="91"/>
 <label x="30.48" y="99.06" size="1.778" layer="95"/>
@@ -17094,21 +16981,6 @@ naming: grid - package width</description>
 <pinref part="J2" gate="G$1" pin="T"/>
 <wire x1="86.36" y1="50.8" x2="68.58" y2="50.8" width="0.1524" layer="91"/>
 <label x="68.58" y="50.8" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U$2" gate="G$1" pin="O2"/>
-<wire x1="93.98" y1="109.22" x2="114.3" y2="109.22" width="0.1524" layer="91"/>
-<label x="99.06" y="109.22" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U$2" gate="G$1" pin="S1"/>
-<wire x1="93.98" y1="114.3" x2="114.3" y2="114.3" width="0.1524" layer="91"/>
-<label x="99.06" y="114.3" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP6" gate="G$1" pin="3"/>
-<wire x1="137.16" y1="114.3" x2="121.92" y2="114.3" width="0.1524" layer="91"/>
-<label x="121.92" y="114.3" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="JP3" gate="G$1" pin="3"/>
@@ -17222,11 +17094,6 @@ naming: grid - package width</description>
 </net>
 <net name="FX_IN_R" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="O3"/>
-<wire x1="93.98" y1="99.06" x2="114.3" y2="99.06" width="0.1524" layer="91"/>
-<label x="99.06" y="99.06" size="1.778" layer="95"/>
-</segment>
-<segment>
 <wire x1="-17.78" y1="172.72" x2="2.54" y2="172.72" width="0.1524" layer="91"/>
 <label x="-17.78" y="172.72" size="1.778" layer="95"/>
 <pinref part="C301" gate="G$1" pin="2"/>
@@ -17234,11 +17101,6 @@ naming: grid - package width</description>
 <wire x1="2.54" y1="172.72" x2="15.24" y2="172.72" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="170.18" x2="2.54" y2="172.72" width="0.1524" layer="91"/>
 <junction x="2.54" y="172.72"/>
-</segment>
-<segment>
-<pinref part="JP6" gate="G$1" pin="6"/>
-<wire x1="137.16" y1="106.68" x2="121.92" y2="106.68" width="0.1524" layer="91"/>
-<label x="121.92" y="106.68" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="JP3" gate="G$1" pin="6"/>
@@ -17258,19 +17120,9 @@ naming: grid - package width</description>
 <junction x="2.54" y="30.48"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="G$1" pin="P1"/>
-<wire x1="83.82" y1="116.84" x2="66.04" y2="116.84" width="0.1524" layer="91"/>
-<label x="66.04" y="116.84" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="JP3" gate="G$1" pin="1"/>
 <wire x1="45.72" y1="119.38" x2="30.48" y2="119.38" width="0.1524" layer="91"/>
 <label x="30.48" y="119.38" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP6" gate="G$1" pin="1"/>
-<wire x1="137.16" y1="119.38" x2="121.92" y2="119.38" width="0.1524" layer="91"/>
-<label x="121.92" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -17314,27 +17166,12 @@ naming: grid - package width</description>
 <label x="7.62" y="7.62" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="G$1" pin="P3"/>
-<wire x1="83.82" y1="96.52" x2="66.04" y2="96.52" width="0.1524" layer="91"/>
-<label x="66.04" y="96.52" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP6" gate="G$1" pin="7"/>
-<wire x1="121.92" y1="104.14" x2="137.16" y2="104.14" width="0.1524" layer="91"/>
-<label x="121.92" y="104.14" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="JP3" gate="G$1" pin="7"/>
 <wire x1="30.48" y1="104.14" x2="45.72" y2="104.14" width="0.1524" layer="91"/>
 <label x="30.48" y="104.14" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="FX_IN_L" class="0">
-<segment>
-<pinref part="U$2" gate="G$1" pin="O1"/>
-<wire x1="93.98" y1="119.38" x2="114.3" y2="119.38" width="0.1524" layer="91"/>
-<label x="99.06" y="119.38" size="1.778" layer="95"/>
-</segment>
 <segment>
 <wire x1="-17.78" y1="223.52" x2="2.54" y2="223.52" width="0.1524" layer="91"/>
 <label x="-17.78" y="223.52" size="1.778" layer="95"/>
@@ -17349,11 +17186,6 @@ naming: grid - package width</description>
 <wire x1="45.72" y1="116.84" x2="30.48" y2="116.84" width="0.1524" layer="91"/>
 <label x="30.48" y="116.84" size="1.778" layer="95"/>
 </segment>
-<segment>
-<pinref part="JP6" gate="G$1" pin="2"/>
-<wire x1="137.16" y1="116.84" x2="121.92" y2="116.84" width="0.1524" layer="91"/>
-<label x="121.92" y="116.84" size="1.778" layer="95"/>
-</segment>
 </net>
 <net name="OUT_R" class="0">
 <segment>
@@ -17362,37 +17194,12 @@ naming: grid - package width</description>
 <label x="68.58" y="27.94" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="G$1" pin="S3"/>
-<wire x1="93.98" y1="93.98" x2="114.3" y2="93.98" width="0.1524" layer="91"/>
-<label x="99.06" y="93.98" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U$2" gate="G$1" pin="O4"/>
-<wire x1="93.98" y1="88.9" x2="114.3" y2="88.9" width="0.1524" layer="91"/>
-<label x="99.06" y="88.9" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP6" gate="G$1" pin="8"/>
-<wire x1="137.16" y1="101.6" x2="121.92" y2="101.6" width="0.1524" layer="91"/>
-<label x="121.92" y="101.6" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="JP3" gate="G$1" pin="8"/>
 <wire x1="45.72" y1="101.6" x2="30.48" y2="101.6" width="0.1524" layer="91"/>
 <label x="30.48" y="101.6" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="FX_OUT_L" class="0">
-<segment>
-<pinref part="U$2" gate="G$1" pin="P2"/>
-<wire x1="83.82" y1="106.68" x2="66.04" y2="106.68" width="0.1524" layer="91"/>
-<label x="66.04" y="106.68" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP6" gate="G$1" pin="4"/>
-<wire x1="137.16" y1="111.76" x2="121.92" y2="111.76" width="0.1524" layer="91"/>
-<label x="121.92" y="111.76" size="1.778" layer="95"/>
-</segment>
 <segment>
 <pinref part="JP3" gate="G$1" pin="4"/>
 <wire x1="45.72" y1="111.76" x2="30.48" y2="111.76" width="0.1524" layer="91"/>
@@ -17457,11 +17264,6 @@ naming: grid - package width</description>
 </net>
 <net name="BYPASS" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="S2"/>
-<wire x1="93.98" y1="104.14" x2="114.3" y2="104.14" width="0.1524" layer="91"/>
-<label x="99.06" y="104.14" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="T1" gate="G1" pin="C"/>
 <pinref part="D1" gate="G$1" pin="A"/>
 <wire x1="88.9" y1="-40.64" x2="86.36" y2="-40.64" width="0.1524" layer="91"/>
@@ -17472,11 +17274,6 @@ naming: grid - package width</description>
 <junction x="86.36" y="-33.02"/>
 <wire x1="86.36" y1="-33.02" x2="71.12" y2="-33.02" width="0.1524" layer="91"/>
 <label x="71.12" y="-33.02" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP6" gate="G$1" pin="5"/>
-<wire x1="137.16" y1="109.22" x2="121.92" y2="109.22" width="0.1524" layer="91"/>
-<label x="121.92" y="109.22" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="JP3" gate="G$1" pin="5"/>
