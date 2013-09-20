@@ -130,17 +130,17 @@
 <wire x1="8.5" y1="-12.3" x2="-8.5" y2="-12.3" width="0.1524" layer="21"/>
 <wire x1="8.5" y1="12.3" x2="8.5" y2="-12.3" width="0.1524" layer="21"/>
 <wire x1="-8.5" y1="-12.3" x2="-8.5" y2="12.3" width="0.1524" layer="21"/>
-<pad name="1" x="-4.6" y="7.875" drill="2.3" diameter="3.1"/>
+<pad name="1" x="-4.6" y="7.875" drill="2.6"/>
 <text x="-7.62" y="10.16" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-7.62" y="-12.065" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
-<pad name="2" x="0" y="7.875" drill="2.3" diameter="3.1"/>
-<pad name="3" x="4.6" y="7.875" drill="2.3" diameter="3.1"/>
-<pad name="4" x="-4.6" y="2.625" drill="2.3" diameter="3.1"/>
-<pad name="5" x="0" y="2.625" drill="2.3" diameter="3.1"/>
-<pad name="6" x="4.6" y="2.625" drill="2.3" diameter="3.1"/>
-<pad name="7" x="-4.6" y="-2.625" drill="2.3" diameter="3.1"/>
-<pad name="8" x="0" y="-2.625" drill="2.3" diameter="3.1"/>
-<pad name="9" x="4.6" y="-2.625" drill="2.3" diameter="3.1"/>
+<pad name="2" x="0" y="7.875" drill="2.6"/>
+<pad name="3" x="4.6" y="7.875" drill="2.6"/>
+<pad name="4" x="-4.6" y="2.625" drill="2.6"/>
+<pad name="5" x="0" y="2.625" drill="2.6"/>
+<pad name="6" x="4.6" y="2.625" drill="2.6"/>
+<pad name="7" x="-4.6" y="-2.625" drill="2.6"/>
+<pad name="8" x="0" y="-2.625" drill="2.6"/>
+<pad name="9" x="4.6" y="-2.625" drill="2.6"/>
 <circle x="0" y="0" radius="8" width="0.2032" layer="51"/>
 <circle x="0" y="0" radius="7" width="0.2032" layer="51"/>
 <circle x="0" y="0" radius="5" width="0.2032" layer="51"/>
@@ -148,9 +148,9 @@
 <wire x1="-1" y1="-5" x2="1" y2="-5" width="0.2032" layer="51"/>
 <wire x1="1" y1="-5" x2="1" y2="-5.9" width="0.2032" layer="51"/>
 <wire x1="1" y1="-5.925" x2="-1" y2="-5.925" width="0.2032" layer="51" curve="340.840541"/>
-<pad name="10" x="-4.6" y="-7.875" drill="2.3" diameter="3.1"/>
-<pad name="11" x="0" y="-7.875" drill="2.3" diameter="3.1"/>
-<pad name="12" x="4.6" y="-7.875" drill="2.3" diameter="3.1"/>
+<pad name="10" x="-4.6" y="-7.875" drill="2.6"/>
+<pad name="11" x="0" y="-7.875" drill="2.6"/>
+<pad name="12" x="4.6" y="-7.875" drill="2.6"/>
 </package>
 </packages>
 <symbols>
