@@ -1,0 +1,70 @@
+Partlist
+
+Exported from owl-analog.sch at 23/08/2013 17:49
+
+EAGLE Version 6.4.0 Copyright (c) 1988-2013 CadSoft
+
+Assembly variant: 
+
+Part     Value              Device                         Package              Library                 Sheet
+
+ADC                         M04PTH                         1X04                 SparkFun                1
+C600     0.1uF              CPOL-EUE2.5-7                  E2,5-7               rcl                     1
+C601     0.1uF              CPOL-EUE2.5-7                  E2,5-7               rcl                     1
+C602     47pF               C-EU050-025X075                C050-025X075         rcl                     1
+C603     47pF               C-EU050-025X075                C050-025X075         rcl                     1
+C604     0.1uF              CPOL-EUE2.5-7                  E2,5-7               rcl                     1
+C605     0.1uF              CPOL-EUE2.5-7                  E2,5-7               rcl                     1
+C610     100n               C-EU050-025X075                C050-025X075         rcl                     1
+C611     1uF                CPOL-EUE2.5-7                  E2,5-7               rcl                     1
+C700     10u                CPOL-EUE2.5-7                  E2,5-7               rcl                     1
+C701     10u                CPOL-EUE2.5-7                  E2,5-7               rcl                     1
+D1       1N4148DO35-10      1N4148DO35-10                  DO35-10              diode                   1
+D3                          DIODE1N4001                    DIODE-1N4001         Rebel                   1
+F3       PTCPTH             PTCPTH                         PTC                  Rebel                   1
+HP                          JMP/3P/SIP                     JMP/3P/SIP           audioint                1
+IC2      TL072P             TL072P                         DIL08                linear                  1
+IN                          JMP/3P/SIP                     JMP/3P/SIP           audioint                1
+J1                          POWER_JACKPTH                  POWER_JACK_PTH       SparkFun                1
+J2       NEUTRIK_NMJ6HCD2   NEUTRIK_NMJ6HCD2               NMJ6HCD2             neutrik_jacks           1
+J3       NEUTRIK_NMJ6HCD2   NEUTRIK_NMJ6HCD2               NMJ6HCD2             neutrik_jacks           1
+J4       NEUTRIK_NMJ6HCD2   NEUTRIK_NMJ6HCD2               NMJ6HCD2             neutrik_jacks           1
+J5       NEUTRIK_NMJ6HCD2   NEUTRIK_NMJ6HCD2               NMJ6HCD2             neutrik_jacks           1
+J6       NEUTRIK_NMJ6HCD2   NEUTRIK_NMJ6HCD2               NMJ6HCD2             neutrik_jacks           1
+JP1                         M02PTH                         1X02                 SparkFun                1
+JP2      M05X2PTH           M05X2PTH                       AVR_ICSP             SparkFun                1
+JP3      M10"               M10"                           1X10                 SparkFun                1
+JP9                         M02PTH                         1X02                 SparkFun                1
+JP22                        M03PTH                         1X03                 SparkFun                1
+L600                        L-EUIRF-1                      IRF-1                rcl                     1
+L601                        L-EUIRF-1                      IRF-1                rcl                     1
+MIC                         JMP/3P/SIP                     JMP/3P/SIP           audioint                1
+OUT                         JMP/3P/SIP                     JMP/3P/SIP           audioint                1
+POT1     POT-ALPS-RK09L1140 POT-ALPS-RK09L1140             POT-ALPS-RK09L1140   Rebel                   1
+POT2     POT-ALPS-RK09L1140 POT-ALPS-RK09L1140             POT-ALPS-RK09L1140   Rebel                   1
+POT3     POT-ALPS-RK09L1140 POT-ALPS-RK09L1140             POT-ALPS-RK09L1140   Rebel                   1
+POT4     POT-ALPS-RK09L1140 POT-ALPS-RK09L1140             POT-ALPS-RK09L1140   Rebel                   1
+Q1       BS170              BS170                          SOT54E               transistor-small-signal 1
+R100     1k                 R-EU_0204/7                    0204/7               Rebel                   1
+R200     22R                R-EU_0204/7                    0204/7               Rebel                   1
+R201     22R                R-EU_0204/7                    0204/7               Rebel                   1
+R600     2M                 R-EU_0204/7                    0204/7               Rebel                   1
+R601     2M                 R-EU_0204/7                    0204/7               Rebel                   1
+R602     1K                 R-EU_0204/7                    0204/7               Rebel                   1
+R603     1K                 R-EU_0204/7                    0204/7               Rebel                   1
+R604     1M                 R-EU_0204/7                    0204/7               Rebel                   1
+R605     1M                 R-EU_0204/7                    0204/7               Rebel                   1
+R606     2M                 R-EU_0204/7                    0204/7               Rebel                   1
+R607     2M                 R-EU_0204/7                    0204/7               Rebel                   1
+R610     47k                R-EU_0204/7                    0204/7               Rebel                   1
+R611     47k                R-EU_0204/7                    0204/7               Rebel                   1
+R700     47k                R-EU_0204/7                    0204/7               Rebel                   1
+R701     47k                R-EU_0204/7                    0204/7               Rebel                   1
+R702     100R               R-EU_0204/7                    0204/7               Rebel                   1
+R703     100R               R-EU_0204/7                    0204/7               Rebel                   1
+SWD                         M06SIP                         1X06                 SparkFun                1
+T1       2N3904             2N3904                         TO92                 transistor              1
+U$1      5GTH9              5GTH9                          5GTH9                SWITCH-5GTH9            1
+UART                        M06SIP                         1X06                 SparkFun                1
+USB                         M05PTH                         1X05                 SparkFun                1
+USB1                        USB_HRS_ZX62-B-5PA(11)MICRO.B- HRS_ZX62D-AB-5P8_USB USB_connector           1

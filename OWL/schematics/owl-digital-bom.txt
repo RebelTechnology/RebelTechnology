@@ -1,0 +1,69 @@
+Partlist
+
+Exported from owl-digital.sch at 14/08/2013 19:11
+
+EAGLE Version 6.4.0 Copyright (c) 1988-2013 CadSoft
+
+Assembly variant: 
+
+Part     Value                Device                         Package                  Library       Sheet
+
+ADC                           M04PTH                         1X04                     SparkFun      1
+C1       1u                   C-EUC0603                      C0603                    resistor      1
+C2       100n                 C-EUC0603                      C0603                    resistor      1
+C3       100n                 C-EUC0603                      C0603                    resistor      1
+C4       100n                 C-EUC0603                      C0603                    resistor      1
+C5       100n                 C-EUC0603                      C0603                    resistor      1
+C6       100n                 C-EUC0603                      C0603                    resistor      1
+C7       100n                 C-EUC0603                      C0603                    resistor      1
+C8       100n                 C-EUC0603                      C0603                    resistor      1
+C9       100n                 C-EUC0603                      C0603                    resistor      1
+C10      100n                 C-EUC0603                      C0603                    resistor      1
+C11      100n                 C-EUC0603                      C0603                    resistor      1
+C18      1u                   C-EUC0603                      C0603                    resistor      1
+C19      100n                 C-EUC0603                      C0603                    resistor      1
+C20      2u2                  C-EUC0603                      C0603                    resistor      1
+C21      2u2                  C-EUC0603                      C0603                    resistor      1
+C22      20pF                 C-EUC0603                      C0603                    resistor      1
+C23      20pF                 C-EUC0603                      C0603                    resistor      1
+C24      100n                 C-EUC0603                      C0603                    resistor      1
+C25      100n                 C-EUC0603                      C0603                    resistor      1
+C26      100n                 C-EUC0603                      C0603                    resistor      1
+C27      100n                 C-EUC0603                      C0603                    resistor      1
+C301     100n                 C-EUC0603                      C0603                    resistor      1
+C302     10u                  C-EUC1206                      C1206                    resistor      1
+C303     100n                 C-EUC0603                      C0603                    resistor      1
+C304     100n                 C-EUC0603                      C0603                    resistor      1
+C305     10u                  C-EUC1206                      C1206                    resistor      1
+C306     100n                 C-EUC0603                      C0603                    resistor      1
+C308     10u                  C-EUC1206                      C1206                    resistor      1
+C309     100n                 C-EUC0603                      C0603                    resistor      1
+C801     10u                  CPOL-EUA                       PANASONIC_A              resistor      1
+C802     10u                  CPOL-EUA                       PANASONIC_A              resistor      1
+HP                            JMP/3P/SIP                     JMP/3P/SIP               audioint      1
+IC1      REG1117              REG1117                        SOT223                   burr-brown    1
+IC3      IS61WV51216BLL-10TLI IS61WV51216BLL-10TLI           TSOP44-II                Rebel         1
+IN                            JMP/3P/SIP                     JMP/3P/SIP               audioint      1
+JP1                           M02PTH                         1X02                     SparkFun      1
+JP2      M05X2PTH             M05X2PTH                       AVR_ICSP                 SparkFun      1
+L3       INDUCTOR             INDUCTOR                       0603                     Rebel         1
+LED1                          LED1206                        LED-1206                 SparkFun      1
+LED2                          LED1206                        LED-1206                 SparkFun      1
+MIC                           JMP/3P/SIP                     JMP/3P/SIP               audioint      1
+OUT                           JMP/3P/SIP                     JMP/3P/SIP               audioint      1
+PWR                           JMP/3P/SIP                     JMP/3P/SIP               audioint      1
+Q2                            CRYSTALHC49UP                  HC49UP                   crystal       1
+R4       22R                  R-EU_R0603                     R0603                    resistor      1
+R5       22R                  R-EU_R0603                     R0603                    resistor      1
+R9       10K                  R-EU_R0603                     R0603                    resistor      1
+R10      10K                  R-EU_R0603                     R0603                    resistor      1
+R11      1k                   R-EU_R0603                     R0603                    resistor      1
+R12      1k                   R-EU_R0603                     R0603                    resistor      1
+R300     4k7                  R-EU_R0603                     R0603                    resistor      1
+R301     4k7                  R-EU_R0603                     R0603                    resistor      1
+SWD                           M06SIP                         1X06                     SparkFun      1
+U2       WM8731               WM8731                         28-SSOP                  audioint      1
+U4       STM32F405ZGT6        STM32F405ZGT6                  QFP50P2200X2200X160-144N Rebel         1
+UART                          M06SIP                         1X06                     SparkFun      1
+USB                           M05PTH                         1X05                     SparkFun      1
+USB1                          USB_HRS_ZX62-B-5PA(11)MICRO.B- HRS_ZX62D-AB-5P8_USB     USB_connector 1
