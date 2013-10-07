@@ -10089,6 +10089,70 @@ type 0204, grid 7.5 mm</description>
 <rectangle x1="-2.921" y1="-0.254" x2="-2.54" y2="0.254" layer="21"/>
 <text x="-2.54" y="1.2954" size="1.016" layer="27" font="vector" ratio="10">&gt;VALUE</text>
 </package>
+<package name="HRS_ZX62RD-AB-5P8">
+<text x="-3.81" y="0.635" size="1.016" layer="25" rot="R90">&gt;NAME</text>
+<text x="5.08" y="0.635" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
+<wire x1="4.15" y1="-3.175" x2="-4.15" y2="-3.175" width="0.127" layer="51"/>
+<wire x1="3.45" y1="-1.875" x2="-3.5" y2="-1.875" width="0.127" layer="21" style="shortdash"/>
+<pad name="G" x="-4.175" y="-0.525" drill="1" diameter="1.8" shape="square"/>
+<pad name="G2" x="4.175" y="-0.525" drill="1" diameter="1.8" shape="square"/>
+<wire x1="0" y1="-2.025" x2="0" y2="-2.425" width="0.0508" layer="51"/>
+<pad name="G3" x="-2.225" y="2.6" drill="1" diameter="1.2" shape="offset" rot="R90"/>
+<pad name="G4" x="2.225" y="2.6" drill="1" diameter="1.2" shape="offset" rot="R90"/>
+<smd name="3" x="0" y="2.275" dx="0.4" dy="1.35" layer="1"/>
+<smd name="4" x="-0.65" y="2.275" dx="0.4" dy="1.35" layer="1"/>
+<smd name="5" x="-1.3" y="1.945" dx="0.4" dy="0.7" layer="1" roundness="30"/>
+<smd name="2" x="0.65" y="2.275" dx="0.4" dy="1.35" layer="1"/>
+<smd name="1" x="1.3" y="1.945" dx="0.4" dy="0.7" layer="1" roundness="30"/>
+<wire x1="3.6" y1="-1.475" x2="2.6" y2="-1.475" width="0" layer="48"/>
+<wire x1="2.6" y1="-1.475" x2="2.05" y2="-1.475" width="0" layer="48"/>
+<wire x1="2.05" y1="-1.475" x2="0.25" y2="-1.475" width="0" layer="48"/>
+<wire x1="0.25" y1="-1.475" x2="-0.25" y2="-1.475" width="0" layer="48"/>
+<wire x1="-0.25" y1="-1.475" x2="-2.05" y2="-1.475" width="0" layer="48"/>
+<wire x1="-2.05" y1="-1.475" x2="-2.6" y2="-1.475" width="0" layer="48"/>
+<wire x1="-2.6" y1="-1.475" x2="-3.65" y2="-1.475" width="0" layer="48"/>
+<wire x1="3.65" y1="0.425" x2="2.6" y2="0.425" width="0" layer="48"/>
+<wire x1="2.6" y1="0.425" x2="2.05" y2="0.425" width="0" layer="48"/>
+<wire x1="2.05" y1="0.425" x2="0.25" y2="0.425" width="0" layer="48"/>
+<wire x1="0.25" y1="0.425" x2="-0.25" y2="0.425" width="0" layer="48"/>
+<wire x1="-0.25" y1="0.425" x2="-2.05" y2="0.425" width="0" layer="48"/>
+<wire x1="-2.05" y1="0.425" x2="-2.6" y2="0.425" width="0" layer="48"/>
+<wire x1="-2.6" y1="0.425" x2="-3.65" y2="0.425" width="0" layer="48"/>
+<wire x1="-0.25" y1="-1.475" x2="-0.25" y2="0.425" width="0" layer="48"/>
+<wire x1="0.25" y1="-1.475" x2="0.25" y2="0.425" width="0" layer="48"/>
+<wire x1="-2.05" y1="-1.475" x2="-2.05" y2="0.425" width="0" layer="48"/>
+<wire x1="2.05" y1="-1.475" x2="2.05" y2="0.425" width="0" layer="48"/>
+<wire x1="-2.6" y1="-1.475" x2="-2.6" y2="0.425" width="0" layer="48"/>
+<wire x1="2.6" y1="-1.475" x2="2.6" y2="0.425" width="0" layer="48"/>
+<wire x1="1.8" y1="1.325" x2="-1.8" y2="1.325" width="0" layer="48"/>
+<wire x1="-1.8" y1="1.425" x2="-3.7" y2="1.425" width="0" layer="48"/>
+<rectangle x1="-3.65" y1="1.325" x2="-1.8" y2="1.425" layer="41"/>
+<rectangle x1="1.8" y1="1.325" x2="3.6" y2="1.425" layer="41"/>
+<wire x1="1.8" y1="1.425" x2="3.65" y2="1.425" width="0" layer="48"/>
+<wire x1="-1.8" y1="1.425" x2="-1.8" y2="1.325" width="0" layer="48"/>
+<wire x1="1.8" y1="1.425" x2="1.8" y2="1.325" width="0" layer="48"/>
+<text x="1.09" y="3.125" size="0.4" layer="48" ratio="10">1</text>
+<text x="-1.39" y="3.125" size="0.4" layer="48" ratio="10">5</text>
+<wire x1="-3.45" y1="-2.575" x2="3.45" y2="-2.575" width="0.127" layer="51"/>
+<wire x1="0" y1="-2.725" x2="0" y2="-3.025" width="0.0508" layer="51"/>
+<wire x1="-4.15" y1="-3.175" x2="-3.65" y2="-2.575" width="0.127" layer="51"/>
+<wire x1="4.15" y1="-3.175" x2="3.65" y2="-2.575" width="0.127" layer="51"/>
+<rectangle x1="-3.65" y1="0.425" x2="3.65" y2="1.325" layer="41"/>
+<rectangle x1="-3.65" y1="-1.875" x2="3.65" y2="-1.475" layer="41"/>
+<rectangle x1="-2.6" y1="-1.475" x2="-2.05" y2="0.425" layer="41"/>
+<rectangle x1="-0.25" y1="-1.475" x2="0.25" y2="0.425" layer="41"/>
+<rectangle x1="2.05" y1="-1.475" x2="2.6" y2="0.425" layer="41"/>
+<smd name="D_0" x="-1.15" y="-0.525" dx="1.8" dy="1.9" layer="1"/>
+<smd name="D_1" x="1.15" y="-0.525" dx="1.8" dy="1.9" layer="1"/>
+<wire x1="-3.65" y1="2.425" x2="-3.65" y2="0.635" width="0.127" layer="21"/>
+<wire x1="-3.65" y1="-1.905" x2="-3.65" y2="-2.575" width="0.127" layer="51"/>
+<wire x1="3.65" y1="-1.905" x2="3.65" y2="-2.575" width="0.127" layer="51"/>
+<wire x1="3.65" y1="2.425" x2="3.65" y2="0.635" width="0.127" layer="21"/>
+<wire x1="-2.95" y1="2.425" x2="-3.65" y2="2.425" width="0.127" layer="21"/>
+<wire x1="3.65" y1="2.425" x2="2.95" y2="2.425" width="0.127" layer="21"/>
+<smd name="7" x="-1.2" y="2.565" dx="0.2" dy="0.75" layer="1"/>
+<smd name="6" x="1.2" y="2.565" dx="0.2" dy="0.75" layer="1"/>
+</package>
 </packages>
 <symbols>
 <symbol name="INDUCTOR">
@@ -10617,9 +10681,22 @@ Memory Configuration: 512K x 16bit &lt;br/&gt;</description>
 <connects>
 <connect gate="USB" pin="D+" pad="3"/>
 <connect gate="USB" pin="D-" pad="2"/>
-<connect gate="USB" pin="GND" pad="5"/>
+<connect gate="USB" pin="GND" pad="5 7"/>
 <connect gate="USB" pin="ID" pad="4"/>
-<connect gate="USB" pin="SHIELD" pad="7 G G2 G3 G4"/>
+<connect gate="USB" pin="SHIELD" pad="G G2 G3 G4"/>
+<connect gate="USB" pin="VCC" pad="1 6"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="" package="HRS_ZX62RD-AB-5P8">
+<connects>
+<connect gate="USB" pin="D+" pad="3"/>
+<connect gate="USB" pin="D-" pad="2"/>
+<connect gate="USB" pin="GND" pad="5 7" route="any"/>
+<connect gate="USB" pin="ID" pad="4"/>
+<connect gate="USB" pin="SHIELD" pad="G G2 G3 G4"/>
 <connect gate="USB" pin="VCC" pad="1 6"/>
 </connects>
 <technologies>
@@ -15485,7 +15562,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="ADC" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="PWR" library="audioint" deviceset="JMP/3P/SIP" device="" value=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
-<part name="USB1" library="Rebel" deviceset="USB_HRS_ZX62-B-5PA(11)MICRO.B" device="-"/>
+<part name="USB1" library="Rebel" deviceset="USB_HRS_ZX62-B-5PA(11)MICRO.B" device=""/>
 <part name="IN" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="OUT" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="MIC" library="SparkFun" deviceset="M02" device="PTH"/>
