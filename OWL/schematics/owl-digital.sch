@@ -15462,7 +15462,6 @@ Source: 008-0260-0_E.pdf</description>
 <part name="+3V18" library="supply1" deviceset="+3V3" device=""/>
 <part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="22R"/>
 <part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="22R"/>
-<part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
 <part name="LED1" library="SparkFun" deviceset="LED" device="1206"/>
 <part name="LED2" library="SparkFun" deviceset="LED" device="1206"/>
@@ -15561,7 +15560,6 @@ Source: 008-0260-0_E.pdf</description>
 <part name="USB" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="ADC" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="PWR" library="audioint" deviceset="JMP/3P/SIP" device="" value=""/>
-<part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="USB1" library="Rebel" deviceset="USB_HRS_ZX62-B-5PA(11)MICRO.B" device=""/>
 <part name="IN" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="OUT" library="SparkFun" deviceset="M02" device="PTH"/>
@@ -15583,6 +15581,8 @@ Source: 008-0260-0_E.pdf</description>
 <part name="USB2" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="JP1" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="JP3" library="SparkFun" deviceset="M05" device="PTH"/>
+<part name="L2" library="Rebel" deviceset="INDUCTOR" device=""/>
+<part name="L3" library="Rebel" deviceset="INDUCTOR" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -15616,7 +15616,6 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="+3V18" gate="G$1" x="266.7" y="15.24"/>
 <instance part="R4" gate="G$1" x="238.76" y="-154.94" rot="R180"/>
 <instance part="R5" gate="G$1" x="228.6" y="-152.4" rot="R180"/>
-<instance part="GND12" gate="1" x="248.92" y="-167.64"/>
 <instance part="GND28" gate="1" x="274.32" y="-2.54"/>
 <instance part="LED1" gate="G$1" x="320.04" y="-139.7" rot="R90"/>
 <instance part="LED2" gate="G$1" x="320.04" y="-152.4" rot="R90"/>
@@ -15718,8 +15717,7 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="USB" gate="G$1" x="198.12" y="-152.4"/>
 <instance part="ADC" gate="G$1" x="-25.4" y="10.16"/>
 <instance part="PWR" gate="G$1" x="279.4" y="5.08"/>
-<instance part="GND3" gate="1" x="208.28" y="-165.1"/>
-<instance part="USB1" gate="USB" x="256.54" y="-154.94"/>
+<instance part="USB1" gate="USB" x="279.4" y="-154.94"/>
 <instance part="IN" gate="G$1" x="116.84" y="104.14"/>
 <instance part="OUT" gate="G$1" x="116.84" y="86.36"/>
 <instance part="MIC" gate="G$1" x="160.02" y="104.14"/>
@@ -15742,6 +15740,8 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="USB2" gate="G$1" x="276.86" y="-35.56"/>
 <instance part="JP1" gate="G$1" x="-22.86" y="-83.82"/>
 <instance part="JP3" gate="G$1" x="-38.1" y="-157.48"/>
+<instance part="L2" gate="G$1" x="259.08" y="-149.86" rot="R180"/>
+<instance part="L3" gate="G$1" x="259.08" y="-160.02" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -15782,16 +15782,6 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="C9" gate="G$1" pin="2"/>
 <pinref part="GND49" gate="1" pin="GND"/>
 <wire x1="154.94" y1="17.78" x2="154.94" y2="12.7" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND12" gate="1" pin="GND"/>
-<wire x1="248.92" y1="-162.56" x2="248.92" y2="-165.1" width="0.1524" layer="91"/>
-<pinref part="USB1" gate="USB" pin="SHIELD"/>
-<pinref part="USB1" gate="USB" pin="GND"/>
-<wire x1="248.92" y1="-162.56" x2="254" y2="-162.56" width="0.1524" layer="91"/>
-<wire x1="254" y1="-160.02" x2="248.92" y2="-160.02" width="0.1524" layer="91"/>
-<wire x1="248.92" y1="-160.02" x2="248.92" y2="-162.56" width="0.1524" layer="91"/>
-<junction x="248.92" y="-162.56"/>
 </segment>
 <segment>
 <pinref part="GND28" gate="1" pin="GND"/>
@@ -16017,12 +16007,6 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="GND60" gate="1" pin="GND"/>
 <wire x1="134.62" y1="129.54" x2="134.62" y2="121.92" width="0.1524" layer="91"/>
 <junction x="134.62" y="129.54"/>
-</segment>
-<segment>
-<pinref part="USB" gate="G$1" pin="5"/>
-<pinref part="GND3" gate="1" pin="GND"/>
-<wire x1="205.74" y1="-147.32" x2="208.28" y2="-147.32" width="0.1524" layer="91"/>
-<wire x1="208.28" y1="-147.32" x2="208.28" y2="-162.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U4" gate="B" pin="PDR_ON"/>
@@ -16808,14 +16792,14 @@ Source: 008-0260-0_E.pdf</description>
 <segment>
 <pinref part="R4" gate="G$1" pin="1"/>
 <pinref part="USB1" gate="USB" pin="D+"/>
-<wire x1="243.84" y1="-154.94" x2="254" y2="-154.94" width="0.1524" layer="91"/>
+<wire x1="243.84" y1="-154.94" x2="276.86" y2="-154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$21" class="0">
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
 <pinref part="USB1" gate="USB" pin="D-"/>
-<wire x1="254" y1="-152.4" x2="233.68" y2="-152.4" width="0.1524" layer="91"/>
+<wire x1="276.86" y1="-152.4" x2="233.68" y2="-152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="USB_DM" class="0">
@@ -16846,7 +16830,7 @@ Source: 008-0260-0_E.pdf</description>
 </net>
 <net name="USB_ID" class="0">
 <segment>
-<wire x1="254" y1="-157.48" x2="205.74" y2="-157.48" width="0.1524" layer="91"/>
+<wire x1="276.86" y1="-157.48" x2="205.74" y2="-157.48" width="0.1524" layer="91"/>
 <label x="210.82" y="-157.48" size="1.778" layer="95"/>
 <pinref part="USB" gate="G$1" pin="1"/>
 <pinref part="USB1" gate="USB" pin="ID"/>
@@ -16859,10 +16843,10 @@ Source: 008-0260-0_E.pdf</description>
 </net>
 <net name="USB_VBUS" class="0">
 <segment>
-<wire x1="254" y1="-149.86" x2="205.74" y2="-149.86" width="0.1524" layer="91"/>
 <label x="210.82" y="-149.86" size="1.778" layer="95"/>
 <pinref part="USB" gate="G$1" pin="4"/>
-<pinref part="USB1" gate="USB" pin="VCC"/>
+<pinref part="L2" gate="G$1" pin="2"/>
+<wire x1="251.46" y1="-149.86" x2="205.74" y2="-149.86" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="106.68" y1="-142.24" x2="127" y2="-142.24" width="0.1524" layer="91"/>
@@ -17727,6 +17711,35 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="U4" gate="A" pin="PE6"/>
 <wire x1="33.02" y1="-88.9" x2="25.4" y2="-88.9" width="0.1524" layer="91"/>
 <label x="25.4" y="-88.9" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="USB1" gate="USB" pin="VCC"/>
+<wire x1="276.86" y1="-149.86" x2="266.7" y2="-149.86" width="0.1524" layer="91"/>
+<pinref part="L2" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="USB1" gate="USB" pin="GND"/>
+<wire x1="276.86" y1="-160.02" x2="271.78" y2="-160.02" width="0.1524" layer="91"/>
+<pinref part="L3" gate="G$1" pin="1"/>
+<pinref part="USB1" gate="USB" pin="SHIELD"/>
+<wire x1="271.78" y1="-160.02" x2="266.7" y2="-160.02" width="0.1524" layer="91"/>
+<wire x1="276.86" y1="-162.56" x2="271.78" y2="-162.56" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="-162.56" x2="271.78" y2="-160.02" width="0.1524" layer="91"/>
+<junction x="271.78" y="-160.02"/>
+</segment>
+</net>
+<net name="USB_GND" class="0">
+<segment>
+<pinref part="USB" gate="G$1" pin="5"/>
+<wire x1="205.74" y1="-147.32" x2="208.28" y2="-147.32" width="0.1524" layer="91"/>
+<wire x1="208.28" y1="-147.32" x2="208.28" y2="-160.02" width="0.1524" layer="91"/>
+<pinref part="L3" gate="G$1" pin="2"/>
+<wire x1="251.46" y1="-160.02" x2="208.28" y2="-160.02" width="0.1524" layer="91"/>
+<label x="210.82" y="-160.02" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
