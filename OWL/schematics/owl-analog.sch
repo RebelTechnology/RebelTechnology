@@ -16320,7 +16320,7 @@ naming: grid - package width</description>
 <part name="J1" library="SparkFun" deviceset="POWER_JACK" device="PTH" value=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
-<part name="R100" library="Rebel" deviceset="R-EU_" device="0204/7" value="100R"/>
+<part name="R100" library="Rebel" deviceset="R-EU_" device="0204/7" value="150R"/>
 <part name="J2" library="neutrik_jacks" deviceset="NEUTRIK_NMJ6HCD2" device=""/>
 <part name="J3" library="neutrik_jacks" deviceset="NEUTRIK_NMJ6HCD2" device=""/>
 <part name="J4" library="neutrik_jacks" deviceset="NEUTRIK_NMJ6HCD2" device=""/>
@@ -16366,43 +16366,43 @@ naming: grid - package width</description>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
 <part name="C610" library="rcl" deviceset="C-EU" device="050-025X075" value="100n"/>
 <part name="GND38" library="supply1" deviceset="GND" device=""/>
-<part name="R304" library="Rebel" deviceset="R-EU_" device="0204/7" value="9k1"/>
-<part name="R306" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k3"/>
+<part name="R304" library="Rebel" deviceset="R-EU_" device="0204/7" value="5k1"/>
+<part name="R306" library="Rebel" deviceset="R-EU_" device="0204/7" value="2k7"/>
 <part name="C302" library="capacitor-wima" deviceset="C" device="5/2.5" value="1n"/>
-<part name="C304" library="capacitor-wima" deviceset="C" device="5/2.5" value="4n7"/>
+<part name="C304" library="capacitor-wima" deviceset="C" device="5/2.5" value="2n2"/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="P+10" library="supply1" deviceset="VCC/2" device=""/>
 <part name="P+11" library="supply1" deviceset="VCC/2" device=""/>
 <part name="P+12" library="supply1" deviceset="VCC/2" device=""/>
 <part name="IC1" library="linear" deviceset="TL074" device="P" value="TL074P"/>
-<part name="R402" library="Rebel" deviceset="R-EU_" device="0204/7" value="3k9"/>
-<part name="R406" library="Rebel" deviceset="R-EU_" device="0204/7" value="3k6"/>
+<part name="R402" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k2"/>
+<part name="R406" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k2"/>
 <part name="C404" library="capacitor-wima" deviceset="C" device="5/5" value="1uF"/>
 <part name="R408" library="Rebel" deviceset="R-EU_" device="0204/7" value="100R"/>
-<part name="R404" library="Rebel" deviceset="R-EU_" device="0204/7" value="3k6"/>
+<part name="R404" library="Rebel" deviceset="R-EU_" device="0204/7" value="2k7"/>
 <part name="R410" library="Rebel" deviceset="R-EU_" device="0204/7" value="2M"/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="P+13" library="supply1" deviceset="VCC/2" device=""/>
-<part name="C402" library="capacitor-wima" deviceset="C" device="5/2.5" value="1n"/>
-<part name="R305" library="Rebel" deviceset="R-EU_" device="0204/7" value="9k1"/>
-<part name="R307" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k3"/>
+<part name="C402" library="capacitor-wima" deviceset="C" device="5/2.5" value="2n2"/>
+<part name="R305" library="Rebel" deviceset="R-EU_" device="0204/7" value="5k1"/>
+<part name="R307" library="Rebel" deviceset="R-EU_" device="0204/7" value="2k7"/>
 <part name="C303" library="capacitor-wima" deviceset="C" device="5/2.5" value="1n"/>
-<part name="C305" library="rcl" deviceset="C-EU" device="050-025X075" value="10n"/>
+<part name="C305" library="rcl" deviceset="C-EU" device="050-025X075" value="2n2"/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
-<part name="R400" library="Rebel" deviceset="R-EU_" device="0204/7" value="3k6"/>
-<part name="C400" library="capacitor-wima" deviceset="C" device="5/2.5" value="4n7"/>
+<part name="R400" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k2"/>
+<part name="C400" library="capacitor-wima" deviceset="C" device="5/2.5" value="10n"/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
-<part name="R403" library="Rebel" deviceset="R-EU_" device="0204/7" value="3k9"/>
-<part name="R407" library="Rebel" deviceset="R-EU_" device="0204/7" value="3k6"/>
+<part name="R403" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k2"/>
+<part name="R407" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k2"/>
 <part name="C405" library="capacitor-wima" deviceset="C" device="5/5" value="1uF"/>
 <part name="R409" library="Rebel" deviceset="R-EU_" device="0204/7" value="100R"/>
-<part name="R405" library="Rebel" deviceset="R-EU_" device="0204/7" value="3k6"/>
+<part name="R405" library="Rebel" deviceset="R-EU_" device="0204/7" value="2k7"/>
 <part name="R411" library="Rebel" deviceset="R-EU_" device="0204/7" value="2M"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="VCC/2" device=""/>
-<part name="C403" library="capacitor-wima" deviceset="C" device="5/2.5" value="1n"/>
-<part name="R401" library="Rebel" deviceset="R-EU_" device="0204/7" value="3k6"/>
-<part name="C401" library="capacitor-wima" deviceset="C" device="5/2.5" value="4n7"/>
+<part name="C403" library="capacitor-wima" deviceset="C" device="5/2.5" value="2n2"/>
+<part name="R401" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k2"/>
+<part name="C401" library="capacitor-wima" deviceset="C" device="5/2.5" value="10n"/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="C612" library="rcl" deviceset="C-EU" device="050-025X075" value="100n"/>
 <part name="JP3" library="SparkFun" deviceset="M09" device=""/>
