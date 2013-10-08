@@ -15583,6 +15583,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="L2" library="Rebel" deviceset="INDUCTOR" device=""/>
 <part name="L3" library="Rebel" deviceset="INDUCTOR" device=""/>
 <part name="C305" library="resistor" deviceset="CPOL-EU" device="A" value="10u"/>
+<part name="MCLK" library="SparkFun" deviceset="SOLDERJUMPER" device="NO"/>
 </parts>
 <sheets>
 <sheet>
@@ -15725,11 +15726,11 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="V" gate="G$1" x="116.84" y="71.12"/>
 <instance part="GND1" gate="1" x="182.88" y="-50.8" rot="R180"/>
 <instance part="VBAT" gate="1" x="0" y="-91.44"/>
-<instance part="Q1" gate="G$1" x="254" y="119.38" rot="R180"/>
-<instance part="C311" gate="G$1" x="261.62" y="111.76"/>
-<instance part="C310" gate="G$1" x="246.38" y="111.76"/>
-<instance part="GND2" gate="1" x="246.38" y="101.6"/>
-<instance part="GND4" gate="1" x="261.62" y="101.6"/>
+<instance part="Q1" gate="G$1" x="254" y="121.92" rot="R180"/>
+<instance part="C311" gate="G$1" x="261.62" y="114.3"/>
+<instance part="C310" gate="G$1" x="246.38" y="114.3"/>
+<instance part="GND2" gate="1" x="246.38" y="104.14"/>
+<instance part="GND4" gate="1" x="261.62" y="104.14"/>
 <instance part="P+4" gate="1" x="312.42" y="15.24" smashed="yes">
 <attribute name="VALUE" x="312.42" y="17.78" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -15742,6 +15743,7 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="L2" gate="G$1" x="259.08" y="-149.86" rot="R180"/>
 <instance part="L3" gate="G$1" x="259.08" y="-160.02" rot="R180"/>
 <instance part="C305" gate="G$1" x="281.94" y="147.32"/>
+<instance part="MCLK" gate="1" x="231.14" y="170.18"/>
 </instances>
 <busses>
 </busses>
@@ -16019,12 +16021,12 @@ Source: 008-0260-0_E.pdf</description>
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
 <pinref part="C310" gate="G$1" pin="2"/>
-<wire x1="246.38" y1="104.14" x2="246.38" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="246.38" y1="106.68" x2="246.38" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C311" gate="G$1" pin="2"/>
 <pinref part="GND4" gate="1" pin="GND"/>
-<wire x1="261.62" y1="104.14" x2="261.62" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="261.62" y1="106.68" x2="261.62" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND6" gate="1" pin="GND"/>
@@ -16779,15 +16781,9 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="U4" gate="B" pin="PC6"/>
 </segment>
 <segment>
-<wire x1="215.9" y1="127" x2="246.38" y2="127" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="XTI/MCLK"/>
-<label x="220.98" y="127" size="1.778" layer="95"/>
-<pinref part="Q1" gate="G$1" pin="2"/>
-<pinref part="C310" gate="G$1" pin="1"/>
-<wire x1="251.46" y1="119.38" x2="246.38" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="246.38" y1="119.38" x2="246.38" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="246.38" y1="119.38" x2="246.38" y2="127" width="0.1524" layer="91"/>
-<junction x="246.38" y="119.38"/>
+<pinref part="MCLK" gate="1" pin="1"/>
+<wire x1="226.06" y1="170.18" x2="208.28" y2="170.18" width="0.1524" layer="91"/>
+<label x="210.82" y="170.18" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$17" class="0">
@@ -17669,13 +17665,13 @@ Source: 008-0260-0_E.pdf</description>
 <net name="N$2" class="0">
 <segment>
 <pinref part="C311" gate="G$1" pin="1"/>
-<wire x1="261.62" y1="114.3" x2="261.62" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="261.62" y1="116.84" x2="261.62" y2="121.92" width="0.1524" layer="91"/>
 <pinref part="Q1" gate="G$1" pin="1"/>
-<wire x1="261.62" y1="119.38" x2="256.54" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="261.62" y1="121.92" x2="256.54" y2="121.92" width="0.1524" layer="91"/>
 <pinref part="U2" gate="G$1" pin="XTO"/>
 <wire x1="215.9" y1="129.54" x2="261.62" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="261.62" y1="129.54" x2="261.62" y2="119.38" width="0.1524" layer="91"/>
-<junction x="261.62" y="119.38"/>
+<wire x1="261.62" y1="129.54" x2="261.62" y2="121.92" width="0.1524" layer="91"/>
+<junction x="261.62" y="121.92"/>
 </segment>
 </net>
 <net name="PG14" class="0">
@@ -17744,6 +17740,23 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="L3" gate="G$1" pin="2"/>
 <wire x1="251.46" y1="-160.02" x2="208.28" y2="-160.02" width="0.1524" layer="91"/>
 <label x="210.82" y="-160.02" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="XTI" class="0">
+<segment>
+<wire x1="215.9" y1="127" x2="246.38" y2="127" width="0.1524" layer="91"/>
+<pinref part="U2" gate="G$1" pin="XTI/MCLK"/>
+<label x="220.98" y="127" size="1.778" layer="95"/>
+<pinref part="Q1" gate="G$1" pin="2"/>
+<pinref part="C310" gate="G$1" pin="1"/>
+<wire x1="251.46" y1="121.92" x2="246.38" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="246.38" y1="121.92" x2="246.38" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="246.38" y1="121.92" x2="246.38" y2="127" width="0.1524" layer="91"/>
+<junction x="246.38" y="121.92"/>
+<pinref part="MCLK" gate="1" pin="2"/>
+<wire x1="236.22" y1="170.18" x2="246.38" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="246.38" y1="170.18" x2="246.38" y2="127" width="0.1524" layer="91"/>
+<junction x="246.38" y="127"/>
 </segment>
 </net>
 </nets>
