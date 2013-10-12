@@ -2559,18 +2559,20 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="-0.9525" y="1.27" size="0.4064" layer="25">&gt;NAME</text>
 <text x="-0.9525" y="-1.651" size="0.4064" layer="27">&gt;VALUE</text>
 </package>
-<package name="SJ_2S-NO">
-<description>Small solder jumper with no paste layer so it will open after reflow.</description>
-<wire x1="0.8" y1="-1" x2="-0.8" y2="-1" width="0.2032" layer="21"/>
-<wire x1="0.8" y1="1" x2="1" y2="0.7" width="0.2032" layer="21" curve="-90"/>
-<wire x1="-1" y1="0.7" x2="-0.8" y2="1" width="0.2032" layer="21" curve="-90"/>
-<wire x1="-1" y1="-0.7" x2="-0.8" y2="-1" width="0.2032" layer="21" curve="90"/>
-<wire x1="0.8" y1="-1" x2="1" y2="-0.7" width="0.2032" layer="21" curve="90"/>
-<wire x1="-0.8" y1="1" x2="0.8" y2="1" width="0.2032" layer="21"/>
-<smd name="1" x="-0.45" y="0" dx="0.635" dy="1.27" layer="1" cream="no"/>
-<smd name="2" x="0.45" y="0" dx="0.635" dy="1.27" layer="1" cream="no"/>
-<text x="-0.908" y="1.27" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-0.908" y="-1.651" size="0.4064" layer="27">&gt;VALUE</text>
+<package name="SJ_3_SML">
+<wire x1="1.27" y1="-0.635" x2="-1.27" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="0.635" x2="1.524" y2="0.381" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-1.524" y1="0.381" x2="-1.27" y2="0.635" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-1.524" y1="-0.381" x2="-1.27" y2="-0.635" width="0.1524" layer="21" curve="90"/>
+<wire x1="1.27" y1="-0.635" x2="1.524" y2="-0.381" width="0.1524" layer="21" curve="90"/>
+<wire x1="1.524" y1="-0.381" x2="1.524" y2="0.381" width="0.1524" layer="21"/>
+<wire x1="-1.524" y1="-0.381" x2="-1.524" y2="0.381" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="0.635" x2="1.27" y2="0.635" width="0.1524" layer="21"/>
+<smd name="1" x="-0.889" y="0" dx="0.635" dy="0.635" layer="1" cream="no"/>
+<smd name="2" x="0" y="0" dx="0.635" dy="0.635" layer="1" cream="no"/>
+<smd name="3" x="0.889" y="0" dx="0.635" dy="0.635" layer="1" cream="no"/>
+<text x="-1.27" y="1.27" size="0.4064" layer="25" align="top-left">&gt;NAME</text>
+<text x="-1.27" y="-1.27" size="0.4064" layer="27">&gt;VALUE</text>
 </package>
 </packages>
 </library>
@@ -3173,7 +3175,10 @@ We've spent an enormous amount of time creating and checking these footprints an
 <attribute name="NAME" x="50.955" y="15.8125" size="1.27" layer="25" rot="R90"/>
 <attribute name="VALUE" x="47.34" y="14.985" size="1.016" layer="27" rot="R270"/>
 </element>
-<element name="MCLK" library="SparkFun" package="SJ_2S-NO" value="SOLDERJUMPERNO" x="42.545" y="14.605" rot="R270"/>
+<element name="MCLK" library="SparkFun" package="SJ_3_SML" value="" x="43.4975" y="14.2875" smashed="yes" rot="R180">
+<attribute name="NAME" x="45.16954375" y="13.58138125" size="0.4064" layer="25" rot="R90" align="top-left"/>
+<attribute name="VALUE" x="44.7675" y="15.5575" size="0.4064" layer="27" rot="R180"/>
+</element>
 </elements>
 <signals>
 <signal name="GND">
@@ -3535,8 +3540,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 <contactref element="R300" pad="2"/>
 <contactref element="R301" pad="2"/>
 <wire x1="39.37" y1="8.255" x2="40.3225" y2="7.3025" width="0.4064" layer="1"/>
-<wire x1="37.5228" y1="12.805" x2="38.9475" y2="12.805" width="0.4064" layer="1"/>
-<wire x1="38.9475" y1="12.805" x2="39.0525" y2="12.7" width="0.4064" layer="1"/>
+<wire x1="37.5228" y1="12.805" x2="39.265" y2="12.805" width="0.4064" layer="1"/>
+<wire x1="39.265" y1="12.805" x2="39.37" y2="12.7" width="0.4064" layer="1"/>
 <contactref element="U2" pad="P$14"/>
 <contactref element="C303" pad="1"/>
 <contactref element="C302" pad="1"/>
@@ -3565,7 +3570,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <via x="40.3225" y="9.8425" extent="1-16" drill="0.5" alwaysstop="yes"/>
 <wire x1="37.5228" y1="12.805" x2="35.245" y2="12.805" width="0.4064" layer="1"/>
 <wire x1="35.245" y1="12.805" x2="35.14" y2="12.7" width="0.4064" layer="1"/>
-<via x="39.0525" y="12.7" extent="1-16" drill="0.5"/>
+<via x="39.37" y="12.7" extent="1-16" drill="0.5"/>
 <wire x1="5.08" y1="37.25" x2="4.445" y2="36.5125" width="0.4064" layer="1"/>
 <via x="4.445" y="36.5125" extent="1-16" drill="0.5"/>
 <wire x1="23.28" y1="13.97" x2="23.28" y2="13.55" width="0.2032" layer="1"/>
@@ -3961,9 +3966,9 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="26.035" y1="13.97" x2="24.98" y2="13.97" width="0.2032" layer="1"/>
 <wire x1="24.98" y1="13.97" x2="24.98" y2="13.8675" width="0.2032" layer="1"/>
 <wire x1="24.98" y1="13.8675" x2="26.035" y2="13.97" width="0.2032" layer="1"/>
-<wire x1="42.545" y1="11.1125" x2="42.545" y2="12.3825" width="0.2032" layer="1"/>
-<wire x1="42.545" y1="12.3825" x2="40.3225" y2="14.605" width="0.2032" layer="1"/>
-<wire x1="40.3225" y1="14.605" x2="28.8925" y2="14.605" width="0.2032" layer="1"/>
+<wire x1="42.545" y1="11.1125" x2="42.545" y2="12.065" width="0.2032" layer="1"/>
+<wire x1="42.545" y1="12.065" x2="40.005" y2="14.605" width="0.2032" layer="1"/>
+<wire x1="40.005" y1="14.605" x2="28.8925" y2="14.605" width="0.2032" layer="1"/>
 </signal>
 <signal name="I2C_SDA">
 <contactref element="U4" pad="70"/>
@@ -4062,9 +4067,10 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="26.035" y1="27.6225" x2="26.035" y2="25.4" width="0.2032" layer="16"/>
 <wire x1="26.035" y1="25.4" x2="27.94" y2="23.495" width="0.2032" layer="16"/>
 <wire x1="27.94" y1="23.495" x2="27.94" y2="14.9225" width="0.2032" layer="16"/>
-<contactref element="MCLK" pad="1"/>
-<wire x1="28.2575" y1="15.24" x2="42.36" y2="15.24" width="0.2032" layer="1"/>
-<wire x1="42.36" y1="15.24" x2="42.545" y2="15.055" width="0.2032" layer="1"/>
+<wire x1="28.2575" y1="15.24" x2="43.18" y2="15.24" width="0.2032" layer="1"/>
+<contactref element="MCLK" pad="2"/>
+<wire x1="43.18" y1="15.24" x2="43.4975" y2="14.9225" width="0.2032" layer="1"/>
+<wire x1="43.4975" y1="14.9225" x2="43.4975" y2="14.2875" width="0.2032" layer="1"/>
 </signal>
 <signal name="N$17">
 <contactref element="R4" pad="1"/>
@@ -4507,18 +4513,16 @@ We've spent an enormous amount of time creating and checking these footprints an
 <via x="42.3425" y="18.8475" extent="1-16" drill="0.5"/>
 <via x="42.3425" y="27.5075" extent="1-16" drill="0.5"/>
 <wire x1="42.3425" y1="27.5075" x2="42.3425" y2="18.8475" width="0.2032" layer="16"/>
-<wire x1="40.3225" y1="17.78" x2="20.32" y2="17.78" width="0.2032" layer="1"/>
-<wire x1="40.3225" y1="17.78" x2="41.275" y2="18.7325" width="0.2032" layer="1"/>
-<wire x1="41.275" y1="18.7325" x2="42.2275" y2="18.7325" width="0.2032" layer="1"/>
-<wire x1="42.2275" y1="18.7325" x2="42.3425" y2="18.8475" width="0.2032" layer="1"/>
+<wire x1="41.275" y1="17.78" x2="20.32" y2="17.78" width="0.2032" layer="1"/>
+<wire x1="41.275" y1="17.78" x2="42.3425" y2="18.8475" width="0.2032" layer="1"/>
 </signal>
 <signal name="PG0">
 <contactref element="IC3" pad="23"/>
 <contactref element="U4" pad="56"/>
 <wire x1="53.5425" y1="28.43" x2="53.5125" y2="28.43" width="0.2032" layer="1"/>
-<wire x1="48.26" y1="19.685" x2="41.5925" y2="19.685" width="0.2032" layer="1"/>
-<wire x1="41.5925" y1="19.685" x2="40.3225" y2="18.415" width="0.2032" layer="1"/>
-<wire x1="40.3225" y1="18.415" x2="20.955" y2="18.415" width="0.2032" layer="1"/>
+<wire x1="48.26" y1="19.685" x2="41.91" y2="19.685" width="0.2032" layer="1"/>
+<wire x1="41.91" y1="19.685" x2="40.64" y2="18.415" width="0.2032" layer="1"/>
+<wire x1="40.64" y1="18.415" x2="20.955" y2="18.415" width="0.2032" layer="1"/>
 <wire x1="18.542" y1="26.1112" x2="18.542" y2="20.828" width="0.2032" layer="1"/>
 <wire x1="18.542" y1="20.828" x2="20.955" y2="18.415" width="0.2032" layer="1"/>
 <wire x1="48.26" y1="19.685" x2="53.0225" y2="24.4475" width="0.2032" layer="1"/>
@@ -5029,6 +5033,18 @@ We've spent an enormous amount of time creating and checking these footprints an
 </signal>
 <signal name="CLKOUT">
 <contactref element="U2" pad="P$2"/>
+<contactref element="MCLK" pad="3"/>
+<wire x1="37.5228" y1="12.155" x2="38.645" y2="12.155" width="0.2032" layer="1"/>
+<wire x1="38.645" y1="12.155" x2="39.0525" y2="11.7475" width="0.2032" layer="1"/>
+<wire x1="39.0525" y1="11.7475" x2="40.64" y2="11.7475" width="0.2032" layer="1"/>
+<via x="40.64" y="11.7475" extent="1-16" drill="0.5"/>
+<via x="41.5925" y="14.2875" extent="1-16" drill="0.5"/>
+<wire x1="42.545" y1="14.224" x2="41.656" y2="14.224" width="0.2032" layer="1"/>
+<wire x1="41.656" y1="14.224" x2="41.5925" y2="14.2875" width="0.2032" layer="1"/>
+<wire x1="40.64" y1="11.7475" x2="40.64" y2="12.3825" width="0.2032" layer="16"/>
+<wire x1="40.64" y1="12.3825" x2="41.5925" y2="13.335" width="0.2032" layer="16"/>
+<wire x1="41.5925" y1="13.335" x2="41.5925" y2="14.2875" width="0.2032" layer="16"/>
+<wire x1="42.545" y1="14.224" x2="42.6085" y2="14.2875" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LHPOUT">
 <contactref element="U2" pad="P$9"/>
@@ -5195,7 +5211,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <contactref element="U2" pad="P$25"/>
 <contactref element="Q1" pad="2"/>
 <contactref element="C310" pad="1"/>
-<contactref element="MCLK" pad="2"/>
 <wire x1="48.3235" y1="9.779" x2="47.2475" y2="10.855" width="0.3048" layer="1"/>
 <wire x1="45.0272" y1="10.855" x2="47.2475" y2="10.855" width="0.3048" layer="1"/>
 <wire x1="55.5625" y1="9.779" x2="58.254" y2="9.779" width="0.3048" layer="1"/>
@@ -5203,9 +5218,10 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="55.5625" y1="9.779" x2="48.3235" y2="9.779" width="0.3048" layer="1"/>
 <wire x1="45.0272" y1="10.855" x2="43.755" y2="10.855" width="0.2032" layer="1"/>
 <wire x1="43.755" y1="10.855" x2="43.18" y2="11.43" width="0.2032" layer="1"/>
-<wire x1="43.18" y1="14.42" x2="42.545" y2="14.155" width="0" layer="19" extent="1-16"/>
-<wire x1="43.18" y1="11.43" x2="43.18" y2="13.52" width="0.2032" layer="1"/>
-<wire x1="43.18" y1="13.52" x2="42.545" y2="14.155" width="0.2032" layer="1"/>
+<wire x1="43.18" y1="11.43" x2="43.18" y2="12.885" width="0.2032" layer="1"/>
+<contactref element="MCLK" pad="1"/>
+<wire x1="44.3865" y1="14.2875" x2="44.3865" y2="14.0915" width="0.2032" layer="1"/>
+<wire x1="44.3865" y1="14.0915" x2="43.18" y2="12.885" width="0.2032" layer="1"/>
 </signal>
 </signals>
 </board>
