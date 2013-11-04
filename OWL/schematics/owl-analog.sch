@@ -16372,35 +16372,27 @@ naming: grid - package width</description>
 <part name="P+11" library="supply1" deviceset="VCC/2" device=""/>
 <part name="P+12" library="supply1" deviceset="VCC/2" device=""/>
 <part name="IC1" library="linear" deviceset="TL074" device="P" value="TL074P"/>
-<part name="R402" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k2"/>
-<part name="R406" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k2"/>
+<part name="R406" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k"/>
 <part name="C404" library="capacitor-wima" deviceset="C" device="5/5" value="1uF"/>
 <part name="R408" library="Rebel" deviceset="R-EU_" device="0204/7" value="100R"/>
-<part name="R404" library="Rebel" deviceset="R-EU_" device="0204/7" value="2k7"/>
+<part name="R404" library="Rebel" deviceset="R-EU_" device="0204/7" value="2k"/>
 <part name="R410" library="Rebel" deviceset="R-EU_" device="0204/7" value="2M"/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="P+13" library="supply1" deviceset="VCC/2" device=""/>
-<part name="C402" library="capacitor-wima" deviceset="C" device="5/2.5" value="2n2"/>
 <part name="R305" library="Rebel" deviceset="R-EU_" device="0204/7" value="5k1"/>
 <part name="R307" library="Rebel" deviceset="R-EU_" device="0204/7" value="2k7"/>
 <part name="C303" library="capacitor-wima" deviceset="C" device="5/2.5" value="1n"/>
 <part name="C305" library="rcl" deviceset="C-EU" device="050-025X075" value="2n2"/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
-<part name="R400" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k2"/>
-<part name="C400" library="capacitor-wima" deviceset="C" device="5/2.5" value="10n"/>
-<part name="GND21" library="supply1" deviceset="GND" device=""/>
-<part name="R403" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k2"/>
-<part name="R407" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k2"/>
+<part name="R400" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k"/>
+<part name="R407" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k"/>
 <part name="C405" library="capacitor-wima" deviceset="C" device="5/5" value="1uF"/>
 <part name="R409" library="Rebel" deviceset="R-EU_" device="0204/7" value="100R"/>
-<part name="R405" library="Rebel" deviceset="R-EU_" device="0204/7" value="2k7"/>
+<part name="R405" library="Rebel" deviceset="R-EU_" device="0204/7" value="2k"/>
 <part name="R411" library="Rebel" deviceset="R-EU_" device="0204/7" value="2M"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="VCC/2" device=""/>
-<part name="C403" library="capacitor-wima" deviceset="C" device="5/2.5" value="2n2"/>
-<part name="R401" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k2"/>
-<part name="C401" library="capacitor-wima" deviceset="C" device="5/2.5" value="10n"/>
-<part name="GND23" library="supply1" deviceset="GND" device=""/>
+<part name="R401" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k"/>
 <part name="C612" library="rcl" deviceset="C-EU" device="050-025X075" value="100n"/>
 <part name="JP3" library="SparkFun" deviceset="M09" device=""/>
 <part name="VMID" library="supply1" deviceset="VCC/2" device=""/>
@@ -16528,7 +16520,6 @@ naming: grid - package width</description>
 <instance part="P+12" gate="G$1" x="307.34" y="228.6"/>
 <instance part="IC1" gate="A" x="88.9" y="220.98"/>
 <instance part="IC1" gate="P" x="320.04" y="213.36"/>
-<instance part="R402" gate="G$1" x="182.88" y="220.98" rot="MR180"/>
 <instance part="R406" gate="G$1" x="203.2" y="205.74" rot="MR180"/>
 <instance part="C404" gate="G$1" x="243.84" y="223.52" rot="MR90"/>
 <instance part="R408" gate="G$1" x="228.6" y="223.52" rot="MR180"/>
@@ -16536,7 +16527,6 @@ naming: grid - package width</description>
 <instance part="R410" gate="G$1" x="251.46" y="213.36" rot="MR90"/>
 <instance part="GND14" gate="1" x="251.46" y="200.66" rot="MR0"/>
 <instance part="P+13" gate="G$1" x="182.88" y="236.22"/>
-<instance part="C402" gate="G$1" x="205.74" y="210.82" rot="R90"/>
 <instance part="IC1" gate="B" x="205.74" y="223.52"/>
 <instance part="R305" gate="G$1" x="38.1" y="172.72" rot="MR0"/>
 <instance part="R307" gate="G$1" x="58.42" y="172.72" rot="MR0"/>
@@ -16545,9 +16535,6 @@ naming: grid - package width</description>
 <instance part="GND22" gate="1" x="68.58" y="157.48"/>
 <instance part="IC1" gate="C" x="88.9" y="170.18"/>
 <instance part="R400" gate="G$1" x="165.1" y="220.98" rot="MR180"/>
-<instance part="C400" gate="G$1" x="172.72" y="198.12" rot="R180"/>
-<instance part="GND21" gate="1" x="172.72" y="190.5" rot="MR0"/>
-<instance part="R403" gate="G$1" x="182.88" y="170.18" rot="MR180"/>
 <instance part="R407" gate="G$1" x="203.2" y="154.94" rot="MR180"/>
 <instance part="C405" gate="G$1" x="243.84" y="172.72" rot="MR90"/>
 <instance part="R409" gate="G$1" x="228.6" y="172.72" rot="MR180"/>
@@ -16555,10 +16542,7 @@ naming: grid - package width</description>
 <instance part="R411" gate="G$1" x="251.46" y="162.56" rot="MR90"/>
 <instance part="GND15" gate="1" x="251.46" y="149.86" rot="MR0"/>
 <instance part="P+2" gate="G$1" x="182.88" y="185.42"/>
-<instance part="C403" gate="G$1" x="205.74" y="160.02" rot="R90"/>
 <instance part="R401" gate="G$1" x="165.1" y="170.18" rot="MR180"/>
-<instance part="C401" gate="G$1" x="172.72" y="147.32" rot="R180"/>
-<instance part="GND23" gate="1" x="172.72" y="139.7" rot="MR0"/>
 <instance part="IC1" gate="D" x="205.74" y="172.72"/>
 <instance part="C612" gate="G$1" x="325.12" y="213.36"/>
 <instance part="JP3" gate="G$1" x="55.88" y="109.22" rot="R180"/>
@@ -16765,19 +16749,9 @@ naming: grid - package width</description>
 <wire x1="68.58" y1="162.56" x2="68.58" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="C400" gate="G$1" pin="1"/>
-<pinref part="GND21" gate="1" pin="GND"/>
-<wire x1="172.72" y1="193.04" x2="172.72" y2="195.58" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="GND15" gate="1" pin="GND"/>
 <pinref part="R411" gate="G$1" pin="1"/>
 <wire x1="251.46" y1="152.4" x2="251.46" y2="157.48" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C401" gate="G$1" pin="1"/>
-<pinref part="GND23" gate="1" pin="GND"/>
-<wire x1="172.72" y1="142.24" x2="172.72" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND3" gate="1" pin="GND"/>
@@ -17393,32 +17367,16 @@ naming: grid - package width</description>
 <junction x="48.26" y="223.52"/>
 </segment>
 </net>
-<net name="N$38" class="0">
-<segment>
-<pinref part="R402" gate="G$1" pin="2"/>
-<wire x1="187.96" y1="220.98" x2="193.04" y2="220.98" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="B" pin="-IN"/>
-<wire x1="193.04" y1="220.98" x2="198.12" y2="220.98" width="0.1524" layer="91"/>
-<junction x="193.04" y="220.98"/>
-<pinref part="C402" gate="G$1" pin="1"/>
-<wire x1="203.2" y1="210.82" x2="193.04" y2="210.82" width="0.1524" layer="91"/>
-<wire x1="193.04" y1="210.82" x2="193.04" y2="220.98" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$39" class="0">
 <segment>
 <pinref part="R408" gate="G$1" pin="1"/>
 <wire x1="213.36" y1="223.52" x2="218.44" y2="223.52" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="B" pin="OUT"/>
 <wire x1="218.44" y1="223.52" x2="223.52" y2="223.52" width="0.1524" layer="91"/>
-<wire x1="218.44" y1="210.82" x2="218.44" y2="223.52" width="0.1524" layer="91"/>
+<wire x1="218.44" y1="205.74" x2="218.44" y2="223.52" width="0.1524" layer="91"/>
 <junction x="218.44" y="223.52"/>
-<pinref part="C402" gate="G$1" pin="2"/>
-<wire x1="210.82" y1="210.82" x2="218.44" y2="210.82" width="0.1524" layer="91"/>
 <pinref part="R406" gate="G$1" pin="2"/>
 <wire x1="208.28" y1="205.74" x2="218.44" y2="205.74" width="0.1524" layer="91"/>
-<wire x1="218.44" y1="205.74" x2="218.44" y2="210.82" width="0.1524" layer="91"/>
-<junction x="218.44" y="210.82"/>
 </segment>
 </net>
 <net name="N$32" class="0">
@@ -17446,17 +17404,14 @@ naming: grid - package width</description>
 </net>
 <net name="N$41" class="0">
 <segment>
-<pinref part="R402" gate="G$1" pin="1"/>
 <pinref part="R400" gate="G$1" pin="2"/>
 <wire x1="170.18" y1="220.98" x2="172.72" y2="220.98" width="0.1524" layer="91"/>
 <pinref part="R406" gate="G$1" pin="1"/>
-<wire x1="172.72" y1="220.98" x2="177.8" y2="220.98" width="0.1524" layer="91"/>
 <wire x1="198.12" y1="205.74" x2="172.72" y2="205.74" width="0.1524" layer="91"/>
 <wire x1="172.72" y1="205.74" x2="172.72" y2="220.98" width="0.1524" layer="91"/>
 <junction x="172.72" y="220.98"/>
-<pinref part="C400" gate="G$1" pin="2"/>
-<wire x1="172.72" y1="203.2" x2="172.72" y2="205.74" width="0.1524" layer="91"/>
-<junction x="172.72" y="205.74"/>
+<pinref part="IC1" gate="B" pin="-IN"/>
+<wire x1="172.72" y1="220.98" x2="198.12" y2="220.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$28" class="0">
@@ -17466,47 +17421,28 @@ naming: grid - package width</description>
 <wire x1="238.76" y1="172.72" x2="233.68" y2="172.72" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$29" class="0">
-<segment>
-<pinref part="R403" gate="G$1" pin="2"/>
-<wire x1="187.96" y1="170.18" x2="193.04" y2="170.18" width="0.1524" layer="91"/>
-<wire x1="193.04" y1="170.18" x2="198.12" y2="170.18" width="0.1524" layer="91"/>
-<junction x="193.04" y="170.18"/>
-<pinref part="C403" gate="G$1" pin="1"/>
-<wire x1="203.2" y1="160.02" x2="193.04" y2="160.02" width="0.1524" layer="91"/>
-<wire x1="193.04" y1="160.02" x2="193.04" y2="170.18" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="D" pin="-IN"/>
-</segment>
-</net>
 <net name="N$40" class="0">
 <segment>
 <pinref part="R409" gate="G$1" pin="1"/>
 <wire x1="213.36" y1="172.72" x2="218.44" y2="172.72" width="0.1524" layer="91"/>
 <wire x1="218.44" y1="172.72" x2="223.52" y2="172.72" width="0.1524" layer="91"/>
-<wire x1="218.44" y1="160.02" x2="218.44" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="218.44" y1="154.94" x2="218.44" y2="172.72" width="0.1524" layer="91"/>
 <junction x="218.44" y="172.72"/>
-<pinref part="C403" gate="G$1" pin="2"/>
-<wire x1="210.82" y1="160.02" x2="218.44" y2="160.02" width="0.1524" layer="91"/>
 <pinref part="R407" gate="G$1" pin="2"/>
 <wire x1="208.28" y1="154.94" x2="218.44" y2="154.94" width="0.1524" layer="91"/>
-<wire x1="218.44" y1="154.94" x2="218.44" y2="160.02" width="0.1524" layer="91"/>
-<junction x="218.44" y="160.02"/>
 <pinref part="IC1" gate="D" pin="OUT"/>
 </segment>
 </net>
 <net name="N$42" class="0">
 <segment>
-<pinref part="R403" gate="G$1" pin="1"/>
 <pinref part="R401" gate="G$1" pin="2"/>
 <wire x1="170.18" y1="170.18" x2="172.72" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="R407" gate="G$1" pin="1"/>
-<wire x1="172.72" y1="170.18" x2="177.8" y2="170.18" width="0.1524" layer="91"/>
 <wire x1="198.12" y1="154.94" x2="172.72" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="172.72" y1="154.94" x2="172.72" y2="170.18" width="0.1524" layer="91"/>
 <junction x="172.72" y="170.18"/>
-<pinref part="C401" gate="G$1" pin="2"/>
-<wire x1="172.72" y1="152.4" x2="172.72" y2="154.94" width="0.1524" layer="91"/>
-<junction x="172.72" y="154.94"/>
+<pinref part="IC1" gate="D" pin="-IN"/>
+<wire x1="172.72" y1="170.18" x2="198.12" y2="170.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
