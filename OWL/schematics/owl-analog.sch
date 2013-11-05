@@ -14414,10 +14414,10 @@ high speed (Philips)</description>
 <library name="SWITCH-5GTH9">
 <packages>
 <package name="5GTH9">
-<pad name="4" x="-5.08" y="-3.81" drill="0.9"/>
-<pad name="1" x="5.08" y="3.81" drill="0.9"/>
-<pad name="-2" x="-5.08" y="3.81" drill="0.9"/>
-<pad name="+3" x="5.08" y="-3.81" drill="0.9"/>
+<pad name="4" x="-5.08" y="-3.81" drill="1"/>
+<pad name="1" x="5.08" y="3.81" drill="1"/>
+<pad name="-2" x="-5.08" y="3.81" drill="1"/>
+<pad name="+3" x="5.08" y="-3.81" drill="1"/>
 <wire x1="-6.25" y1="5.15" x2="6.25" y2="5.15" width="0.127" layer="21"/>
 <wire x1="6.25" y1="5.15" x2="6.25" y2="-5.15" width="0.127" layer="21"/>
 <wire x1="-6.25" y1="-5.15" x2="-6.25" y2="5.15" width="0.127" layer="21"/>
@@ -15750,7 +15750,7 @@ naming: grid - package width</description>
 <part name="POT4" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="POT2" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="SWD" library="SparkFun" deviceset="M06" device="SIP"/>
-<part name="F3" library="Rebel" deviceset="PTC" device="PTH"/>
+<part name="F1" library="Rebel" deviceset="PTC" device="PTH"/>
 <part name="D3" library="Rebel" deviceset="DIODE" device="1N4001"/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
 <part name="POT3" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
@@ -15787,8 +15787,8 @@ naming: grid - package width</description>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="U$1" library="SWITCH-5GTH9" deviceset="5GTH9" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
-<part name="R1" library="Rebel" deviceset="R-EU_" device="0204/7" value="100R"/>
-<part name="R2" library="Rebel" deviceset="R-EU_" device="0204/7" value="100R"/>
+<part name="R1" library="Rebel" deviceset="R-EU_" device="0204/7" value="150R"/>
+<part name="R2" library="Rebel" deviceset="R-EU_" device="0204/7" value="150R"/>
 <part name="HP" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="IN" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="V" library="SparkFun" deviceset="M01" device="PTH"/>
@@ -15873,8 +15873,8 @@ naming: grid - package width</description>
 <instance part="GND1" gate="1" x="243.84" y="-12.7"/>
 <instance part="POT4" gate="G$1" x="243.84" y="0" rot="R90"/>
 <instance part="SWD" gate="G$1" x="205.74" y="66.04" rot="R180"/>
-<instance part="F3" gate="G$1" x="309.88" y="154.94" rot="MR0"/>
-<instance part="D3" gate="G$1" x="297.18" y="154.94" rot="MR0"/>
+<instance part="F1" gate="G$1" x="299.72" y="154.94" rot="MR0"/>
+<instance part="D3" gate="G$1" x="314.96" y="154.94" rot="MR0"/>
 <instance part="POT4" gate="G$2" x="251.46" y="-30.48"/>
 <instance part="POT2" gate="G$2" x="261.62" y="-30.48"/>
 <instance part="GND36" gate="1" x="261.62" y="-53.34"/>
@@ -16536,13 +16536,6 @@ naming: grid - package width</description>
 <label x="30.48" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$4" class="0">
-<segment>
-<pinref part="J1" gate="G$1" pin="GND"/>
-<pinref part="F3" gate="G$1" pin="1"/>
-<wire x1="322.58" y1="154.94" x2="314.96" y2="154.94" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$10" class="0">
 <segment>
 <wire x1="0" y1="-20.32" x2="5.08" y2="-20.32" width="0.1524" layer="91"/>
@@ -16632,11 +16625,11 @@ naming: grid - package width</description>
 <pinref part="D2" gate="G$1" pin="C"/>
 <wire x1="287.02" y1="132.08" x2="297.18" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="C900" gate="G$1" pin="1"/>
-<label x="284.48" y="154.94" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="294.64" y1="154.94" x2="284.48" y2="154.94" width="0.1524" layer="91"/>
-<pinref part="D3" gate="G$1" pin="C"/>
+<pinref part="F1" gate="G$1" pin="2"/>
+<wire x1="292.1" y1="154.94" x2="284.48" y2="154.94" width="0.1524" layer="91"/>
+<label x="284.48" y="154.94" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="BYPASS" class="0">
@@ -16906,11 +16899,18 @@ naming: grid - package width</description>
 <wire x1="121.92" y1="-20.32" x2="109.22" y2="-20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="N$1" class="0">
 <segment>
-<pinref part="F3" gate="G$1" pin="2"/>
+<pinref part="J1" gate="G$1" pin="GND"/>
 <pinref part="D3" gate="G$1" pin="A"/>
-<wire x1="299.72" y1="154.94" x2="302.26" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="154.94" x2="322.58" y2="154.94" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="D3" gate="G$1" pin="C"/>
+<pinref part="F1" gate="G$1" pin="1"/>
+<wire x1="312.42" y1="154.94" x2="304.8" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
