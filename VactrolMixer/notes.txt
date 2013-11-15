@@ -1,0 +1,19 @@
+
+--------------------------------------------------------------------
+
+PhotoFet, MOSFET output opto-couplers
+Fairchild H11F1
+PHOTOCOUPLER Toshiba TLP281 (available as 4-channel, TLP281-4)
+
+--------------------------------------------------------------------
+
+Widlar current source
+
+0.6v input voltage: full scale output
+
++0.06v bias
+
+R17: 10k, unity gain / 20k, 2x gain
+R43 / R44: 100R
+
+--------------------------------------------------------------------
