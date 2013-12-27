@@ -10,10 +10,27 @@ PHOTOCOUPLER Toshiba TLP281 (available as 4-channel, TLP281-4)
 Widlar current source
 
 0.6v input voltage: full scale output
-
 +0.06v bias
+(with +/-15v rails!)
 
 R17: 10k, unity gain / 20k, 2x gain
 R43 / R44: 100R
 
+voltage divider for bias: 12v * 500R / 100K = 0.06v
+or 1M / 5k
+
 --------------------------------------------------------------------
+
+Design ideas
+http://alexjosephdiamond.tumblr.com/post/35885404062
+
+bands of log plot
+
+http://www.data.scec.org/Module/Pics/s2a9logr.gif
+http://www.science.smith.edu/departments/NeuroSci/courses/bio330/labs/L3pix/semilog.gif
+http://upload.wikimedia.org/wikipedia/commons/f/f1/Log_paper.svg
+http://cdn.printablepaper.net/samples/3-Cycle_by_2-Cycle_Log-Log.png
+http://www.rit.edu/cos/uphysics/graphing/fig8asemilog.gif
+
+--------------------------------------------------------------------
+
