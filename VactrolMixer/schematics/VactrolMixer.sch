@@ -12871,13 +12871,13 @@ type RDH, grid 15 mm</description>
 <part name="P+13" library="supply1" deviceset="+12V" device=""/>
 <part name="U$3" library="SparkFun" deviceset="M08X2" device=""/>
 <part name="C1" library="resistor" deviceset="CPOL-EU" device="A" value="10u"/>
-<part name="D2" library="SparkFun" deviceset="DIODE" device="SMA"/>
+<part name="D1" library="SparkFun" deviceset="DIODE" device="SMA"/>
 <part name="F1" library="SparkFun" deviceset="PTC" device="SMD"/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
 <part name="F2" library="SparkFun" deviceset="PTC" device="SMD"/>
-<part name="D3" library="SparkFun" deviceset="DIODE" device="SMA"/>
+<part name="D2" library="SparkFun" deviceset="DIODE" device="SMA"/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="P-2" library="supply1" deviceset="-12V" device=""/>
 <part name="P-1" library="supply1" deviceset="-12V" device=""/>
@@ -13013,13 +13013,13 @@ type RDH, grid 15 mm</description>
 <instance part="P+13" gate="1" x="-190.5" y="111.76"/>
 <instance part="U$3" gate="G$1" x="-236.22" y="96.52" rot="R180"/>
 <instance part="C1" gate="G$1" x="-175.26" y="93.98"/>
-<instance part="D2" gate="G$1" x="-190.5" y="88.9" rot="R90"/>
+<instance part="D1" gate="G$1" x="-190.5" y="88.9" rot="R90"/>
 <instance part="F1" gate="G$1" x="-208.28" y="96.52"/>
 <instance part="GND33" gate="1" x="-218.44" y="78.74"/>
 <instance part="GND34" gate="1" x="-190.5" y="78.74"/>
 <instance part="GND35" gate="1" x="-175.26" y="78.74"/>
 <instance part="F2" gate="G$1" x="-254" y="86.36"/>
-<instance part="D3" gate="G$1" x="-264.16" y="78.74" rot="R270"/>
+<instance part="D2" gate="G$1" x="-264.16" y="78.74" rot="R270"/>
 <instance part="GND23" gate="1" x="-264.16" y="68.58"/>
 <instance part="P-2" gate="1" x="-271.78" y="68.58"/>
 <instance part="P-1" gate="1" x="-160.02" y="38.1"/>
@@ -13212,7 +13212,7 @@ type RDH, grid 15 mm</description>
 <pinref part="GND33" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="D2" gate="G$1" pin="A"/>
+<pinref part="D1" gate="G$1" pin="A"/>
 <wire x1="-190.5" y1="81.28" x2="-190.5" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="GND34" gate="1" pin="GND"/>
 </segment>
@@ -13222,7 +13222,7 @@ type RDH, grid 15 mm</description>
 <wire x1="-175.26" y1="81.28" x2="-175.26" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="D3" gate="G$1" pin="C"/>
+<pinref part="D2" gate="G$1" pin="C"/>
 <pinref part="GND23" gate="1" pin="GND"/>
 <wire x1="-264.16" y1="71.12" x2="-264.16" y2="76.2" width="0.1524" layer="91"/>
 </segment>
@@ -13470,7 +13470,7 @@ type RDH, grid 15 mm</description>
 <segment>
 <pinref part="P+13" gate="1" pin="+12V"/>
 <wire x1="-190.5" y1="109.22" x2="-190.5" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="D2" gate="G$1" pin="C"/>
+<pinref part="D1" gate="G$1" pin="C"/>
 <wire x1="-200.66" y1="96.52" x2="-190.5" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="-190.5" y1="91.44" x2="-190.5" y2="96.52" width="0.1524" layer="91"/>
 <junction x="-190.5" y="96.52"/>
@@ -13537,7 +13537,7 @@ type RDH, grid 15 mm</description>
 <net name="-12V" class="0">
 <segment>
 <pinref part="F2" gate="G$1" pin="1"/>
-<pinref part="D3" gate="G$1" pin="A"/>
+<pinref part="D2" gate="G$1" pin="A"/>
 <wire x1="-259.08" y1="86.36" x2="-264.16" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="-264.16" y1="86.36" x2="-264.16" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="-264.16" y1="86.36" x2="-271.78" y2="86.36" width="0.1524" layer="91"/>
