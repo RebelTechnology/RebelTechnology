@@ -51,3 +51,27 @@ With 3 or more modules, daisy chain JP_IN to JP_SW_IN for more outputs.
 Check out Texas Instruments TI DRV134 and DRV135 audio balanced line drivers, and  INA134/INA137 receivers for differential in/out.
 
 --------------------------------------------------------------------
+
+SILONEX - NSL-32SR2
+Max IF 25mA, 5ms/80ms on/off. 40R/5M at 20mA.
+
+EXCELITAS TECH - VTL5C3/2
+
+Dual Element Axial Vactrols
+VTL5C1/2 features a very steep slope, low temperature coefficient of resistance, and a small light history memory. 
+VTL5C3/2 has a steep slope, good dynamic range, a very low temperature coefficient of resistance, and a small light history memory.
+£3-4 on farnell.
+VTL5C3 2.5/35ms on/off. 5R/10M on/off at 10mA.
+VTL5C1 2.5ms/35ms on/off 600R/50M on/off at 10mA.
+VTL5C3/2 3.0/50ms on/off. 2k/10M on/off at 40mA. 2 LDRs.
+
+
+--------------------------------------------------------------------
+
+FOUR2, 4TWO, FOURX
+4XM Master, FOURxM
+4XLIN/4XCV, 4XLOG/4XAU, 4XEQ, 4XIN, 4XMIC, 4XOUT, 4XC
+
+DEX expandable mixing desk
+
+--------------------------------------------------------------------

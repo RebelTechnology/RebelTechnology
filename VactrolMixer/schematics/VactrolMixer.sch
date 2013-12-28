@@ -417,7 +417,7 @@ Todo: check drill sizes, spacings, keep-out margins.</description>
 <pad name="A" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
 <pad name="K" x="1.27" y="0" drill="0.8128" shape="octagon"/>
 <text x="-2.286" y="-1.905" size="1.016" layer="25" font="vector" ratio="10" rot="R90">&gt;NAME</text>
-<text x="2.921" y="-1.905" size="0.6096" layer="27" font="vector" ratio="10" rot="R90">&gt;VALUE</text>
+<wire x1="1.905" y1="0.635" x2="1.905" y2="1.27" width="0.127" layer="21"/>
 </package>
 <package name="POT-ALPS-RK09L1120">
 <wire x1="-5.35" y1="-5.936" x2="-4.5" y2="-5.936" width="0.2032" layer="21"/>
@@ -1728,9 +1728,9 @@ Resettable Fuse. Spark Fun Electronics SKU : COM-08357</description>
 <description>&lt;b&gt;Small Outline Package 14&lt;/b&gt;</description>
 <wire x1="4.305" y1="-1.9" x2="-4.305" y2="-1.9" width="0.2032" layer="51"/>
 <wire x1="-4.305" y1="-1.9" x2="-4.305" y2="-1.4" width="0.2032" layer="51"/>
-<wire x1="-4.305" y1="-1.4" x2="-4.305" y2="1.9" width="0.2032" layer="21"/>
-<wire x1="4.305" y1="-1.4" x2="-4.305" y2="-1.4" width="0.2032" layer="21"/>
-<wire x1="4.305" y1="1.9" x2="4.305" y2="-1.4" width="0.2032" layer="21"/>
+<wire x1="-4.305" y1="-1.9" x2="-4.305" y2="1.9" width="0.2032" layer="21"/>
+<wire x1="4.305" y1="-1.4" x2="-4.305" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="4.305" y1="1.9" x2="4.305" y2="-1.9" width="0.2032" layer="21"/>
 <wire x1="4.305" y1="-1.4" x2="4.305" y2="-1.9" width="0.2032" layer="51"/>
 <wire x1="-4.305" y1="1.9" x2="4.305" y2="1.9" width="0.2032" layer="51"/>
 <rectangle x1="-4.055" y1="-3.1" x2="-3.565" y2="-2" layer="51"/>
@@ -1761,8 +1761,10 @@ Resettable Fuse. Spark Fun Electronics SKU : COM-08357</description>
 <smd name="12" x="-1.27" y="2.6" dx="0.6" dy="2.2" layer="1"/>
 <smd name="13" x="-2.54" y="2.6" dx="0.6" dy="2.2" layer="1"/>
 <smd name="14" x="-3.81" y="2.6" dx="0.6" dy="2.2" layer="1"/>
-<text x="-3.81" y="-0.508" size="1.27" layer="25" font="vector">&gt;NAME</text>
+<text x="0" y="-0.508" size="1.27" layer="25" font="vector" align="bottom-center">&gt;NAME</text>
 <circle x="-3.81" y="-0.889" radius="0.254" width="0.127" layer="21"/>
+<wire x1="-4.305" y1="-1.4" x2="-4.305" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="4.305" y1="1.9" x2="4.305" y2="-1.4" width="0.2032" layer="51"/>
 </package>
 <package name="2X04/90">
 <description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
