@@ -34,15 +34,17 @@ http://www.rit.edu/cos/uphysics/graphing/fig8asemilog.gif
 
 --------------------------------------------------------------------
 
+2x jumpers between CV_SW_A/B and +12V_A/B for use with envelopes.
+Move jumpers to CV_IN_A/B for use with bipolar signals - allows negative modulation.
 
-0.06 / -12 = - 1k/r, 
-r = 1k * 12/0.06,
-r = 200k
+With 2 modules, connect JP_SW_OUT of module 1 to JP_IN_5 of module 2 to get 8 inputs into 2 outputs
+(when nothing is plugged in to the output jacks of module 1).
+With 3 or more modules, daisy chain JP_SW_OUT to JP_IN_5 for more inputs.
+
+With 2 modules, connect JP_IN of module 1 to JP_SW_IN of module 2 to get 4 inputs into 4 outputs
+(when nothing is plugged in to the input jacks of module 2).
+With 3 or more modules, daisy chain JP_IN to JP_SW_IN for more outputs.
 
 
-norm | in
-in | in
-
-1n | 1i
-1i | 1n
+--------------------------------------------------------------------
 
