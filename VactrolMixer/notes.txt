@@ -34,3 +34,15 @@ http://www.rit.edu/cos/uphysics/graphing/fig8asemilog.gif
 
 --------------------------------------------------------------------
 
+
+0.06 / -12 = - 1k/r, 
+r = 1k * 12/0.06,
+r = 200k
+
+
+norm | in
+in | in
+
+1n | 1i
+1i | 1n
+
