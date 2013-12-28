@@ -128,37 +128,44 @@
 <package name="VTL5C3">
 <description>Vactrol VTL5C3 Package.
 Todo: check drill sizes, spacings, keep-out margins.</description>
-<wire x1="-3.81" y1="2.54" x2="-7.62" y2="2.54" width="0.127" layer="21"/>
-<wire x1="-3.81" y1="-2.54" x2="-7.62" y2="-2.54" width="0.127" layer="21"/>
-<wire x1="3.81" y1="2.54" x2="7.62" y2="2.54" width="0.127" layer="21"/>
-<wire x1="3.81" y1="-2.54" x2="7.62" y2="-2.54" width="0.127" layer="21"/>
-<circle x="-7.62" y="2.54" radius="0.635" width="0.127" layer="39"/>
-<circle x="-7.62" y="-2.54" radius="0.635" width="0.127" layer="39"/>
+<circle x="-7.62" y="-1.905" radius="0.635" width="0.127" layer="39"/>
 <circle x="7.62" y="2.54" radius="0.635" width="0.127" layer="39"/>
 <circle x="7.62" y="-2.54" radius="0.635" width="0.127" layer="39"/>
-<pad name="1" x="-7.62" y="2.54" drill="0.8" shape="square"/>
-<pad name="2" x="-7.62" y="-2.54" drill="0.8"/>
+<wire x1="-4.445" y1="1.905" x2="-6.731" y2="1.905" width="0.127" layer="21"/>
+<wire x1="-4.445" y1="-1.905" x2="-6.731" y2="-1.905" width="0.127" layer="21"/>
+<wire x1="4.445" y1="2.54" x2="6.731" y2="2.54" width="0.127" layer="21"/>
+<wire x1="4.445" y1="-2.54" x2="6.731" y2="-2.54" width="0.127" layer="21"/>
+<pad name="1" x="-7.62" y="1.905" drill="0.8" shape="square"/>
+<pad name="2" x="-7.62" y="-1.905" drill="0.8"/>
 <pad name="3" x="7.62" y="2.54" drill="0.8"/>
 <pad name="4" x="7.62" y="-2.54" drill="0.8"/>
-<text x="-7.62" y="-0.635" size="1.27" layer="21">LED</text>
-<text x="4.445" y="-0.635" size="1.27" layer="21">LDR</text>
-<rectangle x1="-3.81" y1="-3.81" x2="3.81" y2="3.81" layer="21"/>
-<hole x="-7.62" y="2.54" drill="0.6"/>
-<hole x="-7.62" y="-2.54" drill="0.6"/>
-<hole x="7.62" y="2.54" drill="0.6"/>
-<hole x="7.62" y="-2.54" drill="0.6"/>
+<text x="-8.255" y="-0.635" size="1.27" layer="51" font="vector">LED</text>
+<text x="5.08" y="-0.635" size="1.27" layer="51" font="vector">LDR</text>
+<wire x1="-4.445" y1="1.905" x2="-4.445" y2="-1.905" width="0.127" layer="21"/>
+<wire x1="-4.445" y1="-1.905" x2="-4.445" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="-4.445" y1="-3.81" x2="4.445" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="4.445" y1="-3.81" x2="4.445" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="4.445" y1="-2.54" x2="4.445" y2="2.54" width="0.127" layer="21"/>
+<wire x1="4.445" y1="2.54" x2="4.445" y2="3.81" width="0.127" layer="21"/>
+<wire x1="4.445" y1="3.81" x2="-2.54" y2="3.81" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="3.81" x2="-4.445" y2="1.905" width="0.127" layer="21"/>
+<rectangle x1="-8.255" y1="1.27" x2="-6.985" y2="2.54" layer="39"/>
+<text x="-3.175" y="-0.635" size="1.27" layer="25" font="vector">&gt;NAME</text>
+<text x="-3.81" y="-2.54" size="1.27" layer="21" font="vector">+</text>
 </package>
 </packages>
 <symbols>
 <symbol name="VTL5C3">
-<wire x1="-7.62" y1="5.08" x2="-7.62" y2="2.54" width="0.254" layer="94" style="shortdash"/>
-<wire x1="-7.62" y1="2.54" x2="-7.62" y2="-2.54" width="0.254" layer="94" style="shortdash"/>
-<wire x1="-7.62" y1="-2.54" x2="-7.62" y2="-5.08" width="0.254" layer="94" style="shortdash"/>
-<wire x1="-7.62" y1="-5.08" x2="7.62" y2="-5.08" width="0.254" layer="94" style="shortdash"/>
-<wire x1="7.62" y1="-5.08" x2="7.62" y2="-2.54" width="0.254" layer="94" style="shortdash"/>
-<wire x1="7.62" y1="-2.54" x2="7.62" y2="2.54" width="0.254" layer="94" style="shortdash"/>
-<wire x1="7.62" y1="2.54" x2="7.62" y2="5.08" width="0.254" layer="94" style="shortdash"/>
-<wire x1="7.62" y1="5.08" x2="-7.62" y2="5.08" width="0.254" layer="94" style="shortdash"/>
+<circle x="-3.81" y="0" radius="2.286" width="0.254" layer="94"/>
+<circle x="3.81" y="0" radius="2.286" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="5.08" x2="-7.62" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="2.54" x2="-7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-2.54" x2="-7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-5.08" x2="7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-2.54" x2="7.62" y2="2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="2.54" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="5.08" x2="-7.62" y2="5.08" width="0.254" layer="94"/>
 <wire x1="-7.62" y1="2.54" x2="-3.81" y2="2.54" width="0.254" layer="94"/>
 <wire x1="-3.81" y1="2.54" x2="-3.81" y2="-2.54" width="0.254" layer="94"/>
 <wire x1="-3.81" y1="-2.54" x2="-7.62" y2="-2.54" width="0.254" layer="94"/>
@@ -179,12 +186,10 @@ Todo: check drill sizes, spacings, keep-out margins.</description>
 <wire x1="7.62" y1="2.54" x2="3.81" y2="2.54" width="0.254" layer="94"/>
 <wire x1="7.62" y1="-2.54" x2="3.81" y2="-2.54" width="0.254" layer="94"/>
 <wire x1="3.81" y1="-2.54" x2="3.81" y2="-1.524" width="0.254" layer="94"/>
-<circle x="-3.81" y="0" radius="2.286" width="0.254" layer="94"/>
-<circle x="3.81" y="0" radius="2.286" width="0.254" layer="94"/>
-<pin name="LED-" x="-10.16" y="2.54" visible="pad" length="short"/>
-<pin name="LED+" x="-10.16" y="-2.54" visible="pad" length="short"/>
-<pin name="LDRB" x="10.16" y="-2.54" visible="pad" length="short" rot="R180"/>
 <pin name="LDRA" x="10.16" y="2.54" visible="pad" length="short" rot="R180"/>
+<pin name="LDRB" x="10.16" y="-2.54" visible="pad" length="short" rot="R180"/>
+<pin name="LED+" x="-10.16" y="-2.54" visible="pad" length="short"/>
+<pin name="LED-" x="-10.16" y="2.54" visible="pad" length="short"/>
 <polygon width="0.254" layer="94">
 <vertex x="-3.81" y="1.27"/>
 <vertex x="-2.54" y="-1.27"/>

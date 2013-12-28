@@ -48,3 +48,6 @@ With 3 or more modules, daisy chain JP_IN to JP_SW_IN for more outputs.
 
 --------------------------------------------------------------------
 
+Check out Texas Instruments TI DRV134 and DRV135 audio balanced line drivers, and  INA134/INA137 receivers for differential in/out.
+
+--------------------------------------------------------------------
