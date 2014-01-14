@@ -14294,7 +14294,7 @@ Source: http://focus.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf</description>
 <instance part="GND8" gate="1" x="5.08" y="-25.4"/>
 <instance part="R32" gate="G$1" x="-66.04" y="-12.7" rot="R90"/>
 <instance part="R33" gate="G$1" x="-55.88" y="-12.7" rot="R90"/>
-<instance part="GND12" gate="1" x="-66.04" y="-22.86"/>
+<instance part="GND12" gate="1" x="-66.04" y="-27.94"/>
 <instance part="R18" gate="G$1" x="-33.02" y="10.16" rot="R180"/>
 <instance part="R36" gate="G$1" x="-78.74" y="0" rot="R180"/>
 <instance part="R37" gate="G$1" x="101.6" y="-264.16" rot="R90"/>
@@ -14366,7 +14366,7 @@ Source: http://focus.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf</description>
 <instance part="SAMP_CV" gate="G$1" x="-228.6" y="111.76" rot="R180"/>
 <instance part="GND15" gate="1" x="-218.44" y="83.82"/>
 <instance part="GND19" gate="1" x="-121.92" y="76.2"/>
-<instance part="GND21" gate="1" x="-149.86" y="137.16" rot="R180"/>
+<instance part="GND21" gate="1" x="-149.86" y="142.24" rot="R180"/>
 <instance part="GND22" gate="1" x="-208.28" y="83.82"/>
 <instance part="P+5" gate="1" x="-149.86" y="99.06" rot="R180"/>
 <instance part="R19" gate="G$1" x="-149.86" y="124.46" rot="R90"/>
@@ -14415,7 +14415,7 @@ Source: http://focus.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf</description>
 <instance part="CRUSH_CV" gate="G$1" x="165.1" y="-281.94" rot="R180"/>
 <instance part="GND27" gate="1" x="175.26" y="-309.88"/>
 <instance part="R22" gate="G$1" x="238.76" y="-264.16" rot="R90"/>
-<instance part="GND29" gate="1" x="238.76" y="-251.46" rot="MR180"/>
+<instance part="GND29" gate="1" x="238.76" y="-246.38" rot="MR180"/>
 <instance part="P+14" gate="1" x="238.76" y="-276.86" rot="R180"/>
 <instance part="GND28" gate="1" x="-106.68" y="-7.62"/>
 <instance part="GND31" gate="1" x="114.3" y="-266.7"/>
@@ -14428,8 +14428,8 @@ Source: http://focus.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf</description>
 <instance part="D6" gate="G$1" x="-7.62" y="-12.7"/>
 <instance part="R35" gate="G$1" x="-15.24" y="-2.54" rot="R180"/>
 <instance part="GND13" gate="1" x="-17.78" y="-20.32"/>
-<instance part="P+18" gate="1" x="-55.88" y="-22.86" smashed="yes" rot="R180">
-<attribute name="VALUE" x="-55.88" y="-25.4" size="1.778" layer="96"/>
+<instance part="P+18" gate="1" x="-55.88" y="-30.48" smashed="yes" rot="R180">
+<attribute name="VALUE" x="-55.88" y="-33.02" size="1.778" layer="96"/>
 </instance>
 <instance part="P+19" gate="1" x="0" y="-20.32" smashed="yes" rot="R180">
 <attribute name="VALUE" x="0" y="-22.86" size="1.778" layer="96"/>
@@ -14474,6 +14474,11 @@ Source: http://focus.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf</description>
 <instance part="R65" gate="G$1" x="220.98" y="-281.94" rot="R180"/>
 <instance part="C17" gate="G$1" x="309.88" y="-226.06" rot="R270"/>
 <instance part="GND41" gate="1" x="317.5" y="-226.06" rot="MR270"/>
+<instance part="R19" gate="G$2" x="-165.1" y="142.24"/>
+<instance part="R21" gate="G$2" x="-228.6" y="83.82" rot="R180"/>
+<instance part="R20" gate="G$2" x="-76.2" y="-30.48" rot="R180"/>
+<instance part="R23" gate="G$2" x="165.1" y="-309.88" rot="R180"/>
+<instance part="R22" gate="G$2" x="246.38" y="-246.38"/>
 </instances>
 <busses>
 </busses>
@@ -14565,7 +14570,12 @@ Source: http://focus.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf</description>
 <segment>
 <pinref part="GND12" gate="1" pin="GND"/>
 <pinref part="R32" gate="G$1" pin="1"/>
+<wire x1="-66.04" y1="-25.4" x2="-66.04" y2="-20.32" width="0.1524" layer="91"/>
+<pinref part="R20" gate="G$2" pin="P$1"/>
 <wire x1="-66.04" y1="-20.32" x2="-66.04" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="-76.2" y1="-25.4" x2="-76.2" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="-76.2" y1="-20.32" x2="-66.04" y2="-20.32" width="0.1524" layer="91"/>
+<junction x="-66.04" y="-20.32"/>
 </segment>
 <segment>
 <pinref part="GND14" gate="1" pin="GND"/>
@@ -14694,9 +14704,14 @@ Source: http://focus.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf</description>
 <wire x1="-223.52" y1="114.3" x2="-218.44" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="-218.44" y1="114.3" x2="-218.44" y2="111.76" width="0.1524" layer="91"/>
 <pinref part="SAMP_CV" gate="G$1" pin="4"/>
-<wire x1="-218.44" y1="111.76" x2="-218.44" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="-218.44" y1="111.76" x2="-218.44" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="-218.44" y1="93.98" x2="-218.44" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="-223.52" y1="111.76" x2="-218.44" y2="111.76" width="0.1524" layer="91"/>
 <junction x="-218.44" y="111.76"/>
+<pinref part="R21" gate="G$2" pin="P$1"/>
+<wire x1="-228.6" y1="88.9" x2="-228.6" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="-228.6" y1="93.98" x2="-218.44" y2="93.98" width="0.1524" layer="91"/>
+<junction x="-218.44" y="93.98"/>
 </segment>
 <segment>
 <pinref part="GND22" gate="1" pin="GND"/>
@@ -14725,9 +14740,14 @@ Source: http://focus.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf</description>
 <wire x1="170.18" y1="-279.4" x2="175.26" y2="-279.4" width="0.1524" layer="91"/>
 <wire x1="175.26" y1="-279.4" x2="175.26" y2="-281.94" width="0.1524" layer="91"/>
 <pinref part="CRUSH_CV" gate="G$1" pin="4"/>
-<wire x1="175.26" y1="-281.94" x2="175.26" y2="-307.34" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="-281.94" x2="175.26" y2="-299.72" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="-299.72" x2="175.26" y2="-307.34" width="0.1524" layer="91"/>
 <wire x1="170.18" y1="-281.94" x2="175.26" y2="-281.94" width="0.1524" layer="91"/>
 <junction x="175.26" y="-281.94"/>
+<pinref part="R23" gate="G$2" pin="P$1"/>
+<wire x1="165.1" y1="-304.8" x2="165.1" y2="-299.72" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="-299.72" x2="175.26" y2="-299.72" width="0.1524" layer="91"/>
+<junction x="175.26" y="-299.72"/>
 </segment>
 <segment>
 <pinref part="AUDIOIN" gate="G$1" pin="5"/>
@@ -14808,11 +14828,21 @@ Source: http://focus.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf</description>
 <pinref part="R22" gate="G$1" pin="3"/>
 <pinref part="GND29" gate="1" pin="GND"/>
 <wire x1="238.76" y1="-256.54" x2="238.76" y2="-254" width="0.1524" layer="91"/>
+<pinref part="R22" gate="G$2" pin="P$1"/>
+<wire x1="238.76" y1="-254" x2="238.76" y2="-248.92" width="0.1524" layer="91"/>
+<wire x1="246.38" y1="-251.46" x2="246.38" y2="-254" width="0.1524" layer="91"/>
+<wire x1="246.38" y1="-254" x2="238.76" y2="-254" width="0.1524" layer="91"/>
+<junction x="238.76" y="-254"/>
 </segment>
 <segment>
 <pinref part="R19" gate="G$1" pin="3"/>
 <pinref part="GND21" gate="1" pin="GND"/>
 <wire x1="-149.86" y1="132.08" x2="-149.86" y2="134.62" width="0.1524" layer="91"/>
+<pinref part="R19" gate="G$2" pin="P$1"/>
+<wire x1="-149.86" y1="134.62" x2="-149.86" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="-165.1" y1="137.16" x2="-165.1" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="-165.1" y1="134.62" x2="-149.86" y2="134.62" width="0.1524" layer="91"/>
+<junction x="-149.86" y="134.62"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="A" pin="+IN"/>
@@ -15590,7 +15620,7 @@ Source: http://focus.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf</description>
 </segment>
 <segment>
 <pinref part="R33" gate="G$1" pin="1"/>
-<wire x1="-55.88" y1="-20.32" x2="-55.88" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="-55.88" y1="-27.94" x2="-55.88" y2="-17.78" width="0.1524" layer="91"/>
 <pinref part="P+18" gate="1" pin="+5V"/>
 </segment>
 <segment>
