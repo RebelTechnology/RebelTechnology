@@ -12964,12 +12964,12 @@ type V235, grid 17.78 mm</description>
 <sheets>
 <sheet>
 <plain>
-<wire x1="-78.74" y1="-71.12" x2="-43.18" y2="-71.12" width="0.1524" layer="97"/>
-<wire x1="-43.18" y1="-71.12" x2="-43.18" y2="-5.08" width="0.1524" layer="97"/>
-<wire x1="-78.74" y1="-5.08" x2="-78.74" y2="-71.12" width="0.1524" layer="97"/>
-<wire x1="-78.74" y1="-177.8" x2="-43.18" y2="-177.8" width="0.1524" layer="97"/>
-<wire x1="-43.18" y1="-177.8" x2="-43.18" y2="-111.76" width="0.1524" layer="97"/>
-<wire x1="-78.74" y1="-111.76" x2="-78.74" y2="-177.8" width="0.1524" layer="97"/>
+<wire x1="-78.74" y1="-73.66" x2="-43.18" y2="-73.66" width="0.1524" layer="97"/>
+<wire x1="-43.18" y1="-73.66" x2="-43.18" y2="-5.08" width="0.1524" layer="97"/>
+<wire x1="-78.74" y1="-5.08" x2="-78.74" y2="-73.66" width="0.1524" layer="97"/>
+<wire x1="-78.74" y1="-180.34" x2="-43.18" y2="-180.34" width="0.1524" layer="97"/>
+<wire x1="-43.18" y1="-180.34" x2="-43.18" y2="-111.76" width="0.1524" layer="97"/>
+<wire x1="-78.74" y1="-111.76" x2="-78.74" y2="-180.34" width="0.1524" layer="97"/>
 <text x="-76.2" y="-7.62" size="1.778" layer="97">Widlar Current Source</text>
 <text x="-76.2" y="-114.3" size="1.778" layer="97">Widlar Current Source</text>
 <wire x1="-78.74" y1="-5.08" x2="-43.18" y2="-5.08" width="0.1524" layer="97"/>
@@ -12986,15 +12986,15 @@ type V235, grid 17.78 mm</description>
 <instance part="T302" gate="G$1" x="-53.34" y="-38.1"/>
 <instance part="T301" gate="G$1" x="-68.58" y="-38.1" rot="MR0"/>
 <instance part="R306" gate="G$1" x="-71.12" y="-22.86" rot="R90"/>
-<instance part="R307" gate="G$1" x="-50.8" y="-48.26" rot="R90"/>
-<instance part="GND12" gate="1" x="-60.96" y="-66.04"/>
+<instance part="R307" gate="G$1" x="-50.8" y="-50.8" rot="R90"/>
+<instance part="GND12" gate="1" x="-60.96" y="-68.58"/>
 <instance part="VAC2" gate="G$1" x="5.08" y="-124.46"/>
 <instance part="LED2" gate="G$1" x="-17.78" y="-121.92" rot="R270"/>
 <instance part="T402" gate="G$1" x="-53.34" y="-144.78"/>
 <instance part="T401" gate="G$1" x="-68.58" y="-144.78" rot="MR0"/>
 <instance part="R406" gate="G$1" x="-71.12" y="-129.54" rot="R90"/>
-<instance part="R407" gate="G$1" x="-50.8" y="-154.94" rot="R90"/>
-<instance part="GND14" gate="1" x="-60.96" y="-172.72"/>
+<instance part="R407" gate="G$1" x="-50.8" y="-157.48" rot="R90"/>
+<instance part="GND14" gate="1" x="-60.96" y="-175.26"/>
 <instance part="OUT_A" gate="G$1" x="149.86" y="86.36"/>
 <instance part="OUT_B" gate="G$1" x="149.86" y="38.1"/>
 <instance part="R301" gate="G$1" x="-160.02" y="-10.16" rot="R180"/>
@@ -13168,23 +13168,23 @@ type V235, grid 17.78 mm</description>
 <pinref part="IC2" gate="A" pin="+IN"/>
 </segment>
 <segment>
-<wire x1="-71.12" y1="-43.18" x2="-71.12" y2="-55.88" width="0.1524" layer="91"/>
-<wire x1="-71.12" y1="-55.88" x2="-60.96" y2="-55.88" width="0.1524" layer="91"/>
-<wire x1="-60.96" y1="-55.88" x2="-60.96" y2="-63.5" width="0.1524" layer="91"/>
-<wire x1="-60.96" y1="-55.88" x2="-50.8" y2="-55.88" width="0.1524" layer="91"/>
-<wire x1="-50.8" y1="-55.88" x2="-50.8" y2="-53.34" width="0.1524" layer="91"/>
-<junction x="-60.96" y="-55.88"/>
+<wire x1="-71.12" y1="-43.18" x2="-71.12" y2="-58.42" width="0.1524" layer="91"/>
+<wire x1="-71.12" y1="-58.42" x2="-60.96" y2="-58.42" width="0.1524" layer="91"/>
+<wire x1="-60.96" y1="-58.42" x2="-60.96" y2="-66.04" width="0.1524" layer="91"/>
+<wire x1="-60.96" y1="-58.42" x2="-50.8" y2="-58.42" width="0.1524" layer="91"/>
+<wire x1="-50.8" y1="-58.42" x2="-50.8" y2="-55.88" width="0.1524" layer="91"/>
+<junction x="-60.96" y="-58.42"/>
 <pinref part="T301" gate="G$1" pin="E"/>
 <pinref part="GND12" gate="1" pin="GND"/>
 <pinref part="R307" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<wire x1="-71.12" y1="-149.86" x2="-71.12" y2="-162.56" width="0.1524" layer="91"/>
-<wire x1="-71.12" y1="-162.56" x2="-60.96" y2="-162.56" width="0.1524" layer="91"/>
-<wire x1="-60.96" y1="-162.56" x2="-60.96" y2="-170.18" width="0.1524" layer="91"/>
-<wire x1="-60.96" y1="-162.56" x2="-50.8" y2="-162.56" width="0.1524" layer="91"/>
-<wire x1="-50.8" y1="-162.56" x2="-50.8" y2="-160.02" width="0.1524" layer="91"/>
-<junction x="-60.96" y="-162.56"/>
+<wire x1="-71.12" y1="-149.86" x2="-71.12" y2="-165.1" width="0.1524" layer="91"/>
+<wire x1="-71.12" y1="-165.1" x2="-60.96" y2="-165.1" width="0.1524" layer="91"/>
+<wire x1="-60.96" y1="-165.1" x2="-60.96" y2="-172.72" width="0.1524" layer="91"/>
+<wire x1="-60.96" y1="-165.1" x2="-50.8" y2="-165.1" width="0.1524" layer="91"/>
+<wire x1="-50.8" y1="-165.1" x2="-50.8" y2="-162.56" width="0.1524" layer="91"/>
+<junction x="-60.96" y="-165.1"/>
 <pinref part="T401" gate="G$1" pin="E"/>
 <pinref part="GND14" gate="1" pin="GND"/>
 <pinref part="R407" gate="G$1" pin="1"/>
@@ -13437,6 +13437,7 @@ type V235, grid 17.78 mm</description>
 <segment>
 <pinref part="T302" gate="G$1" pin="E"/>
 <pinref part="R307" gate="G$1" pin="2"/>
+<wire x1="-50.8" y1="-45.72" x2="-50.8" y2="-43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$44" class="0">
@@ -13466,6 +13467,7 @@ type V235, grid 17.78 mm</description>
 <segment>
 <pinref part="T402" gate="G$1" pin="E"/>
 <pinref part="R407" gate="G$1" pin="2"/>
+<wire x1="-50.8" y1="-152.4" x2="-50.8" y2="-149.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$28" class="0">
