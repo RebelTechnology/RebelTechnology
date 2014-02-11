@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.4">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -15794,6 +15794,9 @@ Source: 008-0260-0_E.pdf</description>
 <sheets>
 <sheet>
 <plain>
+<text x="198.12" y="-177.8" size="1.778" layer="97">Copyright 2013 Rebel Technology</text>
+<text x="198.12" y="-180.34" size="1.778" layer="97">Published under the GNU GPL</text>
+<text x="198.12" y="-175.26" size="2.54" layer="97">OWL Digital Revision 4</text>
 </plain>
 <instances>
 <instance part="SWD" gate="G$1" x="281.94" y="68.58" rot="R180"/>

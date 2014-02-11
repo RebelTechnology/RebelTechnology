@@ -15868,6 +15868,9 @@ naming: grid - package width</description>
 <sheets>
 <sheet>
 <plain>
+<text x="190.5" y="-88.9" size="1.778" layer="97">Copyright 2013 Rebel Technology</text>
+<text x="190.5" y="-91.44" size="1.778" layer="97">Published under the GNU GPL</text>
+<text x="190.5" y="-86.36" size="2.54" layer="97">OWL Analogue Revision 4</text>
 </plain>
 <instances>
 <instance part="GND1" gate="1" x="243.84" y="-12.7"/>

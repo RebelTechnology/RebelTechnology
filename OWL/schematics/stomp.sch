@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.4">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -577,6 +577,9 @@ Standard 9-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <sheets>
 <sheet>
 <plain>
+<text x="10.16" y="-10.16" size="1.778" layer="97">Copyright 2013 Rebel Technology</text>
+<text x="10.16" y="-12.7" size="1.778" layer="97">Published under the GNU GPL</text>
+<text x="10.16" y="-7.62" size="2.54" layer="97">OWL Stomp Revision 4</text>
 </plain>
 <instances>
 <instance part="STOMP" gate="G$1" x="30.48" y="25.4" rot="R270"/>
