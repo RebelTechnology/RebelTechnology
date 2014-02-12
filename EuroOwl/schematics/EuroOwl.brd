@@ -2776,11 +2776,6 @@ grid 5 mm, outline 2.5 x 7.5 mm</description>
 <wire x1="1.27" y1="-226.06" x2="-3.81" y2="-229.235" width="0" layer="19" extent="1-1"/>
 <wire x1="1.27" y1="-222.25" x2="1.27" y2="-226.06" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="IN_D">
-<contactref element="T1" pad="1"/>
-<contactref element="R29" pad="1"/>
-<wire x1="-2.54" y1="-231.14" x2="-6.35" y2="-236.22" width="0" layer="19" extent="1-1"/>
-</signal>
 <signal name="N$46">
 <contactref element="IN_D" pad="TIP"/>
 <contactref element="R27" pad="1"/>
@@ -2815,8 +2810,20 @@ grid 5 mm, outline 2.5 x 7.5 mm</description>
 <contactref element="T2" pad="2"/>
 <wire x1="1.27" y1="-262.89" x2="-3.81" y2="-266.065" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="OUT_D">
+<signal name="PG14">
+<contactref element="JP9" pad="1"/>
+</signal>
+<signal name="PB7">
+<contactref element="JP9" pad="3"/>
+<contactref element="T1" pad="1"/>
+<contactref element="R29" pad="1"/>
+<wire x1="-2.54" y1="-231.14" x2="-6.35" y2="-236.22" width="0" layer="19" extent="1-1"/>
+<wire x1="23.8125" y1="42.8625" x2="-2.54" y2="-231.14" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="PB6">
+<contactref element="JP9" pad="4"/>
 <contactref element="R32" pad="1"/>
+<wire x1="-6.35" y1="-262.89" x2="23.8125" y2="40.3225" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>
