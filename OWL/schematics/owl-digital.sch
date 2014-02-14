@@ -15790,6 +15790,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="L3" library="Rebel" deviceset="INDUCTOR" device=""/>
 <part name="C305" library="resistor" deviceset="CPOL-EU" device="A" value="10u"/>
 <part name="MCLK" library="SparkFun" deviceset="SOLDERJUMPER_2WAY" device=""/>
+<part name="GND3" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -15923,7 +15924,7 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="+3V22" gate="G$1" x="226.06" y="160.02"/>
 <instance part="+3V10" gate="G$1" x="177.8" y="157.48"/>
 <instance part="+3V11" gate="G$1" x="144.78" y="157.48"/>
-<instance part="USB" gate="G$1" x="198.12" y="-152.4"/>
+<instance part="USB" gate="G$1" x="200.66" y="-152.4"/>
 <instance part="ADC" gate="G$1" x="-25.4" y="10.16"/>
 <instance part="PWR" gate="G$1" x="279.4" y="5.08"/>
 <instance part="USB1" gate="USB" x="279.4" y="-154.94"/>
@@ -15953,6 +15954,7 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="L3" gate="G$1" x="259.08" y="-160.02" rot="R180"/>
 <instance part="C305" gate="G$1" x="281.94" y="147.32"/>
 <instance part="MCLK" gate="G$1" x="241.3" y="154.94" rot="R270"/>
+<instance part="GND3" gate="1" x="243.84" y="-165.1"/>
 </instances>
 <busses>
 </busses>
@@ -16242,6 +16244,13 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="314.96" y1="5.08" x2="312.42" y2="5.08" width="0.1524" layer="91"/>
 <wire x1="312.42" y1="5.08" x2="312.42" y2="0" width="0.1524" layer="91"/>
 <pinref part="PWR2" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<pinref part="L3" gate="G$1" pin="2"/>
+<wire x1="251.46" y1="-160.02" x2="243.84" y2="-160.02" width="0.1524" layer="91"/>
+<label x="243.84" y="-160.02" size="1.778" layer="95"/>
+<pinref part="GND3" gate="1" pin="GND"/>
+<wire x1="243.84" y1="-162.56" x2="243.84" y2="-160.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -17013,8 +17022,8 @@ Source: 008-0260-0_E.pdf</description>
 <net name="USB_DM" class="0">
 <segment>
 <pinref part="R5" gate="G$1" pin="2"/>
-<wire x1="223.52" y1="-152.4" x2="205.74" y2="-152.4" width="0.1524" layer="91"/>
-<label x="210.82" y="-152.4" size="1.778" layer="95"/>
+<wire x1="223.52" y1="-152.4" x2="208.28" y2="-152.4" width="0.1524" layer="91"/>
+<label x="208.28" y="-152.4" size="1.778" layer="95"/>
 <pinref part="USB" gate="G$1" pin="3"/>
 </segment>
 <segment>
@@ -17026,8 +17035,8 @@ Source: 008-0260-0_E.pdf</description>
 <net name="USB_DP" class="0">
 <segment>
 <pinref part="R4" gate="G$1" pin="2"/>
-<wire x1="233.68" y1="-154.94" x2="205.74" y2="-154.94" width="0.1524" layer="91"/>
-<label x="210.82" y="-154.94" size="1.778" layer="95"/>
+<wire x1="233.68" y1="-154.94" x2="208.28" y2="-154.94" width="0.1524" layer="91"/>
+<label x="208.28" y="-154.94" size="1.778" layer="95"/>
 <pinref part="USB" gate="G$1" pin="2"/>
 </segment>
 <segment>
@@ -17038,8 +17047,8 @@ Source: 008-0260-0_E.pdf</description>
 </net>
 <net name="USB_ID" class="0">
 <segment>
-<wire x1="276.86" y1="-157.48" x2="205.74" y2="-157.48" width="0.1524" layer="91"/>
-<label x="210.82" y="-157.48" size="1.778" layer="95"/>
+<wire x1="276.86" y1="-157.48" x2="208.28" y2="-157.48" width="0.1524" layer="91"/>
+<label x="208.28" y="-157.48" size="1.778" layer="95"/>
 <pinref part="USB" gate="G$1" pin="1"/>
 <pinref part="USB1" gate="USB" pin="ID"/>
 </segment>
@@ -17049,17 +17058,16 @@ Source: 008-0260-0_E.pdf</description>
 <label x="106.68" y="-144.78" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="USB_VBUS" class="0">
-<segment>
-<label x="210.82" y="-149.86" size="1.778" layer="95"/>
-<pinref part="USB" gate="G$1" pin="4"/>
-<pinref part="L2" gate="G$1" pin="2"/>
-<wire x1="251.46" y1="-149.86" x2="205.74" y2="-149.86" width="0.1524" layer="91"/>
-</segment>
+<net name="VBUS" class="0">
 <segment>
 <wire x1="106.68" y1="-142.24" x2="127" y2="-142.24" width="0.1524" layer="91"/>
 <label x="106.68" y="-142.24" size="1.778" layer="95"/>
 <pinref part="U4" gate="B" pin="PA9"/>
+</segment>
+<segment>
+<pinref part="L2" gate="G$1" pin="2"/>
+<wire x1="251.46" y1="-149.86" x2="243.84" y2="-149.86" width="0.1524" layer="91"/>
+<label x="243.84" y="-149.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$10" class="0">
@@ -17926,35 +17934,6 @@ Source: 008-0260-0_E.pdf</description>
 <label x="25.4" y="-88.9" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="USB1" gate="USB" pin="VCC"/>
-<wire x1="276.86" y1="-149.86" x2="266.7" y2="-149.86" width="0.1524" layer="91"/>
-<pinref part="L2" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="N$3" class="0">
-<segment>
-<pinref part="USB1" gate="USB" pin="GND"/>
-<wire x1="276.86" y1="-160.02" x2="271.78" y2="-160.02" width="0.1524" layer="91"/>
-<pinref part="L3" gate="G$1" pin="1"/>
-<pinref part="USB1" gate="USB" pin="SHIELD"/>
-<wire x1="271.78" y1="-160.02" x2="266.7" y2="-160.02" width="0.1524" layer="91"/>
-<wire x1="276.86" y1="-162.56" x2="271.78" y2="-162.56" width="0.1524" layer="91"/>
-<wire x1="271.78" y1="-162.56" x2="271.78" y2="-160.02" width="0.1524" layer="91"/>
-<junction x="271.78" y="-160.02"/>
-</segment>
-</net>
-<net name="USB_GND" class="0">
-<segment>
-<pinref part="USB" gate="G$1" pin="5"/>
-<wire x1="205.74" y1="-147.32" x2="208.28" y2="-147.32" width="0.1524" layer="91"/>
-<wire x1="208.28" y1="-147.32" x2="208.28" y2="-160.02" width="0.1524" layer="91"/>
-<pinref part="L3" gate="G$1" pin="2"/>
-<wire x1="251.46" y1="-160.02" x2="208.28" y2="-160.02" width="0.1524" layer="91"/>
-<label x="210.82" y="-160.02" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="XTI" class="0">
 <segment>
 <wire x1="215.9" y1="127" x2="246.38" y2="127" width="0.1524" layer="91"/>
@@ -17969,6 +17948,34 @@ Source: 008-0260-0_E.pdf</description>
 <junction x="246.38" y="127"/>
 <pinref part="MCLK" gate="G$1" pin="1"/>
 <wire x1="246.38" y1="154.94" x2="246.38" y2="127" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="USB_GND" class="0">
+<segment>
+<pinref part="USB" gate="G$1" pin="5"/>
+<pinref part="USB1" gate="USB" pin="GND"/>
+<wire x1="276.86" y1="-160.02" x2="271.78" y2="-160.02" width="0.1524" layer="91"/>
+<pinref part="L3" gate="G$1" pin="1"/>
+<pinref part="USB1" gate="USB" pin="SHIELD"/>
+<wire x1="271.78" y1="-160.02" x2="266.7" y2="-160.02" width="0.1524" layer="91"/>
+<wire x1="276.86" y1="-162.56" x2="271.78" y2="-162.56" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="-162.56" x2="271.78" y2="-160.02" width="0.1524" layer="91"/>
+<junction x="271.78" y="-160.02"/>
+<wire x1="208.28" y1="-147.32" x2="271.78" y2="-147.32" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="-147.32" x2="271.78" y2="-160.02" width="0.1524" layer="91"/>
+<label x="208.28" y="-147.32" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="USB_VBUS" class="0">
+<segment>
+<pinref part="USB" gate="G$1" pin="4"/>
+<wire x1="208.28" y1="-149.86" x2="220.98" y2="-149.86" width="0.1524" layer="91"/>
+<label x="208.28" y="-149.86" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="USB1" gate="USB" pin="VCC"/>
+<wire x1="276.86" y1="-149.86" x2="266.7" y2="-149.86" width="0.1524" layer="91"/>
+<pinref part="L2" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>
