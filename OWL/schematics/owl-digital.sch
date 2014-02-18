@@ -10097,13 +10097,11 @@ type 0204, grid 7.5 mm</description>
 <pad name="G" x="-4.175" y="-0.525" drill="1" diameter="1.8" shape="square"/>
 <pad name="G2" x="4.175" y="-0.525" drill="1" diameter="1.8" shape="square"/>
 <wire x1="0" y1="-2.025" x2="0" y2="-2.425" width="0.0508" layer="51"/>
-<pad name="G3" x="-2.225" y="2.6" drill="1" diameter="1.2" shape="offset" rot="R90"/>
-<pad name="G4" x="2.225" y="2.6" drill="1" diameter="1.2" shape="offset" rot="R90"/>
+<pad name="G3" x="-2.225" y="2.6" drill="0.85" diameter="1.016" shape="offset" rot="R90"/>
+<pad name="G4" x="2.225" y="2.6" drill="0.85" diameter="1.016" shape="offset" rot="R90"/>
 <smd name="3" x="0" y="2.275" dx="0.4" dy="1.35" layer="1"/>
 <smd name="4" x="-0.65" y="2.275" dx="0.4" dy="1.35" layer="1"/>
-<smd name="5" x="-1.3" y="1.945" dx="0.4" dy="0.7" layer="1" roundness="30"/>
 <smd name="2" x="0.65" y="2.275" dx="0.4" dy="1.35" layer="1"/>
-<smd name="1" x="1.3" y="1.945" dx="0.4" dy="0.7" layer="1" roundness="30"/>
 <wire x1="3.6" y1="-1.475" x2="2.6" y2="-1.475" width="0" layer="48"/>
 <wire x1="2.6" y1="-1.475" x2="2.05" y2="-1.475" width="0" layer="48"/>
 <wire x1="2.05" y1="-1.475" x2="0.25" y2="-1.475" width="0" layer="48"/>
@@ -10150,26 +10148,26 @@ type 0204, grid 7.5 mm</description>
 <wire x1="3.65" y1="2.425" x2="3.65" y2="0.635" width="0.127" layer="21"/>
 <wire x1="-2.95" y1="2.425" x2="-3.65" y2="2.425" width="0.127" layer="21"/>
 <wire x1="3.65" y1="2.425" x2="2.95" y2="2.425" width="0.127" layer="21"/>
-<smd name="7" x="-1.2" y="2.565" dx="0.2" dy="0.75" layer="1"/>
-<smd name="6" x="1.2" y="2.565" dx="0.2" dy="0.75" layer="1"/>
 <polygon width="0.127" layer="31">
 <vertex x="-2.76233125" y="2.58125"/>
-<vertex x="-2.7600125" y="3.8121" curve="-90"/>
-<vertex x="-2.223353125" y="4.33245625" curve="-90"/>
-<vertex x="-1.69034375" y="3.823946875"/>
+<vertex x="-2.747178125" y="3.64269375" curve="-90"/>
+<vertex x="-2.200253125" y="4.14765" curve="-90"/>
+<vertex x="-1.687778125" y="3.5929375"/>
 <vertex x="-1.688996875" y="2.603409375" curve="-90"/>
 <vertex x="-2.210471875" y="2.0665125" curve="-90"/>
 </polygon>
 <polygon width="0.127" layer="31">
 <vertex x="1.686975" y="2.582196875"/>
-<vertex x="1.68929375" y="3.813046875" curve="-90"/>
-<vertex x="2.225953125" y="4.333403125" curve="-90"/>
-<vertex x="2.7589625" y="3.82489375"/>
+<vertex x="1.686728125" y="3.653909375" curve="-90"/>
+<vertex x="2.254184375" y="4.16143125" curve="-90"/>
+<vertex x="2.7666625" y="3.6092875"/>
 <vertex x="2.760309375" y="2.60435625" curve="-90"/>
 <vertex x="2.238834375" y="2.067459375" curve="-90"/>
 </polygon>
 <rectangle x1="-5.06665625" y1="-1.4203375" x2="-3.29039375" y2="0.3615625" layer="31"/>
 <rectangle x1="3.286128125" y1="-1.413571875" x2="5.062390625" y2="0.368328125" layer="31"/>
+<smd name="5" x="-1.3" y="2.275" dx="0.4" dy="1.35" layer="1"/>
+<smd name="1" x="1.3" y="2.275" dx="0.4" dy="1.35" layer="1"/>
 </package>
 </packages>
 <symbols>
@@ -10712,10 +10710,10 @@ Memory Configuration: 512K x 16bit &lt;br/&gt;</description>
 <connects>
 <connect gate="USB" pin="D+" pad="3"/>
 <connect gate="USB" pin="D-" pad="2"/>
-<connect gate="USB" pin="GND" pad="5 7" route="any"/>
+<connect gate="USB" pin="GND" pad="5"/>
 <connect gate="USB" pin="ID" pad="4"/>
 <connect gate="USB" pin="SHIELD" pad="G G2 G3 G4"/>
-<connect gate="USB" pin="VCC" pad="1 6"/>
+<connect gate="USB" pin="VCC" pad="1"/>
 </connects>
 <technologies>
 <technology name=""/>
