@@ -10149,20 +10149,20 @@ type 0204, grid 7.5 mm</description>
 <wire x1="-2.95" y1="2.425" x2="-3.65" y2="2.425" width="0.127" layer="21"/>
 <wire x1="3.65" y1="2.425" x2="2.95" y2="2.425" width="0.127" layer="21"/>
 <polygon width="0.127" layer="31">
-<vertex x="-2.76233125" y="2.58125"/>
-<vertex x="-2.747178125" y="3.64269375" curve="-90"/>
-<vertex x="-2.200253125" y="4.14765" curve="-90"/>
-<vertex x="-1.687778125" y="3.5929375"/>
-<vertex x="-1.688996875" y="2.603409375" curve="-90"/>
-<vertex x="-2.210471875" y="2.0665125" curve="-90"/>
+<vertex x="-2.667371875" y="2.57355"/>
+<vertex x="-2.665203125" y="3.623090625" curve="-90"/>
+<vertex x="-2.231846875" y="4.0549125" curve="-90"/>
+<vertex x="-1.7863875" y="3.626790625"/>
+<vertex x="-1.78635" y="2.627325" curve="-90"/>
+<vertex x="-2.205340625" y="2.16405" curve="-90"/>
 </polygon>
 <polygon width="0.127" layer="31">
-<vertex x="1.686975" y="2.582196875"/>
-<vertex x="1.686728125" y="3.653909375" curve="-90"/>
-<vertex x="2.254184375" y="4.16143125" curve="-90"/>
-<vertex x="2.7666625" y="3.6092875"/>
-<vertex x="2.760309375" y="2.60435625" curve="-90"/>
-<vertex x="2.238834375" y="2.067459375" curve="-90"/>
+<vertex x="1.786684375" y="2.58103125"/>
+<vertex x="1.78765625" y="3.61000625" curve="-90"/>
+<vertex x="2.228596875" y="4.053921875" curve="-90"/>
+<vertex x="2.662715625" y="3.613746875"/>
+<vertex x="2.6628875" y="2.603" curve="-90"/>
+<vertex x="2.22858125" y="2.162996875" curve="-90"/>
 </polygon>
 <rectangle x1="-5.06665625" y1="-1.4203375" x2="-3.29039375" y2="0.3615625" layer="31"/>
 <rectangle x1="3.286128125" y1="-1.413571875" x2="5.062390625" y2="0.368328125" layer="31"/>
@@ -15685,8 +15685,8 @@ Source: 008-0260-0_E.pdf</description>
 <part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="22R"/>
 <part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="22R"/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
-<part name="LED1" library="SparkFun" deviceset="LED" device="1206"/>
-<part name="LED2" library="SparkFun" deviceset="LED" device="1206"/>
+<part name="LED1" library="SparkFun" deviceset="LED" device="1206" value="KP-3216SGC"/>
+<part name="LED2" library="SparkFun" deviceset="LED" device="1206" value="KP-3216SGC"/>
 <part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
@@ -15744,7 +15744,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="C27" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="+3V33" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
-<part name="IC1" library="burr-brown" deviceset="REG1117" device=""/>
+<part name="IC1" library="burr-brown" deviceset="REG1117" device="" value="TLV1117-33CDCY"/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
 <part name="+3V9" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
