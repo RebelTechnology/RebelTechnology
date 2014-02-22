@@ -13993,6 +13993,12 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="R102" library="Rebel" deviceset="R-EU_" device="0204/7" value="22R"/>
 <part name="GND50" library="supply1" deviceset="GND" device=""/>
 <part name="R103" library="Rebel" deviceset="R-EU_" device="0204/7" value="100R"/>
+<part name="C104" library="rcl" deviceset="CPOL-EU" device="E2.5-7" value="10uF"/>
+<part name="C105" library="rcl" deviceset="CPOL-EU" device="E2.5-7" value="10uF"/>
+<part name="P+17" library="supply1" deviceset="+12V" device=""/>
+<part name="P-10" library="supply1" deviceset="-12V" device=""/>
+<part name="GND51" library="supply1" deviceset="GND" device=""/>
+<part name="GND52" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -14239,6 +14245,12 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="R102" gate="G$1" x="185.42" y="-53.34" rot="MR180"/>
 <instance part="GND50" gate="1" x="200.66" y="-63.5"/>
 <instance part="R103" gate="G$1" x="175.26" y="-55.88" rot="MR180"/>
+<instance part="C104" gate="G$1" x="226.06" y="119.38" rot="MR0"/>
+<instance part="C105" gate="G$1" x="238.76" y="116.84" rot="MR180"/>
+<instance part="P+17" gate="1" x="226.06" y="132.08"/>
+<instance part="P-10" gate="1" x="238.76" y="132.08" rot="R180"/>
+<instance part="GND51" gate="1" x="226.06" y="99.06"/>
+<instance part="GND52" gate="1" x="238.76" y="99.06"/>
 </instances>
 <busses>
 </busses>
@@ -14597,6 +14609,16 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="GND50" gate="1" pin="GND"/>
 <wire x1="203.2" y1="-58.42" x2="200.66" y2="-58.42" width="0.1524" layer="91"/>
 <wire x1="200.66" y1="-58.42" x2="200.66" y2="-60.96" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C104" gate="G$1" pin="-"/>
+<pinref part="GND51" gate="1" pin="GND"/>
+<wire x1="226.06" y1="101.6" x2="226.06" y2="114.3" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND52" gate="1" pin="GND"/>
+<pinref part="C105" gate="G$1" pin="+"/>
+<wire x1="238.76" y1="101.6" x2="238.76" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -15148,6 +15170,11 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="P+16" gate="1" pin="+12V"/>
 <wire x1="-10.16" y1="170.18" x2="-10.16" y2="167.64" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="P+17" gate="1" pin="+12V"/>
+<pinref part="C104" gate="G$1" pin="+"/>
+<wire x1="226.06" y1="121.92" x2="226.06" y2="129.54" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="-12V" class="0">
 <segment>
@@ -15215,6 +15242,11 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="299.72" y1="-40.64" x2="297.18" y2="-40.64" width="0.1524" layer="91"/>
 <wire x1="297.18" y1="-40.64" x2="297.18" y2="-48.26" width="0.1524" layer="91"/>
 <pinref part="P-9" gate="1" pin="-12V"/>
+</segment>
+<segment>
+<pinref part="C105" gate="G$1" pin="-"/>
+<pinref part="P-10" gate="1" pin="-12V"/>
+<wire x1="238.76" y1="121.92" x2="238.76" y2="129.54" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PWR_BUS" class="0">
