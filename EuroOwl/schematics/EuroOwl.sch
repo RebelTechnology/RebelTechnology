@@ -14211,20 +14211,6 @@ Metric Code Size 5664</description>
 <pinref part="C105" gate="G$1" pin="-"/>
 </segment>
 </net>
-<net name="PWR_BUS" class="0">
-<segment>
-<wire x1="119.38" y1="124.46" x2="134.62" y2="124.46" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="15"/>
-<pinref part="U$2" gate="G$1" pin="16"/>
-</segment>
-</net>
-<net name="N$43" class="0">
-<segment>
-<wire x1="134.62" y1="121.92" x2="119.38" y2="121.92" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="13"/>
-<pinref part="U$2" gate="G$1" pin="14"/>
-</segment>
-</net>
 <net name="N$44" class="0">
 <segment>
 <wire x1="119.38" y1="119.38" x2="134.62" y2="119.38" width="0.1524" layer="91"/>
