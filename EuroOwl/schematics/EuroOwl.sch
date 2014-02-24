@@ -12760,7 +12760,7 @@ Metric Code Size 5664</description>
 <part name="R202" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="HP" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="IN" library="SparkFun" deviceset="M02" device="PTH"/>
-<part name="V" library="SparkFun" deviceset="M01" device="PTH"/>
+<part name="VMID" library="SparkFun" deviceset="M01" device="PTH"/>
 <part name="P+5" library="supply1" deviceset="+5V" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="R304" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
@@ -12782,7 +12782,6 @@ Metric Code Size 5664</description>
 <part name="R403" library="Rebel" deviceset="R-EU_" device="0603" value="6k8"/>
 <part name="R401" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C300" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="VMID" library="supply1" deviceset="VCC/2" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="JP4" library="SparkFun" deviceset="M03" device="PTH"/>
@@ -12952,6 +12951,13 @@ Metric Code Size 5664</description>
 <part name="D201" library="diode" deviceset="BAT54S" device=""/>
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V6" library="supply1" deviceset="+3V3" device=""/>
+<part name="P+18" library="supply1" deviceset="VCC/2" device=""/>
+<part name="C301" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C501" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="GND53" library="supply1" deviceset="GND" device=""/>
+<part name="GND54" library="supply1" deviceset="GND" device=""/>
+<part name="GND55" library="supply1" deviceset="GND" device=""/>
+<part name="GND56" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12984,7 +12990,7 @@ Metric Code Size 5664</description>
 <instance part="R202" gate="G$1" x="58.42" y="55.88" rot="MR180"/>
 <instance part="HP" gate="G$1" x="208.28" y="0" rot="R180"/>
 <instance part="IN" gate="G$1" x="208.28" y="12.7" rot="R180"/>
-<instance part="V" gate="G$1" x="208.28" y="-20.32" rot="R180"/>
+<instance part="VMID" gate="G$1" x="208.28" y="-20.32" rot="R180"/>
 <instance part="P+5" gate="1" x="195.58" y="132.08" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="193.04" y="134.62" size="1.778" layer="96" rot="MR180"/>
 </instance>
@@ -12998,7 +13004,7 @@ Metric Code Size 5664</description>
 <instance part="P+10" gate="G$1" x="50.8" y="190.5"/>
 <instance part="P+12" gate="G$1" x="66.04" y="17.78"/>
 <instance part="IC1" gate="A" x="78.74" y="220.98"/>
-<instance part="IC1" gate="P" x="78.74" y="2.54"/>
+<instance part="IC1" gate="P" x="86.36" y="2.54"/>
 <instance part="R404" gate="G$1" x="208.28" y="205.74" rot="MR180"/>
 <instance part="R406" gate="G$1" x="228.6" y="223.52" rot="MR180"/>
 <instance part="IC1" gate="B" x="205.74" y="223.52"/>
@@ -13011,8 +13017,7 @@ Metric Code Size 5664</description>
 <instance part="R403" gate="G$1" x="165.1" y="160.02" rot="MR180"/>
 <instance part="R401" gate="G$1" x="165.1" y="170.18" rot="MR180"/>
 <instance part="IC1" gate="D" x="205.74" y="172.72"/>
-<instance part="C300" gate="G$1" x="83.82" y="2.54"/>
-<instance part="VMID" gate="G$1" x="198.12" y="-12.7"/>
+<instance part="C300" gate="G$1" x="91.44" y="2.54"/>
 <instance part="GND3" gate="1" x="210.82" y="99.06"/>
 <instance part="+3V1" gate="G$1" x="210.82" y="132.08"/>
 <instance part="JP4" gate="G$1" x="208.28" y="45.72" rot="R180"/>
@@ -13064,8 +13069,8 @@ Metric Code Size 5664</description>
 <instance part="OUT_D" gate="G$1" x="20.32" y="137.16"/>
 <instance part="GND8" gate="1" x="10.16" y="121.92" rot="MR0"/>
 <instance part="GND21" gate="1" x="5.08" y="83.82" rot="MR0"/>
-<instance part="P+6" gate="1" x="78.74" y="20.32"/>
-<instance part="P-1" gate="1" x="78.74" y="-15.24"/>
+<instance part="P+6" gate="1" x="86.36" y="20.32"/>
+<instance part="P-1" gate="1" x="86.36" y="-15.24"/>
 <instance part="R308" gate="G$1" x="96.52" y="220.98" rot="MR0"/>
 <instance part="+3V8" gate="G$1" x="111.76" y="215.9"/>
 <instance part="GND16" gate="1" x="96.52" y="205.74" rot="MR0"/>
@@ -13085,7 +13090,7 @@ Metric Code Size 5664</description>
 <instance part="R302" gate="G$1" x="58.42" y="233.68" rot="MR0"/>
 <instance part="GND14" gate="1" x="281.94" y="175.26"/>
 <instance part="P+9" gate="1" x="289.56" y="238.76"/>
-<instance part="IC2" gate="P" x="96.52" y="2.54"/>
+<instance part="IC2" gate="P" x="111.76" y="2.54"/>
 <instance part="IC2" gate="A" x="330.2" y="198.12"/>
 <instance part="R501" gate="G$1" x="304.8" y="195.58" rot="MR180"/>
 <instance part="R500" gate="G$1" x="304.8" y="226.06" rot="MR180"/>
@@ -13095,9 +13100,9 @@ Metric Code Size 5664</description>
 <instance part="R503" gate="G$1" x="327.66" y="185.42" rot="MR180"/>
 <instance part="R504" gate="G$1" x="347.98" y="198.12" rot="MR0"/>
 <instance part="R505" gate="G$1" x="363.22" y="198.12" rot="MR0"/>
-<instance part="P-6" gate="1" x="96.52" y="-15.24"/>
-<instance part="P+11" gate="1" x="96.52" y="20.32"/>
-<instance part="C500" gate="G$1" x="101.6" y="2.54"/>
+<instance part="P-6" gate="1" x="111.76" y="-15.24"/>
+<instance part="P+11" gate="1" x="111.76" y="20.32"/>
+<instance part="C500" gate="G$1" x="116.84" y="2.54"/>
 <instance part="GND25" gate="1" x="289.56" y="99.06"/>
 <instance part="GND28" gate="1" x="289.56" y="137.16"/>
 <instance part="GND29" gate="1" x="281.94" y="99.06"/>
@@ -13196,6 +13201,13 @@ Metric Code Size 5664</description>
 <instance part="D201" gate="G$1" x="43.18" y="38.1"/>
 <instance part="+3V5" gate="G$1" x="50.8" y="43.18"/>
 <instance part="+3V6" gate="G$1" x="38.1" y="48.26"/>
+<instance part="P+18" gate="G$1" x="198.12" y="-12.7"/>
+<instance part="C301" gate="G$1" x="78.74" y="2.54"/>
+<instance part="C501" gate="G$1" x="104.14" y="2.54"/>
+<instance part="GND53" gate="1" x="91.44" y="-15.24" rot="MR0"/>
+<instance part="GND54" gate="1" x="116.84" y="-15.24" rot="MR0"/>
+<instance part="GND55" gate="1" x="78.74" y="17.78" rot="MR180"/>
+<instance part="GND56" gate="1" x="104.14" y="17.78" rot="MR180"/>
 </instances>
 <busses>
 </busses>
@@ -13573,6 +13585,26 @@ Metric Code Size 5664</description>
 <wire x1="38.1" y1="38.1" x2="35.56" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="38.1" x2="35.56" y2="35.56" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="C300" gate="G$1" pin="2"/>
+<pinref part="GND53" gate="1" pin="GND"/>
+<wire x1="91.44" y1="-12.7" x2="91.44" y2="-2.54" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C500" gate="G$1" pin="2"/>
+<pinref part="GND54" gate="1" pin="GND"/>
+<wire x1="116.84" y1="-12.7" x2="116.84" y2="-2.54" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C301" gate="G$1" pin="1"/>
+<pinref part="GND55" gate="1" pin="GND"/>
+<wire x1="78.74" y1="15.24" x2="78.74" y2="5.08" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C501" gate="G$1" pin="1"/>
+<pinref part="GND56" gate="1" pin="GND"/>
+<wire x1="104.14" y1="15.24" x2="104.14" y2="5.08" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -13918,33 +13950,6 @@ Metric Code Size 5664</description>
 <junction x="43.18" y="50.8"/>
 </segment>
 </net>
-<net name="VMID" class="0">
-<segment>
-<pinref part="C102" gate="G$1" pin="1"/>
-<wire x1="66.04" y1="10.16" x2="66.04" y2="5.08" width="0.1524" layer="91"/>
-<wire x1="66.04" y1="10.16" x2="50.8" y2="10.16" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="10.16" x2="50.8" y2="2.54" width="0.1524" layer="91"/>
-<pinref part="P+12" gate="G$1" pin="VCC/2"/>
-<wire x1="66.04" y1="10.16" x2="66.04" y2="15.24" width="0.1524" layer="91"/>
-<junction x="66.04" y="10.16"/>
-<pinref part="C103" gate="G$1" pin="1"/>
-</segment>
-<segment>
-<wire x1="50.8" y1="187.96" x2="50.8" y2="182.88" width="0.1524" layer="91"/>
-<pinref part="P+10" gate="G$1" pin="VCC/2"/>
-<pinref part="R303" gate="G$1" pin="2"/>
-<wire x1="53.34" y1="182.88" x2="50.8" y2="182.88" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="V" gate="G$1" pin="1"/>
-<wire x1="200.66" y1="-20.32" x2="198.12" y2="-20.32" width="0.1524" layer="91"/>
-<label x="185.42" y="-20.32" size="1.778" layer="95"/>
-<pinref part="VMID" gate="G$1" pin="VCC/2"/>
-<wire x1="198.12" y1="-20.32" x2="185.42" y2="-20.32" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="-20.32" x2="198.12" y2="-15.24" width="0.1524" layer="91"/>
-<junction x="198.12" y="-20.32"/>
-</segment>
-</net>
 <net name="N$39" class="0">
 <segment>
 <pinref part="R406" gate="G$1" pin="1"/>
@@ -14083,13 +14088,13 @@ Metric Code Size 5664</description>
 <pinref part="F2" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<wire x1="78.74" y1="17.78" x2="78.74" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="17.78" x2="86.36" y2="12.7" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="P" pin="V+"/>
 <pinref part="C300" gate="G$1" pin="1"/>
-<wire x1="78.74" y1="12.7" x2="78.74" y2="10.16" width="0.1524" layer="91"/>
-<wire x1="78.74" y1="12.7" x2="83.82" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="83.82" y1="12.7" x2="83.82" y2="5.08" width="0.1524" layer="91"/>
-<junction x="78.74" y="12.7"/>
+<wire x1="86.36" y1="12.7" x2="86.36" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="12.7" x2="91.44" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="12.7" x2="91.44" y2="5.08" width="0.1524" layer="91"/>
+<junction x="86.36" y="12.7"/>
 <pinref part="P+6" gate="1" pin="+12V"/>
 </segment>
 <segment>
@@ -14100,12 +14105,12 @@ Metric Code Size 5664</description>
 <segment>
 <pinref part="IC2" gate="P" pin="V+"/>
 <pinref part="P+11" gate="1" pin="+12V"/>
-<wire x1="96.52" y1="17.78" x2="96.52" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="17.78" x2="111.76" y2="12.7" width="0.1524" layer="91"/>
 <pinref part="C500" gate="G$1" pin="1"/>
-<wire x1="96.52" y1="12.7" x2="96.52" y2="10.16" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="12.7" x2="101.6" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="12.7" x2="101.6" y2="5.08" width="0.1524" layer="91"/>
-<junction x="96.52" y="12.7"/>
+<wire x1="111.76" y1="12.7" x2="111.76" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="12.7" x2="116.84" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="12.7" x2="116.84" y2="5.08" width="0.1524" layer="91"/>
+<junction x="111.76" y="12.7"/>
 </segment>
 <segment>
 <wire x1="289.56" y1="157.48" x2="289.56" y2="160.02" width="0.1524" layer="91"/>
@@ -14145,14 +14150,14 @@ Metric Code Size 5664</description>
 <pinref part="P-2" gate="1" pin="-12V"/>
 </segment>
 <segment>
-<wire x1="78.74" y1="-12.7" x2="78.74" y2="-10.16" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="P" pin="V-"/>
-<pinref part="C300" gate="G$1" pin="2"/>
-<wire x1="78.74" y1="-10.16" x2="78.74" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="78.74" y1="-10.16" x2="83.82" y2="-10.16" width="0.1524" layer="91"/>
-<wire x1="83.82" y1="-10.16" x2="83.82" y2="-2.54" width="0.1524" layer="91"/>
-<junction x="78.74" y="-10.16"/>
+<wire x1="86.36" y1="-12.7" x2="86.36" y2="-10.16" width="0.1524" layer="91"/>
 <pinref part="P-1" gate="1" pin="-12V"/>
+<pinref part="C301" gate="G$1" pin="2"/>
+<wire x1="86.36" y1="-10.16" x2="86.36" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="-10.16" x2="78.74" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="-10.16" x2="78.74" y2="-2.54" width="0.1524" layer="91"/>
+<junction x="86.36" y="-10.16"/>
 </segment>
 <segment>
 <pinref part="R403" gate="G$1" pin="1"/>
@@ -14175,12 +14180,12 @@ Metric Code Size 5664</description>
 <segment>
 <pinref part="IC2" gate="P" pin="V-"/>
 <pinref part="P-6" gate="1" pin="-12V"/>
-<wire x1="96.52" y1="-12.7" x2="96.52" y2="-10.16" width="0.1524" layer="91"/>
-<pinref part="C500" gate="G$1" pin="2"/>
-<wire x1="96.52" y1="-10.16" x2="96.52" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="-10.16" x2="101.6" y2="-10.16" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="-10.16" x2="101.6" y2="-2.54" width="0.1524" layer="91"/>
-<junction x="96.52" y="-10.16"/>
+<wire x1="111.76" y1="-12.7" x2="111.76" y2="-7.62" width="0.1524" layer="91"/>
+<pinref part="C501" gate="G$1" pin="2"/>
+<wire x1="111.76" y1="-7.62" x2="111.76" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="-7.62" x2="104.14" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="-7.62" x2="104.14" y2="-2.54" width="0.1524" layer="91"/>
+<junction x="111.76" y="-7.62"/>
 </segment>
 <segment>
 <pinref part="R602" gate="G$1" pin="1"/>
@@ -14350,6 +14355,28 @@ Metric Code Size 5664</description>
 <pinref part="P+2" gate="G$1" pin="VCC/2"/>
 <wire x1="53.34" y1="233.68" x2="50.8" y2="233.68" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="233.68" x2="50.8" y2="238.76" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="VMID" gate="G$1" pin="1"/>
+<wire x1="200.66" y1="-20.32" x2="198.12" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="-20.32" x2="198.12" y2="-15.24" width="0.1524" layer="91"/>
+<pinref part="P+18" gate="G$1" pin="VCC/2"/>
+</segment>
+<segment>
+<pinref part="R303" gate="G$1" pin="2"/>
+<pinref part="P+10" gate="G$1" pin="VCC/2"/>
+<wire x1="53.34" y1="182.88" x2="50.8" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="182.88" x2="50.8" y2="187.96" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C102" gate="G$1" pin="1"/>
+<wire x1="66.04" y1="10.16" x2="66.04" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="10.16" x2="50.8" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="10.16" x2="50.8" y2="2.54" width="0.1524" layer="91"/>
+<pinref part="C103" gate="G$1" pin="1"/>
+<pinref part="P+12" gate="G$1" pin="VCC/2"/>
+<wire x1="66.04" y1="10.16" x2="66.04" y2="15.24" width="0.1524" layer="91"/>
+<junction x="66.04" y="10.16"/>
 </segment>
 </net>
 <net name="N$2" class="0">
