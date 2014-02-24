@@ -12856,7 +12856,7 @@ Metric Code Size 5664</description>
 <part name="R502" library="Rebel" deviceset="R-EU_" device="0603" value="240k"/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
 <part name="R503" library="Rebel" deviceset="R-EU_" device="0603" value="68k"/>
-<part name="R504" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
+<part name="R504" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R505" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="P-6" library="supply1" deviceset="-12V" device=""/>
 <part name="P+11" library="supply1" deviceset="+12V" device=""/>
@@ -12871,7 +12871,7 @@ Metric Code Size 5664</description>
 <part name="R602" library="Rebel" deviceset="R-EU_" device="0603" value="240k"/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 <part name="R603" library="Rebel" deviceset="R-EU_" device="0603" value="68k"/>
-<part name="R604" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
+<part name="R604" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R605" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
 <part name="GND40" library="supply1" deviceset="GND" device=""/>
@@ -12883,7 +12883,7 @@ Metric Code Size 5664</description>
 <part name="R702" library="Rebel" deviceset="R-EU_" device="0603" value="240k"/>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
 <part name="R703" library="Rebel" deviceset="R-EU_" device="0603" value="68k"/>
-<part name="R704" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
+<part name="R704" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R705" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="GND44" library="supply1" deviceset="GND" device=""/>
 <part name="GND45" library="supply1" deviceset="GND" device=""/>
@@ -12895,7 +12895,7 @@ Metric Code Size 5664</description>
 <part name="R802" library="Rebel" deviceset="R-EU_" device="0603" value="240k"/>
 <part name="GND47" library="supply1" deviceset="GND" device=""/>
 <part name="R803" library="Rebel" deviceset="R-EU_" device="0603" value="68k"/>
-<part name="R804" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
+<part name="R804" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R805" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R904" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R905" library="Rebel" deviceset="R-EU_" device="0603" value="1M"/>
