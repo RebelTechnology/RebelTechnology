@@ -12911,7 +12911,7 @@ Metric Code Size 5664</description>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="P+16" library="supply1" deviceset="+12V" device=""/>
-<part name="DFU" library="SparkFun" deviceset="M02" device="PTH"/>
+<part name="JP2" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="GND49" library="supply1" deviceset="GND" device=""/>
 <part name="X1" library="SparkFun" deviceset="USB" device="PTH-VERTICAL"/>
 <part name="R101" library="Rebel" deviceset="R-EU_" device="0603" value="22R"/>
@@ -13161,7 +13161,7 @@ Metric Code Size 5664</description>
 <instance part="GND26" gate="1" x="-10.16" y="121.92" rot="MR0"/>
 <instance part="GND27" gate="1" x="0" y="121.92" rot="MR0"/>
 <instance part="P+16" gate="1" x="-10.16" y="172.72"/>
-<instance part="DFU" gate="G$1" x="144.78" y="-22.86"/>
+<instance part="JP2" gate="G$1" x="144.78" y="-22.86"/>
 <instance part="GND49" gate="1" x="154.94" y="-30.48"/>
 <instance part="X1" gate="G$1" x="205.74" y="-58.42"/>
 <instance part="R101" gate="G$1" x="195.58" y="-50.8" rot="MR180"/>
@@ -13516,7 +13516,7 @@ Metric Code Size 5664</description>
 <wire x1="0" y1="127" x2="0" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="DFU" gate="G$1" pin="1"/>
+<pinref part="JP2" gate="G$1" pin="1"/>
 <pinref part="GND49" gate="1" pin="GND"/>
 <wire x1="152.4" y1="-22.86" x2="154.94" y2="-22.86" width="0.1524" layer="91"/>
 <wire x1="154.94" y1="-22.86" x2="154.94" y2="-27.94" width="0.1524" layer="91"/>
@@ -14248,7 +14248,7 @@ Metric Code Size 5664</description>
 <wire x1="152.4" y1="30.48" x2="167.64" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="DFU" gate="G$1" pin="2"/>
+<pinref part="JP2" gate="G$1" pin="2"/>
 <wire x1="152.4" y1="-20.32" x2="167.64" y2="-20.32" width="0.1524" layer="91"/>
 <label x="157.48" y="-20.32" size="1.778" layer="95"/>
 </segment>
