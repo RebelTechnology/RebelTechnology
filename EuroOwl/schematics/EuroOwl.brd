@@ -8,12 +8,12 @@
 </settings>
 <grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.0125" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="2" name="Ground" color="9" fill="3" visible="no" active="no"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Power" color="12" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
@@ -1987,8 +1987,12 @@ chip</description>
 <attribute name="VALUE" x="26.9875" y="28.8925" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="U$1" library="SWITCH-5GTH9" package="5GTH9" value="5GTH9" x="50.8" y="44.45" locked="yes" rot="R180"/>
-<element name="R203" library="Rebel" package="0603" value="100R" x="29.21" y="3.81"/>
-<element name="R202" library="Rebel" package="0603" value="100R" x="29.21" y="8.89"/>
+<element name="R203" library="Rebel" package="0603" value="100R" x="29.21" y="3.81" smashed="yes">
+<attribute name="NAME" x="27.051" y="4.572" size="1.016" layer="25"/>
+</element>
+<element name="R202" library="Rebel" package="0603" value="100R" x="29.21" y="8.89" smashed="yes">
+<attribute name="NAME" x="27.051" y="9.652" size="1.016" layer="25"/>
+</element>
 <element name="HP" library="SparkFun" package="1X02" value="" x="77.1525" y="70.8025" smashed="yes" rot="R90">
 <attribute name="NAME" x="80.0862" y="71.0438" size="1.27" layer="25" font="vector" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="80.3275" y="69.5325" size="1.27" layer="27" rot="R90"/>
@@ -2001,28 +2005,52 @@ chip</description>
 <attribute name="NAME" x="80.0862" y="75.4888" size="1.27" layer="25" font="vector" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="80.3275" y="74.6125" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="R304" library="Rebel" package="0603" value="100k" x="63.5" y="50.8"/>
+<element name="R304" library="Rebel" package="0603" value="100k" x="63.5" y="50.8" smashed="yes">
+<attribute name="NAME" x="61.341" y="51.562" size="1.016" layer="25"/>
+</element>
 <element name="C102" library="resistor" package="C0603" value="100n" x="59.69" y="45.72" smashed="yes" rot="R180">
-<attribute name="NAME" x="61.849" y="48.514" size="1.27" layer="25" ratio="10" rot="R180"/>
+<attribute name="NAME" x="57.8485" y="46.4185" size="1.016" layer="25" ratio="10"/>
 <attribute name="VALUE" x="63.119" y="48.514" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
-<element name="R306" library="Rebel" package="0603" value="33k" x="63.5" y="53.34" rot="R180"/>
-<element name="R300" library="Rebel" package="0603" value="100k" x="63.5" y="48.26" rot="R180"/>
+<element name="R306" library="Rebel" package="0603" value="33k" x="63.5" y="53.34" smashed="yes" rot="R180">
+<attribute name="NAME" x="61.341" y="54.102" size="1.016" layer="25"/>
+</element>
+<element name="R300" library="Rebel" package="0603" value="100k" x="63.5" y="48.26" smashed="yes" rot="R180">
+<attribute name="NAME" x="62.9285" y="49.022" size="1.016" layer="25"/>
+</element>
 <element name="IC1" library="adafruit" package="SO14" value="QUAD_OPAMPD" x="71.12" y="45.72" smashed="yes" rot="R270">
-<attribute name="NAME" x="69.6595" y="51.4985" size="1.27" layer="25" ratio="10"/>
+<attribute name="NAME" x="71.374" y="45.212" size="1.016" layer="25" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="70.485" y="52.451" size="1.27" layer="27" ratio="10" rot="R270"/>
 </element>
-<element name="R404" library="Rebel" package="0603" value="3k3" x="63.5" y="38.1"/>
-<element name="R406" library="Rebel" package="0603" value="100R" x="63.5" y="35.56" rot="R180"/>
-<element name="R303" library="Rebel" package="0603" value="33k" x="78.74" y="45.72"/>
-<element name="R301" library="Rebel" package="0603" value="100k" x="78.74" y="43.18"/>
-<element name="R400" library="Rebel" package="0603" value="1k" x="63.5" y="43.18"/>
-<element name="R405" library="Rebel" package="0603" value="3k3" x="78.74" y="53.34" rot="R180"/>
-<element name="R407" library="Rebel" package="0603" value="100R" x="78.74" y="55.88"/>
-<element name="R403" library="Rebel" package="0603" value="6k8" x="78.74" y="50.8"/>
-<element name="R401" library="Rebel" package="0603" value="1k" x="78.74" y="48.26" rot="R180"/>
+<element name="R404" library="Rebel" package="0603" value="3k3" x="63.5" y="38.1" smashed="yes">
+<attribute name="NAME" x="62.611" y="38.862" size="1.016" layer="25"/>
+</element>
+<element name="R406" library="Rebel" package="0603" value="100R" x="63.5" y="35.56" smashed="yes" rot="R180">
+<attribute name="NAME" x="62.611" y="36.322" size="1.016" layer="25"/>
+</element>
+<element name="R303" library="Rebel" package="0603" value="33k" x="78.74" y="45.72" smashed="yes">
+<attribute name="NAME" x="77.851" y="46.482" size="1.016" layer="25"/>
+</element>
+<element name="R301" library="Rebel" package="0603" value="100k" x="78.74" y="43.18" smashed="yes">
+<attribute name="NAME" x="77.851" y="43.942" size="1.016" layer="25"/>
+</element>
+<element name="R400" library="Rebel" package="0603" value="1k" x="63.5" y="43.18" smashed="yes">
+<attribute name="NAME" x="62.611" y="43.942" size="1.016" layer="25"/>
+</element>
+<element name="R405" library="Rebel" package="0603" value="3k3" x="78.74" y="53.34" smashed="yes" rot="R180">
+<attribute name="NAME" x="77.851" y="54.102" size="1.016" layer="25"/>
+</element>
+<element name="R407" library="Rebel" package="0603" value="100R" x="78.74" y="55.88" smashed="yes">
+<attribute name="NAME" x="75.946" y="56.642" size="1.016" layer="25"/>
+</element>
+<element name="R403" library="Rebel" package="0603" value="6k8" x="78.74" y="50.8" smashed="yes">
+<attribute name="NAME" x="77.851" y="51.562" size="1.016" layer="25"/>
+</element>
+<element name="R401" library="Rebel" package="0603" value="1k" x="78.74" y="48.26" smashed="yes" rot="R180">
+<attribute name="NAME" x="77.851" y="49.022" size="1.016" layer="25"/>
+</element>
 <element name="C300" library="resistor" package="C0603" value="100n" x="71.12" y="50.8" smashed="yes">
-<attribute name="NAME" x="68.6435" y="48.006" size="1.27" layer="25" ratio="10"/>
+<attribute name="NAME" x="72.136" y="50.2285" size="1.016" layer="25" ratio="10"/>
 <attribute name="VALUE" x="67.691" y="48.006" size="1.27" layer="27" ratio="10"/>
 </element>
 <element name="JP4" library="SparkFun" package="1X03" value="" x="96.8375" y="86.36" smashed="yes" rot="R270">
@@ -2042,7 +2070,9 @@ chip</description>
 <element name="JP9" library="SparkFun" package="1X04" value="" x="23.8125" y="47.9425" smashed="yes" rot="R270">
 <attribute name="VALUE" x="20.6375" y="49.2125" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="IN_L" library="Rebel" package="PJ-301B" value="JACK-PJ-301B" x="10.16" y="20.32"/>
+<element name="IN_L" library="Rebel" package="PJ-301B" value="JACK-PJ-301B" x="10.16" y="20.32" smashed="yes">
+<attribute name="NAME" x="5.08" y="27.94" size="1.27" layer="25"/>
+</element>
 <element name="IN_R" library="Rebel" package="PJ-301B" value="JACK-PJ-301B" x="10.16" y="7.62"/>
 <element name="OUT_L" library="Rebel" package="PJ-301B" value="JACK-PJ-301B" x="91.44" y="20.32"/>
 <element name="OUT_R" library="Rebel" package="PJ-301B" value="JACK-PJ-301B" x="91.44" y="7.62"/>
@@ -2064,74 +2094,207 @@ chip</description>
 <element name="CV_D" library="Rebel" package="PJ-301B" value="JACK-PJ-301B" x="69.85" y="20.32"/>
 <element name="IN_D" library="Rebel" package="PJ-301B" value="JACK-PJ-301B" x="38.1" y="7.62"/>
 <element name="OUT_D" library="Rebel" package="PJ-301B" value="JACK-PJ-301B" x="63.5" y="7.62"/>
-<element name="R308" library="Rebel" package="0603" value="100R" x="67.31" y="53.34" rot="R180"/>
-<element name="R309" library="Rebel" package="0603" value="100R" x="74.93" y="38.1"/>
-<element name="R307" library="Rebel" package="0603" value="33k" x="78.74" y="38.1"/>
-<element name="R305" library="Rebel" package="0603" value="100k" x="78.74" y="40.64"/>
-<element name="R310" library="Rebel" package="0603" value="100R" x="67.31" y="55.88"/>
-<element name="R311" library="Rebel" package="0603" value="100R" x="74.93" y="35.56" rot="R180"/>
-<element name="R402" library="Rebel" package="0603" value="6k8" x="63.5" y="40.64" rot="R180"/>
-<element name="R302" library="Rebel" package="0603" value="33k" x="63.5" y="45.72" rot="R180"/>
-<element name="IC2" library="adafruit" package="SO14" value="QUAD_OPAMPD" x="10.16" y="48.26" rot="R270"/>
-<element name="R501" library="Rebel" package="0603" value="100k" x="5.08" y="62.23" rot="R180"/>
-<element name="R500" library="Rebel" package="0603" value="240k" x="5.08" y="64.77" rot="R180"/>
-<element name="R502" library="Rebel" package="0603" value="240k" x="2.54" y="44.45"/>
-<element name="R503" library="Rebel" package="0603" value="68k" x="2.54" y="46.99" rot="R180"/>
-<element name="R504" library="Rebel" package="0603" value="1k" x="2.54" y="49.53"/>
-<element name="R505" library="Rebel" package="0603" value="100R" x="2.54" y="52.07"/>
-<element name="C500" library="resistor" package="C0603" value="100n" x="10.16" y="53.34"/>
-<element name="R601" library="Rebel" package="0603" value="100k" x="30.48" y="62.23" rot="R180"/>
-<element name="R600" library="Rebel" package="0603" value="240k" x="30.48" y="64.77" rot="R180"/>
-<element name="R602" library="Rebel" package="0603" value="240k" x="2.54" y="41.91"/>
-<element name="R603" library="Rebel" package="0603" value="68k" x="2.54" y="39.37"/>
-<element name="R604" library="Rebel" package="0603" value="1k" x="2.54" y="36.83"/>
-<element name="R605" library="Rebel" package="0603" value="100R" x="2.54" y="34.29"/>
-<element name="R701" library="Rebel" package="0603" value="100k" x="55.88" y="62.23" rot="R180"/>
-<element name="R700" library="Rebel" package="0603" value="240k" x="55.88" y="64.77" rot="R180"/>
-<element name="R702" library="Rebel" package="0603" value="240k" x="17.78" y="41.91" rot="R180"/>
-<element name="R703" library="Rebel" package="0603" value="68k" x="17.78" y="39.37" rot="R180"/>
-<element name="R704" library="Rebel" package="0603" value="1k" x="17.78" y="36.83"/>
-<element name="R705" library="Rebel" package="0603" value="100R" x="17.78" y="34.29" rot="R180"/>
-<element name="R801" library="Rebel" package="0603" value="100k" x="81.28" y="62.23" rot="R180"/>
-<element name="R800" library="Rebel" package="0603" value="240k" x="81.28" y="64.77" rot="R180"/>
-<element name="R802" library="Rebel" package="0603" value="240k" x="17.78" y="44.45"/>
-<element name="R803" library="Rebel" package="0603" value="68k" x="17.78" y="46.99"/>
-<element name="R804" library="Rebel" package="0603" value="1k" x="17.78" y="49.53" rot="R180"/>
-<element name="R805" library="Rebel" package="0603" value="100R" x="17.78" y="52.07" rot="R180"/>
-<element name="R904" library="Rebel" package="0603" value="100k" x="21.59" y="22.86" rot="R180"/>
-<element name="R905" library="Rebel" package="0603" value="1M" x="21.59" y="20.32" rot="R180"/>
-<element name="R906" library="Rebel" package="0603" value="10k" x="21.59" y="17.78"/>
-<element name="R200" library="Rebel" package="0603" value="100R" x="29.21" y="11.43" rot="R180"/>
-<element name="R201" library="Rebel" package="0603" value="100R" x="29.21" y="6.35" rot="R180"/>
-<element name="R900" library="Rebel" package="0603" value="1k" x="74.93" y="6.35"/>
-<element name="R902" library="Rebel" package="0603" value="100R\" x="74.93" y="11.43"/>
-<element name="R903" library="Rebel" package="0603" value="1k" x="74.93" y="8.89" rot="R180"/>
-<element name="R901" library="Rebel" package="0603" value="1k" x="80.01" y="11.43"/>
+<element name="R308" library="Rebel" package="0603" value="100R" x="67.31" y="53.34" smashed="yes" rot="R180">
+<attribute name="NAME" x="65.786" y="54.102" size="1.016" layer="25"/>
+</element>
+<element name="R309" library="Rebel" package="0603" value="100R" x="74.93" y="38.1" smashed="yes">
+<attribute name="NAME" x="73.406" y="38.862" size="1.016" layer="25"/>
+</element>
+<element name="R307" library="Rebel" package="0603" value="33k" x="78.74" y="38.1" smashed="yes">
+<attribute name="NAME" x="77.851" y="38.862" size="1.016" layer="25"/>
+</element>
+<element name="R305" library="Rebel" package="0603" value="100k" x="78.74" y="40.64" smashed="yes">
+<attribute name="NAME" x="77.851" y="41.402" size="1.016" layer="25"/>
+</element>
+<element name="R310" library="Rebel" package="0603" value="100R" x="67.31" y="55.88" smashed="yes">
+<attribute name="NAME" x="65.786" y="56.642" size="1.016" layer="25"/>
+</element>
+<element name="R311" library="Rebel" package="0603" value="100R" x="74.93" y="35.56" smashed="yes" rot="R180">
+<attribute name="NAME" x="73.406" y="36.322" size="1.016" layer="25"/>
+</element>
+<element name="R402" library="Rebel" package="0603" value="6k8" x="63.5" y="40.64" smashed="yes" rot="R180">
+<attribute name="NAME" x="62.611" y="41.402" size="1.016" layer="25"/>
+</element>
+<element name="R302" library="Rebel" package="0603" value="33k" x="63.5" y="45.72" smashed="yes" rot="R180">
+<attribute name="NAME" x="62.611" y="46.482" size="1.016" layer="25"/>
+</element>
+<element name="IC2" library="adafruit" package="SO14" value="QUAD_OPAMPD" x="10.16" y="48.26" smashed="yes" rot="R270">
+<attribute name="NAME" x="10.668" y="46.99" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="8.255" y="42.418" size="1.27" layer="27"/>
+</element>
+<element name="R501" library="Rebel" package="0603" value="100k" x="5.08" y="62.23" smashed="yes" rot="R180">
+<attribute name="NAME" x="3.556" y="62.992" size="1.016" layer="25"/>
+</element>
+<element name="R500" library="Rebel" package="0603" value="240k" x="5.08" y="64.77" smashed="yes" rot="R180">
+<attribute name="NAME" x="3.556" y="65.532" size="1.016" layer="25"/>
+</element>
+<element name="R502" library="Rebel" package="0603" value="240k" x="2.54" y="44.45" smashed="yes">
+<attribute name="NAME" x="2.286" y="45.212" size="1.016" layer="25"/>
+</element>
+<element name="R503" library="Rebel" package="0603" value="68k" x="2.54" y="46.99" smashed="yes" rot="R180">
+<attribute name="NAME" x="2.286" y="47.752" size="1.016" layer="25"/>
+</element>
+<element name="R504" library="Rebel" package="0603" value="1k" x="2.54" y="49.53" smashed="yes">
+<attribute name="NAME" x="2.286" y="50.292" size="1.016" layer="25"/>
+</element>
+<element name="R505" library="Rebel" package="0603" value="100R" x="2.54" y="52.07" smashed="yes">
+<attribute name="NAME" x="2.286" y="52.832" size="1.016" layer="25"/>
+</element>
+<element name="C500" library="resistor" package="C0603" value="100n" x="10.16" y="53.34" smashed="yes">
+<attribute name="NAME" x="9.271" y="54.102" size="1.016" layer="25"/>
+<attribute name="VALUE" x="9.271" y="51.308" size="1.27" layer="27"/>
+</element>
+<element name="R601" library="Rebel" package="0603" value="100k" x="30.48" y="62.23" smashed="yes" rot="R180">
+<attribute name="NAME" x="32.639" y="61.468" size="1.016" layer="25" rot="R180"/>
+</element>
+<element name="R600" library="Rebel" package="0603" value="240k" x="30.48" y="64.77" smashed="yes" rot="R180">
+<attribute name="NAME" x="32.639" y="64.008" size="1.016" layer="25" rot="R180"/>
+</element>
+<element name="R602" library="Rebel" package="0603" value="240k" x="2.54" y="41.91" smashed="yes">
+<attribute name="NAME" x="1.016" y="42.672" size="1.016" layer="25"/>
+</element>
+<element name="R603" library="Rebel" package="0603" value="68k" x="2.54" y="39.37" smashed="yes">
+<attribute name="NAME" x="1.016" y="40.132" size="1.016" layer="25"/>
+</element>
+<element name="R604" library="Rebel" package="0603" value="1k" x="2.54" y="36.83" smashed="yes">
+<attribute name="NAME" x="1.016" y="37.592" size="1.016" layer="25"/>
+</element>
+<element name="R605" library="Rebel" package="0603" value="100R" x="2.54" y="34.29" smashed="yes">
+<attribute name="NAME" x="1.016" y="35.052" size="1.016" layer="25"/>
+</element>
+<element name="R701" library="Rebel" package="0603" value="100k" x="55.88" y="62.23" smashed="yes" rot="R180">
+<attribute name="NAME" x="58.039" y="61.468" size="1.016" layer="25" rot="R180"/>
+</element>
+<element name="R700" library="Rebel" package="0603" value="240k" x="55.88" y="64.77" smashed="yes" rot="R180">
+<attribute name="NAME" x="58.039" y="64.008" size="1.016" layer="25" rot="R180"/>
+</element>
+<element name="R702" library="Rebel" package="0603" value="240k" x="17.78" y="41.91" smashed="yes" rot="R180">
+<attribute name="NAME" x="16.256" y="42.672" size="1.016" layer="25"/>
+</element>
+<element name="R703" library="Rebel" package="0603" value="68k" x="17.78" y="39.37" smashed="yes" rot="R180">
+<attribute name="NAME" x="16.256" y="40.132" size="1.016" layer="25"/>
+</element>
+<element name="R704" library="Rebel" package="0603" value="1k" x="17.78" y="36.83" smashed="yes">
+<attribute name="NAME" x="16.256" y="37.592" size="1.016" layer="25"/>
+</element>
+<element name="R705" library="Rebel" package="0603" value="100R" x="17.78" y="34.29" smashed="yes" rot="R180">
+<attribute name="NAME" x="16.256" y="35.052" size="1.016" layer="25"/>
+</element>
+<element name="R801" library="Rebel" package="0603" value="100k" x="81.28" y="62.23" smashed="yes" rot="R180">
+<attribute name="NAME" x="83.439" y="61.468" size="1.016" layer="25" rot="R180"/>
+</element>
+<element name="R800" library="Rebel" package="0603" value="240k" x="81.28" y="64.77" smashed="yes" rot="R180">
+<attribute name="NAME" x="83.439" y="64.008" size="1.016" layer="25" rot="R180"/>
+</element>
+<element name="R802" library="Rebel" package="0603" value="240k" x="17.78" y="44.45" smashed="yes">
+<attribute name="NAME" x="16.256" y="45.212" size="1.016" layer="25"/>
+</element>
+<element name="R803" library="Rebel" package="0603" value="68k" x="17.78" y="46.99" smashed="yes">
+<attribute name="NAME" x="16.256" y="47.752" size="1.016" layer="25"/>
+</element>
+<element name="R804" library="Rebel" package="0603" value="1k" x="17.78" y="49.53" smashed="yes" rot="R180">
+<attribute name="NAME" x="16.256" y="50.292" size="1.016" layer="25"/>
+</element>
+<element name="R805" library="Rebel" package="0603" value="100R" x="17.78" y="52.07" smashed="yes" rot="R180">
+<attribute name="NAME" x="16.256" y="52.832" size="1.016" layer="25"/>
+</element>
+<element name="R904" library="Rebel" package="0603" value="100k" x="21.59" y="22.86" smashed="yes" rot="R180">
+<attribute name="NAME" x="20.701" y="23.622" size="1.016" layer="25"/>
+</element>
+<element name="R905" library="Rebel" package="0603" value="1M" x="21.59" y="20.32" smashed="yes" rot="R180">
+<attribute name="NAME" x="20.701" y="21.082" size="1.016" layer="25"/>
+</element>
+<element name="R906" library="Rebel" package="0603" value="10k" x="21.59" y="17.78" smashed="yes">
+<attribute name="NAME" x="20.701" y="18.542" size="1.016" layer="25"/>
+</element>
+<element name="R200" library="Rebel" package="0603" value="100R" x="29.21" y="11.43" smashed="yes" rot="R180">
+<attribute name="NAME" x="27.051" y="12.192" size="1.016" layer="25"/>
+</element>
+<element name="R201" library="Rebel" package="0603" value="100R" x="29.21" y="6.35" smashed="yes" rot="R180">
+<attribute name="NAME" x="27.051" y="7.112" size="1.016" layer="25"/>
+</element>
+<element name="R900" library="Rebel" package="0603" value="1k" x="74.93" y="6.35" smashed="yes">
+<attribute name="NAME" x="73.0885" y="7.112" size="1.016" layer="25"/>
+</element>
+<element name="R902" library="Rebel" package="0603" value="100R\" x="74.93" y="11.43" smashed="yes">
+<attribute name="NAME" x="73.0885" y="12.192" size="1.016" layer="25"/>
+</element>
+<element name="R903" library="Rebel" package="0603" value="1k" x="74.93" y="8.89" smashed="yes" rot="R180">
+<attribute name="NAME" x="73.0885" y="9.652" size="1.016" layer="25"/>
+</element>
+<element name="R901" library="Rebel" package="0603" value="1k" x="80.01" y="11.43" smashed="yes">
+<attribute name="NAME" x="78.1685" y="12.192" size="1.016" layer="25"/>
+</element>
 <element name="JP2" library="SparkFun" package="1X02" value="" x="21.2725" y="47.9425" smashed="yes" rot="R270">
 <attribute name="NAME" x="21.9837" y="49.4538" size="1.27" layer="25" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="18.0975" y="49.2125" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="X1" library="SparkFun" package="USB-B-PTH-VERTICAL" value="USBPTH-VERTICAL" x="50.8" y="32.385"/>
-<element name="R101" library="Rebel" package="0603" value="22R" x="29.21" y="71.12"/>
-<element name="R102" library="Rebel" package="0603" value="22R" x="29.21" y="73.66"/>
-<element name="R103" library="Rebel" package="0603" value="100R" x="29.21" y="76.2"/>
-<element name="Q901" library="transistor" package="SOT23" value="BC846" x="17.78" y="21.59" rot="R180"/>
-<element name="D300" library="diode" package="SOT23" value="BAT54S" x="71.12" y="54.61" rot="R180"/>
-<element name="Q900" library="transistor" package="SOT23" value="BC846" x="80.01" y="7.62"/>
-<element name="D301" library="diode" package="SOT23" value="BAT54S" x="71.12" y="36.83"/>
-<element name="D500" library="diode" package="SOT23" value="BAT54S" x="6.35" y="55.88" rot="R180"/>
-<element name="D600" library="diode" package="SOT23" value="BAT54S" x="6.35" y="35.56"/>
-<element name="D700" library="diode" package="SOT23" value="BAT54S" x="13.97" y="35.56"/>
-<element name="D800" library="diode" package="SOT23" value="BAT54S" x="13.97" y="55.88" rot="R180"/>
+<element name="R101" library="Rebel" package="0603" value="22R" x="29.21" y="71.12" smashed="yes">
+<attribute name="NAME" x="28.321" y="71.882" size="1.016" layer="25"/>
+</element>
+<element name="R102" library="Rebel" package="0603" value="22R" x="29.21" y="73.66" smashed="yes">
+<attribute name="NAME" x="28.321" y="74.422" size="1.016" layer="25"/>
+</element>
+<element name="R103" library="Rebel" package="0603" value="100R" x="29.21" y="76.2" smashed="yes">
+<attribute name="NAME" x="28.321" y="76.962" size="1.016" layer="25"/>
+</element>
+<element name="Q901" library="transistor" package="SOT23" value="BC846" x="17.78" y="21.59" smashed="yes" rot="R180">
+<attribute name="NAME" x="16.1925" y="23.1775" size="1.016" layer="25"/>
+<attribute name="VALUE" x="19.685" y="24.765" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="D300" library="diode" package="SOT23" value="BAT54S" x="71.12" y="54.61" smashed="yes" rot="R180">
+<attribute name="NAME" x="69.5325" y="56.1975" size="1.016" layer="25"/>
+<attribute name="VALUE" x="73.025" y="57.785" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="Q900" library="transistor" package="SOT23" value="BC846" x="80.01" y="7.62" smashed="yes">
+<attribute name="NAME" x="78.105" y="9.2075" size="1.016" layer="25"/>
+<attribute name="VALUE" x="78.105" y="4.445" size="1.27" layer="27"/>
+</element>
+<element name="D301" library="diode" package="SOT23" value="BAT54S" x="71.12" y="36.83" smashed="yes">
+<attribute name="NAME" x="69.5325" y="33.9725" size="1.016" layer="25"/>
+<attribute name="VALUE" x="69.215" y="33.655" size="1.27" layer="27"/>
+</element>
+<element name="D500" library="diode" package="SOT23" value="BAT54S" x="6.35" y="55.88" smashed="yes" rot="R180">
+<attribute name="NAME" x="4.7625" y="57.4675" size="1.016" layer="25"/>
+<attribute name="VALUE" x="8.255" y="59.055" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="D600" library="diode" package="SOT23" value="BAT54S" x="6.35" y="35.56" smashed="yes">
+<attribute name="NAME" x="8.255" y="33.9725" size="1.016" layer="25" rot="R180"/>
+<attribute name="VALUE" x="4.445" y="32.385" size="1.27" layer="27"/>
+</element>
+<element name="D700" library="diode" package="SOT23" value="BAT54S" x="13.97" y="35.56" smashed="yes">
+<attribute name="NAME" x="15.875" y="33.9725" size="1.016" layer="25" font="vector" rot="R180"/>
+<attribute name="VALUE" x="12.065" y="32.385" size="1.27" layer="27"/>
+</element>
+<element name="D800" library="diode" package="SOT23" value="BAT54S" x="13.97" y="55.88" smashed="yes" rot="R180">
+<attribute name="NAME" x="12.3825" y="57.4675" size="1.016" layer="25"/>
+<attribute name="VALUE" x="15.875" y="59.055" size="1.27" layer="27" rot="R180"/>
+</element>
 <element name="C100" library="resistor" package="PANASONIC_A" value="10u" x="88.9" y="83.82"/>
 <element name="C101" library="resistor" package="PANASONIC_A" value="10u" x="88.9" y="78.74"/>
 <element name="C104" library="resistor" package="PANASONIC_A" value="10u" x="96.52" y="73.66"/>
 <element name="C105" library="resistor" package="PANASONIC_A" value="10u" x="96.52" y="66.04"/>
-<element name="C103" library="resistor" package="C1206" value="1u" x="83.82" y="45.085"/>
-<element name="D200" library="diode" package="SOT23" value="BAT54S" x="24.13" y="8.89" rot="R270"/>
-<element name="D201" library="diode" package="SOT23" value="BAT54S" x="24.13" y="3.81" rot="R270"/>
-<element name="C301" library="resistor" package="C0603" value="100n" x="10.16" y="43.18" rot="R180"/>
-<element name="C501" library="resistor" package="C0603" value="100n" x="71.12" y="40.64"/>
+<element name="C103" library="resistor" package="C1206" value="1u" x="83.82" y="45.085" smashed="yes">
+<attribute name="NAME" x="82.2325" y="46.228" size="1.016" layer="25"/>
+<attribute name="VALUE" x="82.55" y="42.672" size="1.27" layer="27"/>
+</element>
+<element name="D200" library="diode" package="SOT23" value="BAT54S" x="24.13" y="8.89" smashed="yes" rot="R270">
+<attribute name="NAME" x="22.5425" y="10.4775" size="1.016" layer="25"/>
+<attribute name="VALUE" x="20.955" y="10.795" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="D201" library="diode" package="SOT23" value="BAT54S" x="24.13" y="3.81" smashed="yes" rot="R270">
+<attribute name="NAME" x="22.5425" y="5.3975" size="1.016" layer="25"/>
+<attribute name="VALUE" x="20.955" y="5.715" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="C301" library="resistor" package="C0603" value="100n" x="10.16" y="43.18" smashed="yes" rot="R180">
+<attribute name="NAME" x="11.049" y="42.418" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="11.049" y="45.212" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="C501" library="resistor" package="C0603" value="100n" x="71.12" y="40.64" smashed="yes">
+<attribute name="NAME" x="69.2785" y="38.862" size="1.016" layer="25"/>
+<attribute name="VALUE" x="70.231" y="38.608" size="1.27" layer="27"/>
+</element>
 </elements>
 <signals>
 <signal name="GND">
