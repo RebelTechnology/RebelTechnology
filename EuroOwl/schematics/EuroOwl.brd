@@ -180,7 +180,7 @@
 <wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
 <smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
 <smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<text x="-2.159" y="0.762" size="1.27" layer="25">&gt;NAME</text>
+<text x="0" y="0.762" size="1.016" layer="25" font="vector" align="bottom-center">&gt;NAME</text>
 <rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
 <rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
 <wire x1="-0.762" y1="0.6731" x2="0.762" y2="0.6731" width="0.127" layer="21"/>
@@ -218,7 +218,7 @@
 </package>
 <package name="PJ-301B">
 <description>PF-301B jack layout</description>
-<text x="-5.08" y="7.62" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.175" y="1.27" size="1.27" layer="25" font="vector">&gt;NAME</text>
 <pad name="SHL" x="4.7" y="0" drill="1.5" shape="square"/>
 <pad name="SLV" x="-4.7" y="0" drill="2.5"/>
 <pad name="TIP" x="0" y="4.9" drill="2.5"/>
@@ -2070,13 +2070,13 @@ chip</description>
 <element name="JP9" library="SparkFun" package="1X04" value="" x="23.8125" y="47.9425" smashed="yes" rot="R270">
 <attribute name="VALUE" x="20.6375" y="49.2125" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="IN_L" library="Rebel" package="PJ-301B" value="JACK-PJ-301B" x="10.16" y="20.32" smashed="yes">
-<attribute name="NAME" x="5.08" y="27.94" size="1.27" layer="25"/>
-</element>
+<element name="IN_L" library="Rebel" package="PJ-301B" value="JACK-PJ-301B" x="10.16" y="20.32"/>
 <element name="IN_R" library="Rebel" package="PJ-301B" value="JACK-PJ-301B" x="10.16" y="7.62"/>
 <element name="OUT_L" library="Rebel" package="PJ-301B" value="JACK-PJ-301B" x="91.44" y="20.32"/>
 <element name="OUT_R" library="Rebel" package="PJ-301B" value="JACK-PJ-301B" x="91.44" y="7.62"/>
-<element name="EXP" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="50.8" y="7.62"/>
+<element name="EXP" library="Rebel" package="CON-LUMBERG_1502_03" value="CON-LUMBERG_1502_03" x="50.8" y="7.62" smashed="yes">
+<attribute name="NAME" x="46.1175" y="8.905" size="1.27" layer="25" font="vector"/>
+</element>
 <element name="POT5" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="12.7" y="95.25" locked="yes"/>
 <element name="POT6" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="38.1" y="95.25" locked="yes"/>
 <element name="POT7" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="63.5" y="95.25" locked="yes"/>
@@ -2145,10 +2145,10 @@ chip</description>
 <attribute name="VALUE" x="9.271" y="51.308" size="1.27" layer="27"/>
 </element>
 <element name="R601" library="Rebel" package="0603" value="100k" x="30.48" y="62.23" smashed="yes" rot="R180">
-<attribute name="NAME" x="32.639" y="61.468" size="1.016" layer="25" rot="R180"/>
+<attribute name="NAME" x="28.956" y="62.992" size="1.016" layer="25"/>
 </element>
 <element name="R600" library="Rebel" package="0603" value="240k" x="30.48" y="64.77" smashed="yes" rot="R180">
-<attribute name="NAME" x="32.639" y="64.008" size="1.016" layer="25" rot="R180"/>
+<attribute name="NAME" x="28.956" y="65.532" size="1.016" layer="25"/>
 </element>
 <element name="R602" library="Rebel" package="0603" value="240k" x="2.54" y="41.91" smashed="yes">
 <attribute name="NAME" x="1.016" y="42.672" size="1.016" layer="25"/>
@@ -2163,10 +2163,10 @@ chip</description>
 <attribute name="NAME" x="1.016" y="35.052" size="1.016" layer="25"/>
 </element>
 <element name="R701" library="Rebel" package="0603" value="100k" x="55.88" y="62.23" smashed="yes" rot="R180">
-<attribute name="NAME" x="58.039" y="61.468" size="1.016" layer="25" rot="R180"/>
+<attribute name="NAME" x="54.356" y="62.992" size="1.016" layer="25"/>
 </element>
 <element name="R700" library="Rebel" package="0603" value="240k" x="55.88" y="64.77" smashed="yes" rot="R180">
-<attribute name="NAME" x="58.039" y="64.008" size="1.016" layer="25" rot="R180"/>
+<attribute name="NAME" x="54.356" y="65.532" size="1.016" layer="25"/>
 </element>
 <element name="R702" library="Rebel" package="0603" value="240k" x="17.78" y="41.91" smashed="yes" rot="R180">
 <attribute name="NAME" x="16.256" y="42.672" size="1.016" layer="25"/>
@@ -2181,10 +2181,10 @@ chip</description>
 <attribute name="NAME" x="16.256" y="35.052" size="1.016" layer="25"/>
 </element>
 <element name="R801" library="Rebel" package="0603" value="100k" x="81.28" y="62.23" smashed="yes" rot="R180">
-<attribute name="NAME" x="83.439" y="61.468" size="1.016" layer="25" rot="R180"/>
+<attribute name="NAME" x="79.756" y="62.992" size="1.016" layer="25"/>
 </element>
 <element name="R800" library="Rebel" package="0603" value="240k" x="81.28" y="64.77" smashed="yes" rot="R180">
-<attribute name="NAME" x="83.439" y="64.008" size="1.016" layer="25" rot="R180"/>
+<attribute name="NAME" x="79.756" y="65.532" size="1.016" layer="25"/>
 </element>
 <element name="R802" library="Rebel" package="0603" value="240k" x="17.78" y="44.45" smashed="yes">
 <attribute name="NAME" x="16.256" y="45.212" size="1.016" layer="25"/>

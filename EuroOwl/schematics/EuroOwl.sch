@@ -367,7 +367,7 @@ type 0204, grid 7.5 mm</description>
 </package>
 <package name="PJ-301B">
 <description>PF-301B jack layout</description>
-<text x="-5.08" y="7.62" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.175" y="1.27" size="1.27" layer="25" font="vector">&gt;NAME</text>
 <pad name="SHL" x="4.7" y="0" drill="1.5" shape="square"/>
 <pad name="SLV" x="-4.7" y="0" drill="2.5"/>
 <pad name="TIP" x="0" y="4.9" drill="2.5"/>
@@ -432,7 +432,7 @@ type 0204, grid 7.5 mm</description>
 <wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
 <smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
 <smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<text x="-2.159" y="0.762" size="1.27" layer="25">&gt;NAME</text>
+<text x="0" y="0.762" size="1.016" layer="25" font="vector" align="bottom-center">&gt;NAME</text>
 <rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
 <rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
 <wire x1="-0.762" y1="0.6731" x2="0.762" y2="0.6731" width="0.127" layer="21"/>
