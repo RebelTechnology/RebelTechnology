@@ -3524,11 +3524,9 @@ Standard 1-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <package name="SO14">
 <description>&lt;b&gt;Small Outline Package 14&lt;/b&gt;</description>
 <wire x1="4.305" y1="-1.9" x2="-4.305" y2="-1.9" width="0.2032" layer="51"/>
-<wire x1="-4.305" y1="-1.9" x2="-4.305" y2="-1.4" width="0.2032" layer="51"/>
-<wire x1="-4.305" y1="-1.4" x2="-4.305" y2="1.9" width="0.2032" layer="51"/>
-<wire x1="4.305" y1="-1.4" x2="-4.305" y2="-1.4" width="0.2032" layer="51"/>
-<wire x1="4.305" y1="1.9" x2="4.305" y2="-1.4" width="0.2032" layer="51"/>
-<wire x1="4.305" y1="-1.4" x2="4.305" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="-4.305" y1="-1.9" x2="-4.305" y2="1.9" width="0.2032" layer="21"/>
+<wire x1="4.305" y1="-1.3716" x2="-4.305" y2="-1.3716" width="0.2032" layer="21"/>
+<wire x1="4.305" y1="1.9" x2="4.305" y2="-1.9" width="0.2032" layer="21"/>
 <wire x1="-4.305" y1="1.9" x2="4.305" y2="1.9" width="0.2032" layer="51"/>
 <smd name="2" x="-2.54" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
 <smd name="13" x="-2.54" y="2.6" dx="0.6" dy="2.2" layer="1"/>
@@ -12905,7 +12903,7 @@ Metric Code Size 5664</description>
 <part name="R200" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R201" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R900" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="R902" library="Rebel" deviceset="R-EU_" device="0603" value="100R\"/>
+<part name="R902" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R903" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R901" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
