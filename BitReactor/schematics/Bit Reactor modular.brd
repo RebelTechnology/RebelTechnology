@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.1">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.00625" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.00625" unitdist="inch" unit="mm" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -137,7 +137,7 @@
 <text x="1.905" y="17.78" size="0.8128" layer="21" ratio="15" rot="SR0">R58</text>
 <text x="10.4775" y="16.35125" size="0.8128" layer="21" ratio="15" rot="SR0">R59</text>
 <text x="10.4775" y="19.52625" size="0.8128" layer="21" ratio="15" rot="SR0">R60</text>
-<text x="4.60375" y="16.98625" size="0.8128" layer="21" ratio="15" rot="SR0">R55</text>
+<text x="6.6675" y="16.1925" size="0.8128" layer="21" ratio="15" rot="SR0">R55</text>
 <text x="4.60375" y="18.7325" size="0.8128" layer="21" ratio="15" rot="SR0">R56</text>
 <text x="77.7875" y="13.0175" size="1.016" layer="21" ratio="15" rot="SR0">R24</text>
 <text x="80.48625" y="18.57375" size="1.016" layer="21" ratio="15" rot="SR0">R25</text>
@@ -192,7 +192,7 @@
 <text x="31.59125" y="2.54" size="1.016" layer="21" ratio="15" rot="SR270">F3</text>
 <text x="47.3075" y="19.3675" size="1.016" layer="21" ratio="15" rot="SR0">D4</text>
 <text x="43.18" y="48.73625" size="1.016" layer="21" ratio="15" rot="SR0">D5</text>
-<text x="21.9075" y="2.06375" size="1.016" layer="21" ratio="15" rot="SR0">D1</text>
+<text x="23.495" y="1.11125" size="1.016" layer="21" ratio="15" rot="SR0">D1</text>
 <text x="33.81375" y="0" size="1.016" layer="21" ratio="15" rot="SR0">D2</text>
 <text x="38.735" y="0" size="1.016" layer="21" ratio="15" rot="SR0">D3</text>
 <text x="74.93" y="43.97375" size="1.016" layer="21" ratio="15" rot="SR270">U3</text>
@@ -208,10 +208,10 @@
 <text x="11.27125" y="12.7" size="0.8128" layer="21" ratio="15" rot="SR270">C10</text>
 <text x="41.75125" y="0.79375" size="1.016" layer="21" ratio="15" rot="SR0">R17</text>
 <text x="45.56125" y="44.92625" size="1.016" layer="21" ratio="15" rot="SR0">R18</text>
-<text x="8.5725" y="46.51375" size="1.27" layer="22" rot="MR0">C1</text>
-<text x="21.59" y="24.92375" size="1.27" layer="22" rot="MR0">C16</text>
-<text x="10.16" y="34.6075" size="1.27" layer="22" rot="MR0">C15</text>
-<text x="42.545" y="7.46125" size="1.27" layer="22" rot="MR0">C8</text>
+<text x="8.5725" y="46.51375" size="1.27" layer="22" ratio="15" rot="MR0">C1</text>
+<text x="21.59" y="24.92375" size="1.27" layer="22" ratio="15" rot="MR0">C16</text>
+<text x="10.16" y="34.6075" size="1.27" layer="22" ratio="15" rot="MR0">C15</text>
+<text x="42.545" y="7.46125" size="1.27" layer="22" ratio="15" rot="MR0">C8</text>
 <text x="49.37125" y="13.335" size="1.016" layer="21" ratio="15" rot="SR270">R19</text>
 <text x="68.42125" y="13.49375" size="1.016" layer="21" ratio="15" rot="SR270">R21</text>
 <text x="87.3125" y="26.19375" size="1.016" layer="21" ratio="15" rot="SR270">R22</text>
@@ -222,6 +222,12 @@
 <text x="56.35625" y="12.85875" size="1.016" layer="21" ratio="15" rot="SR0">R62</text>
 <text x="2.69875" y="29.845" size="0.8128" layer="21" ratio="15" rot="SR0">R65</text>
 <text x="6.82625" y="20.6375" size="0.8128" layer="21" ratio="15" rot="SR0">R63</text>
+<text x="25.4" y="5.3975" size="1.27" layer="22" ratio="15" rot="MR0">C18</text>
+<text x="97.5" y="48.26" size="1.016" layer="21" ratio="15" rot="SR270">Bit Reactor v1.3</text>
+<wire x1="95" y1="11" x2="95" y2="9" width="0.254" layer="21"/>
+<wire x1="94" y1="10" x2="96" y2="10" width="0.254" layer="21"/>
+<circle x="95" y="10" radius="1.209003125" width="0.3048" layer="21"/>
+<text x="97.5" y="15.24" size="1.016" layer="21" ratio="15" rot="SR270">Rebel Technology</text>
 </plain>
 <libraries>
 <library name="linear">
@@ -1926,7 +1932,7 @@ Source: http://focus.ti.com/lit/ds/symlink/sn74lvc1g3157.</description>
 <class number="0" name="default" width="0" drill="0">
 </class>
 </classes>
-<designrules>
+<designrules name="SparkFun">
 <description language="en">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
 The default Design Rules have been set to cover
@@ -2163,7 +2169,7 @@ design rules under a new name.</description>
 <element name="R52" library="resistor" package="R1206" value="51R" x="25.0825" y="12.7" rot="R180"/>
 <element name="R54" library="resistor" package="R0805" value="10k" x="57.30875" y="32.0675"/>
 <element name="R58" library="resistor" package="R0402" value="120k" x="3.33375" y="19.05"/>
-<element name="D1" library="diode" package="SMA" value="MBRA340T3" x="24.13" y="6.35" rot="R270"/>
+<element name="D1" library="diode" package="SMA" value="MBRA340T3" x="24.13" y="5.3975" rot="R270"/>
 <element name="U$2" library="SparkFun" package="2X8" value="M08X2" x="2.54" y="2.2225"/>
 <element name="C8" library="resistor" package="E2-5" value="10u" x="38.1" y="9.68375" rot="MR180"/>
 <element name="D2" library="diode" package="SMA" value="MBRA340T3" x="34.6075" y="4.1275" rot="R90"/>
@@ -2206,13 +2212,14 @@ design rules under a new name.</description>
 <element name="R34" library="resistor" package="R0805" value="1k" x="21.2725" y="29.05125" rot="R270"/>
 <element name="C16" library="resistor" package="E2-5" value="10u" x="19.52625" y="28.8925" rot="MR90"/>
 <element name="C15" library="resistor" package="E2-5" value="10u" x="11.43" y="32.0675" rot="MR270"/>
-<element name="R17" library="resistor" package="R0805" value="2.7K" x="43.02125" y="3.96875" rot="R270"/>
+<element name="R17" library="resistor" package="R0805" value="3.3K" x="43.02125" y="3.96875" rot="R270"/>
 <element name="IC1" library="linear" package="SO14" value="TL074D" x="4.60375" y="25.4" rot="R180"/>
 <element name="R62" library="resistor" package="R0402" value="120K" x="57.62625" y="11.90625" rot="R180"/>
 <element name="R63" library="resistor" package="R0402" value="120K" x="7.77875" y="20.0025"/>
 <element name="R64" library="resistor" package="R0402" value="120k" x="58.26125" y="40.9575"/>
 <element name="R65" library="resistor" package="R0402" value="120k" x="1.5875" y="30.32125"/>
 <element name="C17" library="resistor" package="C0402" value="0.01uF" x="60.96" y="31.59125" rot="R180"/>
+<element name="C18" library="resistor" package="E2-5" value="10u" x="23.8125" y="9.525" rot="MR180"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -2305,9 +2312,8 @@ design rules under a new name.</description>
 <via x="76.835" y="28.2575" extent="1-16" drill="0.6096"/>
 <wire x1="39.055" y1="48.2575" x2="39.0525" y2="48.26" width="0.4064" layer="1"/>
 <wire x1="34.6075" y1="6.1275" x2="39.37" y2="6.1275" width="0.8128" layer="1"/>
-<wire x1="24.13" y1="4.35" x2="24.13" y2="2.2225" width="0.6096" layer="1"/>
-<via x="24.13" y="2.2225" extent="1-16" drill="0.6096"/>
-<wire x1="24.13" y1="2.2225" x2="24.13" y2="1.905" width="0.6096" layer="16"/>
+<via x="22.38375" y="1.74625" extent="1-16" drill="0.6096"/>
+<wire x1="22.38375" y1="1.74625" x2="24.13" y2="1.905" width="0.6096" layer="16"/>
 <wire x1="24.13" y1="1.905" x2="23.8125" y2="1.5875" width="0.6096" layer="16"/>
 <contactref element="C9" pad="1"/>
 <contactref element="C6" pad="1"/>
@@ -2442,6 +2448,10 @@ design rules under a new name.</description>
 <contactref element="R19" pad="P$6"/>
 <contactref element="R21" pad="P$5"/>
 <contactref element="R21" pad="P$6"/>
+<contactref element="C18" pad="-"/>
+<wire x1="24.13" y1="3.3975" x2="23.0825" y2="3.3975" width="0.6096" layer="1"/>
+<wire x1="23.0825" y1="3.3975" x2="22.38375" y2="2.69875" width="0.6096" layer="1"/>
+<wire x1="22.38375" y1="2.69875" x2="22.38375" y2="1.74625" width="0.6096" layer="1"/>
 </signal>
 <signal name="N$1">
 <contactref element="U1" pad="21"/>
@@ -2526,9 +2536,9 @@ design rules under a new name.</description>
 <wire x1="44.1325" y1="16.51" x2="40.3225" y2="16.51" width="0.6096" layer="1"/>
 <wire x1="40.3225" y1="16.51" x2="39.0525" y2="15.24" width="0.6096" layer="1"/>
 <wire x1="46.355" y1="6.985" x2="47.625" y2="5.715" width="0.6096" layer="1"/>
-<wire x1="47.625" y1="5.715" x2="55.5625" y2="5.715" width="0.6096" layer="1"/>
 <wire x1="55.5625" y1="5.715" x2="56.515" y2="6.6675" width="0.6096" layer="1"/>
 <wire x1="56.515" y1="6.6675" x2="57.2525" y2="6.6675" width="0.6096" layer="1"/>
+<wire x1="47.625" y1="5.715" x2="55.5625" y2="5.715" width="0.6096" layer="1"/>
 </signal>
 <signal name="N$7">
 <contactref element="U1" pad="14"/>
@@ -3488,22 +3498,22 @@ design rules under a new name.</description>
 <contactref element="U$2" pad="12"/>
 <contactref element="F1" pad="1"/>
 <wire x1="15.24" y1="2.2225" x2="15.24" y2="4.7625" width="0.8128" layer="1"/>
-<via x="26.3525" y="9.2075" extent="1-16" drill="0.6096"/>
+<via x="27.78125" y="9.36625" extent="1-16" drill="0.6096"/>
 <wire x1="15.24" y1="2.2225" x2="15.24" y2="1.27" width="0.6096" layer="16"/>
 <wire x1="15.24" y1="1.27" x2="15.875" y2="0.635" width="0.6096" layer="16"/>
 <wire x1="15.875" y1="0.635" x2="25.0825" y2="0.635" width="0.6096" layer="16"/>
 <wire x1="25.0825" y1="0.635" x2="26.3525" y2="1.905" width="0.6096" layer="16"/>
-<wire x1="26.3525" y1="1.905" x2="26.3525" y2="9.2075" width="0.6096" layer="16"/>
-<wire x1="27.788" y1="7.62" x2="27.788" y2="8.407" width="0.4064" layer="1"/>
-<wire x1="27.788" y1="8.407" x2="26.9875" y2="9.2075" width="0.4064" layer="1"/>
-<wire x1="26.9875" y1="9.2075" x2="26.3525" y2="9.2075" width="0.4064" layer="1"/>
+<wire x1="27.788" y1="7.62" x2="27.788" y2="9.3595" width="0.4064" layer="1"/>
+<wire x1="27.788" y1="9.3595" x2="27.78125" y2="9.36625" width="0.4064" layer="1"/>
+<wire x1="26.3525" y1="1.905" x2="26.3525" y2="8.5725" width="0.6096" layer="16"/>
+<wire x1="26.3525" y1="8.5725" x2="27.14625" y2="9.36625" width="0.6096" layer="16"/>
+<wire x1="27.14625" y1="9.36625" x2="27.78125" y2="9.36625" width="0.6096" layer="16"/>
 </signal>
 <signal name="N$51">
 <contactref element="F2" pad="1"/>
 <contactref element="U$2" pad="9"/>
 <contactref element="U$2" pad="10"/>
 <wire x1="12.7" y1="2.2225" x2="12.7" y2="4.7625" width="0.8128" layer="1"/>
-<wire x1="26.035" y1="6.35" x2="27.6225" y2="4.7625" width="0.4064" layer="1"/>
 <wire x1="27.788" y1="4.7625" x2="27.6225" y2="4.7625" width="0.4064" layer="1"/>
 <wire x1="12.7" y1="4.7625" x2="12.7" y2="6.985" width="0.4064" layer="1"/>
 <wire x1="12.7" y1="6.985" x2="13.6525" y2="7.9375" width="0.4064" layer="1"/>
@@ -3513,9 +3523,16 @@ design rules under a new name.</description>
 <wire x1="16.51" y1="10.4775" x2="17.4625" y2="11.43" width="0.4064" layer="1"/>
 <wire x1="17.4625" y1="11.43" x2="20.6375" y2="11.43" width="0.4064" layer="1"/>
 <wire x1="20.6375" y1="11.43" x2="21.59" y2="10.4775" width="0.4064" layer="1"/>
-<wire x1="21.59" y1="10.4775" x2="21.59" y2="7.3025" width="0.4064" layer="1"/>
-<wire x1="21.59" y1="7.3025" x2="22.5425" y2="6.35" width="0.4064" layer="1"/>
-<wire x1="22.5425" y1="6.35" x2="26.035" y2="6.35" width="0.4064" layer="1"/>
+<wire x1="21.59" y1="10.4775" x2="21.59" y2="10.00125" width="0.4064" layer="1"/>
+<contactref element="C18" pad="+"/>
+<wire x1="21.59" y1="10.00125" x2="21.59" y2="9.04875" width="0.4064" layer="1"/>
+<wire x1="21.59" y1="9.04875" x2="21.59" y2="6.82625" width="0.4064" layer="1"/>
+<wire x1="21.59" y1="6.82625" x2="22.86" y2="5.55625" width="0.4064" layer="1"/>
+<wire x1="22.86" y1="5.55625" x2="26.99425" y2="5.55625" width="0.4064" layer="1"/>
+<wire x1="26.99425" y1="5.55625" x2="27.788" y2="4.7625" width="0.4064" layer="1"/>
+<wire x1="22.06625" y1="9.525" x2="21.59" y2="10.00125" width="0.4064" layer="1"/>
+<wire x1="21.59" y1="9.04875" x2="22.06625" y2="9.525" width="0.4064" layer="1"/>
+<wire x1="22.06625" y1="9.525" x2="22.7965" y2="9.525" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$70">
 <contactref element="U$2" pad="1"/>
@@ -4122,8 +4139,8 @@ design rules under a new name.</description>
 </signals>
 <errors>
 <approved hash="19,1,78e8c9cf47d8a48d"/>
-<approved hash="19,1,e686e1149576b60e"/>
 <approved hash="19,1,7b2c95bbebfe257d"/>
+<approved hash="19,1,e686e1149576b60e"/>
 </errors>
 </board>
 </drawing>
