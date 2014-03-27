@@ -15685,37 +15685,53 @@ Source: 008-0260-0_E.pdf</description>
 <part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="22R"/>
 <part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="22R"/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
-<part name="LED1" library="SparkFun" deviceset="LED" device="1206" value="KP-3216SGC"/>
-<part name="LED2" library="SparkFun" deviceset="LED" device="1206" value="KP-3216SGC"/>
+<part name="LED1" library="SparkFun" deviceset="LED" device="1206" value="KP-3216SGC">
+<attribute name="FARNELL" value="853-0033"/>
+</part>
+<part name="LED2" library="SparkFun" deviceset="LED" device="1206" value="KP-3216SGC">
+<attribute name="FARNELL" value="853-0033"/>
+</part>
 <part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="JP2" library="SparkFun" deviceset="M05X2" device="PTH"/>
-<part name="U4" library="Rebel" deviceset="STM32F405ZGT6" device=""/>
+<part name="U4" library="Rebel" deviceset="STM32F405ZGT6" device="">
+<attribute name="FARNELL" value="221-5225"/>
+</part>
 <part name="+3V23" library="supply1" deviceset="+3V3" device=""/>
 <part name="C18" library="resistor" deviceset="C-EU" device="C0603" value="1u"/>
 <part name="C19" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
 <part name="GND61" library="supply1" deviceset="GND" device=""/>
-<part name="L1" library="Rebel" deviceset="INDUCTOR" device=""/>
+<part name="L1" library="Rebel" deviceset="INDUCTOR" device="">
+<attribute name="FARNELL" value="161-1981"/>
+</part>
 <part name="+3V24" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND62" library="supply1" deviceset="GND" device=""/>
 <part name="GND40" library="supply1" deviceset="GND" device=""/>
 <part name="+3V25" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V26" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND63" library="supply1" deviceset="GND" device=""/>
-<part name="C21" library="resistor" deviceset="C-EU" device="C0603" value="2u2"/>
-<part name="C20" library="resistor" deviceset="C-EU" device="C0603" value="2u2"/>
+<part name="C21" library="resistor" deviceset="C-EU" device="C0603" value="2u2">
+<attribute name="FARNELL" value="184-5734"/>
+</part>
+<part name="C20" library="resistor" deviceset="C-EU" device="C0603" value="2u2">
+<attribute name="FARNELL" value="184-5734"/>
+</part>
 <part name="GND64" library="supply1" deviceset="GND" device=""/>
-<part name="Q2" library="crystal" deviceset="CRYSTAL" device="HC49UP" value="8MHz"/>
+<part name="Q2" library="crystal" deviceset="CRYSTAL" device="HC49UP" value="8MHz">
+<attribute name="FARNELL" value="206-3972"/>
+</part>
 <part name="C22" library="resistor" deviceset="C-EU" device="C0603" value="20pF"/>
 <part name="C23" library="resistor" deviceset="C-EU" device="C0603" value="20pF"/>
 <part name="GND66" library="supply1" deviceset="GND" device=""/>
 <part name="GND67" library="supply1" deviceset="GND" device=""/>
 <part name="R9" library="Rebel" deviceset="R-EU_" device="0603" value="10K"/>
 <part name="GND68" library="supply1" deviceset="GND" device=""/>
-<part name="IC3" library="Rebel" deviceset="IS61WV51216BLL-10TLI" device=""/>
+<part name="IC3" library="Rebel" deviceset="IS61WV51216BLL-10TLI" device="">
+<attribute name="FARNELL" value="225-3837"/>
+</part>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="10K"/>
@@ -15744,15 +15760,23 @@ Source: 008-0260-0_E.pdf</description>
 <part name="C27" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="+3V33" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
-<part name="IC1" library="burr-brown" deviceset="REG1117" device="" value="TLV1117-33CDCY"/>
+<part name="IC1" library="burr-brown" deviceset="REG1117" device="" value="TLV1117-33CDCY">
+<attribute name="FARNELL" value="149-4942"/>
+</part>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
 <part name="+3V9" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
-<part name="C801" library="resistor" deviceset="CPOL-EU" device="A" value="10u"/>
-<part name="C802" library="resistor" deviceset="CPOL-EU" device="A" value="10u"/>
-<part name="U2" library="audioint" deviceset="WM8731" device=""/>
+<part name="C801" library="resistor" deviceset="CPOL-EU" device="A" value="10u">
+<attribute name="FARNELL" value="882-3014"/>
+</part>
+<part name="C802" library="resistor" deviceset="CPOL-EU" device="A" value="10u">
+<attribute name="FARNELL" value="882-3014"/>
+</part>
+<part name="U2" library="audioint" deviceset="WM8731" device="">
+<attribute name="FARNELL" value="177-6264"/>
+</part>
 <part name="GND44" library="supply1" deviceset="GND" device=""/>
 <part name="GND51" library="supply1" deviceset="GND" device=""/>
 <part name="+3V19" library="supply1" deviceset="+3V3" device=""/>
@@ -15781,7 +15805,9 @@ Source: 008-0260-0_E.pdf</description>
 <part name="USB" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="ADC" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="PWR" library="audioint" deviceset="JMP/3P/SIP" device="" value=""/>
-<part name="USB1" library="Rebel" deviceset="USB_HRS_ZX62-B-5PA(11)MICRO.B" device=""/>
+<part name="USB1" library="Rebel" deviceset="USB_HRS_ZX62-B-5PA(11)MICRO.B" device="">
+<attribute name="FARNELL" value="230-0440"/>
+</part>
 <part name="IN" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="OUT" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="MIC" library="SparkFun" deviceset="M02" device="PTH"/>
@@ -15790,9 +15816,15 @@ Source: 008-0260-0_E.pdf</description>
 <part name="V" library="SparkFun" deviceset="M01" device="PTH"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="VBAT" library="SparkFun" deviceset="SOLDERJUMPER" device="TRACE"/>
-<part name="Q1" library="crystal" deviceset="CRYSTAL" device="HC49UP" value="12.288MHz"/>
-<part name="C311" library="resistor" deviceset="C-EU" device="C0603" value="18pF"/>
-<part name="C310" library="resistor" deviceset="C-EU" device="C0603" value="18pF"/>
+<part name="Q1" library="crystal" deviceset="CRYSTAL" device="HC49UP" value="12.288MHz">
+<attribute name="FARNELL" value="184-2283"/>
+</part>
+<part name="C311" library="resistor" deviceset="C-EU" device="C0603" value="18pF">
+<attribute name="FARNELL" value="182-8908"/>
+</part>
+<part name="C310" library="resistor" deviceset="C-EU" device="C0603" value="18pF">
+<attribute name="FARNELL" value="182-8908"/>
+</part>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="P+4" library="supply1" deviceset="+5V" device=""/>
@@ -15846,38 +15878,54 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="R4" gate="G$1" x="238.76" y="-154.94" rot="R180"/>
 <instance part="R5" gate="G$1" x="228.6" y="-152.4" rot="R180"/>
 <instance part="GND28" gate="1" x="269.24" y="-27.94"/>
-<instance part="LED1" gate="G$1" x="294.64" y="-109.22" rot="R90"/>
-<instance part="LED2" gate="G$1" x="294.64" y="-121.92" rot="R90"/>
+<instance part="LED1" gate="G$1" x="294.64" y="-109.22" rot="R90">
+<attribute name="FARNELL" x="294.64" y="-109.22" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="LED2" gate="G$1" x="294.64" y="-121.92" rot="R90">
+<attribute name="FARNELL" x="294.64" y="-121.92" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="R11" gate="G$1" x="284.48" y="-109.22"/>
 <instance part="R12" gate="G$1" x="284.48" y="-121.92"/>
 <instance part="GND34" gate="1" x="302.26" y="-132.08"/>
 <instance part="+3V1" gate="G$1" x="276.86" y="-101.6"/>
 <instance part="JP2" gate="G$1" x="-15.24" y="35.56"/>
-<instance part="U4" gate="A" x="50.8" y="-114.3"/>
+<instance part="U4" gate="A" x="50.8" y="-114.3">
+<attribute name="FARNELL" x="50.8" y="-114.3" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U4" gate="B" x="147.32" y="-111.76"/>
 <instance part="+3V23" gate="G$1" x="-10.16" y="-91.44" rot="R90"/>
 <instance part="C18" gate="G$1" x="7.62" y="-60.96"/>
 <instance part="C19" gate="G$1" x="-7.62" y="-60.96"/>
 <instance part="GND42" gate="1" x="7.62" y="-71.12"/>
 <instance part="GND61" gate="1" x="-7.62" y="-71.12"/>
-<instance part="L1" gate="G$1" x="-7.62" y="-45.72" rot="R90"/>
+<instance part="L1" gate="G$1" x="-7.62" y="-45.72" rot="R90">
+<attribute name="FARNELL" x="-7.62" y="-45.72" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="+3V24" gate="G$1" x="-7.62" y="-33.02"/>
 <instance part="GND62" gate="1" x="22.86" y="-185.42"/>
 <instance part="GND40" gate="1" x="124.46" y="-177.8"/>
 <instance part="+3V25" gate="G$1" x="121.92" y="-50.8"/>
 <instance part="+3V26" gate="G$1" x="22.86" y="-58.42" rot="R90"/>
 <instance part="GND63" gate="1" x="114.3" y="-165.1"/>
-<instance part="C21" gate="G$1" x="114.3" y="-157.48"/>
-<instance part="C20" gate="G$1" x="73.66" y="-55.88"/>
+<instance part="C21" gate="G$1" x="114.3" y="-157.48">
+<attribute name="FARNELL" x="114.3" y="-157.48" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C20" gate="G$1" x="73.66" y="-55.88">
+<attribute name="FARNELL" x="73.66" y="-55.88" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="GND64" gate="1" x="73.66" y="-48.26" rot="R180"/>
-<instance part="Q2" gate="G$1" x="2.54" y="-137.16"/>
+<instance part="Q2" gate="G$1" x="2.54" y="-137.16">
+<attribute name="FARNELL" x="2.54" y="-137.16" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="C22" gate="G$1" x="0" y="-142.24"/>
 <instance part="C23" gate="G$1" x="5.08" y="-142.24"/>
 <instance part="GND66" gate="1" x="-5.08" y="-147.32" rot="R270"/>
 <instance part="GND67" gate="1" x="-5.08" y="-152.4" rot="R270"/>
 <instance part="R9" gate="G$1" x="193.04" y="-68.58" rot="MR90"/>
 <instance part="GND68" gate="1" x="193.04" y="-50.8" rot="R180"/>
-<instance part="IC3" gate="G$1" x="66.04" y="25.4"/>
+<instance part="IC3" gate="G$1" x="66.04" y="25.4">
+<attribute name="FARNELL" x="66.04" y="25.4" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="GND7" gate="1" x="66.04" y="-15.24"/>
 <instance part="+3V3" gate="G$1" x="55.88" y="63.5" rot="R90"/>
 <instance part="R10" gate="G$1" x="30.48" y="-7.62" rot="MR270"/>
@@ -15906,7 +15954,9 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="C27" gate="G$1" x="233.68" y="-17.78"/>
 <instance part="+3V33" gate="G$1" x="233.68" y="-5.08"/>
 <instance part="GND29" gate="1" x="233.68" y="-30.48"/>
-<instance part="IC1" gate="G$1" x="233.68" y="-111.76"/>
+<instance part="IC1" gate="G$1" x="233.68" y="-111.76">
+<attribute name="FARNELL" x="233.68" y="-111.76" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="P+3" gate="1" x="215.9" y="-101.6" smashed="yes">
 <attribute name="VALUE" x="218.44" y="-99.06" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -15914,9 +15964,15 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="GND19" gate="1" x="233.68" y="-129.54"/>
 <instance part="GND21" gate="1" x="251.46" y="-129.54"/>
 <instance part="GND22" gate="1" x="215.9" y="-129.54"/>
-<instance part="C801" gate="G$1" x="215.9" y="-119.38"/>
-<instance part="C802" gate="G$1" x="251.46" y="-119.38"/>
-<instance part="U2" gate="G$1" x="203.2" y="40.64"/>
+<instance part="C801" gate="G$1" x="215.9" y="-119.38">
+<attribute name="FARNELL" x="215.9" y="-119.38" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C802" gate="G$1" x="251.46" y="-119.38">
+<attribute name="FARNELL" x="251.46" y="-119.38" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="U2" gate="G$1" x="203.2" y="40.64">
+<attribute name="FARNELL" x="203.2" y="40.64" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="GND44" gate="1" x="243.84" y="22.86"/>
 <instance part="GND51" gate="1" x="271.78" y="50.8"/>
 <instance part="+3V19" gate="G$1" x="271.78" y="81.28"/>
@@ -15945,7 +16001,9 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="USB" gate="G$1" x="200.66" y="-152.4"/>
 <instance part="ADC" gate="G$1" x="-25.4" y="10.16"/>
 <instance part="PWR" gate="G$1" x="274.32" y="-20.32"/>
-<instance part="USB1" gate="USB" x="279.4" y="-154.94"/>
+<instance part="USB1" gate="USB" x="279.4" y="-154.94">
+<attribute name="FARNELL" x="279.4" y="-154.94" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="IN" gate="G$1" x="218.44" y="-48.26"/>
 <instance part="OUT" gate="G$1" x="218.44" y="-66.04"/>
 <instance part="MIC" gate="G$1" x="165.1" y="25.4"/>
@@ -15954,9 +16012,15 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="V" gate="G$1" x="218.44" y="-81.28"/>
 <instance part="GND1" gate="1" x="182.88" y="-50.8" rot="R180"/>
 <instance part="VBAT" gate="1" x="0" y="-91.44"/>
-<instance part="Q1" gate="G$1" x="259.08" y="43.18" rot="R180"/>
-<instance part="C311" gate="G$1" x="266.7" y="35.56"/>
-<instance part="C310" gate="G$1" x="251.46" y="35.56"/>
+<instance part="Q1" gate="G$1" x="259.08" y="43.18" rot="R180">
+<attribute name="FARNELL" x="259.08" y="43.18" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
+<instance part="C311" gate="G$1" x="266.7" y="35.56">
+<attribute name="FARNELL" x="266.7" y="35.56" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C310" gate="G$1" x="251.46" y="35.56">
+<attribute name="FARNELL" x="251.46" y="35.56" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="GND2" gate="1" x="251.46" y="25.4"/>
 <instance part="GND4" gate="1" x="266.7" y="25.4"/>
 <instance part="P+4" gate="1" x="297.18" y="-10.16" smashed="yes">
