@@ -13935,7 +13935,7 @@ type V235, grid 17.78 mm</description>
 <pinref part="IC1" gate="C" pin="OUT"/>
 </segment>
 </net>
-<net name="N$22" class="0">
+<net name="IN_1" class="0">
 <segment>
 <pinref part="IN_1" gate="G$1" pin="TIP"/>
 <wire x1="-205.74" y1="134.62" x2="-182.88" y2="134.62" width="0.1524" layer="91"/>
@@ -14006,7 +14006,7 @@ type V235, grid 17.78 mm</description>
 <junction x="22.86" y="35.56"/>
 </segment>
 </net>
-<net name="N$12" class="0">
+<net name="IN_4" class="0">
 <segment>
 <pinref part="IN_4" gate="G$1" pin="TIP"/>
 <wire x1="-165.1" y1="187.96" x2="-175.26" y2="187.96" width="0.1524" layer="91"/>
@@ -14021,7 +14021,7 @@ type V235, grid 17.78 mm</description>
 <junction x="-185.42" y="210.82"/>
 </segment>
 </net>
-<net name="N$23" class="0">
+<net name="IN_3" class="0">
 <segment>
 <pinref part="IN_3" gate="G$1" pin="TIP"/>
 <wire x1="-165.1" y1="170.18" x2="-177.8" y2="170.18" width="0.1524" layer="91"/>
@@ -14036,7 +14036,7 @@ type V235, grid 17.78 mm</description>
 <junction x="-185.42" y="208.28"/>
 </segment>
 </net>
-<net name="N$26" class="0">
+<net name="IN_2" class="0">
 <segment>
 <pinref part="IN_2" gate="G$1" pin="TIP"/>
 <wire x1="-165.1" y1="152.4" x2="-180.34" y2="152.4" width="0.1524" layer="91"/>
@@ -14051,7 +14051,7 @@ type V235, grid 17.78 mm</description>
 <junction x="-185.42" y="205.74"/>
 </segment>
 </net>
-<net name="N$30" class="0">
+<net name="SW_IN_4" class="0">
 <segment>
 <pinref part="IN_4" gate="G$1" pin="SW"/>
 <wire x1="-205.74" y1="190.5" x2="-203.2" y2="190.5" width="0.1524" layer="91"/>
@@ -14063,7 +14063,7 @@ type V235, grid 17.78 mm</description>
 <junction x="-193.04" y="226.06"/>
 </segment>
 </net>
-<net name="N$37" class="0">
+<net name="SW_IN_3" class="0">
 <segment>
 <pinref part="IN_3" gate="G$1" pin="SW"/>
 <wire x1="-205.74" y1="172.72" x2="-200.66" y2="172.72" width="0.1524" layer="91"/>
@@ -14075,7 +14075,7 @@ type V235, grid 17.78 mm</description>
 <junction x="-193.04" y="223.52"/>
 </segment>
 </net>
-<net name="N$38" class="0">
+<net name="SW_IN_2" class="0">
 <segment>
 <pinref part="IN_2" gate="G$1" pin="SW"/>
 <wire x1="-205.74" y1="154.94" x2="-198.12" y2="154.94" width="0.1524" layer="91"/>
@@ -14087,7 +14087,7 @@ type V235, grid 17.78 mm</description>
 <junction x="-193.04" y="220.98"/>
 </segment>
 </net>
-<net name="N$41" class="0">
+<net name="SW_IN_1" class="0">
 <segment>
 <pinref part="IN_1" gate="G$1" pin="SW"/>
 <wire x1="-205.74" y1="137.16" x2="-195.58" y2="137.16" width="0.1524" layer="91"/>
@@ -14321,7 +14321,7 @@ type V235, grid 17.78 mm</description>
 <wire x1="-165.1" y1="-101.6" x2="-165.1" y2="-96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="IN_5_B" class="0">
 <segment>
 <pinref part="R209" gate="G$1" pin="2"/>
 <wire x1="10.16" y1="53.34" x2="7.62" y2="53.34" width="0.1524" layer="91"/>
@@ -14330,7 +14330,7 @@ type V235, grid 17.78 mm</description>
 <wire x1="5.08" y1="66.04" x2="7.62" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$4" class="0">
+<net name="IN_5_A" class="0">
 <segment>
 <pinref part="R109" gate="G$1" pin="2"/>
 <wire x1="10.16" y1="101.6" x2="7.62" y2="101.6" width="0.1524" layer="91"/>
@@ -14339,7 +14339,7 @@ type V235, grid 17.78 mm</description>
 <wire x1="5.08" y1="68.58" x2="7.62" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$5" class="0">
+<net name="SW_OUT_A" class="0">
 <segment>
 <pinref part="OUT_A" gate="G$1" pin="SW"/>
 <wire x1="144.78" y1="86.36" x2="137.16" y2="86.36" width="0.1524" layer="91"/>
@@ -14348,7 +14348,7 @@ type V235, grid 17.78 mm</description>
 <wire x1="137.16" y1="68.58" x2="134.62" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$16" class="0">
+<net name="SW_OUT_B" class="0">
 <segment>
 <pinref part="OUT_B" gate="G$1" pin="SW"/>
 <wire x1="144.78" y1="38.1" x2="137.16" y2="38.1" width="0.1524" layer="91"/>
