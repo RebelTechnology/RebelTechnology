@@ -365,22 +365,6 @@ type 0204, grid 7.5 mm</description>
 <pad name="P$3" x="0.9" y="-3.7" drill="2.8" shape="octagon" rot="R90"/>
 <text x="-5" y="0.65" size="1.27" layer="25" font="vector">&gt;NAME</text>
 </package>
-<package name="PJ-301B">
-<description>PF-301B jack layout</description>
-<text x="-3.175" y="1.27" size="1.27" layer="25" font="vector">&gt;NAME</text>
-<pad name="SHL" x="4.7" y="0" drill="1.5" shape="square"/>
-<pad name="SLV" x="-4.7" y="0" drill="2.5"/>
-<pad name="TIP" x="0" y="4.9" drill="2.5"/>
-<pad name="SW" x="0" y="-3.3" drill="2.5"/>
-<wire x1="-5.08" y1="6.35" x2="-5.08" y2="5.08" width="0.127" layer="21"/>
-<wire x1="-5.08" y1="-5.08" x2="-5.08" y2="-6.35" width="0.127" layer="21"/>
-<wire x1="-5.08" y1="6.35" x2="-3.81" y2="6.35" width="0.127" layer="21"/>
-<wire x1="3.81" y1="6.35" x2="5.08" y2="6.35" width="0.127" layer="21"/>
-<wire x1="-5.08" y1="-6.35" x2="-3.81" y2="-6.35" width="0.127" layer="21"/>
-<wire x1="3.81" y1="-6.35" x2="5.08" y2="-6.35" width="0.127" layer="21"/>
-<wire x1="5.08" y1="-5.08" x2="5.08" y2="-6.35" width="0.127" layer="21"/>
-<wire x1="5.08" y1="5.08" x2="5.08" y2="6.35" width="0.127" layer="21"/>
-</package>
 <package name="PTC">
 <wire x1="-3.81" y1="1.524" x2="3.81" y2="1.524" width="0.2032" layer="21"/>
 <wire x1="3.81" y1="1.524" x2="3.81" y2="-1.524" width="0.2032" layer="21"/>
@@ -488,22 +472,6 @@ type 0204, grid 7.5 mm</description>
 <text x="-2.54" y="4.064" size="1.778" layer="95">&gt;NAME</text>
 <text x="-2.54" y="-6.096" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
-<symbol name="SWITCHED-MONO-JACK">
-<rectangle x1="2.286" y1="-0.508" x2="7.874" y2="0.508" layer="94" rot="R90"/>
-<wire x1="-2.54" y1="2.54" x2="0" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="0" y1="2.54" x2="1.524" y2="1.016" width="0.1524" layer="94"/>
-<wire x1="1.524" y1="1.016" x2="2.286" y2="1.778" width="0.1524" layer="94"/>
-<wire x1="-2.54" y1="0" x2="-0.762" y2="0" width="0.1524" layer="94"/>
-<wire x1="-0.762" y1="0" x2="-0.762" y2="2.286" width="0.1524" layer="94"/>
-<wire x1="-0.762" y1="2.286" x2="-1.016" y2="1.524" width="0.254" layer="94"/>
-<wire x1="-1.016" y1="1.524" x2="-0.508" y2="1.524" width="0.254" layer="94"/>
-<wire x1="-0.508" y1="1.524" x2="-0.762" y2="2.286" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-2.54" x2="4.572" y2="-2.54" width="0.1524" layer="94"/>
-<pin name="TIP" x="-5.08" y="2.54" visible="pad" length="short" direction="pas"/>
-<pin name="SW" x="-5.08" y="0" visible="pad" length="short" direction="pas"/>
-<pin name="SLEEVE" x="-5.08" y="-2.54" visible="pad" length="short" direction="pas"/>
-<text x="-2.54" y="4.064" size="1.778" layer="95">&gt;NAME</text>
-</symbol>
 <symbol name="PTC">
 <wire x1="5.08" y1="1.27" x2="5.08" y2="-1.27" width="0.254" layer="94"/>
 <wire x1="5.08" y1="-1.27" x2="-2.54" y2="-1.27" width="0.254" layer="94"/>
@@ -595,23 +563,6 @@ type 0204, grid 7.5 mm</description>
 <connect gate="G$1" pin="3" pad="P$2"/>
 <connect gate="G$1" pin="4" pad="P$1"/>
 <connect gate="G$1" pin="5" pad="P$3"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="JACK-PJ-301B">
-<gates>
-<gate name="G$1" symbol="SWITCHED-MONO-JACK" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="PJ-301B">
-<connects>
-<connect gate="G$1" pin="SLEEVE" pad="SHL SLV"/>
-<connect gate="G$1" pin="SW" pad="SW"/>
-<connect gate="G$1" pin="TIP" pad="TIP"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -12905,10 +12856,10 @@ NS Package M08A</description>
 <part name="JP10" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="JP7" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="JP9" library="SparkFun" deviceset="M04" device="PTH"/>
-<part name="IN_L" library="Rebel" deviceset="JACK-PJ-301B" device=""/>
-<part name="IN_R" library="Rebel" deviceset="JACK-PJ-301B" device=""/>
-<part name="OUT_L" library="Rebel" deviceset="JACK-PJ-301B" device=""/>
-<part name="OUT_R" library="Rebel" deviceset="JACK-PJ-301B" device=""/>
+<part name="IN_L" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
+<part name="IN_R" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
+<part name="OUT_L" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
+<part name="OUT_R" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
 <part name="EXP" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="POT5" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
@@ -12929,12 +12880,12 @@ NS Package M08A</description>
 <part name="D3" library="Rebel" deviceset="DIODE" device="1N4001"/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="P-2" library="supply1" deviceset="-12V" device=""/>
-<part name="CV_A" library="Rebel" deviceset="JACK-PJ-301B" device=""/>
-<part name="CV_B" library="Rebel" deviceset="JACK-PJ-301B" device=""/>
-<part name="CV_C" library="Rebel" deviceset="JACK-PJ-301B" device=""/>
-<part name="CV_D" library="Rebel" deviceset="JACK-PJ-301B" device=""/>
-<part name="IN_D" library="Rebel" deviceset="JACK-PJ-301B" device=""/>
-<part name="OUT_D" library="Rebel" deviceset="JACK-PJ-301B" device=""/>
+<part name="CV_A" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
+<part name="CV_B" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
+<part name="CV_C" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
+<part name="CV_D" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
+<part name="IN_D" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
+<part name="OUT_D" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="P+6" library="supply1" deviceset="+12V" device=""/>
@@ -13379,17 +13330,21 @@ NS Package M08A</description>
 </segment>
 <segment>
 <pinref part="GND35" gate="1" pin="GND"/>
-<wire x1="5.08" y1="35.56" x2="5.08" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="35.56" x2="5.08" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="33.02" x2="5.08" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="5.08" y1="12.7" x2="5.08" y2="0" width="0.1524" layer="91"/>
 <wire x1="0" y1="60.96" x2="5.08" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="5.08" y1="60.96" x2="5.08" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="IN_R" gate="G$1" pin="SLEEVE"/>
+<pinref part="IN_R" gate="G$1" pin="5"/>
 <wire x1="0" y1="12.7" x2="5.08" y2="12.7" width="0.1524" layer="91"/>
 <junction x="5.08" y="12.7"/>
-<pinref part="IN_L" gate="G$1" pin="SLEEVE"/>
+<pinref part="IN_L" gate="G$1" pin="5"/>
 <wire x1="0" y1="35.56" x2="5.08" y2="35.56" width="0.1524" layer="91"/>
 <junction x="5.08" y="35.56"/>
 <pinref part="EXP" gate="G$1" pin="5"/>
+<pinref part="IN_L" gate="G$1" pin="4"/>
+<wire x1="0" y1="33.02" x2="5.08" y2="33.02" width="0.1524" layer="91"/>
+<junction x="5.08" y="33.02"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="SWITCH_B"/>
@@ -13425,11 +13380,11 @@ NS Package M08A</description>
 <label x="185.42" y="-40.64" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="OUT_L" gate="G$1" pin="SLEEVE"/>
+<pinref part="OUT_L" gate="G$1" pin="5"/>
 <pinref part="GND2" gate="1" pin="GND"/>
 <wire x1="101.6" y1="66.04" x2="96.52" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="66.04" x2="96.52" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="OUT_R" gate="G$1" pin="SLEEVE"/>
+<pinref part="OUT_R" gate="G$1" pin="5"/>
 <wire x1="96.52" y1="43.18" x2="96.52" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="43.18" x2="96.52" y2="43.18" width="0.1524" layer="91"/>
 <junction x="96.52" y="43.18"/>
@@ -13478,18 +13433,18 @@ NS Package M08A</description>
 <wire x1="99.06" y1="91.44" x2="99.06" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="OUT_D" gate="G$1" pin="SLEEVE"/>
+<pinref part="OUT_D" gate="G$1" pin="5"/>
 <wire x1="10.16" y1="134.62" x2="10.16" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="134.62" x2="10.16" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="GND8" gate="1" pin="GND"/>
 </segment>
 <segment>
 <wire x1="5.08" y1="99.06" x2="5.08" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="IN_D" gate="G$1" pin="SLEEVE"/>
+<pinref part="IN_D" gate="G$1" pin="5"/>
 <wire x1="5.08" y1="96.52" x2="5.08" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="0" y1="99.06" x2="5.08" y2="99.06" width="0.1524" layer="91"/>
 <pinref part="GND21" gate="1" pin="GND"/>
-<pinref part="IN_D" gate="G$1" pin="SW"/>
+<pinref part="IN_D" gate="G$1" pin="4"/>
 <wire x1="0" y1="96.52" x2="5.08" y2="96.52" width="0.1524" layer="91"/>
 <junction x="5.08" y="96.52"/>
 </segment>
@@ -13506,10 +13461,10 @@ NS Package M08A</description>
 <pinref part="IC3" gate="A" pin="+IN"/>
 </segment>
 <segment>
-<pinref part="CV_A" gate="G$1" pin="SLEEVE"/>
+<pinref part="CV_A" gate="G$1" pin="5"/>
 <wire x1="276.86" y1="213.36" x2="281.94" y2="213.36" width="0.1524" layer="91"/>
 <wire x1="281.94" y1="213.36" x2="281.94" y2="210.82" width="0.1524" layer="91"/>
-<pinref part="CV_A" gate="G$1" pin="SW"/>
+<pinref part="CV_A" gate="G$1" pin="4"/>
 <wire x1="281.94" y1="210.82" x2="281.94" y2="177.8" width="0.1524" layer="91"/>
 <wire x1="276.86" y1="210.82" x2="281.94" y2="210.82" width="0.1524" layer="91"/>
 <junction x="281.94" y="210.82"/>
@@ -13538,8 +13493,8 @@ NS Package M08A</description>
 <wire x1="276.86" y1="134.62" x2="281.94" y2="134.62" width="0.1524" layer="91"/>
 <junction x="281.94" y="134.62"/>
 <pinref part="GND29" gate="1" pin="GND"/>
-<pinref part="CV_B" gate="G$1" pin="SW"/>
-<pinref part="CV_B" gate="G$1" pin="SLEEVE"/>
+<pinref part="CV_B" gate="G$1" pin="4"/>
+<pinref part="CV_B" gate="G$1" pin="5"/>
 </segment>
 <segment>
 <pinref part="GND30" gate="1" pin="GND"/>
@@ -13564,8 +13519,8 @@ NS Package M08A</description>
 <wire x1="276.86" y1="58.42" x2="281.94" y2="58.42" width="0.1524" layer="91"/>
 <junction x="281.94" y="58.42"/>
 <pinref part="GND41" gate="1" pin="GND"/>
-<pinref part="CV_C" gate="G$1" pin="SW"/>
-<pinref part="CV_C" gate="G$1" pin="SLEEVE"/>
+<pinref part="CV_C" gate="G$1" pin="4"/>
+<pinref part="CV_C" gate="G$1" pin="5"/>
 </segment>
 <segment>
 <pinref part="GND42" gate="1" pin="GND"/>
@@ -13590,8 +13545,8 @@ NS Package M08A</description>
 <wire x1="276.86" y1="-15.24" x2="281.94" y2="-15.24" width="0.1524" layer="91"/>
 <junction x="281.94" y="-15.24"/>
 <pinref part="GND46" gate="1" pin="GND"/>
-<pinref part="CV_D" gate="G$1" pin="SW"/>
-<pinref part="CV_D" gate="G$1" pin="SLEEVE"/>
+<pinref part="CV_D" gate="G$1" pin="4"/>
+<pinref part="CV_D" gate="G$1" pin="5"/>
 </segment>
 <segment>
 <pinref part="GND47" gate="1" pin="GND"/>
@@ -13910,7 +13865,7 @@ NS Package M08A</description>
 <segment>
 <wire x1="101.6" y1="71.12" x2="83.82" y2="71.12" width="0.1524" layer="91"/>
 <label x="83.82" y="71.12" size="1.778" layer="95"/>
-<pinref part="OUT_L" gate="G$1" pin="TIP"/>
+<pinref part="OUT_L" gate="G$1" pin="3"/>
 </segment>
 <segment>
 <label x="241.3" y="223.52" size="1.778" layer="95"/>
@@ -14025,9 +13980,9 @@ NS Package M08A</description>
 <net name="IN_L" class="0">
 <segment>
 <label x="7.62" y="30.48" size="1.778" layer="95"/>
-<pinref part="IN_L" gate="G$1" pin="TIP"/>
+<pinref part="IN_L" gate="G$1" pin="3"/>
 <wire x1="15.24" y1="30.48" x2="2.54" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="IN_R" gate="G$1" pin="SW"/>
+<pinref part="IN_R" gate="G$1" pin="4"/>
 <wire x1="2.54" y1="30.48" x2="0" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="0" y1="10.16" x2="2.54" y2="10.16" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="10.16" x2="2.54" y2="30.48" width="0.1524" layer="91"/>
@@ -14050,7 +14005,7 @@ NS Package M08A</description>
 <segment>
 <wire x1="0" y1="7.62" x2="15.24" y2="7.62" width="0.1524" layer="91"/>
 <label x="7.62" y="7.62" size="1.778" layer="95"/>
-<pinref part="IN_R" gate="G$1" pin="TIP"/>
+<pinref part="IN_R" gate="G$1" pin="3"/>
 </segment>
 <segment>
 <wire x1="2.54" y1="170.18" x2="22.86" y2="170.18" width="0.1524" layer="91"/>
@@ -14062,7 +14017,7 @@ NS Package M08A</description>
 <segment>
 <wire x1="101.6" y1="48.26" x2="83.82" y2="48.26" width="0.1524" layer="91"/>
 <label x="83.82" y="48.26" size="1.778" layer="95"/>
-<pinref part="OUT_R" gate="G$1" pin="TIP"/>
+<pinref part="OUT_R" gate="G$1" pin="3"/>
 </segment>
 <segment>
 <label x="241.3" y="172.72" size="1.778" layer="95"/>
@@ -14473,7 +14428,7 @@ NS Package M08A</description>
 <net name="N$2" class="0">
 <segment>
 <pinref part="POT1" gate="G$1" pin="3"/>
-<pinref part="CV_A" gate="G$1" pin="TIP"/>
+<pinref part="CV_A" gate="G$1" pin="3"/>
 <wire x1="276.86" y1="208.28" x2="289.56" y2="208.28" width="0.1524" layer="91"/>
 <wire x1="289.56" y1="208.28" x2="289.56" y2="203.2" width="0.1524" layer="91"/>
 </segment>
@@ -14537,7 +14492,7 @@ NS Package M08A</description>
 <segment>
 <wire x1="276.86" y1="132.08" x2="289.56" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="289.56" y1="132.08" x2="289.56" y2="127" width="0.1524" layer="91"/>
-<pinref part="CV_B" gate="G$1" pin="TIP"/>
+<pinref part="CV_B" gate="G$1" pin="3"/>
 <pinref part="POT2" gate="G$1" pin="3"/>
 </segment>
 </net>
@@ -14600,7 +14555,7 @@ NS Package M08A</description>
 <segment>
 <wire x1="276.86" y1="55.88" x2="289.56" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="289.56" y1="55.88" x2="289.56" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="CV_C" gate="G$1" pin="TIP"/>
+<pinref part="CV_C" gate="G$1" pin="3"/>
 <pinref part="POT3" gate="G$1" pin="3"/>
 </segment>
 </net>
@@ -14663,7 +14618,7 @@ NS Package M08A</description>
 <segment>
 <wire x1="276.86" y1="-17.78" x2="289.56" y2="-17.78" width="0.1524" layer="91"/>
 <wire x1="289.56" y1="-17.78" x2="289.56" y2="-22.86" width="0.1524" layer="91"/>
-<pinref part="CV_D" gate="G$1" pin="TIP"/>
+<pinref part="CV_D" gate="G$1" pin="3"/>
 <pinref part="POT4" gate="G$1" pin="3"/>
 </segment>
 </net>
@@ -14735,7 +14690,7 @@ NS Package M08A</description>
 </net>
 <net name="N$46" class="0">
 <segment>
-<pinref part="IN_D" gate="G$1" pin="TIP"/>
+<pinref part="IN_D" gate="G$1" pin="3"/>
 <pinref part="R904" gate="G$1" pin="1"/>
 <wire x1="0" y1="93.98" x2="15.24" y2="93.98" width="0.1524" layer="91"/>
 </segment>
@@ -14770,7 +14725,7 @@ NS Package M08A</description>
 </net>
 <net name="N$49" class="0">
 <segment>
-<pinref part="OUT_D" gate="G$1" pin="TIP"/>
+<pinref part="OUT_D" gate="G$1" pin="3"/>
 <pinref part="R902" gate="G$1" pin="1"/>
 <wire x1="15.24" y1="139.7" x2="0" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="0" y1="139.7" x2="0" y2="142.24" width="0.1524" layer="91"/>
