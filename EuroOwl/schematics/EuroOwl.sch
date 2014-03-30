@@ -12879,12 +12879,8 @@ NS Package M08A</description>
 <part name="VMID" library="SparkFun" deviceset="M01" device="PTH"/>
 <part name="P+5" library="supply1" deviceset="+5V" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
-<part name="GND33" library="supply1" deviceset="GND" device=""/>
-<part name="C102" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="GND38" library="supply1" deviceset="GND" device=""/>
 <part name="R302" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R300" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="P+12" library="supply1" deviceset="VCC/2" device=""/>
 <part name="IC1" library="adafruit" deviceset="QUAD_OPAMP" device="D" value="QUAD_OPAMPD"/>
 <part name="R404" library="Rebel" deviceset="R-EU_" device="0603" value="3k3"/>
 <part name="R406" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
@@ -13054,7 +13050,6 @@ NS Package M08A</description>
 <part name="C101" library="resistor" deviceset="CPOL-EU" device="A" value="10u"/>
 <part name="C104" library="resistor" deviceset="CPOL-EU" device="A" value="10u"/>
 <part name="C105" library="resistor" deviceset="CPOL-EU" device="A" value="10u"/>
-<part name="C103" library="resistor" deviceset="C-EU" device="C1206" value="1u"/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="D200" library="diode" deviceset="BAT54S" device=""/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
@@ -13120,12 +13115,8 @@ NS Package M08A</description>
 <attribute name="VALUE" x="193.04" y="134.62" size="1.778" layer="96" rot="MR180"/>
 </instance>
 <instance part="GND6" gate="1" x="195.58" y="99.06"/>
-<instance part="GND33" gate="1" x="66.04" y="-15.24" rot="MR0"/>
-<instance part="C102" gate="G$1" x="50.8" y="0"/>
-<instance part="GND38" gate="1" x="50.8" y="-15.24" rot="MR0"/>
 <instance part="R302" gate="G$1" x="48.26" y="210.82" rot="MR0"/>
 <instance part="R300" gate="G$1" x="27.94" y="220.98" rot="MR0"/>
-<instance part="P+12" gate="G$1" x="66.04" y="17.78"/>
 <instance part="IC1" gate="A" x="48.26" y="223.52"/>
 <instance part="IC1" gate="P" x="86.36" y="2.54"/>
 <instance part="R404" gate="G$1" x="208.28" y="205.74" rot="MR180"/>
@@ -13311,7 +13302,6 @@ NS Package M08A</description>
 <instance part="C101" gate="G$1" x="210.82" y="119.38"/>
 <instance part="C104" gate="G$1" x="226.06" y="119.38"/>
 <instance part="C105" gate="G$1" x="238.76" y="116.84" rot="R180"/>
-<instance part="C103" gate="G$1" x="66.04" y="2.54"/>
 <instance part="GND12" gate="1" x="22.86" y="38.1" rot="MR0"/>
 <instance part="D200" gate="G$1" x="30.48" y="43.18"/>
 <instance part="GND13" gate="1" x="35.56" y="33.02" rot="MR0"/>
@@ -13411,16 +13401,6 @@ NS Package M08A</description>
 <pinref part="GND6" gate="1" pin="GND"/>
 <wire x1="195.58" y1="101.6" x2="195.58" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="C100" gate="G$1" pin="-"/>
-</segment>
-<segment>
-<pinref part="GND33" gate="1" pin="GND"/>
-<wire x1="66.04" y1="-2.54" x2="66.04" y2="-12.7" width="0.1524" layer="91"/>
-<pinref part="C103" gate="G$1" pin="2"/>
-</segment>
-<segment>
-<pinref part="C102" gate="G$1" pin="2"/>
-<pinref part="GND38" gate="1" pin="GND"/>
-<wire x1="50.8" y1="-12.7" x2="50.8" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND3" gate="1" pin="GND"/>
@@ -13753,6 +13733,11 @@ NS Package M08A</description>
 <pinref part="C400" gate="G$1" pin="2"/>
 <pinref part="GND60" gate="1" pin="GND"/>
 <wire x1="40.64" y1="-12.7" x2="40.64" y2="-2.54" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND18" gate="1" pin="GND"/>
+<pinref part="IC1" gate="A" pin="+IN"/>
+<wire x1="38.1" y1="226.06" x2="40.64" y2="226.06" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -14484,16 +14469,6 @@ NS Package M08A</description>
 <wire x1="198.12" y1="-20.32" x2="198.12" y2="-15.24" width="0.1524" layer="91"/>
 <pinref part="P+18" gate="G$1" pin="VCC/2"/>
 </segment>
-<segment>
-<pinref part="C102" gate="G$1" pin="1"/>
-<wire x1="66.04" y1="10.16" x2="66.04" y2="5.08" width="0.1524" layer="91"/>
-<wire x1="66.04" y1="10.16" x2="50.8" y2="10.16" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="10.16" x2="50.8" y2="2.54" width="0.1524" layer="91"/>
-<pinref part="C103" gate="G$1" pin="1"/>
-<pinref part="P+12" gate="G$1" pin="VCC/2"/>
-<wire x1="66.04" y1="10.16" x2="66.04" y2="15.24" width="0.1524" layer="91"/>
-<junction x="66.04" y="10.16"/>
-</segment>
 </net>
 <net name="N$2" class="0">
 <segment>
@@ -14877,13 +14852,6 @@ NS Package M08A</description>
 <wire x1="88.9" y1="160.02" x2="93.98" y2="160.02" width="0.1524" layer="91"/>
 <wire x1="93.98" y1="160.02" x2="93.98" y2="175.26" width="0.1524" layer="91"/>
 <junction x="93.98" y="175.26"/>
-</segment>
-</net>
-<net name="N$57" class="0">
-<segment>
-<pinref part="IC1" gate="A" pin="+IN"/>
-<wire x1="40.64" y1="226.06" x2="38.1" y2="226.06" width="0.1524" layer="91"/>
-<pinref part="GND18" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="N$32" class="0">
