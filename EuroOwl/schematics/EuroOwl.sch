@@ -12968,7 +12968,6 @@ NS Package M08A</description>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="P+16" library="supply1" deviceset="+12V" device=""/>
-<part name="JP2" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="GND49" library="supply1" deviceset="GND" device=""/>
 <part name="X1" library="SparkFun" deviceset="USB" device="PTH-VERTICAL"/>
 <part name="R101" library="Rebel" deviceset="R-EU_" device="0603" value="22R"/>
@@ -13029,6 +13028,8 @@ NS Package M08A</description>
 <part name="GND60" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="+12V" device=""/>
 <part name="P-13" library="supply1" deviceset="-12V" device=""/>
+<part name="BOOT" library="SparkFun" deviceset="M03" device="PTH"/>
+<part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -13220,7 +13221,6 @@ NS Package M08A</description>
 <instance part="GND26" gate="1" x="-10.16" y="121.92" rot="MR0"/>
 <instance part="GND27" gate="1" x="0" y="121.92" rot="MR0"/>
 <instance part="P+16" gate="1" x="-10.16" y="172.72"/>
-<instance part="JP2" gate="G$1" x="144.78" y="-22.86"/>
 <instance part="GND49" gate="1" x="154.94" y="-30.48"/>
 <instance part="X1" gate="G$1" x="205.74" y="-58.42"/>
 <instance part="R101" gate="G$1" x="195.58" y="-50.8" rot="MR180"/>
@@ -13285,6 +13285,8 @@ NS Package M08A</description>
 <instance part="GND60" gate="1" x="40.64" y="-15.24" rot="MR0"/>
 <instance part="P+2" gate="1" x="35.56" y="20.32"/>
 <instance part="P-13" gate="1" x="35.56" y="-15.24"/>
+<instance part="BOOT" gate="G$1" x="144.78" y="-20.32"/>
+<instance part="+3V13" gate="G$1" x="154.94" y="-10.16"/>
 </instances>
 <busses>
 </busses>
@@ -13575,10 +13577,10 @@ NS Package M08A</description>
 <wire x1="0" y1="127" x2="0" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="JP2" gate="G$1" pin="1"/>
 <pinref part="GND49" gate="1" pin="GND"/>
 <wire x1="152.4" y1="-22.86" x2="154.94" y2="-22.86" width="0.1524" layer="91"/>
 <wire x1="154.94" y1="-22.86" x2="154.94" y2="-27.94" width="0.1524" layer="91"/>
+<pinref part="BOOT" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="X1" gate="G$1" pin="GND"/>
@@ -13799,6 +13801,12 @@ NS Package M08A</description>
 <wire x1="35.56" y1="43.18" x2="38.1" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="38.1" y1="43.18" x2="38.1" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="+3V6" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="BOOT" gate="G$1" pin="3"/>
+<pinref part="+3V13" gate="G$1" pin="+3V3"/>
+<wire x1="152.4" y1="-17.78" x2="154.94" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="-17.78" x2="154.94" y2="-12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PA3" class="0">
@@ -14364,9 +14372,9 @@ NS Package M08A</description>
 <wire x1="152.4" y1="30.48" x2="167.64" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="JP2" gate="G$1" pin="2"/>
 <wire x1="152.4" y1="-20.32" x2="167.64" y2="-20.32" width="0.1524" layer="91"/>
 <label x="157.48" y="-20.32" size="1.778" layer="95"/>
+<pinref part="BOOT" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$1" class="0">
