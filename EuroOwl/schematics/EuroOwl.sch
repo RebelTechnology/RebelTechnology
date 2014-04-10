@@ -13052,7 +13052,7 @@ NS Package M08A</description>
 <instance part="ADC" gate="G$1" x="147.32" y="50.8"/>
 <instance part="U$1" gate="G$1" x="-7.62" y="-22.86"/>
 <instance part="GND10" gate="1" x="5.08" y="-30.48"/>
-<instance part="R202" gate="G$1" x="58.42" y="55.88" rot="MR180"/>
+<instance part="R202" gate="G$1" x="45.72" y="55.88" rot="MR180"/>
 <instance part="HP" gate="G$1" x="208.28" y="0" rot="R180"/>
 <instance part="IN" gate="G$1" x="208.28" y="12.7" rot="R180"/>
 <instance part="VMID" gate="G$1" x="208.28" y="-20.32" rot="R180"/>
@@ -14015,7 +14015,7 @@ NS Package M08A</description>
 <wire x1="27.94" y1="55.88" x2="30.48" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="R200" gate="G$1" pin="2"/>
 <pinref part="D200" gate="G$1" pin="C1A2"/>
-<wire x1="30.48" y1="55.88" x2="53.34" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="55.88" x2="40.64" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="45.72" x2="30.48" y2="55.88" width="0.1524" layer="91"/>
 <junction x="30.48" y="55.88"/>
 </segment>
@@ -14086,8 +14086,8 @@ NS Package M08A</description>
 </segment>
 <segment>
 <pinref part="R202" gate="G$1" pin="2"/>
-<wire x1="63.5" y1="55.88" x2="73.66" y2="55.88" width="0.1524" layer="91"/>
-<label x="66.04" y="55.88" size="1.778" layer="95"/>
+<wire x1="50.8" y1="55.88" x2="60.96" y2="55.88" width="0.1524" layer="91"/>
+<label x="53.34" y="55.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PE2" class="0">
