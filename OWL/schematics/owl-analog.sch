@@ -15864,6 +15864,9 @@ naming: grid - package width</description>
 <part name="D2" library="Rebel" deviceset="DIODE" device="1N4001"/>
 <part name="C901" library="rcl" deviceset="C-EU" device="050-025X075" value="100n"/>
 <part name="C900" library="rcl" deviceset="C-EU" device="050-025X075" value="0.33uF"/>
+<part name="BOOT" library="SparkFun" deviceset="M03" device="PTH"/>
+<part name="GND11" library="supply1" deviceset="GND" device=""/>
+<part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -16015,6 +16018,9 @@ naming: grid - package width</description>
 <instance part="D2" gate="G$1" x="299.72" y="132.08" rot="MR0"/>
 <instance part="C901" gate="G$1" x="314.96" y="116.84"/>
 <instance part="C900" gate="G$1" x="287.02" y="116.84"/>
+<instance part="BOOT" gate="G$1" x="38.1" y="-83.82"/>
+<instance part="GND11" gate="1" x="48.26" y="-93.98"/>
+<instance part="+3V4" gate="G$1" x="48.26" y="-73.66"/>
 </instances>
 <busses>
 </busses>
@@ -16212,6 +16218,12 @@ naming: grid - package width</description>
 <wire x1="200.66" y1="-40.64" x2="182.88" y2="-40.64" width="0.1524" layer="91"/>
 <label x="185.42" y="-40.64" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="BOOT" gate="G$1" pin="1"/>
+<pinref part="GND11" gate="1" pin="GND"/>
+<wire x1="45.72" y1="-86.36" x2="48.26" y2="-86.36" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="-86.36" x2="48.26" y2="-91.44" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -16315,6 +16327,12 @@ naming: grid - package width</description>
 <wire x1="322.58" y1="53.34" x2="322.58" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="JP5" gate="G$1" pin="3"/>
 <wire x1="332.74" y1="53.34" x2="322.58" y2="53.34" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="BOOT" gate="G$1" pin="3"/>
+<pinref part="+3V4" gate="G$1" pin="+3V3"/>
+<wire x1="45.72" y1="-81.28" x2="48.26" y2="-81.28" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="-81.28" x2="48.26" y2="-76.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PA3" class="0">
@@ -16914,6 +16932,14 @@ naming: grid - package width</description>
 <pinref part="D3" gate="G$1" pin="C"/>
 <pinref part="F1" gate="G$1" pin="1"/>
 <wire x1="312.42" y1="154.94" x2="304.8" y2="154.94" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="BOOT0" class="0">
+<segment>
+<pinref part="JP9" gate="G$1" pin="1"/>
+<wire x1="60.96" y1="-83.82" x2="45.72" y2="-83.82" width="0.1524" layer="91"/>
+<label x="50.8" y="-83.82" size="1.778" layer="95"/>
+<pinref part="BOOT" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>
