@@ -20,10 +20,10 @@
   <pot x="0.5" y="0.0"/>
 
   <!-- leds -->
-  <hole x="0.0" y="1.9" radius="1.5"/>
-  <hole x="0.0" y="1.1" radius="1.5"/>
-  <hole x="0.4" y="1.5" radius="1.5"/>
-  <hole x="-0.4" y="1.5" radius="1.5"/>
+  <!-- <hole x="0.0" y="1.9" radius="1.5"/> -->
+  <!-- <hole x="0.0" y="1.1" radius="1.5"/> -->
+  <!-- <hole x="0.4" y="1.5" radius="1.5"/> -->
+  <!-- <hole x="-0.4" y="1.5" radius="1.5"/> -->
 
   <!-- jacks -->
   <hole x="-0.5" y="-1.25" radius="3.25"/>
