@@ -23,11 +23,11 @@
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
@@ -2274,10 +2274,10 @@ NS Package M08A</description>
 <attribute name="NAME" x="63.5" y="43.942" size="1.016" layer="25" font="vector" align="bottom-center"/>
 </element>
 <element name="R305" library="Rebel" package="0603" value="100k" x="78.74" y="45.72"/>
-<element name="R306" library="Rebel" package="0603" value="220k" x="63.5" y="35.56" smashed="yes">
+<element name="R306" library="Rebel" package="0603" value="240k" x="63.5" y="35.56" smashed="yes">
 <attribute name="NAME" x="63.5" y="36.322" size="1.016" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R307" library="Rebel" package="0603" value="220k" x="78.74" y="43.18" smashed="yes" rot="R180">
+<element name="R307" library="Rebel" package="0603" value="240k" x="78.74" y="43.18" smashed="yes" rot="R180">
 <attribute name="NAME" x="78.74" y="44.958" size="1.016" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="IC3" library="linear" package="SO08" value="TL072D" x="50.8" y="54.61" smashed="yes" rot="R270">

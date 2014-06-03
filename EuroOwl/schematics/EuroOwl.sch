@@ -13012,8 +13012,8 @@ NS Package M08A</description>
 <part name="R305" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND57" library="supply1" deviceset="GND" device=""/>
 <part name="GND58" library="supply1" deviceset="GND" device=""/>
-<part name="R306" library="Rebel" deviceset="R-EU_" device="0603" value="220k"/>
-<part name="R307" library="Rebel" deviceset="R-EU_" device="0603" value="220k"/>
+<part name="R306" library="Rebel" deviceset="R-EU_" device="0603" value="240k"/>
+<part name="R307" library="Rebel" deviceset="R-EU_" device="0603" value="240k"/>
 <part name="P-11" library="supply1" deviceset="-12V" device=""/>
 <part name="P-12" library="supply1" deviceset="-12V" device=""/>
 <part name="IC3" library="linear" deviceset="TL072" device="D"/>
