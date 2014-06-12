@@ -11,18 +11,20 @@
   <pot x="1.5" y="0.75"/>
 
   <!-- led/switch -->
-  <hole x="0.0" y="-0.15" radius="3.5"/>
+  <!-- 2 / 1.75 -->
+  <hole x="0.0" y="-0.25" radius="3.5"/>
 
   <!-- usb connector -->
-  <rect x="0.0" y="-0.6750" width="12" height="11"/>
+  <rect x="0.0" y="-1.2" width="12" height="11"/>
 
   <!-- jacks -->
-  <hole x="-1.6" y="-1.2" radius="3.25"/>
-  <hole x="-0.75" y="-1.2" radius="3.25"/>
-  <hole x="-0.25" y="-1.2" radius="3.25"/>
-  <hole x="0.25" y="-1.2" radius="3.25"/>
-  <hole x="0.75" y="-1.2" radius="3.25"/>
-  <hole x="1.6" y="-1.2" radius="3.25"/>
+  <hole x="-1.60" y="-1.2" radius="3.25"/>
+  <hole x="-1.00" y="-1.2" radius="3.25"/>
+  <hole x="-0.50" y="-1.2" radius="3.25"/>
+  <hole x="0.50" y="-1.2" radius="3.25"/>
+  <hole x="1.00" y="-1.2" radius="3.25"/>
+  <hole x="1.60" y="-1.2" radius="3.25"/>
+
   <hole x="-1.6" y="-1.7" radius="3.25"/>
   <hole x="-0.5" y="-1.7" radius="3.25"/>
   <hole x="0.0" y="-1.7" radius="3.25"/>
