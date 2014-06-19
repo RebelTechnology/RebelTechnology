@@ -142,6 +142,8 @@
 <text x="34.29" y="81.915" size="1.9304" layer="21" font="vector">Rebel Technology</text>
 <text x="72.7075" y="81.915" size="1.9304" layer="22" font="vector" rot="MR0">Rebel Technology</text>
 <text x="73.025" y="78.105" size="1.9304" layer="22" font="vector" rot="MR0">OWL Modular Rev02</text>
+<dimension x1="0.4445" y1="1.016" x2="0.4445" y2="100.838" x3="-11.43" y3="50.927" textsize="1.778" layer="47"/>
+<dimension x1="0.4445" y1="100.838" x2="100.457" y2="100.838" x3="50.45075" y3="107.95" textsize="1.778" layer="47"/>
 </plain>
 <libraries>
 <library name="Rebel">
