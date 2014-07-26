@@ -27,28 +27,19 @@
       <path d="m 69.475831,37.723605 c 0,17.397619 -14.103337,31.501159 -31.500648,31.501159 -17.397312,0 -31.500649,-14.10354 -31.500649,-31.501159 0,-17.397619 14.103337,-31.5012591 31.500649,-31.5012591 17.397311,0 31.500648,14.1036401 31.500648,31.5012591 z" style="fill:none"/>
     </g>
   </defs>
-  <g style="fill:none;stroke-width:0.1;stroke:black"><rect x="0.0" y="0.0" width="50.50" height="128.50"/><svg:circle cx="7.5" cy="3" r="1.6"/><svg:circle cx="7.5" cy="125.5" r="1.6"/><svg:circle cx="43.06" cy="3" r="1.6"/><svg:circle cx="43.06" cy="125.5" r="1.6"/>
-
-  <circle cx="25.25" cy="32.5" r="14"/>
+  <g style="fill:none;stroke-width:0.1;stroke:black"><rect x="0.0" y="0.0" width="30.00" height="128.50"/><svg:circle cx="7.5" cy="3" r="1.6"/><svg:circle cx="7.5" cy="125.5" r="1.6"/>
 
   
-
-  <circle cx="37.95" cy="64.25" r="4.75"/>
-  <circle cx="12.55" cy="64.25" r="4.75"/>
-
-
+  <circle cx="15" cy="26.15" r="3.5"/>
 
   
-
-
-  
-  <circle cx="25.25" cy="76.95" r="3.25"/>
+  <path d="m 15,53.15 c -2.6220187,0 -4.7546972,2.123364 -4.7546972,4.745368 0,2.143796 1.4261951,3.960351 3.3776012,4.54998 l 0,2.679746 2.642536,0 0,-2.651834 c 2.003484,-0.55658 3.479956,-2.397067 3.479956,-4.577892 0,-2.622004 -2.123369,-4.745368 -4.745396,-4.745368 z" style="fill:none;stroke:#000000;stroke-width:0.09990668;" inkscape:connector-curvature="0"/><g transform="translate(15,57.9)" style="fill:none;stroke:#000000;stroke-width:0.237;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"><path d="M -4.2037748,7.5814929 C -6.8346316,6.1114925 -8.6120123,3.3014922 -8.6120123,0.07148931 c 0,-4.75000381 3.8628404,-8.61000481 8.6282233,-8.61000481 4.764047,0 8.627555,3.8600011 8.627555,8.61000481 0,3.23000299 -1.780051,6.04000329 -4.414579,7.52000359" style="fill:none;stroke:#030303;stroke-width:0.1411"/><path style="fill:none;stroke:#030303;stroke-width:0.2117" d="m -2.440413,-9.0485165 0.216323,0.810001"/><path style="fill:none;stroke:#030303;stroke-width:0.2832" d="m -5.1129926,-8.7785155 0.8080822,1.4000001"/><path style="fill:none;stroke:#030303;stroke-width:0.2117" d="m -6.6800914,-6.5985155 0.5891225,0.59"/><path style="fill:none;stroke:#030303;stroke-width:0.2832" d="m -8.8466601,-5.0285155 1.3848552,0.8000013"/><path style="fill:none;stroke:#030303;stroke-width:0.2117" d="m -9.1267017,-2.3685125 0.8044106,0.2200004"/><path style="fill:none;stroke:#030303;stroke-width:0.2832" d="m -10.221501,0.08148931 1.6061507,0"/><path style="fill:none;stroke:#030303;stroke-width:0.2117" d="M -9.1243652,2.5214918 -8.3199546,2.3014913"/><path style="fill:none;stroke:#030303;stroke-width:0.2832" d="M -8.8489964,5.181492 -7.4574658,4.3814921"/><path style="fill:none;stroke:#030303;stroke-width:0.2117" d="m -6.6737496,6.7514925 0.5877873,-0.59"/><path style="fill:none;stroke:#030303;stroke-width:0.2832" d="m -5.0742739,8.871494 0.776373,-1.3400011"/><path style="fill:none;stroke:#030303;stroke-width:0.2832" d="M 5.113671,8.8814939 4.329988,7.5214929"/><path style="fill:none;stroke:#030303;stroke-width:0.2117" d="m 6.704836,6.7414925 -0.588789,-0.58"/><path style="fill:none;stroke:#030303;stroke-width:0.2832" d="m 8.846371,5.1614921 -1.360155,-0.79"/><path style="fill:none;stroke:#030303;stroke-width:0.2117" d="M 9.151112,2.5114918 8.347402,2.2914913"/><path style="fill:none;stroke:#030303;stroke-width:0.2832" d="m 10.195511,0.07148931 -1.555417,0"/><path style="fill:none;stroke:#030303;stroke-width:0.2117" d="M 9.148809,-2.3785126 8.344698,-2.1585121"/><path style="fill:none;stroke:#030303;stroke-width:0.2832" d="M 8.836691,-5.0185155 7.482544,-4.2385142"/><path style="fill:none;stroke:#030303;stroke-width:0.2117" d="m 6.699128,-6.6085155 -0.588421,0.59"/><path style="fill:none;stroke:#030303;stroke-width:0.2832" d="m 5.131729,-8.7785155 -0.80875,1.39"/><path style="fill:none;stroke:#030303;stroke-width:0.2117" d="m 2.456813,-9.0485165 -0.215288,0.800001"/><path style="fill:none;stroke:#030303;stroke-width:0.2832" d="m 0.007833,-10.128517 0,1.5900015"/></g>
 
   
-  <circle cx="12.55" cy="96" r="3.25"/>
-  <circle cx="37.95" cy="96" r="3.25"/>
-  <circle cx="12.55" cy="108.7" r="3.25"/>
-  <circle cx="37.95" cy="108.7" r="3.25"/>
+  <circle cx="8.65" cy="96" r="3.25"/> 
+  <circle cx="8.65" cy="108.7" r="3.25"/>  
+  <circle cx="21.35" cy="96" r="3.25"/> 
+  <circle cx="21.35" cy="108.7" r="3.25"/>  
 
 </g>
 </svg>
