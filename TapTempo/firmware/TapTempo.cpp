@@ -8,7 +8,6 @@
 #include <avr/interrupt.h>
 #include "device.h"
 #include "adc_freerunner.h"
-#include "ContinuousController.h"
 #include "MCP492xController.h"
 #include "DDS.h"
 
@@ -140,18 +139,6 @@ public:
 };
 
 TapTempo tempo;
-
-// class TempoController : public ContinuousController {
-// private:
-//   float last;
-// public:
-//   void hasChanged(float v){
-//     tempo.shiftLimit(last - v);
-//     last = v;
-//   }
-// };
-
-// TempoController tempoControl;
 
 void reset(){
   tempo.low();

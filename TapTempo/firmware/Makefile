@@ -87,7 +87,7 @@ ALL_ASFLAGS = -mmcu=$(MCU) -I. -x assembler-with-cpp $(ASFLAGS)
 
 
 # Default target.
-all: compile sizeafter
+all: compile size
 
 compile: elf hex
 # compile: elf hex eep
@@ -110,6 +110,9 @@ sizebefore:
 
 sizeafter:
 	@if [ -f build/$(TARGET).elf ]; then echo; echo $(MSG_SIZE_AFTER); $(HEXSIZE); echo; fi
+
+size: build/$(TARGET).elf
+	$(SIZE) -C --mcu=$(MCU) build/$(TARGET).elf
 
 
 # Convert ELF to COFF for use in debugging / simulating in AVR Studio or VMLAB.
