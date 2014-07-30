@@ -1,10 +1,14 @@
 <module type="6hp">
 
-  <!-- switches -->
-  <hole x="0.00" y="1.50" radius="3.5"/>
+  <!-- buttons -->
+  <hole x="0.00" y="1.50" radius="3.5"/> <!-- tap tempo -->
 
   <!-- pots -->
-  <pot x="0.00" y="0.25"/>
+  <pot x="0.00" y="0.25"/>	<!-- speed -->
+
+  <!-- switches -->
+  <hole x="-0.35" y="-0.50" radius="2.0"/>
+  <hole x="0.35" y="-0.50" radius="2.0"/>
 
   <!-- jacks -->
   <hole x="-0.25" y="-1.25" radius="3.25"/> <!-- trigger in -->
