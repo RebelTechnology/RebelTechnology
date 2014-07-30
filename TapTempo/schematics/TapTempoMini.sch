@@ -18674,7 +18674,6 @@ Source: 008-0260-0_E.pdf</description>
 <part name="R504" library="resistor" deviceset="R-EU_" device="R0603" value="100R"/>
 <part name="DAC1" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
-<part name="GND40" library="supply1" deviceset="GND" device=""/>
 <part name="P-7" library="supply1" deviceset="-12V" device=""/>
 <part name="P+2" library="supply1" deviceset="+12V" device=""/>
 <part name="C1" library="resistor" deviceset="C-EU" device="C0603" value="4.7u"/>
@@ -18726,6 +18725,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
+<part name="GND10" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -18801,7 +18801,6 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="R504" gate="G$1" x="279.4" y="-20.32"/>
 <instance part="DAC1" gate="G$1" x="302.26" y="-22.86"/>
 <instance part="GND39" gate="1" x="294.64" y="-30.48"/>
-<instance part="GND40" gate="1" x="251.46" y="-30.48"/>
 <instance part="IC3" gate="B" x="261.62" y="-20.32" rot="MR180"/>
 <instance part="IC3" gate="P" x="261.62" y="15.24"/>
 <instance part="P-7" gate="1" x="261.62" y="5.08"/>
@@ -18857,6 +18856,8 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="+3V3" gate="G$1" x="-58.42" y="66.04"/>
 <instance part="GND5" gate="1" x="121.92" y="157.48"/>
 <instance part="GND9" gate="1" x="104.14" y="139.7"/>
+<instance part="U$4" gate="G$2" x="76.2" y="119.38"/>
+<instance part="GND10" gate="1" x="76.2" y="99.06"/>
 </instances>
 <busses>
 </busses>
@@ -19005,12 +19006,6 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="294.64" y1="-25.4" x2="294.64" y2="-27.94" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="GND40" gate="1" pin="GND"/>
-<wire x1="254" y1="-22.86" x2="251.46" y2="-22.86" width="0.1524" layer="91"/>
-<wire x1="251.46" y1="-22.86" x2="251.46" y2="-27.94" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="B" pin="+IN"/>
-</segment>
-<segment>
 <pinref part="C2" gate="G$1" pin="2"/>
 <pinref part="GND48" gate="1" pin="GND"/>
 <wire x1="157.48" y1="2.54" x2="157.48" y2="-2.54" width="0.1524" layer="91"/>
@@ -19119,6 +19114,11 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="GND9" gate="1" pin="GND"/>
 <wire x1="101.6" y1="147.32" x2="104.14" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="147.32" x2="104.14" y2="142.24" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$4" gate="G$2" pin="P$1"/>
+<pinref part="GND10" gate="1" pin="GND"/>
+<wire x1="76.2" y1="101.6" x2="76.2" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="-12V" class="0">
@@ -19439,13 +19439,6 @@ Source: 008-0260-0_E.pdf</description>
 <junction x="251.46" y="33.02"/>
 </segment>
 </net>
-<net name="N$5" class="0">
-<segment>
-<pinref part="R504" gate="G$1" pin="1"/>
-<wire x1="274.32" y1="-20.32" x2="269.24" y2="-20.32" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="B" pin="OUT"/>
-</segment>
-</net>
 <net name="N$8" class="0">
 <segment>
 <pinref part="DAC0" gate="G$1" pin="4"/>
@@ -19548,9 +19541,9 @@ Source: 008-0260-0_E.pdf</description>
 <label x="-20.32" y="25.4" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="231.14" y="-17.78" size="1.778" layer="95"/>
-<pinref part="IC3" gate="B" pin="-IN"/>
-<wire x1="228.6" y1="-17.78" x2="254" y2="-17.78" width="0.1524" layer="91"/>
+<label x="231.14" y="-22.86" size="1.778" layer="95"/>
+<wire x1="228.6" y1="-22.86" x2="254" y2="-22.86" width="0.1524" layer="91"/>
+<pinref part="IC3" gate="B" pin="+IN"/>
 </segment>
 </net>
 <net name="ADC1" class="0">
@@ -19716,6 +19709,20 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="93.98" y1="78.74" x2="83.82" y2="78.74" width="0.1524" layer="91"/>
 <label x="83.82" y="78.74" size="1.778" layer="95"/>
 <pinref part="JP3" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="IC3" gate="B" pin="OUT"/>
+<pinref part="R504" gate="G$1" pin="1"/>
+<wire x1="274.32" y1="-20.32" x2="271.78" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="-20.32" x2="269.24" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="-20.32" x2="271.78" y2="-10.16" width="0.1524" layer="91"/>
+<junction x="271.78" y="-20.32"/>
+<wire x1="271.78" y1="-10.16" x2="251.46" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="251.46" y1="-10.16" x2="251.46" y2="-17.78" width="0.1524" layer="91"/>
+<pinref part="IC3" gate="B" pin="-IN"/>
+<wire x1="251.46" y1="-17.78" x2="254" y2="-17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
