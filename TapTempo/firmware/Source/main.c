@@ -18,15 +18,26 @@
 /*   SystemCoreClockUpdate(); */
 /* } */
 
-int main(void) {
+void setup(){
   ledSetup();
   setLed(RED);
-  int count = 0;
-  for(;;){
-    if(count++ % 0x10 == 0){
-      toggleLed();
-    }
+  pushButtonSetup();
+
+}
+
+int count = 0;
+void loop(){
+  if(count++ % 0x200000 == 0)
+    setLed(GREEN);
+  else if(count % 0x100000 == 0){
+    setLed(RED);
   }
+}
+
+int main(void) {
+  setup();
+  for(;;)
+    loop();
 }
 
 #ifdef USE_FULL_ASSERT

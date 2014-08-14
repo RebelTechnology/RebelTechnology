@@ -126,6 +126,10 @@ void ledSetup(){
   clearPin(LED_PORT, LED_RED|LED_GREEN);
 }
 
+bool isPushButtonPressed(){
+  return !getPin(PUSHBUTTON_PORT, PUSHBUTTON_PIN);
+}
+
 /* uint16_t adc_values[NOF_ADC_VALUES]; */
 /* void adcSetup(){ */
 /*   memset(adc_values, 0, sizeof adc_values); */
@@ -142,6 +146,49 @@ void ledSetup(){
 /* } */
 
 /* void (*externalInterruptCallbackA)(); */
+
+void pushButtonSetup(){
+  /* EXTIn connects to pins PAn, PBn et c */
+
+  /* Configure PA7 */
+  GPIO_InitTypeDef GPIO_InitStructure;
+  GPIO_StructInit(&GPIO_InitStructure);
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
+  /* GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; */
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+  GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+  /* Enable AFIO clock */
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
+
+  /* Connect EXTI Line to PA7 pin */
+  GPIO_EXTILineConfig(GPIO_PortSourceGPIOA, GPIO_PinSource7);
+
+  /* Configure EXTI line */
+  EXTI_InitTypeDef EXTI_InitStructure;
+  EXTI_StructInit(&EXTI_InitStructure);
+  EXTI_InitStructure.EXTI_Line = EXTI_Line7;
+  EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+  EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising_Falling;  
+  EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+  EXTI_Init(&EXTI_InitStructure);
+
+ NVIC_InitTypeDef NVIC_InitStructure;
+  /* Enable and set EXTI Interrupt to the lowest priority */
+  NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x0F;
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x0F;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+}
+
+void EXTI9_5_IRQHandler(void){
+  if(EXTI_GetITStatus(EXTI_Line7) != RESET){
+    /* Clear the  EXTI line pending bit */
+    EXTI_ClearITPendingBit(EXTI_Line7);
+    toggleLed();
+  }
+}
 
 /* /\**  */
 /*  * Configure EXTI callback */

@@ -5,8 +5,9 @@ CFLAGS = -g -Wall -Wcpp -DUSE_FULL_ASSERT
 CXXFLAGS = -fno-rtti -fno-exceptions -std=c++11 $(CFLAGS) 
 # LDSCRIPT = Source/flash.ld
 
-C_SRC  = main.c gpio.c periph.c
-OBJS =  $(C_SRC:%.c=Build/%.o)
+C_SRC  = gpio.c periph.c
+CPP_SRC = main.cpp TapTempo.cpp
+OBJS = $(C_SRC:%.c=Build/%.o) $(CPP_SRC:%.cpp=Build/%.o)
 
 # object files
 # OBJS += $(BUILD)/stm32f10x_gpio.o

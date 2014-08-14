@@ -23,6 +23,8 @@
    void blink();
 
    void ledSetup();
+   void pushButtonSetup();
+
    void adcSetup();
    uint16_t getAnalogValue(uint8_t index);
    uint16_t* getAnalogValues();
