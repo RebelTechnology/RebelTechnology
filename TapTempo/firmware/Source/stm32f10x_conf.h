@@ -3,7 +3,7 @@
 
 #if defined  (HSE_VALUE)
  #undef HSE_VALUE
- #define HSE_VALUE    ((uint32_t)8000000) 
+ #define HSE_VALUE    ((uint32_t)8000000)
 #endif /* HSE_VALUE */
 
 #include "stm32f10x_adc.h"
