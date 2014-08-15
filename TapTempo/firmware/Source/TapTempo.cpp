@@ -30,6 +30,14 @@ inline bool isFastMode(){
   return !getPin(TOGGLE_A_PORT, TOGGLE_A_PIN_A);
 }
 
+inline bool isSineMode(){
+  return !getPin(TOGGLE_B_PORT, TOGGLE_B_PIN_B);
+}
+
+inline bool isTriangleMode(){
+  return !getPin(TOGGLE_B_PORT, TOGGLE_B_PIN_A);
+}
+
 OperatingMode mode;
 inline void updateMode(){
   if(isFastMode()){
@@ -45,6 +53,10 @@ DDS dds;
 
 #define TRIGGER_LIMIT UINT64_MAX
 
+enum TapTempoMode {
+  OFF, SINE, TRIANGLE
+};
+
 class TapTempo {
 private:
   volatile uint64_t counter;
@@ -52,10 +64,11 @@ private:
   volatile uint64_t trig;
   volatile uint32_t ramp;
   volatile uint32_t threshold;
-  volatile bool isHigh;
-  
+  volatile bool isHigh;  
+  volatile TapTempoMode mode;
+  volatile uint32_t period;
 public:
-  TapTempo() : counter(0), limit(4096L), trig(0), ramp(0), threshold(32), isHigh(false) {}
+  TapTempo() : counter(0), limit(4096L), trig(0), ramp(0), threshold(32), isHigh(false), mode(SINE) {}
   void trigger(){
     if(trig > threshold && trig < TRIGGER_LIMIT){
       high();
@@ -67,16 +80,40 @@ public:
     }
     trig = 0;
   }
+  void setPeriodBasis(uint32_t basis){
+    int adjustment = basis - period;
+    dds.tune(adjustment);
+    period = basis;
+  }
+  void multiplyTempo(float factor){
+    dds.setPeriod(factor*dds.getPeriod());
+  }
+  TapTempoMode getMode(){
+    return mode;
+  }
+  void setMode(TapTempoMode m){
+    mode = m;
+    if(mode == OFF){
+      counter = 0;
+      dds.reset();
+      DAC_SetDualChannelData(DAC_Align_12b_R, 0, 0);
+    }
+  }
   void clock(){
-//     if(!++trig)
-//       trig = TRIGGER_LIMIT;
     if(trig < TRIGGER_LIMIT)
       trig++;
-    if(++counter > limit){
-      toggle();
-      counter = 0;
+    if(mode != OFF){
+      if(++counter > limit){
+	counter = 0;
+	toggle();
+      }
+      if(mode == SINE){
+	DAC_SetDualChannelData(DAC_Align_12b_R, dds.getSine(), dds.getRamp());
+      }else{ // if(mode == TRIANGLE){
+	DAC_SetDualChannelData(DAC_Align_12b_R, dds.getTri(), 4095-dds.getRamp());
+      }
+      dds.clock();
     }
-    DAC_SetDualChannelData(DAC_Align_12b_R, dds.getValue(), dds.getRamp());
     // setAnalogValue(0, dds.getValue());
     // setAnalogValue(1, dds.getRamp());
     // dac1.send(dds.getValue());
@@ -128,13 +165,8 @@ void timerCallback(){
   // togglePin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
 }
 
-uint16_t period = 6826;
 void setup(){
-  ledSetup();
-  setLed(RED);
-  triggerInputSetup(triggerCallback);
-  pushButtonSetup(buttonCallback);
-  timerSetup(period, timerCallback);
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
   configureDigitalInput(TRIGGER_INPUT_PORT, TRIGGER_INPUT_PIN, false);
   configureDigitalInput(TOGGLE_A_PORT, TOGGLE_A_PIN_A, true);
@@ -142,6 +174,11 @@ void setup(){
   configureDigitalInput(TOGGLE_B_PORT, TOGGLE_A_PIN_A, true);
   configureDigitalInput(TOGGLE_B_PORT, TOGGLE_A_PIN_B, true);
   configureDigitalOutput(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
+  ledSetup();
+  setLed(RED);
+  triggerInputSetup(triggerCallback);
+  pushButtonSetup(buttonCallback);
+  timerSetup(692, timerCallback);
   adcSetup();
   dacSetup();
 }
@@ -151,6 +188,7 @@ bool triggerIsHigh(){
   return isPushButtonPressed();
 }
 
+uint32_t period = 0;
 void run(){
   // int count = 0;
   for(;;){
@@ -160,8 +198,17 @@ void run(){
     //   setLed(RED);
     // }
     // updateMode();
+    if(isTriangleMode()){
+      if(tempo.getMode() != TRIANGLE)
+	tempo.setMode(TRIANGLE);
+    }else if(isSineMode()){
+      if(tempo.getMode() != SINE)
+	tempo.setMode(SINE);
+    }else if(tempo.getMode() != OFF){
+      tempo.setMode(OFF);
+    }
 
-    uint16_t p = (4095-getAnalogValue(0))*6+32;
+    uint32_t p = (4095-getAnalogValue(0))*6+32;
     if(isFastMode()){
       p <<= 1;
     }else if(isSlowMode()){
@@ -171,7 +218,9 @@ void run(){
     if(abs(p-period) > 32){
       period = p;
       timerSet(period);
+      // tempo.setPeriodBasis(period);
     }
+
     // 91Hz - 17kHz
     // tempo.clock();
     // if(triggerIsHigh())

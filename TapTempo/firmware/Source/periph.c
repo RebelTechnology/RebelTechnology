@@ -119,10 +119,6 @@ LedPin getLed(){
 }
 
 void ledSetup(){
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-  /* RCC_AHB1PeriphClockCmd(LED_CLOCK, ENABLE); */
-  /* RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE); */
   configureDigitalOutput(LED_PORT, LED_RED|LED_GREEN);
   clearPin(LED_PORT, LED_RED|LED_GREEN);
 }
@@ -254,7 +250,7 @@ void triggerInputSetup(void (*f)()){
 void EXTI1_IRQHandler(void){
   if(EXTI_GetITStatus(EXTI_Line1) != RESET){
     /* Clear the  EXTI line pending bit */
-    EXTI_ClearITPendingBit(EXTI_Line7);
+    EXTI_ClearITPendingBit(EXTI_Line1);
     /* call the callback function */
     (*externalInterruptCallbackB)();
   }

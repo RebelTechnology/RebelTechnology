@@ -17,8 +17,7 @@ void DDS::init(){
 // //   tword_m = (unsigned long)(pow(2,32)*freq/REFCLK); // calulate DDS new tuning word
 // }
 
-uint16_t DDS::getValue(){
-  accumulator += tuning; // soft DDS, phase accu with 64 bits
+uint16_t DDS::getSine(){
   uint16_t icnt = accumulator >> 54;     // use upper bits of phase accumulator
 //   uint8_t icnt = accumulator >> 8;     // use upper 8 bits for phase accu as frequency
   // read value from wave table
