@@ -26,7 +26,7 @@
    void pushButtonSetup(void (*f)());
    void timerSetup(uint16_t period, void (*f)());
    void timerSet(uint16_t period);
-
+   void dacSetup();
    void adcSetup();
    uint16_t getAnalogValue(uint8_t index);
    uint16_t* getAnalogValues();

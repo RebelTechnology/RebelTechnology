@@ -1,6 +1,18 @@
 #include <stdlib.h>
 #include "periph.h"
 
+#include "DDS.h"
+
+void setAnalogValue(uint8_t channel, uint16_t value);
+
+void setAnalogValue(uint8_t channel, uint16_t value){
+  value = value & 0xfff;
+  if(channel == 0)
+    DAC_SetChannel1Data(DAC_Align_12b_R, value);
+  else if(channel == 1)
+    DAC_SetChannel2Data(DAC_Align_12b_R, value);
+}
+
 /* #define DEBOUNCE(nm, ms) if(true){static uint32_t nm ## Debounce = 0; \
 if(getSysTicks() < nm ## Debounce+(ms)) return; nm ## Debounce = getSysTicks();} */
 
@@ -29,7 +41,8 @@ inline void updateMode(){
   }
 }
 
-#define RAMP_LIMIT 4096L
+DDS dds;
+
 #define TRIGGER_LIMIT UINT64_MAX
 
 class TapTempo {
@@ -46,8 +59,8 @@ public:
   void trigger(){
     if(trig > threshold && trig < TRIGGER_LIMIT){
       high();
-      // dds.setPeriod(trig);
-      // dds.reset();
+      dds.setPeriod(trig);
+      dds.reset();
       limit = trig>>1; // toggle at period divided by 2
       counter = 0;
 //       dds.setFrequency(DDS_FREQUENCY/limit);
@@ -63,6 +76,12 @@ public:
       toggle();
       counter = 0;
     }
+
+    DAC_SetDualChannelData(DAC_Align_12b_R, dds.getValue(), dds.getRamp());
+
+    // setAnalogValue(0, dds.getValue());
+    // setAnalogValue(1, dds.getRamp());
+
     // dac1.send(dds.getValue());
 //     dac1.send(ramp++);
 //     if(ramp == RAMP_LIMIT)
@@ -100,7 +119,7 @@ void triggerCallback(){
 
 void timerCallback(){
   tempo.clock();
-  togglePin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
+  // togglePin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
 }
 
 uint16_t period = 6826;
@@ -117,6 +136,7 @@ void setup(){
   configureDigitalInput(TOGGLE_B_PORT, TOGGLE_A_PIN_B, true);
   configureDigitalOutput(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
   adcSetup();
+  dacSetup();
 }
 
 bool triggerIsHigh(){
@@ -145,7 +165,7 @@ void run(){
       period = p;
       timerSet(period);
     }
-    
+    // 91Hz - 17kHz
     // tempo.clock();
     // if(triggerIsHigh())
     //   tempo.trigger();

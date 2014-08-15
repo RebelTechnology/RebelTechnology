@@ -120,6 +120,7 @@ LedPin getLed(){
 
 void ledSetup(){
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
   /* RCC_AHB1PeriphClockCmd(LED_CLOCK, ENABLE); */
   /* RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE); */
   configureDigitalOutput(LED_PORT, LED_RED|LED_GREEN);
@@ -347,48 +348,55 @@ uint16_t capture = 0;
   }
 }
 
-/* /\**  */
-/*  * Configure EXTI callback */
-/*  *\/ */
-/* void setupSwitchA(void (*f)()){ */
-/*   externalInterruptCallbackA = f; */
+void dacSetup(){
+  /* DAC Periph clock enable */
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_DAC, ENABLE);
 
-/*   EXTI_InitTypeDef EXTI_InitStructure; */
-/*   NVIC_InitTypeDef NVIC_InitStructure; */
+  /* Once the DAC channel is enabled, the corresponding GPIO pin is automatically 
+     connected to the DAC converter. In order to avoid parasitic consumption, 
+     the GPIO pin should be configured in analog */
+  GPIO_InitTypeDef GPIO_InitStructure;
+  GPIO_StructInit(&GPIO_InitStructure);
+  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_4;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
+  GPIO_Init(GPIOA, &GPIO_InitStructure);
+  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_5;
+  GPIO_Init(GPIOA, &GPIO_InitStructure);
 
-/*   /\* Enable the clocks *\/ */
-/*   RCC_AHB1PeriphClockCmd(PUSHBUTTON_CLOCK, ENABLE); */
-/*   RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE); */
+  DAC_InitTypeDef DAC_InitStructure;
+  /* DAC channel1 Configuration */
+  DAC_StructInit(&DAC_InitStructure);
+  DAC_InitStructure.DAC_Trigger = DAC_Trigger_None;
+  /* Conversion is automatic once the DAC1_DHRxxxx register 
+     has been loaded, and not by external trigger */
+  DAC_InitStructure.DAC_WaveGeneration = DAC_WaveGeneration_None;
+  /* DAC_InitStructure.DAC_LFSRUnmask_TriangleAmplitude = DAC_TriangleAmplitude_1; */
+  DAC_InitStructure.DAC_OutputBuffer = DAC_OutputBuffer_Enable;
+  DAC_Init(DAC_Channel_1, &DAC_InitStructure);
 
-/*   /\* Configure switch pin *\/ */
-/*   configureDigitalInput(PUSHBUTTON_PORT, PUSHBUTTON_PIN, GPIO_PuPd_UP); */
+  /* DAC channel2 Configuration */
+  DAC_Init(DAC_Channel_2, &DAC_InitStructure);
 
-/*   /\* Connect EXTI Line to GPIO Pin *\/ */
-/*   SYSCFG_EXTILineConfig(PUSHBUTTON_PORT_SOURCE, PUSHBUTTON_PIN_SOURCE); */
+  /* Enable DAC Channel1: Once the DAC channel1 is enabled, PA4 is 
+     automatically connected to the DAC converter. */
+  DAC_Cmd(DAC_Channel_1, ENABLE);
 
-/*   /\* Configure EXTI line *\/ */
-/*   EXTI_StructInit(&EXTI_InitStructure); */
-/*   EXTI_InitStructure.EXTI_Line = PUSHBUTTON_PIN_LINE; */
-/*   EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt; */
-/*   EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising_Falling; */
-/*   EXTI_InitStructure.EXTI_LineCmd = ENABLE; */
-/*   EXTI_Init(&EXTI_InitStructure); */
+  /* Enable DAC Channel2: Once the DAC channel2 is enabled, PA5 is 
+     automatically connected to the DAC converter. */
+  DAC_Cmd(DAC_Channel_2, ENABLE);
 
-/*   /\* Enable and set EXTI Interrupt *\/ */
-/*   NVIC_InitStructure.NVIC_IRQChannel = PUSHBUTTON_IRQ; */
-/*   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = PUSHBUTTON_PRIORITY; */
-/*   NVIC_InitStructure.NVIC_IRQChannelSubPriority = PUSHBUTTON_SUBPRIORITY; */
-/*   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; */
-/*   NVIC_Init(&NVIC_InitStructure); */
-/* } */
+  /* Set DAC dual channel DHR12RD register */
+  DAC_SetDualChannelData(DAC_Align_12b_R, 0x100, 0x100);
 
-/* void PUSHBUTTON_HANDLER(void) { */
-/*   if(EXTI_GetITStatus(PUSHBUTTON_PIN_LINE) != RESET){  */
-/*     (*externalInterruptCallbackA)(); */
-/*     /\* Clear the EXTI line pending bit *\/ */
-/*     EXTI_ClearITPendingBit(PUSHBUTTON_PIN_LINE); */
-/*   } */
-/* } */
+  /* /\* Set DAC Channel1 DHR12L register *\/ */
+  /* DAC_SetChannel1Data(DAC_Align_12b_L, 0x7FF0); */
+
+  /* /\* Set DAC Channel2 data *\/ */
+  /* DAC_SetChannel2Data(DAC_Align_12b_L, 0x7FF0); */
+
+  /* /\* Start DAC Channel1 conversion by software *\/ */
+  /* DAC_SoftwareTriggerCmd(DAC_Channel_1, ENABLE); */
+}
 
 #ifdef USE_FULL_ASSERT
 void assert_failed(uint8_t* file, uint32_t line){

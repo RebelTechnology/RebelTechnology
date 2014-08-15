@@ -6,7 +6,7 @@ CXXFLAGS = -fno-rtti -fno-exceptions -std=c++11 $(CFLAGS)
 # LDSCRIPT = Source/flash.ld
 
 C_SRC  = gpio.c periph.c
-CPP_SRC = main.cpp TapTempo.cpp
+CPP_SRC = main.cpp TapTempo.cpp DDS.cpp
 OBJS = $(C_SRC:%.c=Build/%.o) $(CPP_SRC:%.cpp=Build/%.o)
 
 # object files
