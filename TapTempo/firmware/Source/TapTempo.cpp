@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "periph.h"
 
 /* #define DEBOUNCE(nm, ms) if(true){static uint32_t nm ## Debounce = 0; \
@@ -10,11 +11,11 @@ enum OperatingMode {
 };
 
 inline bool isSlowMode(){
-  return !getPin(TOGGLE_A_PORT, TOGGLE_A_PIN_A);
+  return !getPin(TOGGLE_A_PORT, TOGGLE_A_PIN_B);
 }
 
 inline bool isFastMode(){
-  return !getPin(TOGGLE_A_PORT, TOGGLE_A_PIN_B);
+  return !getPin(TOGGLE_A_PORT, TOGGLE_A_PIN_A);
 }
 
 OperatingMode mode;
@@ -102,11 +103,12 @@ void timerCallback(){
   togglePin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
 }
 
+uint16_t period = 6826;
 void setup(){
   ledSetup();
   setLed(RED);
   pushButtonSetup(triggerCallback);
-  timerSetup(6826, timerCallback);
+  timerSetup(period, timerCallback);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
   configureDigitalInput(TRIGGER_INPUT_PORT, TRIGGER_INPUT_PIN, false);
   configureDigitalInput(TOGGLE_A_PORT, TOGGLE_A_PIN_A, true);
@@ -114,6 +116,7 @@ void setup(){
   configureDigitalInput(TOGGLE_B_PORT, TOGGLE_A_PIN_A, true);
   configureDigitalInput(TOGGLE_B_PORT, TOGGLE_A_PIN_B, true);
   configureDigitalOutput(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
+  adcSetup();
 }
 
 bool triggerIsHigh(){
@@ -129,7 +132,20 @@ void run(){
     // else if(count % 0x100000 == 0){
     //   setLed(RED);
     // }
-    updateMode();
+    // updateMode();
+
+    uint16_t p = (4095-getAnalogValue(0))*8+64;
+    if(isFastMode()){
+      p <<= 1;
+    }else if(isSlowMode()){
+      p >>= 1;
+    }
+    p += 1;
+    if(abs(p-period) > 32){
+      period = p;
+      timerSet(period);
+    }
+    
     // tempo.clock();
     // if(triggerIsHigh())
     //   tempo.trigger();
