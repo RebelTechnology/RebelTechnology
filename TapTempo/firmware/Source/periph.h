@@ -24,6 +24,8 @@
 
    void ledSetup();
    void pushButtonSetup(void (*f)());
+   void timerSetup(uint16_t period, void (*f)());
+   void timerSet(uint16_t period);
 
    void adcSetup();
    uint16_t getAnalogValue(uint8_t index);

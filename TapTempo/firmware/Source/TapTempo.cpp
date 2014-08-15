@@ -1,5 +1,8 @@
 #include "periph.h"
 
+/* #define DEBOUNCE(nm, ms) if(true){static uint32_t nm ## Debounce = 0; \
+if(getSysTicks() < nm ## Debounce+(ms)) return; nm ## Debounce = getSysTicks();} */
+
 enum OperatingMode {
   MEDIUM_SPEED_MODE                   = 0,
   HIGH_SPEED_MODE                     = 1,
@@ -34,22 +37,21 @@ private:
   volatile uint64_t limit;
   volatile uint64_t trig;
   volatile uint32_t ramp;
-  volatile bool isHigh;
-public:
   volatile uint32_t threshold;
+  volatile bool isHigh;
   
 public:
   TapTempo() : counter(0), limit(4096L), trig(0), ramp(0), threshold(32), isHigh(false) {}
   void trigger(){
-    if(trig > threshold){
+    if(trig > threshold && trig < TRIGGER_LIMIT){
       high();
       // dds.setPeriod(trig);
       // dds.reset();
       limit = trig>>1; // toggle at period divided by 2
-      trig = 0;
       counter = 0;
 //       dds.setFrequency(DDS_FREQUENCY/limit);
     }
+    trig = 0;
   }
   void clock(){
 //     if(!++trig)
@@ -90,15 +92,21 @@ public:
 TapTempo tempo;
 
 void triggerCallback(){
+  // DEBOUNCE(trigger, 100);
   tempo.trigger();
   toggleLed();
+}
+
+void timerCallback(){
+  tempo.clock();
+  togglePin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
 }
 
 void setup(){
   ledSetup();
   setLed(RED);
   pushButtonSetup(triggerCallback);
-
+  timerSetup(6826, timerCallback);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
   configureDigitalInput(TRIGGER_INPUT_PORT, TRIGGER_INPUT_PIN, false);
   configureDigitalInput(TOGGLE_A_PORT, TOGGLE_A_PIN_A, true);
@@ -114,15 +122,15 @@ bool triggerIsHigh(){
 }
 
 void run(){
-  int count = 0;
+  // int count = 0;
   for(;;){
-    if(count++ % 0x200000 == 0)
-      setLed(GREEN);
-    else if(count % 0x100000 == 0){
-      setLed(RED);
-    }
+    // if(count++ % 0x200000 == 0)
+    //   setLed(GREEN);
+    // else if(count % 0x100000 == 0){
+    //   setLed(RED);
+    // }
     updateMode();
-    tempo.clock();
+    // tempo.clock();
     // if(triggerIsHigh())
     //   tempo.trigger();
   }
