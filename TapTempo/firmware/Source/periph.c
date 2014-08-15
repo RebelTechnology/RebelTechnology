@@ -219,6 +219,46 @@ uint16_t* getAnalogValues(){
 }
 
 void (*externalInterruptCallbackA)();
+void (*externalInterruptCallbackB)();
+
+void triggerInputSetup(void (*f)()){
+  externalInterruptCallbackB = f;
+  /* Configure pin */
+  GPIO_InitTypeDef GPIO_InitStructure;
+  GPIO_StructInit(&GPIO_InitStructure);
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  GPIO_Init(GPIOB, &GPIO_InitStructure);
+
+  /* Connect EXTI Line to pin */
+  GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource1);
+
+  /* Configure EXTI line */
+  EXTI_InitTypeDef EXTI_InitStructure;
+  EXTI_StructInit(&EXTI_InitStructure);
+  EXTI_InitStructure.EXTI_Line = EXTI_Line1;
+  EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+  EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising_Falling;  
+  EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+  EXTI_Init(&EXTI_InitStructure);
+
+  NVIC_InitTypeDef NVIC_InitStructure;
+  /* Enable and set EXTI Interrupt to the lowest priority */
+  NVIC_InitStructure.NVIC_IRQChannel = EXTI1_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x0F;
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x0F;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+}
+
+void EXTI1_IRQHandler(void){
+  if(EXTI_GetITStatus(EXTI_Line1) != RESET){
+    /* Clear the  EXTI line pending bit */
+    EXTI_ClearITPendingBit(EXTI_Line7);
+    /* call the callback function */
+    (*externalInterruptCallbackB)();
+  }
+}
 
 void pushButtonSetup(void (*f)()){
   externalInterruptCallbackA = f;

@@ -13,10 +13,10 @@
  */
 
 #define TRIGGER_INPUT_PORT        GPIOB
-#define TRIGGER_INPUT_PIN         GPIO_Pin_0
+#define TRIGGER_INPUT_PIN         GPIO_Pin_1
 
 #define TRIGGER_OUTPUT_PORT       GPIOB
-#define TRIGGER_OUTPUT_PIN        GPIO_Pin_1
+#define TRIGGER_OUTPUT_PIN        GPIO_Pin_0
 
 #define TOGGLE_A_PORT             GPIOA
 #define TOGGLE_A_PIN_A            GPIO_Pin_9

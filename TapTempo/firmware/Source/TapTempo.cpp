@@ -76,12 +76,9 @@ public:
       toggle();
       counter = 0;
     }
-
     DAC_SetDualChannelData(DAC_Align_12b_R, dds.getValue(), dds.getRamp());
-
     // setAnalogValue(0, dds.getValue());
     // setAnalogValue(1, dds.getRamp());
-
     // dac1.send(dds.getValue());
 //     dac1.send(ramp++);
 //     if(ramp == RAMP_LIMIT)
@@ -111,10 +108,19 @@ public:
 
 TapTempo tempo;
 
-void triggerCallback(){
-  // DEBOUNCE(trigger, 100);
+void buttonCallback(){
   tempo.trigger();
   toggleLed();
+}
+
+void triggerCallback(){
+  // DEBOUNCE(trigger, 100);
+  if(getPin(TRIGGER_INPUT_PORT, TRIGGER_INPUT_PIN)){
+    tempo.trigger();
+    setLed(RED);
+  }else{
+    setLed(NONE);
+  }
 }
 
 void timerCallback(){
@@ -126,7 +132,8 @@ uint16_t period = 6826;
 void setup(){
   ledSetup();
   setLed(RED);
-  pushButtonSetup(triggerCallback);
+  triggerInputSetup(triggerCallback);
+  pushButtonSetup(buttonCallback);
   timerSetup(period, timerCallback);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
   configureDigitalInput(TRIGGER_INPUT_PORT, TRIGGER_INPUT_PIN, false);
@@ -154,7 +161,7 @@ void run(){
     // }
     // updateMode();
 
-    uint16_t p = (4095-getAnalogValue(0))*8+64;
+    uint16_t p = (4095-getAnalogValue(0))*6+32;
     if(isFastMode()){
       p <<= 1;
     }else if(isSlowMode()){

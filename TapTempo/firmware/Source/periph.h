@@ -24,6 +24,7 @@
 
    void ledSetup();
    void pushButtonSetup(void (*f)());
+   void triggerInputSetup(void (*f)());
    void timerSetup(uint16_t period, void (*f)());
    void timerSet(uint16_t period);
    void dacSetup();
