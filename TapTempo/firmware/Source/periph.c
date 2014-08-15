@@ -145,9 +145,11 @@ bool isPushButtonPressed(){
 /*   return adc_values; */
 /* } */
 
-/* void (*externalInterruptCallbackA)(); */
+void (*externalInterruptCallbackA)();
 
-void pushButtonSetup(){
+void pushButtonSetup(void (*f)()){
+  externalInterruptCallbackA = f;
+
   /* EXTIn connects to pins PAn, PBn et c */
 
   /* Configure PA7 */
@@ -186,7 +188,8 @@ void EXTI9_5_IRQHandler(void){
   if(EXTI_GetITStatus(EXTI_Line7) != RESET){
     /* Clear the  EXTI line pending bit */
     EXTI_ClearITPendingBit(EXTI_Line7);
-    toggleLed();
+    /* call the callback function */
+    (*externalInterruptCallbackA)();
   }
 }
 
@@ -232,3 +235,9 @@ void EXTI9_5_IRQHandler(void){
 /*     EXTI_ClearITPendingBit(PUSHBUTTON_PIN_LINE); */
 /*   } */
 /* } */
+
+#ifdef USE_FULL_ASSERT
+void assert_failed(uint8_t* file, uint32_t line){
+  for(;;);
+}
+#endif

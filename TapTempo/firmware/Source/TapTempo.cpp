@@ -6,7 +6,6 @@ enum OperatingMode {
   LOW_SPEED_MODE                      = 2
 };
 
-
 inline bool isSlowMode(){
   return !getPin(TOGGLE_A_PORT, TOGGLE_A_PIN_A);
 }
@@ -27,7 +26,7 @@ inline void updateMode(){
 }
 
 #define RAMP_LIMIT 4096L
-#define TRIGGER_LIMIT 4294967295LL
+#define TRIGGER_LIMIT UINT64_MAX
 
 class TapTempo {
 private:
@@ -35,11 +34,12 @@ private:
   volatile uint64_t limit;
   volatile uint64_t trig;
   volatile uint32_t ramp;
+  volatile bool isHigh;
 public:
   volatile uint32_t threshold;
   
 public:
-  TapTempo() : counter(0), limit(4096L), trig(0), ramp(0), threshold(32) {}
+  TapTempo() : counter(0), limit(4096L), trig(0), ramp(0), threshold(32), isHigh(false) {}
   void trigger(){
     if(trig > threshold){
       high();
@@ -69,30 +69,35 @@ public:
 //       }
   }
   void low(){
-    clearPin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
-    
+    isHigh = false;
+    setPin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
+    setLed(NONE);    
   }
   void high(){
-    setPin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
+    isHigh = true;
+    clearPin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
+    setLed(GREEN);
 //     ramp = 0;
   }
   void toggle(){
-    if(isHigh())
+    if(isHigh)
       low();
     else
       high();
-  }
-  inline bool isHigh(){
-    return getPin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
   }
 };
 
 TapTempo tempo;
 
+void triggerCallback(){
+  tempo.trigger();
+  toggleLed();
+}
+
 void setup(){
   ledSetup();
   setLed(RED);
-  pushButtonSetup();
+  pushButtonSetup(triggerCallback);
 
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
   configureDigitalInput(TRIGGER_INPUT_PORT, TRIGGER_INPUT_PIN, false);
@@ -104,7 +109,8 @@ void setup(){
 }
 
 bool triggerIsHigh(){
-  return isPushButtonPressed() || !getPin(TRIGGER_INPUT_PORT, TRIGGER_INPUT_PIN);
+  // return isPushButtonPressed() || !getPin(TRIGGER_INPUT_PORT, TRIGGER_INPUT_PIN);
+  return isPushButtonPressed();
 }
 
 void run(){
@@ -115,8 +121,9 @@ void run(){
     else if(count % 0x100000 == 0){
       setLed(RED);
     }
+    updateMode();
+    tempo.clock();
+    // if(triggerIsHigh())
+    //   tempo.trigger();
   }
-  tempo.clock();
-  if(triggerIsHigh())
-    tempo.trigger();
 }
