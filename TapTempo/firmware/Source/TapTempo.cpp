@@ -57,7 +57,7 @@ inline void updateMode(){
 
 DDS dds;
 
-#define TRIGGER_LIMIT UINT64_MAX
+#define TRIGGER_LIMIT INT64_MAX
 
 enum TapTempoMode {
   OFF, SINE, TRIANGLE
@@ -68,17 +68,18 @@ private:
   volatile uint64_t counter;
   volatile uint64_t limit;
   volatile uint64_t trig;
-  volatile uint32_t ramp;
+  volatile uint64_t period;
   volatile uint32_t threshold;
   volatile bool isHigh;  
   volatile TapTempoMode mode;
   volatile uint16_t speed;
 public:
-  TapTempo() : counter(0), limit(TRIGGER_LIMIT), trig(TRIGGER_LIMIT), ramp(0), threshold(32), isHigh(false), mode(SINE) {}
+  TapTempo() : counter(0), limit(TRIGGER_LIMIT), trig(TRIGGER_LIMIT), period(0), threshold(1024), isHigh(false), mode(SINE) {}
   void trigger(){
     if(trig > threshold && trig < TRIGGER_LIMIT){
       high();
-      dds.setPeriod(trig);
+      period = trig;
+      dds.setPeriod(period);
       dds.reset();
       limit = trig>>1; // toggle at period divided by 2
       counter = 0;
@@ -87,20 +88,14 @@ public:
     trig = 0;
   }
   void setSpeed(int16_t s){
-    // if(abs(speed - s) > 16){
-      // uint64_t period = dds.getPeriod();
-      // int64_t delta = (period>>10)*(speed - s); /* period*change/1024 */
-      // dds.setPeriod(period+delta);
-      // // check if counter is < limit+delta
-      // limit = (period+delta) >> 1;
-    uint64_t tuning = dds.getFrequencyControlWord();
-    int64_t delta = (int64_t)tuning*(s-speed)/1024; // tbd: handle overflow
-    dds.setFrequencyControlWord((int64_t)tuning+delta);
-    delta = (int64_t)limit*(speed-s)/1024;
-    limit = (int64_t)limit+delta;
-    speed = s;
-    // without overflow handling, actual accumulator depth is 54 bits
-    // }
+    if(abs(speed-s)>32){
+      int64_t delta = (int64_t)period*(speed-s)/1024; // tbd: handle overflow
+      period = (int64_t)period+delta;
+      dds.setPeriod(period);
+      limit = period>>1;
+      speed = s;
+      // without overflow handling, actual accumulator depth is less
+    }
   }
   TapTempoMode getMode(){
     return mode;
@@ -130,26 +125,16 @@ public:
       }
       dds.clock();
     }
-    // setAnalogValue(0, dds.getValue());
-    // setAnalogValue(1, dds.getRamp());
-    // dac1.send(dds.getValue());
-//     dac1.send(ramp++);
-//     if(ramp == RAMP_LIMIT)
-//       ramp = 0;
-//       if(ramp < RAMP_LIMIT){
-// 	dac1.send(ramp++);
-//       }
   }
   void low(){
     isHigh = false;
-    setPin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
+    clearPin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
     setLed(NONE);    
   }
   void high(){
     isHigh = true;
-    clearPin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
+    setPin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
     setLed(GREEN);
-//     ramp = 0;
   }
   void toggle(){
     if(isHigh)
@@ -207,7 +192,6 @@ bool triggerIsHigh(){
   return isPushButtonPressed();
 }
 
-int16_t period = 0;
 void run(){
   // int count = 0;
   for(;;){
@@ -233,10 +217,6 @@ void run(){
     }else if(isSlowMode()){
       p /= 2;
     }
-    if(abs(p-period) > 32){
-      period = p;
-      tempo.setSpeed(period);
-      // timerSet(period);
-    }
+    tempo.setSpeed(p);
   }
 }
