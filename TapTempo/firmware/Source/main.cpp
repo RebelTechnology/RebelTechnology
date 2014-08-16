@@ -14,9 +14,9 @@ int main(void){
   RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);
   /* Wait till PLL is used as system clock source */
   while(RCC_GetSYSCLKSource() != 0x08){}
+  SystemCoreClockUpdate();
 
-  setup();	
-
+  setup();
   run();
 
   return 0;

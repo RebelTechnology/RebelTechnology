@@ -22,6 +22,12 @@ public:
   inline uint64_t getPeriod(){
     return DDS_ACCUMULATOR_PERIOD/tuning - 1;
   }
+  inline uint64_t getFrequencyControlWord(){
+    return tuning;
+  }
+  inline void setFrequencyControlWord(uint64_t t){
+    tuning = t;
+  }
   inline void setPeriod(uint64_t t){
     tuning = DDS_ACCUMULATOR_PERIOD/(t+1);
   }

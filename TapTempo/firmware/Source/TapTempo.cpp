@@ -1,7 +1,13 @@
 #include <stdlib.h>
 #include "periph.h"
-
 #include "DDS.h"
+
+/* period 3000: 1kHz toggle
+          1000: 3kHz
+	   300: 10kHz
+	   200: 15kHz
+	    30: 45Hz */
+#define TIMER_PERIOD 300
 
 void setAnalogValue(uint8_t channel, uint16_t value);
 
@@ -66,9 +72,9 @@ private:
   volatile uint32_t threshold;
   volatile bool isHigh;  
   volatile TapTempoMode mode;
-  volatile uint32_t period;
+  volatile uint16_t speed;
 public:
-  TapTempo() : counter(0), limit(4096L), trig(0), ramp(0), threshold(32), isHigh(false), mode(SINE) {}
+  TapTempo() : counter(0), limit(TRIGGER_LIMIT), trig(TRIGGER_LIMIT), ramp(0), threshold(32), isHigh(false), mode(SINE) {}
   void trigger(){
     if(trig > threshold && trig < TRIGGER_LIMIT){
       high();
@@ -80,13 +86,21 @@ public:
     }
     trig = 0;
   }
-  void setPeriodBasis(uint32_t basis){
-    int adjustment = basis - period;
-    dds.tune(adjustment);
-    period = basis;
-  }
-  void multiplyTempo(float factor){
-    dds.setPeriod(factor*dds.getPeriod());
+  void setSpeed(int16_t s){
+    // if(abs(speed - s) > 16){
+      // uint64_t period = dds.getPeriod();
+      // int64_t delta = (period>>10)*(speed - s); /* period*change/1024 */
+      // dds.setPeriod(period+delta);
+      // // check if counter is < limit+delta
+      // limit = (period+delta) >> 1;
+    uint64_t tuning = dds.getFrequencyControlWord();
+    int64_t delta = (int64_t)tuning*(s-speed)/1024; // tbd: handle overflow
+    dds.setFrequencyControlWord((int64_t)tuning+delta);
+    delta = (int64_t)limit*(speed-s)/1024;
+    limit = (int64_t)limit+delta;
+    speed = s;
+    // without overflow handling, actual accumulator depth is 54 bits
+    // }
   }
   TapTempoMode getMode(){
     return mode;
@@ -95,7 +109,9 @@ public:
     mode = m;
     if(mode == OFF){
       counter = 0;
+      trig = TRIGGER_LIMIT;
       dds.reset();
+      low();
       DAC_SetDualChannelData(DAC_Align_12b_R, 0, 0);
     }
   }
@@ -163,6 +179,7 @@ void triggerCallback(){
 void timerCallback(){
   tempo.clock();
   // togglePin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
+  togglePin(GPIOB, GPIO_Pin_10); // debug
 }
 
 void setup(){
@@ -176,11 +193,13 @@ void setup(){
   configureDigitalOutput(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
   ledSetup();
   setLed(RED);
-  triggerInputSetup(triggerCallback);
-  pushButtonSetup(buttonCallback);
-  timerSetup(692, timerCallback);
   adcSetup();
   dacSetup();
+  triggerInputSetup(triggerCallback);
+  pushButtonSetup(buttonCallback);
+  timerSetup(TIMER_PERIOD, timerCallback);
+
+  configureDigitalOutput(GPIOB, GPIO_Pin_10); // debug
 }
 
 bool triggerIsHigh(){
@@ -188,7 +207,7 @@ bool triggerIsHigh(){
   return isPushButtonPressed();
 }
 
-uint32_t period = 0;
+int16_t period = 0;
 void run(){
   // int count = 0;
   for(;;){
@@ -208,22 +227,16 @@ void run(){
       tempo.setMode(OFF);
     }
 
-    uint32_t p = (4095-getAnalogValue(0))*6+32;
+    int16_t p = getAnalogValue(0);
     if(isFastMode()){
-      p <<= 1;
+      p *= 2;
     }else if(isSlowMode()){
-      p >>= 1;
+      p /= 2;
     }
-    p += 1;
     if(abs(p-period) > 32){
       period = p;
-      timerSet(period);
-      // tempo.setPeriodBasis(period);
+      tempo.setSpeed(period);
+      // timerSet(period);
     }
-
-    // 91Hz - 17kHz
-    // tempo.clock();
-    // if(triggerIsHigh())
-    //   tempo.trigger();
   }
 }
