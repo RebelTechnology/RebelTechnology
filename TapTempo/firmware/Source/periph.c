@@ -374,13 +374,13 @@ void timerSetup(uint16_t period, void (*f)()){
 }
 
 void TIM2_IRQHandler(void){
-uint16_t capture = 0;
+/* uint16_t capture = 0; */
   if(TIM_GetITStatus(TIM2, TIM_IT_CC1) != RESET){
     TIM_ClearITPendingBit(TIM2, TIM_IT_CC1);
     /* call the callback function */
     (*timerCallbackA)();
-    capture = TIM_GetCapture1(TIM2);
-    TIM_SetCompare1(TIM2, capture + timerPeriod);
+    /* capture = TIM_GetCapture1(TIM2); */
+    /* TIM_SetCompare1(TIM2, capture + timerPeriod); */
   }
 }
 

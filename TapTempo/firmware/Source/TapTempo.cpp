@@ -3,11 +3,22 @@
 #include "DDS.h"
 
 /* period 3000: 1kHz toggle
-          1000: 3kHz
-	   300: 10kHz
-	   200: 15kHz
-	    30: 45Hz */
-#define TIMER_PERIOD 300
+ *        1000: 3kHz
+ *	   300: 10kHz
+ *	   200: 15kHz
+ *	    30: 45Hz 
+ */
+#define TIMER_PERIOD      300
+#define TRIGGER_THRESHOLD 32
+// #define TIMER_PERIOD      450
+// #define TRIGGER_THRESHOLD 24
+#define TRIGGER_LIMIT     INT32_MAX
+/* At 20kHz sampling frequency (TIMER_PERIOD 300), a 32-bit counter will 
+ * overflow every 59.65 hours. With 63 bits it overflows every 14623560 years.
+ */
+
+// tracking at 18Hz trigger input but not at 20Hz with threshold 1024
+// tracking at 610Hz trigger input but not at 625Hz with threshold 32
 
 void setAnalogValue(uint8_t channel, uint16_t value);
 
@@ -44,20 +55,7 @@ inline bool isTriangleMode(){
   return !getPin(TOGGLE_B_PORT, TOGGLE_B_PIN_A);
 }
 
-OperatingMode mode;
-inline void updateMode(){
-  if(isFastMode()){
-    mode = HIGH_SPEED_MODE;
-  }else if(isSlowMode()){
-    mode = LOW_SPEED_MODE;
-  }else{
-    mode = MEDIUM_SPEED_MODE;
-  }
-}
-
 DDS dds;
-
-#define TRIGGER_LIMIT INT64_MAX
 
 enum TapTempoMode {
   OFF, SINE, TRIANGLE
@@ -65,32 +63,35 @@ enum TapTempoMode {
 
 class TapTempo {
 private:
-  volatile uint64_t counter;
-  volatile uint64_t limit;
-  volatile uint64_t trig;
-  volatile uint64_t period;
-  volatile uint32_t threshold;
+  volatile uint32_t counter;
+  volatile uint32_t limit;
+  volatile uint32_t trig;
+  volatile uint32_t period;
+  volatile uint16_t threshold;
   volatile bool isHigh;  
   volatile TapTempoMode mode;
   volatile uint16_t speed;
 public:
-  TapTempo() : counter(0), limit(TRIGGER_LIMIT), trig(TRIGGER_LIMIT), period(0), threshold(1024), isHigh(false), mode(SINE) {}
+  TapTempo() : counter(0), limit(TRIGGER_LIMIT), trig(TRIGGER_LIMIT), period(TRIGGER_LIMIT), 
+	       threshold(TRIGGER_THRESHOLD), isHigh(false), mode(SINE), speed(0) {}
   void trigger(){
-    if(trig > threshold && trig < TRIGGER_LIMIT){
-      high();
-      period = trig;
-      dds.setPeriod(period);
-      dds.reset();
-      limit = trig>>1; // toggle at period divided by 2
-      counter = 0;
-//       dds.setFrequency(DDS_FREQUENCY/limit);
+    if(trig > threshold){
+      if(trig < TRIGGER_LIMIT){
+	high();
+	period = trig;
+	dds.setPeriod(period);
+	dds.reset();
+	limit = trig>>1; // toggle at period divided by 2
+	counter = 0;
+	//       dds.setFrequency(DDS_FREQUENCY/limit);
+      }
+      trig = 0;
     }
-    trig = 0;
   }
   void setSpeed(int16_t s){
     if(abs(speed-s)>32){
-      int64_t delta = (int64_t)period*(speed-s)/1024; // tbd: handle overflow
-      period = (int64_t)period+delta;
+      int64_t delta = (int64_t)period*(speed-s)/1024;
+      period = period+delta;
       dds.setPeriod(period);
       limit = period>>1;
       speed = s;
@@ -107,7 +108,7 @@ public:
       trig = TRIGGER_LIMIT;
       dds.reset();
       low();
-      DAC_SetDualChannelData(DAC_Align_12b_R, 0, 0);
+      DAC_SetDualChannelData(DAC_Align_12b_R, 0, 2047);
     }
   }
   void clock(){
@@ -119,9 +120,9 @@ public:
 	toggle();
       }
       if(mode == SINE){
-	DAC_SetDualChannelData(DAC_Align_12b_R, dds.getSine(), dds.getRamp());
+	DAC_SetDualChannelData(DAC_Align_12b_R, dds.getRamp(), dds.getSine());
       }else{ // if(mode == TRIANGLE){
-	DAC_SetDualChannelData(DAC_Align_12b_R, dds.getTri(), 4095-dds.getRamp());
+	DAC_SetDualChannelData(DAC_Align_12b_R, 4095-dds.getRamp(), dds.getTri());
       }
       dds.clock();
     }
@@ -155,7 +156,7 @@ void triggerCallback(){
   // DEBOUNCE(trigger, 100);
   if(getPin(TRIGGER_INPUT_PORT, TRIGGER_INPUT_PIN)){
     tempo.trigger();
-    setLed(RED);
+    // setLed(RED);
   }else{
     setLed(NONE);
   }
@@ -193,24 +194,31 @@ bool triggerIsHigh(){
 }
 
 void run(){
-  // int count = 0;
   for(;;){
-    // if(count++ % 0x200000 == 0)
-    //   setLed(GREEN);
-    // else if(count % 0x100000 == 0){
-    //   setLed(RED);
-    // }
-    // updateMode();
-    if(isTriangleMode()){
-      if(tempo.getMode() != TRIANGLE)
-	tempo.setMode(TRIANGLE);
-    }else if(isSineMode()){
-      if(tempo.getMode() != SINE)
+    switch(tempo.getMode()){
+    case SINE:
+      if(!isSineMode()){
+	if(isTriangleMode())
+	  tempo.setMode(TRIANGLE);
+	else
+	  tempo.setMode(OFF);
+      }
+      break;
+    case TRIANGLE:
+      if(!isTriangleMode()){
+	if(isSineMode())
+	  tempo.setMode(SINE);
+	else
+	  tempo.setMode(OFF);
+      }
+      break;
+    case OFF:
+      if(isSineMode())
 	tempo.setMode(SINE);
-    }else if(tempo.getMode() != OFF){
-      tempo.setMode(OFF);
+      else if(isTriangleMode())
+	tempo.setMode(TRIANGLE);
+      break;
     }
-
     int16_t p = getAnalogValue(0);
     if(isFastMode()){
       p *= 2;
