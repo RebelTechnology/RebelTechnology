@@ -17189,7 +17189,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="JP2" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="JP3" library="SparkFun" deviceset="M02" device="PTH"/>
-<part name="U3" library="Rebel" deviceset="NCP702" device=""/>
+<part name="U2" library="Rebel" deviceset="NCP702" device=""/>
 <part name="C803" library="resistor" deviceset="C-EU" device="C0603" value="1u"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="C804" library="resistor" deviceset="C-EU" device="C0603" value="1u"/>
@@ -17317,7 +17317,7 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="GND2" gate="1" x="63.5" y="99.06"/>
 <instance part="JP2" gate="G$1" x="76.2" y="25.4" rot="R180"/>
 <instance part="JP3" gate="G$1" x="200.66" y="81.28" rot="R180"/>
-<instance part="U3" gate="G$1" x="162.56" y="162.56"/>
+<instance part="U2" gate="G$1" x="162.56" y="162.56"/>
 <instance part="C803" gate="G$1" x="139.7" y="157.48"/>
 <instance part="GND3" gate="1" x="139.7" y="147.32"/>
 <instance part="C804" gate="G$1" x="180.34" y="157.48"/>
@@ -17434,7 +17434,7 @@ Source: 008-0260-0_E.pdf</description>
 <segment>
 <pinref part="GND19" gate="1" pin="GND"/>
 <wire x1="162.56" y1="149.86" x2="162.56" y2="152.4" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="GND"/>
+<pinref part="U2" gate="G$1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="GND22" gate="1" pin="GND"/>
@@ -17638,8 +17638,8 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="C801" gate="G$1" pin="+"/>
 <wire x1="129.54" y1="160.02" x2="129.54" y2="165.1" width="0.1524" layer="91"/>
 <junction x="129.54" y="165.1"/>
-<pinref part="U3" gate="G$1" pin="IN"/>
-<pinref part="U3" gate="G$1" pin="EN"/>
+<pinref part="U2" gate="G$1" pin="IN"/>
+<pinref part="U2" gate="G$1" pin="EN"/>
 <wire x1="149.86" y1="160.02" x2="147.32" y2="160.02" width="0.1524" layer="91"/>
 <wire x1="147.32" y1="160.02" x2="147.32" y2="165.1" width="0.1524" layer="91"/>
 <junction x="147.32" y="165.1"/>
@@ -17773,7 +17773,7 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="C802" gate="G$1" pin="+"/>
 <wire x1="190.5" y1="165.1" x2="190.5" y2="160.02" width="0.1524" layer="91"/>
 <junction x="190.5" y="165.1"/>
-<pinref part="U3" gate="G$1" pin="OUT"/>
+<pinref part="U2" gate="G$1" pin="OUT"/>
 <pinref part="C804" gate="G$1" pin="1"/>
 <wire x1="180.34" y1="160.02" x2="180.34" y2="165.1" width="0.1524" layer="91"/>
 <junction x="180.34" y="165.1"/>
