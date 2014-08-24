@@ -17394,11 +17394,7 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="-22.86" y1="101.6" x2="-17.78" y2="101.6" width="0.1524" layer="91"/>
 <pinref part="GND29" gate="1" pin="GND"/>
 <pinref part="TRIGGER" gate="G$1" pin="5"/>
-<wire x1="-17.78" y1="101.6" x2="-17.78" y2="99.06" width="0.1524" layer="91"/>
-<pinref part="TRIGGER" gate="G$1" pin="4"/>
-<wire x1="-17.78" y1="99.06" x2="-17.78" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="-22.86" y1="99.06" x2="-17.78" y2="99.06" width="0.1524" layer="91"/>
-<junction x="-17.78" y="99.06"/>
+<wire x1="-17.78" y1="101.6" x2="-17.78" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="D3" gate="G$1" pin="C"/>
@@ -17871,9 +17867,14 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="R703" gate="G$1" pin="2"/>
 <wire x1="0" y1="152.4" x2="0" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="0" y1="149.86" x2="0" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="0" y1="149.86" x2="17.78" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="0" y1="149.86" x2="7.62" y2="149.86" width="0.1524" layer="91"/>
 <junction x="0" y="149.86"/>
 <pinref part="PULSE" gate="G$1" pin="3"/>
+<pinref part="TRIGGER" gate="G$1" pin="4"/>
+<wire x1="7.62" y1="149.86" x2="17.78" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="-22.86" y1="99.06" x2="7.62" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="99.06" x2="7.62" y2="149.86" width="0.1524" layer="91"/>
+<junction x="7.62" y="149.86"/>
 </segment>
 </net>
 <net name="N$38" class="0">
