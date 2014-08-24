@@ -5615,15 +5615,13 @@ Metric Code Size 5664</description>
 <library name="Rebel">
 <packages>
 <package name="THONKICONN">
-<pad name="P$2" x="0" y="-3.38" drill="1.4"/>
-<pad name="P$3" x="0" y="4.92" drill="1.4"/>
-<pad name="P$1" x="0" y="-6.48" drill="1.2"/>
+<pad name="P$2" x="0" y="-3.38" drill="1"/>
+<pad name="P$3" x="0" y="4.92" drill="1"/>
+<pad name="P$1" x="0" y="-5.5" drill="1"/>
 <wire x1="-4.5" y1="6" x2="-4.5" y2="-4.5" width="0.127" layer="21"/>
-<wire x1="-4.5" y1="-4.5" x2="-2.95" y2="-4.5" width="0.127" layer="21"/>
-<wire x1="-2.95" y1="-4.5" x2="-0.6" y2="-4.5" width="0.127" layer="21"/>
+<wire x1="-4.5" y1="-4.5" x2="-0.6" y2="-4.5" width="0.127" layer="21"/>
 <wire x1="-0.6" y1="-4.5" x2="0.6" y2="-4.5" width="0.127" layer="51"/>
-<wire x1="0.6" y1="-4.5" x2="3.05" y2="-4.5" width="0.127" layer="21"/>
-<wire x1="3.05" y1="-4.5" x2="4.5" y2="-4.5" width="0.127" layer="21"/>
+<wire x1="0.6" y1="-4.5" x2="4.5" y2="-4.5" width="0.127" layer="21"/>
 <wire x1="4.5" y1="-4.5" x2="4.5" y2="6" width="0.127" layer="21"/>
 <wire x1="4.5" y1="6" x2="1.8" y2="6" width="0.127" layer="21"/>
 <circle x="0" y="0" radius="1.8" width="0.127" layer="51"/>
@@ -5633,9 +5631,9 @@ Metric Code Size 5664</description>
 <wire x1="-2.95" y1="-3.6" x2="3.05" y2="-3.6" width="0.127" layer="51"/>
 <wire x1="-2.95" y1="-3.6" x2="-2.95" y2="-4.5" width="0.127" layer="51"/>
 <wire x1="3.05" y1="-3.6" x2="3.05" y2="-4.5" width="0.127" layer="51"/>
-<wire x1="0.6" y1="-4.5" x2="0.6" y2="-6.4" width="0.127" layer="51"/>
-<wire x1="0.6" y1="-6.4" x2="-0.6" y2="-6.4" width="0.127" layer="51"/>
-<wire x1="-0.6" y1="-6.4" x2="-0.6" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="0.6" y1="-4.5" x2="0.6" y2="-6.2" width="0.127" layer="51"/>
+<wire x1="0.6" y1="-6.2" x2="-0.6" y2="-6.2" width="0.127" layer="51"/>
+<wire x1="-0.6" y1="-6.2" x2="-0.6" y2="-4.5" width="0.127" layer="51"/>
 <wire x1="-1.8" y1="6" x2="-1.8" y2="3.8" width="0.127" layer="51"/>
 <wire x1="-1.8" y1="3.8" x2="1.8" y2="3.8" width="0.127" layer="51"/>
 <wire x1="1.8" y1="3.8" x2="1.8" y2="6" width="0.127" layer="51"/>
@@ -17998,11 +17996,16 @@ Source: 008-0260-0_E.pdf</description>
 <label x="73.66" y="114.3" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="ADC2" class="0">
+<net name="PA2" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PA2"/>
 <wire x1="2.54" y1="33.02" x2="-10.16" y2="33.02" width="0.1524" layer="91"/>
 <label x="-10.16" y="33.02" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="SWITCH_A"/>
+<wire x1="93.98" y1="172.72" x2="86.36" y2="172.72" width="0.1524" layer="91"/>
+<label x="86.36" y="172.72" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC3" class="0">
@@ -18080,11 +18083,6 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="U1" gate="A" pin="PA7"/>
 <wire x1="2.54" y1="20.32" x2="-10.16" y2="20.32" width="0.1524" layer="91"/>
 <label x="-10.16" y="20.32" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U$1" gate="G$1" pin="SWITCH_A"/>
-<wire x1="93.98" y1="172.72" x2="86.36" y2="172.72" width="0.1524" layer="91"/>
-<label x="86.36" y="172.72" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PB6" class="0">
