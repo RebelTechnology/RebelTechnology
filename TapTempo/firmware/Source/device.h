@@ -29,18 +29,16 @@
 #define TOGGLE_B_CLOCK            RCC_AHB1Periph_GPIOB
 
 /* Illuminated pushbutton */
-/* PA7 */
 #define PUSHBUTTON_PORT                GPIOA
-#define PUSHBUTTON_CLOCK               RCC_AHB1Periph_GPIOA
-#define PUSHBUTTON_PORT_SOURCE         EXTI_PortSourceGPIOA
-#define PUSHBUTTON_PIN                 GPIO_Pin_7
-#define PUSHBUTTON_PIN_SOURCE          EXTI_PinSource7
-#define PUSHBUTTON_PIN_LINE            EXTI_Line7
+#define PUSHBUTTON_CLOCK               RCC_APB2Periph_AFIO
+#define PUSHBUTTON_PORT_SOURCE         GPIO_PortSourceGPIOA
+#define PUSHBUTTON_PIN                 GPIO_Pin_2
+#define PUSHBUTTON_PIN_SOURCE          GPIO_PinSource2
+#define PUSHBUTTON_PIN_LINE            EXTI_Line2
 #define PUSHBUTTON_IRQ                 EXTI2_IRQn
 #define PUSHBUTTON_HANDLER             EXTI2_IRQHandler
 
 /* LED */
-/* PA6 and PA8  */
 #define LED_PORT                     GPIOA
 #define LED_GREEN                    GPIO_Pin_8
 #define LED_RED                      GPIO_Pin_6

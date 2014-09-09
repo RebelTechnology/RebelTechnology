@@ -220,11 +220,11 @@ void run(){
       break;
     }
     int16_t p = getAnalogValue(0);
-    if(isFastMode()){
-      p *= 2;
-    }else if(isSlowMode()){
-      p /= 2;
-    }
+    // if(isFastMode()){
+    //   p *= 2;
+    // }else if(isSlowMode()){
+    //   p /= 2;
+    // }
     tempo.setSpeed(p);
   }
 }
