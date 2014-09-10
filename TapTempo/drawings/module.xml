@@ -1,14 +1,14 @@
 <module type="6hp">
+  <!-- pcb vertical offset: -1.95 -->
+  <!-- pots -->
+  <pot x="0.00" y="1.50"/>	<!-- speed -->
 
   <!-- buttons -->
-  <hole x="0.00" y="1.50" radius="3.5"/> <!-- tap tempo -->
-
-  <!-- pots -->
-  <pot x="0.00" y="0.25"/>	<!-- speed -->
+  <hole x="0.00" y="0.50" radius="3.5"/> <!-- tap tempo -->
 
   <!-- switches -->
-  <hole x="-0.35" y="-0.50" radius="2.0"/>
-  <hole x="0.35" y="-0.50" radius="2.0"/>
+  <hole x="-0.35" y="-0.25" radius="2.3"/> <!-- mode -->
+  <!-- <hole x="0.35" y="-0.25" radius="2.3"/> -->
 
   <!-- jacks -->
   <hole x="-0.25" y="-1.25" radius="3.25"/> <!-- trigger in -->
