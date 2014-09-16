@@ -28,6 +28,13 @@
 #define TOGGLE_B_PIN_B            GPIO_Pin_9
 #define TOGGLE_B_CLOCK            RCC_AHB1Periph_GPIOB
 
+#define TRIGGER_INPUT_CLOCK            RCC_APB2Periph_AFIO
+#define TRIGGER_INPUT_PORT_SOURCE      GPIO_PortSourceGPIOB
+#define TRIGGER_INPUT_PIN_SOURCE       GPIO_PinSource1
+#define TRIGGER_INPUT_PIN_LINE         EXTI_Line1
+#define TRIGGER_INPUT_IRQ              EXTI1_IRQn
+#define TRIGGER_INPUT_HANDLER          EXTI1_IRQHandler
+
 /* Illuminated pushbutton */
 #define PUSHBUTTON_PORT                GPIOA
 #define PUSHBUTTON_CLOCK               RCC_APB2Periph_AFIO

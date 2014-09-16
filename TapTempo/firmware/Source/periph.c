@@ -8,32 +8,11 @@
 void setLed(LedPin led){
   clearPin(LED_PORT, led ^ (LED_RED|LED_GREEN));
   setPin(LED_PORT, led);
-#ifdef OWLMODULAR
-  if(led == LED_RED)
-    clearPin(GPIOB, GPIO_Pin_7); // PB7 OWL Modular digital output high
-  else
-    setPin(GPIOB, GPIO_Pin_7); // PB7 OWL Modular digital output low
-#endif
 }
 
 void toggleLed(){
   togglePin(LED_PORT, LED_RED|LED_GREEN);
-#ifdef OWLMODULAR
-  togglePin(GPIOB, GPIO_Pin_7); // PB7 OWL Modular digital output
-#endif
 }
-
-void blink(){
-  togglePin(LED_PORT, LED_RED|LED_GREEN);
-#ifdef OWLMODULAR
-  togglePin(GPIOB, GPIO_Pin_7); // PB7 OWL Modular digital output
-#endif
-  togglePin(LED_PORT, LED_RED|LED_GREEN);
-#ifdef OWLMODULAR
-  togglePin(GPIOB, GPIO_Pin_7); // PB7 OWL Modular digital output
-#endif
-}
-
 
 char* getFirmwareVersion(){ 
   return HARDWARE_VERSION "-" FIRMWARE_VERSION ;
@@ -222,17 +201,20 @@ void triggerInputSetup(void (*f)()){
   /* Configure pin */
   GPIO_InitTypeDef GPIO_InitStructure;
   GPIO_StructInit(&GPIO_InitStructure);
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
+  GPIO_InitStructure.GPIO_Pin = TRIGGER_INPUT_PIN;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
   GPIO_Init(GPIOB, &GPIO_InitStructure);
 
+  /* Enable AFIO clock */
+  RCC_APB2PeriphClockCmd(TRIGGER_INPUT_CLOCK, ENABLE);
+
   /* Connect EXTI Line to pin */
-  GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource1);
+  GPIO_EXTILineConfig(TRIGGER_INPUT_PORT_SOURCE, TRIGGER_INPUT_PIN_SOURCE);
 
   /* Configure EXTI line */
   EXTI_InitTypeDef EXTI_InitStructure;
   EXTI_StructInit(&EXTI_InitStructure);
-  EXTI_InitStructure.EXTI_Line = EXTI_Line1;
+  EXTI_InitStructure.EXTI_Line = TRIGGER_INPUT_PIN_LINE;
   EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
   EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising_Falling;  
   EXTI_InitStructure.EXTI_LineCmd = ENABLE;
@@ -240,17 +222,17 @@ void triggerInputSetup(void (*f)()){
 
   NVIC_InitTypeDef NVIC_InitStructure;
   /* Enable and set EXTI Interrupt to the lowest priority */
-  NVIC_InitStructure.NVIC_IRQChannel = EXTI1_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannel = TRIGGER_INPUT_IRQ;
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x0F;
   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x0F;
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   NVIC_Init(&NVIC_InitStructure);
 }
 
-void EXTI1_IRQHandler(void){
-  if(EXTI_GetITStatus(EXTI_Line1) != RESET){
+void TRIGGER_INPUT_HANDLER(void){
+  if(EXTI_GetITStatus(TRIGGER_INPUT_PIN_LINE) != RESET){
     /* Clear the  EXTI line pending bit */
-    EXTI_ClearITPendingBit(EXTI_Line1);
+    EXTI_ClearITPendingBit(TRIGGER_INPUT_PIN_LINE);
     /* call the callback function */
     (*externalInterruptCallbackB)();
   }
@@ -279,7 +261,7 @@ void pushButtonSetup(void (*f)()){
   EXTI_StructInit(&EXTI_InitStructure);
   EXTI_InitStructure.EXTI_Line = PUSHBUTTON_PIN_LINE;
   EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
-  EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;  
+  EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising_Falling;  
   EXTI_InitStructure.EXTI_LineCmd = ENABLE;
   EXTI_Init(&EXTI_InitStructure);
 
@@ -292,7 +274,7 @@ void pushButtonSetup(void (*f)()){
   NVIC_Init(&NVIC_InitStructure);
 }
 
-void EXTI2_IRQHandler(void){
+void PUSHBUTTON_HANDLER(void){
   if(EXTI_GetITStatus(PUSHBUTTON_PIN_LINE) != RESET){
     /* Clear the  EXTI line pending bit */
     EXTI_ClearITPendingBit(PUSHBUTTON_PIN_LINE);
@@ -307,8 +289,8 @@ void timerSet(uint16_t period){
   timerPeriod = period;
   TIM_SetCompare1(TIM2, timerPeriod);
 }
-void timerSetup(uint16_t period, void (*f)()){
 
+void timerSetup(uint16_t period, void (*f)()){
   timerCallbackA = f;
   timerPeriod = period;
 
@@ -373,13 +355,13 @@ void timerSetup(uint16_t period, void (*f)()){
 }
 
 void TIM2_IRQHandler(void){
-/* uint16_t capture = 0; */
+uint16_t capture = 0;
   if(TIM_GetITStatus(TIM2, TIM_IT_CC1) != RESET){
     TIM_ClearITPendingBit(TIM2, TIM_IT_CC1);
     /* call the callback function */
     (*timerCallbackA)();
-    /* capture = TIM_GetCapture1(TIM2); */
-    /* TIM_SetCompare1(TIM2, capture + timerPeriod); */
+    capture = TIM_GetCapture1(TIM2);
+    TIM_SetCompare1(TIM2, capture + timerPeriod);
   }
 }
 

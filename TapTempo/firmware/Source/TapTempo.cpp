@@ -8,17 +8,16 @@
  *	   200: 15kHz
  *	    30: 45Hz 
  */
-#define TIMER_PERIOD      300
-#define TRIGGER_THRESHOLD 32
-// #define TIMER_PERIOD      450
-// #define TRIGGER_THRESHOLD 24
+#define TIMER_PERIOD      300 // 20kHz sampling rate
+#define TRIGGER_THRESHOLD 16  // 1250Hz at 20kHz sampling rate
+#define TAP_THRESHOLD     256 // 78Hz at 20kHz sampling rate, or 16th notes at 293BPM
 #define TRIGGER_LIMIT     INT32_MAX
 /* At 20kHz sampling frequency (TIMER_PERIOD 300), a 32-bit counter will 
  * overflow every 59.65 hours. With 63 bits it overflows every 14623560 years.
  */
 
 // tracking at 18Hz trigger input but not at 20Hz with threshold 1024
-// tracking at 610Hz trigger input but not at 625Hz with threshold 32
+// tracking at 610Hz trigger input but not at 625Hz with threshold 32 (20k/32=625)
 
 void setAnalogValue(uint8_t channel, uint16_t value);
 
@@ -32,12 +31,6 @@ void setAnalogValue(uint8_t channel, uint16_t value){
 
 /* #define DEBOUNCE(nm, ms) if(true){static uint32_t nm ## Debounce = 0; \
 if(getSysTicks() < nm ## Debounce+(ms)) return; nm ## Debounce = getSysTicks();} */
-
-enum OperatingMode {
-  MEDIUM_SPEED_MODE                   = 0,
-  HIGH_SPEED_MODE                     = 1,
-  LOW_SPEED_MODE                      = 2
-};
 
 inline bool isSlowMode(){
   return !getPin(TOGGLE_A_PORT, TOGGLE_A_PIN_B);
@@ -63,39 +56,50 @@ enum TapTempoMode {
 
 class TapTempo {
 private:
-  volatile uint32_t counter;
-  volatile uint32_t limit;
-  volatile uint32_t trig;
-  volatile uint32_t period;
-  volatile uint16_t threshold;
+  volatile int32_t counter;
+  volatile int32_t limit;
+  volatile int32_t trig;
+  volatile int32_t period;
   volatile bool isHigh;  
   volatile TapTempoMode mode;
   volatile uint16_t speed;
 public:
   TapTempo() : counter(0), limit(TRIGGER_LIMIT), trig(TRIGGER_LIMIT), period(TRIGGER_LIMIT), 
-	       threshold(TRIGGER_THRESHOLD), isHigh(false), mode(SINE), speed(0) {}
+	       isHigh(false), mode(SINE), speed(0) {}
+  void reset(){
+    counter = 0;
+    trig = TRIGGER_LIMIT;
+    dds.reset();
+    low();
+    DAC_SetDualChannelData(DAC_Align_12b_R, 0, 2047);
+  }
+  void tap(){
+    if(trig > TAP_THRESHOLD)
+      doTrigger();
+  }
   void trigger(){
-    if(trig > threshold){
-      if(trig < TRIGGER_LIMIT){
-	high();
-	period = trig;
-	dds.setPeriod(period);
-	dds.reset();
-	limit = trig>>1; // toggle at period divided by 2
-	counter = 0;
-	//       dds.setFrequency(DDS_FREQUENCY/limit);
-      }
-      trig = 0;
+    if(trig > TRIGGER_THRESHOLD)
+      doTrigger();
+  }
+  void doTrigger(){
+    if(trig < TRIGGER_LIMIT){
+      high();
+      period = trig;
+      dds.setPeriod(period);
+      // dds.reset();
+      limit = trig>>1; // toggle at period divided by 2
+      counter = 0;
+      //       dds.setFrequency(DDS_FREQUENCY/limit);
     }
+    trig = 0;
   }
   void setSpeed(int16_t s){
-    if(abs(speed-s)>32){
+    if(abs(speed-s) > 16){
       int64_t delta = (int64_t)period*(speed-s)/1024;
-      period = period+delta;
+      period = max(1, period+delta);
       dds.setPeriod(period);
       limit = period>>1;
       speed = s;
-      // without overflow handling, actual accumulator depth is less
     }
   }
   TapTempoMode getMode(){
@@ -103,13 +107,8 @@ public:
   }
   void setMode(TapTempoMode m){
     mode = m;
-    if(mode == OFF){
-      counter = 0;
-      trig = TRIGGER_LIMIT;
-      dds.reset();
-      low();
-      DAC_SetDualChannelData(DAC_Align_12b_R, 0, 2047);
-    }
+    if(mode == OFF)
+      reset();
   }
   void clock(){
     if(trig < TRIGGER_LIMIT)
@@ -129,12 +128,12 @@ public:
   }
   void low(){
     isHigh = false;
-    clearPin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
+    setPin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
     setLed(NONE);    
   }
   void high(){
     isHigh = true;
-    setPin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
+    clearPin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
     setLed(GREEN);
   }
   void toggle(){
@@ -148,7 +147,8 @@ public:
 TapTempo tempo;
 
 void buttonCallback(){
-  tempo.trigger();
+  if(isPushButtonPressed())
+    tempo.tap();
   toggleLed();
 }
 
@@ -171,12 +171,12 @@ void timerCallback(){
 void setup(){
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-  configureDigitalInput(TRIGGER_INPUT_PORT, TRIGGER_INPUT_PIN, false);
   configureDigitalInput(TOGGLE_A_PORT, TOGGLE_A_PIN_A, true);
   configureDigitalInput(TOGGLE_A_PORT, TOGGLE_A_PIN_B, true);
   configureDigitalInput(TOGGLE_B_PORT, TOGGLE_A_PIN_A, true);
   configureDigitalInput(TOGGLE_B_PORT, TOGGLE_A_PIN_B, true);
   configureDigitalOutput(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
+  configureDigitalOutput(GPIOB, GPIO_Pin_10); // debug
   ledSetup();
   setLed(RED);
   adcSetup();
@@ -184,8 +184,6 @@ void setup(){
   triggerInputSetup(triggerCallback);
   pushButtonSetup(buttonCallback);
   timerSetup(TIMER_PERIOD, timerCallback);
-
-  configureDigitalOutput(GPIOB, GPIO_Pin_10); // debug
 }
 
 bool triggerIsHigh(){
@@ -193,38 +191,37 @@ bool triggerIsHigh(){
   return isPushButtonPressed();
 }
 
-void run(){
-  for(;;){
-    switch(tempo.getMode()){
-    case SINE:
-      if(!isSineMode()){
-	if(isTriangleMode())
-	  tempo.setMode(TRIANGLE);
-	else
-	  tempo.setMode(OFF);
-      }
-      break;
-    case TRIANGLE:
-      if(!isTriangleMode()){
-	if(isSineMode())
-	  tempo.setMode(SINE);
-	else
-	  tempo.setMode(OFF);
-      }
-      break;
-    case OFF:
+void updateMode(){
+  switch(tempo.getMode()){
+  case SINE:
+    if(!isSineMode()){
+      if(isTriangleMode())
+	tempo.setMode(TRIANGLE);
+      else
+	tempo.setMode(OFF);
+    }
+    break;
+  case TRIANGLE:
+    if(!isTriangleMode()){
       if(isSineMode())
 	tempo.setMode(SINE);
-      else if(isTriangleMode())
-	tempo.setMode(TRIANGLE);
-      break;
+      else
+	tempo.setMode(OFF);
     }
+    break;
+  case OFF:
+    if(isSineMode())
+      tempo.setMode(SINE);
+    else if(isTriangleMode())
+      tempo.setMode(TRIANGLE);
+    break;
+  }
+}
+
+void run(){
+  for(;;){
+    updateMode();
     int16_t p = getAnalogValue(0);
-    // if(isFastMode()){
-    //   p *= 2;
-    // }else if(isSlowMode()){
-    //   p /= 2;
-    // }
     tempo.setSpeed(p);
   }
 }

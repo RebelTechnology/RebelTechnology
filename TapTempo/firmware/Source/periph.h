@@ -20,7 +20,6 @@
    LedPin getLed();
    void setLed(LedPin led);
    void toggleLed();
-   void blink();
 
    void ledSetup();
    void pushButtonSetup(void (*f)());
