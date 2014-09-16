@@ -33,19 +33,19 @@ void setAnalogValue(uint8_t channel, uint16_t value){
 if(getSysTicks() < nm ## Debounce+(ms)) return; nm ## Debounce = getSysTicks();} */
 
 inline bool isSlowMode(){
-  return !getPin(TOGGLE_A_PORT, TOGGLE_A_PIN_B);
+  return !getPin(TOGGLE_R_PORT, TOGGLE_R_PIN_B);
 }
 
 inline bool isFastMode(){
-  return !getPin(TOGGLE_A_PORT, TOGGLE_A_PIN_A);
+  return !getPin(TOGGLE_R_PORT, TOGGLE_R_PIN_A);
 }
 
 inline bool isSineMode(){
-  return !getPin(TOGGLE_B_PORT, TOGGLE_B_PIN_B);
+  return !getPin(TOGGLE_L_PORT, TOGGLE_L_PIN_B);
 }
 
 inline bool isTriangleMode(){
-  return !getPin(TOGGLE_B_PORT, TOGGLE_B_PIN_A);
+  return !getPin(TOGGLE_L_PORT, TOGGLE_L_PIN_A);
 }
 
 DDS dds;
@@ -171,10 +171,10 @@ void timerCallback(){
 void setup(){
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-  configureDigitalInput(TOGGLE_A_PORT, TOGGLE_A_PIN_A, true);
-  configureDigitalInput(TOGGLE_A_PORT, TOGGLE_A_PIN_B, true);
-  configureDigitalInput(TOGGLE_B_PORT, TOGGLE_A_PIN_A, true);
-  configureDigitalInput(TOGGLE_B_PORT, TOGGLE_A_PIN_B, true);
+  configureDigitalInput(TOGGLE_R_PORT, TOGGLE_R_PIN_A, true);
+  configureDigitalInput(TOGGLE_R_PORT, TOGGLE_R_PIN_B, true);
+  configureDigitalInput(TOGGLE_L_PORT, TOGGLE_R_PIN_A, true);
+  configureDigitalInput(TOGGLE_L_PORT, TOGGLE_R_PIN_B, true);
   configureDigitalOutput(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
   configureDigitalOutput(GPIOB, GPIO_Pin_10); // debug
   ledSetup();

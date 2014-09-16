@@ -12,22 +12,21 @@
   DAC2 PA5
  */
 
-#define TRIGGER_INPUT_PORT        GPIOB
-#define TRIGGER_INPUT_PIN         GPIO_Pin_1
-
 #define TRIGGER_OUTPUT_PORT       GPIOB
 #define TRIGGER_OUTPUT_PIN        GPIO_Pin_0
 
-#define TOGGLE_A_PORT             GPIOA
-#define TOGGLE_A_PIN_A            GPIO_Pin_9
-#define TOGGLE_A_PIN_B            GPIO_Pin_10
-#define TOGGLE_A_CLOCK            RCC_AHB1Periph_GPIOA
+#define TOGGLE_L_PORT             GPIOB
+#define TOGGLE_L_PIN_A            GPIO_Pin_8
+#define TOGGLE_L_PIN_B            GPIO_Pin_9
+#define TOGGLE_L_CLOCK            RCC_AHB1Periph_GPIOB
 
-#define TOGGLE_B_PORT             GPIOB
-#define TOGGLE_B_PIN_A            GPIO_Pin_8
-#define TOGGLE_B_PIN_B            GPIO_Pin_9
-#define TOGGLE_B_CLOCK            RCC_AHB1Periph_GPIOB
+#define TOGGLE_R_PORT             GPIOA
+#define TOGGLE_R_PIN_A            GPIO_Pin_9
+#define TOGGLE_R_PIN_B            GPIO_Pin_10
+#define TOGGLE_R_CLOCK            RCC_AHB1Periph_GPIOA
 
+#define TRIGGER_INPUT_PORT        GPIOB
+#define TRIGGER_INPUT_PIN         GPIO_Pin_1
 #define TRIGGER_INPUT_CLOCK            RCC_APB2Periph_AFIO
 #define TRIGGER_INPUT_PORT_SOURCE      GPIO_PortSourceGPIOB
 #define TRIGGER_INPUT_PIN_SOURCE       GPIO_PinSource1
