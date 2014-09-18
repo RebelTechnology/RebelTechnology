@@ -10985,6 +10985,13 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <junction x="50.8" y="50.8"/>
 </segment>
 </net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="IN" gate="G$1" pin="12"/>
+<pinref part="IN" gate="G$1" pin="11"/>
+<wire x1="7.62" y1="38.1" x2="22.86" y2="38.1" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
