@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -14257,6 +14257,9 @@ Source: http://focus.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf</description>
 <text x="-63.5" y="2.54" size="1.778" layer="97">Input Level</text>
 <text x="185.42" y="-307.34" size="1.778" layer="97" rot="R90">Crush Depth</text>
 <text x="233.68" y="-266.7" size="1.778" layer="97" rot="R90">Crush Level</text>
+<text x="-231.14" y="-271.78" size="12.7" layer="250">Bit Reactor Modular v1.3</text>
+<text x="-231.14" y="-289.56" size="12.7" layer="250">Rebel Technology 2014</text>
+<text x="-231.14" y="-307.34" size="12.7" layer="250">Published under the GNU GPL</text>
 </plain>
 <instances>
 <instance part="U1" gate="A" x="22.86" y="0"/>
