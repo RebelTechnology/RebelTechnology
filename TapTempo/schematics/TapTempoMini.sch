@@ -5638,6 +5638,7 @@ Metric Code Size 5664</description>
 <wire x1="-1.8" y1="3.8" x2="1.8" y2="3.8" width="0.127" layer="51"/>
 <wire x1="1.8" y1="3.8" x2="1.8" y2="6" width="0.127" layer="51"/>
 <text x="0" y="2.54" size="1.27" layer="104" font="vector" align="bottom-center">&gt;NAME</text>
+<hole x="0" y="0" drill="2.8"/>
 </package>
 <package name="0204/7">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
@@ -17859,22 +17860,6 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="R701" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="N$35" class="0">
-<segment>
-<pinref part="R704" gate="G$1" pin="2"/>
-<pinref part="R703" gate="G$1" pin="2"/>
-<wire x1="0" y1="152.4" x2="0" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="0" y1="149.86" x2="0" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="0" y1="149.86" x2="7.62" y2="149.86" width="0.1524" layer="91"/>
-<junction x="0" y="149.86"/>
-<pinref part="PULSE" gate="G$1" pin="3"/>
-<pinref part="TRIGGER" gate="G$1" pin="4"/>
-<wire x1="7.62" y1="149.86" x2="17.78" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="-22.86" y1="99.06" x2="7.62" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="7.62" y1="99.06" x2="7.62" y2="149.86" width="0.1524" layer="91"/>
-<junction x="7.62" y="149.86"/>
-</segment>
-</net>
 <net name="N$38" class="0">
 <segment>
 <pinref part="R703" gate="G$1" pin="1"/>
@@ -18225,6 +18210,26 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="R100" gate="G$1" pin="2"/>
 <wire x1="76.2" y1="177.8" x2="66.04" y2="177.8" width="0.1524" layer="91"/>
 <label x="68.58" y="177.8" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="R704" gate="G$1" pin="2"/>
+<pinref part="PULSE" gate="G$1" pin="3"/>
+<pinref part="R703" gate="G$1" pin="2"/>
+<wire x1="0" y1="152.4" x2="0" y2="149.86" width="0.1524" layer="91"/>
+<junction x="0" y="149.86"/>
+<wire x1="0" y1="149.86" x2="17.78" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="0" y1="149.86" x2="0" y2="147.32" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="PULSE" gate="G$1" pin="4"/>
+<wire x1="17.78" y1="147.32" x2="5.08" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="147.32" x2="5.08" y2="99.06" width="0.1524" layer="91"/>
+<pinref part="TRIGGER" gate="G$1" pin="4"/>
+<wire x1="-22.86" y1="99.06" x2="5.08" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
