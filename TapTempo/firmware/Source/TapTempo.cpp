@@ -50,46 +50,34 @@ inline bool isTriangleMode(){
 
 DDS dds;
 
-enum TapTempoMode {
+enum SynchroniserMode {
   OFF, SINE, TRIANGLE
 };
 
-class TapTempo {
+class Synchroniser {
 private:
-  volatile int32_t counter;
-  volatile int32_t limit;
-  volatile int32_t trig;
-  volatile int32_t period;
-  volatile bool isHigh;  
-  volatile TapTempoMode mode;
-  volatile uint16_t speed;
+  int32_t trig;
+  int32_t period;
+  bool isHigh;  
+  SynchroniserMode mode;
+  uint16_t speed;
 public:
-  TapTempo() : counter(0), limit(TRIGGER_LIMIT), trig(TRIGGER_LIMIT), period(TRIGGER_LIMIT), 
-	       isHigh(false), mode(SINE), speed(0) {}
+  Synchroniser() : trig(TRIGGER_LIMIT), period(TRIGGER_LIMIT), 
+	       isHigh(false), mode(OFF), speed(4095) {
+    dds.setPeriod(period);
+  }
   void reset(){
-    counter = 0;
     trig = TRIGGER_LIMIT;
     dds.reset();
-    low();
     DAC_SetDualChannelData(DAC_Align_12b_R, 0, 2047);
   }
-  void tap(){
-    if(trig > TAP_THRESHOLD)
-      doTrigger();
-  }
   void trigger(){
-    if(trig > TRIGGER_THRESHOLD)
-      doTrigger();
-  }
-  void doTrigger(){
+    if(trig < TAP_THRESHOLD)
+      return;
     if(trig < TRIGGER_LIMIT){
-      high();
       period = trig;
       dds.setPeriod(period);
       // dds.reset();
-      limit = trig>>1; // toggle at period divided by 2
-      counter = 0;
-      //       dds.setFrequency(DDS_FREQUENCY/limit);
     }
     trig = 0;
   }
@@ -98,32 +86,70 @@ public:
       int64_t delta = (int64_t)period*(speed-s)/1024;
       period = max(1, period+delta);
       dds.setPeriod(period);
-      limit = period>>1;
       speed = s;
     }
   }
-  TapTempoMode getMode(){
-    return mode;
-  }
-  void setMode(TapTempoMode m){
+  void setMode(SynchroniserMode m){
+    if(m == OFF && mode != OFF)
+      reset();    
     mode = m;
-    if(mode == OFF)
-      reset();
   }
   void clock(){
     if(trig < TRIGGER_LIMIT)
       trig++;
-    if(mode != OFF){
-      if(++counter > limit){
-	counter = 0;
-	toggle();
-      }
-      if(mode == SINE){
-	DAC_SetDualChannelData(DAC_Align_12b_R, dds.getRamp(), dds.getSine());
-      }else{ // if(mode == TRIANGLE){
-	DAC_SetDualChannelData(DAC_Align_12b_R, 4095-dds.getRamp(), dds.getTri());
-      }
-      dds.clock();
+    if(mode == SINE){
+      DAC_SetDualChannelData(DAC_Align_12b_R, dds.getRamp(), dds.getSine());
+    }else if(mode == TRIANGLE){
+      DAC_SetDualChannelData(DAC_Align_12b_R, 4095-dds.getRamp(), dds.getTri());
+    }
+    dds.clock();
+  }
+};
+
+class TapTempo {
+private:
+  int32_t counter;
+  int32_t limit;
+  int32_t trig;
+  bool isHigh;  
+  bool on;
+  uint16_t speed;
+public:
+  TapTempo() : counter(0), limit(TRIGGER_LIMIT), trig(TRIGGER_LIMIT), 
+	       isHigh(false), on(false), speed(4095) {}
+  void reset(){
+    counter = 0;
+    trig = TRIGGER_LIMIT;
+    low();
+  }
+  void trigger(){
+    if(trig < TAP_THRESHOLD)
+      return;
+    if(trig < TRIGGER_LIMIT){
+      high();
+      limit = trig>>1; // toggle at period divided by 2
+      counter = 0;
+    }
+    trig = 0;
+  }
+  void setSpeed(int16_t s){
+    if(abs(speed-s) > 16){
+      int64_t delta = (int64_t)limit*(speed-s)/2048;
+      limit = max(1, limit+delta);
+      speed = s;
+    }
+  }
+  void setStatus(bool enable){
+    if(!enable && on)
+      reset();
+    on = enable;
+  }
+  void clock(){
+    if(trig < TRIGGER_LIMIT)
+      trig++;
+    if(on && ++counter > limit){
+      counter = 0;
+      toggle();
     }
   }
   void low(){
@@ -144,39 +170,63 @@ public:
   }
 };
 
+Synchroniser synchro;
 TapTempo tempo;
 
 void buttonCallback(){
   if(isPushButtonPressed())
-    tempo.tap();
+    tempo.trigger();
   toggleLed();
 }
 
 void triggerCallback(){
-  // DEBOUNCE(trigger, 100);
   if(getPin(TRIGGER_INPUT_PORT, TRIGGER_INPUT_PIN)){
-    tempo.trigger();
+    synchro.trigger();
     // setLed(RED);
-  }else{
-    setLed(NONE);
+  // }else{
+  //   setLed(NONE);
   }
 }
 
 void timerCallback(){
   tempo.clock();
-  // togglePin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
+  synchro.clock();
+#ifdef DEBUG_PINS
   togglePin(GPIOB, GPIO_Pin_10); // debug
+#endif
+}
+
+void updateMode(){
+  if(isSineMode()){
+    synchro.setMode(SINE);
+    tempo.setStatus(true);
+  }else if(isTriangleMode()){
+    synchro.setMode(TRIANGLE);
+    tempo.setStatus(true);
+  }else{
+    synchro.setMode(OFF);
+    tempo.setStatus(false);
+  }
+}
+
+void updateSpeed(){
+  int16_t p = getAnalogValue(0);
+  synchro.setSpeed(p);
+  tempo.setSpeed(p);
 }
 
 void setup(){
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-  configureDigitalInput(TOGGLE_R_PORT, TOGGLE_R_PIN_A, true);
-  configureDigitalInput(TOGGLE_R_PORT, TOGGLE_R_PIN_B, true);
   configureDigitalInput(TOGGLE_L_PORT, TOGGLE_R_PIN_A, true);
   configureDigitalInput(TOGGLE_L_PORT, TOGGLE_R_PIN_B, true);
+  // RCC_APB2PeriphClockCmd(TOGGLE_R_CLOCK, ENABLE);
+  // configureDigitalInput(TOGGLE_R_PORT, TOGGLE_R_PIN_A, true);
+  // configureDigitalInput(TOGGLE_R_PORT, TOGGLE_R_PIN_B, true);
   configureDigitalOutput(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
+#ifdef DEBUG_PINS
   configureDigitalOutput(GPIOB, GPIO_Pin_10); // debug
+#endif
   ledSetup();
   setLed(RED);
   adcSetup();
@@ -184,44 +234,14 @@ void setup(){
   triggerInputSetup(triggerCallback);
   pushButtonSetup(buttonCallback);
   timerSetup(TIMER_PERIOD, timerCallback);
-}
 
-bool triggerIsHigh(){
-  // return isPushButtonPressed() || !getPin(TRIGGER_INPUT_PORT, TRIGGER_INPUT_PIN);
-  return isPushButtonPressed();
-}
-
-void updateMode(){
-  switch(tempo.getMode()){
-  case SINE:
-    if(!isSineMode()){
-      if(isTriangleMode())
-	tempo.setMode(TRIANGLE);
-      else
-	tempo.setMode(OFF);
-    }
-    break;
-  case TRIANGLE:
-    if(!isTriangleMode()){
-      if(isSineMode())
-	tempo.setMode(SINE);
-      else
-	tempo.setMode(OFF);
-    }
-    break;
-  case OFF:
-    if(isSineMode())
-      tempo.setMode(SINE);
-    else if(isTriangleMode())
-      tempo.setMode(TRIANGLE);
-    break;
-  }
+  // updateMode();
+  // updateSpeed();
 }
 
 void run(){
   for(;;){
     updateMode();
-    int16_t p = getAnalogValue(0);
-    tempo.setSpeed(p);
+    updateSpeed();
   }
 }
