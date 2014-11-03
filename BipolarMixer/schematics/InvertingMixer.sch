@@ -11568,6 +11568,10 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="P+1" library="supply1" deviceset="+12V" device=""/>
+<part name="X5" library="con-molex" deviceset="53?-03" device="048"/>
+<part name="P+2" library="supply1" deviceset="+12V" device=""/>
+<part name="P-1" library="supply1" deviceset="-12V" device=""/>
+<part name="GND18" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -11681,9 +11685,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="X3" gate="-3" x="55.88" y="63.5"/>
 <instance part="GND2" gate="1" x="43.18" y="58.42"/>
 <instance part="GND3" gate="1" x="195.58" y="5.08"/>
-<instance part="X4" gate="-1" x="203.2" y="53.34"/>
+<instance part="X4" gate="-1" x="203.2" y="48.26"/>
 <instance part="X4" gate="-2" x="203.2" y="50.8"/>
-<instance part="X4" gate="-3" x="203.2" y="48.26"/>
+<instance part="X4" gate="-3" x="203.2" y="53.34"/>
 <instance part="JP1" gate="G$1" x="-172.72" y="109.22" rot="R180"/>
 <instance part="R1" gate="G$1" x="-142.24" y="114.3" rot="R270"/>
 <instance part="R2" gate="G$1" x="-142.24" y="99.06" rot="R270"/>
@@ -11698,6 +11702,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="POT4B" gate="G$2" x="-12.7" y="0"/>
 <instance part="GND17" gate="1" x="-83.82" y="-15.24"/>
 <instance part="P+1" gate="1" x="-142.24" y="124.46"/>
+<instance part="X5" gate="-1" x="68.58" y="-93.98"/>
+<instance part="X5" gate="-2" x="68.58" y="-91.44"/>
+<instance part="X5" gate="-3" x="68.58" y="-88.9"/>
+<instance part="P+2" gate="1" x="63.5" y="-83.82"/>
+<instance part="P-1" gate="1" x="63.5" y="-99.06"/>
+<instance part="GND18" gate="1" x="55.88" y="-99.06"/>
 </instances>
 <busses>
 </busses>
@@ -11945,6 +11955,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="-12.7" y1="-10.16" x2="-12.7" y2="-5.08" width="0.1524" layer="91"/>
 <junction x="-22.86" y="-10.16"/>
 </segment>
+<segment>
+<pinref part="X5" gate="-2" pin="S"/>
+<pinref part="GND18" gate="1" pin="GND"/>
+<wire x1="66.04" y1="-91.44" x2="55.88" y2="-91.44" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="-91.44" x2="55.88" y2="-96.52" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="N$1" class="0">
 <segment>
@@ -12072,6 +12088,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="-142.24" y1="119.38" x2="-142.24" y2="121.92" width="0.1524" layer="91"/>
 <pinref part="P+1" gate="1" pin="+12V"/>
 </segment>
+<segment>
+<pinref part="P+2" gate="1" pin="+12V"/>
+<wire x1="63.5" y1="-88.9" x2="63.5" y2="-86.36" width="0.1524" layer="91"/>
+<pinref part="X5" gate="-3" pin="S"/>
+<wire x1="66.04" y1="-88.9" x2="63.5" y2="-88.9" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="-12V" class="0">
 <segment>
@@ -12108,6 +12130,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="P-5" gate="1" pin="-12V"/>
 <pinref part="C2" gate="G$1" pin="-"/>
 <wire x1="76.2" y1="-40.64" x2="76.2" y2="-27.94" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="P-1" gate="1" pin="-12V"/>
+<wire x1="63.5" y1="-93.98" x2="63.5" y2="-96.52" width="0.1524" layer="91"/>
+<pinref part="X5" gate="-1" pin="S"/>
+<wire x1="66.04" y1="-93.98" x2="63.5" y2="-93.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$56" class="0">
@@ -12481,17 +12509,17 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="OUT_A" gate="G$1" pin="SW"/>
 <wire x1="198.12" y1="86.36" x2="193.04" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="193.04" y1="86.36" x2="193.04" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="X4" gate="-1" pin="S"/>
-<wire x1="193.04" y1="53.34" x2="200.66" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="X4" gate="-3" pin="S"/>
+<wire x1="200.66" y1="53.34" x2="193.04" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
-<pinref part="X4" gate="-3" pin="S"/>
-<wire x1="200.66" y1="48.26" x2="193.04" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="193.04" y1="48.26" x2="193.04" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="OUT_B" gate="G$1" pin="SW"/>
 <wire x1="193.04" y1="38.1" x2="198.12" y2="38.1" width="0.1524" layer="91"/>
+<pinref part="X4" gate="-1" pin="S"/>
+<wire x1="200.66" y1="48.26" x2="193.04" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$7" class="0">
