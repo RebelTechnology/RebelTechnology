@@ -17215,6 +17215,11 @@ Source: 008-0260-0_E.pdf</description>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="U$3" library="Rebel" deviceset="SUB-MIN-SPDT" device=""/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
+<part name="R101" library="resistor" deviceset="R-EU_" device="R0603" value="1K"/>
+<part name="C100" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="GND5" library="supply1" deviceset="GND" device=""/>
+<part name="JP5" library="SparkFun" deviceset="M02" device="PTH"/>
+<part name="GND18" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -17344,6 +17349,11 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="GND10" gate="1" x="48.26" y="99.06"/>
 <instance part="U$3" gate="G$1" x="66.04" y="157.48" rot="R180"/>
 <instance part="GND17" gate="1" x="71.12" y="149.86"/>
+<instance part="R101" gate="G$1" x="68.58" y="172.72" rot="R180"/>
+<instance part="C100" gate="G$1" x="78.74" y="167.64"/>
+<instance part="GND5" gate="1" x="78.74" y="157.48"/>
+<instance part="JP5" gate="G$1" x="210.82" y="78.74"/>
+<instance part="GND18" gate="1" x="220.98" y="73.66"/>
 </instances>
 <busses>
 </busses>
@@ -17596,6 +17606,21 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="68.58" y1="157.48" x2="71.12" y2="157.48" width="0.1524" layer="91"/>
 <pinref part="GND17" gate="1" pin="GND"/>
 <wire x1="71.12" y1="157.48" x2="71.12" y2="152.4" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C100" gate="G$1" pin="2"/>
+<pinref part="GND5" gate="1" pin="GND"/>
+<wire x1="78.74" y1="160.02" x2="78.74" y2="162.56" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JP5" gate="G$1" pin="1"/>
+<pinref part="GND18" gate="1" pin="GND"/>
+<wire x1="218.44" y1="78.74" x2="220.98" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="78.74" x2="220.98" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="JP5" gate="G$1" pin="2"/>
+<wire x1="218.44" y1="81.28" x2="220.98" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="81.28" x2="220.98" y2="78.74" width="0.1524" layer="91"/>
+<junction x="220.98" y="78.74"/>
 </segment>
 </net>
 <net name="-12V" class="0">
@@ -17988,9 +18013,9 @@ Source: 008-0260-0_E.pdf</description>
 <label x="-10.16" y="33.02" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="SWITCH_A"/>
-<wire x1="93.98" y1="172.72" x2="86.36" y2="172.72" width="0.1524" layer="91"/>
-<label x="86.36" y="172.72" size="1.778" layer="95"/>
+<pinref part="R101" gate="G$1" pin="2"/>
+<wire x1="63.5" y1="172.72" x2="55.88" y2="172.72" width="0.1524" layer="91"/>
+<label x="55.88" y="172.72" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC3" class="0">
@@ -18212,24 +18237,31 @@ Source: 008-0260-0_E.pdf</description>
 <label x="68.58" y="177.8" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$4" class="0">
+<net name="N$5" class="0">
 <segment>
+<wire x1="5.08" y1="149.86" x2="5.08" y2="99.06" width="0.1524" layer="91"/>
+<pinref part="TRIGGER" gate="G$1" pin="4"/>
+<wire x1="-22.86" y1="99.06" x2="5.08" y2="99.06" width="0.1524" layer="91"/>
 <pinref part="R704" gate="G$1" pin="2"/>
 <pinref part="PULSE" gate="G$1" pin="3"/>
 <pinref part="R703" gate="G$1" pin="2"/>
 <wire x1="0" y1="152.4" x2="0" y2="149.86" width="0.1524" layer="91"/>
 <junction x="0" y="149.86"/>
-<wire x1="0" y1="149.86" x2="17.78" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="0" y1="149.86" x2="5.08" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="149.86" x2="17.78" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="0" y1="149.86" x2="0" y2="147.32" width="0.1524" layer="91"/>
+<junction x="5.08" y="149.86"/>
 </segment>
 </net>
-<net name="N$5" class="0">
+<net name="SWITCH_A" class="0">
 <segment>
-<pinref part="PULSE" gate="G$1" pin="4"/>
-<wire x1="17.78" y1="147.32" x2="5.08" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="147.32" x2="5.08" y2="99.06" width="0.1524" layer="91"/>
-<pinref part="TRIGGER" gate="G$1" pin="4"/>
-<wire x1="-22.86" y1="99.06" x2="5.08" y2="99.06" width="0.1524" layer="91"/>
+<pinref part="R101" gate="G$1" pin="1"/>
+<pinref part="C100" gate="G$1" pin="1"/>
+<wire x1="73.66" y1="172.72" x2="78.74" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="172.72" x2="78.74" y2="170.18" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="SWITCH_A"/>
+<wire x1="93.98" y1="172.72" x2="78.74" y2="172.72" width="0.1524" layer="91"/>
+<junction x="78.74" y="172.72"/>
 </segment>
 </net>
 </nets>
