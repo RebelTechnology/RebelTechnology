@@ -17220,6 +17220,9 @@ Source: 008-0260-0_E.pdf</description>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="JP5" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
+<part name="R502" library="resistor" deviceset="R-EU_" device="R0603" value="2k"/>
+<part name="R503" library="resistor" deviceset="R-EU_" device="R0603" value="1k"/>
+<part name="GND23" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -17354,6 +17357,9 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="GND5" gate="1" x="78.74" y="157.48"/>
 <instance part="JP5" gate="G$1" x="210.82" y="78.74"/>
 <instance part="GND18" gate="1" x="220.98" y="73.66"/>
+<instance part="R502" gate="G$1" x="157.48" y="17.78"/>
+<instance part="R503" gate="G$1" x="139.7" y="7.62" rot="R180"/>
+<instance part="GND23" gate="1" x="147.32" y="-5.08"/>
 </instances>
 <busses>
 </busses>
@@ -17621,6 +17627,12 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="218.44" y1="81.28" x2="220.98" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="220.98" y1="81.28" x2="220.98" y2="78.74" width="0.1524" layer="91"/>
 <junction x="220.98" y="78.74"/>
+</segment>
+<segment>
+<pinref part="IC3" gate="B" pin="+IN"/>
+<pinref part="GND23" gate="1" pin="GND"/>
+<wire x1="149.86" y1="2.54" x2="147.32" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="2.54" x2="147.32" y2="-2.54" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="-12V" class="0">
@@ -17979,7 +17991,7 @@ Source: 008-0260-0_E.pdf</description>
 <segment>
 <pinref part="R403" gate="G$1" pin="2"/>
 <wire x1="124.46" y1="43.18" x2="134.62" y2="43.18" width="0.1524" layer="91"/>
-<label x="127" y="43.18" size="1.778" layer="95"/>
+<label x="124.46" y="43.18" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DAC2" class="0">
@@ -17989,9 +18001,9 @@ Source: 008-0260-0_E.pdf</description>
 <label x="-10.16" y="25.4" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="127" y="2.54" size="1.778" layer="95"/>
-<wire x1="124.46" y1="2.54" x2="149.86" y2="2.54" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="B" pin="+IN"/>
+<wire x1="124.46" y1="7.62" x2="134.62" y2="7.62" width="0.1524" layer="91"/>
+<label x="124.46" y="7.62" size="1.778" layer="95"/>
+<pinref part="R503" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="ADC1" class="0">
@@ -18177,12 +18189,10 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="R504" gate="G$1" pin="1"/>
 <wire x1="170.18" y1="5.08" x2="167.64" y2="5.08" width="0.1524" layer="91"/>
 <wire x1="167.64" y1="5.08" x2="165.1" y2="5.08" width="0.1524" layer="91"/>
-<wire x1="167.64" y1="5.08" x2="167.64" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="5.08" x2="167.64" y2="17.78" width="0.1524" layer="91"/>
 <junction x="167.64" y="5.08"/>
-<wire x1="167.64" y1="15.24" x2="147.32" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="15.24" x2="147.32" y2="7.62" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="B" pin="-IN"/>
-<wire x1="147.32" y1="7.62" x2="149.86" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="17.78" x2="162.56" y2="17.78" width="0.1524" layer="91"/>
+<pinref part="R502" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="PB0" class="0">
@@ -18262,6 +18272,18 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="U$1" gate="G$1" pin="SWITCH_A"/>
 <wire x1="93.98" y1="172.72" x2="78.74" y2="172.72" width="0.1524" layer="91"/>
 <junction x="78.74" y="172.72"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="IC3" gate="B" pin="-IN"/>
+<pinref part="R502" gate="G$1" pin="1"/>
+<wire x1="152.4" y1="17.78" x2="147.32" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="17.78" x2="147.32" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="7.62" x2="149.86" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="R503" gate="G$1" pin="1"/>
+<wire x1="147.32" y1="7.62" x2="144.78" y2="7.62" width="0.1524" layer="91"/>
+<junction x="147.32" y="7.62"/>
 </segment>
 </net>
 </nets>
