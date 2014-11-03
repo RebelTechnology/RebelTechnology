@@ -32,6 +32,7 @@
    uint16_t* getAnalogValues();
 
    bool isPushButtonPressed();
+   bool isTriggerHigh();
 
    void setupSwitchA(void (*f)());
    void setupSwitchB(void (*f)());

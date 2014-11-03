@@ -58,36 +58,6 @@ void dfu_reboot(void){
   while(1);
 }
 
-/* /\* Jump to the internal STM32 bootloader. The way this works is that we */
-/*  * set a magic number in memory that our startup code looks for (see startup.s). */
-/*  * RAM is preserved across system reset, so when it finds this magic number, it will go */
-/*  * to the bootloader code rather than the application code. */
-/*  *\/ */
-/* void jump_to_bootloader(void){ */
-/*   uint16_t i; */
-/*   volatile uint32_t delayCounter; */
-
-/*   /\* Disable USB in advance: this will give the computer time to */
-/*    * recognise it's been disconnected, so when the system bootloader */
-/*    * comes online it will get re-enumerated. */
-/*    *\/ */
-/*   usb_deinit(); */
-
-/*   /\* Disable all interrupts *\/ */
-/*   RCC->CIR = 0x00000000; */
-
-/*   /\* Blink LEDs *\/ */
-/*   setLed(RED); */
-/*   for(i = 0; i < 3; i++) { */
-/*     for(delayCounter = 0; delayCounter < 2000000; delayCounter++); */
-/*     setLed(NONE); */
-/*     for(delayCounter = 0; delayCounter < 2000000; delayCounter++); */
-/*     setLed(RED); */
-/*   } */
-
-/*   dfu_reboot(); */
-/* } */
-
 LedPin getLed(){
   if(getPin(LED_PORT, LED_GREEN))
     return GREEN;
@@ -104,6 +74,10 @@ void ledSetup(){
 
 bool isPushButtonPressed(){
   return !getPin(PUSHBUTTON_PORT, PUSHBUTTON_PIN);
+}
+
+bool isTriggerHigh(){
+  return !getPin(TRIGGER_INPUT_PORT, TRIGGER_INPUT_PIN);
 }
 
 #define NOF_ADC_VALUES 1

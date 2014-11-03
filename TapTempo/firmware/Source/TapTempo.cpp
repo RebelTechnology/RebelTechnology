@@ -173,18 +173,19 @@ public:
 Synchroniser synchro;
 TapTempo tempo;
 
+// todo: proper debouncing with systick counter
 void buttonCallback(){
-  if(isPushButtonPressed())
+  if(isPushButtonPressed()){
     tempo.trigger();
-  toggleLed();
+    toggleLed();
+  }else{
+    tempo.low();
+  }
 }
 
 void triggerCallback(){
-  if(getPin(TRIGGER_INPUT_PORT, TRIGGER_INPUT_PIN)){
+  if(isTriggerHigh()){
     synchro.trigger();
-    // setLed(RED);
-  // }else{
-  //   setLed(NONE);
   }
 }
 
