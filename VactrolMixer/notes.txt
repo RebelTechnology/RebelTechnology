@@ -19,6 +19,23 @@ R43 / R44: 100R
 voltage divider for bias: 12v * 500R / 100K = 0.06v
 or 1M / 5k
 
+
+---------------------
+
+Dual Element Axial Vactrols
+VTL5C2/2 features a very steep slope, low temperature coefficient of resistance, and a small light history memory. 
+VTL5C3/2 has a steep slope, good dynamic range, a very low temperature coefficient of resistance, and a small light history memory.
+£3-4 on farnell.
+VTL5C1   2.5ms/35ms on/off 600R/50M on/off at 10mA.
+VTL5C2   3.5ms/500ms on/off 800/1M at 10mA.
+VTL5C3   2.5ms/35ms on/off. 5R/10M on/off at 10mA.
+VTL5C3/2 3.0ms/50ms on/off. 2k/10M on/off at 40mA. 2 LDRs.
+VTL5C4   6.0ms/1500ms on/off. 125R/400M on/off at 10mA
+VTL5C6
+VTL5C7
+VTL5C8   4ms/60ms on/off. 1k/10M on/off at 16mA.
+
+
 --------------------------------------------------------------------
 
 Design ideas
@@ -31,6 +48,9 @@ http://www.science.smith.edu/departments/NeuroSci/courses/bio330/labs/L3pix/semi
 http://upload.wikimedia.org/wikipedia/commons/f/f1/Log_paper.svg
 http://cdn.printablepaper.net/samples/3-Cycle_by_2-Cycle_Log-Log.png
 http://www.rit.edu/cos/uphysics/graphing/fig8asemilog.gif
+
+damped sine wave
+http://ragsoverriches.blogspot.co.uk/2011/01/frem-negative-to-positive.html
 
 --------------------------------------------------------------------
 
@@ -52,18 +72,23 @@ Check out Texas Instruments TI DRV134 and DRV135 audio balanced line drivers, an
 
 --------------------------------------------------------------------
 
+SILONEX - NSL-32SR3
+Max IF 25mA, 5ms/10ms on/off. 60R/25M at 20mA.
+
 SILONEX - NSL-32SR2
 Max IF 25mA, 5ms/80ms on/off. 40R/5M at 20mA.
-
-EXCELITAS TECH - VTL5C3/2
+Farnell £1.83 @100
 
 Dual Element Axial Vactrols
 VTL5C1/2 features a very steep slope, low temperature coefficient of resistance, and a small light history memory. 
 VTL5C3/2 has a steep slope, good dynamic range, a very low temperature coefficient of resistance, and a small light history memory.
 £3-4 on farnell.
-VTL5C3 2.5/35ms on/off. 5R/10M on/off at 10mA.
 VTL5C1 2.5ms/35ms on/off 600R/50M on/off at 10mA.
+VTL5C2 3.5/500ms on/off
+VTL5C3 2.5/35ms on/off. 5R/10M on/off at 10mA.
 VTL5C3/2 3.0/50ms on/off. 2k/10M on/off at 40mA. 2 LDRs.
+VTL5C4 6/1500ms on/off, 125R/400M on/off at 10mA.
+Farnell £1.93 @100
 
 
 --------------------------------------------------------------------
@@ -75,3 +100,50 @@ FOUR2, 4TWO, FOURX
 DEX expandable mixing desk
 
 --------------------------------------------------------------------
+
+VactrolMixer Rev01
+
+270k instead of 200k
+13k instead of 20k
+4k7 instead of 5k
+
+- changed 13k to 33k
+
+------------------------------------------------
+
+- VCA inputs are wrong, feedback resistor should be between inv input and output, non-inv to ground
+remove R302, R305, R402, R405
+connect IC3 pins 3, 5, 10, 12 to gnd
+connect 100k resistor between IC3 pins 1 and 2
+connect 1k resistor between IC3 pins 5 and 7
+connect 100k resistor between IC3 pins 8 and 10
+connect 1k resistor between IC3 pins 12 and 14
+
+- Switched output header JP_SW_OUT is upside down
+
+add a pull-down resistor at final output amp inverting input (IC2 pin 6 and 13)
+to avoid 780kHz oscillations on low output level (floating input due to high vactrol resistance)
+(or 100nF cap?)
+
+------------------------------------------------
+
+VTL5C1 item 1
+knob at 5 o'clock: 20k
+2 o'clock: more than 20M ohm
+
+VTL5C1 item 2
+knob at 5 o'clock: 16k
+
+VTL5C3
+knob at 5 o'clock: 40k
+2 o'clock: more than 20M ohm
+
+Silonex
+knob at 5 o'clock: 400R
+2 o'clock: more than 20M ohm
+
+------------------------------------------------
+
+Adjust Master knob with resistor to get apprx anti-log response.
+
+------------------------------------------------

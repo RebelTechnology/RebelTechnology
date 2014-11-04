@@ -12816,10 +12816,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
 <part name="GND38" library="supply1" deviceset="GND" device=""/>
-<part name="C300" library="resistor" deviceset="C-EU" device="C0603" value="dnp"/>
-<part name="C400" library="resistor" deviceset="C-EU" device="C0603" value="dnp"/>
-<part name="GND39" library="supply1" deviceset="GND" device=""/>
-<part name="GND40" library="supply1" deviceset="GND" device=""/>
 <part name="R110" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
 <part name="R210" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
 <part name="X1" library="con-molex" deviceset="53?-03" device="048"/>
@@ -13004,10 +13000,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="GND36" gate="1" x="-111.76" y="-22.86"/>
 <instance part="GND37" gate="1" x="-111.76" y="-111.76"/>
 <instance part="GND38" gate="1" x="-160.02" y="-86.36"/>
-<instance part="C300" gate="G$1" x="20.32" y="-22.86"/>
-<instance part="C400" gate="G$1" x="22.86" y="-111.76"/>
-<instance part="GND39" gate="1" x="20.32" y="-35.56"/>
-<instance part="GND40" gate="1" x="22.86" y="-124.46"/>
 <instance part="R110" gate="G$1" x="99.06" y="86.36" rot="R180"/>
 <instance part="R210" gate="G$1" x="99.06" y="38.1" rot="R180"/>
 <instance part="X1" gate="-1" x="119.38" y="114.3"/>
@@ -13334,16 +13326,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="-111.76" y1="-96.52" x2="-111.76" y2="-109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="C400" gate="G$1" pin="2"/>
-<pinref part="GND40" gate="1" pin="GND"/>
-<wire x1="22.86" y1="-121.92" x2="22.86" y2="-116.84" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND39" gate="1" pin="GND"/>
-<pinref part="C300" gate="G$1" pin="2"/>
-<wire x1="20.32" y1="-27.94" x2="20.32" y2="-33.02" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="X5" gate="-2" pin="S"/>
 <wire x1="12.7" y1="68.58" x2="2.54" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="68.58" x2="2.54" y2="63.5" width="0.1524" layer="91"/>
@@ -13461,12 +13443,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="106.68" y1="38.1" x2="119.38" y2="38.1" width="0.1524" layer="91"/>
 <junction x="119.38" y="38.1"/>
 <pinref part="R207" gate="G$1" pin="1"/>
-<wire x1="15.24" y1="-104.14" x2="22.86" y2="-104.14" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="D" pin="-IN"/>
-<pinref part="C400" gate="G$1" pin="1"/>
-<wire x1="22.86" y1="-104.14" x2="106.68" y2="-104.14" width="0.1524" layer="91"/>
-<wire x1="22.86" y1="-109.22" x2="22.86" y2="-104.14" width="0.1524" layer="91"/>
-<junction x="22.86" y="-104.14"/>
+<wire x1="15.24" y1="-104.14" x2="106.68" y2="-104.14" width="0.1524" layer="91"/>
 <pinref part="R210" gate="G$1" pin="1"/>
 <wire x1="104.14" y1="38.1" x2="106.68" y2="38.1" width="0.1524" layer="91"/>
 <junction x="106.68" y="38.1"/>
@@ -13477,8 +13455,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="106.68" y1="50.8" x2="106.68" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="50.8" x2="106.68" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="-15.24" x2="35.56" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="15.24" y1="-15.24" x2="20.32" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="-15.24" x2="35.56" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="-15.24" x2="35.56" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="86.36" x2="119.38" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="86.36" x2="119.38" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="73.66" x2="124.46" y2="73.66" width="0.1524" layer="91"/>
@@ -13487,9 +13464,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="VAC1" gate="G$1" pin="LDRB"/>
 <pinref part="R107" gate="G$1" pin="1"/>
 <pinref part="IC2" gate="B" pin="-IN"/>
-<pinref part="C300" gate="G$1" pin="1"/>
-<wire x1="20.32" y1="-20.32" x2="20.32" y2="-15.24" width="0.1524" layer="91"/>
-<junction x="20.32" y="-15.24"/>
 <pinref part="R110" gate="G$1" pin="1"/>
 <wire x1="104.14" y1="86.36" x2="106.68" y2="86.36" width="0.1524" layer="91"/>
 <junction x="106.68" y="86.36"/>
