@@ -1,5 +1,6 @@
 <module type="6hp">
   <!-- pcb vertical offset: -1.95 -->
+
   <!-- pots -->
   <pot x="0.00" y="1.50"/>	<!-- speed -->
 
