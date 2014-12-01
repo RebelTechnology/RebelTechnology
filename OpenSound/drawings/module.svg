@@ -27,21 +27,29 @@
       <path d="m 69.475831,37.723605 c 0,17.397619 -14.103337,31.501159 -31.500648,31.501159 -17.397312,0 -31.500649,-14.10354 -31.500649,-31.501159 0,-17.397619 14.103337,-31.5012591 31.500649,-31.5012591 17.397311,0 31.500648,14.1036401 31.500648,31.5012591 z" style="fill:none"/>
     </g>
   </defs>
-  <g style="fill:none;stroke-width:0.1;stroke:black"><rect x="0.0" y="0.0" width="20.00" height="128.50"/><svg:circle cx="7.5" cy="3" r="1.6"/><svg:circle cx="7.5" cy="125.5" r="1.6"/>
+  <g style="fill:none;stroke-width:0.1;stroke:black"><rect x="0.0" y="0.0" width="30.00" height="128.50"/><svg:circle cx="7.5" cy="3" r="1.6"/><svg:circle cx="7.5" cy="125.5" r="1.6"/>
   
 
-  <circle cx="10" cy="19.8" r="3.25"/> 
+  
+  
+  <circle cx="21.35" cy="17.26" r="3.25"/>
 
   
-  <circle cx="10" cy="37.58" r="3.25"/> 
-  <circle cx="10" cy="47.74" r="3.25"/> 
-  <circle cx="10" cy="57.9" r="3.25"/> 
-  <circle cx="10" cy="68.06" r="3.25"/> 
+  
+  
+  <circle cx="15" cy="57.9" r="3.5"/>
+  <circle cx="15" cy="76.95" r="3.5"/>
 
-  <circle cx="10" cy="78.22" r="3.25"/> 
-  <circle cx="10" cy="88.38" r="3.25"/> 
-  <circle cx="10" cy="98.54" r="3.25"/> 
-  <circle cx="10" cy="108.7" r="3.25"/> 
+  
+  <circle cx="21.35" cy="45.2" r="3.25"/>
+  <circle cx="21.35" cy="32.5" r="3.25"/>
+  <circle cx="8.65" cy="38.85" r="3.25"/>
+  <circle cx="8.65" cy="26.15" r="3.25"/>
+
+  <circle cx="8.65" cy="96" r="3.25"/>
+  <circle cx="8.65" cy="108.7" r="3.25"/>
+  <circle cx="21.35" cy="89.65" r="3.25"/>
+  <circle cx="21.35" cy="102.35" r="3.25"/>
 
 </g>
 </svg>
