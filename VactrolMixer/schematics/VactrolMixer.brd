@@ -127,14 +127,15 @@
 <wire x1="62.23" y1="100.965" x2="1.5875" y2="100.965" width="0" layer="20"/>
 <wire x1="1.5875" y1="100.965" x2="1.5875" y2="0.762" width="0" layer="20"/>
 <wire x1="1.5875" y1="0.762" x2="62.23" y2="0.762" width="0" layer="20"/>
-<text x="24.13" y="17.78" size="1.778" layer="21" rot="R90">Rebel Technology</text>
-<text x="24.13" y="54.61" size="1.778" layer="21" rot="R90">VactrolMixer Rev02</text>
+<text x="23.495" y="17.78" size="1.524" layer="21" font="vector" rot="R90">Rebel Technology</text>
+<text x="23.8125" y="54.61" size="1.524" layer="21" font="vector" rot="R90">VactrolMixer</text>
 <text x="16.51" y="11.176" size="1.27" layer="25" font="vector" align="top-center">-12V</text>
-<text x="16.51" y="12.446" size="1.27" layer="30" font="vector" rot="MR0" align="top-center">-12V</text>
-<text x="50.8" y="12.065" size="1.778" layer="30" rot="MR0">Rebel Tech</text>
-<text x="60.96" y="4.445" size="1.778" layer="30" rot="MR0">VactrolMixer Rev02</text>
+<text x="16.51" y="11.176" size="1.27" layer="22" font="vector" rot="MR0" align="top-center">-12V</text>
+<text x="50.8" y="12.065" size="1.778" layer="22" font="vector" rot="MR0">Rebel Tech</text>
+<text x="60.96" y="4.445" size="1.778" layer="22" font="vector" rot="MR0">VactrolMixer Rev03</text>
 <dimension x1="1.5875" y1="0.762" x2="62.23" y2="0.762" x3="31.90875" y3="-2.54" textsize="1.778" layer="47"/>
 <dimension x1="1.5875" y1="0.762" x2="1.5875" y2="100.965" x3="-1.27" y3="50.8635" textsize="1.778" layer="47"/>
+<text x="23.495" y="73.66" size="1.524" layer="21" font="vector" rot="R90">Rev03</text>
 </plain>
 <libraries>
 <library name="Pingdynasty">
