@@ -13414,16 +13414,16 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </class>
 </classes>
 <parts>
-<part name="R108" library="resistor" deviceset="R-EU_" device="R0603"/>
-<part name="R208" library="resistor" deviceset="R-EU_" device="R0603"/>
+<part name="R108" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
+<part name="R208" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
-<part name="R106" library="resistor" deviceset="R-EU_" device="R0603"/>
-<part name="R206" library="resistor" deviceset="R-EU_" device="R0603"/>
+<part name="R106" library="resistor" deviceset="R-EU_" device="R0603" value="200k"/>
+<part name="R206" library="resistor" deviceset="R-EU_" device="R0603" value="200k"/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
-<part name="R107" library="resistor" deviceset="R-EU_" device="R0603"/>
-<part name="R207" library="resistor" deviceset="R-EU_" device="R0603"/>
+<part name="R107" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
+<part name="R207" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
 <part name="R110" library="resistor" deviceset="R-EU_" device="R0603" value="100R"/>
 <part name="R109" library="resistor" deviceset="R-EU_" device="R0603" value="100R"/>
 <part name="R210" library="resistor" deviceset="R-EU_" device="R0603" value="100R"/>
@@ -13462,10 +13462,10 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="IN_1" library="Rebel" deviceset="JACK-PJ-301B" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="IC2" library="adafruit" deviceset="QUAD_OPAMP" device="D" value="QUAD_OPAMPD"/>
-<part name="R504" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
-<part name="R503" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
-<part name="R502" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
-<part name="R501" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
+<part name="R504" library="resistor" deviceset="R-EU_" device="R0603" value="1k"/>
+<part name="R503" library="resistor" deviceset="R-EU_" device="R0603" value="1k"/>
+<part name="R502" library="resistor" deviceset="R-EU_" device="R0603" value="1k"/>
+<part name="R501" library="resistor" deviceset="R-EU_" device="R0603" value="1k"/>
 <part name="R102" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
 <part name="POT2A" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="R202" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
@@ -14166,7 +14166,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="-48.26" y1="63.5" x2="-40.64" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$33" class="0">
+<net name="IN_1" class="0">
 <segment>
 <pinref part="IN_1" gate="G$1" pin="TIP"/>
 <wire x1="-165.1" y1="134.62" x2="-142.24" y2="134.62" width="0.1524" layer="91"/>
@@ -14200,7 +14200,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <junction x="-73.66" y="111.76"/>
 </segment>
 </net>
-<net name="N$35" class="0">
+<net name="IN_4" class="0">
 <segment>
 <pinref part="IN_4" gate="G$1" pin="TIP"/>
 <wire x1="-124.46" y1="187.96" x2="-134.62" y2="187.96" width="0.1524" layer="91"/>
@@ -14212,7 +14212,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="-129.54" y1="200.66" x2="-134.62" y2="200.66" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$36" class="0">
+<net name="IN_3" class="0">
 <segment>
 <pinref part="IN_3" gate="G$1" pin="TIP"/>
 <wire x1="-124.46" y1="170.18" x2="-137.16" y2="170.18" width="0.1524" layer="91"/>
@@ -14224,7 +14224,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="-129.54" y1="203.2" x2="-137.16" y2="203.2" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$37" class="0">
+<net name="IN_2" class="0">
 <segment>
 <pinref part="IN_2" gate="G$1" pin="TIP"/>
 <wire x1="-124.46" y1="152.4" x2="-139.7" y2="152.4" width="0.1524" layer="91"/>
@@ -14236,7 +14236,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="-129.54" y1="208.28" x2="-139.7" y2="208.28" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$38" class="0">
+<net name="IN_SW_4" class="0">
 <segment>
 <pinref part="IN_4" gate="G$1" pin="SW"/>
 <wire x1="-165.1" y1="190.5" x2="-162.56" y2="190.5" width="0.1524" layer="91"/>
@@ -14245,7 +14245,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="X1" gate="-1" pin="S"/>
 </segment>
 </net>
-<net name="N$39" class="0">
+<net name="IN_SW_3" class="0">
 <segment>
 <pinref part="IN_3" gate="G$1" pin="SW"/>
 <wire x1="-165.1" y1="172.72" x2="-160.02" y2="172.72" width="0.1524" layer="91"/>
@@ -14254,7 +14254,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="-129.54" y1="223.52" x2="-160.02" y2="223.52" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$40" class="0">
+<net name="IN_SW_2" class="0">
 <segment>
 <pinref part="IN_2" gate="G$1" pin="SW"/>
 <wire x1="-165.1" y1="154.94" x2="-157.48" y2="154.94" width="0.1524" layer="91"/>
@@ -14263,7 +14263,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="-129.54" y1="218.44" x2="-157.48" y2="218.44" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$41" class="0">
+<net name="IN_SW_1" class="0">
 <segment>
 <pinref part="IN_1" gate="G$1" pin="SW"/>
 <wire x1="-165.1" y1="137.16" x2="-154.94" y2="137.16" width="0.1524" layer="91"/>
@@ -14428,7 +14428,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="IC1" gate="C" pin="-IN"/>
 </segment>
 </net>
-<net name="N$63" class="0">
+<net name="IN_A" class="0">
 <segment>
 <pinref part="R105" gate="G$1" pin="2"/>
 <wire x1="50.8" y1="101.6" x2="48.26" y2="101.6" width="0.1524" layer="91"/>
@@ -14437,7 +14437,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="48.26" y1="68.58" x2="53.34" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="IN_B" class="0">
 <segment>
 <pinref part="R205" gate="G$1" pin="2"/>
 <wire x1="50.8" y1="53.34" x2="48.26" y2="53.34" width="0.1524" layer="91"/>
@@ -14446,7 +14446,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="48.26" y1="63.5" x2="48.26" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="OUT_SW_A" class="0">
 <segment>
 <pinref part="OUT_A+" gate="G$1" pin="SW"/>
 <wire x1="182.88" y1="86.36" x2="177.8" y2="86.36" width="0.1524" layer="91"/>
@@ -14455,7 +14455,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="185.42" y1="53.34" x2="177.8" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$4" class="0">
+<net name="OUT_SW_B" class="0">
 <segment>
 <wire x1="177.8" y1="48.26" x2="177.8" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="OUT_B+" gate="G$1" pin="SW"/>
