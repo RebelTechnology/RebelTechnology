@@ -13500,8 +13500,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="POT1B" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
-<part name="R105" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
-<part name="R205" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
+<part name="R105" library="resistor" deviceset="R-EU_" device="R0603" value="200k"/>
+<part name="R205" library="resistor" deviceset="R-EU_" device="R0603" value="200k"/>
 <part name="OUT_A+" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="OUT_A-" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="OUT_B+" library="Rebel" deviceset="THONKICONN" device=""/>
