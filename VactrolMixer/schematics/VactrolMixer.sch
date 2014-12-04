@@ -12801,8 +12801,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="R404" library="resistor" deviceset="R-EU_" device="R0603" value="200k"/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
-<part name="R109" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
-<part name="R209" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
+<part name="R109" library="resistor" deviceset="R-EU_" device="R0603" value="200k"/>
+<part name="R209" library="resistor" deviceset="R-EU_" device="R0603" value="200k"/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
