@@ -160,7 +160,7 @@ public:
   void high(){
     isHigh = true;
     clearPin(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
-    setLed(GREEN);
+    setLed(RED);
   }
   void toggle(){
     if(isHigh)
@@ -177,7 +177,7 @@ TapTempo tempo;
 void buttonCallback(){
   if(isPushButtonPressed()){
     tempo.trigger();
-    toggleLed();
+    // toggleLed();
   }else{
     tempo.low();
   }
