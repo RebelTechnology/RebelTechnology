@@ -134,11 +134,6 @@
 <packages>
 </packages>
 <symbols>
-<symbol name="0V">
-<wire x1="-1.905" y1="0" x2="1.905" y2="0" width="0.254" layer="94"/>
-<text x="-1.905" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="0V" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
-</symbol>
 <symbol name="GND">
 <wire x1="-1.905" y1="0" x2="1.905" y2="0" width="0.254" layer="94"/>
 <text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
@@ -168,19 +163,6 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="0V" prefix="GND">
-<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
-<gates>
-<gate name="1" symbol="0V" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="GND" prefix="GND">
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
@@ -717,45 +699,6 @@ Basic small signal diode good up to 200mA. SMB footprint. Common part #: BAS16</
 <text x="-2.286" y="1.651" size="0.4064" layer="25">&gt;NAME</text>
 <text x="0.254" y="1.651" size="0.4064" layer="27">&gt;VALUE</text>
 </package>
-<package name="PTC">
-<wire x1="-3.81" y1="1.524" x2="3.81" y2="1.524" width="0.2032" layer="21"/>
-<wire x1="3.81" y1="1.524" x2="3.81" y2="-1.524" width="0.2032" layer="21"/>
-<wire x1="3.81" y1="-1.524" x2="-3.81" y2="-1.524" width="0.2032" layer="21"/>
-<wire x1="-3.81" y1="-1.524" x2="-3.81" y2="1.524" width="0.2032" layer="21"/>
-<pad name="P$1" x="-2.54" y="0" drill="0.8" diameter="1.8796"/>
-<pad name="P$2" x="2.54" y="0" drill="0.8" diameter="1.8796"/>
-<text x="-3.81" y="1.705" size="0.4318" layer="25">&gt;Name</text>
-<text x="-3.81" y="-2.14" size="0.4318" layer="27">&gt;Value</text>
-</package>
-<package name="PTC-1206">
-<wire x1="-1.5" y1="0.75" x2="1.5" y2="0.75" width="0.127" layer="51"/>
-<wire x1="1.5" y1="0.75" x2="1.5" y2="-0.75" width="0.127" layer="51"/>
-<wire x1="1.5" y1="-0.75" x2="-1.5" y2="-0.75" width="0.127" layer="51"/>
-<wire x1="-1.5" y1="-0.75" x2="-1.5" y2="0.75" width="0.127" layer="51"/>
-<wire x1="0.635" y1="-0.762" x2="-0.635" y2="-0.762" width="0.2032" layer="21"/>
-<wire x1="-0.635" y1="0.762" x2="0.635" y2="0.762" width="0.2032" layer="21"/>
-<wire x1="-1.143" y1="-1.016" x2="0.254" y2="1.016" width="0.127" layer="51"/>
-<wire x1="0.254" y1="1.016" x2="1.143" y2="1.016" width="0.127" layer="51"/>
-<smd name="1" x="-1.4" y="0" dx="1" dy="1.8" layer="1"/>
-<smd name="2" x="1.4" y="0" dx="1" dy="1.8" layer="1"/>
-<text x="-1.524" y="1.27" size="0.4064" layer="25">&gt;Name</text>
-<text x="-1.524" y="-1.651" size="0.4064" layer="27">&gt;Value</text>
-</package>
-<package name="0603">
-<wire x1="-1.473" y1="0.983" x2="1.473" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="0.983" x2="1.473" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="-0.983" x2="-1.473" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="-1.473" y1="-0.983" x2="-1.473" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
-<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
-<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<text x="-0.889" y="0.762" size="0.4064" layer="25" font="vector">&gt;NAME</text>
-<text x="-1.016" y="-1.143" size="0.4064" layer="27" font="vector">&gt;VALUE</text>
-<rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
-<rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
-</package>
 </packages>
 <symbols>
 <symbol name="M2X8">
@@ -808,18 +751,6 @@ Basic small signal diode good up to 200mA. SMB footprint. Common part #: BAS16</
 <text x="2.54" y="-2.3114" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
 <pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
-</symbol>
-<symbol name="PTC">
-<wire x1="5.08" y1="1.27" x2="5.08" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-1.27" x2="-2.54" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-1.27" x2="-2.54" y2="1.27" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="1.27" x2="5.08" y2="1.27" width="0.254" layer="94"/>
-<wire x1="-1.524" y1="-2.54" x2="3.81" y2="2.54" width="0.254" layer="94"/>
-<wire x1="3.81" y1="2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
-<text x="-2.54" y="3.048" size="1.778" layer="95">&gt;NAME</text>
-<text x="-3.302" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="1" x="-5.08" y="0" visible="off" length="short"/>
-<pin name="2" x="7.62" y="0" visible="off" length="short" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -936,42 +867,6 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="PTC" prefix="F">
-<description>&lt;b&gt;Resettable Fuse PTC&lt;/b&gt;
-Resettable Fuse. Spark Fun Electronics SKU : COM-08357</description>
-<gates>
-<gate name="G$1" symbol="PTC" x="0" y="0"/>
-</gates>
-<devices>
-<device name="PTH" package="PTC">
-<connects>
-<connect gate="G$1" pin="1" pad="P$1"/>
-<connect gate="G$1" pin="2" pad="P$2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="SMD" package="PTC-1206">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="0603" package="0603">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -1288,8 +1183,8 @@ TS-003</description>
 <wire x1="2.5654" y1="4.6482" x2="2.5654" y2="3.937" width="0.2032" layer="51"/>
 <wire x1="2.5654" y1="3.937" x2="-2.5654" y2="3.937" width="0.2032" layer="51"/>
 <smd name="3" x="0" y="2.5" dx="5.4" dy="6.2" layer="1"/>
-<smd name="1" x="-2.28" y="-4.8" dx="1" dy="1.6" layer="1"/>
-<smd name="2" x="2.28" y="-4.8" dx="1" dy="1.6" layer="1"/>
+<smd name="1" x="-2.28" y="-4.8" dx="1.524" dy="3.048" layer="1"/>
+<smd name="2" x="2.28" y="-4.8" dx="1.524" dy="3.048" layer="1"/>
 <text x="-3.81" y="-2.54" size="1.27" layer="25" rot="R90">&gt;NAME</text>
 <text x="5.08" y="-2.54" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
 <rectangle x1="-2.7178" y1="-5.1562" x2="-1.8542" y2="-2.2606" layer="51"/>
@@ -1359,8 +1254,8 @@ TS-003</description>
 <device name="" package="TO252">
 <connects>
 <connect gate="A1" pin="ADJ" pad="1"/>
-<connect gate="A1" pin="VI" pad="2"/>
-<connect gate="A1" pin="VO" pad="3"/>
+<connect gate="A1" pin="VI" pad="3"/>
+<connect gate="A1" pin="VO" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -12776,8 +12671,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <parts>
 <part name="C102" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C202" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="GND1" library="supply1" deviceset="0V" device=""/>
-<part name="GND2" library="supply1" deviceset="0V" device=""/>
 <part name="IC100" library="v-reg" deviceset="LM317?*" device="" technology="MABDT" value="LM317MABDT"/>
 <part name="IC200" library="v-reg" deviceset="LM317?*" device="" technology="MABDT" value="LM317MABDT"/>
 <part name="R101" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
@@ -12786,17 +12679,10 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="R102" library="Rebel" deviceset="R-EU_" device="0603" value="2K"/>
 <part name="R202" library="Rebel" deviceset="R-EU_" device="0603" value="730R"/>
 <part name="R302" library="Rebel" deviceset="R-EU_" device="0603" value="1.35K"/>
-<part name="GND3" library="supply1" deviceset="0V" device=""/>
-<part name="GND4" library="supply1" deviceset="0V" device=""/>
-<part name="GND5" library="supply1" deviceset="0V" device=""/>
 <part name="C302" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="10u"/>
-<part name="GND6" library="supply1" deviceset="0V" device=""/>
 <part name="C104" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="1u"/>
 <part name="C204" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="1u"/>
 <part name="C304" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="1u"/>
-<part name="GND7" library="supply1" deviceset="0V" device=""/>
-<part name="GND8" library="supply1" deviceset="0V" device=""/>
-<part name="GND9" library="supply1" deviceset="0V" device=""/>
 <part name="P+12" library="supply1" deviceset="+5V" device=""/>
 <part name="P+13" library="supply1" deviceset="+12V" device=""/>
 <part name="OUT" library="SparkFun" deviceset="M08X2" device=""/>
@@ -12806,13 +12692,11 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
 <part name="P-3" library="supply1" deviceset="-12V" device=""/>
 <part name="X1" library="con-molex" deviceset="22-?-03" device="27-2031"/>
-<part name="GND10" library="supply1" deviceset="0V" device=""/>
 <part name="SUPPLY1" library="supply2" deviceset="-15V" device=""/>
 <part name="SUPPLY2" library="supply2" deviceset="-15V" device=""/>
 <part name="SUPPLY3" library="supply2" deviceset="+15V" device=""/>
 <part name="SUPPLY4" library="supply2" deviceset="+15V" device=""/>
 <part name="X2" library="con-molex" deviceset="22-?-03" device="27-2031"/>
-<part name="GND11" library="supply1" deviceset="0V" device=""/>
 <part name="SUPPLY5" library="supply2" deviceset="-15V" device=""/>
 <part name="SUPPLY6" library="supply2" deviceset="+15V" device=""/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
@@ -12842,50 +12726,63 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="P+11" library="supply1" deviceset="+12V" device=""/>
 <part name="P+14" library="supply1" deviceset="+5V" device=""/>
 <part name="P-7" library="supply1" deviceset="-12V" device=""/>
-<part name="GND16" library="supply1" deviceset="0V" device=""/>
-<part name="GND17" library="supply1" deviceset="0V" device=""/>
-<part name="GND18" library="supply1" deviceset="0V" device=""/>
 <part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
 <part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
 <part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
 <part name="C103" library="rcl" deviceset="C-EU" device="C0603" value="1u"/>
 <part name="C203" library="rcl" deviceset="C-EU" device="C0603" value="1u"/>
-<part name="GND19" library="supply1" deviceset="0V" device=""/>
-<part name="GND20" library="supply1" deviceset="0V" device=""/>
-<part name="GND21" library="supply1" deviceset="0V" device=""/>
-<part name="F3" library="SparkFun" deviceset="PTC" device="SMD"/>
 <part name="D300" library="SparkFun" deviceset="DIODE" device="SMA"/>
-<part name="P-8" library="supply1" deviceset="-12V" device=""/>
 <part name="D100" library="SparkFun" deviceset="DIODE" device="SMA"/>
 <part name="D200" library="SparkFun" deviceset="DIODE" device="SMA"/>
 <part name="C101" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="1u"/>
 <part name="C201" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="1u"/>
-<part name="GND22" library="supply1" deviceset="0V" device=""/>
-<part name="GND23" library="supply1" deviceset="0V" device=""/>
-<part name="GND24" library="supply1" deviceset="0V" device=""/>
 <part name="C301" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C303" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C100" library="rcl" deviceset="CPOL-EU" device="E5-8.5"/>
 <part name="C200" library="rcl" deviceset="CPOL-EU" device="E5-8.5"/>
 <part name="C300" library="rcl" deviceset="CPOL-EU" device="E5-8.5"/>
-<part name="GND25" library="supply1" deviceset="0V" device=""/>
-<part name="GND26" library="supply1" deviceset="0V" device=""/>
-<part name="GND27" library="supply1" deviceset="0V" device=""/>
 <part name="C105" library="rcl" deviceset="CPOL-EU" device="E5-8.5"/>
 <part name="C205" library="rcl" deviceset="CPOL-EU" device="E5-8.5"/>
 <part name="C305" library="rcl" deviceset="CPOL-EU" device="E5-8.5"/>
-<part name="GND28" library="supply1" deviceset="0V" device=""/>
-<part name="GND29" library="supply1" deviceset="0V" device=""/>
-<part name="GND30" library="supply1" deviceset="0V" device=""/>
 <part name="P+15" library="supply1" deviceset="+5V" device=""/>
 <part name="P+16" library="supply1" deviceset="+12V" device=""/>
 <part name="OUT5" library="SparkFun" deviceset="M08X2" device=""/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
 <part name="P-9" library="supply1" deviceset="-12V" device=""/>
 <part name="X3" library="con-molex" deviceset="22-?-03" device="27-2031"/>
-<part name="GND32" library="supply1" deviceset="0V" device=""/>
 <part name="SUPPLY7" library="supply2" deviceset="-15V" device=""/>
 <part name="SUPPLY8" library="supply2" deviceset="+15V" device=""/>
+<part name="GND1" library="supply1" deviceset="GND" device=""/>
+<part name="GND2" library="supply1" deviceset="GND" device=""/>
+<part name="GND3" library="supply1" deviceset="GND" device=""/>
+<part name="GND4" library="supply1" deviceset="GND" device=""/>
+<part name="GND6" library="supply1" deviceset="GND" device=""/>
+<part name="GND7" library="supply1" deviceset="GND" device=""/>
+<part name="GND8" library="supply1" deviceset="GND" device=""/>
+<part name="GND9" library="supply1" deviceset="GND" device=""/>
+<part name="GND10" library="supply1" deviceset="GND" device=""/>
+<part name="GND11" library="supply1" deviceset="GND" device=""/>
+<part name="GND16" library="supply1" deviceset="GND" device=""/>
+<part name="GND17" library="supply1" deviceset="GND" device=""/>
+<part name="GND18" library="supply1" deviceset="GND" device=""/>
+<part name="GND19" library="supply1" deviceset="GND" device=""/>
+<part name="GND20" library="supply1" deviceset="GND" device=""/>
+<part name="GND21" library="supply1" deviceset="GND" device=""/>
+<part name="GND22" library="supply1" deviceset="GND" device=""/>
+<part name="GND23" library="supply1" deviceset="GND" device=""/>
+<part name="GND24" library="supply1" deviceset="GND" device=""/>
+<part name="GND25" library="supply1" deviceset="GND" device=""/>
+<part name="GND26" library="supply1" deviceset="GND" device=""/>
+<part name="GND27" library="supply1" deviceset="GND" device=""/>
+<part name="GND28" library="supply1" deviceset="GND" device=""/>
+<part name="GND29" library="supply1" deviceset="GND" device=""/>
+<part name="GND30" library="supply1" deviceset="GND" device=""/>
+<part name="GND32" library="supply1" deviceset="GND" device=""/>
+<part name="GND5" library="supply1" deviceset="GND" device=""/>
+<part name="X4" library="con-molex" deviceset="22-?-03" device="27-2031"/>
+<part name="SUPPLY9" library="supply2" deviceset="-15V" device=""/>
+<part name="SUPPLY10" library="supply2" deviceset="+15V" device=""/>
+<part name="GND34" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12894,8 +12791,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instances>
 <instance part="C102" gate="G$1" x="50.8" y="83.82"/>
 <instance part="C202" gate="G$1" x="50.8" y="48.26"/>
-<instance part="GND1" gate="1" x="50.8" y="68.58"/>
-<instance part="GND2" gate="1" x="50.8" y="33.02"/>
 <instance part="IC100" gate="G$1" x="66.04" y="93.98"/>
 <instance part="IC200" gate="G$1" x="66.04" y="58.42"/>
 <instance part="R101" gate="G$1" x="78.74" y="88.9" rot="R90"/>
@@ -12904,17 +12799,10 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="R102" gate="G$1" x="66.04" y="76.2" rot="R90"/>
 <instance part="R202" gate="G$1" x="66.04" y="40.64" rot="R90"/>
 <instance part="R302" gate="G$1" x="66.04" y="22.86" rot="R90"/>
-<instance part="GND3" gate="1" x="66.04" y="33.02"/>
-<instance part="GND4" gate="1" x="66.04" y="68.58"/>
-<instance part="GND5" gate="1" x="71.12" y="25.4"/>
 <instance part="C302" gate="G$1" x="50.8" y="-5.08" rot="R180"/>
-<instance part="GND6" gate="1" x="50.8" y="-12.7"/>
 <instance part="C104" gate="G$1" x="101.6" y="83.82"/>
 <instance part="C204" gate="G$1" x="101.6" y="48.26"/>
 <instance part="C304" gate="G$1" x="101.6" y="-5.08" rot="R180"/>
-<instance part="GND7" gate="1" x="101.6" y="68.58"/>
-<instance part="GND8" gate="1" x="101.6" y="33.02"/>
-<instance part="GND9" gate="1" x="101.6" y="-12.7"/>
 <instance part="P+12" gate="1" x="175.26" y="147.32" smashed="yes">
 <attribute name="VALUE" x="175.26" y="149.86" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -12930,7 +12818,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="X1" gate="-1" x="-2.54" y="93.98" rot="R180"/>
 <instance part="X1" gate="-2" x="-2.54" y="91.44" rot="R180"/>
 <instance part="X1" gate="-3" x="-2.54" y="81.28" rot="R180"/>
-<instance part="GND10" gate="1" x="2.54" y="86.36"/>
 <instance part="SUPPLY1" gate="G$1" x="12.7" y="-2.54"/>
 <instance part="SUPPLY2" gate="G$1" x="2.54" y="76.2"/>
 <instance part="SUPPLY3" gate="+15V" x="12.7" y="101.6"/>
@@ -12938,7 +12825,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="X2" gate="-1" x="-20.32" y="81.28" rot="R180"/>
 <instance part="X2" gate="-2" x="-20.32" y="91.44" rot="R180"/>
 <instance part="X2" gate="-3" x="-20.32" y="93.98" rot="R180"/>
-<instance part="GND11" gate="1" x="-15.24" y="86.36"/>
 <instance part="SUPPLY5" gate="G$1" x="-15.24" y="76.2"/>
 <instance part="SUPPLY6" gate="+15V" x="-15.24" y="99.06"/>
 <instance part="P+3" gate="1" x="139.7" y="147.32" smashed="yes">
@@ -12978,41 +12864,24 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <attribute name="VALUE" x="160.02" y="104.14" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="P-7" gate="1" x="180.34" y="93.98"/>
-<instance part="GND16" gate="1" x="147.32" y="71.12"/>
-<instance part="GND17" gate="1" x="160.02" y="71.12"/>
-<instance part="GND18" gate="1" x="172.72" y="71.12"/>
 <instance part="R1" gate="G$1" x="147.32" y="81.28" rot="R90"/>
 <instance part="R2" gate="G$1" x="160.02" y="81.28" rot="R90"/>
 <instance part="R3" gate="G$1" x="172.72" y="81.28" rot="R90"/>
 <instance part="C103" gate="G$1" x="88.9" y="83.82"/>
 <instance part="C203" gate="G$1" x="88.9" y="48.26"/>
-<instance part="GND19" gate="1" x="88.9" y="68.58"/>
-<instance part="GND20" gate="1" x="88.9" y="33.02"/>
-<instance part="GND21" gate="1" x="88.9" y="-12.7"/>
-<instance part="F3" gate="G$1" x="-7.62" y="43.18"/>
 <instance part="D300" gate="G$1" x="20.32" y="5.08" rot="R180"/>
-<instance part="P-8" gate="1" x="10.16" y="30.48"/>
 <instance part="D100" gate="G$1" x="20.32" y="93.98"/>
 <instance part="D200" gate="G$1" x="20.32" y="58.42"/>
 <instance part="C101" gate="G$1" x="40.64" y="83.82"/>
 <instance part="C201" gate="G$1" x="40.64" y="48.26"/>
-<instance part="GND22" gate="1" x="40.64" y="68.58"/>
-<instance part="GND23" gate="1" x="40.64" y="33.02"/>
-<instance part="GND24" gate="1" x="40.64" y="-12.7"/>
 <instance part="C301" gate="G$1" x="40.64" y="-5.08" rot="R180"/>
 <instance part="C303" gate="G$1" x="88.9" y="-5.08" rot="R180"/>
 <instance part="C100" gate="G$1" x="30.48" y="83.82"/>
 <instance part="C200" gate="G$1" x="30.48" y="48.26"/>
 <instance part="C300" gate="G$1" x="30.48" y="-5.08" rot="R180"/>
-<instance part="GND25" gate="1" x="30.48" y="68.58"/>
-<instance part="GND26" gate="1" x="30.48" y="33.02"/>
-<instance part="GND27" gate="1" x="30.48" y="-12.7"/>
 <instance part="C105" gate="G$1" x="114.3" y="83.82"/>
 <instance part="C205" gate="G$1" x="114.3" y="48.26"/>
 <instance part="C305" gate="G$1" x="114.3" y="-5.08" rot="R180"/>
-<instance part="GND28" gate="1" x="114.3" y="68.58"/>
-<instance part="GND29" gate="1" x="114.3" y="33.02"/>
-<instance part="GND30" gate="1" x="114.3" y="-12.7"/>
 <instance part="P+15" gate="1" x="-2.54" y="147.32" smashed="yes">
 <attribute name="VALUE" x="-2.54" y="149.86" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -13020,12 +12889,44 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="OUT5" gate="G$1" x="-12.7" y="132.08" rot="R180"/>
 <instance part="GND31" gate="1" x="-22.86" y="114.3"/>
 <instance part="P-9" gate="1" x="-2.54" y="114.3"/>
-<instance part="X3" gate="-1" x="157.48" y="38.1" rot="R180"/>
+<instance part="X3" gate="-1" x="157.48" y="50.8" rot="R180"/>
 <instance part="X3" gate="-2" x="157.48" y="48.26" rot="R180"/>
-<instance part="X3" gate="-3" x="157.48" y="50.8" rot="R180"/>
-<instance part="GND32" gate="1" x="162.56" y="43.18"/>
+<instance part="X3" gate="-3" x="157.48" y="38.1" rot="R180"/>
 <instance part="SUPPLY7" gate="G$1" x="162.56" y="33.02"/>
 <instance part="SUPPLY8" gate="+15V" x="162.56" y="55.88"/>
+<instance part="GND1" gate="1" x="-15.24" y="86.36"/>
+<instance part="GND2" gate="1" x="2.54" y="86.36"/>
+<instance part="GND3" gate="1" x="30.48" y="68.58"/>
+<instance part="GND4" gate="1" x="40.64" y="68.58"/>
+<instance part="GND6" gate="1" x="50.8" y="68.58"/>
+<instance part="GND7" gate="1" x="66.04" y="68.58"/>
+<instance part="GND8" gate="1" x="88.9" y="68.58"/>
+<instance part="GND9" gate="1" x="101.6" y="68.58"/>
+<instance part="GND10" gate="1" x="114.3" y="68.58"/>
+<instance part="GND11" gate="1" x="114.3" y="33.02"/>
+<instance part="GND16" gate="1" x="101.6" y="33.02"/>
+<instance part="GND17" gate="1" x="88.9" y="33.02"/>
+<instance part="GND18" gate="1" x="66.04" y="33.02"/>
+<instance part="GND19" gate="1" x="50.8" y="33.02"/>
+<instance part="GND20" gate="1" x="40.64" y="33.02"/>
+<instance part="GND21" gate="1" x="30.48" y="33.02"/>
+<instance part="GND22" gate="1" x="30.48" y="-12.7"/>
+<instance part="GND23" gate="1" x="40.64" y="-12.7"/>
+<instance part="GND24" gate="1" x="50.8" y="-12.7"/>
+<instance part="GND25" gate="1" x="88.9" y="-12.7"/>
+<instance part="GND26" gate="1" x="101.6" y="-12.7"/>
+<instance part="GND27" gate="1" x="114.3" y="-12.7"/>
+<instance part="GND28" gate="1" x="162.56" y="43.18"/>
+<instance part="GND29" gate="1" x="172.72" y="71.12"/>
+<instance part="GND30" gate="1" x="160.02" y="71.12"/>
+<instance part="GND32" gate="1" x="147.32" y="71.12"/>
+<instance part="GND5" gate="1" x="73.66" y="20.32"/>
+<instance part="X4" gate="-1" x="175.26" y="38.1" rot="R180"/>
+<instance part="X4" gate="-2" x="175.26" y="48.26" rot="R180"/>
+<instance part="X4" gate="-3" x="175.26" y="50.8" rot="R180"/>
+<instance part="SUPPLY9" gate="G$1" x="180.34" y="33.02"/>
+<instance part="SUPPLY10" gate="+15V" x="180.34" y="55.88"/>
+<instance part="GND34" gate="1" x="180.34" y="43.18"/>
 </instances>
 <busses>
 </busses>
@@ -13054,148 +12955,16 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="-15.24" y1="93.98" x2="-15.24" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="X3" gate="-3" pin="S"/>
 <pinref part="SUPPLY8" gate="+15V" pin="+15V"/>
-<wire x1="160.02" y1="50.8" x2="162.56" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="162.56" y1="50.8" x2="162.56" y2="53.34" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="0V" class="0">
-<segment>
-<pinref part="C102" gate="G$1" pin="2"/>
-<pinref part="GND1" gate="1" pin="0V"/>
-<wire x1="50.8" y1="71.12" x2="50.8" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="X3" gate="-1" pin="S"/>
+<wire x1="160.02" y1="50.8" x2="162.56" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="C202" gate="G$1" pin="2"/>
-<pinref part="GND2" gate="1" pin="0V"/>
-<wire x1="50.8" y1="35.56" x2="50.8" y2="43.18" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="R202" gate="G$1" pin="1"/>
-<pinref part="GND3" gate="1" pin="0V"/>
-</segment>
-<segment>
-<pinref part="R102" gate="G$1" pin="1"/>
-<pinref part="GND4" gate="1" pin="0V"/>
-</segment>
-<segment>
-<pinref part="R302" gate="G$1" pin="2"/>
-<pinref part="GND5" gate="1" pin="0V"/>
-<wire x1="66.04" y1="27.94" x2="71.12" y2="27.94" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND6" gate="1" pin="0V"/>
-<wire x1="50.8" y1="-10.16" x2="50.8" y2="-7.62" width="0.1524" layer="91"/>
-<pinref part="C302" gate="G$1" pin="+"/>
-</segment>
-<segment>
-<pinref part="C104" gate="G$1" pin="-"/>
-<pinref part="GND7" gate="1" pin="0V"/>
-<wire x1="101.6" y1="71.12" x2="101.6" y2="78.74" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C204" gate="G$1" pin="-"/>
-<pinref part="GND8" gate="1" pin="0V"/>
-<wire x1="101.6" y1="35.56" x2="101.6" y2="43.18" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="X1" gate="-2" pin="S"/>
-<pinref part="GND10" gate="1" pin="0V"/>
-<wire x1="0" y1="91.44" x2="2.54" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="2.54" y1="91.44" x2="2.54" y2="88.9" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="X2" gate="-2" pin="S"/>
-<pinref part="GND11" gate="1" pin="0V"/>
-<wire x1="-17.78" y1="91.44" x2="-15.24" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="-15.24" y1="91.44" x2="-15.24" y2="88.9" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="R1" gate="G$1" pin="1"/>
-<pinref part="GND16" gate="1" pin="0V"/>
-<wire x1="147.32" y1="73.66" x2="147.32" y2="76.2" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="R2" gate="G$1" pin="1"/>
-<pinref part="GND17" gate="1" pin="0V"/>
-<wire x1="160.02" y1="73.66" x2="160.02" y2="76.2" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND18" gate="1" pin="0V"/>
-<wire x1="172.72" y1="73.66" x2="172.72" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="R3" gate="G$1" pin="1"/>
-</segment>
-<segment>
-<pinref part="GND9" gate="1" pin="0V"/>
-<pinref part="C304" gate="G$1" pin="+"/>
-<wire x1="101.6" y1="-10.16" x2="101.6" y2="-7.62" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C103" gate="G$1" pin="2"/>
-<pinref part="GND19" gate="1" pin="0V"/>
-<wire x1="88.9" y1="71.12" x2="88.9" y2="78.74" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C203" gate="G$1" pin="2"/>
-<pinref part="GND20" gate="1" pin="0V"/>
-<wire x1="88.9" y1="35.56" x2="88.9" y2="43.18" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND21" gate="1" pin="0V"/>
-<wire x1="88.9" y1="-10.16" x2="88.9" y2="-7.62" width="0.1524" layer="91"/>
-<pinref part="C303" gate="G$1" pin="1"/>
-</segment>
-<segment>
-<pinref part="GND24" gate="1" pin="0V"/>
-<pinref part="C301" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="-10.16" x2="40.64" y2="-7.62" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND23" gate="1" pin="0V"/>
-<pinref part="C201" gate="G$1" pin="-"/>
-<wire x1="40.64" y1="35.56" x2="40.64" y2="43.18" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C101" gate="G$1" pin="-"/>
-<pinref part="GND22" gate="1" pin="0V"/>
-<wire x1="40.64" y1="78.74" x2="40.64" y2="71.12" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C100" gate="G$1" pin="-"/>
-<pinref part="GND25" gate="1" pin="0V"/>
-<wire x1="30.48" y1="71.12" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C300" gate="G$1" pin="+"/>
-<pinref part="GND27" gate="1" pin="0V"/>
-<wire x1="30.48" y1="-10.16" x2="30.48" y2="-7.62" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C200" gate="G$1" pin="-"/>
-<pinref part="GND26" gate="1" pin="0V"/>
-<wire x1="30.48" y1="35.56" x2="30.48" y2="43.18" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C105" gate="G$1" pin="-"/>
-<pinref part="GND28" gate="1" pin="0V"/>
-<wire x1="114.3" y1="71.12" x2="114.3" y2="78.74" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C305" gate="G$1" pin="+"/>
-<pinref part="GND30" gate="1" pin="0V"/>
-<wire x1="114.3" y1="-10.16" x2="114.3" y2="-7.62" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C205" gate="G$1" pin="-"/>
-<pinref part="GND29" gate="1" pin="0V"/>
-<wire x1="114.3" y1="35.56" x2="114.3" y2="43.18" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="X3" gate="-2" pin="S"/>
-<pinref part="GND32" gate="1" pin="0V"/>
-<wire x1="160.02" y1="48.26" x2="162.56" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="162.56" y1="48.26" x2="162.56" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="SUPPLY10" gate="+15V" pin="+15V"/>
+<wire x1="180.34" y1="50.8" x2="180.34" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="X4" gate="-3" pin="S"/>
+<wire x1="180.34" y1="50.8" x2="177.8" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -13251,10 +13020,16 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="-15.24" y1="81.28" x2="-15.24" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="X3" gate="-1" pin="S"/>
 <pinref part="SUPPLY7" gate="G$1" pin="-15V"/>
-<wire x1="160.02" y1="38.1" x2="162.56" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="162.56" y1="38.1" x2="162.56" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="X3" gate="-3" pin="S"/>
+<wire x1="162.56" y1="38.1" x2="160.02" y2="38.1" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="SUPPLY9" gate="G$1" pin="-15V"/>
+<wire x1="180.34" y1="38.1" x2="180.34" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="X4" gate="-1" pin="S"/>
+<wire x1="177.8" y1="38.1" x2="180.34" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+12V" class="0">
@@ -13496,12 +13271,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="180.34" y1="99.06" x2="180.34" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="0" y1="43.18" x2="10.16" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="43.18" x2="10.16" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="P-8" gate="1" pin="-12V"/>
-<pinref part="F3" gate="G$1" pin="2"/>
-</segment>
-<segment>
 <pinref part="OUT5" gate="G$1" pin="2"/>
 <pinref part="OUT5" gate="G$1" pin="1"/>
 <wire x1="-20.32" y1="121.92" x2="-5.08" y2="121.92" width="0.1524" layer="91"/>
@@ -13649,6 +13418,149 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="-22.86" y1="129.54" x2="-22.86" y2="127" width="0.1524" layer="91"/>
 <junction x="-20.32" y="129.54"/>
 <junction x="-22.86" y="127"/>
+</segment>
+<segment>
+<pinref part="X2" gate="-2" pin="S"/>
+<wire x1="-17.78" y1="91.44" x2="-15.24" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="91.44" x2="-15.24" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="GND1" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="X1" gate="-2" pin="S"/>
+<wire x1="0" y1="91.44" x2="2.54" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="2.54" y1="91.44" x2="2.54" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="GND2" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C100" gate="G$1" pin="-"/>
+<wire x1="30.48" y1="71.12" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="GND3" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C101" gate="G$1" pin="-"/>
+<wire x1="40.64" y1="78.74" x2="40.64" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="GND4" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C102" gate="G$1" pin="2"/>
+<wire x1="50.8" y1="71.12" x2="50.8" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="GND6" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="R102" gate="G$1" pin="1"/>
+<pinref part="GND7" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C103" gate="G$1" pin="2"/>
+<wire x1="88.9" y1="71.12" x2="88.9" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="GND8" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C104" gate="G$1" pin="-"/>
+<wire x1="101.6" y1="71.12" x2="101.6" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="GND9" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C105" gate="G$1" pin="-"/>
+<wire x1="114.3" y1="71.12" x2="114.3" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="GND10" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C205" gate="G$1" pin="-"/>
+<wire x1="114.3" y1="35.56" x2="114.3" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="GND11" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C204" gate="G$1" pin="-"/>
+<wire x1="101.6" y1="35.56" x2="101.6" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="GND16" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C203" gate="G$1" pin="2"/>
+<wire x1="88.9" y1="35.56" x2="88.9" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="GND17" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C202" gate="G$1" pin="2"/>
+<wire x1="50.8" y1="35.56" x2="50.8" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="GND19" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C201" gate="G$1" pin="-"/>
+<wire x1="40.64" y1="35.56" x2="40.64" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="GND20" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C200" gate="G$1" pin="-"/>
+<wire x1="30.48" y1="35.56" x2="30.48" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="GND21" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C300" gate="G$1" pin="+"/>
+<wire x1="30.48" y1="-10.16" x2="30.48" y2="-7.62" width="0.1524" layer="91"/>
+<pinref part="GND22" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C301" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="-10.16" x2="40.64" y2="-7.62" width="0.1524" layer="91"/>
+<pinref part="GND23" gate="1" pin="GND"/>
+</segment>
+<segment>
+<wire x1="50.8" y1="-10.16" x2="50.8" y2="-7.62" width="0.1524" layer="91"/>
+<pinref part="C302" gate="G$1" pin="+"/>
+<pinref part="GND24" gate="1" pin="GND"/>
+</segment>
+<segment>
+<wire x1="88.9" y1="-10.16" x2="88.9" y2="-7.62" width="0.1524" layer="91"/>
+<pinref part="C303" gate="G$1" pin="1"/>
+<pinref part="GND25" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C304" gate="G$1" pin="+"/>
+<wire x1="101.6" y1="-10.16" x2="101.6" y2="-7.62" width="0.1524" layer="91"/>
+<pinref part="GND26" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C305" gate="G$1" pin="+"/>
+<wire x1="114.3" y1="-10.16" x2="114.3" y2="-7.62" width="0.1524" layer="91"/>
+<pinref part="GND27" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="X3" gate="-2" pin="S"/>
+<wire x1="160.02" y1="48.26" x2="162.56" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="162.56" y1="48.26" x2="162.56" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="GND28" gate="1" pin="GND"/>
+</segment>
+<segment>
+<wire x1="172.72" y1="73.66" x2="172.72" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<pinref part="GND29" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="160.02" y1="73.66" x2="160.02" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="GND30" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="R1" gate="G$1" pin="1"/>
+<wire x1="147.32" y1="73.66" x2="147.32" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="GND32" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="R202" gate="G$1" pin="1"/>
+<pinref part="GND18" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="R302" gate="G$1" pin="2"/>
+<wire x1="66.04" y1="27.94" x2="73.66" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="GND5" gate="1" pin="GND"/>
+<wire x1="73.66" y1="27.94" x2="73.66" y2="22.86" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="X4" gate="-2" pin="S"/>
+<wire x1="177.8" y1="48.26" x2="180.34" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="48.26" x2="180.34" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="GND34" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="N$1" class="0">
