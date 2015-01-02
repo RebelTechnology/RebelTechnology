@@ -19,16 +19,6 @@
 // tracking at 18Hz trigger input but not at 20Hz with threshold 1024
 // tracking at 610Hz trigger input but not at 625Hz with threshold 32 (20k/32=625)
 
-void setAnalogValue(uint8_t channel, uint16_t value);
-
-void setAnalogValue(uint8_t channel, uint16_t value){
-  value = value & 0xfff;
-  if(channel == 0)
-    DAC_SetChannel1Data(DAC_Align_12b_R, value);
-  else if(channel == 1)
-    DAC_SetChannel2Data(DAC_Align_12b_R, value);
-}
-
 /* #define DEBOUNCE(nm, ms) if(true){static uint32_t nm ## Debounce = 0; \
 if(getSysTicks() < nm ## Debounce+(ms)) return; nm ## Debounce = getSysTicks();} */
 
