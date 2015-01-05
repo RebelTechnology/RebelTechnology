@@ -19,7 +19,6 @@ R43 / R44: 100R
 voltage divider for bias: 12v * 500R / 100K = 0.06v
 or 1M / 5k
 
-
 ---------------------
 
 Dual Element Axial Vactrols
@@ -34,7 +33,6 @@ VTL5C4   6.0ms/1500ms on/off. 125R/400M on/off at 10mA
 VTL5C6
 VTL5C7
 VTL5C8   4ms/60ms on/off. 1k/10M on/off at 16mA.
-
 
 --------------------------------------------------------------------
 
@@ -65,7 +63,6 @@ With 2 modules, connect JP_IN of module 1 to JP_SW_IN of module 2 to get 4 input
 (when nothing is plugged in to the input jacks of module 2).
 With 3 or more modules, daisy chain JP_IN to JP_SW_IN for more outputs.
 
-
 --------------------------------------------------------------------
 
 Check out Texas Instruments TI DRV134 and DRV135 audio balanced line drivers, and  INA134/INA137 receivers for differential in/out.
@@ -78,17 +75,6 @@ Max IF 25mA, 5ms/10ms on/off. 60R/25M at 20mA.
 SILONEX - NSL-32SR2
 Max IF 25mA, 5ms/80ms on/off. 40R/5M at 20mA.
 Farnell £1.83 @100
-
-Dual Element Axial Vactrols
-VTL5C1/2 features a very steep slope, low temperature coefficient of resistance, and a small light history memory. 
-VTL5C3/2 has a steep slope, good dynamic range, a very low temperature coefficient of resistance, and a small light history memory.
-£3-4 on farnell.
-VTL5C1 2.5ms/35ms on/off 600R/50M on/off at 10mA.
-VTL5C2 3.5/500ms on/off
-VTL5C3 2.5/35ms on/off. 5R/10M on/off at 10mA.
-VTL5C3/2 3.0/50ms on/off. 2k/10M on/off at 40mA. 2 LDRs.
-VTL5C4 6/1500ms on/off, 125R/400M on/off at 10mA.
-Farnell £1.93 @100
 
 
 --------------------------------------------------------------------
@@ -145,5 +131,34 @@ knob at 5 o'clock: 400R
 ------------------------------------------------
 
 Adjust Master knob with resistor to get apprx anti-log response.
+
+http://www.radiomuseum.org/forumdata/users/6435/articles/log_pot/fig2.jpg
+R1=10k, R2=1K, a=R2/R1=0.1
+
+------------------------------------------------
+
+Rev03 PCB changes
+
+- move R303 / R403 to set output impedance of op-amp: reduces current going to gnd
+- remove R110 / R210, or set to 1M and remove R111 / R211
+
+------------------------------------------------
+
+Rev 03 build 1
+Vactrol measured resistance
+at fully clockwise: 8k and 6k
+
+with 2k feedback resistors
+1v input channel A output 180mV
+   	 channel B output 270mV
+
+with 51k feedback resistors
+1v input channel A output 6.25v
+    	 channel B output 8.44v
+(apprx unity gain with input and master knobs at 12 o'clock)
+(clips a 2v input with 10v CV in)
+
+try: change R300 to 100k, R302 to 51k, R105 to 51k
+or R300 to 100k, R303 to 10k
 
 ------------------------------------------------
