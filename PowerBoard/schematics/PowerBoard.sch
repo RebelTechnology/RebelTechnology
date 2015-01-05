@@ -12675,14 +12675,14 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="IC200" library="v-reg" deviceset="LM317?*" device="" technology="MABDT" value="LM317MABDT"/>
 <part name="R101" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
 <part name="R201" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
-<part name="R301" library="Rebel" deviceset="R-EU_" device="0603" value="150R"/>
-<part name="R102" library="Rebel" deviceset="R-EU_" device="0603" value="2K"/>
+<part name="R301" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
+<part name="R102" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
 <part name="R202" library="Rebel" deviceset="R-EU_" device="0603" value="730R"/>
-<part name="R302" library="Rebel" deviceset="R-EU_" device="0603" value="1.35K"/>
-<part name="C302" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="10u"/>
-<part name="C104" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="1u"/>
-<part name="C204" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="1u"/>
-<part name="C304" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="1u"/>
+<part name="R302" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
+<part name="C302" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="100u"/>
+<part name="C104" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="100u"/>
+<part name="C204" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="100u"/>
+<part name="C304" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="100u"/>
 <part name="P+12" library="supply1" deviceset="+5V" device=""/>
 <part name="P+13" library="supply1" deviceset="+12V" device=""/>
 <part name="OUT" library="SparkFun" deviceset="M08X2" device=""/>
@@ -12734,10 +12734,10 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="D300" library="SparkFun" deviceset="DIODE" device="SMA"/>
 <part name="D100" library="SparkFun" deviceset="DIODE" device="SMA"/>
 <part name="D200" library="SparkFun" deviceset="DIODE" device="SMA"/>
-<part name="C101" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="1u"/>
-<part name="C201" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="1u"/>
+<part name="C101" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="100u"/>
+<part name="C201" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="100u"/>
 <part name="C301" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C303" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C303" library="rcl" deviceset="C-EU" device="C0603" value="1u"/>
 <part name="C100" library="rcl" deviceset="CPOL-EU" device="E5-8.5"/>
 <part name="C200" library="rcl" deviceset="CPOL-EU" device="E5-8.5"/>
 <part name="C300" library="rcl" deviceset="CPOL-EU" device="E5-8.5"/>
@@ -12818,9 +12818,9 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="X1" gate="-1" x="-2.54" y="93.98" rot="R180"/>
 <instance part="X1" gate="-2" x="-2.54" y="91.44" rot="R180"/>
 <instance part="X1" gate="-3" x="-2.54" y="81.28" rot="R180"/>
-<instance part="SUPPLY1" gate="G$1" x="12.7" y="-2.54"/>
+<instance part="SUPPLY1" gate="G$1" x="12.7" y="0"/>
 <instance part="SUPPLY2" gate="G$1" x="2.54" y="76.2"/>
-<instance part="SUPPLY3" gate="+15V" x="12.7" y="101.6"/>
+<instance part="SUPPLY3" gate="+15V" x="12.7" y="99.06"/>
 <instance part="SUPPLY4" gate="+15V" x="2.54" y="99.06"/>
 <instance part="X2" gate="-1" x="-20.32" y="81.28" rot="R180"/>
 <instance part="X2" gate="-2" x="-20.32" y="91.44" rot="R180"/>
@@ -12937,7 +12937,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="17.78" y1="58.42" x2="12.7" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="93.98" x2="12.7" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="SUPPLY3" gate="+15V" pin="+15V"/>
-<wire x1="12.7" y1="93.98" x2="12.7" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="93.98" x2="12.7" y2="96.52" width="0.1524" layer="91"/>
 <junction x="12.7" y="93.98"/>
 <pinref part="D100" gate="G$1" pin="A"/>
 <pinref part="D200" gate="G$1" pin="A"/>
@@ -13004,7 +13004,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <segment>
 <wire x1="17.78" y1="5.08" x2="12.7" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="SUPPLY1" gate="G$1" pin="-15V"/>
-<wire x1="12.7" y1="0" x2="12.7" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="2.54" x2="12.7" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="D300" gate="G$1" pin="C"/>
 </segment>
 <segment>
