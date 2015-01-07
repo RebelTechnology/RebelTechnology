@@ -4,7 +4,7 @@ BIN=$(BUILD)/TapTempo.bin
 
 # Tool path
 TOOLROOT=~/devel/OwlWare/Tools/gcc-arm-none-eabi-4_8-2014q2/bin
-STLINK=~/devel/OwlWare/Tools/stlink/
+STLINK=~/devel/stlink/
 
 # Tools
 CC=$(TOOLROOT)/arm-none-eabi-gcc
