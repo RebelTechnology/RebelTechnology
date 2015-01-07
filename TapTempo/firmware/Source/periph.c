@@ -386,7 +386,8 @@ void dacSetup(){
   /* DAC_SetChannel2Data(DAC_Align_12b_L, 0x7FF0); */
 
   /* /\* Start DAC Channel1 conversion by software *\/ */
-  /* DAC_SoftwareTriggerCmd(DAC_Channel_1, ENABLE); */
+  DAC_SoftwareTriggerCmd(DAC_Channel_1, ENABLE);
+  DAC_SoftwareTriggerCmd(DAC_Channel_2, ENABLE);
 }
 
 #ifdef USE_FULL_ASSERT

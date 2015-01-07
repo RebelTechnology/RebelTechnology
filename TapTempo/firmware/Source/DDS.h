@@ -38,11 +38,12 @@ public:
   inline uint16_t getRamp(){
     return accumulator >> (DDS_ACCUMULATOR_WIDTH - 12);
   }
-  inline uint16_t getTri(){
-    uint16_t tri = accumulator >> (DDS_ACCUMULATOR_WIDTH - 13);
-    return 4095 - min(abs(4095 - tri), 4095);
-  }
+  /* inline uint16_t getTri(){ */
+  /*   uint16_t tri = accumulator >> (DDS_ACCUMULATOR_WIDTH - 13); */
+  /*   return 4095 - min(abs(4095 - tri), 4095); */
+  /* } */
   uint16_t getSine();
+  uint16_t getTri();
 
 private:
   volatile DDS_DATATYPE accumulator;   // phase accumulator

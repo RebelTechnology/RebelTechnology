@@ -22,6 +22,14 @@
 /* #define DEBOUNCE(nm, ms) if(true){static uint32_t nm ## Debounce = 0; \
 if(getSysTicks() < nm ## Debounce+(ms)) return; nm ## Debounce = getSysTicks();} */
 
+void setAnalogValue(uint8_t channel, uint16_t value){
+  value = value & 0xfff;
+  if(channel == 0)
+    DAC_SetChannel1Data(DAC_Align_12b_R, value);
+  else if(channel == 1)
+    DAC_SetChannel2Data(DAC_Align_12b_R, value);
+}
+
 inline bool isSlowMode(){
   return !getPin(TOGGLE_R_PORT, TOGGLE_R_PIN_B);
 }
@@ -52,22 +60,20 @@ private:
   SynchroniserMode mode;
   uint16_t speed;
 public:
-  Synchroniser() : trig(TRIGGER_LIMIT), period(TRIGGER_LIMIT), 
+  Synchroniser() : trig(TRIGGER_LIMIT), period(0),
 	       isHigh(false), mode(OFF), speed(4095) {
     dds.setPeriod(period);
   }
   void reset(){
-    trig = TRIGGER_LIMIT;
     dds.reset();
     DAC_SetDualChannelData(DAC_Align_12b_R, 0, 2047);
   }
   void trigger(){
-    if(trig < TAP_THRESHOLD)
+    if(trig < TRIGGER_THRESHOLD)
       return;
     if(trig < TRIGGER_LIMIT){
       period = trig;
       dds.setPeriod(period);
-      // dds.reset();
     }
     trig = 0;
   }
@@ -81,18 +87,19 @@ public:
   }
   void setMode(SynchroniserMode m){
     if(m == OFF && mode != OFF)
-      reset();    
+      reset();
     mode = m;
   }
   void clock(){
     if(trig < TRIGGER_LIMIT)
       trig++;
     if(mode == SINE){
-      DAC_SetDualChannelData(DAC_Align_12b_R, dds.getRamp(), dds.getSine());
+      DAC_SetDualChannelData(DAC_Align_12b_R, 4095-dds.getRamp(), dds.getSine());
+      dds.clock();
     }else if(mode == TRIANGLE){
-      DAC_SetDualChannelData(DAC_Align_12b_R, 4095-dds.getRamp(), dds.getTri());
+      DAC_SetDualChannelData(DAC_Align_12b_R, dds.getRamp(), dds.getTri());
+      dds.clock();
     }
-    dds.clock();
   }
 };
 
@@ -105,11 +112,10 @@ private:
   bool on;
   uint16_t speed;
 public:
-  TapTempo() : counter(0), limit(TRIGGER_LIMIT), trig(TRIGGER_LIMIT), 
+  TapTempo() : counter(0), limit(TRIGGER_LIMIT/2), trig(TRIGGER_LIMIT), 
 	       isHigh(false), on(false), speed(4095) {}
   void reset(){
     counter = 0;
-    trig = TRIGGER_LIMIT;
     low();
   }
   void trigger(){
@@ -225,9 +231,6 @@ void setup(){
   triggerInputSetup(triggerCallback);
   pushButtonSetup(buttonCallback);
   timerSetup(TIMER_PERIOD, timerCallback);
-
-  // updateMode();
-  // updateSpeed();
 }
 
 void run(){
