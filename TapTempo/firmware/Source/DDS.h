@@ -17,6 +17,14 @@
 #define DDS_ACCUMULATOR_WIDTH  32
 #define DDS_DATATYPE           uint32_t
 
+ // calculated zero points
+#define DDS_SINE_ZERO_VALUE    2094
+#define DDS_RAMP_ZERO_VALUE    3900
+
+#define DDS_MAX_RAMP_VALUE     3900
+#define DDS_MIN_RAMP_VALUE     810
+#define DDS_RAMP_RANGE         (DDS_MAX_RAMP_VALUE-DDS_MIN_RAMP_VALUE)
+
 class DDS {
 public:
   void init();
@@ -35,8 +43,13 @@ public:
     accumulator += tuning;
   }
   /* return 12-bit waveforms */
-  inline uint16_t getRamp(){
-    return accumulator >> (DDS_ACCUMULATOR_WIDTH - 12);
+  inline uint16_t getRisingRamp(){
+    DDS_DATATYPE val = accumulator >> (DDS_ACCUMULATOR_WIDTH - 12);
+    return DDS_RAMP_RANGE - (val * DDS_RAMP_RANGE)/4095 + DDS_MIN_RAMP_VALUE;
+  }
+  inline uint16_t getFallingRamp(){
+    DDS_DATATYPE val = accumulator >> (DDS_ACCUMULATOR_WIDTH - 12);
+    return (val * DDS_RAMP_RANGE)/4095 + DDS_MIN_RAMP_VALUE;
   }
   /* inline uint16_t getTri(){ */
   /*   uint16_t tri = accumulator >> (DDS_ACCUMULATOR_WIDTH - 13); */

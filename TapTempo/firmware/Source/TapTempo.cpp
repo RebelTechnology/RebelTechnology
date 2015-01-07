@@ -65,8 +65,9 @@ public:
     dds.setPeriod(period);
   }
   void reset(){
+    trig = TRIGGER_LIMIT;
     dds.reset();
-    DAC_SetDualChannelData(DAC_Align_12b_R, 0, 2047);
+    DAC_SetDualChannelData(DAC_Align_12b_R, DDS_RAMP_ZERO_VALUE, DDS_SINE_ZERO_VALUE);
   }
   void trigger(){
     if(trig < TRIGGER_THRESHOLD)
@@ -94,10 +95,10 @@ public:
     if(trig < TRIGGER_LIMIT)
       trig++;
     if(mode == SINE){
-      DAC_SetDualChannelData(DAC_Align_12b_R, 4095-dds.getRamp(), dds.getSine());
+      DAC_SetDualChannelData(DAC_Align_12b_R, dds.getRisingRamp(), dds.getSine());
       dds.clock();
     }else if(mode == TRIANGLE){
-      DAC_SetDualChannelData(DAC_Align_12b_R, dds.getRamp(), dds.getTri());
+      DAC_SetDualChannelData(DAC_Align_12b_R, dds.getFallingRamp(), dds.getTri());
       dds.clock();
     }
   }
