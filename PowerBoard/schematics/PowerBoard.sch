@@ -12674,15 +12674,15 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="IC100" library="v-reg" deviceset="LM317?*" device="" technology="MABDT" value="LM317MABDT"/>
 <part name="IC200" library="v-reg" deviceset="LM317?*" device="" technology="MABDT" value="LM317MABDT"/>
 <part name="R101" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
-<part name="R201" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
+<part name="R201" library="Rebel" deviceset="R-EU_" device="0603" value="330R"/>
 <part name="R301" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
 <part name="R102" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
-<part name="R202" library="Rebel" deviceset="R-EU_" device="0603" value="730R"/>
+<part name="R202" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R302" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
-<part name="C302" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="100u"/>
-<part name="C104" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="100u"/>
-<part name="C204" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="100u"/>
-<part name="C304" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="100u"/>
+<part name="C302" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="10u"/>
+<part name="C104" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="10u"/>
+<part name="C204" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="10u"/>
+<part name="C304" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="10u"/>
 <part name="P+12" library="supply1" deviceset="+5V" device=""/>
 <part name="P+13" library="supply1" deviceset="+12V" device=""/>
 <part name="OUT" library="SparkFun" deviceset="M08X2" device=""/>
@@ -12726,24 +12726,24 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="P+11" library="supply1" deviceset="+12V" device=""/>
 <part name="P+14" library="supply1" deviceset="+5V" device=""/>
 <part name="P-7" library="supply1" deviceset="-12V" device=""/>
-<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
-<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
+<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C103" library="rcl" deviceset="C-EU" device="C0603" value="1u"/>
 <part name="C203" library="rcl" deviceset="C-EU" device="C0603" value="1u"/>
 <part name="D300" library="SparkFun" deviceset="DIODE" device="SMA"/>
 <part name="D100" library="SparkFun" deviceset="DIODE" device="SMA"/>
 <part name="D200" library="SparkFun" deviceset="DIODE" device="SMA"/>
-<part name="C101" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="100u"/>
-<part name="C201" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="100u"/>
+<part name="C101" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="10u"/>
+<part name="C201" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="10u"/>
 <part name="C301" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C303" library="rcl" deviceset="C-EU" device="C0603" value="1u"/>
-<part name="C100" library="rcl" deviceset="CPOL-EU" device="E5-8.5"/>
-<part name="C200" library="rcl" deviceset="CPOL-EU" device="E5-8.5"/>
-<part name="C300" library="rcl" deviceset="CPOL-EU" device="E5-8.5"/>
-<part name="C105" library="rcl" deviceset="CPOL-EU" device="E5-8.5"/>
-<part name="C205" library="rcl" deviceset="CPOL-EU" device="E5-8.5"/>
-<part name="C305" library="rcl" deviceset="CPOL-EU" device="E5-8.5"/>
+<part name="C100" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="dnp"/>
+<part name="C200" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="dnp"/>
+<part name="C300" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="dnp"/>
+<part name="C105" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="dnp"/>
+<part name="C205" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="dnp"/>
+<part name="C305" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="dnp"/>
 <part name="P+15" library="supply1" deviceset="+5V" device=""/>
 <part name="P+16" library="supply1" deviceset="+12V" device=""/>
 <part name="OUT5" library="SparkFun" deviceset="M08X2" device=""/>

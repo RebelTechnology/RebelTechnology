@@ -24,16 +24,60 @@ SOT223 LM317/337, no heatsink, 100degC
 --------------------------------------------------------------------------
 
 19' inside measurements apprx 42cm
-3x 14cm
+3x bus boards of 14cm each
 
 --------------------------------------------------------------------------
 
 S1J rectifier: If = 1A, Vrev = 600V
 
+--------------------------------------------------------------------------
+
 100uF caps available in 6.3mm diameter SMD, 5.3-8mm high, 16V/25V, and 5/8/10mm dia.
 
 --------------------------------------------------------------------------
 
+LDO Regulator Stability and Ceramic Capacitors
+http://www.eetasia.com/ARTICLES/1999APR/1999APR08_ICD_AMD_TAC1.PDF?SOURCES=DOWNLOAD
+
+--------------------------------------------------------------------------
+
+Adjustable Bipolar Voltage Regulator Circuit Using LM337
+http://bestengineeringprojects.com/electronics-projects/adjustable-bipolar-voltage-regulator/
+
+C1, C2 = 4700 µF/25V (Electrolytic Capacitors) (input capacitors)
+C3, C4 = 0.1 µF (Ceramic Capacitors) (input capacitors)
+C5, C6 = 10 µF/35V (Electrolytic Capacitors) (output capacitors)
+C7, C8 = 1 µF/35V (Electrolytic Capacitors) (output capacitors)
+
+--------------------------------------------------------------------------
+
+ordered 10x Rev01 from Seeed 19/12 2014
+
+--------------------------------------------------------------------------
+
+todo:
+order 
+- resistors
+- 100uF 6.5mm or 8mm caps
+- 3pin power connectors
+
+design back plate
+
+--------------------------------------------------------------------------
+
+LM317 calculator and output tables
+http://www.reuk.co.uk/LM317-Voltage-Calculator.htm
+
+Vout=1.25*(1+r2/r1)
+
+r1=220, r2=1910 (standard 1%), v=12.10 (ideal r2=1892)
+r1=330, r2=1000, v=5.04
+
+--------------------------------------------------------------------------
+
+Rev01 PCB todo:
+- confirm resistor values
+- add series/parallel divider resistors?
 
 
 --------------------------------------------------------------------------
