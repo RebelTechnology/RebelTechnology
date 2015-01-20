@@ -75,9 +75,65 @@ r1=330, r2=1000, v=5.04
 
 --------------------------------------------------------------------------
 
+build 1 results
+220R / 2k?
+12.94v (12.6v theoretical)
+
+parallell 39k (220R is wrong)
+12.58v
+
+330R / 1k?
+5.14v (5.04 theoretical)
+
+60degC 135mA
+two OWL Modular < 140mA @5v ?!
+
+--------------------------------------------------------------------------
+
+parallel / series resistance and ratio calculator using standard resistor values
+http://jansson.us/resistors.html
+
+--------------------------------------------------------------------------
+
+LM317 MINIMUM OUTPUT CURRENT
+I_R1 >= I_out_min
+R1 = 220R
+I_out_minimum = 3.5 mA typical, 12 mA max.
+For I_out_min_typ = 3.5 mA R1 can be about 330 Ohms
+
+--------------------------------------------------------------------------
+
 Rev01 PCB todo:
 - confirm resistor values
 - add series/parallel divider resistors?
+
+--------------------------------------------------------------------------
+
+build 2 (to-252)
++12v R1=220, R2=1k91: +12.18v
++5v R1=330, R2=1k:     +5.05v
+-12 R1=220, R2=1k91:  -12.1v
+(no load)
++12v R1=220, R2=1k91: +12.19v
++5v R1=330, R2=1k:     +5.05v
+-12 R1=220, R2=1k91:  -12.1v
+(with load)
+
+--------------------------------------------------------------------------
+
+build 3 (to-252)
++12v R1=220, R2=1k87: +11.86v
++5v R1=330, R2=1k:     +5.07v
+-12 R1=220, R2=1k87:  -11.92v
+(no load)
++12v R1=220, R2=1k87: +11.87v
++5v R1=330, R2=1k:     +5.08v
+-12 R1=220, R2=1k87:  -11.90v
+(with load)
+
+--------------------------------------------------------------------------
+
+3pin Molex SL connector +15v/gnd/-15v between power boards
 
 
 --------------------------------------------------------------------------
