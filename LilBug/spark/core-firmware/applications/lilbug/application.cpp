@@ -5,21 +5,20 @@
 #include "http-server/HttpResponse.h"
 
 #include "MidiReader.hpp"
+#include "MidiWriter.hpp"
 #define DEBUG_USART
 
 int ledPin               = D7; // Spark core blue led
 
-char* OscCmd_a_trigger   = "/trigger_a";
-char* OscCmd_b_trigger   = "/trigger_b";
 char* OscCmd_status      = "/status";
-char* OscCmd_ab_cv       = "/cv";
-char* OscCmd_a_cv        = "/cv_a";
-char* OscCmd_b_cv        = "/cv_b";
 char* OscCmd_led         = "/led";
 char* OscCmd_ip          = "/localip";
 char* OscCmd_port        = "/localport";
 char* OscCmd_ping        = "/ping"; // todo
-
+char* OscCmd_note_on     = "note_on";
+char* OscCmd_note_off    = "note_off";
+char* OscCmd_control_change          = "cc";
+char* OscCmd_pitch_bend          = "pb";
 
 IPAddress remoteIPAddress(192,168,2,179);
 bool autoRemoteIPAddress = true;
@@ -322,6 +321,41 @@ void sendStatus(OSCMessage &mess){
 #define MIDI_BUFFER_LENGTH 128
 uint8_t buffer[MIDI_BUFFER_LENGTH];
 MidiReader reader(buffer, MIDI_BUFFER_LENGTH);
+MidiWriter writer;
+
+void oscNoteOn(OSCMessage &message){
+  if(message.size() > 2){
+    int channel = message.getInt(0);
+    int note = message.getInt(1);
+    int velocity = message.getInt(2);
+    writer.noteOn(channel, note, velocity);
+  }
+}
+
+void oscNoteOff(OSCMessage &message){
+  if(message.size() > 1){
+    int channel = message.getInt(0);
+    int note = message.getInt(1);
+    writer.noteOff(channel, note, 0);
+  }
+}
+
+void oscControlChange(OSCMessage &message){
+  if(message.size() > 2){
+    int channel = message.getInt(0);
+    int cc = message.getInt(1);
+    int value = message.getInt(2);
+    writer.controlChange(channel, cc, value);
+  }
+}
+
+void oscPitchBend(OSCMessage &message){
+  if(message.size() > 1){
+    int channel = message.getInt(0);
+    int value = message.getInt(1);
+    writer.pitchBend(channel, value);
+  }
+}
 
 void pollOsc(){
   int bytesToRead = udp.parsePacket();
@@ -339,6 +373,10 @@ void pollOsc(){
     if(!msg.hasError()) {
       Serial.println("Received osc message");
       msg.dispatch(OscCmd_led , setLED);
+      msg.dispatch(OscCmd_note_on , oscNoteOn);
+      msg.dispatch(OscCmd_note_off , oscNoteOff);
+      msg.dispatch(OscCmd_control_change , oscControlChange);
+      msg.dispatch(OscCmd_pitch_bend , oscPitchBend);
       // msg.dispatch(OscCmd_a_trigger, triggerA);
       // msg.dispatch(OscCmd_b_trigger, triggerB);
       // msg.dispatch(OscCmd_a_cv, cvA);
@@ -366,7 +404,7 @@ void pollMidi(){
 #endif /* DEBUG_USART */
       switch(reader.getStatus()){
       case NOTE_ON: {
-	OSCMessage msg("note_on");
+	OSCMessage msg(OscCmd_note_on);
 	msg.add(reader.getChannel());
 	msg.add(reader.getNoteNumber());
 	msg.add(reader.getVelocity());
@@ -374,7 +412,7 @@ void pollMidi(){
 	break;
       }
       case NOTE_OFF: {
-	OSCMessage msg("note_off");
+	OSCMessage msg(OscCmd_note_off);
 	msg.add(reader.getChannel());
 	msg.add(reader.getNoteNumber());
 	sendMessage(msg);
