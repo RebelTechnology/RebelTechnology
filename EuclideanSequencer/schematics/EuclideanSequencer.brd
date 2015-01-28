@@ -9,6 +9,10 @@
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="yes"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="yes"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
@@ -385,9 +389,11 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="1.5748" y1="1.2954" x2="1.5748" y2="0.7874" width="0.254" layer="21"/>
 <wire x1="1.5748" y1="-1.2954" x2="1.5748" y2="-0.8382" width="0.254" layer="21"/>
 <pad name="A" x="-1.27" y="0" drill="0.8128" diameter="1.8796"/>
-<pad name="K" x="1.27" y="0" drill="0.8128" diameter="1.8796"/>
+<pad name="K" x="1.27" y="0" drill="0.8128" diameter="1.8796" shape="square"/>
 <text x="1.905" y="0.381" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="1.905" y="-1.651" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<wire x1="2.3368" y1="-1.143" x2="2.3368" y2="1.143" width="0.2032" layer="21"/>
+<wire x1="2.3368" y1="-1.143" x2="2.3368" y2="1.143" width="0.2032" layer="21" curve="-306.869898"/>
 </package>
 </packages>
 </library>
@@ -32821,9 +32827,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <attribute name="NAME" x="18.0721" y="15.367" size="0.9906" layer="25" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="18.1991" y="15.5194" size="0.9906" layer="27" ratio="10" rot="R90"/>
 </element>
-<element name="Q4" library="transistor-npn" package="TO92" value="2N3904" x="19.685" y="26.67" smashed="yes" rot="R90">
-<attribute name="NAME" x="21.717" y="27.813" size="1.27" layer="25" ratio="10" rot="R270"/>
-<attribute name="VALUE" x="27.686" y="25.781" size="1.27" layer="27" ratio="10" rot="R180"/>
+<element name="Q4" library="transistor-npn" package="TO92" value="2N3904" x="19.685" y="29.845" smashed="yes" rot="R90">
+<attribute name="NAME" x="21.717" y="30.988" size="1.27" layer="25" ratio="10" rot="R270"/>
+<attribute name="VALUE" x="27.686" y="28.956" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="R15" library="rcl" package="0204/7" value="10K" x="13.97" y="38.1" smashed="yes">
 <attribute name="NAME" x="12.6365" y="37.6174" size="0.9906" layer="25" ratio="10"/>
@@ -32834,9 +32840,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <attribute name="NAME" x="1.4859" y="40.5765" size="0.9906" layer="25" ratio="10" rot="R270"/>
 <attribute name="VALUE" x="1.3589" y="40.1701" size="0.9906" layer="27" ratio="10" rot="R270"/>
 </element>
-<element name="R17" library="rcl" package="0204/7" value="1M" x="13.97" y="29.21" smashed="yes" rot="R180">
-<attribute name="NAME" x="12.573" y="28.5369" size="0.9906" layer="25" ratio="10"/>
-<attribute name="VALUE" x="15.5956" y="29.6926" size="0.9906" layer="27" ratio="10" rot="R180"/>
+<element name="R17" library="rcl" package="0204/7" value="1M" x="13.97" y="26.67" smashed="yes" rot="R180">
+<attribute name="NAME" x="12.573" y="25.9969" size="0.9906" layer="25" ratio="10"/>
+<attribute name="VALUE" x="15.5956" y="27.1526" size="0.9906" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="S1" library="Rebel" package="SWITCH-SPDT-SALECOM-T8014" value="" x="12.7" y="19.05" smashed="yes">
 <attribute name="NAME" x="10.795" y="26.67" size="1.778" layer="25" ratio="10"/>
@@ -33321,12 +33327,13 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="20.955" y1="78.74" x2="19.685" y2="77.47" width="0.4064" layer="1"/>
 <wire x1="19.685" y1="77.47" x2="19.685" y2="39.37" width="0.4064" layer="1"/>
 <wire x1="25.4" y1="27.051" x2="24.511" y2="27.94" width="0.4064" layer="1"/>
-<wire x1="19.685" y1="27.94" x2="24.511" y2="27.94" width="0.4064" layer="1"/>
+<wire x1="19.685" y1="31.115" x2="22.86" y2="27.94" width="0.4064" layer="1"/>
+<wire x1="22.86" y1="27.94" x2="24.511" y2="27.94" width="0.4064" layer="1"/>
 <wire x1="19.685" y1="39.37" x2="18.415" y2="38.1" width="0.4064" layer="1"/>
 <wire x1="18.415" y1="38.1" x2="17.78" y2="38.1" width="0.4064" layer="1"/>
-<wire x1="19.685" y1="27.94" x2="21.59" y2="29.845" width="0.4064" layer="16"/>
-<wire x1="21.59" y1="29.845" x2="21.59" y2="34.29" width="0.4064" layer="16"/>
-<wire x1="21.59" y1="34.29" x2="17.78" y2="38.1" width="0.4064" layer="16"/>
+<wire x1="19.685" y1="31.115" x2="20.955" y2="32.385" width="0.4064" layer="16"/>
+<wire x1="20.955" y1="32.385" x2="20.955" y2="34.925" width="0.4064" layer="16"/>
+<wire x1="20.955" y1="34.925" x2="17.78" y2="38.1" width="0.4064" layer="16"/>
 </signal>
 <signal name="N$20">
 <contactref element="RSTIN" pad="P$2"/>
@@ -33338,7 +33345,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <contactref element="Q4" pad="2"/>
 <contactref element="R14" pad="2"/>
 <contactref element="R17" pad="1"/>
-<wire x1="17.78" y1="29.21" x2="17.78" y2="26.67" width="0.4064" layer="1"/>
 <wire x1="17.78" y1="20.955" x2="17.78" y2="26.67" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$12">
