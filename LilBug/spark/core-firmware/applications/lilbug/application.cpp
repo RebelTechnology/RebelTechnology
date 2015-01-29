@@ -4,9 +4,20 @@
 #include "http-server/HttpRequest.h"
 #include "http-server/HttpResponse.h"
 
+#include <stdarg.h>
+void pnprintf(Print& p, uint16_t bufsize, const char* fmt, ...) {
+   char buff[bufsize];
+   va_list args;
+   va_start(args, fmt);
+   vsnprintf(buff, bufsize, fmt, args);
+   va_end(args);
+   p.println(buff);
+}
+#define Serial_printf(fmt, ...) pnprintf(Serial, 128, fmt, __VA_ARGS__)
+#define DEBUG_USART
+
 #include "MidiReader.hpp"
 #include "MidiWriter.hpp"
-#define DEBUG_USART
 
 int ledPin               = D7; // Spark core blue led
 
@@ -169,8 +180,9 @@ void toggleLed(){
 class MyUDP : public UDP {
 private :
   uint8_t txbuffer[UDP_TX_BUFFER_SIZE];
-  int txoffset = 0;
+  int txoffset;
 public :
+  MyUDP() : txoffset(0){}
   virtual int beginPacket(IPAddress ip, uint16_t port){
     txoffset = 0;
     return UDP::beginPacket(ip, port);
@@ -390,8 +402,9 @@ void pollOsc(){
 }
 
 void pollMidi(){
-  int bytesToRead = Serial1.available();
-  while(bytesToRead-- > 0){
+  // int bytesToRead = Serial1.available();
+  // while(bytesToRead-- > 0){
+  if(Serial1.available()){
     MidiReaderStatus status = reader.read(Serial1.read());
     if(status == ERROR_STATUS){
       reader.clear();
@@ -404,6 +417,13 @@ void pollMidi(){
 #endif /* DEBUG_USART */
       switch(reader.getStatus()){
       case NOTE_ON: {
+#ifdef DEBUG_USART
+	Serial.print("note on ");
+	Serial.print(reader.getNoteNumber());
+	Serial.print("/");
+	Serial.print(reader.getVelocity());
+	Serial.println();
+#endif /* DEBUG_USART */
 	OSCMessage msg(OscCmd_note_on);
 	msg.add(reader.getChannel());
 	msg.add(reader.getNoteNumber());
@@ -412,6 +432,13 @@ void pollMidi(){
 	break;
       }
       case NOTE_OFF: {
+#ifdef DEBUG_USART
+	Serial.print("note off ");
+	Serial.print((int)reader.getNoteNumber());
+	Serial.print("/");
+	Serial.print((int)reader.getVelocity());
+	Serial.println();
+#endif /* DEBUG_USART */
 	OSCMessage msg(OscCmd_note_off);
 	msg.add(reader.getChannel());
 	msg.add(reader.getNoteNumber());
@@ -419,6 +446,13 @@ void pollMidi(){
 	break;
       }
       case CONTROL_CHANGE:{
+#ifdef DEBUG_USART
+	Serial.print("cc ");
+	Serial.print((int)reader.getControllerNumber());
+	Serial.print("/");
+	Serial.print((int)reader.getControllerValue());
+	Serial.println();
+#endif /* DEBUG_USART */
 	OSCMessage msg("cc");
 	msg.add(reader.getChannel());
 	msg.add(reader.getControllerNumber());
@@ -433,6 +467,11 @@ void pollMidi(){
 	msg.add(reader.getChannel());
 	msg.add(value);
 	sendMessage(msg);
+#ifdef DEBUG_USART
+	Serial.print("pb ");
+	Serial.print(value);
+	Serial.println();
+#endif /* DEBUG_USART */
 	break;
       }
       }

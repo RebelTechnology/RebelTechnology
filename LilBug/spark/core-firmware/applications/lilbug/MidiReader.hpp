@@ -42,37 +42,37 @@ public:
   void handleSystemCommon(uint8_t){}
   void handleProgramChange(uint8_t channel, uint8_t value){
 #ifdef DEBUG_USART
-    printf("program change: %d %d\n", channel, value);
+    Serial_printf("program change: %d %d\n", channel, value);
 #endif /* DEBUG_USART */
   }
   void handleChannelPressure(uint8_t channel, uint8_t value){
 #ifdef DEBUG_USART
-    printf("channel pressure: %d %d\n", channel, value);
+    Serial_printf("channel pressure: %d %d\n", channel, value);
 #endif /* DEBUG_USART */
   }
   void handleControlChange(uint8_t channel, uint8_t cc, uint8_t value){
 #ifdef DEBUG_USART
-    printf("cc: %d %d %d\n", channel, cc, value);
+    Serial_printf("cc: %d %d %d\n", channel, cc, value);
 #endif /* DEBUG_USART */
   }
   void handleNoteOff(uint8_t channel, uint8_t note, uint8_t velocity){
 #ifdef DEBUG_USART
-    printf("Note off: %d %d %d\n", channel, note, velocity);
+    Serial_printf("Note off: %d %d %d\n", channel, note, velocity);
 #endif /* DEBUG_USART */
   }
   void handleNoteOn(uint8_t channel, uint8_t note, uint8_t velocity){
 #ifdef DEBUG_USART
-    printf("Note on: %d %d %d\n", channel, note, velocity);
+    Serial_printf("Note on: %d %d %d\n", channel, note, velocity);
 #endif /* DEBUG_USART */
   }
   void handlePitchBend(uint8_t channel, uint8_t high, uint8_t low){
 #ifdef DEBUG_USART
-    printf("pb: %d %d %d\n", channel, high, low);
+    Serial_printf("pb: %d %d %d\n", channel, high, low);
 #endif /* DEBUG_USART */
   }
   void handleSysEx(uint8_t* data, uint8_t size){
 #ifdef DEBUG_USART
-    printf("sysex: %d\n", size);
+    Serial_printf("sysex: %d\n", size);
 #endif /* DEBUG_USART */
   }
 
