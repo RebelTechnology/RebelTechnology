@@ -1,6 +1,6 @@
 #include "application.h"
 #include "OSC/OSCMessage.h"
-#include "OSC/OSCBundle.h"
+// #include "OSC/OSCBundle.h"
 #include "http-server/HttpRequest.h"
 #include "http-server/HttpResponse.h"
 
@@ -30,6 +30,11 @@ char* OscCmd_note_on     = "note_on";
 char* OscCmd_note_off    = "note_off";
 char* OscCmd_control_change          = "cc";
 char* OscCmd_pitch_bend          = "pb";
+
+// template<typename T>
+// void SimpleOscMessage<T, int>::getType(){
+//   return 'i';
+// }
 
 IPAddress remoteIPAddress(192,168,2,179);
 bool autoRemoteIPAddress = true;
@@ -203,6 +208,66 @@ public :
 
 MyUDP udp;
 
+template<typename T, size_t DATACOUNT>
+class SimpleOscMessage {
+public:
+  char address[32+1];
+  size_t addresslen;
+  T data[DATACOUNT];
+  SimpleOscMessage(char* a) {
+    setAddress(a);
+  }
+  void setAddress(char* a){
+    addresslen = strnlen(a, 32-1);
+    memcpy(address, a, addresslen+1);
+    while(++addresslen & 3) // pad to 4 bytes
+      address[addresslen-1] = '\0';
+    address[addresslen] = ',';
+  }
+  void set(uint8_t index, T value){
+    data[index] = value;
+  }
+  void send(Print &out){
+    out.write((uint8_t *)address, addresslen);
+    // out.write((uint8_t)',');
+    uint8_t typestr[DATACOUNT];
+    for(uint8_t i=0; i<DATACOUNT; i++)
+      typestr[i] = getType();
+    out.write(typestr, DATACOUNT);
+    out.write((uint8_t)'\0');
+    switch((DATACOUNT+2) & 3){
+    case 3:
+      out.write((uint8_t)'\0');
+    case 2:
+      out.write((uint8_t)'\0');
+    case 1:
+      out.write((uint8_t)'\0');
+    // case 0:
+      // intentional fallthroughs
+    }
+    for(int i=0; i<DATACOUNT; i++){
+      uint32_t datum = __REV(data[i]);
+      // uint32_t i = BigEndian(data[i]);
+      // uint8_t * ptr = (uint8_t *) &i;
+      out.write((uint8_t*)&datum, 4);
+    }
+  }
+  char getType(){
+    return 'i';
+  }
+  void send(){
+    udp.beginPacket(remoteIPAddress, remotePort);
+    this->send(udp);
+    udp.endPacket();
+  }
+};
+
+SimpleOscMessage<int, 3> simple_note_on(OscCmd_note_on);
+SimpleOscMessage<int, 2> simple_note_off(OscCmd_note_off);
+
+OSCMessage note_on_msg(OscCmd_note_on);
+OSCMessage note_off_msg(OscCmd_note_off);
+
 void sendMessage(OSCMessage& msg){
   udp.beginPacket(remoteIPAddress, remotePort);
   msg.send(udp);
@@ -234,6 +299,12 @@ SYSTEM_MODE(MANUAL);
 
 void setup() {
   pinMode(ledPin, OUTPUT);
+
+  note_on_msg.add(0);
+  note_on_msg.add(0);
+  note_on_msg.add(0);
+  note_off_msg.add(0);
+  note_off_msg.add(0);
 
   toggleLed();
   Serial1.begin(115200);
@@ -424,11 +495,14 @@ void pollMidi(){
 	Serial.print(reader.getVelocity());
 	Serial.println();
 #endif /* DEBUG_USART */
-	OSCMessage msg(OscCmd_note_on);
-	msg.add(reader.getChannel());
-	msg.add(reader.getNoteNumber());
-	msg.add(reader.getVelocity());
-	sendMessage(msg);
+	note_on_msg.set(0, reader.getChannel());
+	note_on_msg.set(1, reader.getNoteNumber());
+	note_on_msg.set(2, reader.getVelocity());
+	sendMessage(note_on_msg);
+	// simple_note_on.set(0, reader.getChannel());
+	// simple_note_on.set(1, reader.getNoteNumber());
+	// simple_note_on.set(2, reader.getVelocity());
+	// simple_note_on.send();
 	break;
       }
       case NOTE_OFF: {
@@ -440,9 +514,9 @@ void pollMidi(){
 	Serial.println();
 #endif /* DEBUG_USART */
 	OSCMessage msg(OscCmd_note_off);
-	msg.add(reader.getChannel());
-	msg.add(reader.getNoteNumber());
-	sendMessage(msg);
+	note_off_msg.set(0, reader.getChannel());
+	note_off_msg.set(1, reader.getNoteNumber());
+	sendMessage(note_off_msg);
 	break;
       }
       case CONTROL_CHANGE:{
