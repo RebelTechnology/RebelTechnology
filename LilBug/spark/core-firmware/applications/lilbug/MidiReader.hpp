@@ -21,12 +21,11 @@ private:
   uint16_t pos;
 public:
   MidiReader(uint8_t* buffer, uint16_t sz) : 
-  message(buffer), 
+    message(buffer), 
     status(READY_STATUS), 
     runningStatus(0), 
     size(sz), 
-    pos(0) {
-  }
+    pos(0) {}
 
   ~MidiReader(){
   }
@@ -39,38 +38,43 @@ public:
     return message[0] & MIDI_CHANNEL_MASK;
   }
 
-  void handleSystemCommon(uint8_t){}
-  void handleProgramChange(uint8_t channel, uint8_t value){
+  virtual void handleSystemCommon(uint8_t){}
+  virtual void handleProgramChange(uint8_t channel, uint8_t value){
 #ifdef DEBUG_USART
     Serial_printf("program change: %d %d\n", channel, value);
 #endif /* DEBUG_USART */
   }
-  void handleChannelPressure(uint8_t channel, uint8_t value){
+  virtual void handleChannelPressure(uint8_t channel, uint8_t value){
 #ifdef DEBUG_USART
     Serial_printf("channel pressure: %d %d\n", channel, value);
 #endif /* DEBUG_USART */
   }
-  void handleControlChange(uint8_t channel, uint8_t cc, uint8_t value){
+  virtual void handleControlChange(uint8_t channel, uint8_t cc, uint8_t value){
 #ifdef DEBUG_USART
     Serial_printf("cc: %d %d %d\n", channel, cc, value);
 #endif /* DEBUG_USART */
   }
-  void handleNoteOff(uint8_t channel, uint8_t note, uint8_t velocity){
+  virtual void handleNoteOff(uint8_t channel, uint8_t note, uint8_t velocity){
 #ifdef DEBUG_USART
     Serial_printf("Note off: %d %d %d\n", channel, note, velocity);
 #endif /* DEBUG_USART */
   }
-  void handleNoteOn(uint8_t channel, uint8_t note, uint8_t velocity){
+  virtual void handleNoteOn(uint8_t channel, uint8_t note, uint8_t velocity){
 #ifdef DEBUG_USART
     Serial_printf("Note on: %d %d %d\n", channel, note, velocity);
 #endif /* DEBUG_USART */
   }
-  void handlePitchBend(uint8_t channel, uint8_t high, uint8_t low){
+  virtual void handlePitchBend(uint8_t channel, uint16_t value){
 #ifdef DEBUG_USART
-    Serial_printf("pb: %d %d %d\n", channel, high, low);
+    Serial_printf("pb: %d %d\n", channel, value);
 #endif /* DEBUG_USART */
   }
-  void handleSysEx(uint8_t* data, uint8_t size){
+  virtual void handleAftertouch(uint8_t channel, uint8_t note, uint8_t value){
+#ifdef DEBUG_USART
+    Serial_printf("at: %d %d %d\n", channel, note, value);
+#endif /* DEBUG_USART */
+  }
+  virtual void handleSysEx(uint8_t* data, uint8_t size){
 #ifdef DEBUG_USART
     Serial_printf("sysex: %d\n", size);
 #endif /* DEBUG_USART */
@@ -92,6 +96,7 @@ public:
       clear(); // discard previous message
     }else if(pos > size){
       status = ERROR_STATUS;
+      pos = 0;
       return status;
     }
     message[pos++] = data;
@@ -133,7 +138,7 @@ public:
     case POLY_KEY_PRESSURE:
       if(pos == 3){
 	status = READY_STATUS;
-	handlePitchBend(message[0] & MIDI_CHANNEL_MASK, message[1], message[2]);
+	handleAftertouch(message[0] & MIDI_CHANNEL_MASK, message[1], message[2]);
       }else{
 	status = INCOMPLETE_STATUS;
       }
@@ -149,7 +154,7 @@ public:
     case PITCH_BEND_CHANGE:
       if(pos == 3){
 	status = READY_STATUS;
-	handlePitchBend(message[0] & MIDI_CHANNEL_MASK, message[1], message[2]);
+	handlePitchBend(message[0] & MIDI_CHANNEL_MASK, (message[1] << 7) | message[2]);
       }else{
 	status = INCOMPLETE_STATUS;
       }
@@ -188,6 +193,7 @@ public:
       case SYSEX_EOX: // receiving SYSEX_EOX on its own is really an error
       default:
 	status = ERROR_STATUS;
+	pos = 0;
 	break;
       }
       break;
@@ -198,6 +204,7 @@ public:
 	message[0] = runningStatus;
       }else{
 	status = ERROR_STATUS;
+	pos = 0;
       }
     }
     return status;

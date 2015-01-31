@@ -18,6 +18,23 @@ public:
       prefix[prefixLength-1] = '\0';
     prefix[prefixLength++] = ',';
   }
+
+  void send(Print& out){
+    out.write(prefix, prefixLength);
+    // zero pad
+    switch((prefixLength) & 3){
+    case 0:
+      out.write((uint8_t)'\0');
+    case 1:
+      out.write((uint8_t)'\0');
+    case 2:
+      out.write((uint8_t)'\0');
+    case 3:
+      out.write((uint8_t)'\0');
+    }
+    out.write(data, dataLength);
+  }
+
   uint8_t add(float value){
     return add('f', (uint8_t*)&value);
     // prefix[prefixLength++] = 'f';

@@ -4,6 +4,9 @@
 #include "http-server/HttpRequest.h"
 #include "http-server/HttpResponse.h"
 
+#define DEBUG_USART
+
+#ifdef DEBUG_USART
 #include <stdarg.h>
 void pnprintf(Print& p, uint16_t bufsize, const char* fmt, ...) {
    char buff[bufsize];
@@ -14,8 +17,15 @@ void pnprintf(Print& p, uint16_t bufsize, const char* fmt, ...) {
    p.println(buff);
 }
 #define Serial_printf(fmt, ...) pnprintf(Serial, 128, fmt, __VA_ARGS__)
-#define DEBUG_USART
+#define Serial_print(x) Serial.print(x)
+#define Serial_println(x) Serial.println(x)
+#else // DEBUG_USART
+#define Serial_printf(...) 
+#define Serial_print(x) 
+#define Serial_println(x) 
+#endif // DEBUG_USART
 
+// #include "OscMessage.hpp"
 #include "MidiReader.hpp"
 #include "MidiWriter.hpp"
 
@@ -42,6 +52,8 @@ int localPort = 8000;
 int remotePort = 9000;
 
 #define UDP_TX_BUFFER_SIZE 128
+
+SYSTEM_MODE(MANUAL);
 
 /**
 <html><head><title>OpenSoundModule</title></head><body>
@@ -94,13 +106,13 @@ String getParameter(String url, const String& name, const String& def){
 void setBroadcastMode(){
   remoteIPAddress = WiFi.localIP();
   remoteIPAddress[3] = 255;
-  Serial.print("Remote IP (broadcast): ");
-  Serial.println(remoteIPAddress);
+  Serial_print("Remote IP (broadcast): ");
+  Serial_println(remoteIPAddress);
 }
 
 void setIpAddress(String ip){
-  Serial.print("Set remote IP: ");
-  Serial.println(ip);
+  Serial_print("Set remote IP: ");
+  Serial_println(ip);
   ip.toLowerCase();
   if(ip.startsWith("auto")){
     autoRemoteIPAddress = true;
@@ -120,8 +132,8 @@ void setIpAddress(String ip){
     idx = ip.indexOf('.', pos);
   }
   remoteIPAddress[3] = ip.substring(pos).toInt();
-  Serial.print("Remote IP: ");
-  Serial.println(remoteIPAddress);
+  Serial_print("Remote IP: ");
+  Serial_println(remoteIPAddress);
 }
 
 class WebServer : public TCPServer {
@@ -132,11 +144,11 @@ public:
   
   void loop() {
     if(TCPClient client = available()){
-      Serial.println("http request");
+      Serial_println("http request");
       HttpRequest hr;
       while(int numBytes = client.available()) {
-        Serial.print("Reading http request ");
-	Serial.println(numBytes);
+        Serial_print("Reading http request ");
+	Serial_println(numBytes);
         for(int i = 0; i < numBytes; ++i)
           hr.parse(client.read());
       }
@@ -145,13 +157,13 @@ public:
 	localPort = getParameter(url, "localport", String(localPort)).toInt();
 	setIpAddress(getParameter(url, "remoteip", String("auto")));
 	remotePort = getParameter(url, "remoteport", String(remotePort)).toInt();
-	Serial.println(localPort);
-	Serial.println(remotePort);
+	Serial_println(localPort);
+	Serial_println(remotePort);
       }else if(url.indexOf("/D0/on") >= 0) {
-	Serial.println("Turning D0 on");
+	Serial_println("Turning D0 on");
 	digitalWrite(D0, HIGH);
       }else if(url.indexOf("/D0/off") >= 0) {
-	Serial.println("Turning D0 off");
+	Serial_println("Turning D0 off");
 	digitalWrite(D0, LOW);
       }else if(url.indexOf("/D7/on") >= 0) {
 	digitalWrite(D7, HIGH);
@@ -167,10 +179,10 @@ public:
 	  delay(40);
 	if(client.connected()){
 	  client.stop();
-	  Serial.println("Client stopped");
+	  Serial_println("Client stopped");
 	}
       }
-      Serial.println("Client disconnected");
+      Serial_println("Client disconnected");
     }
   }
 };
@@ -179,7 +191,7 @@ WebServer ws;
 
 void toggleLed(){
   digitalWrite(ledPin, digitalRead(ledPin) == HIGH ? LOW : HIGH);
-  Serial.println("toggle LED " +  String(digitalRead(ledPin)));
+  Serial_println("toggle LED " +  String(digitalRead(ledPin)));
 }
 
 class MyUDP : public UDP {
@@ -191,10 +203,10 @@ public :
   virtual int beginPacket(IPAddress ip, uint16_t port){
     txoffset = 0;
     return UDP::beginPacket(ip, port);
-  };
+  }
   virtual int endPacket(){
     return UDP::write(txbuffer, txoffset);
-  };
+  }
   virtual size_t write(uint8_t buffer) {
     write(&buffer, 1);
     return 1;
@@ -262,149 +274,18 @@ public:
   }
 };
 
-SimpleOscMessage<int, 3> simple_note_on(OscCmd_note_on);
-SimpleOscMessage<int, 2> simple_note_off(OscCmd_note_off);
-
 OSCMessage note_on_msg(OscCmd_note_on);
 OSCMessage note_off_msg(OscCmd_note_off);
+// SimpleOscMessage<int, 3> simple_note_on(OscCmd_note_on);
+// SimpleOscMessage<int, 2> simple_note_off(OscCmd_note_off);
+
+MidiWriter writer;
 
 void sendMessage(OSCMessage& msg){
   udp.beginPacket(remoteIPAddress, remotePort);
   msg.send(udp);
   udp.endPacket();
 }
-
-void sendIp(){
-  // Get the IP address of the Spark Core and send it as an OSC Message
-  IPAddress ip = WiFi.localIP();
-  OSCMessage msg(OscCmd_ip);
-  // msg.add(ip[0]).add(ip[1]).add(ip[2]).add(ip[3]);
-  char buf[16];
-  sprintf(buf, "%d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3]);
-  msg.add(buf);
-  sendMessage(msg);
-  Serial.print("Local IP: ");
-  Serial.println(ip);
-}
-
-void sendPort(){
-  OSCMessage msg(OscCmd_port);
-  msg.add(localPort);
-  sendMessage(msg);
-  Serial.print("Local port: ");
-  Serial.println(localPort);
-}
-
-SYSTEM_MODE(MANUAL);
-
-void setup() {
-  pinMode(ledPin, OUTPUT);
-
-  note_on_msg.add(0);
-  note_on_msg.add(0);
-  note_on_msg.add(0);
-  note_off_msg.add(0);
-  note_off_msg.add(0);
-
-  toggleLed();
-  Serial1.begin(115200);
-  Serial.begin(9600);
-  Serial.println("Connecting");
-  WiFi.connect();
-  while(WiFi.connecting()){
-    // wait for connection
-    Serial.print('.');
-    delay(100);
-  }
-  Serial.println("> Wifi ready");
-  IPAddress zero(0UL);
-  while(WiFi.localIP() == zero){
-    // wait for IP (workaround)
-    Serial.print('-');
-    delay(100);
-  }
-  Serial.println("> DHCP ready");
-  setBroadcastMode();
-  Serial.print("Connected: ");
-  Serial.println(WiFi.localIP());
-  ws.begin();
-  udp.begin(localPort);
-  sendIp();
-  sendPort();
-  toggleLed();
-  Serial.println("Showtime");
-}
-
-void setTrigger(int pin, OSCMessage &message){
-  if(message.size() > 0){
-    bool value;
-    switch(message.getType(0)){
-    case 'i':
-    case 'h':
-      value = message.getInt(0) != 0;
-      break;
-    case 'f':
-      value = message.getFloat(0) != 0.0;
-      break;
-    case 'd':
-      value = message.getDouble(0) != 0.0;
-      break;
-    case 'T':
-    case 'I':
-      value = true;
-      break;
-    case 'F':
-    case 'N':
-    default:
-      value = false;
-      break;
-    }
-    digitalWrite(pin, value ? LOW : HIGH);    
-    Serial.println("Set trigger " + String(pin) + " " + String(value));
-  }
-}
-
-float getFloatValue(OSCMessage &message, int index){
-  float value = 0.0f;
-  if(message.size() > index){
-    switch(message.getType(index)){
-    case 'i':
-    case 'h':
-      value = message.getInt(index)/4095.0f;
-      break;
-    case 'f':
-      value = message.getFloat(index);
-      break;
-    case 'd':
-      value = message.getDouble(index);
-      break;
-    case 'T':
-    case 'I':
-      value = 1.0f;
-      break;
-    case 'F':
-    case 'N':
-    default:
-      value = 0.0f;
-      break;
-    }
-  }
-  return min(max(value, 0.0f), 1.0f);
-}
-
-void setLED(OSCMessage &mess){
-  toggleLed();
-}
-
-void sendStatus(OSCMessage &mess){
-  sendIp();
-  sendPort();
-}
-
-#define MIDI_BUFFER_LENGTH 128
-uint8_t buffer[MIDI_BUFFER_LENGTH];
-MidiReader reader(buffer, MIDI_BUFFER_LENGTH);
-MidiWriter writer;
 
 void oscNoteOn(OSCMessage &message){
   if(message.size() > 2){
@@ -440,13 +321,43 @@ void oscPitchBend(OSCMessage &message){
   }
 }
 
+void setLED(OSCMessage &mess){
+  toggleLed();
+}
+
+void sendIp(){
+  // Get the IP address of the Spark Core and send it as an OSC Message
+  IPAddress ip = WiFi.localIP();
+  OSCMessage msg(OscCmd_ip);
+  // msg.add(ip[0]).add(ip[1]).add(ip[2]).add(ip[3]);
+  char buf[16];
+  sprintf(buf, "%d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3]);
+  msg.add(buf);
+  sendMessage(msg);
+  Serial_print("Local IP: ");
+  Serial_println(ip);
+}
+
+void sendPort(){
+  OSCMessage msg(OscCmd_port);
+  msg.add(localPort);
+  sendMessage(msg);
+  Serial_print("Local port: ");
+  Serial_println(localPort);
+}
+
+void sendStatus(OSCMessage &mess){
+  sendIp();
+  sendPort();
+}
+
 void pollOsc(){
   int bytesToRead = udp.parsePacket();
   if(bytesToRead > 0) {
     if(autoRemoteIPAddress){
       remoteIPAddress = udp.remoteIP();
-      Serial.print("Remote IP (auto): ");
-      Serial.println(remoteIPAddress);
+      Serial_print("Remote IP (auto): ");
+      Serial_println(remoteIPAddress);
     }
     OSCMessage msg;
     while(bytesToRead--) {
@@ -454,7 +365,7 @@ void pollOsc(){
     }
     udp.flush();
     if(!msg.hasError()) {
-      Serial.println("Received osc message");
+      Serial_println("Received osc message");
       msg.dispatch(OscCmd_led , setLED);
       msg.dispatch(OscCmd_note_on , oscNoteOn);
       msg.dispatch(OscCmd_note_off , oscNoteOff);
@@ -467,98 +378,178 @@ void pollOsc(){
       // msg.dispatch(OscCmd_ab_cv, cvAB);
       msg.dispatch(OscCmd_status , sendStatus);
     }else{
-      Serial.println("osc error "+msg.getError());
+      Serial_println("osc error "+msg.getError());
     }
   }
 }
 
-void pollMidi(){
-  // int bytesToRead = Serial1.available();
-  // while(bytesToRead-- > 0){
-  if(Serial1.available()){
-    MidiReaderStatus status = reader.read(Serial1.read());
-    if(status == ERROR_STATUS){
-      reader.clear();
-#ifdef DEBUG_USART
-      Serial.println("MIDI read error");
-#endif /* DEBUG_USART */
-    }else if(status == READY_STATUS){
-#ifdef DEBUG_USART
-      Serial.println("MIDI read ok");
-#endif /* DEBUG_USART */
-      switch(reader.getStatus()){
-      case NOTE_ON: {
-#ifdef DEBUG_USART
-	Serial.print("note on ");
-	Serial.print(reader.getNoteNumber());
-	Serial.print("/");
-	Serial.print(reader.getVelocity());
-	Serial.println();
-#endif /* DEBUG_USART */
-	note_on_msg.set(0, reader.getChannel());
-	note_on_msg.set(1, reader.getNoteNumber());
-	note_on_msg.set(2, reader.getVelocity());
-	sendMessage(note_on_msg);
-	// simple_note_on.set(0, reader.getChannel());
-	// simple_note_on.set(1, reader.getNoteNumber());
-	// simple_note_on.set(2, reader.getVelocity());
-	// simple_note_on.send();
+
+class LilBug : public MidiReader {
+public:
+
+  void setup(){
+  }
+
+  void setTrigger(int pin, OSCMessage &message){
+    if(message.size() > 0){
+      bool value;
+      switch(message.getType(0)){
+      case 'i':
+      case 'h':
+	value = message.getInt(0) != 0;
+	break;
+      case 'f':
+	value = message.getFloat(0) != 0.0;
+	break;
+      case 'd':
+	value = message.getDouble(0) != 0.0;
+	break;
+      case 'T':
+      case 'I':
+	value = true;
+	break;
+      case 'F':
+      case 'N':
+      default:
+	value = false;
 	break;
       }
-      case NOTE_OFF: {
-#ifdef DEBUG_USART
-	Serial.print("note off ");
-	Serial.print((int)reader.getNoteNumber());
-	Serial.print("/");
-	Serial.print((int)reader.getVelocity());
-	Serial.println();
-#endif /* DEBUG_USART */
-	OSCMessage msg(OscCmd_note_off);
-	note_off_msg.set(0, reader.getChannel());
-	note_off_msg.set(1, reader.getNoteNumber());
-	sendMessage(note_off_msg);
-	break;
-      }
-      case CONTROL_CHANGE:{
-#ifdef DEBUG_USART
-	Serial.print("cc ");
-	Serial.print((int)reader.getControllerNumber());
-	Serial.print("/");
-	Serial.print((int)reader.getControllerValue());
-	Serial.println();
-#endif /* DEBUG_USART */
-	OSCMessage msg("cc");
-	msg.add(reader.getChannel());
-	msg.add(reader.getControllerNumber());
-	msg.add(reader.getControllerValue());
-	sendMessage(msg);
-	break;
-      }
-      case PITCH_BEND_CHANGE:{
-	OSCMessage msg("pb");
-	int value = reader.getRawData()[1] << 7;
-	value |= reader.getRawData()[2];
-	msg.add(reader.getChannel());
-	msg.add(value);
-	sendMessage(msg);
-#ifdef DEBUG_USART
-	Serial.print("pb ");
-	Serial.print(value);
-	Serial.println();
-#endif /* DEBUG_USART */
-	break;
-      }
-      }
-    }else{
-#ifdef DEBUG_USART
-      Serial.print(".");
-#endif /* DEBUG_USART */
+      digitalWrite(pin, value ? LOW : HIGH);    
+      Serial_println("Set trigger " + String(pin) + " " + String(value));
     }
   }
+
+  float getFloatValue(OSCMessage &message, int index){
+    float value = 0.0f;
+    if(message.size() > index){
+      switch(message.getType(index)){
+      case 'i':
+      case 'h':
+	value = message.getInt(index)/4095.0f;
+	break;
+      case 'f':
+	value = message.getFloat(index);
+	break;
+      case 'd':
+	value = message.getDouble(index);
+	break;
+      case 'T':
+      case 'I':
+	value = 1.0f;
+	break;
+      case 'F':
+      case 'N':
+      default:
+	value = 0.0f;
+	break;
+      }
+    }
+    return min(max(value, 0.0f), 1.0f);
+  }
+
+#define MIDI_BUFFER_LENGTH 128
+  uint8_t buffer[MIDI_BUFFER_LENGTH];
+  // MidiReader reader(buffer, MIDI_BUFFER_LENGTH);
+  LilBug() : MidiReader(buffer, MIDI_BUFFER_LENGTH) {}
+
+  void handleNoteOn(uint8_t channel, uint8_t note, uint8_t velocity){
+    if(velocity == 0)
+      return handleNoteOff(channel, note, velocity);
+    MidiReader::handleNoteOn(channel, note, velocity);
+    note_on_msg.set(0, channel);
+    note_on_msg.set(1, note);
+    note_on_msg.set(2, velocity);
+    sendMessage(note_on_msg);
+    // simple_note_on.set(0, reader.getChannel());
+    // simple_note_on.set(1, reader.getNoteNumber());
+    // simple_note_on.set(2, reader.getVelocity());
+    // simple_note_on.send();
+  }
+
+  void handleNoteOff(uint8_t channel, uint8_t note, uint8_t velocity){
+    MidiReader::handleNoteOff(channel, note, velocity);
+    OSCMessage msg(OscCmd_note_off);
+    note_off_msg.set(0, channel);
+    note_off_msg.set(1, note);
+    sendMessage(note_off_msg);
+  }
+
+  void handleControlChange(uint8_t channel, uint8_t cc, uint8_t value){
+    MidiReader::handleControlChange(channel, cc, value);
+    OSCMessage msg("cc");
+    msg.add(channel);
+    msg.add(cc);
+    msg.add(value);
+    sendMessage(msg);
+  }
+
+  void handlePitchBend(uint8_t channel, uint16_t value){
+    MidiReader::handlePitchBend(channel, value);
+    OSCMessage msg("pb");
+    msg.add(channel);
+    msg.add(value);
+    sendMessage(msg);
+  }
+
+  void pollMidi(){
+    int bytesToRead = Serial1.available();
+    while(bytesToRead-- > 0){
+    // if(Serial1.available()){
+      MidiReaderStatus status = read(Serial1.read());
+      if(status == ERROR_STATUS){
+	MidiReader::clear();
+	Serial_println("MIDI read error");
+      }else{
+	Serial_print(".");
+      }
+    }
+  }
+};
+
+LilBug bug;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+
+  note_on_msg.add(0);
+  note_on_msg.add(0);
+  note_on_msg.add(0);
+  note_off_msg.add(0);
+  note_off_msg.add(0);
+
+  toggleLed();
+  Serial1.begin(115200);
+  Serial.begin(9600);
+  Serial_println("Connecting");
+  WiFi.connect();
+  while(WiFi.connecting()){
+    // wait for connection
+    Serial_print('.');
+    delay(100);
+  }
+  Serial_println("> Wifi ready");
+  IPAddress zero(0UL);
+  while(WiFi.localIP() == zero){
+    // wait for IP (workaround)
+    Serial_print('-');
+    delay(100);
+  }
+  Serial_println("> DHCP ready");
+  setBroadcastMode();
+  Serial_print("Connected: ");
+  Serial_println(WiFi.localIP());
+  ws.begin();
+  udp.begin(localPort);
+  sendIp();
+  sendPort();
+  toggleLed();
+
+  bug.setup();
+  Serial_println("Showtime");
 }
 
 void loop(){
   pollOsc();
-  pollMidi();
+  bug.pollMidi();
   ws.loop();
 }
