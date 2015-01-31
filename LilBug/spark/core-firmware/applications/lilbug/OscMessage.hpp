@@ -2,6 +2,7 @@
 #define _OSC_MESSAGE_H_
 
 #include <inttypes.h>
+#include <string.h>
 
 #define MAX_OSC_PREFIX_SIZE 32
 #define MAX_OSC_DATA_SIZE 32
@@ -11,17 +12,20 @@ class OscMessage {
   uint8_t data[MAX_OSC_DATA_SIZE];
   uint8_t dataLength;
 public:
+  OscMessage(char* a) : prefixLength(0), dataLength(0){
+    setAddress(a);
+  }
   void setAddress(char* a){
-    prefixLength = strnlen(a, MAX_OSC_PREFIX_SIZE-5);
-    memcpy(prefix, a, prefixLength+1);
-    while(++prefixLength & 3) // pad to 4 bytes
-      prefix[prefixLength-1] = '\0';
+    prefixLength = strnlen(a, MAX_OSC_PREFIX_SIZE-5)+1;
+    memcpy(prefix, a, prefixLength);
+    while(prefixLength & 3) // pad to 4 bytes
+      prefix[prefixLength++] = '\0';
     prefix[prefixLength++] = ',';
   }
 
   void send(Print& out){
     out.write(prefix, prefixLength);
-    // zero pad
+    // add zero padding
     switch((prefixLength) & 3){
     case 0:
       out.write((uint8_t)'\0');
@@ -34,6 +38,8 @@ public:
     }
     out.write(data, dataLength);
   }
+
+  // void send();
 
   uint8_t add(float value){
     return add('f', (uint8_t*)&value);
@@ -52,6 +58,7 @@ public:
   }
 protected:
   uint8_t add(char type, uint8_t* value){
+    prefix[prefixLength++] = type;
     data[dataLength++] = value[3];
     data[dataLength++] = value[2];
     data[dataLength++] = value[1];
@@ -69,14 +76,11 @@ public:
     data[index++] = value[3];
     data[index++] = value[2];
     data[index++] = value[1];
-    data[index++] = value[0];
+    data[index] = value[0];
   }
   void set(uint8_t index, uint8_t* value, size_t sz){
     for(size_t i=1; i<=sz; ++i)
       data[index++] = value[sz-i];
-  }
-  void send(Print& out){
-    // add zero padding to 
   }
 };
 

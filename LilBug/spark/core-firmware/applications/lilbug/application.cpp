@@ -4,7 +4,7 @@
 #include "http-server/HttpRequest.h"
 #include "http-server/HttpResponse.h"
 
-#define DEBUG_USART
+// #define DEBUG_USART
 
 #ifdef DEBUG_USART
 #include <stdarg.h>
@@ -25,7 +25,7 @@ void pnprintf(Print& p, uint16_t bufsize, const char* fmt, ...) {
 #define Serial_println(x) 
 #endif // DEBUG_USART
 
-// #include "OscMessage.hpp"
+#include "OscMessage.hpp"
 #include "MidiReader.hpp"
 #include "MidiWriter.hpp"
 
@@ -40,11 +40,6 @@ char* OscCmd_note_on     = "note_on";
 char* OscCmd_note_off    = "note_off";
 char* OscCmd_control_change          = "cc";
 char* OscCmd_pitch_bend          = "pb";
-
-// template<typename T>
-// void SimpleOscMessage<T, int>::getType(){
-//   return 'i';
-// }
 
 IPAddress remoteIPAddress(192,168,2,179);
 bool autoRemoteIPAddress = true;
@@ -219,67 +214,22 @@ public :
 };
 
 MyUDP udp;
-
-template<typename T, size_t DATACOUNT>
-class SimpleOscMessage {
-public:
-  char address[32+1];
-  size_t addresslen;
-  T data[DATACOUNT];
-  SimpleOscMessage(char* a) {
-    setAddress(a);
-  }
-  void setAddress(char* a){
-    addresslen = strnlen(a, 32-1);
-    memcpy(address, a, addresslen+1);
-    while(++addresslen & 3) // pad to 4 bytes
-      address[addresslen-1] = '\0';
-    address[addresslen] = ',';
-  }
-  void set(uint8_t index, T value){
-    data[index] = value;
-  }
-  void send(Print &out){
-    out.write((uint8_t *)address, addresslen);
-    // out.write((uint8_t)',');
-    uint8_t typestr[DATACOUNT];
-    for(uint8_t i=0; i<DATACOUNT; i++)
-      typestr[i] = getType();
-    out.write(typestr, DATACOUNT);
-    out.write((uint8_t)'\0');
-    switch((DATACOUNT+2) & 3){
-    case 3:
-      out.write((uint8_t)'\0');
-    case 2:
-      out.write((uint8_t)'\0');
-    case 1:
-      out.write((uint8_t)'\0');
-    // case 0:
-      // intentional fallthroughs
-    }
-    for(int i=0; i<DATACOUNT; i++){
-      uint32_t datum = __REV(data[i]);
-      // uint32_t i = BigEndian(data[i]);
-      // uint8_t * ptr = (uint8_t *) &i;
-      out.write((uint8_t*)&datum, 4);
-    }
-  }
-  char getType(){
-    return 'i';
-  }
-  void send(){
-    udp.beginPacket(remoteIPAddress, remotePort);
-    this->send(udp);
-    udp.endPacket();
-  }
-};
-
-OSCMessage note_on_msg(OscCmd_note_on);
-OSCMessage note_off_msg(OscCmd_note_off);
-// SimpleOscMessage<int, 3> simple_note_on(OscCmd_note_on);
-// SimpleOscMessage<int, 2> simple_note_off(OscCmd_note_off);
-
 MidiWriter writer;
+
+OscMessage note_on_msg(OscCmd_note_on);
+OscMessage note_off_msg(OscCmd_note_off);
+
+void sendMessage(OscMessage& msg){
+  udp.beginPacket(remoteIPAddress, remotePort);
+  msg.send(udp);
+  udp.endPacket();
+}
+
+// void OscMessage::send(){
+//   udp.beginPacket(remoteIPAddress, remotePort);
+//   send(udp);
+//   udp.endPacket();
+// }
 
 void sendMessage(OSCMessage& msg){
   udp.beginPacket(remoteIPAddress, remotePort);
@@ -456,9 +406,9 @@ public:
     if(velocity == 0)
       return handleNoteOff(channel, note, velocity);
     MidiReader::handleNoteOn(channel, note, velocity);
-    note_on_msg.set(0, channel);
-    note_on_msg.set(1, note);
-    note_on_msg.set(2, velocity);
+    note_on_msg.set(0, (int32_t)channel);
+    note_on_msg.set(4, (int32_t)note);
+    note_on_msg.set(8, (int32_t)velocity);
     sendMessage(note_on_msg);
     // simple_note_on.set(0, reader.getChannel());
     // simple_note_on.set(1, reader.getNoteNumber());
@@ -469,8 +419,8 @@ public:
   void handleNoteOff(uint8_t channel, uint8_t note, uint8_t velocity){
     MidiReader::handleNoteOff(channel, note, velocity);
     OSCMessage msg(OscCmd_note_off);
-    note_off_msg.set(0, channel);
-    note_off_msg.set(1, note);
+    note_off_msg.set(0, (int32_t)channel);
+    note_off_msg.set(4, (int32_t)note);
     sendMessage(note_off_msg);
   }
 
@@ -483,7 +433,7 @@ public:
     sendMessage(msg);
   }
 
-  void handlePitchBend(uint8_t channel, uint16_t value){
+  void handlePitchBend(uint8_t channel, int16_t value){
     MidiReader::handlePitchBend(channel, value);
     OSCMessage msg("pb");
     msg.add(channel);
@@ -511,11 +461,11 @@ LilBug bug;
 void setup() {
   pinMode(ledPin, OUTPUT);
 
-  note_on_msg.add(0);
-  note_on_msg.add(0);
-  note_on_msg.add(0);
-  note_off_msg.add(0);
-  note_off_msg.add(0);
+  note_on_msg.add((int32_t)0);
+  note_on_msg.add((int32_t)0);
+  note_on_msg.add((int32_t)0);
+  note_off_msg.add((int32_t)0);
+  note_off_msg.add((int32_t)0);
 
   toggleLed();
   Serial1.begin(115200);

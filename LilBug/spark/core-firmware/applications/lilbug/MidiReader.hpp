@@ -64,7 +64,7 @@ public:
     Serial_printf("Note on: %d %d %d\n", channel, note, velocity);
 #endif /* DEBUG_USART */
   }
-  virtual void handlePitchBend(uint8_t channel, uint16_t value){
+  virtual void handlePitchBend(uint8_t channel, int16_t value){
 #ifdef DEBUG_USART
     Serial_printf("pb: %d %d\n", channel, value);
 #endif /* DEBUG_USART */
@@ -154,7 +154,8 @@ public:
     case PITCH_BEND_CHANGE:
       if(pos == 3){
 	status = READY_STATUS;
-	handlePitchBend(message[0] & MIDI_CHANNEL_MASK, (message[1] << 7) | message[2]);
+	handlePitchBend(message[0] & MIDI_CHANNEL_MASK, 
+			((message[2]<<7) | message[1]) - 8192);
       }else{
 	status = INCOMPLETE_STATUS;
       }
@@ -185,7 +186,9 @@ public:
 	  message[pos-1] = SYSEX_EOX;
 	  status = READY_STATUS;
 	  handleSysEx(message+1, pos-2);
-	  message[0] = data; // save status byte for next message - will be saved as running status
+	  // was:
+	  // message[0] = data; // save status byte for next message - will be saved as running status
+	  runningStatus = data;
 	}else{
 	  status = INCOMPLETE_STATUS;
 	}
@@ -200,8 +203,9 @@ public:
     default:
       if(pos == 1 && data < STATUS_BYTE && runningStatus >= STATUS_BYTE){
 	// MIDI running status: this message is missing the status byte, re-use previous status
-	message[pos++] = data;
 	message[0] = runningStatus;
+	status = INCOMPLETE_STATUS;
+	return read(data);
       }else{
 	status = ERROR_STATUS;
 	pos = 0;
@@ -267,8 +271,8 @@ public:
     return message[1];
   }
 
-  uint16_t getPitchWheelValue(){
-    return (message[1]<<7) | message[2];
+  int16_t getPitchWheelValue(){
+    return ((message[2]<<7) | message[1]) - 8192;
   }
 
   uint16_t getRawDataSize(){
