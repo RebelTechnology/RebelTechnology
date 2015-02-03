@@ -31,15 +31,15 @@ void pnprintf(Print& p, uint16_t bufsize, const char* fmt, ...) {
 
 int ledPin               = D7; // Spark core blue led
 
-char* OscCmd_status      = "/status";
-char* OscCmd_led         = "/led";
-char* OscCmd_ip          = "/localip";
-char* OscCmd_port        = "/localport";
-char* OscCmd_ping        = "/ping"; // todo
-char* OscCmd_note_on     = "note_on";
-char* OscCmd_note_off    = "note_off";
-char* OscCmd_control_change          = "cc";
-char* OscCmd_pitch_bend          = "pb";
+char* OscCmd_status              = (char*)"/status";
+char* OscCmd_led                 = (char*)"/led";
+char* OscCmd_ip                  = (char*)"/localip";
+char* OscCmd_port                = (char*)"/localport";
+char* OscCmd_ping                = (char*)"/ping";
+char* OscCmd_note_on             = (char*)"note_on";
+char* OscCmd_note_off            = (char*)"note_off";
+char* OscCmd_control_change      = (char*)"cc";
+char* OscCmd_pitch_bend          = (char*)"pb";
 
 IPAddress remoteIPAddress(192,168,2,179);
 bool autoRemoteIPAddress = true;
@@ -62,7 +62,7 @@ SYSTEM_MODE(MANUAL);
 </form>
 </body></html>
 */
-class Configuration : public HttpResponse {
+class ConfigurationResponse : public HttpResponse {
 protected:
   Stream& printBody(Stream& out) const {
     // out.print("<html><head><title>OpenSoundModule</title></head><body>");
@@ -131,11 +131,105 @@ void setIpAddress(String ip){
   Serial_println(remoteIPAddress);
 }
 
+// int lastIndexOf(const char * s, char target){
+//    int ret = -1;
+//    int curIdx = 0;
+//    while(s[curIdx] != '\0'){
+//      if(s[curIdx] == target) 
+//        ret = curIdx;
+//      curIdx++;
+//    }
+//    return ret;
+// }
+
+// int getIntegerSuffix(const String& url){
+//   // int idx = str.lastIndexOf('/');
+//   String sub = str.substring(str.lastIndexOf('/')+1);
+//   return sub.toInt();
+// }
+
+// int getIntegerSuffix(const String& url, int pos){
+//   String sub = str.substring(str.indexOf('/', pos)+1);
+//   return sub.toInt();
+// }
+
+void toggleLed(){
+  digitalWrite(ledPin, digitalRead(ledPin) == HIGH ? LOW : HIGH);
+  Serial_println("toggle LED " +  String(digitalRead(ledPin)));
+}
+
+class BufferedUdp : public UDP {
+private :
+  uint8_t txbuffer[UDP_TX_BUFFER_SIZE];
+  int txoffset;
+public :
+  BufferedUdp() : txoffset(0){}
+  virtual int beginPacket(IPAddress ip, uint16_t port){
+    txoffset = 0;
+    return UDP::beginPacket(ip, port);
+  }
+  virtual int endPacket(){
+    return UDP::write(txbuffer, txoffset);
+  }
+  virtual size_t write(uint8_t buffer) {
+    txbuffer[txoffset++] = buffer;
+    // write(&buffer, 1);
+    return 1;
+  }
+  virtual size_t write(const uint8_t *buffer, size_t size) {
+    memcpy(&txbuffer[txoffset], buffer, size);
+    txoffset += size;
+    return size;
+  }
+};
+
+BufferedUdp udp;
+MidiWriter writer;
+
 class WebServer : public TCPServer {
 public:
-  const Configuration config;
-  WebServer() : TCPServer(80) {}
-  WebServer(const unsigned aPort) : TCPServer(aPort) {}
+  ConfigurationResponse config;
+  HttpResponseStatic ok;
+
+  WebServer() : TCPServer(80), ok("ok", 2) {}
+  WebServer(const unsigned aPort) : TCPServer(aPort), ok("ok", 2) {}
+
+  HttpResponse& handleRequest(String& url){
+    if(url.indexOf("/settings?") >= 0){
+      localPort = getParameter(url, "localport", String(localPort)).toInt();
+      setIpAddress(getParameter(url, "remoteip", String("auto")));
+      remotePort = getParameter(url, "remoteport", String(remotePort)).toInt();
+      Serial_println(localPort);
+      Serial_println(remotePort);
+      return config;
+    }else if(url.indexOf(OscCmd_note_on) >= 0) {
+      int channel = getParameter(url, "channel", "0").toInt();
+      int note = getParameter(url, "note", "0").toInt();
+      int velocity = getParameter(url, "velocity", "0").toInt();
+      writer.noteOn(channel, note, velocity);
+      return ok;
+    }else if(url.indexOf(OscCmd_note_off) >= 0) {
+      int channel = getParameter(url, "channel", "0").toInt();
+      int note = getParameter(url, "note", "0").toInt();
+      writer.noteOff(channel, note, 0);
+      return ok;
+    }else if(url.indexOf(OscCmd_control_change) >= 0) {
+      int channel = getParameter(url, "channel", "0").toInt();
+      int cc = getParameter(url, "cc", "0").toInt();
+      int value = getParameter(url, "value", "0").toInt();
+      writer.controlChange(channel, cc, value);
+      return ok;
+    }else if(url.indexOf("/led") >= 0) {
+      toggleLed();
+      return config;
+    }else if(url.indexOf("/D7/on") >= 0) {
+      digitalWrite(D7, HIGH);
+      return config;
+    }else if(url.indexOf("/D7/off") >= 0) {
+      digitalWrite(D7, LOW);
+      return config;
+    }
+  }
   
   void loop() {
     if(TCPClient client = available()){
@@ -148,24 +242,8 @@ public:
           hr.parse(client.read());
       }
       String url(hr.URL());
-      if(url.indexOf("/settings?") >= 0){
-	localPort = getParameter(url, "localport", String(localPort)).toInt();
-	setIpAddress(getParameter(url, "remoteip", String("auto")));
-	remotePort = getParameter(url, "remoteport", String(remotePort)).toInt();
-	Serial_println(localPort);
-	Serial_println(remotePort);
-      }else if(url.indexOf("/D0/on") >= 0) {
-	Serial_println("Turning D0 on");
-	digitalWrite(D0, HIGH);
-      }else if(url.indexOf("/D0/off") >= 0) {
-	Serial_println("Turning D0 off");
-	digitalWrite(D0, LOW);
-      }else if(url.indexOf("/D7/on") >= 0) {
-	digitalWrite(D7, HIGH);
-      }else if(url.indexOf("/D7/off") >= 0) {
-	digitalWrite(D7, LOW);
-      }
-      client << config;
+      HttpResponse& res = handleRequest(url);
+      client << res;
       if(client.connected()){
 	delay(20);
 	if(client.connected())
@@ -177,47 +255,20 @@ public:
 	  Serial_println("Client stopped");
 	}
       }
+      if(client.connected()){
+	client.stop();
       Serial_println("Client disconnected");
+      }
     }
   }
 };
 
 WebServer ws;
 
-void toggleLed(){
-  digitalWrite(ledPin, digitalRead(ledPin) == HIGH ? LOW : HIGH);
-  Serial_println("toggle LED " +  String(digitalRead(ledPin)));
-}
-
-class MyUDP : public UDP {
-private :
-  uint8_t txbuffer[UDP_TX_BUFFER_SIZE];
-  int txoffset;
-public :
-  MyUDP() : txoffset(0){}
-  virtual int beginPacket(IPAddress ip, uint16_t port){
-    txoffset = 0;
-    return UDP::beginPacket(ip, port);
-  }
-  virtual int endPacket(){
-    return UDP::write(txbuffer, txoffset);
-  }
-  virtual size_t write(uint8_t buffer) {
-    write(&buffer, 1);
-    return 1;
-  }
-  virtual size_t write(const uint8_t *buffer, size_t size) {
-    memcpy(&txbuffer[txoffset], buffer, size);
-    txoffset += size;
-    return size;
-  }
-};
-
-MyUDP udp;
-MidiWriter writer;
-
 OscMessage note_on_msg(OscCmd_note_on);
 OscMessage note_off_msg(OscCmd_note_off);
+OscMessage control_change_msg(OscCmd_control_change);
+OscMessage pitch_bend_msg(OscCmd_pitch_bend);
 
 void sendMessage(OscMessage& msg){
   udp.beginPacket(remoteIPAddress, remotePort);
@@ -418,7 +469,6 @@ public:
 
   void handleNoteOff(uint8_t channel, uint8_t note, uint8_t velocity){
     MidiReader::handleNoteOff(channel, note, velocity);
-    OSCMessage msg(OscCmd_note_off);
     note_off_msg.set(0, (int32_t)channel);
     note_off_msg.set(4, (int32_t)note);
     sendMessage(note_off_msg);
@@ -426,19 +476,17 @@ public:
 
   void handleControlChange(uint8_t channel, uint8_t cc, uint8_t value){
     MidiReader::handleControlChange(channel, cc, value);
-    OSCMessage msg("cc");
-    msg.add(channel);
-    msg.add(cc);
-    msg.add(value);
-    sendMessage(msg);
+    control_change_msg.set(0, (int32_t)channel);
+    control_change_msg.set(4, (int32_t)cc);
+    control_change_msg.set(8, (int32_t)value);
+    sendMessage(control_change_msg);
   }
 
   void handlePitchBend(uint8_t channel, int16_t value){
     MidiReader::handlePitchBend(channel, value);
-    OSCMessage msg("pb");
-    msg.add(channel);
-    msg.add(value);
-    sendMessage(msg);
+    pitch_bend_msg.set(0, (int32_t)channel);
+    pitch_bend_msg.set(4, (int32_t)value);
+    sendMessage(pitch_bend_msg);
   }
 
   void pollMidi(){
@@ -466,6 +514,11 @@ void setup() {
   note_on_msg.add((int32_t)0);
   note_off_msg.add((int32_t)0);
   note_off_msg.add((int32_t)0);
+  control_change_msg.add((int32_t)0);
+  control_change_msg.add((int32_t)0);
+  control_change_msg.add((int32_t)0);
+  pitch_bend_msg.add((int32_t)0);
+  pitch_bend_msg.add((int32_t)0);
 
   toggleLed();
   Serial1.begin(115200);

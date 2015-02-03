@@ -184,11 +184,10 @@ public:
 	}else if(data >= STATUS_BYTE && pos > 1){
 	  // SysEx message terminated by a status byte different from 0xf7
 	  message[pos-1] = SYSEX_EOX;
-	  status = READY_STATUS;
 	  handleSysEx(message+1, pos-2);
-	  // was:
-	  // message[0] = data; // save status byte for next message - will be saved as running status
-	  runningStatus = data;
+	  message[0] = data; // save status byte for next message
+	  // after clear(), status byte will be saved as running status
+	  status = READY_STATUS;
 	}else{
 	  status = INCOMPLETE_STATUS;
 	}
