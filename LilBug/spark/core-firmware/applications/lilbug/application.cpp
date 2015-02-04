@@ -4,7 +4,9 @@
 #include "http-server/HttpRequest.h"
 #include "http-server/HttpResponse.h"
 
-// #define DEBUG_USART
+// The maximum WiFi packet size that the Spark Core can handle is just over 1400 bytes
+
+#define DEBUG_USART
 
 #ifdef DEBUG_USART
 #include <stdarg.h>
@@ -63,39 +65,52 @@ SYSTEM_MODE(MANUAL);
 </body></html>
 */
 class ConfigurationResponse : public HttpResponse {
+private:
+  const char* htmlHeader =
+    "<html><head><title>Lil'Bug</title></head><body>"
+    "<h1>Lil'Bug</h1>";
+  const size_t htmlHeaderLen = strlen(htmlHeader);
+  const char* htmlFooter =
+    "</body></html>\r\n";
+  const size_t htmlFooterLen = strlen(htmlFooter);
 protected:
   Stream& printBody(Stream& out) const {
     // out.print("<html><head><title>OpenSoundModule</title></head><body>");
     // out.print("<h1>OpenSoundModule</h1>");
-    out.print("<html><body>");
-    out.print("<form action='/settings'>");
-    out.print("<p>OpenSound IP: ");
+    // out.print("<html><body>");
+    out.write((uint8_t*)htmlHeader, htmlHeaderLen);
+    out.write("<form action='/settings'>");
+    out.write("<p>OpenSound IP: ");
     out.print(WiFi.localIP());
-    out.print("</p><p>Port: <input type='text' name='localport' value='");
+    out.write("</p><p>Port: <input type='text' name='localport' value='");
     out.print(localPort);
-    out.print("'/></p>");
-    out.print("<p>Remote IP: <input type='text' name='remoteip' value='");
+    out.write("'/></p>");
+    out.write("<p>Remote IP: <input type='text' name='remoteip' value='");
     out.print(remoteIPAddress);
-    out.print("'/></p>");
-    out.print("<p>Port: <input type='text' name='remoteport' value='");
+    out.write("'/></p>");
+    out.write("<p>Port: <input type='text' name='remoteport' value='");
     out.print(remotePort);
-    out.print("'/></p>");
-    out.print("<input type='submit'/>");
-    out.print("</form>");
-    out.print("</body></html>\r\n");
+    out.write("'/></p>");
+    out.write("<input type='submit'/>");
+    out.write("</form>");
+    // out.print("</body></html>\r\n");
+    out.write((uint8_t*)htmlFooter, htmlFooterLen);
     return out;
   }
 };
 
 String getParameter(String url, const String& name, const String& def){
-  int pos = url.indexOf(name);
+  int start = url.indexOf('?');
+  if(start < 0)
+    return def;
+  int pos = url.indexOf(name, start);
   if(pos < 0)
     return def;
-  url = url.substring(pos+name.length()+1);
-  pos = url.indexOf('&');
-  if(pos > 0)
-    return url.substring(0, pos);
-  return url;
+  int end = url.indexOf('&', pos);
+  if(end > 0)
+    return url.substring(pos+name.length()+1, end);
+  else
+    return url.substring(pos+name.length()+1);
 }
 
 void setBroadcastMode(){
@@ -193,7 +208,7 @@ public:
   HttpResponseStatic err404;
 
   WebServer(const unsigned aPort) : 
-    TCPServer(aPort), ok("ok", 2), err404(NULL, 0) {
+    TCPServer(aPort), ok("ok\r\n", 4), err404(NULL, 0) {
     err404.status(404);
   }
 
@@ -253,23 +268,25 @@ public:
           hr.parse(client.read());
       }
       String url(hr.URL());
+      Serial_println(url);
       HttpResponse& res = handleRequest(url);
       client << res;
-      if(client.connected()){
-	delay(20);
-	if(client.connected())
-	  delay(40);
-	if(client.connected())
-	  delay(40);
-	if(client.connected()){
-	  client.stop();
-	  Serial_println("Client stopped");
-	}
-      }
-      if(client.connected()){
-	client.stop();
-      Serial_println("Client disconnected");
-      }
+      blockWaiting(client, 200);
+      client.flush();
+      client.stop();
+    }
+  }
+
+  void blockWaiting(TCPClient& client, unsigned long timeOut){
+    unsigned long startWait = millis();
+    while(client.available() == 0) {
+      if(millis() - startWait > timeOut) 
+        return;
+    }
+    while(client.available() > 0){
+      client.read();  // discard read data
+      if(millis() - startWait > timeOut) 
+        return;
     }
   }
 };
@@ -351,8 +368,8 @@ void sendIp(){
 }
 
 void sendPort(){
-  OSCMessage msg(OscCmd_port);
-  msg.add(localPort);
+  OscMessage msg(OscCmd_port);
+  msg.add((int32_t)localPort);
   sendMessage(msg);
   Serial_print("Local port: ");
   Serial_println(localPort);
@@ -372,22 +389,16 @@ void pollOsc(){
       Serial_println(remoteIPAddress);
     }
     OSCMessage msg;
-    while(bytesToRead--) {
+    while(bytesToRead--)
       msg.fill(udp.read());
-    }
     udp.flush();
     if(!msg.hasError()) {
       Serial_println("Received osc message");
-      msg.dispatch(OscCmd_led , setLED);
-      msg.dispatch(OscCmd_note_on , oscNoteOn);
-      msg.dispatch(OscCmd_note_off , oscNoteOff);
-      msg.dispatch(OscCmd_control_change , oscControlChange);
-      msg.dispatch(OscCmd_pitch_bend , oscPitchBend);
-      // msg.dispatch(OscCmd_a_trigger, triggerA);
-      // msg.dispatch(OscCmd_b_trigger, triggerB);
-      // msg.dispatch(OscCmd_a_cv, cvA);
-      // msg.dispatch(OscCmd_b_cv, cvB);
-      // msg.dispatch(OscCmd_ab_cv, cvAB);
+      msg.dispatch(OscCmd_led, setLED);
+      msg.dispatch(OscCmd_note_on, oscNoteOn);
+      msg.dispatch(OscCmd_note_off, oscNoteOff);
+      msg.dispatch(OscCmd_control_change, oscControlChange);
+      msg.dispatch(OscCmd_pitch_bend, oscPitchBend);
       msg.dispatch(OscCmd_status , sendStatus);
     }else{
       Serial_println("osc error "+msg.getError());
@@ -472,10 +483,6 @@ public:
     note_on_msg.set(4, (int32_t)note);
     note_on_msg.set(8, (int32_t)velocity);
     sendMessage(note_on_msg);
-    // simple_note_on.set(0, reader.getChannel());
-    // simple_note_on.set(1, reader.getNoteNumber());
-    // simple_note_on.set(2, reader.getVelocity());
-    // simple_note_on.send();
   }
 
   void handleNoteOff(uint8_t channel, uint8_t note, uint8_t velocity){
