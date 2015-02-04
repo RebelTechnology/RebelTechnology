@@ -15781,8 +15781,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </class>
 </classes>
 <parts>
-<part name="R601" library="Rebel" deviceset="R-EU_" device="0603" value="100K"/>
-<part name="R603" library="Rebel" deviceset="R-EU_" device="0603" value="10K"/>
+<part name="R601" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
+<part name="R603" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="Q601" library="transistor" deviceset="BC846" device=""/>
 <part name="R602" library="Rebel" deviceset="R-EU_" device="0603" value="1M"/>
@@ -15804,13 +15804,13 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="+3V14" library="supply1" deviceset="+3V3" device=""/>
 <part name="Q701" library="transistor" deviceset="BC846" device=""/>
-<part name="R701" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
+<part name="R701" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R703" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
-<part name="R704" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
+<part name="R704" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND45" library="supply1" deviceset="GND" device=""/>
 <part name="GND46" library="supply1" deviceset="GND" device=""/>
 <part name="GND47" library="supply1" deviceset="GND" device=""/>
-<part name="R702" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
+<part name="R702" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="TO2" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="P+7" library="supply1" deviceset="+12V" device=""/>
 <part name="P-6" library="supply1" deviceset="-12V" device=""/>
@@ -15821,22 +15821,22 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
 <part name="P-7" library="supply1" deviceset="-12V" device=""/>
 <part name="P+2" library="supply1" deviceset="+12V" device=""/>
-<part name="C1" library="resistor" deviceset="C-EU" device="C0603" value="100nF"/>
+<part name="C1" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="Q903" library="transistor" deviceset="BC846" device=""/>
-<part name="R901" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
+<part name="R901" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R903" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
-<part name="R904" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
+<part name="R904" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="R902" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
+<part name="R902" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="TO1" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="P+3" library="supply1" deviceset="+12V" device=""/>
-<part name="R801" library="Rebel" deviceset="R-EU_" device="0603" value="100K"/>
-<part name="R803" library="Rebel" deviceset="R-EU_" device="0603" value="10K"/>
+<part name="R801" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
+<part name="R803" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="Q801" library="transistor" deviceset="BC846" device=""/>
 <part name="R802" library="Rebel" deviceset="R-EU_" device="0603" value="1M"/>
