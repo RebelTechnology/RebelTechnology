@@ -190,9 +190,12 @@ class WebServer : public TCPServer {
 public:
   ConfigurationResponse config;
   HttpResponseStatic ok;
+  HttpResponseStatic err404;
 
-  WebServer() : TCPServer(80), ok("ok", 2) {}
-  WebServer(const unsigned aPort) : TCPServer(aPort), ok("ok", 2) {}
+  WebServer(const unsigned aPort) : 
+    TCPServer(aPort), ok("ok", 2), err404(NULL, 0) {
+    err404.status(404);
+  }
 
   HttpResponse& handleRequest(String& url){
     if(url.indexOf("/settings?") >= 0){
@@ -219,16 +222,24 @@ public:
       int value = getParameter(url, "value", "0").toInt();
       writer.controlChange(channel, cc, value);
       return ok;
+    }else if(url.indexOf(OscCmd_pitch_bend) >= 0) {
+      int channel = getParameter(url, "channel", "0").toInt();
+      int value = getParameter(url, "value", "0").toInt();
+      writer.pitchBend(channel, value);
+      return ok;
     }else if(url.indexOf("/led") >= 0) {
       toggleLed();
-      return config;
+      return ok;
     }else if(url.indexOf("/D7/on") >= 0) {
       digitalWrite(D7, HIGH);
-      return config;
+      return ok;
     }else if(url.indexOf("/D7/off") >= 0) {
       digitalWrite(D7, LOW);
+      return ok;
+    }else if(url.indexOf("index.htm") >= 0) {
       return config;
     }
+    return err404;
   }
   
   void loop() {
@@ -263,7 +274,7 @@ public:
   }
 };
 
-WebServer ws;
+WebServer ws(80);
 
 OscMessage note_on_msg(OscCmd_note_on);
 OscMessage note_off_msg(OscCmd_note_off);
