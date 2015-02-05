@@ -15799,7 +15799,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="R404" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="TI2" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="CVO1" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R401" library="Rebel" deviceset="R-EU_" device="0603" value="240k"/>
+<part name="R401" library="Rebel" deviceset="R-EU_" device="0603" value="120k"/>
 <part name="R402" library="Rebel" deviceset="R-EU_" device="0603" value="51k"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="+3V14" library="supply1" deviceset="+3V3" device=""/>
@@ -15815,7 +15815,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="P+7" library="supply1" deviceset="+12V" device=""/>
 <part name="P-6" library="supply1" deviceset="-12V" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
-<part name="R403" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
+<part name="R403" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
 <part name="R304" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="CVO2" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
@@ -15877,8 +15877,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="IC1" library="Rebel" deviceset="MCP4822-E/P" device="SOIC8"/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="R302" library="Rebel" deviceset="R-EU_" device="0603" value="51k"/>
-<part name="R301" library="Rebel" deviceset="R-EU_" device="0603" value="240k"/>
-<part name="R303" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
+<part name="R301" library="Rebel" deviceset="R-EU_" device="0603" value="120k"/>
+<part name="R303" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
 <part name="P-4" library="supply1" deviceset="-12V" device=""/>
 <part name="IC3" library="v-reg" deviceset="LM317?*" device="MABT"/>
 <part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>

@@ -3011,7 +3011,7 @@ design rules under a new name.</description>
 <element name="CVO1" library="Rebel" package="THONKICONN" value="THONKICONN" x="22.86" y="69.215" smashed="yes">
 <attribute name="NAME" x="22.86" y="71.755" size="1.27" layer="104" font="vector" align="bottom-center"/>
 </element>
-<element name="R401" library="Rebel" package="0603" value="240k" x="20.32" y="53.34" smashed="yes">
+<element name="R401" library="Rebel" package="0603" value="120k" x="20.32" y="53.34" smashed="yes">
 <attribute name="NAME" x="20.32" y="54.102" size="1.016" layer="25" font="vector" align="bottom-center"/>
 </element>
 <element name="R402" library="Rebel" package="0603" value="51k" x="24.13" y="53.34" smashed="yes">
@@ -3032,7 +3032,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="29.21" y="91.567" size="1.016" layer="25" font="vector" align="bottom-center"/>
 </element>
 <element name="TO2" library="Rebel" package="THONKICONN" value="THONKICONN" x="22.86" y="11.43"/>
-<element name="R403" library="Rebel" package="0603" value="33k" x="24.13" y="58.42" smashed="yes">
+<element name="R403" library="Rebel" package="0603" value="20k" x="24.13" y="58.42" smashed="yes">
 <attribute name="NAME" x="24.4475" y="59.182" size="1.016" layer="25" font="vector" align="bottom-center"/>
 </element>
 <element name="R304" library="Rebel" package="0603" value="100R" x="16.51" y="53.34" smashed="yes" rot="R180">
@@ -3119,10 +3119,10 @@ design rules under a new name.</description>
 <element name="R302" library="Rebel" package="0603" value="51k" x="20.32" y="58.42" smashed="yes" rot="R180">
 <attribute name="NAME" x="20.6375" y="60.198" size="1.016" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="R301" library="Rebel" package="0603" value="240k" x="20.32" y="55.88" smashed="yes">
+<element name="R301" library="Rebel" package="0603" value="120k" x="20.32" y="55.88" smashed="yes">
 <attribute name="NAME" x="20.0025" y="56.642" size="1.016" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R303" library="Rebel" package="0603" value="33k" x="16.51" y="55.88" smashed="yes" rot="R180">
+<element name="R303" library="Rebel" package="0603" value="20k" x="16.51" y="55.88" smashed="yes" rot="R180">
 <attribute name="NAME" x="15.875" y="57.658" size="1.016" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="IC3" library="v-reg" package="TO220L1" value="LM317MABT" x="25.4" y="11.43" smashed="yes" rot="MR270">
