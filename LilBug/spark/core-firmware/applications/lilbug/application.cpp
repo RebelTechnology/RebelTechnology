@@ -30,6 +30,7 @@ void pnprintf(Print& p, uint16_t bufsize, const char* fmt, ...) {
 #include "OscMessage.hpp"
 #include "MidiReader.hpp"
 #include "MidiWriter.hpp"
+#include "SocketManager.hpp"
 
 int ledPin               = D7; // Spark core blue led
 
@@ -188,7 +189,6 @@ public :
   }
   virtual size_t write(uint8_t buffer) {
     txbuffer[txoffset++] = buffer;
-    // write(&buffer, 1);
     return 1;
   }
   virtual size_t write(const uint8_t *buffer, size_t size) {
@@ -201,97 +201,151 @@ public :
 BufferedUdp udp;
 MidiWriter writer;
 
-class WebServer : public TCPServer {
+// class HttpStatus : public SocketService {
+// private:
+//   char buffer[128];
+//   int length;
+// public:
+//   HttpStatus(int status, char* message){
+//     memcpy(buffer, "http/1.1 "
+//   }
+//   SocketService* process(Socket& sock){
+//     aStream.print("http/1.1 ");
+//     aStream.print(aResponse.fStatus);
+//   }
+// };
+
+class HttpStatus404 : public SocketService {
+  SocketService* process(Socket& sock){
+    Serial_println("http 404");
+    const char* message = 
+      "HTTP/1.1 404 Not Found\r\n"
+      "Connection: close\r\n"
+      "\r\n";
+    sock.write((uint8_t*)message, strlen(message));
+    return NULL;
+  }  
+};
+
+class HttpStatus204 : public SocketService {
+  SocketService* process(Socket& sock){
+    Serial_println("http 204");
+    const char* message = 
+      "HTTP/1.1 204 No Content\r\n"
+      "Connection: close\r\n"
+      "\r\n";
+    sock.write((uint8_t*)message, strlen(message));
+    return NULL;
+  }  
+};
+
+class HttpIndex : public SocketService {
+private:
+  SocketService* process(Socket& sock){
+    Serial_println("http index");
+    const char* body = 
+      "<html><head><title>Lil'Bug</title></head><body>"
+      "<h1>Lil'Bug</h1>"
+      "</body></html>\r\n";
+    const char* headers = 
+      "HTTP/1.1 200 OK\r\n"
+      "Content-Type: text/html; charset=utf-8\r\n"
+      "Connection: close\r\n"
+      "\r\n";
+    sock.write((uint8_t*)headers, strlen(headers));
+    sock.write((uint8_t*)body, strlen(body));
+    return NULL;
+  }  
+};
+
+HttpStatus404 response404;
+HttpStatus204 response204;
+HttpIndex responseIndex;
+
+class HttpService : public SocketService {
+// class WebServer : public TCPServer {
 public:
   ConfigurationResponse config;
   HttpResponseStatic ok;
   HttpResponseStatic err404;
 
-  WebServer(const unsigned aPort) : 
-    TCPServer(aPort), ok("ok\r\n", 4), err404(NULL, 0) {
+  HttpService() : 
+    ok("ok\r\n", 4), err404(NULL, 0) {
     err404.status(404);
   }
 
-  HttpResponse& handleRequest(String& url){
+  SocketService* handleRequest(String& url){
     if(url.indexOf("/settings?") >= 0){
       localPort = getParameter(url, "localport", String(localPort)).toInt();
       setIpAddress(getParameter(url, "remoteip", String("auto")));
       remotePort = getParameter(url, "remoteport", String(remotePort)).toInt();
       Serial_println(localPort);
       Serial_println(remotePort);
-      return config;
+      return &responseIndex;
     }else if(url.indexOf(OscCmd_note_on) >= 0) {
       int channel = getParameter(url, "channel", "0").toInt();
       int note = getParameter(url, "note", "0").toInt();
       int velocity = getParameter(url, "velocity", "0").toInt();
       writer.noteOn(channel, note, velocity);
-      return ok;
+      return &response204;
     }else if(url.indexOf(OscCmd_note_off) >= 0) {
       int channel = getParameter(url, "channel", "0").toInt();
       int note = getParameter(url, "note", "0").toInt();
       writer.noteOff(channel, note, 0);
-      return ok;
+      return &response204;
     }else if(url.indexOf(OscCmd_control_change) >= 0) {
       int channel = getParameter(url, "channel", "0").toInt();
       int cc = getParameter(url, "cc", "0").toInt();
       int value = getParameter(url, "value", "0").toInt();
       writer.controlChange(channel, cc, value);
-      return ok;
+      return &response204;
     }else if(url.indexOf(OscCmd_pitch_bend) >= 0) {
       int channel = getParameter(url, "channel", "0").toInt();
       int value = getParameter(url, "value", "0").toInt();
       writer.pitchBend(channel, value);
-      return ok;
+      return &response204;
     }else if(url.indexOf("/led") >= 0) {
       toggleLed();
-      return ok;
+      return &response204;
     }else if(url.indexOf("/D7/on") >= 0) {
       digitalWrite(D7, HIGH);
-      return ok;
+      return &response204;
     }else if(url.indexOf("/D7/off") >= 0) {
       digitalWrite(D7, LOW);
-      return ok;
+      return &response204;
     }else if(url.indexOf("index.htm") >= 0) {
-      return config;
+      return &responseIndex;
     }
-    return err404;
-  }
-  
-  void loop() {
-    if(TCPClient client = available()){
-      Serial_println("http request");
-      HttpRequest hr;
-      while(int numBytes = client.available()) {
-        Serial_print("Reading http request ");
-	Serial_println(numBytes);
-        for(int i = 0; i < numBytes; ++i)
-          hr.parse(client.read());
-      }
-      String url(hr.URL());
-      Serial_println(url);
-      HttpResponse& res = handleRequest(url);
-      client << res;
-      blockWaiting(client, 200);
-      client.flush();
-      client.stop();
-    }
+    return &response404;
   }
 
-  void blockWaiting(TCPClient& client, unsigned long timeOut){
-    unsigned long startWait = millis();
-    while(client.available() == 0) {
-      if(millis() - startWait > timeOut) 
-        return;
+  SocketService* process(Socket& sock){
+      uint8_t buf[128];
+      int sz = sock.read(buf, sizeof(buf));
+      HttpRequest hr;
+      for(int i = 0; i < sz; ++i)
+	hr.parse(buf[i]);
+      // while(int numBytes = client.available()) {
+      //   Serial_print("Reading http request ");
+      // 	Serial_println(numBytes);
+      //   for(int i = 0; i < numBytes; ++i)
+      //     hr.parse(client.read());
+      // }
+      String url(hr.URL());
+      Serial_print("HTTP request: ");
+      Serial_println(url);
+      return handleRequest(url);
+      // client << res;
+      // // todo: implement non-blocking wait / disconnect queue
+      // blockWaiting(client, 200);
+      // client.flush();
+      // client.stop();
     }
-    while(client.available() > 0){
-      client.read();  // discard read data
-      if(millis() - startWait > timeOut) 
-        return;
-    }
-  }
+
 };
 
-WebServer ws(80);
+// WebServer ws(80);
+SocketManager sockets;
 
 OscMessage note_on_msg(OscCmd_note_on);
 OscMessage note_off_msg(OscCmd_note_off);
@@ -524,6 +578,42 @@ public:
 
 LilBug bug;
 
+// class WritingService : public SocketService {
+// public:
+//   SocketService* process(Socket& sock){
+//     const char* buf = 
+//       "HTTP/1.1 404 Not Found"
+//       "\r\n\r\n";
+//     sock.write((uint8_t*)buf, strlen(buf));
+//     Serial.println("closing");
+//     return NULL;
+//   }
+// };
+// WritingService closer;
+
+// class DebugService : public SocketService {
+// public:
+//   SocketService* process(Socket& sock){
+//     uint8_t buf[32];
+//     int sz = sock.read(buf, 32);
+//     for(int i=0; i<sz; ++i)
+//       Serial_printf("rx %02d 0x%02x (%c)", i, buf[i], buf[i]);
+//     if(sz >= 4 &&
+//        buf[sz-1] == 0x0a &&
+//        buf[sz-2] == 0x0d &&
+//        buf[sz-3] == 0x0a &&
+//        buf[sz-4] == 0x0d)
+//       return &closer;
+//     return &closer;
+//     // if(sz == 32)
+//     //   return this;
+//     // return &closer;
+//   }
+// };
+
+// DebugService service;
+HttpService service;
+
 void setup() {
   pinMode(ledPin, OUTPUT);
 
@@ -559,7 +649,11 @@ void setup() {
   setBroadcastMode();
   Serial_print("Connected: ");
   Serial_println(WiFi.localIP());
-  ws.begin();
+
+  sockets.connect(80, &service); // bind to port 80
+
+  // ws.begin();
+
   udp.begin(localPort);
   sendIp();
   sendPort();
@@ -572,5 +666,7 @@ void setup() {
 void loop(){
   pollOsc();
   bug.pollMidi();
-  ws.loop();
+  sockets.doAccept();
+  sockets.loop();
+  // ws.loop();
 }
