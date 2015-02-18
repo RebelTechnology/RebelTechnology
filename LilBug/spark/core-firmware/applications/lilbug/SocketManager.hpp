@@ -42,7 +42,8 @@ private:
   Socket sockets[SOCKET_SERVICE_MAX_SOCKETS];
   _types_fd_set_cc3000 activeSet;
 public:
-  SocketManager(){
+  SocketManager()
+    : maxSocket(0) {
     timeout.tv_sec = 0;
     timeout.tv_usec = 5000; // 5ms is minimum timeout
     for(int i=0; i<SOCKET_SERVICE_MAX_SOCKETS; ++i){
@@ -127,7 +128,7 @@ public:
     if(maxSocket == sock){
       maxSocket = 0;
       for(int i=0; i<SOCKET_SERVICE_MAX_SOCKETS; ++i){
-	if(sockets[i].sock > maxSocket)
+	if(sockets[i].sock != MAX_SOCK_NUM && sockets[i].sock > maxSocket)
 	  maxSocket = sockets[i].sock;
       }
     }
@@ -162,39 +163,35 @@ public:
       for(int i=1; i<SOCKET_SERVICE_MAX_SOCKETS; ++i){
 	if(sockets[i].sock != MAX_SOCK_NUM){
 	  if(FD_ISSET(sockets[i].sock, &exceptSet)){
-	  // never called
+	    // never called
 	    Serial_printf("socket except [%d]\n", i);
 	    closesocket(sockets[i].sock);
 	    removeSocket(sockets[i].sock);
-	  }else{
-	    if(FD_ISSET(sockets[i].sock, &readSet)){
-	      Serial_printf("socket read [%d]\n", i);
-
-	    // services[i] = services[i]->process(sockets[i]);
-	    // if(services[i] == NULL){
-	    //   closesocket(sockets[i].sock);
-	    //   removeSocket(sockets[i].sock);
-	    // }
-
+	  }else if(FD_ISSET(sockets[i].sock, &readSet)){
+	    Serial_printf("socket read [%d]\n", i);
 	    // invoke callback to process request
+	    if(services[i] == NULL){
+	      closesocket(sockets[i].sock);
+	      removeSocket(sockets[i].sock);
+	    }else{
+	      services[i] = services[i]->process(sockets[i]);
 	      if(services[i] == NULL){
 		closesocket(sockets[i].sock);
 		removeSocket(sockets[i].sock);
-	      }else
-		services[i] = services[i]->process(sockets[i]);
-	    }else if(FD_ISSET(sockets[i].sock, &writeSet)){
-	      Serial_printf("socket write [%d]\n", i);
-	      // invoke callback to process request
+	      }
+	    }
+	  }else if(FD_ISSET(sockets[i].sock, &writeSet)){
+	    Serial_printf("socket write [%d]\n", i);
+	    // invoke callback to process request
+	    if(services[i] == NULL){
+	      closesocket(sockets[i].sock);
+	      removeSocket(sockets[i].sock);
+	    }else{
+	      services[i] = services[i]->process(sockets[i]);
 	      if(services[i] == NULL){
 		closesocket(sockets[i].sock);
 		removeSocket(sockets[i].sock);
-	      }else
-		services[i] = services[i]->process(sockets[i]);
-	    // services[i] = services[i]->process(sockets[i]);
-	    // if(services[i] == NULL){
-	    //   closesocket(sockets[i].sock);
-	    //   removeSocket(sockets[i].sock);
-	    // }
+	      }
 	    }
 	  }
 	}
