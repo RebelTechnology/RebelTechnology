@@ -164,11 +164,11 @@ public:
 	if(sockets[i].sock != MAX_SOCK_NUM){
 	  if(FD_ISSET(sockets[i].sock, &exceptSet)){
 	    // never called
-	    Serial_printf("socket except [%d]\n", i);
+	    Serial_printf("socket except [%d]", i);
 	    closesocket(sockets[i].sock);
 	    removeSocket(sockets[i].sock);
 	  }else if(FD_ISSET(sockets[i].sock, &readSet)){
-	    Serial_printf("socket read [%d]\n", i);
+	    Serial_printf("socket read [%d]", i);
 	    // invoke callback to process request
 	    if(services[i] == NULL){
 	      closesocket(sockets[i].sock);
@@ -181,7 +181,7 @@ public:
 	      }
 	    }
 	  }else if(FD_ISSET(sockets[i].sock, &writeSet)){
-	    Serial_printf("socket write [%d]\n", i);
+	    Serial_printf("socket write [%d]", i);
 	    // invoke callback to process request
 	    if(services[i] == NULL){
 	      closesocket(sockets[i].sock);

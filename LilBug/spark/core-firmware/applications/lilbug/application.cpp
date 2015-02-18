@@ -18,6 +18,9 @@ void pnprintf(Print& p, uint16_t bufsize, const char* fmt, ...) {
    va_end(args);
    p.println(buff);
 }
+void debug_output_(const char *p){
+  Serial.print(p);
+}
 #define Serial_printf(fmt, ...) pnprintf(Serial, 128, fmt, __VA_ARGS__)
 #define Serial_print(x) Serial.print(x)
 #define Serial_println(x) Serial.println(x)
@@ -201,20 +204,6 @@ public :
 BufferedUdp udp;
 MidiWriter writer;
 
-// class HttpStatus : public SocketService {
-// private:
-//   char buffer[128];
-//   int length;
-// public:
-//   HttpStatus(int status, char* message){
-//     memcpy(buffer, "http/1.1 "
-//   }
-//   SocketService* process(Socket& sock){
-//     aStream.print("http/1.1 ");
-//     aStream.print(aResponse.fStatus);
-//   }
-// };
-
 class HttpStatus404 : public SocketService {
   SocketService* process(Socket& sock){
     Serial_println("http 404");
@@ -243,36 +232,30 @@ class HttpIndex : public SocketService {
 private:
   SocketService* process(Socket& sock){
     Serial_println("http index");
-    const char* body = 
-      "<html><head><title>Lil'Bug</title></head><body>"
-      "<h1>Lil'Bug</h1>"
-      "</body></html>\r\n";
     const char* headers = 
       "HTTP/1.1 200 OK\r\n"
       "Content-Type: text/html; charset=utf-8\r\n"
       "Connection: close\r\n"
       "\r\n";
+    const char* body = 
+      "<html><head><title>Lil'Bug</title></head><body>"
+      "<h1>Lil'Bug</h1>"
+      "</body></html>\r\n";
     sock.write((uint8_t*)headers, strlen(headers));
     sock.write((uint8_t*)body, strlen(body));
     return NULL;
   }  
 };
 
-HttpStatus404 response404;
-HttpStatus204 response204;
-HttpIndex responseIndex;
 
 class HttpService : public SocketService {
 // class WebServer : public TCPServer {
+private:
+HttpStatus404 response404;
+HttpStatus204 response204;
+HttpIndex responseIndex;
 public:
-  ConfigurationResponse config;
-  HttpResponseStatic ok;
-  HttpResponseStatic err404;
-
-  HttpService() : 
-    ok("ok\r\n", 4), err404(NULL, 0) {
-    err404.status(404);
-  }
+  HttpService() {}
 
   SocketService* handleRequest(String& url){
     if(url.indexOf("/settings?") >= 0){
@@ -334,17 +317,18 @@ public:
       String url(hr.URL());
       Serial_print("HTTP request: ");
       Serial_println(url);
+#ifdef INLINE_HTTP_RESPONSE
+      SocketService* service = handleRequest(url);
+      if(service != NULL)
+	service->process(sock);
+      return NULL;
+#else
       return handleRequest(url);
-      // client << res;
-      // // todo: implement non-blocking wait / disconnect queue
-      // blockWaiting(client, 200);
-      // client.flush();
-      // client.stop();
+#endif /* INLINE_HTTP_RESPONSE */
     }
 
 };
 
-// WebServer ws(80);
 SocketManager sockets;
 
 OscMessage note_on_msg(OscCmd_note_on);
@@ -652,8 +636,6 @@ void setup() {
 
   sockets.connect(80, &service); // bind to port 80
 
-  // ws.begin();
-
   udp.begin(localPort);
   sendIp();
   sendPort();
@@ -666,7 +648,7 @@ void setup() {
 void loop(){
   pollOsc();
   bug.pollMidi();
-  sockets.doAccept();
   sockets.loop();
+  sockets.doAccept();
   // ws.loop();
 }
