@@ -78,7 +78,7 @@
     #define P2P_IP_HANDLE    NULL
 #endif
 
-NX_IP* wiced_ip_handle[ 3 ] =
+struct netif* wiced_ip_handle[ 3 ] =
 {
     [WICED_STA_INTERFACE] = STA_IP_HANDLE,
     [WICED_AP_INTERFACE]  = AP_IP_HANDLE,
@@ -86,7 +86,6 @@ NX_IP* wiced_ip_handle[ 3 ] =
 };
 
 /* Network objects */
-struct netif        wiced_ip_handle[3];
 struct dhcp         wiced_dhcp_handle;
 static wiced_bool_t        wiced_using_dhcp;
 static wiced_dhcp_server_t internal_dhcp_server;
