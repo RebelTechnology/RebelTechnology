@@ -10,6 +10,11 @@
 extern "C" {
 #endif
 
+  int uart_init();
+  int uart_transmit_bytes(const void* data, uint32_t size);
+  int uart_receive_bytes(void* data, uint32_t size);
+
+#if 0  
 /* Externed from platforms/<Platform>/platform.c */
 /* extern const platform_gpio_t       platform_gpio_pins[]; */
 /* extern const platform_adc_t        platform_adc_peripherals[]; */
@@ -69,6 +74,7 @@ wiced_result_t wiced_uart_transmit_bytes( wiced_uart_t uart, const void* data, u
  * @return    WICED_ERROR   : if an error occurred with any step
  */
 wiced_result_t wiced_uart_receive_bytes( wiced_uart_t uart, void* data, uint32_t size, uint32_t timeout );
+#endif /* 0 */
 
 #ifdef __cplusplus
 } /*extern "C" */

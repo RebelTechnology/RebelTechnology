@@ -1,33 +1,35 @@
 #include "uart.h"
 
-wiced_result_t wiced_uart_init( wiced_uart_t uart, const wiced_uart_config_t* config, wiced_ring_buffer_t* optional_rx_buffer )
-{
-#ifndef WICED_DISABLE_STDIO
-    /* Interface is used by STDIO. Uncomment WICED_DISABLE_STDIO to overcome this */
-    if ( uart == STDIO_UART )
-    {
-        return WICED_ERROR;
-    }
-#endif
-    return (wiced_result_t) platform_uart_init( &platform_uart_drivers[uart], &platform_uart_peripherals[uart], config, optional_rx_buffer );
+#include "platform.h"
+#include "platform_peripheral.h"
+
+#define MIDI_UART         WICED_UART_1
+#define RX_BUFFER_SIZE    64
+
+wiced_uart_config_t uart_config = {
+    .baud_rate    = 115200,
+    .data_width   = DATA_WIDTH_8BIT,
+    .parity       = NO_PARITY,
+    .stop_bits    = STOP_BITS_1,
+    .flow_control = FLOW_CONTROL_DISABLED,
+};
+
+wiced_ring_buffer_t rx_buffer;
+uint8_t             rx_data[RX_BUFFER_SIZE];
+
+int uart_init(){
+  /* Initialise ring buffer */
+  ring_buffer_init(&rx_buffer, rx_data, RX_BUFFER_SIZE );
+
+  /* Initialise UART. A ring buffer is used to hold received characters */
+  return wiced_uart_init(MIDI_UART, &uart_config, &rx_buffer)  == WICED_SUCCESS;
 }
 
-wiced_result_t wiced_uart_deinit( wiced_uart_t uart )
-{
-    return (wiced_result_t) platform_uart_deinit( &platform_uart_drivers[uart] );
+int uart_transmit_bytes(const void* data, uint32_t size){
+    /* Send a test string to the terminal */
+  return wiced_uart_transmit_bytes(MIDI_UART, data, size) == WICED_SUCCESS;
 }
 
-wiced_result_t wiced_uart_transmit_bytes( wiced_uart_t uart, const void* data, uint32_t size )
-{
-    return (wiced_result_t) platform_uart_transmit_bytes( &platform_uart_drivers[uart], (const uint8_t*) data, size );
+int uart_receive_bytes(void* data, uint32_t size){
+  return wiced_uart_receive_bytes(MIDI_UART, &c, 1, WICED_NEVER_TIMEOUT ) == WICED_SUCCESS;
 }
-
-wiced_result_t wiced_uart_receive_bytes( wiced_uart_t uart, void* data, uint32_t size, uint32_t timeout )
-{
-    return (wiced_result_t) platform_uart_receive_bytes( &platform_uart_drivers[uart], (uint8_t*)data, size, timeout );
-}
-
-/* wiced_result_t wiced_watchdog_kick( void ) */
-/* { */
-/*     return (wiced_result_t) platform_watchdog_kick( ); */
-/* } */

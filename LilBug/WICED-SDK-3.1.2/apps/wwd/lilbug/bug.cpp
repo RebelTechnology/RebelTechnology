@@ -1,6 +1,8 @@
-#include "platform.h"
-#include "platform_peripheral.h"
+// #include "platform.h"
+// #include "platform_peripheral.h"
 // #include "platform_stdio.h"
+
+#include "wiced.h"
 
 #define DEBUG_USART
 
@@ -156,25 +158,13 @@ public:
 
 LilBug bug;
 
-#define RX_BUFFER_SIZE    64
-wiced_uart_config_t uart_config = {
-  .baud_rate    = 115200,
-  .data_width   = DATA_WIDTH_8BIT,
-  .parity       = NO_PARITY,
-  .stop_bits    = STOP_BITS_1,
-  .flow_control = FLOW_CONTROL_DISABLED,
-};
-wiced_ring_buffer_t rx_buffer;
-uint8_t             rx_data[RX_BUFFER_SIZE];
-
 void setupMidi(void){
   bug.setup();
 
-  /* Initialise ring buffer */
-  ring_buffer_init(&rx_buffer, rx_data, RX_BUFFER_SIZE );
+  /* Initialise the WICED device */
+  wiced_init();
 
-  /* Initialise UART. A ring buffer is used to hold received characters */
-  wiced_uart_init(MIDI_UART, &uart_config, &rx_buffer);
+  uart_init();
 
   debug_message("showtime");
 }
