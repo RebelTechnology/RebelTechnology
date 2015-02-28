@@ -6,6 +6,7 @@
 // #include "usart.h"
 #include "MidiStatus.h"
 #include <stdio.h>
+#include "uart.h"
 
 class MidiWriter { // : public MidiInterface {
 public:
@@ -115,8 +116,9 @@ public:
 
   void write(uint8_t *data, uint8_t length){
     // Serial1.write(data, length);
-    for(int i=0; i<length; ++i)
-      write(data[i]);
+    // for(int i=0; i<length; ++i)
+    //   write(data[i]);
+    wiced_uart_transmit_bytes( MIDI_UART, data, length );
   }
 
   void write(uint8_t data){
@@ -125,7 +127,10 @@ public:
     // while(USART_GetFlagStatus(USART_PERIPH, USART_FLAG_TXE) == RESET);
     // /* send data */
     // USART_SendData(USART_PERIPH, data);
-    putchar(data);
+    // putchar(data);
+
+    wiced_uart_transmit_bytes( MIDI_UART, &data, 1 );
+
   }
 
 private:
