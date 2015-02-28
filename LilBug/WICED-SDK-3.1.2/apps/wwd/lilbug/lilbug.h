@@ -2,31 +2,17 @@
 #define INCLUDED_LILBUG_H
 
 #include "wwd_wifi.h"
-#include "web_server.h"
 
 #ifdef APPLIANCE_ENABLE_WPS
 #include "wps_host.h"
 #endif /* ifdef APPLIANCE_ENABLE_WPS */
 
+#include "debug.h" /* must come after wwd includes to redefine print macros */
+#include "web_server.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-void debug_message(const char* string);
-
-  void pnprintf(const char* fmt, ...);
-
-/* #define Serial_printf(fmt, ...) pnprintf(128, fmt, __VA_ARGS__) */
-
-#undef WPRINT_MACRO
-#undef WPRINT_APP_INFO
-#undef WPRINT_APP_ERROR
-#define WPRINT_MACRO(args) do {pnprintf args;} while(0==1)
-
-#define WPRINT_APP_INFO(args) WPRINT_MACRO(args)
-#define WPRINT_APP_ERROR(args) do { WPRINT_MACRO(args); WICED_ASSERTION_FAIL_ACTION(); } while(0)
-/* #define WPRINT_APP_INFO(fmt, ...) pnprintf(128, fmt, __VA_ARGS__) */
-/* #define WPRINT_APP_ERROR(fmt, ...)  pnprintf(128, fmt, __VA_ARGS__) */
 
 typedef struct
 {
