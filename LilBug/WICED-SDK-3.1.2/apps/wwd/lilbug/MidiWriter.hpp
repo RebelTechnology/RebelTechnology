@@ -118,7 +118,7 @@ public:
     // Serial1.write(data, length);
     // for(int i=0; i<length; ++i)
     //   write(data[i]);
-    wiced_uart_transmit_bytes( MIDI_UART, data, length );
+    uart_transmit_bytes(data, length );
   }
 
   void write(uint8_t data){
@@ -129,8 +129,7 @@ public:
     // USART_SendData(USART_PERIPH, data);
     // putchar(data);
 
-    wiced_uart_transmit_bytes( MIDI_UART, &data, 1 );
-
+    uart_transmit_bytes(&data, 1);
   }
 
 private:

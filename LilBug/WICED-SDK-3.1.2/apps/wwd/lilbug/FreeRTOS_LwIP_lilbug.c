@@ -69,6 +69,7 @@
 #include "wwd_assert.h"
 #include <math.h>
 #include "lilbug.h"
+#include "uart.h"
 
 /******************************************************
  *                      Macros
@@ -301,6 +302,8 @@ static void run_ap_webserver( void )
  */
 int main( void )
 {
+
+  uart_init();
 
     /* Create an initial thread */
     xTaskCreate(startup_thread, (signed char*)"app_thread", APP_THREAD_STACKSIZE/sizeof( portSTACK_TYPE ), NULL, DEFAULT_THREAD_PRIO, &startup_thread_handle);

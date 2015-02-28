@@ -21,7 +21,7 @@ $(NAME)_SOURCES := $(RTOS)_$(NETWORK)_lilbug.c  \
                    icons.c
 
 $(NAME)_SOURCES += debug.c
-# $(NAME)_SOURCES += uart.c
+$(NAME)_SOURCES += uart.c
 $(NAME)_SOURCES += bug.cpp
 
 $(NAME)_DEFINES := WEB_SERVER_NO_PRINT

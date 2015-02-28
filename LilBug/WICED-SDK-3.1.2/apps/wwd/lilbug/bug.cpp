@@ -1,8 +1,4 @@
-// #include "platform.h"
-// #include "platform_peripheral.h"
-// #include "platform_stdio.h"
-
-#include "wiced.h"
+// #include "wiced.h"
 
 #define DEBUG_USART
 
@@ -25,8 +21,6 @@
 MidiWriter writer;  
 
 #define SYSEX_MANUFACTURER_ID 0x7d /* educational use */
-#define WICED_NEVER_TIMEOUT   (0xFFFFFFFF)
-
 
 void debug_message(const char* string){
   uint16_t len = strlen(string);
@@ -143,7 +137,8 @@ public:
     // char c = getchar(); // blocking?
     char c;
     for(;;){
-      if(wiced_uart_receive_bytes( MIDI_UART, &c, 1, WICED_NEVER_TIMEOUT ) == WICED_SUCCESS ){
+      if(uart_receive_bytes(&c, 1) == 0){
+	// uart_receive_bytes(&c, 1);
 	MidiReaderStatus status = read(c);
 	if(status == ERROR_STATUS){
 	  MidiReader::clear();
@@ -160,11 +155,6 @@ LilBug bug;
 
 void setupMidi(void){
   bug.setup();
-
-  /* Initialise the WICED device */
-  wiced_init();
-
-  uart_init();
 
   debug_message("showtime");
 }
