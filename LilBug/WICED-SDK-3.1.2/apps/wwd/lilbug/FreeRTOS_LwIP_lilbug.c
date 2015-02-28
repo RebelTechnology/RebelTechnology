@@ -1,13 +1,3 @@
-/*
- * Copyright 2014, Broadcom Corporation
- * All Rights Reserved.
- *
- * This is UNPUBLISHED PROPRIETARY SOURCE CODE of Broadcom Corporation;
- * the contents of this file may not be disclosed to third parties, copied
- * or duplicated in any form, in whole or in part, without the prior
- * written permission of Broadcom Corporation.
- */
-
 /**
  * @file
  *
@@ -99,51 +89,25 @@
 #define SAMPLES_PER_SEND        (26)
 #define TIME_MS_BETWEEN_SAMPLES (1000)
 #define DESTINATION_UDP_PORT    (50007)
-#define AP_SSID_START           "WICED_Appliance_"
-#define AP_PASS                 "12345678"
-#define AP_SEC                  WICED_SECURITY_WPA2_AES_PSK  /* WICED_SECURITY_OPEN */
+#define AP_SSID_START           "LilBug_"
+#define AP_PASS                 "12345678" /* must be 8 chars */
+/* #define AP_SEC                  WICED_SECURITY_WPA2_AES_PSK  /\* WICED_SECURITY_OPEN *\/ */
+#define AP_SEC                  WICED_SECURITY_OPEN
 #define AP_CHANNEL              (1)
 #define APP_THREAD_STACKSIZE    (5120)
 #define DHCP_THREAD_STACKSIZE   (800)
 #define WEB_SERVER_STACK_SIZE   (1024)
 
-/******************************************************
- *                   Enumerations
- ******************************************************/
-
-/******************************************************
- *                 Type Definitions
- ******************************************************/
-
-/******************************************************
- *                    Structures
- ******************************************************/
-
-/******************************************************
- *               Static Function Declarations
- ******************************************************/
-
-/******************************************************
- *               Variable Definitions
- ******************************************************/
 static struct netif wiced_if;
 static xTaskHandle startup_thread_handle;
 
 /* Sensor Configuration settings variables */
 lilbug_config_t       lilbug_config   = { .config_type = CONFIG_NONE };
 
-/******************************************************
- *             Static Function Prototypes
- ******************************************************/
-
 static void startup_thread  ( void *arg );
 static void tcpip_init_done ( void * arg );
 static void run_ap_webserver( void );
 static void run_sta_web_server( void );
-
-/******************************************************
- *               Function Definitions
- ******************************************************/
 
 /**
  * Main lilbug app thread
@@ -151,16 +115,19 @@ static void run_sta_web_server( void );
  * Obtains network information and credentials via AP mode web server
  *
  */
-
+#include "bug.h"
 static void app_main( void )
 {
+  setupMidi();
+
+  static xTaskHandle poll_midi_thread_handle;
+  xTaskCreate(pollMidiTask, (signed char*)"Poll MIDI", 
+	      WEB_SERVER_STACK_SIZE/sizeof( portSTACK_TYPE ), NULL, 
+	      DEFAULT_THREAD_PRIO, &poll_midi_thread_handle);
+
     /* Run the web server to obtain the configuration */
-
     run_ap_webserver( );
-
-
     run_sta_web_server( );
-
 }
 
 /**

@@ -20,16 +20,21 @@ $(NAME)_SOURCES := $(RTOS)_$(NETWORK)_lilbug.c  \
                    brcmlogos.c \
                    icons.c
 
+$(NAME)_SOURCES += debug.c
+$(NAME)_SOURCES += bug.cpp
+
 $(NAME)_DEFINES := WEB_SERVER_NO_PRINT
 
 # Disable watchdog for all WWD apps
 GLOBAL_DEFINES := WICED_DISABLE_WATCHDOG
 
+# disable STDIO
+# GLOBAL_DEFINES += WICED_DISABLE_STDIO
+
 LWIP_NUM_PACKET_BUFFERS_IN_POOL := 8
 
 FreeRTOS_START_STACK := 600
 ThreadX_START_STACK  := 600
-
 
 # WPS inclusion
 #$(NAME)_COMPONENTS += BESL/wps
@@ -37,3 +42,4 @@ ThreadX_START_STACK  := 600
 #$(NAME)_SOURCES += lilbug_wps.c
 
 VALID_OSNS_COMBOS := FreeRTOS-LwIP
+
