@@ -13,7 +13,7 @@ NAME := App_$(RTOS)_$(NETWORK)_$(PLATFORM)_lilbug
 $(NAME)_SOURCES := $(RTOS)_$(NETWORK)_lilbug.c  \
                    AP_content.c \
                    STA_content.c \
-                   web_server_common.c \
+                   web_server.c \
                    $(RTOS)_$(NETWORK)_web_server.c \
                    $(RTOS)_$(NETWORK)_dhcp_server.c \
                    $(RTOS)_$(NETWORK)_dns_server.c \

@@ -1,20 +1,9 @@
-/*
- * Copyright 2014, Broadcom Corporation
- * All Rights Reserved.
- *
- * This is UNPUBLISHED PROPRIETARY SOURCE CODE of Broadcom Corporation;
- * the contents of this file may not be disclosed to third parties, copied
- * or duplicated in any form, in whole or in part, without the prior
- * written permission of Broadcom Corporation.
- */
-
 /**
  * @file
  * Provides an interface for the content handler list which
  * defines the handlers that provide web page HTML data
  *
  */
-
 #ifndef WEB_SERVER_H_INCLUDED
 #define WEB_SERVER_H_INCLUDED
 
@@ -25,9 +14,6 @@
 extern "C" {
 #endif
 
-/******************************************************
- *                     Macros
- ******************************************************/
 #ifndef WEB_SERVER_NO_PRINT
 #define WEB_SERVER_ERROR_PRINT( x )  WINFO_APP_ERROR( x )
 #define WEB_SERVER_PRINT( x )        WINFO_APP( x )
@@ -38,17 +24,6 @@ extern "C" {
 #define WEB_SERVER_STACK_SIZE        (1024)
 #endif
 
-/******************************************************
- *                    Constants
- ******************************************************/
-
-/******************************************************
- *                   Enumerations
- ******************************************************/
-
-/******************************************************
- *                 Type Definitions
- ******************************************************/
 /**
  * Prototype for URL handler functions which serve a web page data
  *
@@ -60,11 +35,6 @@ extern "C" {
  */
 typedef int (*url_processor_t)( void * socket, char * params, int params_len );
 
-
-/******************************************************
- *                    Structures
- ******************************************************/
-
 /**
  * Structure of one element of the URL handler list
  * Simply maps a URL path to a handler function
@@ -75,14 +45,6 @@ typedef struct
     const char* const     mime_type;
     const url_processor_t processor;
 } url_list_elem_t;
-
-/******************************************************
- *                 Global Variables
- ******************************************************/
-
-/******************************************************
- *               Function Declarations
- ******************************************************/
 
 /**
  * Prototype for sending web page data from within URL handler

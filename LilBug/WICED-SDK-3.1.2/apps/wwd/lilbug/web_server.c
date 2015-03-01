@@ -1,13 +1,3 @@
-/*
- * Copyright 2014, Broadcom Corporation
- * All Rights Reserved.
- *
- * This is UNPUBLISHED PROPRIETARY SOURCE CODE of Broadcom Corporation;
- * the contents of this file may not be disclosed to third parties, copied
- * or duplicated in any form, in whole or in part, without the prior
- * written permission of Broadcom Corporation.
- */
-
 /**
  * @file
  *
@@ -19,34 +9,6 @@
 #include "web_server.h"
 #include "wwd_debug.h"
 #include <string.h>
-
-/******************************************************
- *                      Macros
- ******************************************************/
-
-/******************************************************
- *                    Constants
- ******************************************************/
-
-/******************************************************
- *                   Enumerations
- ******************************************************/
-
-/******************************************************
- *                 Type Definitions
- ******************************************************/
-
-/******************************************************
- *                    Structures
- ******************************************************/
-
-/******************************************************
- *               Static Function Declarations
- ******************************************************/
-
-/******************************************************
- *               Variable Definitions
- ******************************************************/
 
 /* HTTP Headers */
 static const char ok_header[] =
@@ -63,12 +25,6 @@ static const char not_found_header[] =
     "<h1>Address not found on WICED Web Server</h1>\n"
     "<p><a href=\"/\">Return to home page</a></p>\n"
     "</body>\n</html>\n";
-
-
-
-/******************************************************
- *               Function Definitions
- ******************************************************/
 
 /**
  * Processes web server requests

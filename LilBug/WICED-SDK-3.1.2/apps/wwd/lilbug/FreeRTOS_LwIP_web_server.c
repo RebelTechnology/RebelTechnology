@@ -58,34 +58,12 @@
 /* #define MAX_TCP_PAYLOAD   ( ETHER_PAYLOAD_MTU - IP_HEADER_SIZE - TCP_HEADER_SIZE ) */
 #define MAX_TCP_PAYLOAD 1200
 
-/******************************************************
- *                   Enumerations
- ******************************************************/
-
-/******************************************************
- *                 Type Definitions
- ******************************************************/
-
-/******************************************************
- *                    Structures
- ******************************************************/
-
-/******************************************************
- *               Static Function Declarations
- ******************************************************/
-
-/******************************************************
- *               Variable Definitions
- ******************************************************/
 static char                     pkt_buffer[300];
 static int                      web_server_quit_flag = 1;
 static xTaskHandle              web_server_thread_handle;
 static const url_list_elem_t *  server_url_list;
 static uint32_t                 server_local_addr;
 
-/******************************************************
- *               Function Definitions
- ******************************************************/
 static void web_server_proc( void * thread_input )
 {
     run_webserver( server_local_addr, server_url_list );
@@ -93,8 +71,6 @@ static void web_server_proc( void * thread_input )
     /* Clean up this startup thread */
     vTaskDelete( web_server_thread_handle );
 }
-
-
 
 void start_web_server_thread( uint32_t bind_address_in, const url_list_elem_t * server_url_list_in )
 {
@@ -115,8 +91,6 @@ wiced_bool_t web_server_is_running( void )
 {
     return ( ( web_server_quit_flag != 1 )? WICED_TRUE : WICED_FALSE);
 }
-
-
 
 void run_webserver( uint32_t bind_address_in, const url_list_elem_t * server_url_list_in )
 {
@@ -140,7 +114,6 @@ void run_webserver( uint32_t bind_address_in, const url_list_elem_t * server_url
     {
         WEB_SERVER_ERROR_PRINT( ( "Failed bind server socket to port 80 (HTTP)\n" ) );
         return;
-
     }
 
     /* Listen for connections on server socket */
@@ -203,22 +176,17 @@ void run_webserver( uint32_t bind_address_in, const url_list_elem_t * server_url
                 end_of_url++;
             }
 
-
             const char lengthstr[] = "Content-Length: ";
             static const char start_of_data_str[] = {'\r', '\n', '\r', '\n'};
             char* lengthpos = NULL;
             char* end_pos = NULL;
             int header_len = 0;
             int content_len = 0;
-
             char* last_new_line = NULL;
             int search_len;
             char junk_buffer[300];
-
-
             char * read_buffer      = pkt_buffer;
             int    read_buffer_size = bytes_received;
-
             int total_read = bytes_received;
 
             /* Cycle through parts of the header looking for items of interest
@@ -227,19 +195,14 @@ void run_webserver( uint32_t bind_address_in, const url_list_elem_t * server_url
 
             do
             {
-
                 end_pos = (char*) memmem( read_buffer, read_buffer_size, start_of_data_str, sizeof(start_of_data_str)-1 );
                 last_new_line = (char*) memrchr( read_buffer, '\n', read_buffer_size );
-
                 search_len = (end_pos==NULL)? ((last_new_line==NULL)?read_buffer_size:last_new_line-read_buffer):MIN(last_new_line-read_buffer,end_pos-read_buffer);
-
                 header_len += search_len;
-
                 if ( ( lengthpos = (char*) memmem( read_buffer,  search_len, lengthstr, sizeof( lengthstr )-1 ) ) != NULL )
                 {
                     content_len = atoi( lengthpos + sizeof( lengthstr ) - 1 );
                 }
-
                 if ( end_pos == NULL )
                 {
                     memcpy( junk_buffer, &read_buffer[search_len], read_buffer_size - search_len );
@@ -259,13 +222,9 @@ void run_webserver( uint32_t bind_address_in, const url_list_elem_t * server_url
 
             } while ( end_pos == NULL );
 
-
-
             if ( content_len != 0 )
             {
                 int read_len = header_len + content_len - total_read;
-
-
                 /* receive posted file or any other received bytes so that client is sent a FIN-ACK rather than a RST-ACK */
                 do
                 {
@@ -292,8 +251,6 @@ void run_webserver( uint32_t bind_address_in, const url_list_elem_t * server_url
                 while (bytes_received > 0);
                 lwip_fcntl( accepted_socket_hnd, F_SETFL, 0 );
             }
-
-
             /* Get address of client */
             struct sockaddr_in other_end_addr_struct;
             socklen_t other_end_addr_len = sizeof( other_end_addr_struct );
