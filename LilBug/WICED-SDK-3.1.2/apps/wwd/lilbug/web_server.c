@@ -52,10 +52,9 @@ int process_url_request( const url_list_elem_t * server_url_list, char * url, in
     int i = 0;
     int retval = -1;
     int params_len = url_len;
-    while ( ( *params != '?' ) && ( params_len > 0 ) )
-    {
-        params++;
-        params_len--;
+    while ( ( *params != '?' ) && ( params_len > 0 ) ) {
+      params++;
+      params_len--;
     }
 
     /* terminate the path part of the string with a null - will replace the question mark */
@@ -64,54 +63,47 @@ int process_url_request( const url_list_elem_t * server_url_list, char * url, in
     /* increment the pointer to the parameter query part of the url to skip over the null which was just written */
     params++;
 
-
     /* Search URL list to determine if request matches one of our pages */
-
     unsigned char found = 0;
-    while ( server_url_list[i].url != NULL )
-    {
-        /* Compare request to a path */
-        if ( 0 == strcmp( server_url_list[i].url, url ) )
-        {
-            /* Matching path found */
-            found = 1;
+    while ( server_url_list[i].url != NULL ) {
+      /* Compare request to a path */
+      if ( 0 == strcmp( server_url_list[i].url, url ) ) {
+	/* Matching path found */
+	found = 1;
 
-            /* Copy HTTP OK header into packet and adjust the write pointers */
-            send_web_data( socket, (unsigned char*) ok_header, sizeof( ok_header ) - 1 ); /* minus one is to avoid copying terminating null */
+	/* Copy HTTP OK header into packet and adjust the write pointers */
+	send_web_data( socket, (unsigned char*) ok_header, sizeof( ok_header ) - 1 ); /* minus one is to avoid copying terminating null */
 
-            /* Add Mime type */
-            send_web_data( socket, (unsigned char*) server_url_list[i].mime_type, strlen( server_url_list[i].mime_type ) );
+	/* Add Mime type */
+	send_web_data( socket, (unsigned char*) server_url_list[i].mime_type, strlen( server_url_list[i].mime_type ) );
 
-            /* Add double carriage return, line feed */
-            send_web_data( socket, (unsigned char*) crlfcrlf, sizeof( crlfcrlf ) - 1 ); /* minus one is to avoid copying terminating null */
+	/* Add double carriage return, line feed */
+	send_web_data( socket, (unsigned char*) crlfcrlf, sizeof( crlfcrlf ) - 1 ); /* minus one is to avoid copying terminating null */
 
-            WEB_SERVER_PRINT(("Serving page %s to %u.%u.%u.%u\n", url, (unsigned char)((peer_ip_address >> 24)& 0xff),
-                                                                         (unsigned char)((peer_ip_address >> 16)& 0xff),
-                                                                         (unsigned char)((peer_ip_address >> 8)& 0xff),
-                                                                         (unsigned char)((peer_ip_address >> 0)& 0xff) ));
+	WEB_SERVER_PRINT(("Serving page %s to %u.%u.%u.%u\n", url, (unsigned char)((peer_ip_address >> 24)& 0xff),
+			  (unsigned char)((peer_ip_address >> 16)& 0xff),
+			  (unsigned char)((peer_ip_address >> 8)& 0xff),
+			  (unsigned char)((peer_ip_address >> 0)& 0xff) ));
 
-            /* Call the content handler function to write the page content into the packet and adjust the write pointers */
-            retval = server_url_list[i].processor( socket, params, params_len );
+	/* Call the content handler function to write the page content into the packet and adjust the write pointers */
+	retval = server_url_list[i].processor( socket, params, params_len );
 
-            WEB_SERVER_PRINT(("Finished page\n"));
+	WEB_SERVER_PRINT(("Finished page\n"));
 
 
-            break;
-        }
-        i++;
+	break;
+      }
+      i++;
     }
 
     /* Check if page was found */
-    if ( found == 0 )
-    {
-        /* Copy the 404 header into packet */
-        send_web_data( socket, (unsigned char*) not_found_header, sizeof( not_found_header ) - 1 ); /* minus one is to avoid copying terminating null */
-
-        WEB_SERVER_PRINT(("Not found %s from %u.%u.%u.%u\n", url, (unsigned char)((peer_ip_address >> 24)& 0xff),
-                                                                    (unsigned char)((peer_ip_address >> 16)& 0xff),
-                                                                    (unsigned char)((peer_ip_address >> 8)& 0xff),
-                                                                    (unsigned char)((peer_ip_address >> 0)& 0xff) ));
+    if ( found == 0 ) {
+      /* Copy the 404 header into packet */
+      send_web_data( socket, (unsigned char*) not_found_header, sizeof( not_found_header ) - 1 ); /* minus one is to avoid copying terminating null */
+      WEB_SERVER_PRINT(("Not found %s from %u.%u.%u.%u\n", url, (unsigned char)((peer_ip_address >> 24)& 0xff),
+			(unsigned char)((peer_ip_address >> 16)& 0xff),
+			(unsigned char)((peer_ip_address >> 8)& 0xff),
+			(unsigned char)((peer_ip_address >> 0)& 0xff) ));
     }
     return retval;
-
 }

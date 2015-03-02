@@ -9,6 +9,8 @@ extern "C" {
 
   void setupMidi();
   void pollMidiTask(void*);
+  int process_midi_note(void* socket, char* params, int params_len);
+  int process_midi_cc(void* socket, char* params, int params_len);
 
 #ifdef __cplusplus
 } /*extern "C" */

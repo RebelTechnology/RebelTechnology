@@ -11,6 +11,8 @@
 class MidiWriter { // : public MidiInterface {
 public:
 
+  MidiWriter(int ch) : channel(ch) {}
+
   void channelPressure(uint8_t value){
     write(0xd0 | channel);
     write(value & 0x7f);

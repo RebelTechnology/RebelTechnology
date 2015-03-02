@@ -1,13 +1,3 @@
-/*
- * Copyright 2014, Broadcom Corporation
- * All Rights Reserved.
- *
- * This is UNPUBLISHED PROPRIETARY SOURCE CODE of Broadcom Corporation;
- * the contents of this file may not be disclosed to third parties, copied
- * or duplicated in any form, in whole or in part, without the prior
- * written permission of Broadcom Corporation.
- */
-
 /**
  * @file
  * This provides the content (web pages) which will be served when the
@@ -29,10 +19,8 @@
 #include "icons.h"
 #include "internal/wwd_sdpcm.h"
 #include "wwd_wlioctl.h"
+#include "bug.h"
 
-/******************************************************
- *                      Macros
- ******************************************************/
 /* Macros for comparing MAC addresses */
 #define CMP_MAC( a, b )  (((a[0])==(b[0]))&& \
                           ((a[1])==(b[1]))&& \
@@ -48,9 +36,6 @@
                         ((a[4])==0)&& \
                         ((a[5])==0))
 
-/******************************************************
- *                    Constants
- ******************************************************/
 #define CIRCULAR_RESULT_BUFF_SIZE  (5)
 #define MAX_SCAN_RESULTS           (100)
 #define SSID_FIELD_NAME            "ssid"
@@ -61,7 +46,6 @@
 #define PIN_FIELD_NAME             "pin"
 
 /* Signal strength defines */
-
 #define RSSI_VERY_POOR             -80
 #define RSSI_POOR                  -70
 #define RSSI_GOOD                  -68
@@ -72,27 +56,12 @@
 #define RSSI_VERY_GOOD_STR         "Very good"
 #define RSSI_EXCELLENT_STR         "Excellent"
 
-/******************************************************
- *                   Enumerations
- ******************************************************/
-
-/******************************************************
- *                 Type Definitions
- ******************************************************/
-
-/******************************************************
- *                    Structures
- ******************************************************/
-typedef struct
-{
-    uint8_t               scan_done;
-    host_semaphore_type_t result_avail_sema;
-    wiced_scan_result_t*  result_buff;
+typedef struct {
+  uint8_t               scan_done;
+  host_semaphore_type_t result_avail_sema;
+  wiced_scan_result_t*  result_buff;
 } scan_cb_t;
 
-/******************************************************
- *               Static Function Declarations
- ******************************************************/
 static int  process_top           ( void* socket, char * params, int params_len );
 static int  process_wps_icon      ( void* socket, char * params, int params_len );
 static int  process_wps_pbc       ( void* socket, char * params, int params_len );
@@ -107,33 +76,34 @@ static void scan_results_handler( wiced_scan_result_t** result_ptr, void* user_d
 static int  decode_connect_params ( char * params, int params_len );
 static void url_decode            ( char * str );
 
-/******************************************************
- *               Variable Definitions
- ******************************************************/
 /**
  * URL Handler List
  */
 const url_list_elem_t config_AP_url_list[] = {
-                                     { "/",             "text/html",                process_top },
-                                     { "/wps_icon.png", "image/png",                process_wps_icon },
-                                     { "/scan_icon.png","image/png",                process_scan_icon },
-                                     { "/index.html",   "text/html",                process_top },
-                                     { "/scan",         "text/html\r\n"
-                                                        "Expires: Tue, 03 Jul 2001 06:00:00 GMT\r\n"
-                                                        "Cache-Control: no-store, no-cache, must-revalidate, max-age=0\r\n"
-                                                        "Cache-Control: post-check=0, pre-check=0\r\n"
-                                                        "Pragma: no-cache\r\n",     process_scan },
-                                     { "/scanjoin",     "text/html",                process_scanjoin },
-                                     { "/favicon.ico",  "image/vnd.microsoft.icon", process_favicon },
-                                     { "/brcmlogo.jpg", "image/jpeg",               process_brcmlogo },
-                                     { "/connect",      "text/html",                process_connect },
-                                     { "/ajax.js",      "application/javascript",   process_ajax },
-                                     { "/wps_pbc",      "text/html",                process_wps_pbc },
-                                     { "/wps_pin",      "text/html",                process_wps_pin },
-                                     { "/wps_go",       "text/html",                process_wps_go },
-                                     /* Add more pages here */
-                                     { NULL, NULL, NULL }
-                                   };
+  { "/",             "text/html",                process_top },
+  { "/wps_icon.png", "image/png",                process_wps_icon },
+  { "/scan_icon.png","image/png",                process_scan_icon },
+  { "/index.html",   "text/html",                process_top },
+  { "/scan",         "text/html\r\n"
+    "Expires: Tue, 03 Jul 2001 06:00:00 GMT\r\n"
+    "Cache-Control: no-store, no-cache, must-revalidate, max-age=0\r\n"
+    "Cache-Control: post-check=0, pre-check=0\r\n"
+    "Pragma: no-cache\r\n",                      process_scan },
+  { "/scanjoin",     "text/html",                process_scanjoin },
+  { "/favicon.ico",  "image/vnd.microsoft.icon", process_favicon },
+  { "/brcmlogo.jpg", "image/jpeg",               process_brcmlogo },
+  { "/connect",      "text/html",                process_connect },
+  { "/ajax.js",      "application/javascript",   process_ajax },
+  { "/wps_pbc",      "text/html",                process_wps_pbc },
+  { "/wps_pin",      "text/html",                process_wps_pin },
+  { "/wps_go",       "text/html",                process_wps_go },
+  /* Add more pages here */
+  { "/note",         "image/png\r\n"
+                     "Content-Length: 0",        process_midi_note },
+  { "/control",      "image/png\r\n"
+                     "Content-Length: 0",        process_midi_cc },
+  { NULL, NULL, NULL }
+};
 
 /**
  * HTML data for main Appliance web page
@@ -143,11 +113,11 @@ static const char top_web_page_top[] =
     "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
     "  <head>\n"
     "    <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" />\n"
-    "    <title>WICED Appliance Config</title>\n"
+    "    <title>LILBUG Appliance Config</title>\n"
     "    <style  type=\"text/css\"><!-- .normal { background-color: #ffffff; } .highlight { background-color: #8f0000;  } --></style>\n"
     "  </head>\n"
     "  <body style=\"font-family:verdana;\" >\n"
-    "    <h2 align=\"center\"><img src=\"brcmlogo.jpg\"/> <span style=\"color:#ff0000\">Broadcom</span> WICED Appliance Configuration</h2><hr/>\n"
+    "    <h2 align=\"center\"><img src=\"brcmlogo.jpg\"/> <span style=\"color:#ff0000\">Rebel Technology</span> LILBUG Appliance Configuration</h2><hr/>\n"
     "    <noscript><h2>Javascript is required for this page to work correctly.</h2></noscript>\n"
     "    <h3 style=\"text-align:center\">Select a configuration method ...</h3>\n"
     "    <table border=\"0\" cellpadding=\"20\" style=\"margin-left:auto;margin-right:auto;border-collapse:collapse;\">\n"
@@ -169,7 +139,7 @@ static const char wps_pbc_page[] =
     "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN " "http://www.w3.org/TR/html4/strict.dtd\">\n"
     "<html>\n"
     "  <head>\n"
-    "    <title>WICED Appliance WPS-PBC Config</title>\n"
+    "    <title>LILBUG Appliance WPS-PBC Config</title>\n"
     "    <script src=\"ajax.js\" type=\"text/javascript\" ></script>\n"
     "    <script type=\"text/javascript\">\n"
     "      function do_conn( )\n"
@@ -181,7 +151,7 @@ static const char wps_pbc_page[] =
     "    </script>\n"
     "  </head>\n"
     "  <body style=\"font-family:verdana;\" >\n"
-    "    <h2 align=\"center\"><img src=\"brcmlogo.jpg\"/> <span style=\"color:#ff0000\">Broadcom</span> WICED Appliance Configuration</h2><br/><br/>\n"
+    "    <h2 align=\"center\"><img src=\"brcmlogo.jpg\"/> <span style=\"color:#ff0000\">Rebel Technology</span> LILBUG Appliance Configuration</h2><br/><br/>\n"
     "    <h2 align=\"center\"><img src=\"wps_icon.png\" style=\"vertical-align:middle\" />Push button setup</h2><hr>\n"
     "    <table border=0 cellpadding=20 align=\"center\"><tr><td>1) Press button on your router or access point (look for this symbol: <img src=\"wps_icon.png\" height=30 style=\"vertical-align:middle\" />)</td></tr>\n"
     "    <tr><td><form><label>2) Click this button : </label><input type=\"button\" onclick=\"do_conn()\" value=\"GO!\" style=\"height: 1.5em; width: 5em;font-size: larger; background-color: #cfffcf;\" /></form></td></tr></table>\n"
@@ -196,7 +166,7 @@ static const char wps_pin_page[] =
     "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN " "http://www.w3.org/TR/html4/strict.dtd\">\n"
     "<html>\n"
     "  <head>\n"
-    "    <title>WICED Appliance WPS-PIN Config</title>\n"
+    "    <title>LILBUG Appliance WPS-PIN Config</title>\n"
     "    <script src=\"ajax.js\" type=\"text/javascript\" ></script>\n"
     "    <script type=\"text/javascript\">\n"
     "      function do_conn( )\n"
@@ -209,7 +179,7 @@ static const char wps_pin_page[] =
     "    </script>\n"
     "  </head>\n"
     "  <body style=\"font-family:verdana;\" >\n"
-    "    <h2 align=\"center\"><img src=\"brcmlogo.jpg\"/> <span style=\"color:#ff0000\">Broadcom</span> WICED Appliance Configuration</h2><br/><br/>\n"
+    "    <h2 align=\"center\"><img src=\"brcmlogo.jpg\"/> <span style=\"color:#ff0000\">Rebel Technology</span> LILBUG Appliance Configuration</h2><br/><br/>\n"
     "    <h2 align=\"center\"><img src=\"wps_icon.png\" style=\"vertical-align:middle\" />PIN entry setup</h2><hr>\n"
     "    <table border=0 cellpadding=20 align=\"center\"><tr><td>1) Set the PIN and enable WPS in your router or access point (using it's web browser interface)</td></tr>\n"
     "      <tr><td><form action=\"/wps_go\" method=\"get\"><label>2) Enter PIN here : </label><input type=\"text\" id=\"" PIN_FIELD_NAME "\" name=\"" PIN_FIELD_NAME "\" maxlength=8 /><label> and click this button : </label><input type=\"button\" onclick=\"do_conn()\" value=\"GO!\" style=\"height: 1.5em; width: 5em;font-size: larger; background-color: #cfffcf;\" /></form></td></tr></table>\n"
@@ -243,7 +213,7 @@ static const char scan_page_outer[] =
     "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN " "http://www.w3.org/TR/html4/strict.dtd\">\n"
     "<html>\n"
     "  <head>\n"
-    "    <title>WICED Appliance Scan-Join Config</title>\n"
+    "    <title>LILBUG Appliance Scan-Join Config</title>\n"
     "    <script src=\"ajax.js\" type=\"text/javascript\" ></script>\n"
     "    <script type=\"text/javascript\">\n"
     "      function do_conn( ssid, sec, chan, bssid )\n"
@@ -256,7 +226,7 @@ static const char scan_page_outer[] =
     "    </script>\n"
     "  </head>\n"
     "  <body style=\"font-family:verdana;\" onLoad=\"do_ajax( 'scan', 'scanres', 'Starting Scan...', 'Scanning...', null, 'Error Occurred', null)\">\n"
-    "    <h2><img src=\"/brcmlogo.jpg\"/><span style=\"color:#ff0000\"> Broadcom</span> WICED Appliance Scan-Join Configuration</h2><hr>\n"
+    "    <h2><img src=\"/brcmlogo.jpg\"/><span style=\"color:#ff0000\"> Rebel Technology</span> LILBUG Appliance Scan-Join Configuration</h2><hr>\n"
     "    <div id=\"scanres\"></div>\n"
     "    \n"
     "    <div id=\"dim\" style=\"display: none; background: #000;position: fixed; left: 0; top: 0;width: 100%; height: 100%;opacity: .80;z-index: 9999;text-align: center\">\n"
@@ -378,7 +348,7 @@ int process_favicon( void * socket, char * params, int params_len )
 }
 
 /**
- * URL handler for serving the broadcom logo
+ * URL handler for serving the rebel technology logo
  *
  * Simply sends the static jpeg data
  *
@@ -790,37 +760,4 @@ static void url_decode( char * str )
 
     /* add terminating null */
     str[write_pos] = '\x00';
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

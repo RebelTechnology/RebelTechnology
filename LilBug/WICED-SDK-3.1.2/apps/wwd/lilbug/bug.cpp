@@ -1,4 +1,4 @@
-// #include "wiced.h"
+#include "web_server.h"
 
 #define DEBUG_USART
 
@@ -18,7 +18,7 @@
 #include "MidiWriter.hpp"
 #include <string.h>
 
-MidiWriter writer;  
+MidiWriter writer(0);
 
 #define SYSEX_MANUFACTURER_ID 0x7d /* educational use */
 
@@ -162,4 +162,108 @@ void setupMidi(void){
 void pollMidiTask(void*){
   for(;;)
     bug.pollMidi();
+}
+
+/* web handler todo: factor out */
+#include <stdlib.h>
+
+static const char no_content_header[] = "HTTP/1.1 204 No Content\r\n\r\n";  
+static const char empty_page[] = "<html/>\n";
+static const char empty_image[] = "\x00";
+static const char pitch_param[] = "pitch";
+static const char velocity_param[] = "velocity";
+int process_midi_note(void* socket, char* params, int params_len){
+  char* pitch_loc = NULL;
+  char* velocity_loc = NULL;
+  char end_found = 0;
+  /* Process the GET parameter list to determine if buttons have been pressed */
+  int pitch = 0;
+  int velocity = 0;
+  /* Cycle through parameter list string until end or newline */
+  while(end_found == 0){
+    /* Check if parameter matches */
+    if(0 == strncmp(params, pitch_param, sizeof(pitch_param)-1))
+      pitch_loc = params + sizeof(pitch_param);
+    else if(0 == strncmp(params, velocity_param, sizeof(velocity_param)-1))
+      velocity_loc = params + sizeof(velocity_param);
+    /* Scan ahead to the next parameter or the end of the parameter list */
+    while((*params != '&') && (*params != '\n') && (params_len > 0)){
+      params++;
+      params_len--;
+    }
+    if(*params != '&')
+      end_found = 1;
+    if(pitch_loc != NULL){
+      /* *params = '\x00'; // not required for atoi which stops at first non-digit */
+      pitch = atoi(pitch_loc);
+      pitch_loc = NULL;
+    }
+    if(velocity_loc != NULL){
+      /* *params = '\x00'; // not required for atoi which stops at first non-digit */
+      velocity = atoi(velocity_loc);
+      velocity_loc = NULL;
+    }
+    if(end_found == 0){
+      /* Skip over the "&" which joins parameters if found */
+      params++;
+      params_len--;
+    }
+  }
+  // WPRINT_APP_INFO(("MIDI Note: %d %d", pitch, velocity));
+  if(velocity > 0)
+    writer.noteOn(pitch, velocity);
+  else
+    writer.noteOff(pitch, velocity);
+  // send a 204 No Content
+  // send_web_data( socket, (unsigned char*) no_content_header, sizeof( no_content_header ) - 1 );
+  // send_web_data(socket, (unsigned char*)empty_page, sizeof(empty_page)-1);
+  /* minus one is to avoid copying terminating null */
+  return 0;
+}
+
+static const char cc_param[] = "cc";
+static const char value_param[] = "value";
+int process_midi_cc(void* socket, char* params, int params_len){
+  char* cc_loc = NULL;
+  char* value_loc = NULL;
+  char end_found = 0;
+  /* Process the GET parameter list to determine if buttons have been pressed */
+  int cc = 0;
+  int value = 0;
+  /* Cycle through parameter list string until end or newline */
+  while(end_found == 0){
+    /* Check if parameter matches */
+    if(0 == strncmp(params, cc_param, sizeof(cc_param)-1))
+      cc_loc = params + sizeof(cc_param);
+    else if(0 == strncmp(params, value_param, sizeof(value_param)-1))
+      value_loc = params + sizeof(value_param);
+    /* Scan ahead to the next parameter or the end of the parameter list */
+    while((*params != '&') && (*params != '\n') && (params_len > 0)){
+      params++;
+      params_len--;
+    }
+    if(*params != '&')
+      end_found = 1;
+    if(cc_loc != NULL){
+      cc = atoi(cc_loc);
+      cc_loc = NULL;
+    }
+    if(value_loc != NULL){
+      /* *params = '\x00'; // not required for atoi which stops at first non-digit */
+      value = atoi(value_loc);
+      value_loc = NULL;
+    }
+    if(end_found == 0){
+      /* Skip over the "&" which joins parameters if found */
+      params++;
+      params_len--;
+    }
+  }
+  // WPRINT_APP_INFO(("MIDI CC: %d %d", cc, value));
+  writer.controlChange(cc, value);
+  // send a 204 No Content
+  // send_web_data( socket, (unsigned char*) no_content_header, sizeof( no_content_header ) - 1 );
+  // send_web_data(socket, (unsigned char*)empty_page, sizeof(empty_page)-1);
+  /* minus one is to avoid copying terminating null */
+  return 0;
 }

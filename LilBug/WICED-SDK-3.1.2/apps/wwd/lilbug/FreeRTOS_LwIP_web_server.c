@@ -291,7 +291,8 @@ void send_web_data( void * socket, unsigned char * data, unsigned long length )
         int num_sent = send( (int)socket, data, packet_size, 0 );
         if ( num_sent < 0 )
         {
-            WEB_SERVER_ERROR_PRINT( ( "Error sending packet\n" ) );
+	  WPRINT_APP_INFO( ( "Error sending packet: %d", num_sent ) );
+            /* WEB_SERVER_ERROR_PRINT( ( "Error sending packet\n" ) ); */
             return;
         }
         data += packet_size;
