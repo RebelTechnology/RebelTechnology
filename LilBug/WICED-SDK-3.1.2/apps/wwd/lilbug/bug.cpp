@@ -17,6 +17,23 @@
 #include "MidiReader.hpp"
 #include "MidiWriter.hpp"
 #include <string.h>
+#include "udp_server.h"
+#include "OscMessage.hpp"
+
+char* OscCmd_status              = (char*)"/status";
+char* OscCmd_led                 = (char*)"/led";
+char* OscCmd_ip                  = (char*)"/localip";
+char* OscCmd_port                = (char*)"/localport";
+char* OscCmd_ping                = (char*)"/ping";
+char* OscCmd_note_on             = (char*)"note_on";
+char* OscCmd_note_off            = (char*)"note_off";
+char* OscCmd_control_change      = (char*)"cc";
+char* OscCmd_pitch_bend          = (char*)"pb";
+
+OscMessage note_on_msg(OscCmd_note_on);
+OscMessage note_off_msg(OscCmd_note_off);
+OscMessage control_change_msg(OscCmd_control_change);
+OscMessage pitch_bend_msg(OscCmd_pitch_bend);
 
 MidiWriter writer(0);
 
@@ -27,11 +44,32 @@ void debug_message(const char* string){
   writer.sysex(SYSEX_MANUFACTURER_ID, (uint8_t*)string, len);
 }
 
+void sendMessage(OscMessage& msg){
+  uint8_t buf[64];
+  int len = msg.copy(buf, sizeof(buf));
+  if(len > 0)
+    udp_send_packet(buf, len);
+  else
+    WPRINT_APP_INFO(("Failed to copy osc message: %d", len));
+}
+
 class LilBug : public MidiReader {
 public:
 
   void setup(){
     Serial_println("Setup MidiReader");
+
+  note_on_msg.add((int32_t)0);
+  note_on_msg.add((int32_t)0);
+  note_on_msg.add((int32_t)0);
+  note_off_msg.add((int32_t)0);
+  note_off_msg.add((int32_t)0);
+  control_change_msg.add((int32_t)0);
+  control_change_msg.add((int32_t)0);
+  control_change_msg.add((int32_t)0);
+  pitch_bend_msg.add((int32_t)0);
+  pitch_bend_msg.add((int32_t)0);
+
   }
   /*
   void setTrigger(int pin, OSCMessage &message){
@@ -102,7 +140,11 @@ public:
     if(velocity == 0)
       return handleNoteOff(channel, note, velocity);
     MidiReader::handleNoteOn(channel, note, velocity);
-
+    note_on_msg.set(0, (int32_t)channel);
+    note_on_msg.set(4, (int32_t)note);
+    note_on_msg.set(8, (int32_t)velocity);
+    sendMessage(note_on_msg);
+    // echo
     writer.noteOn(channel, note, velocity);
     // note_on_msg.set(0, (int32_t)channel);
     // note_on_msg.set(4, (int32_t)note);
@@ -110,7 +152,6 @@ public:
     // sendMessage(note_on_msg);
   }
 
-  /*
   void handleNoteOff(uint8_t channel, uint8_t note, uint8_t velocity){
     MidiReader::handleNoteOff(channel, note, velocity);
     note_off_msg.set(0, (int32_t)channel);
@@ -132,14 +173,14 @@ public:
     pitch_bend_msg.set(4, (int32_t)value);
     sendMessage(pitch_bend_msg);
   }
-  */
+
   void pollMidi(){
     // char c = getchar(); // blocking?
     char c;
     for(;;){
       if(uart_receive_bytes(&c, 1) == 0){
 	// uart_receive_bytes(&c, 1);
-	MidiReaderStatus status = read(c);
+	MidiReaderStatus status = MidiReader::read(c);
 	if(status == ERROR_STATUS){
 	  MidiReader::clear();
 	  Serial_println("MIDI read error");
@@ -259,11 +300,70 @@ int process_midi_cc(void* socket, char* params, int params_len){
       params_len--;
     }
   }
-  // WPRINT_APP_INFO(("MIDI CC: %d %d", cc, value));
+  WPRINT_APP_INFO(("MIDI CC: %d %d", cc, value));
   writer.controlChange(cc, value);
   // send a 204 No Content
   // send_web_data( socket, (unsigned char*) no_content_header, sizeof( no_content_header ) - 1 );
   // send_web_data(socket, (unsigned char*)empty_page, sizeof(empty_page)-1);
   /* minus one is to avoid copying terminating null */
   return 0;
+}
+
+void oscNoteOn(OscMessage &message){
+  if(message.size() > 2){
+    int channel = message.getInt(0);
+    int note = message.getInt(1);
+    int velocity = message.getInt(2);
+    writer.noteOn(channel, note, velocity);
+  }
+}
+
+void oscNoteOff(OscMessage &message){
+  if(message.size() > 1){
+    int channel = message.getInt(0);
+    int note = message.getInt(1);
+    writer.noteOff(channel, note, 0);
+  }
+}
+
+void oscControlChange(OscMessage &message){
+  if(message.size() > 2){
+    int channel = message.getInt(0);
+    int cc = message.getInt(1);
+    int value = message.getInt(2);
+    writer.controlChange(channel, cc, value);
+  }
+}
+
+void oscPitchBend(OscMessage &message){
+  if(message.size() > 1){
+    int channel = message.getInt(0);
+    int value = message.getInt(1);
+    writer.pitchBend(channel, value);
+  }
+}
+
+void udp_recv_packet(uint8_t* buffer, int size){
+  // echo
+  // sendto(lSocket, buffer, nbytes, 0, (struct sockaddr *)&sDestAddr, sizeof(sDestAddr));
+
+  OscMessage msg;
+  msg.parse(buffer, size);
+  WPRINT_APP_INFO(("received UDP message %s", msg.getAddress()));  
+  char* address = msg.getAddress();
+  if(strncmp(OscCmd_status, address, 24)){
+    // todo
+  }else if(strncmp(OscCmd_led, address, 24)){
+    // todo
+  }else if(strncmp(OscCmd_note_on, address, 24)){
+    oscNoteOn(msg);
+  }else if(strncmp(OscCmd_note_off, address, 24)){
+    oscNoteOff(msg);
+  }else if(strncmp(OscCmd_control_change, address, 24)){
+    oscControlChange(msg);
+  }else if(strncmp(OscCmd_pitch_bend, address, 24)){
+    oscPitchBend(msg);
+  }
+
+  // WPRINT_APP_INFO(("sent UDP message %s", buffer));  
 }

@@ -95,9 +95,11 @@
 /* #define AP_SEC                  WICED_SECURITY_WPA2_AES_PSK  /\* WICED_SECURITY_OPEN *\/ */
 #define AP_SEC                  WICED_SECURITY_OPEN
 #define AP_CHANNEL              (1)
-#define APP_THREAD_STACKSIZE    (5120)
+#define APP_THREAD_STACKSIZE    (2048)
 #define DHCP_THREAD_STACKSIZE   (800)
 #define WEB_SERVER_STACK_SIZE   (1024)
+#define MIDI_SERVER_STACK_SIZE  (1024)
+#define UDP_SERVER_STACK_SIZE   (2048)
 
 static struct netif wiced_if;
 static xTaskHandle startup_thread_handle;
@@ -123,8 +125,13 @@ static void app_main( void )
 
   static xTaskHandle poll_midi_thread_handle;
   xTaskCreate(pollMidiTask, (signed char*)"Poll MIDI", 
-	      WEB_SERVER_STACK_SIZE/sizeof( portSTACK_TYPE ), NULL, 
+	      MIDI_SERVER_STACK_SIZE/sizeof(portSTACK_TYPE), NULL, 
 	      DEFAULT_THREAD_PRIO, &poll_midi_thread_handle);
+
+  static xTaskHandle udp_server_thread_handle;
+  xTaskCreate(udp_server_task, (signed char*)"udp",
+  	      UDP_SERVER_STACK_SIZE/sizeof(portSTACK_TYPE), NULL,
+  	      DEFAULT_THREAD_PRIO, &udp_server_thread_handle);
 
     /* Run the web server to obtain the configuration */
     run_ap_webserver( );
@@ -351,6 +358,8 @@ static void startup_thread( void *arg )
 
     /* Run the main application function */
     app_main( );
+
+    /* udp_server_task(NULL); */
 
     /* Clean up this startup thread */
     vTaskDelete( startup_thread_handle );

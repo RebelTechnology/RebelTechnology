@@ -7,37 +7,108 @@
 #define OSC_MESSAGE_MAX_PREFIX_SIZE 32
 #define OSC_MESSAGE_MAX_DATA_SIZE 32
 class OscMessage {
+public:
   uint8_t prefix[OSC_MESSAGE_MAX_PREFIX_SIZE];
   uint8_t prefixLength;
+  uint8_t* types;
   uint8_t data[OSC_MESSAGE_MAX_DATA_SIZE];
   uint8_t dataLength;
 public:
+  OscMessage() : prefixLength(0), types(NULL), dataLength(0){}
+
   OscMessage(char* a) : prefixLength(0), dataLength(0){
     setAddress(a);
   }
+
+  void parse(uint8_t* buffer, int length){
+    setAddress((char*)buffer);
+    int i = prefixLength;
+    while(buffer[i] != '\0'){
+      char type = (char)buffer[i++];
+      addType(type, getDataSize(type));
+    }
+    while(i & 3) // pad to 4 bytes
+      i++;
+    memcpy(data, &buffer[i], length-i);    
+  }
+
+  int size(){
+    int size = 0;
+    while(types[size] != '\0')
+      size++;
+    return size;
+  }
+
+  char* getAddress(){
+    return (char*)prefix;
+  }
+
+  int8_t getDataSize(char type){
+    switch(type){
+    case 'i':
+    case 'f':
+      return 4;
+    }
+    return 0;
+  }
+
+  int32_t getInt(int8_t index){
+    return (int32_t)*getData('i', index);
+  }
+
+  float getFloat(int8_t index){
+    return (float)*getData('f', index);
+  }
+
+  uint8_t* getData(char type, int8_t index){
+    int offset=0;
+    for(int i=0; types[i] != type; ++i){
+      if(types[i] == '\0')
+	break;
+      offset += getDataSize(types[i]);
+    }
+    return data+offset;
+  }
+
   void setAddress(char* a){
     prefixLength = strnlen(a, OSC_MESSAGE_MAX_PREFIX_SIZE-5)+1;
     memcpy(prefix, a, prefixLength);
     while(prefixLength & 3) // pad to 4 bytes
       prefix[prefixLength++] = '\0';
     prefix[prefixLength++] = ',';
+    types = prefix+prefixLength;
   }
 
-  void send(Print& out){
-    out.write(prefix, prefixLength);
-    // add zero padding
-    switch((prefixLength) & 3){
-    case 0:
-      out.write((uint8_t)'\0');
-    case 1:
-      out.write((uint8_t)'\0');
-    case 2:
-      out.write((uint8_t)'\0');
-    case 3:
-      out.write((uint8_t)'\0');
-    }
-    out.write(data, dataLength);
+  int copy(uint8_t* buf, int buflen){
+    if(buflen < prefixLength)
+      return -1;
+    memcpy(buf, prefix, prefixLength);
+    int len = prefixLength;
+    while(len & 3) // pad to 4 bytes
+      buf[len++] = '\0';
+    if(buflen < len+dataLength)
+      return -1;
+    memcpy(buf+len, data, dataLength);
+    len += dataLength;
+    while(len & 3) // pad to 4 bytes
+      buf[len++] = '\0';
+    return len;
   }
+  // void send(Print& out){
+  //   out.write(prefix, prefixLength);
+  //   // add zero padding
+  //   switch((prefixLength) & 3){
+  //   case 0:
+  //     out.write((uint8_t)'\0');
+  //   case 1:
+  //     out.write((uint8_t)'\0');
+  //   case 2:
+  //     out.write((uint8_t)'\0');
+  //   case 3:
+  //     out.write((uint8_t)'\0');
+  //   }
+  //   out.write(data, dataLength);
+  // }
 
   // void send();
 
@@ -53,10 +124,14 @@ public:
   }
   uint8_t add(char type, uint8_t* value, size_t sz){
     for(size_t i=1; i<=sz; ++i)
-      data[dataLength++] = value[sz-i];
+      data[dataLength++] = value[sz-i]; // why backwards?
     return dataLength-sz;
   }
 protected:
+  void addType(char type, size_t size){
+    prefix[prefixLength++] = type;
+    dataLength += size;
+  }
   uint8_t add(char type, uint8_t* value){
     prefix[prefixLength++] = type;
     data[dataLength++] = value[3];

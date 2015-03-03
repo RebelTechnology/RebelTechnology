@@ -12,6 +12,8 @@ extern "C" {
   int process_midi_note(void* socket, char* params, int params_len);
   int process_midi_cc(void* socket, char* params, int params_len);
 
+  void udp_server_task(void*); // defined in udp_server?
+
 #ifdef __cplusplus
 } /*extern "C" */
 #endif

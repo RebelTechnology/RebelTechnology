@@ -1,5 +1,4 @@
 #include "uart.h"
-
 #include "platform.h"
 #include "platform_peripheral.h"
 
@@ -34,11 +33,11 @@ int uart_init(){
 
 int uart_transmit_bytes(const void* data, uint32_t size){
     /* Send a test string to the terminal */
-  platform_uart_transmit_bytes( &platform_uart_drivers[MIDI_UART], (const uint8_t*) data, size) == PLATFORM_SUCCESS ? 0 : -1;
+  return platform_uart_transmit_bytes( &platform_uart_drivers[MIDI_UART], (const uint8_t*) data, size) == PLATFORM_SUCCESS ? 0 : -1;
   /* return wiced_uart_transmit_bytes(MIDI_UART, data, size) == WICED_SUCCESS; */
 }
 
 int uart_receive_bytes(void* data, uint32_t size){
-  platform_uart_receive_bytes(&platform_uart_drivers[MIDI_UART], (uint8_t*)data, size, WICED_NEVER_TIMEOUT) == PLATFORM_SUCCESS ? 0 : -1;
+  return platform_uart_receive_bytes(&platform_uart_drivers[MIDI_UART], (uint8_t*)data, size, WICED_NEVER_TIMEOUT) == PLATFORM_SUCCESS ? 0 : -1;
   /* return wiced_uart_receive_bytes(MIDI_UART, &c, 1, WICED_NEVER_TIMEOUT ) == WICED_SUCCESS; */
 }
