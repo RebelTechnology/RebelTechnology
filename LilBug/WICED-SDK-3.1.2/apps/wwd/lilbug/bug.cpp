@@ -25,10 +25,10 @@ char* OscCmd_led                 = (char*)"/led";
 char* OscCmd_ip                  = (char*)"/localip";
 char* OscCmd_port                = (char*)"/localport";
 char* OscCmd_ping                = (char*)"/ping";
-char* OscCmd_note_on             = (char*)"note_on";
-char* OscCmd_note_off            = (char*)"note_off";
-char* OscCmd_control_change      = (char*)"cc";
-char* OscCmd_pitch_bend          = (char*)"pb";
+char* OscCmd_note_on             = (char*)"/note_on";
+char* OscCmd_note_off            = (char*)"/note_off";
+char* OscCmd_control_change      = (char*)"/cc";
+char* OscCmd_pitch_bend          = (char*)"/pb";
 
 OscMessage note_on_msg(OscCmd_note_on);
 OscMessage note_off_msg(OscCmd_note_off);
@@ -50,7 +50,7 @@ void sendMessage(OscMessage& msg){
   if(len > 0)
     udp_send_packet(buf, len);
   else
-    WPRINT_APP_INFO(("Failed to copy osc message: %d", len));
+    WPRINT_APP_INFO(("Failed to send osc message: %d", len));
 }
 
 class LilBug : public MidiReader {
@@ -343,25 +343,30 @@ void oscPitchBend(OscMessage &message){
   }
 }
 
-void udp_recv_packet(uint8_t* buffer, int size){
-  // echo
-  // sendto(lSocket, buffer, nbytes, 0, (struct sockaddr *)&sDestAddr, sizeof(sDestAddr));
+void oscStatus(OscMessage &message){
+  // todo: send ip and port details
+}
 
+void oscLed(OscMessage &message){
+  // todo: toggle led
+}
+
+void udp_recv_packet(uint8_t* buffer, int size){
   OscMessage msg;
   msg.parse(buffer, size);
-  WPRINT_APP_INFO(("received UDP message %s", msg.getAddress()));  
+  // WPRINT_APP_INFO(("received UDP message %s", msg.getAddress()));  
   char* address = msg.getAddress();
-  if(strncmp(OscCmd_status, address, 24)){
-    // todo
-  }else if(strncmp(OscCmd_led, address, 24)){
-    // todo
-  }else if(strncmp(OscCmd_note_on, address, 24)){
+  if(strcmp(OscCmd_status, address) == 0){
+    oscStatus(msg);
+  }else if(strcmp(OscCmd_led, address) == 0){
+    oscLed(msg);
+  }else if(strcmp(OscCmd_note_on, address) == 0){
     oscNoteOn(msg);
-  }else if(strncmp(OscCmd_note_off, address, 24)){
+  }else if(strcmp(OscCmd_note_off, address) == 0){
     oscNoteOff(msg);
-  }else if(strncmp(OscCmd_control_change, address, 24)){
+  }else if(strcmp(OscCmd_control_change, address) == 0){
     oscControlChange(msg);
-  }else if(strncmp(OscCmd_pitch_bend, address, 24)){
+  }else if(strcmp(OscCmd_pitch_bend, address) == 0){
     oscPitchBend(msg);
   }
 

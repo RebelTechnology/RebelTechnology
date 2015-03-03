@@ -52,22 +52,27 @@ public:
     return 0;
   }
 
+  int getOffset(int8_t index){
+    int offset = 0;
+    for(int i=0; i<index; ++i)
+      offset += getDataSize(types[i]);
+    return offset;
+  }
+
   int32_t getInt(int8_t index){
-    return (int32_t)*getData('i', index);
+    // if(types[index] != 'i')
+    // return 0;
+    int offset = getOffset(index);
+    union { int32_t i; uint8_t b[4]; } u;
+    memcpy(u.b, &data[offset], 4);
+    return u.i;
   }
 
   float getFloat(int8_t index){
-    return (float)*getData('f', index);
-  }
-
-  uint8_t* getData(char type, int8_t index){
-    int offset=0;
-    for(int i=0; types[i] != type; ++i){
-      if(types[i] == '\0')
-	break;
-      offset += getDataSize(types[i]);
-    }
-    return data+offset;
+    int offset = getOffset(index);
+    union { float f; uint8_t b[4]; } u;
+    memcpy(u.b, &data[offset], 4);
+    return u.f;
   }
 
   void setAddress(char* a){
@@ -84,6 +89,7 @@ public:
       return -1;
     memcpy(buf, prefix, prefixLength);
     int len = prefixLength;
+    buf[len++] = '\0';
     while(len & 3) // pad to 4 bytes
       buf[len++] = '\0';
     if(buflen < len+dataLength)
@@ -94,6 +100,7 @@ public:
       buf[len++] = '\0';
     return len;
   }
+
   // void send(Print& out){
   //   out.write(prefix, prefixLength);
   //   // add zero padding
@@ -110,14 +117,8 @@ public:
   //   out.write(data, dataLength);
   // }
 
-  // void send();
-
   uint8_t add(float value){
     return add('f', (uint8_t*)&value);
-    // prefix[prefixLength++] = 'f';
-    // set(dataLength, (uint8_t*)&value);
-    // dataLength += 4;
-    // return dataLength;
   }
   uint8_t add(int32_t value){
     return add('i', (uint8_t*)&value);
