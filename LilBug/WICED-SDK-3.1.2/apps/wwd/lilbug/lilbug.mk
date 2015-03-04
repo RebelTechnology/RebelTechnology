@@ -25,6 +25,10 @@ $(NAME)_SOURCES += uart.c
 $(NAME)_SOURCES += bug.cpp
 $(NAME)_SOURCES += udp_server.cpp
 
+$(NAME)_SOURCES += base64_enc.c
+$(NAME)_SOURCES += sha1.c
+$(NAME)_SOURCES += websocket.c
+
 $(NAME)_DEFINES := WEB_SERVER_NO_PRINT
 
 # Disable watchdog for all WWD apps
