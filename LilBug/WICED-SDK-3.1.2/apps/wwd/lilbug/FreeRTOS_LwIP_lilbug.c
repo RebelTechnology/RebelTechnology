@@ -65,6 +65,7 @@
 #include "network/wwd_network_interface.h"
 #include "platform/wwd_platform_interface.h"
 #include "web_server.h"
+#include "websocket_server.h"
 #include "wwd_debug.h"
 #include "wwd_assert.h"
 #include <math.h>
@@ -133,9 +134,9 @@ static void app_main( void )
   	      UDP_SERVER_STACK_SIZE/sizeof(portSTACK_TYPE), NULL,
   	      DEFAULT_THREAD_PRIO, &udp_server_thread_handle);
 
-    /* Run the web server to obtain the configuration */
-    run_ap_webserver( );
-    run_sta_web_server( );
+  /* Run the web server to obtain the configuration */
+  run_ap_webserver( );
+  run_sta_web_server( );
 }
 
 /**
@@ -280,6 +281,8 @@ static void run_ap_webserver( void )
     /* Create DNS and DHCP servers */
     start_dns_server( ap_ipaddr.addr );
     start_dhcp_server( ap_ipaddr.addr );
+
+    start_websocket_server_thread( ap_ipaddr.addr );
 
     run_webserver( ap_ipaddr.addr, config_AP_url_list );
 

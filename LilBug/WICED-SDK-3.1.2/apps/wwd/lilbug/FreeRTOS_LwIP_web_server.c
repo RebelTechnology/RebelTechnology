@@ -192,7 +192,6 @@ void run_webserver( uint32_t bind_address_in, const url_list_elem_t * server_url
             /* Cycle through parts of the header looking for items of interest
              * At this stage we only need Content-Length
              */
-
             do
             {
                 end_pos = (char*) memmem( read_buffer, read_buffer_size, start_of_data_str, sizeof(start_of_data_str)-1 );
@@ -280,8 +279,12 @@ void run_webserver( uint32_t bind_address_in, const url_list_elem_t * server_url
 
 
 
+int recv_web_data( void * socket, unsigned char * data, unsigned long length )
+{
+  return recv((int)socket, data, length, 0);
+}
 
-void send_web_data( void * socket, unsigned char * data, unsigned long length )
+int send_web_data( void * socket, unsigned char * data, unsigned long length )
 {
     while ( length > 0 )
     {
@@ -293,11 +296,12 @@ void send_web_data( void * socket, unsigned char * data, unsigned long length )
         {
 	  WPRINT_APP_INFO( ( "Error sending packet: %d", num_sent ) );
             /* WEB_SERVER_ERROR_PRINT( ( "Error sending packet\n" ) ); */
-            return;
+            return -1;
         }
         data += packet_size;
         length -= packet_size;
     }
+    return length;
 }
 
 

@@ -98,10 +98,12 @@ const url_list_elem_t config_AP_url_list[] = {
   { "/wps_pin",      "text/html",                process_wps_pin },
   { "/wps_go",       "text/html",                process_wps_go },
   /* Add more pages here */
-  { "/note",         "image/png\r\n"
-                     "Content-Length: 0",        process_midi_note },
+  { "/note",         NULL,                       process_midi_note },
+  /* { "/note",         "image/png\r\n" */
+  /*                    "Content-Length: 0",        process_midi_note }, */
   { "/control",      "image/png\r\n"
                      "Content-Length: 0",        process_midi_cc },
+  /* { "/midi",         NULL,                       process_midi_websocket },   */
   { NULL, NULL, NULL }
 };
 

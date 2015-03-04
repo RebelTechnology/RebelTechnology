@@ -70,27 +70,21 @@ int process_url_request( const url_list_elem_t * server_url_list, char * url, in
       if ( 0 == strcmp( server_url_list[i].url, url ) ) {
 	/* Matching path found */
 	found = 1;
-
-	/* Copy HTTP OK header into packet and adjust the write pointers */
-	send_web_data( socket, (unsigned char*) ok_header, sizeof( ok_header ) - 1 ); /* minus one is to avoid copying terminating null */
-
-	/* Add Mime type */
-	send_web_data( socket, (unsigned char*) server_url_list[i].mime_type, strlen( server_url_list[i].mime_type ) );
-
-	/* Add double carriage return, line feed */
-	send_web_data( socket, (unsigned char*) crlfcrlf, sizeof( crlfcrlf ) - 1 ); /* minus one is to avoid copying terminating null */
-
-	WEB_SERVER_PRINT(("Serving page %s to %u.%u.%u.%u\n", url, (unsigned char)((peer_ip_address >> 24)& 0xff),
-			  (unsigned char)((peer_ip_address >> 16)& 0xff),
-			  (unsigned char)((peer_ip_address >> 8)& 0xff),
-			  (unsigned char)((peer_ip_address >> 0)& 0xff) ));
-
+	if(server_url_list[i].mime_type != NULL){
+	  /* Copy HTTP OK header into packet and adjust the write pointers */
+	  send_web_data( socket, (unsigned char*) ok_header, sizeof( ok_header ) - 1 ); /* minus one is to avoid copying terminating null */
+	  /* Add Mime type */
+	  send_web_data( socket, (unsigned char*) server_url_list[i].mime_type, strlen( server_url_list[i].mime_type ) );
+	  /* Add double carriage return, line feed */
+	  send_web_data( socket, (unsigned char*) crlfcrlf, sizeof( crlfcrlf ) - 1 ); /* minus one is to avoid copying terminating null */
+	  WEB_SERVER_PRINT(("Serving page %s to %u.%u.%u.%u\n", url, (unsigned char)((peer_ip_address >> 24)& 0xff),
+			    (unsigned char)((peer_ip_address >> 16)& 0xff),
+			    (unsigned char)((peer_ip_address >> 8)& 0xff),
+			    (unsigned char)((peer_ip_address >> 0)& 0xff) ));
+	}
 	/* Call the content handler function to write the page content into the packet and adjust the write pointers */
-	retval = server_url_list[i].processor( socket, params, params_len );
-
+	retval = server_url_list[i].processor(socket, params, params_len);
 	WEB_SERVER_PRINT(("Finished page\n"));
-
-
 	break;
       }
       i++;

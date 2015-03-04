@@ -44,8 +44,9 @@ const url_list_elem_t config_STA_url_list[] = {
   { "/favicon.ico",  "image/vnd.microsoft.icon", process_favicon },
   { "/brcmlogo.jpg", "image/jpeg",               process_brcmlogo },
   /* Add more pages here */
-  { "/note",         "image/png\r\n"
-                     "Content-Length: 0",        process_midi_note },
+  { "/note",         NULL,                       process_midi_note },
+  /* { "/note",         "image/png\r\n" */
+  /*                    "Content-Length: 0",        process_midi_note }, */
   { "/control",      "image/png\r\n"
                      "Content-Length: 0",        process_midi_cc },
   { NULL, NULL, NULL }

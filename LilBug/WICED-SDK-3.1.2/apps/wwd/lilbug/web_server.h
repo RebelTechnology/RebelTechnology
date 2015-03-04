@@ -17,7 +17,7 @@ extern "C" {
 #ifndef WEB_SERVER_NO_PRINT
 #define WEB_SERVER_ERROR_PRINT( x )  WINFO_APP_ERROR( x )
 #define WEB_SERVER_PRINT( x )        WINFO_APP( x )
-#define WEB_SERVER_STACK_SIZE        (4 * 1024)
+#define WEB_SERVER_STACK_SIZE        (1024)
 #else
 #define WEB_SERVER_ERROR_PRINT( x )  wiced_assert( "", 0!=0 )
 #define WEB_SERVER_PRINT( x )
@@ -54,7 +54,9 @@ typedef struct
  * @param  length : length in bytes of data buffer
  */
 
-void send_web_data( void * socket, unsigned char * data, unsigned long length );
+int send_web_data( void * socket, unsigned char * data, unsigned long length );
+
+int recv_web_data( void * socket, unsigned char * data, unsigned long length );
 
 /**
  * Processes web server requests

@@ -246,7 +246,7 @@ int process_midi_note(void* socket, char* params, int params_len){
   else
     writer.noteOff(pitch, velocity);
   // send a 204 No Content
-  // send_web_data( socket, (unsigned char*) no_content_header, sizeof( no_content_header ) - 1 );
+  send_web_data( socket, (unsigned char*) no_content_header, sizeof( no_content_header ) - 1 );
   // send_web_data(socket, (unsigned char*)empty_page, sizeof(empty_page)-1);
   /* minus one is to avoid copying terminating null */
   return 0;
@@ -290,7 +290,7 @@ int process_midi_cc(void* socket, char* params, int params_len){
       params_len--;
     }
   }
-  WPRINT_APP_INFO(("MIDI CC: %d %d", cc, value));
+  // WPRINT_APP_INFO(("MIDI CC: %d %d", cc, value));
   writer.controlChange(cc, value);
   // send a 204 No Content
   // send_web_data( socket, (unsigned char*) no_content_header, sizeof( no_content_header ) - 1 );
@@ -361,4 +361,109 @@ void udp_recv_packet(uint8_t* buffer, int size){
   }
 
   // WPRINT_APP_INFO(("sent UDP message %s", buffer));  
+}
+
+#include "websocket.h"
+#include "websocket_server.h"
+#define BUF_LEN 512
+
+#define printf_P(x) WPRINT_APP_INFO((x))
+
+int process_websocket(void* socket){  
+  uint8_t buffer[BUF_LEN];
+  memset(buffer, 0, BUF_LEN);
+  int readedLength = 0;
+  size_t frameSize = BUF_LEN;
+  enum wsState state = WS_STATE_OPENING;
+  uint8_t *data = NULL;
+  size_t dataSize = 0;
+  enum wsFrameType frameType = WS_INCOMPLETE_FRAME;
+  struct handshake hs;
+  nullHandshake(&hs);
+  
+  #define prepareBuffer frameSize = BUF_LEN; memset(buffer, 0, BUF_LEN);
+  #define initNewFrame frameType = WS_INCOMPLETE_FRAME; readedLength = 0; memset(buffer, 0, BUF_LEN);
+  
+  while(frameType == WS_INCOMPLETE_FRAME) {
+    // wait for data
+    do{
+      readedLength = recv_websocket_data(socket, buffer, BUF_LEN);
+    }while(readedLength <= 0);
+    WPRINT_APP_INFO(("websocket recv packet %d", readedLength));
+
+    assert(readedLength <= BUF_LEN);
+
+    if (state == WS_STATE_OPENING) {
+      frameType = wsParseHandshake(buffer, readedLength, &hs);
+    } else {
+      frameType = wsParseInputFrame(buffer, readedLength, &data, &dataSize);
+    }
+    
+    if ((frameType == WS_INCOMPLETE_FRAME && readedLength == BUF_LEN) || frameType == WS_ERROR_FRAME) {
+      #ifdef DEBUG
+      if (frameType == WS_INCOMPLETE_FRAME)
+        printf_P(PSTR("buffer too small"));
+      else
+        printf_P(PSTR("error in incoming frame\n"));
+    #endif
+      
+      if (state == WS_STATE_OPENING) {
+        prepareBuffer;
+        frameSize = sprintf_P((char *)buffer,
+                            PSTR("HTTP/1.1 400 Bad Request\r\n"
+                            "%s%s\r\n\r\n"),
+                            versionField,
+                            version);
+	send_websocket_data( socket, buffer, frameSize );
+        break;
+      } else {
+        prepareBuffer;
+        wsMakeFrame(NULL, 0, buffer, &frameSize, WS_CLOSING_FRAME);
+	send_websocket_data( socket, buffer, frameSize );
+        state = WS_STATE_CLOSING;
+        initNewFrame;
+      }
+    }    
+
+    if(state == WS_STATE_OPENING) {
+      assert(frameType == WS_OPENING_FRAME);
+      if (frameType == WS_OPENING_FRAME) {
+        // if resource is right, generate answer handshake and send it
+        if (strcmp(hs.resource, "/echo") != 0) {
+          frameSize = sprintf_P((char *)buffer, PSTR("HTTP/1.1 404 Not Found\r\n\r\n"));
+	  send_websocket_data( socket, buffer, frameSize );
+        }
+        prepareBuffer;
+        wsGetHandshakeAnswer(&hs, buffer, &frameSize);
+        freeHandshake(&hs);
+	send_websocket_data( socket, buffer, frameSize );
+        state = WS_STATE_NORMAL;
+        initNewFrame;
+      }
+    } else {
+        if (frameType == WS_CLOSING_FRAME) {
+          if (state == WS_STATE_CLOSING) {
+            break;
+          } else {
+            prepareBuffer;
+            wsMakeFrame(NULL, 0, buffer, &frameSize, WS_CLOSING_FRAME);
+	    send_websocket_data( socket, buffer, frameSize );
+            break;
+          }
+        } else if (frameType == WS_TEXT_FRAME) {
+          uint8_t *recievedString = NULL;
+          recievedString = (uint8_t *)malloc(dataSize+1);
+          assert(recievedString);
+          memcpy(recievedString, data, dataSize);
+          recievedString[ dataSize ] = 0;
+          
+          prepareBuffer;
+          wsMakeFrame(recievedString, dataSize, buffer, &frameSize, WS_TEXT_FRAME);
+          free(recievedString);
+	  send_websocket_data( socket, buffer, frameSize );
+          initNewFrame;
+        }
+    }
+  } // read/write cycle
+  return 0;
 }
