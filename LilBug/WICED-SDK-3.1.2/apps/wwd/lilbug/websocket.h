@@ -31,7 +31,8 @@ extern "C" {
 #include <assert.h>
 #include <stdint.h> /* uint8_t */
 #include <stdlib.h> /* strtoul */
-#include <netinet/in.h> /*htons*/
+#include "lwip/def.h" /* htons */
+/* #include <netinet/in.h> /\* htons *\/ */
 #include <string.h>
 #include <stdio.h> /* sscanf */
 #include <ctype.h> /* isdigit */

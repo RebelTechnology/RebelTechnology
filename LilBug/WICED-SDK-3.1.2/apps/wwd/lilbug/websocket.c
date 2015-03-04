@@ -99,7 +99,7 @@ enum wsFrameType wsParseHandshake(const uint8_t *inputFrame, size_t inputLength,
         parse next lines
      */
     #define prepare(x) do {if (x) { free(x); x = NULL; }} while(0)
-    #define strtolower(x) do { int i; for (i = 0; x[i]; i++) x[i] = tolower(x[i]); } while(0)
+    #define strtolower(x) do { int i; for (i = 0; x[i]; i++) x[i] = tolower((int)x[i]); } while(0)
     uint8_t connectionFlag = FALSE;
     uint8_t upgradeFlag = FALSE;
     uint8_t subprotocolFlag = FALSE;
