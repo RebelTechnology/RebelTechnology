@@ -144,12 +144,6 @@ public:
     note_on_msg.set(4, (int32_t)note);
     note_on_msg.set(8, (int32_t)velocity);
     sendMessage(note_on_msg);
-    // echo
-    writer.noteOn(channel, note, velocity);
-    // note_on_msg.set(0, (int32_t)channel);
-    // note_on_msg.set(4, (int32_t)note);
-    // note_on_msg.set(8, (int32_t)velocity);
-    // sendMessage(note_on_msg);
   }
 
   void handleNoteOff(uint8_t channel, uint8_t note, uint8_t velocity){
@@ -175,17 +169,13 @@ public:
   }
 
   void pollMidi(){
-    // char c = getchar(); // blocking?
     char c;
     for(;;){
       if(uart_receive_bytes(&c, 1) == 0){
-	// uart_receive_bytes(&c, 1);
 	MidiReaderStatus status = MidiReader::read(c);
 	if(status == ERROR_STATUS){
 	  MidiReader::clear();
 	  Serial_println("MIDI read error");
-	  // }else{
-	  // 	Serial_print(".");
 	}
       }
     }
