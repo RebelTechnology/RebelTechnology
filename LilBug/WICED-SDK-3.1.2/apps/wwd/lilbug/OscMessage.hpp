@@ -3,6 +3,13 @@
 
 #include <inttypes.h>
 #include <string.h>
+#include "lwip/def.h" // for htonl() and ntohl()
+/* todo: optimise htonl() using __REV() cortex M4 intrinsic */
+
+/*
+  todo: define get/set methods with two different indexes: field and offset
+  void* getDataAt(offset) / getField(index)
+*/
 
 #define OSC_MESSAGE_MAX_PREFIX_SIZE 32
 #define OSC_MESSAGE_MAX_DATA_SIZE 32
@@ -27,6 +34,7 @@ public:
       char type = (char)buffer[i++];
       addType(type, getDataSize(type));
     }
+    i++; // add space for at least one \0
     while(i & 3) // pad to 4 bytes
       i++;
     memcpy(data, &buffer[i], length-i);    
@@ -65,14 +73,14 @@ public:
     int offset = getOffset(index);
     union { int32_t i; uint8_t b[4]; } u;
     memcpy(u.b, &data[offset], 4);
-    return u.i;
+    return htonl(u.i);
   }
 
   float getFloat(int8_t index){
     int offset = getOffset(index);
     union { float f; uint8_t b[4]; } u;
     memcpy(u.b, &data[offset], 4);
-    return u.f;
+    return htonl(u.f);
   }
 
   void setAddress(char* a){
@@ -123,10 +131,14 @@ public:
   uint8_t add(int32_t value){
     return add('i', (uint8_t*)&value);
   }
-  uint8_t add(char type, uint8_t* value, size_t sz){
+  uint8_t addString(char type, uint8_t* value, size_t sz){
+    uint8_t index = dataLength;
     for(size_t i=1; i<=sz; ++i)
-      data[dataLength++] = value[sz-i]; // why backwards?
-    return dataLength-sz;
+      data[dataLength++] = value[i]; // why backwards?
+      // data[dataLength++] = value[sz-i]; // why backwards?
+    while(dataLength & 3) // pad to 4 bytes
+      data[dataLength++] = '\0';
+    return index;
   }
 protected:
   void addType(char type, size_t size){
