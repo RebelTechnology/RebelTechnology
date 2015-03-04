@@ -19,6 +19,7 @@
 #include <string.h>
 #include "udp_server.h"
 #include "OscMessage.hpp"
+#include "WebSocketServer.hpp"
 
 char* OscCmd_status              = (char*)"/status";
 char* OscCmd_led                 = (char*)"/led";
@@ -36,6 +37,12 @@ OscMessage control_change_msg(OscCmd_control_change);
 OscMessage pitch_bend_msg(OscCmd_pitch_bend);
 
 MidiWriter writer(0);
+
+WebSocketServer ws;
+int process_websocket(void* socket){  
+  ws.reset();
+  return ws.process(socket);
+}
 
 #define SYSEX_MANUFACTURER_ID 0x7d /* educational use */
 
@@ -140,6 +147,7 @@ public:
     if(velocity == 0)
       return handleNoteOff(channel, note, velocity);
     MidiReader::handleNoteOn(channel, note, velocity);
+    ws.noteOn(channel, note, velocity);
     note_on_msg.set(0, (int32_t)channel);
     note_on_msg.set(4, (int32_t)note);
     note_on_msg.set(8, (int32_t)velocity);
@@ -148,6 +156,7 @@ public:
 
   void handleNoteOff(uint8_t channel, uint8_t note, uint8_t velocity){
     MidiReader::handleNoteOff(channel, note, velocity);
+    ws.noteOff(channel, note, velocity);
     note_off_msg.set(0, (int32_t)channel);
     note_off_msg.set(4, (int32_t)note);
     sendMessage(note_off_msg);
@@ -155,6 +164,7 @@ public:
 
   void handleControlChange(uint8_t channel, uint8_t cc, uint8_t value){
     MidiReader::handleControlChange(channel, cc, value);
+    ws.controlChange(channel, cc, value);
     control_change_msg.set(0, (int32_t)channel);
     control_change_msg.set(4, (int32_t)cc);
     control_change_msg.set(8, (int32_t)value);
@@ -363,9 +373,7 @@ void udp_recv_packet(uint8_t* buffer, int size){
   // WPRINT_APP_INFO(("sent UDP message %s", buffer));  
 }
 
-#include "WebSocketServer.hpp"
-
-WebSocketServer ws;
-int process_websocket(void* socket){  
-  return ws.process(socket);
+/* handle incoming midi from web socket */
+void process_midi(uint8_t* data, size_t dataSize){
+  writer.write(data, dataSize);
 }

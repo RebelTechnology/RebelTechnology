@@ -109,7 +109,7 @@ void run_websocket_server( uint32_t bind_address_in)
     websocket_server_quit_flag = 0;
 
     /* Loop forever, serving pages */
-    WEB_SERVER_PRINT(("Waiting for page requests\n"));
+    WEB_SERVER_PRINT(("Waiting for websocket requests\n"));
     while ( websocket_server_quit_flag == 0 )
     {
         struct sockaddr_in remote_address;
