@@ -4,10 +4,16 @@
     <title>Websocket client</title>
     <link href="bootstrap-combined.min.css" rel="stylesheet">
     <script src="jquery.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="container">
         <h1 class="page-header">Websocket client</h1>
+  <p>MIDI 
+  <select id="midiOutputs" onChange="changeMidiOutput(this.selectedIndex)">
+    <option>...</option>
+  </select>
+  </p>
 
         <form action="" class="form-inline" id="connectForm">
             <div class="input-append">
@@ -26,66 +32,17 @@
         <ul class="unstyled" id="log"></ul>
     </div>
     <script type="text/javascript">
-        $(document).ready(function() {
-            var ws;
-            $('#connectForm').on('submit', function() {
-                if ("WebSocket" in window) {
-                    ws = new WebSocket($('#wsServer').val());
-		    ws.binaryType = 'arraybuffer';
-                    ws.onopen = function() {
-                        $('#log').append('<li><span class="badge badge-success">websocket opened</span></li>');
-                        $('#wsServer').attr('disabled', 'disabled');
-                        $('#connect').attr('disabled', 'disabled');
-                        $('#disconnect').removeAttr('disabled');
-                        $('#message').removeAttr('disabled').focus();
-                        $('#send').removeAttr('disabled');
-                    };
+function registerMidiOutput(index, name){
+  var select = document.getElementById("midiOutputs");
+  select.options[index] = new Option(name, index);
+}
 
-                    ws.onerror = function() {
-                        $('#log').append('<li><span class="badge badge-important">websocket error</span></li>');
-                    };
-
-                    ws.onmessage = function(event) {
-	<!-- var data = window.atob(event.data); -->
-                        $('#log').append('<li>received: <span class="badge">' + event.data + '</span></li>');
-			var str = [];
-			var view = new DataView(event.data);
-			for(i=0; i<event.data.byteLength; ++i){
-				str.push(view.getUint8(i).toString(16));
-			}
-                        $('#log').append('<li>decoded ' + event.data.byteLength + ' bytes: <span class="badge">0x' + str.join(" 0x") + '</span></li>');
-                    };
-
-                    ws.onclose = function() {
-                        $('#log').append('<li><span class="badge badge-important">websocket closed</span></li>');
-                        $('#wsServer').removeAttr('disabled');
-                        $('#connect').removeAttr('disabled');
-                        $('#disconnect').attr('disabled', 'disabled');
-                        $('#message').attr('disabled', 'disabled');
-                        $('#send').attr('disabled', 'disabled');
-                    };
-                } else {
-                    $('#log').append('<li><span class="badge badge-important">WebSocket NOT supported in this browser</span></li>');
-                }
-
-                return false;
-            });
-            $('#sendForm').on('submit', function() {
-//                var message = $('#message').val();
-//                ws.send(message);
-		var message = new Int8Array(3);
-		message.set([0x80, 60, 80]);
-		ws.send(message);
-                $('#log').append('<li>sent: <span class="badge">' + message + '</span></li>');
-
-                return false;
-            });
-            $('#disconnect').on('click', function() {
-                ws.close();
-
-                return false;
-            });
-        });
+function changeMidiOutput(index){
+  selectMidiOutput(index);
+  <!-- sendCc(OpenWareMidiControl.REQUEST_SETTINGS, 1); // load patch names -->
+  <!-- setTimeout(function() { sendCc(OpenWareMidiControl.REQUEST_SETTINGS, 1) }, 500); // load patch names -->
+  <!-- setTimeout(function() { sendCc(OpenWareMidiControl.REQUEST_SETTINGS, 127) }, 1000); // load settings   -->
+}
     </script>
 </body>
 </html>

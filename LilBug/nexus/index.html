@@ -32,6 +32,16 @@
     <div class="right">
       This is all about the lil'bug.
     </div>
+    <div>
+      <form action="" class="form-inline" id="connectForm">
+        <div class="input-append">
+          <input type="text" class="input-large" value="ws://localhost:8080/midi" id="wsServer">
+          <button class="btn" type="submit" id="connect">Connect</button>
+          <button class="btn" disabled="disabled" id="disconnect">Disconnect</button>
+          <button class="btn" id="clear">Clear</button>
+        </div>
+      </form>
+    </div>
   </div>
 
   <div class="content-root">
@@ -43,6 +53,9 @@
       <canvas id="p1" nx="position"></canvas>
       <div/>
       <canvas id="k1" nx="keyboard"></canvas>
+    </div>
+    <div>
+      <ul class="unstyled" id="log"></ul>
     </div>
   </div>
 
