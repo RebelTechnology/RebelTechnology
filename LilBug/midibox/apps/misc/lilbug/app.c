@@ -17,7 +17,7 @@
 
 #include <mios32.h>
 
-#include <midimon.h>
+/* #include <midimon.h> */
 
 #include "app.h"
 #include "terminal.h"
@@ -49,35 +49,39 @@ static void APP_Periodic_100uS(void);
 /////////////////////////////////////////////////////////////////////////////
 void APP_Init(void)
 {
-  int i;
 
-  // init terminal
-  TERMINAL_Init(0);
+  MIOS32_MIDI_RS_OptimisationSet(USB0, 0);
+  MIOS32_MIDI_RS_OptimisationSet(UART0, 0);
 
-  // init MIDImon
-  MIDIMON_Init(0);
+  /* int i; */
 
-  // initialize status LED
-  MIOS32_BOARD_LED_Init(0xffffffff);
-  MIOS32_BOARD_LED_Set(1, 0);
-  led_pwm_counter[0] = LED_PWM_PERIOD;
-  led_trigger[0] = LED_PWM_PERIOD; // trigger LED on startup for complete PWM cycle
+  /* // init terminal */
+  /* TERMINAL_Init(0); */
 
-  // initialize additional LEDs connected to J5A
-  for(i=0; i<4; ++i) {
-    led_pwm_counter[1+i] = LED_PWM_PERIOD;
-    led_trigger[1+i] = LED_PWM_PERIOD; // trigger LED on startup for complete PWM cycle
-    MIOS32_BOARD_J5_PinInit(i, MIOS32_BOARD_PIN_MODE_OUTPUT_PP);
-    MIOS32_BOARD_J5_PinSet(i, 0);
-  }
+  /* // init MIDImon */
+  /* MIDIMON_Init(0); */
 
-  // initialize J5B/J5C pins as inputs with pull-up enabled
-  // these pins control diagnostic options of the MIDI monitor
-  for(i=4; i<12; ++i)
-    MIOS32_BOARD_J5_PinInit(i, MIOS32_BOARD_PIN_MODE_INPUT_PU);
+  /* // initialize status LED */
+  /* MIOS32_BOARD_LED_Init(0xffffffff); */
+  /* MIOS32_BOARD_LED_Set(1, 0); */
+  /* led_pwm_counter[0] = LED_PWM_PERIOD; */
+  /* led_trigger[0] = LED_PWM_PERIOD; // trigger LED on startup for complete PWM cycle */
 
-  // install timer function which is called each 100 uS
-  MIOS32_TIMER_Init(0, 100, APP_Periodic_100uS, MIOS32_IRQ_PRIO_MID);
+  /* // initialize additional LEDs connected to J5A */
+  /* for(i=0; i<4; ++i) { */
+  /*   led_pwm_counter[1+i] = LED_PWM_PERIOD; */
+  /*   led_trigger[1+i] = LED_PWM_PERIOD; // trigger LED on startup for complete PWM cycle */
+  /*   MIOS32_BOARD_J5_PinInit(i, MIOS32_BOARD_PIN_MODE_OUTPUT_PP); */
+  /*   MIOS32_BOARD_J5_PinSet(i, 0); */
+  /* } */
+
+  /* // initialize J5B/J5C pins as inputs with pull-up enabled */
+  /* // these pins control diagnostic options of the MIDI monitor */
+  /* for(i=4; i<12; ++i) */
+  /*   MIOS32_BOARD_J5_PinInit(i, MIOS32_BOARD_PIN_MODE_INPUT_PU); */
+
+  /* // install timer function which is called each 100 uS */
+  /* MIOS32_TIMER_Init(0, 100, APP_Periodic_100uS, MIOS32_IRQ_PRIO_MID); */
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -85,13 +89,14 @@ void APP_Init(void)
 /////////////////////////////////////////////////////////////////////////////
 void APP_Background(void)
 {
+#ifndef MIOS32_DONT_USE_LCD
   // init LCD
   MIOS32_LCD_Clear();
   MIOS32_LCD_CursorSet(0, 0);
   MIOS32_LCD_PrintString("see README.txt   ");
   MIOS32_LCD_CursorSet(0, 1);
   MIOS32_LCD_PrintString("for details     ");
-
+#endif
   // endless loop
   while( 1 ) {
     // do nothing
@@ -112,11 +117,11 @@ void APP_MIDI_NotifyPackage(mios32_midi_port_t port, mios32_midi_package_t midi_
       led_trigger[1] = LED_PWM_PERIOD; // J5A.0
       break;
 
-    case USB1:
-      MIOS32_MIDI_SendPackage(UART1, midi_package);
-      led_trigger[0] = LED_PWM_PERIOD; // Board LED
-      led_trigger[2] = LED_PWM_PERIOD; // J5A.1
-      break;
+    /* case USB1: */
+    /*   MIOS32_MIDI_SendPackage(UART1, midi_package); */
+    /*   led_trigger[0] = LED_PWM_PERIOD; // Board LED */
+    /*   led_trigger[2] = LED_PWM_PERIOD; // J5A.1 */
+    /*   break; */
 
     case UART0:
       MIOS32_MIDI_SendPackage(USB0, midi_package);
@@ -124,44 +129,44 @@ void APP_MIDI_NotifyPackage(mios32_midi_port_t port, mios32_midi_package_t midi_
       led_trigger[3] = LED_PWM_PERIOD; // J5A.2
       break;
 
-    case UART1:
-      MIOS32_MIDI_SendPackage(USB1, midi_package);
-      led_trigger[0] = LED_PWM_PERIOD; // Board LED
-      led_trigger[4] = LED_PWM_PERIOD; // J5A.3
-      break;
+    /* case UART1: */
+    /*   MIOS32_MIDI_SendPackage(USB1, midi_package); */
+    /*   led_trigger[0] = LED_PWM_PERIOD; // Board LED */
+    /*   led_trigger[4] = LED_PWM_PERIOD; // J5A.3 */
+    /*   break; */
   }
 
   // forward to MIDI Monitor
   // SysEx messages have to be filtered for USB0 and UART0 to avoid data corruption
   // (the SysEx stream would interfere with monitor messages)
-  u8 filter_sysex_message = (port == USB0) || (port == UART0);
-  MIDIMON_Receive(port, midi_package, filter_sysex_message);
+  /* u8 filter_sysex_message = (port == USB0) || (port == UART0); */
+  /* MIDIMON_Receive(port, midi_package, filter_sysex_message); */
 }
 
 
 /////////////////////////////////////////////////////////////////////////////
 // This hook is called before the shift register chain is scanned
 /////////////////////////////////////////////////////////////////////////////
-void APP_SRIO_ServicePrepare(void)
-{
-}
+/* void APP_SRIO_ServicePrepare(void) */
+/* { */
+/* } */
 
 
 /////////////////////////////////////////////////////////////////////////////
 // This hook is called after the shift register chain has been scanned
 /////////////////////////////////////////////////////////////////////////////
-void APP_SRIO_ServiceFinish(void)
-{
-}
+/* void APP_SRIO_ServiceFinish(void) */
+/* { */
+/* } */
 
 
 /////////////////////////////////////////////////////////////////////////////
 // This hook is called when a button has been toggled
 // pin_value is 1 when button released, and 0 when button pressed
 /////////////////////////////////////////////////////////////////////////////
-void APP_DIN_NotifyToggle(u32 pin, u32 pin_value)
-{
-}
+/* void APP_DIN_NotifyToggle(u32 pin, u32 pin_value) */
+/* { */
+/* } */
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -169,22 +174,22 @@ void APP_DIN_NotifyToggle(u32 pin, u32 pin_value)
 // incrementer is positive when encoder has been turned clockwise, else
 // it is negative
 /////////////////////////////////////////////////////////////////////////////
-void APP_ENC_NotifyChange(u32 encoder, s32 incrementer)
-{
-}
+/* void APP_ENC_NotifyChange(u32 encoder, s32 incrementer) */
+/* { */
+/* } */
 
 
 /////////////////////////////////////////////////////////////////////////////
 // This hook is called when a pot has been moved
 /////////////////////////////////////////////////////////////////////////////
-void APP_AIN_NotifyChange(u32 pin, u32 pin_value)
-{
-}
+/* void APP_AIN_NotifyChange(u32 pin, u32 pin_value) */
+/* { */
+/* } */
 
 
 
 /////////////////////////////////////////////////////////////////////////////
-// This timer function is periodically called each 100 uS
+// this timer function is periodically called each 100 uS
 /////////////////////////////////////////////////////////////////////////////
 static void APP_Periodic_100uS(void)
 {

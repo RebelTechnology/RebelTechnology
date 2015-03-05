@@ -3,20 +3,37 @@
  * Local MIOS32 configuration file
  *
  * this file allows to disable (or re-configure) default functions of MIOS32
- * available switches are listed in $MIOS32_PATH/modules/mios32/MIOS32_CONFIG.txt
+ * available switches are listed in $MIOS32_PATH/doc/mios32/MIOS32_CONFIG.txt
  *
  */
 
 #ifndef _MIOS32_CONFIG_H
 #define _MIOS32_CONFIG_H
 
-#define MIOS32_MIDI_USBH_DEBUG 1
+/* #define MIOS32_MIDI_USBH_DEBUG 1 */
+
+/* #define MIOS32_UART_NUM 1 */
+/* #define MIOS32_USB_MIDI_NUM_PORTS 1 */
+/* #define MIOS32_IIC_BS_NUM 0 */
 
 /* #define MIOS32_UART0_BAUDRATE 31250 */
 #define MIOS32_UART0_BAUDRATE 115200
 #define MIOS32_UART0_TX_OD 0
 #define MIOS32_UART1_BAUDRATE 115200
 #define MIOS32_UART1_TX_OD 0
+
+#define MIOS32_DONT_USE_SRIO
+#define MIOS32_DONT_USE_SPI
+#define MIOS32_DONT_USE_DIN
+#define MIOS32_DONT_USE_DOUT
+#define MIOS32_DONT_USE_ENC
+#define MIOS32_DONT_USE_MF
+#define MIOS32_DONT_USE_AIN
+#define MIOS32_DONT_USE_IIC_BS
+/* #define MIOS32_DONT_USE_USB */
+#define MIOS32_DONT_USE_OSC
+#define MIOS32_DONT_USE_COM
+#define MIOS32_DONT_USE_LCD
 
 // The boot message which is print during startup and returned on a SysEx query
 #define MIOS32_LCD_BOOT_MSG_LINE1 "LilBug Proto1"
