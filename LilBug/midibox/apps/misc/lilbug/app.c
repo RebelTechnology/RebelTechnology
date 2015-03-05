@@ -1,20 +1,3 @@
-// $Id: app.c 1911 2014-01-02 15:40:40Z tk $
-/*
- * MIDI USB 2x2 Interface Driver
- *
- * ==========================================================================
- *
- *  Copyright (C) 2009 Thorsten Klose (tk@midibox.org)
- *  Licensed for personal non-commercial use only.
- *  All other rights reserved.
- * 
- * ==========================================================================
- */
-
-/////////////////////////////////////////////////////////////////////////////
-// Include files
-/////////////////////////////////////////////////////////////////////////////
-
 #include <mios32.h>
 
 /* #include <midimon.h> */
@@ -22,36 +5,20 @@
 #include "app.h"
 #include "terminal.h"
 
-
-/////////////////////////////////////////////////////////////////////////////
-// Local defines
-/////////////////////////////////////////////////////////////////////////////
 #define LED_PWM_PERIOD   50 // *100 uS -> 5 mS
-
 #define NUM_LED_TRIGGERS 5  // Board LED + dedicated LED for each port
 
-
-/////////////////////////////////////////////////////////////////////////////
-// Local variables
-/////////////////////////////////////////////////////////////////////////////
 static u8 led_trigger[NUM_LED_TRIGGERS];
 static u8 led_pwm_counter[NUM_LED_TRIGGERS];
-
-
-/////////////////////////////////////////////////////////////////////////////
-// Local prototypes
-/////////////////////////////////////////////////////////////////////////////
 static void APP_Periodic_100uS(void);
 
-
-/////////////////////////////////////////////////////////////////////////////
-// This hook is called after startup to initialize the application
-/////////////////////////////////////////////////////////////////////////////
 void APP_Init(void)
 {
 
+  // disable running status optimisations
   MIOS32_MIDI_RS_OptimisationSet(USB0, 0);
   MIOS32_MIDI_RS_OptimisationSet(UART0, 0);
+  MIOS32_MIDI_RS_OptimisationSet(UART1, 0);
 
   /* int i; */
 
@@ -109,12 +76,12 @@ void APP_Background(void)
 /////////////////////////////////////////////////////////////////////////////
 void APP_MIDI_NotifyPackage(mios32_midi_port_t port, mios32_midi_package_t midi_package)
 {
-  // forward packages USBx->UARTx and UARTx->USBx
   switch( port ) {
     case USB0:
       MIOS32_MIDI_SendPackage(UART0, midi_package);
-      led_trigger[0] = LED_PWM_PERIOD; // Board LED
-      led_trigger[1] = LED_PWM_PERIOD; // J5A.0
+      MIOS32_MIDI_SendPackage(UART1, midi_package);
+      /* led_trigger[0] = LED_PWM_PERIOD; // Board LED */
+      /* led_trigger[1] = LED_PWM_PERIOD; // J5A.0 */
       break;
 
     /* case USB1: */
@@ -125,15 +92,15 @@ void APP_MIDI_NotifyPackage(mios32_midi_port_t port, mios32_midi_package_t midi_
 
     case UART0:
       MIOS32_MIDI_SendPackage(USB0, midi_package);
-      led_trigger[0] = LED_PWM_PERIOD; // Board LED
-      led_trigger[3] = LED_PWM_PERIOD; // J5A.2
+      /* led_trigger[0] = LED_PWM_PERIOD; // Board LED */
+      /* led_trigger[3] = LED_PWM_PERIOD; // J5A.2 */
       break;
 
-    /* case UART1: */
-    /*   MIOS32_MIDI_SendPackage(USB1, midi_package); */
-    /*   led_trigger[0] = LED_PWM_PERIOD; // Board LED */
-    /*   led_trigger[4] = LED_PWM_PERIOD; // J5A.3 */
-    /*   break; */
+    case UART1:
+      MIOS32_MIDI_SendPackage(USB0, midi_package);
+      /* led_trigger[0] = LED_PWM_PERIOD; // Board LED */
+      /* led_trigger[4] = LED_PWM_PERIOD; // J5A.3 */
+      break;
   }
 
   // forward to MIDI Monitor
