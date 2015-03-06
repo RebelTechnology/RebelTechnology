@@ -92,12 +92,14 @@ void APP_MIDI_NotifyPackage(mios32_midi_port_t port, mios32_midi_package_t midi_
 
     case UART0:
       MIOS32_MIDI_SendPackage(USB0, midi_package);
+      /* MIOS32_MIDI_SendPackage(UART1, midi_package); */
       /* led_trigger[0] = LED_PWM_PERIOD; // Board LED */
       /* led_trigger[3] = LED_PWM_PERIOD; // J5A.2 */
       break;
 
     case UART1:
       MIOS32_MIDI_SendPackage(USB0, midi_package);
+      /* MIOS32_MIDI_SendPackage(UART0, midi_package); */
       /* led_trigger[0] = LED_PWM_PERIOD; // Board LED */
       /* led_trigger[4] = LED_PWM_PERIOD; // J5A.3 */
       break;

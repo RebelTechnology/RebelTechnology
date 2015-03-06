@@ -45,14 +45,14 @@
 #define MIOS32_UART0_IRQHANDLER_FUNC void USART2_IRQHandler(void)
 #define MIOS32_UART0_REMAP_FUNC  { GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_USART2); GPIO_PinAFConfig(GPIOA, GPIO_PinSource3, GPIO_AF_USART2); }
 
-#define MIOS32_UART1_TX_PORT     GPIOD
-#define MIOS32_UART1_TX_PIN      GPIO_Pin_8
-#define MIOS32_UART1_RX_PORT     GPIOD
-#define MIOS32_UART1_RX_PIN      GPIO_Pin_9
-#define MIOS32_UART1             USART3
-#define MIOS32_UART1_IRQ_CHANNEL USART3_IRQn
-#define MIOS32_UART1_IRQHANDLER_FUNC void USART3_IRQHandler(void)
-#define MIOS32_UART1_REMAP_FUNC  { GPIO_PinAFConfig(GPIOD, GPIO_PinSource8, GPIO_AF_USART3); GPIO_PinAFConfig(GPIOD, GPIO_PinSource9, GPIO_AF_USART3); }
+#define MIOS32_UART1_TX_PORT     GPIOB
+#define MIOS32_UART1_TX_PIN      GPIO_Pin_6
+#define MIOS32_UART1_RX_PORT     GPIOB
+#define MIOS32_UART1_RX_PIN      GPIO_Pin_7
+#define MIOS32_UART1             USART1
+#define MIOS32_UART1_IRQ_CHANNEL USART1_IRQn
+#define MIOS32_UART1_IRQHANDLER_FUNC void USART1_IRQHandler(void)
+#define MIOS32_UART1_REMAP_FUNC  { GPIO_PinAFConfig(GPIOB, GPIO_PinSource6, GPIO_AF_USART1); GPIO_PinAFConfig(GPIOB, GPIO_PinSource7, GPIO_AF_USART1); }
 
 // Since pin PB6 is allocated by the SCL input of the Audio DAC, we've to use a TX pin of a different UART! :-/
 #define MIOS32_UART2_TX_PORT     GPIOC

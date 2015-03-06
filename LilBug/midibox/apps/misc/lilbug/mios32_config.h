@@ -20,7 +20,7 @@
 #define MIOS32_UART0_BAUDRATE 115200
 #define MIOS32_UART0_TX_OD 0
 #define MIOS32_UART1_BAUDRATE 31250
-#define MIOS32_UART1_TX_OD 0
+#define MIOS32_UART1_TX_OD 1
 
 #define MIOS32_DONT_USE_SRIO
 #define MIOS32_DONT_USE_SPI
@@ -36,7 +36,7 @@
 #define MIOS32_DONT_USE_LCD
 
 // The boot message which is print during startup and returned on a SysEx query
-#define MIOS32_LCD_BOOT_MSG_LINE1 "LilBug Proto1"
+#define MIOS32_LCD_BOOT_MSG_LINE1 "LilBug v001"
 #define MIOS32_LCD_BOOT_MSG_LINE2 "Rebel Technology"
 
 // Following settings allow to customize the USB device descriptor
