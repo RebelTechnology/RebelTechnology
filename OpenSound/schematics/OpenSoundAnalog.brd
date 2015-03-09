@@ -142,7 +142,7 @@
 <dimension x1="2.15" y1="1.054" x2="2.15" y2="101.054" x3="-0.9525" y3="51.054" textsize="1.778" layer="47"/>
 <dimension x1="2.15" y1="1.054" x2="31.0325" y2="1.054" x3="16.59125" y3="-2.54" textsize="1.778" layer="47"/>
 <text x="20.955" y="60.325" size="1.9304" layer="22" font="vector" rot="MR0">OpenSound</text>
-<text x="14.2875" y="57.785" size="1.9304" layer="22" font="vector" rot="MR0">Rev01</text>
+<text x="14.2875" y="57.785" size="1.9304" layer="22" font="vector" rot="MR0">Rev02</text>
 </plain>
 <libraries>
 <library name="resistor">
