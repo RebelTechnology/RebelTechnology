@@ -3,7 +3,7 @@
 /* #include <midimon.h> */
 
 #include "app.h"
-#include "terminal.h"
+#include "audio.h"
 
 #define LED_PWM_PERIOD   50 // *100 uS -> 5 mS
 #define NUM_LED_TRIGGERS 5  // Board LED + dedicated LED for each port
@@ -14,19 +14,12 @@ static void APP_Periodic_100uS(void);
 
 void APP_Init(void)
 {
-
   // disable running status optimisations
   MIOS32_MIDI_RS_OptimisationSet(USB0, 0);
   MIOS32_MIDI_RS_OptimisationSet(UART0, 0);
   MIOS32_MIDI_RS_OptimisationSet(UART1, 0);
 
   /* int i; */
-
-  /* // init terminal */
-  /* TERMINAL_Init(0); */
-
-  /* // init MIDImon */
-  /* MIDIMON_Init(0); */
 
   /* // initialize status LED */
   /* MIOS32_BOARD_LED_Init(0xffffffff); */
@@ -49,6 +42,8 @@ void APP_Init(void)
 
   /* // install timer function which is called each 100 uS */
   /* MIOS32_TIMER_Init(0, 100, APP_Periodic_100uS, MIOS32_IRQ_PRIO_MID); */
+
+  audio_init();
 }
 
 /////////////////////////////////////////////////////////////////////////////
