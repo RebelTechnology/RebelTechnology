@@ -11,7 +11,7 @@ extern const platform_uart_t       platform_uart_peripherals[];
 extern platform_uart_driver_t      platform_uart_drivers[];
 
 platform_uart_config_t uart_config = {
-    .baud_rate    = 115200,
+    .baud_rate    = UART_SERIAL_SPEED,
     .data_width   = DATA_WIDTH_8BIT,
     .parity       = NO_PARITY,
     .stop_bits    = STOP_BITS_1,
@@ -26,8 +26,21 @@ int uart_init(){
   ring_buffer_init(&rx_buffer, rx_data, RX_BUFFER_SIZE );
 
   /* Initialise UART. A ring buffer is used to hold received characters */
-  return platform_uart_init( &platform_uart_drivers[MIDI_UART], &platform_uart_peripherals[MIDI_UART], &uart_config, &rx_buffer ) == PLATFORM_SUCCESS ? 0 : -1;
+  int result = platform_uart_init( &platform_uart_drivers[MIDI_UART], &platform_uart_peripherals[MIDI_UART], &uart_config, &rx_buffer ) == PLATFORM_SUCCESS ? 0 : -1;
 
+#if UART_SERIAL_SPEED == 31250
+  // reconfigure UART tx pin as open drain
+  const platform_uart_t* peripheral = &platform_uart_peripherals[MIDI_UART];
+  GPIO_InitTypeDef GPIO_InitStructure;
+  GPIO_StructInit(&GPIO_InitStructure);
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+  GPIO_InitStructure.GPIO_Pin = peripheral->tx_pin->pin_number;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+  GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
+  GPIO_Init(peripheral->tx_pin->port, &GPIO_InitStructure);
+#endif
+
+  return result;
   /* return wiced_uart_init(MIDI_UART, &uart_config, &rx_buffer)  == WICED_SUCCESS; */
 }
 

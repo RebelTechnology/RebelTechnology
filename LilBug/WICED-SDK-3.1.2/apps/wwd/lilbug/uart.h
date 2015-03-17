@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+#define UART_SERIAL_SPEED 31250 /* hardware midi */
+/* #define UART_SERIAL_SPEED 115200 /\* ttl midibox midi *\/ */
+
 #ifdef __cplusplus
 extern "C" {
 #endif
