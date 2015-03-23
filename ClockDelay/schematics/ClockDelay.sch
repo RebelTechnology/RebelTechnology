@@ -20739,6 +20739,9 @@ high speed (Philips)</description>
 <part name="P-4" library="supply1" deviceset="-12V" device=""/>
 <part name="JP2" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="Y1" library="SparkFun" deviceset="RESONATOR" device="PTH" value="16Mhz"/>
+<part name="JP3" library="SparkFun" deviceset="M06" device="SIP"/>
+<part name="P+17" library="supply1" deviceset="+5V" device=""/>
+<part name="GND30" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -20881,6 +20884,9 @@ high speed (Philips)</description>
 <instance part="P-4" gate="1" x="33.02" y="-81.28"/>
 <instance part="JP2" gate="G$1" x="246.38" y="-68.58" rot="R180"/>
 <instance part="Y1" gate="G$1" x="160.02" y="-81.28" rot="R270"/>
+<instance part="JP3" gate="G$1" x="160.02" y="-198.12" rot="R180"/>
+<instance part="P+17" gate="1" x="139.7" y="-185.42"/>
+<instance part="GND30" gate="1" x="137.16" y="-213.36"/>
 </instances>
 <busses>
 </busses>
@@ -21180,6 +21186,12 @@ high speed (Philips)</description>
 <pinref part="GND37" gate="1" pin="GND"/>
 <wire x1="231.14" y1="-182.88" x2="231.14" y2="-180.34" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="JP3" gate="G$1" pin="1"/>
+<wire x1="154.94" y1="-193.04" x2="137.16" y2="-193.04" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="-193.04" x2="137.16" y2="-210.82" width="0.1524" layer="91"/>
+<pinref part="GND30" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="N$2" class="0">
 <segment>
@@ -21327,6 +21339,12 @@ high speed (Philips)</description>
 <pinref part="P+16" gate="1" pin="+5V"/>
 <wire x1="241.3" y1="27.94" x2="241.3" y2="15.24" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="JP3" gate="G$1" pin="6"/>
+<wire x1="154.94" y1="-205.74" x2="139.7" y2="-205.74" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="-205.74" x2="139.7" y2="-187.96" width="0.1524" layer="91"/>
+<pinref part="P+17" gate="1" pin="+5V"/>
+</segment>
 </net>
 <net name="N$7" class="0">
 <segment>
@@ -21390,22 +21408,6 @@ high speed (Philips)</description>
 <wire x1="10.16" y1="-53.34" x2="25.4" y2="-53.34" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="-53.34" x2="25.4" y2="-55.88" width="0.1524" layer="91"/>
 <pinref part="DELCV" gate="G$1" pin="3"/>
-</segment>
-</net>
-<net name="N$18" class="0">
-<segment>
-<pinref part="IC2" gate="G$1" pin="PB4(MISO)"/>
-<wire x1="231.14" y1="-116.84" x2="218.44" y2="-116.84" width="0.1524" layer="91"/>
-<wire x1="231.14" y1="-121.92" x2="231.14" y2="-116.84" width="0.1524" layer="91"/>
-<pinref part="LED2" gate="G$1" pin="A"/>
-</segment>
-</net>
-<net name="N$19" class="0">
-<segment>
-<pinref part="IC2" gate="G$1" pin="PB5(SCK)"/>
-<wire x1="218.44" y1="-119.38" x2="238.76" y2="-119.38" width="0.1524" layer="91"/>
-<wire x1="238.76" y1="-121.92" x2="238.76" y2="-119.38" width="0.1524" layer="91"/>
-<pinref part="LED3" gate="G$1" pin="A"/>
 </segment>
 </net>
 <net name="CLKIN" class="0">
@@ -21489,14 +21491,6 @@ high speed (Philips)</description>
 <pinref part="S1" gate="1" pin="S"/>
 <wire x1="177.8" y1="-154.94" x2="193.04" y2="-154.94" width="0.1524" layer="91"/>
 <label x="185.42" y="-154.94" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$22" class="0">
-<segment>
-<pinref part="IC2" gate="G$1" pin="PB3(MOSI/OC2)"/>
-<wire x1="218.44" y1="-114.3" x2="223.52" y2="-114.3" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="-114.3" x2="223.52" y2="-121.92" width="0.1524" layer="91"/>
-<pinref part="LED1" gate="G$1" pin="A"/>
 </segment>
 </net>
 <net name="N$23" class="0">
@@ -21650,18 +21644,6 @@ high speed (Philips)</description>
 <label x="233.68" y="-111.76" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$39" class="0">
-<segment>
-<pinref part="C1" gate="G$1" pin="2"/>
-<wire x1="134.62" y1="-60.96" x2="134.62" y2="-55.88" width="0.1524" layer="91"/>
-<pinref part="IC2" gate="G$1" pin="PC6(/RESET)"/>
-<wire x1="134.62" y1="-60.96" x2="152.4" y2="-60.96" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="152.4" y1="-60.96" x2="170.18" y2="-60.96" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="-60.96" x2="152.4" y2="-55.88" width="0.1524" layer="91"/>
-<junction x="152.4" y="-60.96"/>
-</segment>
-</net>
 <net name="MODEA" class="0">
 <segment>
 <pinref part="S1" gate="1" pin="O"/>
@@ -21773,6 +21755,66 @@ high speed (Philips)</description>
 <pinref part="IC2" gate="G$1" pin="PC5(ADC5/SCL)"/>
 <pinref part="JP2" gate="G$1" pin="4"/>
 <wire x1="241.3" y1="-73.66" x2="218.44" y2="-73.66" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="MISO" class="0">
+<segment>
+<pinref part="JP3" gate="G$1" pin="3"/>
+<wire x1="154.94" y1="-198.12" x2="144.78" y2="-198.12" width="0.1524" layer="91"/>
+<label x="144.78" y="-198.12" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="PB4(MISO)"/>
+<wire x1="231.14" y1="-116.84" x2="218.44" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="231.14" y1="-121.92" x2="231.14" y2="-116.84" width="0.1524" layer="91"/>
+<pinref part="LED2" gate="G$1" pin="A"/>
+<label x="233.68" y="-116.84" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SCK" class="0">
+<segment>
+<pinref part="JP3" gate="G$1" pin="2"/>
+<wire x1="154.94" y1="-195.58" x2="144.78" y2="-195.58" width="0.1524" layer="91"/>
+<label x="144.78" y="-195.58" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="PB5(SCK)"/>
+<wire x1="218.44" y1="-119.38" x2="238.76" y2="-119.38" width="0.1524" layer="91"/>
+<wire x1="238.76" y1="-121.92" x2="238.76" y2="-119.38" width="0.1524" layer="91"/>
+<pinref part="LED3" gate="G$1" pin="A"/>
+<label x="233.68" y="-119.38" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RST" class="0">
+<segment>
+<pinref part="JP3" gate="G$1" pin="5"/>
+<wire x1="154.94" y1="-203.2" x2="144.78" y2="-203.2" width="0.1524" layer="91"/>
+<label x="144.78" y="-203.2" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="C1" gate="G$1" pin="2"/>
+<wire x1="134.62" y1="-60.96" x2="134.62" y2="-55.88" width="0.1524" layer="91"/>
+<pinref part="IC2" gate="G$1" pin="PC6(/RESET)"/>
+<wire x1="134.62" y1="-60.96" x2="152.4" y2="-60.96" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="1"/>
+<wire x1="152.4" y1="-60.96" x2="170.18" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="-60.96" x2="152.4" y2="-55.88" width="0.1524" layer="91"/>
+<junction x="152.4" y="-60.96"/>
+<label x="157.48" y="-60.96" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="MOSI" class="0">
+<segment>
+<pinref part="JP3" gate="G$1" pin="4"/>
+<wire x1="154.94" y1="-200.66" x2="144.78" y2="-200.66" width="0.1524" layer="91"/>
+<label x="144.78" y="-200.66" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="PB3(MOSI/OC2)"/>
+<wire x1="218.44" y1="-114.3" x2="223.52" y2="-114.3" width="0.1524" layer="91"/>
+<wire x1="223.52" y1="-114.3" x2="223.52" y2="-121.92" width="0.1524" layer="91"/>
+<pinref part="LED1" gate="G$1" pin="A"/>
+<label x="233.68" y="-114.3" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
