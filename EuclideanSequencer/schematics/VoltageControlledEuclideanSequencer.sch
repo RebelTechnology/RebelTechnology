@@ -9623,9 +9623,9 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="2.286" y1="-1.778" x2="2.286" y2="1.778" width="0.2032" layer="21" curve="162.403081"/>
 <wire x1="-2.286" y1="-1.778" x2="2.286" y2="-1.778" width="0.2032" layer="21" curve="12.71932"/>
 <wire x1="2.286" y1="1.778" x2="-2.286" y2="1.778" width="0.2032" layer="21" curve="12.758496"/>
-<pad name="2" x="0" y="0" drill="0.8" diameter="1.8796"/>
-<pad name="1" x="-2.54" y="0" drill="0.8" diameter="1.8796"/>
-<pad name="3" x="2.54" y="0" drill="0.8" diameter="1.8796"/>
+<pad name="2" x="0" y="0" drill="0.8"/>
+<pad name="1" x="-2.54" y="0" drill="0.8"/>
+<pad name="3" x="2.54" y="0" drill="0.8"/>
 </package>
 <package name="1X06">
 <wire x1="11.43" y1="0.635" x2="12.065" y2="1.27" width="0.2032" layer="21"/>
@@ -11050,34 +11050,34 @@ Based on the following sources:&lt;p&gt;
 <wire x1="-18.542" y1="2.794" x2="-18.542" y2="0.635" width="0.1524" layer="21"/>
 <wire x1="-18.542" y1="2.794" x2="18.542" y2="2.794" width="0.1524" layer="21"/>
 <wire x1="18.542" y1="2.794" x2="18.542" y2="-2.794" width="0.1524" layer="21"/>
-<pad name="1" x="-16.51" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="2" x="-13.97" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="3" x="-11.43" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="4" x="-8.89" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="5" x="-6.35" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="6" x="-3.81" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="7" x="-1.27" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="8" x="1.27" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="9" x="3.81" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="10" x="6.35" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="11" x="8.89" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="12" x="11.43" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="13" x="13.97" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="14" x="16.51" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="15" x="16.51" y="3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="16" x="13.97" y="3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="17" x="11.43" y="3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="18" x="8.89" y="3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="19" x="6.35" y="3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="20" x="3.81" y="3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="21" x="1.27" y="3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="22" x="-1.27" y="3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="23" x="-3.81" y="3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="24" x="-6.35" y="3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="25" x="-8.89" y="3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="26" x="-11.43" y="3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="27" x="-13.97" y="3.81" drill="0.8128" shape="long" rot="R90"/>
-<pad name="28" x="-16.51" y="3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="1" x="-16.51" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="2" x="-13.97" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="3" x="-11.43" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="4" x="-8.89" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="5" x="-6.35" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="6" x="-3.81" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="7" x="-1.27" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="8" x="1.27" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="9" x="3.81" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="10" x="6.35" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="11" x="8.89" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="12" x="11.43" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="13" x="13.97" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="14" x="16.51" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="15" x="16.51" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="16" x="13.97" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="17" x="11.43" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="18" x="8.89" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="19" x="6.35" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="20" x="3.81" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="21" x="1.27" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="22" x="-1.27" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="23" x="-3.81" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="24" x="-6.35" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="25" x="-8.89" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="26" x="-11.43" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="27" x="-13.97" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="28" x="-16.51" y="3.81" drill="0.8128" rot="R90"/>
 <text x="-19.2024" y="-2.54" size="1.778" layer="25" ratio="10" rot="R90">&gt;NAME</text>
 <text x="-15.875" y="-0.635" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -19178,9 +19178,9 @@ high speed (Philips)</description>
 <wire x1="2.664" y1="-1.397" x2="1.404" y2="-1.397" width="0.127" layer="51"/>
 <wire x1="1.404" y1="-1.397" x2="1.136" y2="-1.397" width="0.127" layer="21"/>
 <wire x1="2.095" y1="-2.921" x2="2.4247" y2="-2.3818" width="0.127" layer="21" curve="13.609443"/>
-<pad name="C" x="2.54" y="-1.27" drill="0.8128" shape="long" rot="R90"/>
-<pad name="E" x="-2.54" y="-1.27" drill="0.8128" shape="long" rot="R90"/>
-<pad name="B" x="0" y="-1.27" drill="0.8128" shape="long" rot="R90"/>
+<pad name="C" x="2.54" y="-1.27" drill="0.8128" rot="R90"/>
+<pad name="E" x="-2.54" y="-1.27" drill="0.8128" rot="R90"/>
+<pad name="B" x="0" y="-1.27" drill="0.8128" rot="R90"/>
 <text x="-2.54" y="1.778" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-2.54" y="-4.572" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
