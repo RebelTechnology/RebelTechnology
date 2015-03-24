@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.1">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -9,6 +9,10 @@
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
@@ -65,12 +69,27 @@
 <layer number="105" name="tPlate" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="106" name="bPlate" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="107" name="Crop" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="108" name="fp8" color="7" fill="1" visible="no" active="yes"/>
+<layer number="109" name="fp9" color="7" fill="1" visible="no" active="yes"/>
+<layer number="110" name="fp0" color="7" fill="1" visible="no" active="yes"/>
+<layer number="111" name="LPC17xx" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="112" name="tSilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="113" name="Max.sfx.Comments" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="116" name="Patch_BOT" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="121" name="_tsilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="122" name="_bsilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="123" name="tTestmark" color="7" fill="1" visible="no" active="yes"/>
+<layer number="124" name="bTestmark" color="7" fill="1" visible="no" active="yes"/>
 <layer number="125" name="_tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="126" name="_bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="131" name="tAdjust" color="7" fill="1" visible="no" active="yes"/>
+<layer number="132" name="bAdjust" color="7" fill="1" visible="no" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="152" name="_bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="199" name="Contour" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="200" name="200bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="201" name="201bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="202" name="202bmp" color="7" fill="1" visible="yes" active="yes"/>
@@ -96,6 +115,8 @@
 <layer number="222" name="222bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="223" name="223bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="224" name="224bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="248" name="Housing" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="249" name="Edge" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="251" name="SMDround" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="254" name="cooling" color="7" fill="1" visible="yes" active="yes"/>
@@ -20714,6 +20735,9 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="ROTMAN" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="P+9" library="supply1" deviceset="+5V" device=""/>
+<part name="JP3" library="SparkFun" deviceset="M06" device="SIP"/>
+<part name="P+17" library="supply1" deviceset="+5V" device=""/>
+<part name="GND30" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -20836,6 +20860,9 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <instance part="ROTMAN" gate="G$1" x="144.78" y="-175.26" rot="R90"/>
 <instance part="ROTMAN" gate="G$2" x="287.02" y="-170.18"/>
 <instance part="P+9" gate="1" x="144.78" y="-157.48"/>
+<instance part="JP3" gate="G$1" x="322.58" y="-86.36" rot="R180"/>
+<instance part="P+17" gate="1" x="302.26" y="-73.66"/>
+<instance part="GND30" gate="1" x="299.72" y="-101.6"/>
 </instances>
 <busses>
 </busses>
@@ -21097,6 +21124,12 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <pinref part="ROTMAN" gate="G$1" pin="1"/>
 <wire x1="144.78" y1="-182.88" x2="144.78" y2="-185.42" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="JP3" gate="G$1" pin="1"/>
+<wire x1="317.5" y1="-81.28" x2="299.72" y2="-81.28" width="0.1524" layer="91"/>
+<wire x1="299.72" y1="-81.28" x2="299.72" y2="-99.06" width="0.1524" layer="91"/>
+<pinref part="GND30" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="N$2" class="0">
 <segment>
@@ -21237,6 +21270,12 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <wire x1="144.78" y1="-167.64" x2="144.78" y2="-160.02" width="0.1524" layer="91"/>
 <pinref part="P+9" gate="1" pin="+5V"/>
 </segment>
+<segment>
+<pinref part="JP3" gate="G$1" pin="6"/>
+<wire x1="317.5" y1="-93.98" x2="302.26" y2="-93.98" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="-93.98" x2="302.26" y2="-76.2" width="0.1524" layer="91"/>
+<pinref part="P+17" gate="1" pin="+5V"/>
+</segment>
 </net>
 <net name="N$7" class="0">
 <segment>
@@ -21306,14 +21345,6 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <segment>
 <pinref part="IC2" gate="G$1" pin="PC5(ADC5/SCL)"/>
 <wire x1="218.44" y1="-73.66" x2="241.3" y2="-73.66" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$18" class="0">
-<segment>
-<pinref part="IC2" gate="G$1" pin="PB4(MISO)"/>
-<wire x1="231.14" y1="-116.84" x2="218.44" y2="-116.84" width="0.1524" layer="91"/>
-<wire x1="231.14" y1="-121.92" x2="231.14" y2="-116.84" width="0.1524" layer="91"/>
-<pinref part="LED2" gate="G$1" pin="A"/>
 </segment>
 </net>
 <net name="CLKIN" class="0">
@@ -21397,14 +21428,6 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <pinref part="S1" gate="1" pin="S"/>
 <wire x1="177.8" y1="-154.94" x2="193.04" y2="-154.94" width="0.1524" layer="91"/>
 <label x="185.42" y="-154.94" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$22" class="0">
-<segment>
-<pinref part="IC2" gate="G$1" pin="PB3(MOSI/OC2)"/>
-<wire x1="218.44" y1="-114.3" x2="223.52" y2="-114.3" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="-114.3" x2="223.52" y2="-121.92" width="0.1524" layer="91"/>
-<pinref part="LED1" gate="G$1" pin="A"/>
 </segment>
 </net>
 <net name="ALT" class="0">
@@ -21493,18 +21516,6 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <segment>
 <pinref part="IC2" gate="G$1" pin="PB2(SS/OC1B)"/>
 <wire x1="218.44" y1="-111.76" x2="241.3" y2="-111.76" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$39" class="0">
-<segment>
-<pinref part="C1" gate="G$1" pin="2"/>
-<wire x1="134.62" y1="-60.96" x2="134.62" y2="-55.88" width="0.1524" layer="91"/>
-<pinref part="IC2" gate="G$1" pin="PC6(/RESET)"/>
-<wire x1="134.62" y1="-60.96" x2="152.4" y2="-60.96" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="152.4" y1="-60.96" x2="170.18" y2="-60.96" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="-60.96" x2="152.4" y2="-55.88" width="0.1524" layer="91"/>
-<junction x="152.4" y="-60.96"/>
 </segment>
 </net>
 <net name="MODEB" class="0">
@@ -21613,6 +21624,64 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <pinref part="IC2" gate="G$1" pin="PC2(ADC2)"/>
 <wire x1="218.44" y1="-66.04" x2="241.3" y2="-66.04" width="0.1524" layer="91"/>
 <label x="233.68" y="-66.04" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="MISO" class="0">
+<segment>
+<pinref part="JP3" gate="G$1" pin="3"/>
+<wire x1="317.5" y1="-86.36" x2="307.34" y2="-86.36" width="0.1524" layer="91"/>
+<label x="307.34" y="-86.36" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="PB4(MISO)"/>
+<wire x1="231.14" y1="-116.84" x2="218.44" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="231.14" y1="-121.92" x2="231.14" y2="-116.84" width="0.1524" layer="91"/>
+<pinref part="LED2" gate="G$1" pin="A"/>
+<label x="233.68" y="-116.84" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SCK" class="0">
+<segment>
+<pinref part="JP3" gate="G$1" pin="2"/>
+<wire x1="317.5" y1="-83.82" x2="307.34" y2="-83.82" width="0.1524" layer="91"/>
+<label x="307.34" y="-83.82" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="PB5(SCK)"/>
+<wire x1="218.44" y1="-119.38" x2="241.3" y2="-119.38" width="0.1524" layer="91"/>
+<label x="233.68" y="-119.38" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RST" class="0">
+<segment>
+<pinref part="JP3" gate="G$1" pin="5"/>
+<wire x1="317.5" y1="-91.44" x2="307.34" y2="-91.44" width="0.1524" layer="91"/>
+<label x="307.34" y="-91.44" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="C1" gate="G$1" pin="2"/>
+<wire x1="134.62" y1="-60.96" x2="134.62" y2="-55.88" width="0.1524" layer="91"/>
+<pinref part="IC2" gate="G$1" pin="PC6(/RESET)"/>
+<wire x1="134.62" y1="-60.96" x2="152.4" y2="-60.96" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="1"/>
+<wire x1="152.4" y1="-60.96" x2="170.18" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="-60.96" x2="152.4" y2="-55.88" width="0.1524" layer="91"/>
+<junction x="152.4" y="-60.96"/>
+<label x="157.48" y="-60.96" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="MOSI" class="0">
+<segment>
+<pinref part="JP3" gate="G$1" pin="4"/>
+<wire x1="317.5" y1="-88.9" x2="307.34" y2="-88.9" width="0.1524" layer="91"/>
+<label x="307.34" y="-88.9" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="PB3(MOSI/OC2)"/>
+<wire x1="218.44" y1="-114.3" x2="223.52" y2="-114.3" width="0.1524" layer="91"/>
+<wire x1="223.52" y1="-114.3" x2="223.52" y2="-121.92" width="0.1524" layer="91"/>
+<pinref part="LED1" gate="G$1" pin="A"/>
+<label x="233.68" y="-114.3" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
