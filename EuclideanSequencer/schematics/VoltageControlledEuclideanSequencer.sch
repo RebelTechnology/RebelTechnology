@@ -8911,35 +8911,31 @@ Source: www.farnell.com/datasheets/247.pdf</description>
 </library>
 <library name="Rebel">
 <packages>
-<package name="CON-LUMBERG_1502_03">
+<package name="THONKICONN">
+<pad name="P$2" x="0" y="-3.38" drill="1"/>
+<pad name="P$3" x="0" y="4.92" drill="1"/>
+<pad name="P$1" x="0" y="-5.5" drill="1"/>
+<wire x1="-4.5" y1="6" x2="-4.5" y2="-4.5" width="0.127" layer="21"/>
+<wire x1="-4.5" y1="-4.5" x2="-0.6" y2="-4.5" width="0.127" layer="21"/>
+<wire x1="-0.6" y1="-4.5" x2="0.6" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="0.6" y1="-4.5" x2="4.5" y2="-4.5" width="0.127" layer="21"/>
+<wire x1="4.5" y1="-4.5" x2="4.5" y2="6" width="0.127" layer="21"/>
+<wire x1="4.5" y1="6" x2="1.8" y2="6" width="0.127" layer="21"/>
 <circle x="0" y="0" radius="1.8" width="0.127" layer="51"/>
-<wire x1="0.15" y1="-3.45" x2="0.15" y2="-3.95" width="0.127" layer="51"/>
-<wire x1="0.15" y1="-3.45" x2="1.65" y2="-3.45" width="0.127" layer="51"/>
-<wire x1="0.15" y1="-3.95" x2="1.65" y2="-3.95" width="0.127" layer="51"/>
-<wire x1="1.65" y1="-3.45" x2="1.65" y2="-3.95" width="0.127" layer="51"/>
-<wire x1="-4.05" y1="-2.15" x2="-4.05" y2="-0.65" width="0.127" layer="51"/>
-<wire x1="-3.55" y1="-2.15" x2="-3.55" y2="-0.65" width="0.127" layer="51"/>
-<wire x1="-4.05" y1="-0.65" x2="-3.55" y2="-0.65" width="0.127" layer="51"/>
-<wire x1="-4.05" y1="-2.15" x2="-3.55" y2="-2.15" width="0.127" layer="51"/>
-<wire x1="0.25" y1="4.65" x2="1.75" y2="4.65" width="0.127" layer="51"/>
-<wire x1="0.25" y1="4.15" x2="1.75" y2="4.15" width="0.127" layer="51"/>
-<wire x1="0.25" y1="4.65" x2="0.25" y2="4.15" width="0.127" layer="51"/>
-<wire x1="1.75" y1="4.65" x2="1.75" y2="4.15" width="0.127" layer="51"/>
-<wire x1="-5" y1="-4.9" x2="4" y2="-4.9" width="0.127" layer="51"/>
-<wire x1="4" y1="-4.9" x2="4" y2="5.6" width="0.127" layer="51"/>
-<wire x1="4" y1="5.6" x2="-5" y2="5.6" width="0.127" layer="51"/>
-<wire x1="-5" y1="5.6" x2="-5" y2="-4.9" width="0.127" layer="51"/>
-<wire x1="4" y1="-4.9" x2="4" y2="5.6" width="0.2032" layer="21"/>
-<wire x1="-5" y1="5.6" x2="-1.27" y2="5.6" width="0.127" layer="21"/>
-<wire x1="3.27" y1="5.6" x2="4" y2="5.6" width="0.127" layer="21"/>
-<wire x1="-5" y1="5.6" x2="-5" y2="0.635" width="0.127" layer="21"/>
-<wire x1="-5" y1="-3.135" x2="-5" y2="-5" width="0.127" layer="21"/>
-<wire x1="-5" y1="-5" x2="-1.27" y2="-5" width="0.127" layer="21"/>
-<wire x1="2.635" y1="-5" x2="4" y2="-5" width="0.127" layer="21"/>
-<pad name="P$1" x="-3.8" y="-1.4" drill="2.8" shape="octagon"/>
-<pad name="P$2" x="1" y="4.4" drill="2.8" shape="octagon"/>
-<pad name="P$3" x="0.9" y="-3.7" drill="2.8" shape="octagon" rot="R90"/>
-<text x="-5" y="0.65" size="1.27" layer="25" font="vector">&gt;NAME</text>
+<circle x="0" y="0" radius="2.5" width="0.127" layer="51"/>
+<wire x1="1.8" y1="6" x2="-1.8" y2="6" width="0.127" layer="51"/>
+<wire x1="-1.8" y1="6" x2="-4.5" y2="6" width="0.127" layer="21"/>
+<wire x1="-2.95" y1="-3.6" x2="3.05" y2="-3.6" width="0.127" layer="51"/>
+<wire x1="-2.95" y1="-3.6" x2="-2.95" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="3.05" y1="-3.6" x2="3.05" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="0.6" y1="-4.5" x2="0.6" y2="-6.2" width="0.127" layer="51"/>
+<wire x1="0.6" y1="-6.2" x2="-0.6" y2="-6.2" width="0.127" layer="51"/>
+<wire x1="-0.6" y1="-6.2" x2="-0.6" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="-1.8" y1="6" x2="-1.8" y2="3.8" width="0.127" layer="51"/>
+<wire x1="-1.8" y1="3.8" x2="1.8" y2="3.8" width="0.127" layer="51"/>
+<wire x1="1.8" y1="3.8" x2="1.8" y2="6" width="0.127" layer="51"/>
+<text x="0" y="2.54" size="1.27" layer="104" font="vector" align="bottom-center">&gt;NAME</text>
+<hole x="0" y="0" drill="2.8"/>
 </package>
 <package name="POT-ALPS-RK09L1140">
 <circle x="0" y="0" radius="3" width="0.127" layer="51"/>
@@ -9392,16 +9388,16 @@ type 0204, grid 7.5 mm</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="CON-LUMBERG_1502_03">
+<deviceset name="THONKICONN">
 <gates>
-<gate name="G$1" symbol="CON-LUMBERG_JACK-SWITCH" x="-2.54" y="0"/>
+<gate name="G$1" symbol="CON-LUMBERG_JACK-SWITCH" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="CON-LUMBERG_1502_03">
+<device name="" package="THONKICONN">
 <connects>
-<connect gate="G$1" pin="3" pad="P$2"/>
-<connect gate="G$1" pin="4" pad="P$1"/>
-<connect gate="G$1" pin="5" pad="P$3"/>
+<connect gate="G$1" pin="3" pad="P$3"/>
+<connect gate="G$1" pin="4" pad="P$2"/>
+<connect gate="G$1" pin="5" pad="P$1"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -20639,7 +20635,7 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <part name="R101" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
 <part name="R103" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="R104" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
-<part name="FILL" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
+<part name="FILL" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="+12V" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
@@ -20651,14 +20647,14 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <part name="R201" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
 <part name="R203" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="R204" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
-<part name="STEP" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
+<part name="STEP" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="P+5" library="supply1" deviceset="+12V" device=""/>
-<part name="CLKIN" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
-<part name="DIVOUT" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
+<part name="CLKIN" library="Rebel" deviceset="THONKICONN" device=""/>
+<part name="DIVOUT" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="FILLMAN" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="FILLCV" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="STEPMAN" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
@@ -20695,7 +20691,7 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
 <part name="R502" library="Rebel" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
-<part name="RSTIN" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
+<part name="RSTIN" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="R401" library="Rebel" deviceset="R-EU_" device="0204/7" value="100K"/>
 <part name="R403" library="Rebel" deviceset="R-EU_" device="0204/7" value="10K"/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
