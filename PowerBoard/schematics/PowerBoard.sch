@@ -12766,13 +12766,13 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="R101" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
 <part name="R201" library="Rebel" deviceset="R-EU_" device="0603" value="330R"/>
 <part name="R301" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
-<part name="R102" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
+<part name="R102" library="Rebel" deviceset="R-EU_" device="0603" value="1k91"/>
 <part name="R202" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="R302" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
-<part name="C302" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="10u"/>
-<part name="C104" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="10u"/>
-<part name="C204" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="10u"/>
-<part name="C304" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="10u"/>
+<part name="R302" library="Rebel" deviceset="R-EU_" device="0603" value="1k91"/>
+<part name="C302" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="dnp"/>
+<part name="C104" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="dnp"/>
+<part name="C204" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="dnp"/>
+<part name="C304" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="dnp"/>
 <part name="P+12" library="supply1" deviceset="+5V" device=""/>
 <part name="P+13" library="supply1" deviceset="+12V" device=""/>
 <part name="OUT" library="SparkFun" deviceset="M08X2" device=""/>
@@ -12816,18 +12816,18 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="P+11" library="supply1" deviceset="+12V" device=""/>
 <part name="P+14" library="supply1" deviceset="+5V" device=""/>
 <part name="P-7" library="supply1" deviceset="-12V" device=""/>
-<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
 <part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="C103" library="rcl" deviceset="C-EU" device="C0603" value="1u"/>
-<part name="C203" library="rcl" deviceset="C-EU" device="C0603" value="1u"/>
+<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
+<part name="C103" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C203" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="D300" library="SparkFun" deviceset="DIODE" device="SMA"/>
 <part name="D100" library="SparkFun" deviceset="DIODE" device="SMA"/>
 <part name="D200" library="SparkFun" deviceset="DIODE" device="SMA"/>
-<part name="C101" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="10u"/>
-<part name="C201" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="10u"/>
+<part name="C101" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="dnp"/>
+<part name="C201" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="dnp"/>
 <part name="C301" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C303" library="rcl" deviceset="C-EU" device="C0603" value="1u"/>
+<part name="C303" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C100" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="dnp"/>
 <part name="C200" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="dnp"/>
 <part name="C300" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="dnp"/>
@@ -12873,12 +12873,12 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="SUPPLY9" library="supply2" deviceset="-15V" device=""/>
 <part name="SUPPLY10" library="supply2" deviceset="+15V" device=""/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
-<part name="C106" library="rcl" deviceset="C-EU" device="C1206"/>
-<part name="C206" library="rcl" deviceset="C-EU" device="C1206"/>
-<part name="C207" library="rcl" deviceset="C-EU" device="C1206"/>
-<part name="C107" library="rcl" deviceset="C-EU" device="C1206"/>
-<part name="C307" library="rcl" deviceset="C-EU" device="C1206"/>
-<part name="C306" library="rcl" deviceset="C-EU" device="C1206"/>
+<part name="C106" library="rcl" deviceset="C-EU" device="C1206" value="10u"/>
+<part name="C206" library="rcl" deviceset="C-EU" device="C1206" value="10u"/>
+<part name="C207" library="rcl" deviceset="C-EU" device="C1206" value="10u"/>
+<part name="C107" library="rcl" deviceset="C-EU" device="C1206" value="10u"/>
+<part name="C307" library="rcl" deviceset="C-EU" device="C1206" value="10u"/>
+<part name="C306" library="rcl" deviceset="C-EU" device="C1206" value="10u"/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
