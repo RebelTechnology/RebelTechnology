@@ -1,0 +1,17 @@
+Partlist exported from D:/Drive/Work/Rebel/ProjectFiles/RebelTechnology/PowerBoard/schematics/BalancedInputOutput.sch at 13/04/2015 14:58:14
+
+Qty Value     Device          Package      Parts          Description                          
+2             PINHD-1X2       1X02         JP1, JP3       PIN HEADER                           
+1             PINHD-1X3       1X03         JP2            PIN HEADER                           
+1             SJW             SJW          SJ1            SMD solder JUMPER                    
+2   100R      R-EU_0207/7     0207/7       R1, R2         RESISTOR, European symbol            
+4   100n      C-EU050-025X075 C050-025X075 C4, C5, C7, C8 CAPACITOR, European symbol           
+1   100p      C-EU050-025X075 C050-025X075 C1             CAPACITOR, European symbol           
+2   10u       C-EU050-025X075 C050-025X075 C9, C10        CAPACITOR, European symbol           
+1   220u      CPOL-EUE5-8.5   E5-8,5       C6             POLARIZED CAPACITOR, European symbol 
+2   470p      C-EU050-025X075 C050-025X075 C2, C3         CAPACITOR, European symbol           
+1   4k7       R-EU_0207/7     0207/7       R3             RESISTOR, European symbol            
+1   M08X2     M08X2           2X8          PWR                                                 
+2   NCJ10FI-H NCJ10FI-H       NCJ10FI-H    IN, OUT        Neutrik Audio Connector XLR SERIES   
+1   THAT1200  DIL8            DIL08        IC1            Dual In Line / Socket                
+1   THAT1646  DIL8            DIL08        IC2            Dual In Line / Socket                
