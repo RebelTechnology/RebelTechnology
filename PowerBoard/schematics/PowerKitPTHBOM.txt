@@ -1,0 +1,23 @@
+Partlist exported from D:/Drive/Work/Rebel/ProjectFiles/RebelTechnology/PowerBoard/schematics/PowerKitPTH.sch at 14/04/2015 16:49:12
+
+Qty Value            Device           Package            Parts                                                Description                                         
+3                    LED3MM           LED3MM             LED1, LED2, LED3                                     LED                                                 
+2                    PINHD-1X2        1X02               AC, JP1                                              PIN HEADER                                          
+1                    POWER_JACKPTH    POWER_JACK_PTH     J1                                                   Power Jack                                          
+6   100n             C-EU050-025X075  C050-025X075       C101, C103, C201, C203, C301, C303                   CAPACITOR, European symbol                          
+9   10u              CPOL-EUE2.5-6    E2,5-6             C100, C102, C104, C200, C202, C204, C300, C302, C304 POLARIZED CAPACITOR, European symbol                
+3   1N4004           1N4004           DO41-10            D100, D200, D300                                     DIODE                                               
+2   1N5404           DIODE1N4001      DIODE-1N4001       D1, D2                                               Diode                                               
+1   1k               R-EU_0204/7      0204/7             R202                                                 RESISTOR, European symbol                           
+1   1k               R-EU_0207/7      0207/7             R2                                                   RESISTOR, European symbol                           
+2   1k91             R-EU_0204/7      0204/7             R102, R302                                           RESISTOR, European symbol                           
+1   22-27-2031-03    22-27-2031-03    6410-03            X1                                                   CONNECTOR                                           
+1   2200u            CPOL-EUE7.5-18   E7,5-18            C2                                                   POLARIZED CAPACITOR, European symbol                
+2   220R             R-EU_0204/7      0204/7             R101, R301                                           RESISTOR, European symbol                           
+2   2k               R-EU_0207/7      0207/7             R1, R3                                               RESISTOR, European symbol                           
+1   330R             R-EU_0204/7      0204/7             R201                                                 RESISTOR, European symbol                           
+1   337T             337T             TO220H             IC300                                                Negative VOLTAGE REGULATOR                          
+1   4700u            CPOL-EUE7.5-18   E7,5-18            C1                                                   POLARIZED CAPACITOR, European symbol                
+1   FUSEBLANK_5X20MM FUSEBLANK_5X20MM FUSE_HOLDER_5X20MM F1                                                   Fuse                                                
+2   LM317MABT        LM317MABT        TO220L1            IC100, IC200                                         500 mA Adjustable Output Positive Voltage Regulator 
+6   M08X2            M08X2            2X8                OUT, OUT1, OUT2, OUT3, OUT4, OUT5                                                                        
