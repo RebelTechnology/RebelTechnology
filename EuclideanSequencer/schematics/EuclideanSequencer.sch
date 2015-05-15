@@ -14166,7 +14166,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="-1.8" y1="3.8" x2="1.8" y2="3.8" width="0.127" layer="51"/>
 <wire x1="1.8" y1="3.8" x2="1.8" y2="6" width="0.127" layer="51"/>
 <text x="0" y="2.54" size="1.27" layer="104" font="vector" align="bottom-center">&gt;NAME</text>
-<hole x="0" y="0" drill="2.8"/>
+<pad name="P$4" x="0" y="0" drill="3.2"/>
 </package>
 <package name="POT-ALPS-RK09L1140">
 <circle x="0" y="0" radius="3" width="0.127" layer="51"/>
@@ -14189,10 +14189,9 @@ In this library the device names are the same as the pin names of the symbols, t
 <pad name="3" x="2.5" y="-7.5" drill="1" diameter="1.9304" rot="R90"/>
 <pad name="2" x="0" y="-7.5" drill="1" diameter="1.9304" rot="R270"/>
 <pad name="1" x="-2.5" y="-7.5" drill="1" diameter="1.9304" rot="R90"/>
-<text x="-3.35" y="3.62" size="1.27" layer="25" font="vector">&gt;NAME</text>
-<text x="3.35" y="-3.11" size="1.27" layer="27" font="vector" rot="R180">&gt;VALUE</text>
-<pad name="P$5" x="-4.5" y="0" drill="2"/>
-<pad name="P$6" x="4.5" y="0" drill="2" rot="R90"/>
+<text x="0" y="3.62" size="1.27" layer="25" font="vector" align="bottom-center">&gt;NAME</text>
+<pad name="P$5" x="-4.5" y="0" drill="2" shape="octagon"/>
+<pad name="P$6" x="4.5" y="0" drill="2" shape="octagon" rot="R90"/>
 </package>
 <package name="SWITCH-SPDT">
 <wire x1="-3.6" y1="6.35" x2="-3.6" y2="-6.35" width="0.2032" layer="21"/>
@@ -14376,9 +14375,9 @@ Through-hole SPDT Switch&lt;br&gt;
 <package name="SWITCH-SPDT-SALECOM-T8014">
 <wire x1="-3.6" y1="6.35" x2="-3.6" y2="-6.35" width="0.2032" layer="21"/>
 <wire x1="3.6" y1="-6.35" x2="3.6" y2="6.35" width="0.2032" layer="21"/>
-<pad name="1" x="0" y="4.699" drill="2.2"/>
-<pad name="2" x="0" y="0" drill="2.2"/>
-<pad name="3" x="0" y="-4.699" drill="2.2"/>
+<pad name="1" x="0" y="4.699" drill="2.2" shape="octagon"/>
+<pad name="2" x="0" y="0" drill="2.2" shape="octagon"/>
+<pad name="3" x="0" y="-4.699" drill="2.2" shape="octagon"/>
 <text x="-3.81" y="7.62" size="1.27" layer="25" font="vector" ratio="10">&gt;NAME</text>
 <wire x1="-3.6" y1="6.35" x2="-1.905" y2="6.35" width="0.2032" layer="21"/>
 <wire x1="1.905" y1="6.35" x2="3.6" y2="6.35" width="0.2032" layer="21"/>
@@ -14468,7 +14467,7 @@ Through-hole SPDT Switch&lt;br&gt;
 <devices>
 <device name="" package="THONKICONN">
 <connects>
-<connect gate="G$1" pin="3" pad="P$3"/>
+<connect gate="G$1" pin="3" pad="P$3 P$4"/>
 <connect gate="G$1" pin="4" pad="P$2"/>
 <connect gate="G$1" pin="5" pad="P$1"/>
 </connects>
