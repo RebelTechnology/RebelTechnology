@@ -1,0 +1,53 @@
+#
+# Copyright 2014, Broadcom Corporation
+# All Rights Reserved.
+#
+# This is UNPUBLISHED PROPRIETARY SOURCE CODE of Broadcom Corporation;
+# the contents of this file may not be disclosed to third parties, copied
+# or duplicated in any form, in whole or in part, without the prior
+# written permission of Broadcom Corporation.
+#
+
+NAME := App_$(RTOS)_$(NETWORK)_$(PLATFORM)_opensound
+
+$(NAME)_SOURCES := $(RTOS)_$(NETWORK)_application.c  \
+                   AP_content.c \
+                   STA_content.c \
+                   web_server.c \
+                   $(RTOS)_$(NETWORK)_web_server.c \
+                   $(RTOS)_$(NETWORK)_dhcp_server.c \
+                   $(RTOS)_$(NETWORK)_dns_server.c \
+                   brcmlogos.c \
+                   icons.c
+
+$(NAME)_SOURCES += debug.c
+$(NAME)_SOURCES += uart.c
+$(NAME)_SOURCES += app.cpp
+$(NAME)_SOURCES += udp_server.cpp
+
+$(NAME)_SOURCES += base64_enc.c
+$(NAME)_SOURCES += sha1.c
+$(NAME)_SOURCES += websocket.c
+$(NAME)_SOURCES += websocket_server.c
+# $(NAME)_SOURCES += socket_server.cpp
+
+$(NAME)_DEFINES := WEB_SERVER_NO_PRINT
+
+# Disable watchdog for all WWD apps
+GLOBAL_DEFINES := WICED_DISABLE_WATCHDOG
+
+# disable STDIO
+GLOBAL_DEFINES += WICED_DISABLE_STDIO
+
+LWIP_NUM_PACKET_BUFFERS_IN_POOL := 8
+
+FreeRTOS_START_STACK := 600
+ThreadX_START_STACK  := 600
+
+# WPS inclusion
+#$(NAME)_COMPONENTS += BESL/wps
+#$(NAME)_DEFINES += APPLIANCE_ENABLE_WPS
+#$(NAME)_SOURCES += application_wps.c
+
+VALID_OSNS_COMBOS := FreeRTOS-LwIP
+
