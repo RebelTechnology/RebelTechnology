@@ -54,7 +54,7 @@ static const char top_web_page_top[] =
     "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN " "http://www.w3.org/TR/html4/strict.dtd\">\n"
     "<html>\n"
     "  <head>\n"
-    "    <title>OPENSOUND-BOARD Appliance</title>\n"
+    "    <title>OpenSound Appliance</title>\n"
     "  </head>\n"
     "  <body style=\"font-family:verdana;\" >\n"
     "    <h2 align=\"center\"><img src=\"brcmlogo.jpg\"/> <span style=\"color:#ff0000\">Rebel Technology</span> OPENSOUND-BOARD Appliance</h2><hr>\n"

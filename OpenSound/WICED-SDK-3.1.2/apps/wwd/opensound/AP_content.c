@@ -109,11 +109,11 @@ static const char top_web_page_top[] =
     "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
     "  <head>\n"
     "    <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" />\n"
-    "    <title>OPENSOUND-BOARD Appliance Config</title>\n"
+    "    <title>OpenSound Appliance Config</title>\n"
     "    <style  type=\"text/css\"><!-- .normal { background-color: #ffffff; } .highlight { background-color: #8f0000;  } --></style>\n"
     "  </head>\n"
     "  <body style=\"font-family:verdana;\" >\n"
-    "    <h2 align=\"center\"><img src=\"brcmlogo.jpg\"/> <span style=\"color:#ff0000\">Rebel Technology</span> OPENSOUND-BOARD Appliance Configuration</h2><hr/>\n"
+    "    <h2 align=\"center\"><img src=\"brcmlogo.jpg\"/> <span style=\"color:#ff0000\">Rebel Technology</span> OpenSound Appliance Configuration</h2><hr/>\n"
     "    <noscript><h2>Javascript is required for this page to work correctly.</h2></noscript>\n"
     "    <h3 style=\"text-align:center\">Select a configuration method ...</h3>\n"
     "    <table border=\"0\" cellpadding=\"20\" style=\"margin-left:auto;margin-right:auto;border-collapse:collapse;\">\n"
@@ -135,7 +135,7 @@ static const char wps_pbc_page[] =
     "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN " "http://www.w3.org/TR/html4/strict.dtd\">\n"
     "<html>\n"
     "  <head>\n"
-    "    <title>OPENSOUND-BOARD Appliance WPS-PBC Config</title>\n"
+    "    <title>OpenSound Appliance WPS-PBC Config</title>\n"
     "    <script src=\"ajax.js\" type=\"text/javascript\" ></script>\n"
     "    <script type=\"text/javascript\">\n"
     "      function do_conn( )\n"
@@ -147,7 +147,7 @@ static const char wps_pbc_page[] =
     "    </script>\n"
     "  </head>\n"
     "  <body style=\"font-family:verdana;\" >\n"
-    "    <h2 align=\"center\"><img src=\"brcmlogo.jpg\"/> <span style=\"color:#ff0000\">Rebel Technology</span> OPENSOUND-BOARD Appliance Configuration</h2><br/><br/>\n"
+    "    <h2 align=\"center\"><img src=\"brcmlogo.jpg\"/> <span style=\"color:#ff0000\">Rebel Technology</span> OpenSound Appliance Configuration</h2><br/><br/>\n"
     "    <h2 align=\"center\"><img src=\"wps_icon.png\" style=\"vertical-align:middle\" />Push button setup</h2><hr>\n"
     "    <table border=0 cellpadding=20 align=\"center\"><tr><td>1) Press button on your router or access point (look for this symbol: <img src=\"wps_icon.png\" height=30 style=\"vertical-align:middle\" />)</td></tr>\n"
     "    <tr><td><form><label>2) Click this button : </label><input type=\"button\" onclick=\"do_conn()\" value=\"GO!\" style=\"height: 1.5em; width: 5em;font-size: larger; background-color: #cfffcf;\" /></form></td></tr></table>\n"
@@ -162,7 +162,7 @@ static const char wps_pin_page[] =
     "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN " "http://www.w3.org/TR/html4/strict.dtd\">\n"
     "<html>\n"
     "  <head>\n"
-    "    <title>OPENSOUND-BOARD Appliance WPS-PIN Config</title>\n"
+    "    <title>OpenSound Appliance WPS-PIN Config</title>\n"
     "    <script src=\"ajax.js\" type=\"text/javascript\" ></script>\n"
     "    <script type=\"text/javascript\">\n"
     "      function do_conn( )\n"
@@ -175,7 +175,7 @@ static const char wps_pin_page[] =
     "    </script>\n"
     "  </head>\n"
     "  <body style=\"font-family:verdana;\" >\n"
-    "    <h2 align=\"center\"><img src=\"brcmlogo.jpg\"/> <span style=\"color:#ff0000\">Rebel Technology</span> OPENSOUND-BOARD Appliance Configuration</h2><br/><br/>\n"
+    "    <h2 align=\"center\"><img src=\"brcmlogo.jpg\"/> <span style=\"color:#ff0000\">Rebel Technology</span> OpenSound Appliance Configuration</h2><br/><br/>\n"
     "    <h2 align=\"center\"><img src=\"wps_icon.png\" style=\"vertical-align:middle\" />PIN entry setup</h2><hr>\n"
     "    <table border=0 cellpadding=20 align=\"center\"><tr><td>1) Set the PIN and enable WPS in your router or access point (using it's web browser interface)</td></tr>\n"
     "      <tr><td><form action=\"/wps_go\" method=\"get\"><label>2) Enter PIN here : </label><input type=\"text\" id=\"" PIN_FIELD_NAME "\" name=\"" PIN_FIELD_NAME "\" maxlength=8 /><label> and click this button : </label><input type=\"button\" onclick=\"do_conn()\" value=\"GO!\" style=\"height: 1.5em; width: 5em;font-size: larger; background-color: #cfffcf;\" /></form></td></tr></table>\n"
@@ -209,7 +209,7 @@ static const char scan_page_outer[] =
     "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN " "http://www.w3.org/TR/html4/strict.dtd\">\n"
     "<html>\n"
     "  <head>\n"
-    "    <title>OPENSOUND-BOARD Appliance Scan-Join Config</title>\n"
+    "    <title>OpenSound Appliance Scan-Join Config</title>\n"
     "    <script src=\"ajax.js\" type=\"text/javascript\" ></script>\n"
     "    <script type=\"text/javascript\">\n"
     "      function do_conn( ssid, sec, chan, bssid )\n"
@@ -222,7 +222,7 @@ static const char scan_page_outer[] =
     "    </script>\n"
     "  </head>\n"
     "  <body style=\"font-family:verdana;\" onLoad=\"do_ajax( 'scan', 'scanres', 'Starting Scan...', 'Scanning...', null, 'Error Occurred', null)\">\n"
-    "    <h2><img src=\"/brcmlogo.jpg\"/><span style=\"color:#ff0000\"> Rebel Technology</span> OPENSOUND-BOARD Appliance Scan-Join Configuration</h2><hr>\n"
+    "    <h2><img src=\"/brcmlogo.jpg\"/><span style=\"color:#ff0000\"> Rebel Technology</span> OpenSound Appliance Scan-Join Configuration</h2><hr>\n"
     "    <div id=\"scanres\"></div>\n"
     "    \n"
     "    <div id=\"dim\" style=\"display: none; background: #000;position: fixed; left: 0; top: 0;width: 100%; height: 100%;opacity: .80;z-index: 9999;text-align: center\">\n"
@@ -581,7 +581,7 @@ static int process_wps_go( void* socket, char * params, int params_len )
  * URL handler for signaling web server shutdown
  *
  * The reception of this web server request indicates that the client wants to
- * start the opensoundboard, after shutting down the access point, DHCP server and web server
+ * start the application, after shutting down the access point, DHCP server and web server
  * Decodes the URL parameters into the connection configuration buffer, then signals
  * for the web server to shut down
  *
@@ -591,7 +591,7 @@ static int process_wps_go( void* socket, char * params, int params_len )
  */
 static int process_connect( void* socket, char * params, int params_len )
 {
-    /* client has signalled to start opensoundboard mode. */
+    /* client has signalled to start application mode. */
 
     decode_connect_params( params, params_len );
 

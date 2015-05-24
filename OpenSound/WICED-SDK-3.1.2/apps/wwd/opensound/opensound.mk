@@ -22,6 +22,7 @@ $(NAME)_SOURCES := $(RTOS)_$(NETWORK)_application.c  \
 
 $(NAME)_SOURCES += debug.c
 $(NAME)_SOURCES += uart.c
+$(NAME)_SOURCES += gpio.c
 $(NAME)_SOURCES += app.cpp
 $(NAME)_SOURCES += udp_server.cpp
 

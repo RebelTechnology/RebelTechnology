@@ -23,6 +23,7 @@
 
 int lSocket;
 struct sockaddr_in sLocalAddr, sDestAddr;
+int udp_status = 0;
 
 // int udp_get_local_addr(){
 //   return sLocalAddr.sin_addr.s_addr;
@@ -46,8 +47,8 @@ struct sockaddr_in sLocalAddr, sDestAddr;
 // }
 
 void udp_send_packet(uint8_t* buffer, int size){
-  sendto(lSocket, buffer, size, 0, (struct sockaddr *)&sDestAddr, sizeof(sDestAddr));
-
+  if(udp_status == 1)
+    sendto(lSocket, buffer, size, 0, (struct sockaddr *)&sDestAddr, sizeof(sDestAddr));
   // WPRINT_APP_INFO(("sent UDP message %s", buffer));
 }
 
@@ -79,8 +80,9 @@ void udp_server_task(void*){
     // vTaskDelay( 200 );  //some delay!
     // sendIp();
     sendto(lSocket, reply, sizeof(reply), 0, (struct sockaddr *)&sDestAddr, sizeof(sDestAddr));
+    udp_status = 1;
 
-    while (1) {
+    for(;;){
       nbytes = recv(lSocket, buffer, sizeof(buffer), 8);
       if(nbytes>0){
 	udp_recv_packet((uint8_t*)buffer, nbytes);

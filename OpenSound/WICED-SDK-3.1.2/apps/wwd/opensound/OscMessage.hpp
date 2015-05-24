@@ -24,17 +24,26 @@ public:
   OscMessage() : prefixLength(0), types(NULL), dataLength(0){}
 
   OscMessage(char* a) : prefixLength(0), dataLength(0){
+    // clear();
     setAddress(a);
   }
 
+  void clear(){
+    memset(prefix, 0, sizeof(prefix));
+    memset(data, 0, sizeof(data));
+    prefixLength = 0;
+    dataLength = 0;
+  }
+
   void parse(uint8_t* buffer, int length){
+    // clear();
     setAddress((char*)buffer);
     int i = prefixLength;
     while(buffer[i] != '\0'){
       char type = (char)buffer[i++];
       addType(type, getDataSize(type));
     }
-    i++; // add space for at least one \0
+    prefix[i++] = '\0'; // add space for at least one \0
     while(i & 3) // pad to 4 bytes
       i++;
     memcpy(data, &buffer[i], length-i);    
@@ -58,6 +67,10 @@ public:
       return 4;
     }
     return 0;
+  }
+
+  char getDataType(int8_t index){
+    return prefix[index];
   }
 
   int getOffset(int8_t index){

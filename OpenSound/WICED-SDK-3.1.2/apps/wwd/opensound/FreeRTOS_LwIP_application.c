@@ -46,7 +46,7 @@
 #define SAMPLES_PER_SEND        (26)
 #define TIME_MS_BETWEEN_SAMPLES (1000)
 #define DESTINATION_UDP_PORT    (50007)
-#define AP_SSID_START           "OPENSOUNDBOARD_"
+#define AP_SSID_START           "OpenSound_"
 #define AP_PASS                 "12345678" /* must be 8 chars */
 /* #define AP_SEC                  WICED_SECURITY_WPA2_AES_PSK  /\* WICED_SECURITY_OPEN *\/ */
 #define AP_SEC                  WICED_SECURITY_OPEN
@@ -69,7 +69,7 @@ static void run_ap_webserver( void );
 static void run_sta_web_server( void );
 
 /**
- * Main opensoundboard app thread
+ * Main opensound app thread
  *
  * Obtains network information and credentials via AP mode web server
  *
@@ -80,9 +80,9 @@ static void app_main( void )
   setup();
 
   static xTaskHandle poll_opensound_thread_handle;
-  xTaskCreate(pollOpenSoundTask, (signed char*)"Poll OPENSOUND", 
-	      OPENSOUND_SERVER_STACK_SIZE/sizeof(portSTACK_TYPE), NULL, 
-	      DEFAULT_THREAD_PRIO, &poll_opensound_thread_handle);
+  xTaskCreate(pollOpenSoundTask, (signed char*)"Poll OPENSOUND",
+  	      OPENSOUND_SERVER_STACK_SIZE/sizeof(portSTACK_TYPE), NULL,
+  	      DEFAULT_THREAD_PRIO, &poll_opensound_thread_handle);
 
   static xTaskHandle udp_server_thread_handle;
   xTaskCreate(udp_server_task, (signed char*)"udp",
@@ -94,19 +94,7 @@ static void app_main( void )
   run_sta_web_server( );
 }
 
-/**
- *  Starts network, sends sensor data, then stops network
- *
- * This function initialises the 802.11 device, associates to the configured network,
- * starts the LwIP network interface, obtains an IP via DHCP, sends the given data as a UDP broadcast,
- * shuts down the LwIP network interface, leaves the network, and shuts down the 802.11 device
- *
- * @param arg : data - an character array containing the data to be sent
- * @param arg : sendlen - the length in bytes of the character array
- */
-
-static void run_sta_web_server( void )
-{
+static void run_sta_web_server( void ) {
     struct ip_addr ipaddr, netmask, gw;
     wwd_result_t result;
 
@@ -328,8 +316,6 @@ static void startup_thread( void *arg )
 
     /* Run the main application function */
     app_main( );
-
-    /* udp_server_task(NULL); */
 
     /* Clean up this startup thread */
     vTaskDelete( startup_thread_handle );
