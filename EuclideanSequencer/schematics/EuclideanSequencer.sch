@@ -14166,7 +14166,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="-1.8" y1="3.8" x2="1.8" y2="3.8" width="0.127" layer="51"/>
 <wire x1="1.8" y1="3.8" x2="1.8" y2="6" width="0.127" layer="51"/>
 <text x="0" y="2.54" size="1.27" layer="104" font="vector" align="bottom-center">&gt;NAME</text>
-<pad name="P$4" x="0" y="0" drill="3.2"/>
+<pad name="P$4" x="0" y="0" drill="3.6"/>
 </package>
 <package name="POT-ALPS-RK09L1140">
 <circle x="0" y="0" radius="3" width="0.127" layer="51"/>
