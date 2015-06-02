@@ -14190,8 +14190,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <pad name="2" x="0" y="-7.5" drill="1" diameter="1.9304" rot="R270"/>
 <pad name="1" x="-2.5" y="-7.5" drill="1" diameter="1.9304" rot="R90"/>
 <text x="0" y="3.62" size="1.27" layer="25" font="vector" align="bottom-center">&gt;NAME</text>
-<pad name="P$5" x="-4.5" y="0" drill="2" shape="octagon"/>
-<pad name="P$6" x="4.5" y="0" drill="2" shape="octagon" rot="R90"/>
+<pad name="P$5" x="-4.5" y="0" drill="2" />
+<pad name="P$6" x="4.5" y="0" drill="2"  rot="R90"/>
 </package>
 <package name="SWITCH-SPDT">
 <wire x1="-3.6" y1="6.35" x2="-3.6" y2="-6.35" width="0.2032" layer="21"/>
@@ -14375,9 +14375,9 @@ Through-hole SPDT Switch&lt;br&gt;
 <package name="SWITCH-SPDT-SALECOM-T8014">
 <wire x1="-3.6" y1="6.35" x2="-3.6" y2="-6.35" width="0.2032" layer="21"/>
 <wire x1="3.6" y1="-6.35" x2="3.6" y2="6.35" width="0.2032" layer="21"/>
-<pad name="1" x="0" y="4.699" drill="2.2" shape="octagon"/>
-<pad name="2" x="0" y="0" drill="2.2" shape="octagon"/>
-<pad name="3" x="0" y="-4.699" drill="2.2" shape="octagon"/>
+<pad name="1" x="0" y="4.699" drill="2.2" />
+<pad name="2" x="0" y="0" drill="2.2" />
+<pad name="3" x="0" y="-4.699" drill="2.2" />
 <text x="-3.81" y="7.62" size="1.27" layer="25" font="vector" ratio="10">&gt;NAME</text>
 <wire x1="-3.6" y1="6.35" x2="-1.905" y2="6.35" width="0.2032" layer="21"/>
 <wire x1="1.905" y1="6.35" x2="3.6" y2="6.35" width="0.2032" layer="21"/>
@@ -15371,9 +15371,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="-3.937" y1="0.508" x2="-2.8765" y2="0.508" width="0.127" layer="21"/>
 <wire x1="2.227" y1="-0.9289" x2="2.227" y2="0.9289" width="0.0508" layer="21" curve="45.282836"/>
 <circle x="0" y="0" radius="2.921" width="0.127" layer="21"/>
-<pad name="1" x="-1.27" y="-1.27" drill="0.8128" shape="octagon"/>
-<pad name="2" x="1.27" y="-1.27" drill="0.8128" shape="octagon"/>
-<pad name="3" x="1.27" y="1.27" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-1.27" y="-1.27" drill="0.8128" />
+<pad name="2" x="1.27" y="-1.27" drill="0.8128" />
+<pad name="3" x="1.27" y="1.27" drill="0.8128" />
 <text x="3.175" y="0" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="3.175" y="-1.905" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <text x="-1.905" y="-1.27" size="1.27" layer="51" ratio="10">1</text>
@@ -15392,9 +15392,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="2.413" y1="-3.175" x2="3.175" y2="-2.413" width="0.1524" layer="21"/>
 <wire x1="0.9692" y1="2.2098" x2="2.2098" y2="0.9692" width="0.0508" layer="21" curve="-42.636282"/>
 <circle x="0" y="0" radius="2.921" width="0.1524" layer="21"/>
-<pad name="1" x="1.905" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="0" y="1.905" drill="0.8128" shape="octagon"/>
-<pad name="3" x="-1.905" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="1.905" y="0" drill="0.8128" />
+<pad name="2" x="0" y="1.905" drill="0.8128" />
+<pad name="3" x="-1.905" y="0" drill="0.8128" />
 <text x="3.302" y="0.381" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="3.302" y="-1.27" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <text x="1.016" y="-1.143" size="1.27" layer="51" ratio="10">1</text>
@@ -15784,9 +15784,9 @@ grid 2.54 mm, vertical</description>
 <wire x1="-3.5052" y1="-4.064" x2="-4.0386" y2="-3.5306" width="0.1524" layer="21"/>
 <circle x="0" y="0" radius="4.572" width="0.1524" layer="21"/>
 <circle x="0" y="0" radius="3.8608" width="0.0508" layer="21"/>
-<pad name="1" x="0" y="-2.54" drill="0.8128" shape="octagon"/>
-<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
-<pad name="3" x="0" y="2.54" drill="0.8128" shape="octagon"/>
+<pad name="1" x="0" y="-2.54" drill="0.8128" />
+<pad name="2" x="2.54" y="0" drill="0.8128" />
+<pad name="3" x="0" y="2.54" drill="0.8128" />
 <text x="-2.54" y="5.08" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.175" y="-0.635" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -15797,9 +15797,9 @@ grid 2.54 mm, vertical</description>
 <wire x1="-3.5052" y1="-4.064" x2="-4.0386" y2="-3.5306" width="0.127" layer="21"/>
 <circle x="0" y="0" radius="4.572" width="0.127" layer="21"/>
 <circle x="0" y="0" radius="3.8608" width="0.0508" layer="21"/>
-<pad name="1" x="0" y="-2.54" drill="0.8128" shape="octagon"/>
-<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
-<pad name="3" x="0" y="2.54" drill="0.8128" shape="octagon"/>
+<pad name="1" x="0" y="-2.54" drill="0.8128" />
+<pad name="2" x="2.54" y="0" drill="0.8128" />
+<pad name="3" x="0" y="2.54" drill="0.8128" />
 <text x="-2.54" y="5.08" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.175" y="-0.635" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -15839,9 +15839,9 @@ grid 2.54 mm, vertical</description>
 <wire x1="2.2537" y1="-0.254" x2="2.6549" y2="-0.254" width="0.127" layer="21"/>
 <wire x1="0.2863" y1="-0.254" x2="2.2537" y2="-0.254" width="0.127" layer="51"/>
 <wire x1="-0.7863" y1="2.5485" x2="0.7863" y2="2.5485" width="0.127" layer="51" curve="-34.293591"/>
-<pad name="1" x="1.27" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="0" y="1.905" drill="0.8128" shape="octagon"/>
-<pad name="3" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="1.27" y="0" drill="0.8128" />
+<pad name="2" x="0" y="1.905" drill="0.8128" />
+<pad name="3" x="-1.27" y="0" drill="0.8128" />
 <text x="3.175" y="0.635" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="3.175" y="-1.27" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <text x="-0.635" y="0.635" size="1.27" layer="51" ratio="10">2</text>
@@ -15859,9 +15859,9 @@ grid 2.54 mm, vertical</description>
 <wire x1="2.254" y1="-0.254" x2="2.655" y2="-0.254" width="0.127" layer="21"/>
 <wire x1="0.286" y1="-0.254" x2="2.254" y2="-0.254" width="0.127" layer="51"/>
 <wire x1="-0.7864" y1="2.5484" x2="0.7864" y2="2.5484" width="0.127" layer="51" curve="-34.298964"/>
-<pad name="1" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="0" y="1.905" drill="0.8128" shape="octagon"/>
-<pad name="3" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-1.27" y="0" drill="0.8128" />
+<pad name="2" x="0" y="1.905" drill="0.8128" />
+<pad name="3" x="1.27" y="0" drill="0.8128" />
 <text x="3.175" y="0.635" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="3.175" y="-1.27" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>

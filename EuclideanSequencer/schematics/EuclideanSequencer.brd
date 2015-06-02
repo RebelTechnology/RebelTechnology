@@ -146,6 +146,7 @@
 <text x="48.8315" y="69.85" size="1.9304" layer="21" font="vector" rot="SR90">Stoicheia Rev06</text>
 <dimension x1="0" y1="96.7105" x2="49.9999" y2="96.7105" x3="24.99995" y3="104.14" textsize="1.778" layer="47"/>
 <dimension x1="1.27" y1="-0.635" x2="1.27" y2="98.298" x3="-7.62" y3="48.8315" textsize="1.778" layer="47"/>
+<text x="15.875" y="58.42" size="1.27" layer="25" font="vector" rot="R90">Y1</text>
 </plain>
 <libraries>
 <library name="atmel">
@@ -1576,15 +1577,15 @@ grid 5.08 mm, diameter 6 mm</description>
 <pad name="2" x="0" y="-7.5" drill="1" diameter="1.9304" rot="R270"/>
 <pad name="1" x="-2.5" y="-7.5" drill="1" diameter="1.9304" rot="R90"/>
 <text x="0" y="3.62" size="1.27" layer="25" font="vector" align="bottom-center">&gt;NAME</text>
-<pad name="P$5" x="-4.5" y="0" drill="2" shape="octagon"/>
-<pad name="P$6" x="4.5" y="0" drill="2" shape="octagon" rot="R90"/>
+<pad name="P$5" x="-4.5" y="0" drill="2"/>
+<pad name="P$6" x="4.5" y="0" drill="2" rot="R90"/>
 </package>
 <package name="SWITCH-SPDT-SALECOM-T8014">
 <wire x1="-3.6" y1="6.35" x2="-3.6" y2="-6.35" width="0.2032" layer="21"/>
 <wire x1="3.6" y1="-6.35" x2="3.6" y2="6.35" width="0.2032" layer="21"/>
-<pad name="1" x="0" y="4.699" drill="2.2" shape="octagon"/>
-<pad name="2" x="0" y="0" drill="2.2" shape="octagon"/>
-<pad name="3" x="0" y="-4.699" drill="2.2" shape="octagon"/>
+<pad name="1" x="0" y="4.699" drill="2.2"/>
+<pad name="2" x="0" y="0" drill="2.2"/>
+<pad name="3" x="0" y="-4.699" drill="2.2"/>
 <text x="-3.81" y="7.62" size="1.27" layer="25" font="vector" ratio="10">&gt;NAME</text>
 <wire x1="-3.6" y1="6.35" x2="-1.905" y2="6.35" width="0.2032" layer="21"/>
 <wire x1="1.905" y1="6.35" x2="3.6" y2="6.35" width="0.2032" layer="21"/>
@@ -1843,7 +1844,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="23.876" y="48.8569" size="1.778" layer="25" ratio="10"/>
 <attribute name="VALUE" x="25.4" y="85.725" size="1.778" layer="27" ratio="10" rot="R270"/>
 </element>
-<element name="Y1" library="SparkFun" package="RESONATOR-PTH" value="16Mhz" x="18.034" y="61.087" rot="R270"/>
+<element name="Y1" library="SparkFun" package="RESONATOR-PTH" value="16Mhz" x="18.034" y="61.087" smashed="yes" rot="R270"/>
 <element name="C3" library="rcl" package="C050-024X044" value="100n" x="38.1635" y="59.055" smashed="yes">
 <attribute name="NAME" x="37.2745" y="56.642" size="1.27" layer="25" ratio="10"/>
 <attribute name="VALUE" x="39.4335" y="60.3885" size="1.27" layer="27" ratio="10"/>
@@ -1880,7 +1881,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="45.5676" y="18.6944" size="0.9906" layer="27" ratio="10" rot="R90"/>
 </element>
 <element name="Q1" library="transistor-neu-to92" package="TO92-EBC" value="" x="1.905" y="50.8" smashed="yes" rot="R90">
-<attribute name="NAME" x="-1.016" y="50.038" size="1.27" layer="25" ratio="10" rot="R90"/>
+<attribute name="NAME" x="4.318" y="53.086" size="1.27" layer="25" ratio="10"/>
 <attribute name="VALUE" x="2.9845" y="55.1815" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="Q3" library="transistor-neu-to92" package="TO92-EBC" value="" x="32.385" y="28.575" smashed="yes" rot="R270">
@@ -1940,15 +1941,15 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="36.4744" y="37.6174" size="0.9906" layer="27" ratio="10"/>
 </element>
 <element name="CLKA" library="Rebel" package="THONKICONN" value="THONKICONN" x="19.05" y="6.35" smashed="yes">
-<attribute name="NAME" x="17.13" y="2.5565" size="1.27" layer="25" rot="R90"/>
+<attribute name="NAME" x="16.495" y="2.5565" size="1.27" layer="25" rot="R90"/>
 <attribute name="VALUE" x="14.05" y="-1.65" size="1.27" layer="27"/>
 </element>
 <element name="CLKB" library="Rebel" package="THONKICONN" value="THONKICONN" x="31.75" y="6.35" smashed="yes">
-<attribute name="NAME" x="29.957" y="2.8105" size="1.27" layer="25" rot="R90"/>
+<attribute name="NAME" x="29.322" y="2.8105" size="1.27" layer="25" rot="R90"/>
 <attribute name="VALUE" x="26.75" y="-1.65" size="1.27" layer="27"/>
 </element>
 <element name="CLKTH" library="Rebel" package="THONKICONN" value="THONKICONN" x="44.45" y="6.35" smashed="yes">
-<attribute name="NAME" x="42.5935" y="2.747" size="1.27" layer="25" rot="R90"/>
+<attribute name="NAME" x="41.9585" y="2.747" size="1.27" layer="25" rot="R90"/>
 <attribute name="VALUE" x="39.45" y="-1.65" size="1.27" layer="27"/>
 </element>
 <element name="FILLA" library="Rebel" package="POT-ALPS-RK09L1140" value="10K" x="12.7" y="50.8"/>
@@ -1958,11 +1959,11 @@ design rules under a new name.</description>
 <element name="ROTA" library="Rebel" package="POT-ALPS-RK09L1140" value="10K" x="12.7" y="88.9"/>
 <element name="STEPB" library="Rebel" package="POT-ALPS-RK09L1140" value="10K" x="38.1" y="69.85"/>
 <element name="CLKIN" library="Rebel" package="THONKICONN" value="THONKICONN" x="6.35" y="6.35" smashed="yes">
-<attribute name="NAME" x="4.557" y="2.493" size="1.27" layer="25" rot="R90"/>
+<attribute name="NAME" x="3.922" y="2.493" size="1.27" layer="25" rot="R90"/>
 <attribute name="VALUE" x="1.35" y="-1.65" size="1.27" layer="27"/>
 </element>
 <element name="RSTIN" library="Rebel" package="THONKICONN" value="THONKICONN" x="25.4" y="19.05" smashed="yes">
-<attribute name="NAME" x="28.0505" y="22.1465" size="1.27" layer="25" rot="R180"/>
+<attribute name="NAME" x="22.7815" y="15.7645" size="1.27" layer="25" rot="R90"/>
 <attribute name="VALUE" x="20.4" y="11.05" size="1.27" layer="27"/>
 </element>
 <element name="R14" library="rcl" package="0204/7" value="100K" x="19.685" y="17.78" smashed="yes" rot="R90">
@@ -1999,7 +2000,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="21.59" y="22.225" size="1.778" layer="27" ratio="10"/>
 </element>
 <element name="C2" library="rcl" package="E5-6" value="10uF" x="4.445" y="57.785" smashed="yes" rot="R180">
-<attribute name="NAME" x="5.207" y="60.452" size="1.27" layer="25" ratio="10" rot="R180"/>
+<attribute name="NAME" x="5.842" y="60.452" size="1.27" layer="25" font="vector" ratio="10" rot="R180"/>
 <attribute name="VALUE" x="1.397" y="60.706" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="D1" library="SparkFun" package="DIODE-1N4001" value="1N4001" x="47.625" y="19.05" smashed="yes" rot="R270">
@@ -2110,9 +2111,9 @@ design rules under a new name.</description>
 <wire x1="36.83" y1="85.09" x2="35.56" y2="83.82" width="0.8128" layer="1"/>
 <wire x1="35.56" y1="83.82" x2="35.56" y2="81.44" width="0.8128" layer="1"/>
 <wire x1="35.56" y1="81.44" x2="35.6" y2="81.4" width="0.8128" layer="1"/>
-<wire x1="35.6" y1="43.3" x2="35.6" y2="47.665" width="0.8128" layer="1"/>
-<wire x1="35.6" y1="47.665" x2="36.83" y2="48.895" width="0.8128" layer="1"/>
-<wire x1="36.83" y1="48.895" x2="36.83" y2="52.785" width="0.8128" layer="1"/>
+<wire x1="35.6" y1="43.3" x2="35.6" y2="43.855" width="0.8128" layer="1"/>
+<wire x1="35.6" y1="43.855" x2="36.83" y2="45.085" width="0.8128" layer="1"/>
+<wire x1="36.83" y1="45.085" x2="36.83" y2="52.785" width="0.8128" layer="1"/>
 <wire x1="29.845" y1="66.04" x2="29.845" y2="68.58" width="0.8128" layer="1"/>
 <wire x1="34.925" y1="92.075" x2="29.845" y2="92.075" width="0.8128" layer="1"/>
 <wire x1="29.845" y1="92.075" x2="28.575" y2="90.805" width="0.8128" layer="1"/>
