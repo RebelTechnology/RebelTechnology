@@ -324,7 +324,7 @@ void oscTriggerB(OscServer& server, OscMessage& msg){
 }
 
 void sendCvA(uint16_t value){
-  osc_b_cv_msg.setFloat(0, (float)value/4096.0);
+  osc_a_cv_msg.setFloat(0, (float)value/4096.0);
   sendMessage(osc_a_cv_msg);
 }
 
@@ -441,7 +441,12 @@ void printInfo(Print& out){
   out.println();
 }
 
+extern "C" void wwd_management_wifi_off( );
+extern "C" void vPortYield();
 void setup(){
+  vPortYield();
+  wwd_management_wifi_off( );
+
   setLed(LED_RED);
   osc_status_msg.addString();
   osc_a_cv_msg.addFloat(.0f);
@@ -493,6 +498,7 @@ void setup(){
   // RGB.control(true);
   // RGB.color(RGB_COLOR_GREEN);
   setLed(LED_GREEN);
+
 }
 
 uint16_t cvA, cvB;
