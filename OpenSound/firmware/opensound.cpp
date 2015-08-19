@@ -8,7 +8,6 @@
 #include "UdpServer.hpp"
 #include "dac.h"
 
-
 #include "WebServer.h"
 
 SYSTEM_MODE(MANUAL);
@@ -21,6 +20,11 @@ SYSTEM_MODE(MANUAL);
 #define UDP_LOCAL_PORT        8000
 
 #define DEFAULT_ANTENNA ANT_AUTO
+
+#define NETWORK_LOCAL_WIFI   0
+#define NETWORK_ACCESS_POINT 1
+#define BUTTON_DEBOUNCE_MS   100
+#define BUTTON_TOGGLE_MS     2000
 
 int remotePort = UDP_REMOTE_PORT;
 int localPort = UDP_LOCAL_PORT;
@@ -124,7 +128,7 @@ void webHello(WebServer &server, WebServer::ConnectionType type, char *, bool){
 }
 
 // WebSocketServer websocketserver(WEBSOCKET_SERVER_PORT);
-TcpSocketServer tcpsocketserver(TCP_SERVER_PORT);
+// TcpSocketServer tcpsocketserver(TCP_SERVER_PORT);
 
 #include "OscMessage.hpp"
 
@@ -163,6 +167,12 @@ class OscServer : public UdpServer {
   int commandCount = 0;
   OscCommandMap commands[MAX_OSC_COMMANDS];
 public:
+  OscServer() : commandCount(0) {}
+
+  void reset(){
+    commandCount = 0;
+  }
+
   void addCommand(char* address, OscCommand* cmd, int minArgs = 0){
     if(commandCount < MAX_OSC_COMMANDS){
       commands[commandCount].address = address;
@@ -218,6 +228,14 @@ void sendOscStatus(const char* status){
   debugMessage(status);
   osc_status_msg.setString(0, status);
   oscserver.sendMessage(osc_status_msg);
+}
+
+void broadcastStatus(){
+  oscserver.setBroadcastMode();
+  IPAddress ip = WiFi.localIP();
+  char buf[24];
+  sprintf(buf, "%d.%d.%d.%d:%d", ip[0], ip[1], ip[2], ip[3], localPort);
+  sendOscStatus(buf);
 }
 
 void oscStatus(OscServer& server, OscMessage& msg){
@@ -369,6 +387,32 @@ void setIpAddress(String ip){
   Serial.println(oscserver.remoteIPAddress);
 }
 
+int current_network = -1;
+void connect(int iface){
+  debugMessage("connect");
+  if(current_network != iface){
+    if(iface == NETWORK_LOCAL_WIFI){
+      debugMessage("wifi.sta");
+      if(current_network == NETWORK_ACCESS_POINT){
+	debugMessage("wifi.disconnect");
+	WiFi.disconnect();
+	WiFi.stopAccessPoint(); // SOS if not running?
+      }
+    }else{
+      debugMessage("wifi.ap");
+      if(current_network == NETWORK_LOCAL_WIFI){
+	debugMessage("wifi.disconnect");
+	WiFi.disconnect();
+      }
+      WiFi.startAccessPoint("OpenSound", NULL, 11);
+    }
+    WiFi.selectNetworkInterface(iface);
+    WiFi.connect();
+    debugMessage("wifi.connect");
+    current_network = iface;
+  }
+}
+
 void setCredentials(String ssid, String passwd){
   debugMessage("setting ssid "+ssid+" password "+passwd);
   WiFi.disconnect();
@@ -382,17 +426,17 @@ void clearCredentials(){
   WiFi.clearCredentials();
 }
 
-void setupServers(){
-  // tcp = TCPServer(TCP_SERVER_PORT);
+void configureServers(){
+  debugMessage("configure servers");
+
   // webserver = WebServer(HTTP_SERVER_PORT);
   // websocketserver = WebSocketServer(WEBSOCKET_SERVER_PORT);
   // websocketserver.begin();
-  tcpsocketserver.begin();
+  // tcpsocketserver.begin();
 
   webserver.setDefaultCommand(&webHello);
   webserver.addCommand("index.html", &webIndex);
   webserver.addCommand("settings", &webSettings);
-  webserver.begin();
 
   oscserver.addCommand(OscCmd_a_cv, &oscCvA, 1);
   oscserver.addCommand(OscCmd_b_cv, &oscCvB, 1);
@@ -401,15 +445,36 @@ void setupServers(){
   oscserver.addCommand(OscCmd_status, &oscStatus);
   oscserver.addCommand(OscCmd_cv, &oscCv, 2);
   oscserver.addCommand(OscCmd_led, &oscLed);
+}
 
-  oscserver.begin(localPort);
+void startServers(){
+  debugMessage("start servers");
+  webserver.begin();
   oscserver.remoteIPAddress = remoteIPAddress;
   oscserver.remotePort = remotePort;
+  oscserver.begin(localPort);
   debugMessage("servers.begin");
-  sendOscStatus("servers.begin");  
+}
+
+void stopServers(){
+  debugMessage("stop servers");
+  //  tcpsocketserver.stop();
+  //  websocketserver.stop();
+  webserver.stop();
+  oscserver.stop();
 }
 
 void printInfo(Print& out){
+  out.println("Device Status");
+  if(WiFi.connecting())
+    out.println("Connecting");
+  if(WiFi.listening())
+    out.println("Listening");
+  if(WiFi.ready())
+    out.println("Ready");
+  if(WiFi.hasCredentials())
+    out.println("Has Credentials");
+
   out.print("Device ID: "); 
   out.println(Spark.deviceID());
 
@@ -418,6 +483,9 @@ void printInfo(Print& out){
 
   out.print("Local IP: "); 
   out.println(WiFi.localIP());
+
+  out.print("Gateway: "); 
+  out.println(WiFi.gatewayIP());
 
   out.print("RSSI: "); 
   out.println(WiFi.RSSI());
@@ -441,12 +509,12 @@ void printInfo(Print& out){
   out.println();
 }
 
-extern "C" void wwd_management_wifi_off( );
-extern "C" void vPortYield();
-void setup(){
-  vPortYield();
-  wwd_management_wifi_off( );
+unsigned long lastButtonPress;
+uint16_t cvA, cvB;
+bool triggerA, triggerB;
+bool button;
 
+void setup(){
   setLed(LED_RED);
   osc_status_msg.addString();
   osc_a_cv_msg.addFloat(.0f);
@@ -485,25 +553,26 @@ void setup(){
   WiFi.on();
   debugMessage("wifi.on");
 
-  setCredentials(OPENSOUND_WIFI_SSID, OPENSOUND_WIFI_PASSWORD);
-  // WiFi.setCredentials(OPENSOUND_WIFI_SSID, OPENSOUND_WIFI_PASSWORD, WPA2);
+  if(WiFi.hasCredentials())
+    connect(NETWORK_LOCAL_WIFI);
+  else
+    connect(NETWORK_ACCESS_POINT);
 
-  //  WiFi.connect();
-  // debugMessage("wifi.connect");
+  // WiFi.setCredentials(OPENSOUND_WIFI_SSID, OPENSOUND_WIFI_PASSWORD);
 
-  setupServers();
+  configureServers();
+  startServers();
+
   oscserver.setBroadcastMode();
   printInfo(Serial);
 
-  // RGB.control(true);
-  // RGB.color(RGB_COLOR_GREEN);
+  lastButtonPress = 0;
+  button = !digitalRead(BUTTON_PIN);
+  cvA = analogRead(ANALOG_PIN_A);
+  cvB = analogRead(ANALOG_PIN_B);
   setLed(LED_GREEN);
-
 }
 
-uint16_t cvA, cvB;
-bool triggerA, triggerB;
-bool button;
 char web_buf[64];
 int web_buf_len = 64;
 void loop(){
@@ -517,14 +586,34 @@ void loop(){
     cvB = cv;
     sendCvB(4095-cvB);
   }
-  bool btn = digitalRead(BUTTON_PIN);
-  if(btn != button){
+
+  bool btn = !digitalRead(BUTTON_PIN);
+  if(btn != button && (millis() > lastButtonPress+BUTTON_DEBOUNCE_MS)){
     button = btn;
-    if(button)
-      setLed(LED_GREEN);
-    else
-      setLed(LED_RED);
-    sendOscStatus("button");
+    setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_RED);
+    if(button){
+      lastButtonPress = millis();
+      toggleLed();
+      broadcastStatus();
+    }else{
+      lastButtonPress = 0;
+    }    
+  }
+
+  if(lastButtonPress && (millis() > lastButtonPress+BUTTON_TOGGLE_MS)){
+    setLed(LED_NONE);
+    delay(BUTTON_TOGGLE_MS);
+    if(!digitalRead(BUTTON_PIN)){
+      debugMessage("toggle network");
+      stopServers();
+      if(current_network == NETWORK_LOCAL_WIFI)
+	connect(NETWORK_ACCESS_POINT);
+      else
+	connect(NETWORK_LOCAL_WIFI);
+      startServers();
+    }
+    setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_RED);
+    lastButtonPress = 0;
   }
 
   btn = digitalRead(DIGITAL_INPUT_PIN_A);
@@ -543,7 +632,7 @@ void loop(){
   //  webserver.loop();
 
   // websocketserver.loop();
-  tcpsocketserver.loop();
+  //  tcpsocketserver.loop();
 
   if(Serial.available() > 0){
     int c = Serial.read();
@@ -608,10 +697,90 @@ void loop(){
       debugMessage("external antenna");
       WiFi.selectAntenna(ANT_EXTERNAL);
       break;
+    case 'a':
+      stopServers();
+      connect(NETWORK_ACCESS_POINT);
+      startServers();
+      break;
+    case 'w':
+      stopServers();
+      connect(NETWORK_LOCAL_WIFI);
+      startServers();
+      break;
+    case '+':
+      debugMessage("start access point");
+      WiFi.startAccessPoint("OpenSound", NULL, 11);
+      break;
+    case '-':
+      debugMessage("stop access point");
+      WiFi.stopAccessPoint();
+      break;
     }
   }
   oscserver.loop();
 }
+
+#if 0
+
+#include <wiced.h>
+
+extern "C" {
+  static const wiced_ip_setting_t ap_ip_settings = {
+    INITIALISER_IPV4_ADDRESS( .ip_address, MAKE_IPV4_ADDRESS( 192,168,  0,  1 ) ),
+    INITIALISER_IPV4_ADDRESS( .netmask,    MAKE_IPV4_ADDRESS( 255,255,255,  0 ) ),
+    INITIALISER_IPV4_ADDRESS( .gateway,    MAKE_IPV4_ADDRESS( 192,168,  0,  1 ) ),
+  };
+}
+
+static wiced_http_server_t ap_http_server;
+
+START_OF_HTTP_PAGE_DATABASE(ap_web_pages)
+    ROOT_HTTP_PAGE_REDIRECT("/apps/apsta/ap_top.html"),
+    { "/apps/apsta/ap_top.html",         "text/html",                         WICED_RESOURCE_URL_CONTENT,   .url_content.resource_data  = &resources_apps_DIR_apsta_DIR_ap_top_html,    },
+    { "/images/favicon.ico",             "image/vnd.microsoft.icon",          WICED_RESOURCE_URL_CONTENT,   .url_content.resource_data  = &resources_images_DIR_favicon_ico,            },
+    { "/images/brcmlogo.png",            "image/png",                         WICED_RESOURCE_URL_CONTENT,   .url_content.resource_data  = &resources_images_DIR_brcmlogo_png,           },
+    { "/images/brcmlogo_line.png",       "image/png",                         WICED_RESOURCE_URL_CONTENT,   .url_content.resource_data  = &resources_images_DIR_brcmlogo_line_png,      },
+END_OF_HTTP_PAGE_DATABASE();
+
+static dns_redirector_t    dns_redirector;
+static wiced_timed_event_t ping_timed_event;
+static wiced_ip_address_t  ping_target_ip;
+
+/******************************************************
+ *               Function Definitions
+ ******************************************************/
+
+void application_start(void){
+  /* Initialise the device */
+  wiced_init();
+
+  /* Bring up the STA (client) interface ------------------------------------------------------- */
+  wiced_network_up(WICED_STA_INTERFACE, WICED_USE_EXTERNAL_DHCP_SERVER, NULL);
+
+  /* The ping target is the gateway that the STA is connected to*/
+  wiced_ip_get_gateway_address( WICED_STA_INTERFACE, &ping_target_ip );
+
+  /* Print ping description to the UART */
+  WPRINT_APP_INFO(("Pinging %u.%u.%u.%u every %ums with a %ums timeout.\n", (unsigned int)((GET_IPV4_ADDRESS(ping_target_ip) >> 24) & 0xFF),
+		   (unsigned int)((GET_IPV4_ADDRESS(ping_target_ip) >> 16) & 0xFF),
+		   (unsigned int)((GET_IPV4_ADDRESS(ping_target_ip) >>  8) & 0xFF),
+		   (unsigned int)((GET_IPV4_ADDRESS(ping_target_ip) >>  0) & 0xFF),
+		   PING_PERIOD,
+		   PING_TIMEOUT) );
+
+  /* Setup a regular ping event and setup the callback to run in the networking worker thread */
+  wiced_rtos_register_timed_event( &ping_timed_event, WICED_NETWORKING_WORKER_THREAD, &send_ping, PING_PERIOD, 0 );
+
+  /* Bring up the softAP interface ------------------------------------------------------------- */
+  wiced_network_up(WICED_AP_INTERFACE, WICED_USE_INTERNAL_DHCP_SERVER, &ap_ip_settings);
+
+  /* Start a DNS redirect server to redirect wiced.com to the AP webserver database*/
+  wiced_dns_redirector_start( &dns_redirector, WICED_AP_INTERFACE );
+
+  /* Start a web server on the AP interface */
+  wiced_http_server_start( &ap_http_server, 80, ap_web_pages, WICED_AP_INTERFACE );
+}
+#endif
 
 void process_opensound(uint8_t* data, size_t size){
   Serial.print(size);

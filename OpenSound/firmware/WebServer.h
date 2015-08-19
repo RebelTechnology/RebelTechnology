@@ -204,6 +204,7 @@ public:
 
   // start listening for connections
   void begin();
+  void stop();
 
   // check for an incoming connection, and if it exists, process it
   // by reading its request and calling the appropriate command
@@ -411,6 +412,12 @@ P(webServerHeader) = "Server: Webduino/" WEBDUINO_VERSION_STRING CRLF;
 void WebServer::begin()
 {
   m_server.begin();
+}
+
+void WebServer::stop()
+{
+  reset();
+  m_server.stop();
 }
 
 void WebServer::setDefaultCommand(Command *cmd)
