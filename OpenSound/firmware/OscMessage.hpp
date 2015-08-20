@@ -28,7 +28,7 @@ public:
 public:
   OscMessage() : prefixLength(0), types(NULL), dataLength(0){}
 
-  OscMessage(char* a) : prefixLength(0), types(NULL), dataLength(0){
+  OscMessage(const char* a) : prefixLength(0), types(NULL), dataLength(0){
     // clear();
     setAddress(a);
   }
@@ -42,7 +42,7 @@ public:
 
   void parse(uint8_t* buffer, int length){
     // clear();
-    setAddress((char*)buffer);
+    setAddress((const char*)buffer);
     int i = prefixLength;
     while(buffer[i] != '\0'){
       char type = (char)buffer[i++];
@@ -54,7 +54,7 @@ public:
     memcpy(data, &buffer[i], length-i);    
   }
 
-  int size(){
+  int getSize(){
     int size = 0;
     while(types[size] != '\0')
       size++;
@@ -128,13 +128,14 @@ public:
     return (char*)(data+offset);
   }
 
-  void setAddress(char* a){
+  void setAddress(const char* a){
     prefixLength = strnlen(a, OSC_MESSAGE_MAX_PREFIX_SIZE-5)+1;
     if(types != NULL){
       uint8_t pos = prefixLength;
       while(pos & 3) pos++; // pad to 4 bytes
+      pos++; // add one for ','
       int sz = min(sizeof(prefix)-(types-prefix), sizeof(prefix)-pos);
-      memmove(prefix+pos, types, sz);
+      memmove(prefix+pos, types, sz-1);
     }
     //    memset(address, 0, sizeof(address));
     memcpy(prefix, a, prefixLength);

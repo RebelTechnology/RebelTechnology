@@ -77,10 +77,8 @@ void webReconnect(WebServer &server, WebServer::ConnectionType type,
     Serial.print(name);
     Serial.print(": ");
     Serial.println(value);
-    if(rc != URLPARAM_EOS){
-      if(strcmp(name, "net"))
-	net = strtol(value, NULL, 10);
-    }
+    if(strcmp(name, "net"))
+      net = strtol(value, NULL, 10);
   }
   server.httpSeeOther(PREFIX "/index.html");
   if(net >= 0){
@@ -140,7 +138,7 @@ void webAddress(WebServer &server, WebServer::ConnectionType type, char* url_tai
     do{
       repeat = server.readPOSTparam(name, sizeof(name), value, sizeof(value));
       unsigned int mid = strtoul(name, NULL, 10);
-      if(mid < Osc::MESSAGE_COUNT){
+      if(mid < Osc::MESSAGE_COUNT && strnlen(name, sizeof(name)) > 0){
 	Serial.print("set address ");
 	Serial.print(mid);
 	Serial.print(": ");

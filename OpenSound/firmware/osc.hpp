@@ -30,7 +30,7 @@ class OscServer : public UdpServer {
     uint8_t minArgs;
     OscCommand* cmd;
     bool matches(OscMessage& msg){
-      return strncmp(msg.getAddress(), address, addressLen) == 0 && msg.size() >= minArgs;
+      return strncmp(msg.getAddress(), address, addressLen) == 0 && msg.getSize() >= minArgs;
     }
   };
   int commandCount = 0;

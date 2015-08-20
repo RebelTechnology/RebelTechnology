@@ -113,7 +113,7 @@ void connect(int iface){
 	WiFi.stopAccessPoint(); // SOS if not running?
     }else if(iface == NETWORK_ACCESS_POINT){
       debugMessage("wifi.ap");
-      WiFi.startAccessPoint("OpenSound", NULL, 11);
+      WiFi.startAccessPoint();
     }
     WiFi.selectNetworkInterface(iface);
     WiFi.connect();
@@ -278,6 +278,9 @@ void setup(){
   setLed(LED_GREEN);
 }
 
+#include "Scanner.hpp"
+Scanner scanner;
+
 char web_buf[64];
 int web_buf_len = sizeof(web_buf);
 void loop(){
@@ -349,8 +352,9 @@ void loop(){
       printInfo(Serial);
       break;
     case 's':
-      debugMessage("s: send status hi");
-      sendOscStatus("hi");
+      debugMessage("s: scan wifi");
+      scanner.scan();
+      //      sendOscStatus("hi");
       break;
     case '!':
       debugMessage("!: clear credentials");
@@ -364,7 +368,8 @@ void loop(){
       break;
     case 'b':
       debugMessage("b: broadcast mode");
-      oscserver.setBroadcastMode();
+      broadcastStatus();
+      //oscserver.setBroadcastMode();
       break;
     case '=':
       debugMessage("=: set credentials");
@@ -408,7 +413,7 @@ void loop(){
       break;
     case '+':
       debugMessage("+: start access point");
-      WiFi.startAccessPoint("OpenSound", NULL, 11);
+      WiFi.startAccessPoint();
       break;
     case '-':
       debugMessage("-: stop access point");
@@ -425,71 +430,4 @@ void loop(){
     }
   }
   oscserver.loop();
-}
-
-#if 0
-
-#include <wiced.h>
-
-extern "C" {
-  static const wiced_ip_setting_t ap_ip_settings = {
-    INITIALISER_IPV4_ADDRESS( .ip_address, MAKE_IPV4_ADDRESS( 192,168,  0,  1 ) ),
-    INITIALISER_IPV4_ADDRESS( .netmask,    MAKE_IPV4_ADDRESS( 255,255,255,  0 ) ),
-    INITIALISER_IPV4_ADDRESS( .gateway,    MAKE_IPV4_ADDRESS( 192,168,  0,  1 ) ),
-  };
-}
-
-static wiced_http_server_t ap_http_server;
-
-START_OF_HTTP_PAGE_DATABASE(ap_web_pages)
-    ROOT_HTTP_PAGE_REDIRECT("/apps/apsta/ap_top.html"),
-    { "/apps/apsta/ap_top.html",         "text/html",                         WICED_RESOURCE_URL_CONTENT,   .url_content.resource_data  = &resources_apps_DIR_apsta_DIR_ap_top_html,    },
-    { "/images/favicon.ico",             "image/vnd.microsoft.icon",          WICED_RESOURCE_URL_CONTENT,   .url_content.resource_data  = &resources_images_DIR_favicon_ico,            },
-    { "/images/brcmlogo.png",            "image/png",                         WICED_RESOURCE_URL_CONTENT,   .url_content.resource_data  = &resources_images_DIR_brcmlogo_png,           },
-    { "/images/brcmlogo_line.png",       "image/png",                         WICED_RESOURCE_URL_CONTENT,   .url_content.resource_data  = &resources_images_DIR_brcmlogo_line_png,      },
-END_OF_HTTP_PAGE_DATABASE();
-
-static dns_redirector_t    dns_redirector;
-static wiced_timed_event_t ping_timed_event;
-static wiced_ip_address_t  ping_target_ip;
-
-/******************************************************
- *               Function Definitions
- ******************************************************/
-
-void application_start(void){
-  /* Initialise the device */
-  wiced_init();
-
-  /* Bring up the STA (client) interface ------------------------------------------------------- */
-  wiced_network_up(WICED_STA_INTERFACE, WICED_USE_EXTERNAL_DHCP_SERVER, NULL);
-
-  /* The ping target is the gateway that the STA is connected to*/
-  wiced_ip_get_gateway_address( WICED_STA_INTERFACE, &ping_target_ip );
-
-  /* Print ping description to the UART */
-  WPRINT_APP_INFO(("Pinging %u.%u.%u.%u every %ums with a %ums timeout.\n", (unsigned int)((GET_IPV4_ADDRESS(ping_target_ip) >> 24) & 0xFF),
-		   (unsigned int)((GET_IPV4_ADDRESS(ping_target_ip) >> 16) & 0xFF),
-		   (unsigned int)((GET_IPV4_ADDRESS(ping_target_ip) >>  8) & 0xFF),
-		   (unsigned int)((GET_IPV4_ADDRESS(ping_target_ip) >>  0) & 0xFF),
-		   PING_PERIOD,
-		   PING_TIMEOUT) );
-
-  /* Setup a regular ping event and setup the callback to run in the networking worker thread */
-  wiced_rtos_register_timed_event( &ping_timed_event, WICED_NETWORKING_WORKER_THREAD, &send_ping, PING_PERIOD, 0 );
-
-  /* Bring up the softAP interface ------------------------------------------------------------- */
-  wiced_network_up(WICED_AP_INTERFACE, WICED_USE_INTERNAL_DHCP_SERVER, &ap_ip_settings);
-
-  /* Start a DNS redirect server to redirect wiced.com to the AP webserver database*/
-  wiced_dns_redirector_start( &dns_redirector, WICED_AP_INTERFACE );
-
-  /* Start a web server on the AP interface */
-  wiced_http_server_start( &ap_http_server, 80, ap_web_pages, WICED_AP_INTERFACE );
-}
-#endif
-
-void process_opensound(uint8_t* data, size_t size){
-  Serial.print(size);
-  Serial.println(" bytes: process data");
 }

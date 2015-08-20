@@ -44,7 +44,8 @@
 
 // TODO - this is necessary to avoid sockets being unexpectedly closed.
 // https://community.spark.io/t/unwanted-but-reproducable-disconnect-in-tcpclient/5265
-#define fixmedelay() delay(20)
+// #define fixmedelay() delay(20)
+#define fixmedelay()
 
 /********************************************************************
  * CONFIGURATION

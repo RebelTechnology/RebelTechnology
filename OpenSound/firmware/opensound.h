@@ -19,7 +19,7 @@
 #define MAX_HEADER_VALUE_LENGTH 128
 #endif
 
-#define assert(cond, msg) if(!(cond)){assert_failed(msg, __PRETTY_FUNCTION__, __LINE__);}
+#define ASSERT(cond, msg) if(!(cond)){assert_failed(msg, __PRETTY_FUNCTION__, __LINE__);}
 
 #ifdef  __cplusplus
 extern "C" {
