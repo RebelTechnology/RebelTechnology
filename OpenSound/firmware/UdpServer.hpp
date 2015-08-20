@@ -37,7 +37,6 @@ public :
   //   msg.write(*this);
   // }
   void loop(){
-    // udp
     int len = parsePacket();
     if(len > 0) {
       if(autoRemoteIPAddress){

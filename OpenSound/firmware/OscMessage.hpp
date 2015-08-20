@@ -28,7 +28,7 @@ public:
 public:
   OscMessage() : prefixLength(0), types(NULL), dataLength(0){}
 
-  OscMessage(char* a) : prefixLength(0), dataLength(0){
+  OscMessage(char* a) : prefixLength(0), types(NULL), dataLength(0){
     // clear();
     setAddress(a);
   }
@@ -130,6 +130,13 @@ public:
 
   void setAddress(char* a){
     prefixLength = strnlen(a, OSC_MESSAGE_MAX_PREFIX_SIZE-5)+1;
+    if(types != NULL){
+      uint8_t pos = prefixLength;
+      while(pos & 3) pos++; // pad to 4 bytes
+      int sz = min(sizeof(prefix)-(types-prefix), sizeof(prefix)-pos);
+      memmove(prefix+pos, types, sz);
+    }
+    //    memset(address, 0, sizeof(address));
     memcpy(prefix, a, prefixLength);
     while(prefixLength & 3) // pad to 4 bytes
       prefix[prefixLength++] = '\0';

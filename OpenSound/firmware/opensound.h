@@ -9,7 +9,6 @@
 #define WEBSOCKET_BUFFER_SIZE 64
 #define UDP_TX_BUFFER_SIZE    32
 #define UDP_RX_BUFFER_SIZE    32
-#define SERIAL_RX_BUFFER_SIZE 32
 #define OSC_MESSAGE_MAX_PREFIX_SIZE 16
 #define OSC_MESSAGE_MAX_DATA_SIZE 38
 
@@ -26,9 +25,7 @@
 extern "C" {
 #endif
   void debugMessage(const char* msg);
-  void process_opensound(uint8_t* data, size_t dataSize);    
   void assert_failed(const char* msg, const char* location, int line);
-  void udp_recv_packet(uint8_t* buffer, int size);
 #ifdef  __cplusplus
 }
 #endif

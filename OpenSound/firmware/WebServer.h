@@ -79,7 +79,7 @@
 #endif
 
 #ifndef WEBDUINO_AUTH_REALM
-#define WEBDUINO_AUTH_REALM "Webduino"
+#define WEBDUINO_AUTH_REALM "OpenSound"
 #endif // #ifndef WEBDUINO_AUTH_REALM
 
 #ifndef WEBDUINO_AUTH_MESSAGE
@@ -291,7 +291,7 @@ public:
 
   // Read the next keyword parameter from the buffer filled by getRequest.
   //
-  // returns 0 if everything weent okay,  non-zero if not
+  // returns 0 if everything went okay,  non-zero if not
   // (see the typedef for codes)
   URLPARAM_RESULT nextURLparam(char **tail, char *name, int nameLen,
                                char *value, int valueLen);
@@ -416,6 +416,7 @@ void WebServer::begin()
 
 void WebServer::stop()
 {
+//  if(m_client)
   reset();
   m_server.stop();
 }
