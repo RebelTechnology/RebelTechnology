@@ -18306,7 +18306,7 @@ Source: avr.lbr</description>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="Q100" library="transistor-neu-to92" deviceset="BC846" device=""/>
 <part name="R101" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
-<part name="R103" library="Rebel" deviceset="R-EU_" device="0603" value="100"/>
+<part name="R103" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R104" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
@@ -18317,15 +18317,15 @@ Source: avr.lbr</description>
 <part name="C1" library="resistor" deviceset="CPOL-EU" device="E2.5-6" value="10u"/>
 <part name="P+16" library="supply1" deviceset="+5V" device=""/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
-<part name="R221" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
-<part name="R241" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
-<part name="R211" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
-<part name="R231" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
-<part name="R251" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
+<part name="R221" library="Rebel" deviceset="R-EU_" device="0603" value="0R"/>
+<part name="R241" library="Rebel" deviceset="R-EU_" device="0603" value="0R"/>
+<part name="R211" library="Rebel" deviceset="R-EU_" device="0603" value="0R"/>
+<part name="R231" library="Rebel" deviceset="R-EU_" device="0603" value="0R"/>
+<part name="R251" library="Rebel" deviceset="R-EU_" device="0603" value="0R"/>
 <part name="OUT3" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="Q120" library="transistor-neu-to92" deviceset="BC846" device=""/>
 <part name="R121" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
-<part name="R123" library="Rebel" deviceset="R-EU_" device="0603" value="100"/>
+<part name="R123" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R124" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
@@ -18335,7 +18335,7 @@ Source: avr.lbr</description>
 <part name="OUT5" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="Q140" library="transistor-neu-to92" deviceset="BC846" device=""/>
 <part name="R141" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
-<part name="R143" library="Rebel" deviceset="R-EU_" device="0603" value="100"/>
+<part name="R143" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R144" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
@@ -18345,7 +18345,7 @@ Source: avr.lbr</description>
 <part name="OUT2" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="Q110" library="transistor-neu-to92" deviceset="BC846" device=""/>
 <part name="R111" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
-<part name="R113" library="Rebel" deviceset="R-EU_" device="0603" value="100"/>
+<part name="R113" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R114" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
 <part name="GND43" library="supply1" deviceset="GND" device=""/>
@@ -18355,7 +18355,7 @@ Source: avr.lbr</description>
 <part name="OUT4" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="Q130" library="transistor-neu-to92" deviceset="BC846" device=""/>
 <part name="R131" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
-<part name="R133" library="Rebel" deviceset="R-EU_" device="0603" value="100"/>
+<part name="R133" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R134" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
 <part name="GND45" library="supply1" deviceset="GND" device=""/>
 <part name="GND46" library="supply1" deviceset="GND" device=""/>
@@ -18365,7 +18365,7 @@ Source: avr.lbr</description>
 <part name="OUT6" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="Q150" library="transistor-neu-to92" deviceset="BC846" device=""/>
 <part name="R151" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
-<part name="R153" library="Rebel" deviceset="R-EU_" device="0603" value="100"/>
+<part name="R153" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R154" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
 <part name="GND48" library="supply1" deviceset="GND" device=""/>
 <part name="GND49" library="supply1" deviceset="GND" device=""/>
@@ -18373,7 +18373,7 @@ Source: avr.lbr</description>
 <part name="R152" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
 <part name="P+18" library="supply1" deviceset="+12V" device=""/>
 <part name="IN0" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R261" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
+<part name="R261" library="Rebel" deviceset="R-EU_" device="0603" value="0R"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="IC1" library="atmel" deviceset="MEGA8" device="-AI"/>
 <part name="R212" library="Rebel" deviceset="R-EU_" device="0603" value="22M"/>
@@ -18428,7 +18428,7 @@ Source: avr.lbr</description>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
-<part name="Z1" library="Rebel" deviceset="CERAMIC_RESONATOR" device=""/>
+<part name="Z1" library="Rebel" deviceset="CERAMIC_RESONATOR" device="" value="16MHz"/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
 <part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="10K"/>
