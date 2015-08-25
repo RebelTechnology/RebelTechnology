@@ -1,4 +1,5 @@
 #include "OscMessage.hpp"
+#include "UdpServer.h"
 
 char OscCmd_status[]      = "/status";
 char OscCmd_a_trigger[]   = "/trigger_a";
@@ -38,6 +39,44 @@ class OscServer : public UdpServer {
 public:
   OscServer() : commandCount(0) {}
 
+  void loop(){
+    int len = parsePacket();
+    if(len > 0) {
+#ifdef SERIAL_DEBUG
+      Serial.print("udp recv ");
+      Serial.print(len);
+      Serial.print('/');
+      Serial.println(UDP_RX_BUF_MAX_SIZE);
+#endif
+      if(autoRemoteIPAddress){
+	remoteIPAddress = remoteIP();
+#ifdef SERIAL_DEBUG
+	Serial.print("Remote IP (auto): ");
+	Serial.println(remoteIPAddress);
+#endif
+      }
+      udp_recv_packet(_rxbuffer, len);
+      _rxoffset += len;
+      //      len = min(len, UDP_RX_BUFFER_SIZE);
+      //      len = read(_rxbuffer, len);
+      //      if(len > 0){
+      //      udp_recv_packet(rxbuffer, len);
+	//	}else{
+	//	debugMessage("udp read error");
+    }
+  }
+  bool autoRemoteIPAddress = true;
+  IPAddress remoteIPAddress;
+  uint16_t remotePortNumber;
+  int beginPacket(){
+    return UdpServer::beginPacket(remoteIPAddress, remotePortNumber);
+  }
+  void setRemoteIP(IPAddress ip){
+    remoteIPAddress = ip;
+  }
+  void setRemotePort(uint16_t port){
+    remotePortNumber = port;
+  }
   void reset(){
     commandCount = 0;
   }
@@ -53,6 +92,38 @@ public:
   }
 
   void udp_recv_packet(uint8_t* buffer, int size){
+    if(size >= 28 && strncmp((const char*)buffer, "#bundle", 7) == 0){
+      int len = OscMessage::getOscInt(buffer+16);
+      buffer += 16; // discard #bundle and timestamp
+      size -= 16;
+#ifdef SERIAL_DEBUG
+      Serial.print("#bundle ");
+      Serial.print(len);
+      Serial.print('/');
+      Serial.println(size);
+#endif
+      while(len >= 8 && size >= len+4){
+	processMessage(buffer+4, len);
+	buffer += len+4;
+	size -= len+4;
+	len = size >= 12 ? OscMessage::getOscInt(buffer) : 0;
+#ifdef SERIAL_DEBUG
+      Serial.print("next ");
+      Serial.print(len);
+      Serial.print('/');
+      Serial.println(size);
+#endif
+      }
+    }else if(size >= 8 && buffer[0] == '/'){
+      processMessage(buffer, size);
+    } // else ignore
+  }
+
+  void processMessage(uint8_t* buffer, int size){
+#ifdef SERIAL_DEBUG
+    Serial.print("osc message ");
+    Serial.println(size);
+#endif
     OscMessage msg;
     msg.parse(buffer, size);
     for(int i=0; i<commandCount; ++i)
@@ -63,16 +134,18 @@ public:
   }
 
   void sendMessage(OscMessage& msg){
-    UdpServer::beginPacket();
+    beginPacket();
     msg.write(*this);
-    UdpServer::endPacket();
+    endPacket();
   }
 
   void setBroadcastMode(){
     remoteIPAddress = WiFi.localIP();
     remoteIPAddress[3] = 255;
+#ifdef SERIAL_DEBUG
     Serial.print("Remote IP (broadcast): ");
     Serial.println(remoteIPAddress);
+#endif
   }
 };
 
@@ -127,6 +200,15 @@ public:
     if(mid < MESSAGE_COUNT)
       return messages[mid].getAddress();
     return NULL;
+  }
+
+  void send(OscMessageId mid, int value){
+    if(mid < MESSAGE_COUNT){ 
+      messages[mid].setInt(0, value);
+      oscserver.beginPacket();
+      messages[mid].write(oscserver);
+      oscserver.endPacket();
+    }
   }
 
   void send(OscMessageId mid, float value){
@@ -208,16 +290,20 @@ void oscCv(OscServer& server, OscMessage& msg){
     a = msg.getInt(0);
   a = 4095 - max(0, min(4095, a));
   dac_set_a(a);
+#ifdef SERIAL_DEBUG
   Serial.print("DAC transfer A: ");
   Serial.println(a);
+#endif
   if(msg.getDataType(1) == 'f')
     b = msg.getFloat(1)*4096;
   else // if(msg.getDataType(1) == 'i')
     b = msg.getInt(1);
   b = 4095 - max(0, min(4095, b));
   dac_set_b(b);
+#ifdef SERIAL_DEBUG
   Serial.print("DAC transfer B: ");
   Serial.println(b);
+#endif
 }
 
 void oscCvA(OscServer& server, OscMessage& msg){
@@ -229,8 +315,10 @@ void oscCvA(OscServer& server, OscMessage& msg){
     a = msg.getInt(0);
   a = 4095 - max(0, min(4095, a));
   dac_set_a(a);
+#ifdef SERIAL_DEBUG
   Serial.print("DAC transfer A: ");
   Serial.println(a);
+#endif
 }
 
 void oscCvB(OscServer& server, OscMessage& msg){
@@ -242,8 +330,10 @@ void oscCvB(OscServer& server, OscMessage& msg){
     b = msg.getInt(0);
   b = 4095 - max(0, min(4095, b));
   dac_set_b(b);
+#ifdef SERIAL_DEBUG
   Serial.print("DAC transfer B: ");
   Serial.println(b);
+#endif
 }
 
 void oscTriggerA(OscServer& server, OscMessage& msg){
@@ -258,8 +348,10 @@ void oscTriggerA(OscServer& server, OscMessage& msg){
   else if(msg.getDataType(0) == 'f')
     value = msg.getFloat(0) >= 0.5;
   digitalWrite(DIGITAL_OUTPUT_PIN_A, value ? LOW : HIGH);
+#ifdef SERIAL_DEBUG
   Serial.print("trigger A: ");
   Serial.println(value);
+#endif
 }
 
 void oscTriggerB(OscServer& server, OscMessage& msg){
@@ -274,18 +366,20 @@ void oscTriggerB(OscServer& server, OscMessage& msg){
   else if(msg.getDataType(0) == 'f')
     value = msg.getFloat(0) >= 0.5;
   digitalWrite(DIGITAL_OUTPUT_PIN_B, value ? LOW : HIGH);
+#ifdef SERIAL_DEBUG
   Serial.print("trigger B: ");
   Serial.println(value);
+#endif
 }
 
 void sendCvA(uint16_t value){
-  osc.send(Osc::CV_A, value/4096.0);
+  osc.send(Osc::CV_A, (float)value/4096.0f);
   //  osc_a_cv_msg.setFloat(0, (float)value/4096.0);
   //  sendMessage(osc_a_cv_msg);
 }
 
 void sendCvB(uint16_t value){
-  osc.send(Osc::CV_B, value/4096.0);
+  osc.send(Osc::CV_B, (float)value/4096.0f);
   //  osc_b_cv_msg.setFloat(0, (float)value/4096.0);
   //  sendMessage(osc_b_cv_msg);
 }

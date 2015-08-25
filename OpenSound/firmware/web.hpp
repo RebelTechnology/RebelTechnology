@@ -73,10 +73,12 @@ void webReconnect(WebServer &server, WebServer::ConnectionType type,
   debugMessage("/reconnect");
   while(strlen(url_tail)){
     rc = server.nextURLparam(&url_tail, name, sizeof(name), value, sizeof(value));
+#ifdef SERIAL_DEBUG
     Serial.print("reconnect ");
     Serial.print(name);
     Serial.print(": ");
     Serial.println(value);
+#endif
     if(strcmp(name, "net"))
       net = strtol(value, NULL, 10);
   }
@@ -139,10 +141,12 @@ void webAddress(WebServer &server, WebServer::ConnectionType type, char* url_tai
       repeat = server.readPOSTparam(name, sizeof(name), value, sizeof(value));
       unsigned int mid = strtoul(name, NULL, 10);
       if(mid < Osc::MESSAGE_COUNT && strnlen(name, sizeof(name)) > 0){
+#ifdef SERIAL_DEBUG
 	Serial.print("set address ");
 	Serial.print(mid);
 	Serial.print(": ");
 	Serial.println(value);
+#endif
 	osc.setAddress((Osc::OscMessageId)mid, value);
       }
     }while(repeat);

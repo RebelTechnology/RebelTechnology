@@ -11,6 +11,68 @@
                      (((uint32_t)(A) & 0x00ff0000) >> 8) | \
                      (((uint32_t)(A) & 0x0000ff00) << 8) | \
                      (((uint32_t)(A) & 0x000000ff) << 24))
+
+class OscBase {
+private:
+  uint8_t* prefix;
+  uint8_t* types;
+  uint8_t* data;
+public:
+  int getDataSize(int offset, char type){
+    switch(type){
+    case 'c': // ASCII character sent as 32 bits
+    case 'r': // 32bit RGBA colour
+    case 'i': // 32bit integer
+    case 'f': // 32bit float
+    case 'm': // 4-byte MIDI message
+      return 4;
+    case 'h': // 64bit integer
+    case 'd': // 64bit double
+      return 8;
+    case 's': // string
+    case 'S': // symbol
+    case 'b': // blob
+      // todo - strnlen for overflow protection
+      return strlen(data+offset);
+    default:
+      return 0;
+    }
+  }
+
+  char getDataType(int8_t index){
+    return types[index];
+  }
+
+  uint8_t* getDataPointer(int8_t index){
+    int offset = 0;
+    for(int i=0; i<index && types[i] != '/0'; ++i)
+      offset += getDataSize(offset, types[i]);
+    return data+offset;
+  }
+};
+
+class OscReader : public OscMessage {
+public:
+  void parsePacket(uint8_t* buffer, int size);
+  void parseBundle(uint8_t* buffer, int size);
+  void parseMessage(uint8_t* buffer, int size);
+  void parsePrefix(uint8_t* buffer, int size);
+  void parseAddress(uint8_t* buffer, int size);
+  void parseTypes(uint8_t* buffer, int size);
+  char* getAddress();
+  char* getTypes();
+  uint8_t* getData();
+};
+
+class OscWriter : public OscMessage {
+public:
+  void setAddress(char* address);
+  void addType(char type);
+  void setInt(int index, int data);
+  void setFloat(int index, float data);
+  void setString(int index, char* data);
+};
+
 #endif
 
 /*
@@ -95,6 +157,17 @@ public:
       offset += getDataSize(types[i]);
     return offset;
   }
+
+  static int32_t getOscInt(uint8_t* data){
+    int index = 0;
+    union { int32_t i; uint8_t b[4]; } u;
+    u.b[3] = data[index++];
+    u.b[2] = data[index++];
+    u.b[1] = data[index++];
+    u.b[0] = data[index];
+    return u.i;
+  }
+
 
   int32_t getInt(int8_t index){
     index = getOffset(index);

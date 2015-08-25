@@ -39,10 +39,18 @@ public :
   void loop(){
     int len = parsePacket();
     if(len > 0) {
+#ifdef SERIAL_DEBUG
+	Serial.print("udp recv ");
+	Serial.print(len);
+	Serial.print('/');
+	Serial.println(UDP_RX_BUFFER_SIZE);
+#endif
       if(autoRemoteIPAddress){
 	remoteIPAddress = remoteIP();
+#ifdef SERIAL_DEBUG
 	Serial.print("Remote IP (auto): ");
 	Serial.println(remoteIPAddress);
+#endif
       }
       len = min(len, UDP_RX_BUFFER_SIZE);
       len = read(rxbuffer, len);

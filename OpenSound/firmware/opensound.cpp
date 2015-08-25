@@ -5,7 +5,6 @@
 //#include "WebSocketServer.hpp"
 // #include "WebServer.hpp"
 #include "TcpSocketServer.hpp"
-#include "UdpServer.hpp"
 #include "dac.h"
 
 // #define debugMessage(x) if(0){}
@@ -77,8 +76,10 @@ inline void toggleLed(){
 // TcpSocketServer tcpsocketserver(TCP_SERVER_PORT);
 
 void setIpAddress(String ip){
+#ifdef SERIAL_DEBUG
   Serial.print("Set remote IP: ");
   Serial.println(ip);
+#endif
   ip.toLowerCase();
   if(ip.startsWith("auto")){
     oscserver.autoRemoteIPAddress = true;
@@ -98,8 +99,10 @@ void setIpAddress(String ip){
     idx = ip.indexOf('.', pos);
   }
   oscserver.remoteIPAddress[3] = ip.substring(pos).toInt();
+#ifdef SERIAL_DEBUG
   Serial.print("Remote IP: ");
   Serial.println(oscserver.remoteIPAddress);
+#endif
 }
 
 int current_network = -1;
@@ -168,8 +171,8 @@ void configureServers(){
 void startServers(){
   debugMessage("start servers");
   webserver.begin();
-  oscserver.remoteIPAddress = remoteIPAddress;
-  oscserver.remotePort = remotePort;
+  oscserver.setRemoteIP(remoteIPAddress);
+  oscserver.setRemotePort(remotePort);
   oscserver.begin(localPort);
   debugMessage("servers.begin");
 }
@@ -213,10 +216,10 @@ void printInfo(Print& out){
   out.println(localPort);
 
   out.print("Remote IP: "); 
-  out.println(oscserver.remoteIPAddress);
+  out.println(oscserver.remoteIP());
 
   out.print("Remote Port: "); 
-  out.println(oscserver.remotePort);
+  out.println(oscserver.remotePort());
 
   byte mac[6];
   WiFi.macAddress(mac);
