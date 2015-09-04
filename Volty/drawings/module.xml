@@ -1,23 +1,24 @@
 <module type="6hp">
 
   <!-- jacks -->
+  <hole x="-0.25" y="1.75" radius="3.8"/>
+  <hole x="-0.25" y="1.25" radius="3.8"/>
+  <hole x="-0.25" y="0.75" radius="3.8"/>
+  <hole x="-0.25" y="0.25" radius="3.8"/>
+  <hole x="-0.25" y="-0.25" radius="3.8"/>
+  <hole x="-0.25" y="-0.75" radius="3.8"/>
+  <hole x="-0.25" y="-1.25" radius="3.25"/>
+  <hole x="-0.25" y="-1.75" radius="3.25"/>
+
   <hole x="0.25" y="1.75" radius="3.25"/>
   <hole x="0.25" y="1.25" radius="3.25"/>
   <hole x="0.25" y="0.75" radius="3.25"/>
   <hole x="0.25" y="0.25" radius="3.25"/>
   <hole x="0.25" y="-0.25" radius="3.25"/>
   <hole x="0.25" y="-0.75" radius="3.25"/>
-  <hole x="0.25" y="-1.25" radius="3.25"/>
-  <hole x="0.25" y="-1.75" radius="3.25"/>
+  <hole x="0.25" y="-1.25" radius="3.8"/>
+  <hole x="0.25" y="-1.75" radius="3.8"/>
 
-  <hole x="-0.25" y="1.75" radius="3.25"/>
-  <hole x="-0.25" y="1.25" radius="3.25"/>
-  <hole x="-0.25" y="0.75" radius="3.25"/>
-  <hole x="-0.25" y="0.25" radius="3.25"/>
-  <hole x="-0.25" y="-0.25" radius="3.25"/>
-  <hole x="-0.25" y="-0.75" radius="3.25"/>
-  <hole x="-0.25" y="-1.25" radius="3.25"/>
-  <hole x="-0.25" y="-1.75" radius="3.25"/>
 
 
 </module>
