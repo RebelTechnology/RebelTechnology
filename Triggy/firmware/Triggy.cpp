@@ -1,27 +1,8 @@
-// #define SERIAL_DEBUG
-#ifdef SERIAL_DEBUG
-#include "serial.h"
-#endif // SERIAL_DEBUG
-
 #include <inttypes.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include "device.h"
 #include "adc_freerunner.h"
-
-#define TEST_CLK() !(CLK_INPUT_PINS & _BV(CLK_INPUT_PIN))
-/* use pre-processor concatenation with ## in macros */
-#define TEST_TRG(nm) (adc_values[ADC ## nm] < limit)
-#define SET_TRG(nm) TRG ## nm ## _OUTPUT_PORT &= ~_BV(TRG ## nm ## _OUTPUT_PIN)
-#define CLR_TRG(nm) TRG ## nm ## _OUTPUT_PORT |= _BV(TRG ## nm ## _OUTPUT_PIN)
-#define CLR_LED(nm) LED ## nm ## _OUTPUT_PORT &= ~_BV(LED ## nm ## _OUTPUT_PIN)
-#define SET_LED(nm) LED ## nm ## _OUTPUT_PORT |= _BV(LED ## nm ## _OUTPUT_PIN)
-
-class Triggy {
-private:
-  volatile uint16_t limit;
-public:
-};
 
 void setup(){
   cli();
@@ -72,7 +53,6 @@ void setup(){
 #define ADC6 6
 
 // #define CHECK_TRG(nm) if(TEST_TRG(nm) && TEST_CLK()){
-/*
 #define CHECK_TRG(nm) if(TEST_TRG(nm)){	\
     SET_TRG(nm);\
     SET_LED(nm);\  
@@ -80,27 +60,31 @@ void setup(){
     CLR_TRG(nm);\
     CLR_LED(nm);\
   }
-*/
+/*
 #define CHECK_TRG(nm)\
-	if(TEST_TRG(nm)){\
-	  if(adc_count > onsets[nm]*2){\
-	    onsets[nm] = adc_count;\
-	    SET_TRG(nm);\
-	    SET_LED(nm);\
-	  }\
-	}else{\
-	  CLR_TRG(nm);\
-	  CLR_LED(nm);\
-	}
+  if(adc_count > onsets[nm] + retrigger){\
+    if(TEST_TRG(nm)){\
+      if(adc_count > onsets[nm] + retrigger*2){\
+        onsets[nm] = adc_count;\
+	SET_TRG(nm);	       \
+	SET_LED(nm);	       \
+      }			       \
+    }else{		       \
+      CLR_TRG(nm);	       \
+      CLR_LED(nm);	       \
+    }\
+  }
+*/
 
 void loop(){
+  //  TGL_LED(0);
   uint16_t limit = adc_values[ADC6];
+  uint16_t retrigger = adc_values[ADC6];
   static uint32_t onsets[6] = {0};  
   if(TEST_CLK())
     SET_LED(6);
   else
     CLR_LED(6);
-
   /*
   if(TEST_CLK()){
     SET_LED(6);
@@ -122,17 +106,10 @@ void loop(){
     CLR_LED(6);   
   }
   */
-
   CHECK_TRG(0);
   CHECK_TRG(1);
   CHECK_TRG(2);
   CHECK_TRG(3);
   CHECK_TRG(4);
   CHECK_TRG(5);
-
-	/*
-  for(int i=0; i<6; ++i){
-    if(adc_values[i] < limit)      
-  }
-	*/
 }

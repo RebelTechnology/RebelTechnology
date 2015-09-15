@@ -1,4 +1,5 @@
 #include "adc_freerunner.h"
+#include "device.h"
 
 #include <avr/interrupt.h> 
 
@@ -49,6 +50,7 @@ ISR(ADC_vect) {
     if(++counter == ADC_OVERSAMPLING){
       counter = 0;
       adc_count++;
+      //      TGL_LED(6);
       for(uint8_t i=0; i<ADC_CHANNELS; ++i){
 	adc_values[i] = adc_buffer[i];
 	adc_buffer[i] = 0;
