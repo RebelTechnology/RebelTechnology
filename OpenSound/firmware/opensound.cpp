@@ -2,9 +2,10 @@
 #include "application.h"
 #include "opensound.h"
 #include <stdint.h>
-//#include "WebSocketServer.hpp"
+// #include "TcpSocketServer.hpp"
+// #include "WebSocketServer.hpp"
 // #include "WebServer.hpp"
-#include "TcpSocketServer.hpp"
+#include "SparkIntervalTimer.h"
 #include "dac.h"
 
 // #define debugMessage(x) if(0){}
@@ -199,6 +200,7 @@ void printInfo(Print& out){
 
   out.print("Device ID: "); 
   out.println(Spark.deviceID());
+  //  out.println(Particle.deviceID());
 
   out.print("SSID: "); 
   out.println(WiFi.SSID());
@@ -229,12 +231,41 @@ void printInfo(Print& out){
     out.print(mac[i], HEX);
   }
   out.println();
+
+  //  out.print("Free memory: "); 
+  //  out.println(System.freeMemory());
 }
 
 unsigned long lastButtonPress;
 uint16_t cvA, cvB;
 bool triggerA, triggerB;
 bool button;
+
+//IntervalTimer dacTimer;
+uint16_t cvOutA;
+uint16_t cvOutB;
+void setCVA(uint16_t cv){
+  cvOutA = cv;
+}
+
+void setCVB(uint16_t cv){
+  cvOutB = cv;
+}
+
+uint16_t smooth = 3; 
+void dacCallback(){
+  static uint16_t a = 0;
+  static uint16_t b = 0;
+  a = (a*smooth + cvOutA)/(smooth+1);
+  dac_set_a(a);
+  b = (b*smooth + cvOutB)/(smooth+1);
+  dac_set_b(b);
+}
+
+bool isButtonPressed(){
+  //  return false;
+  return !digitalRead(BUTTON_PIN);
+}
 
 void setup(){
   setLed(LED_RED);
@@ -275,9 +306,12 @@ void setup(){
   printInfo(Serial);
 
   lastButtonPress = 0;
-  button = !digitalRead(BUTTON_PIN);
+  button = isButtonPressed();
   cvA = analogRead(ANALOG_PIN_A);
   cvB = analogRead(ANALOG_PIN_B);
+
+  //  dacTimer.begin(dacCallback, 400, hmSec);
+
   setLed(LED_GREEN);
 }
 
@@ -287,6 +321,7 @@ Scanner scanner;
 char web_buf[64];
 int web_buf_len = sizeof(web_buf);
 void loop(){
+  dacCallback();
   int cv = analogRead(ANALOG_PIN_A);
   if(abs(cv - cvA) > ANALOG_THRESHOLD){
     cvA = cv;
@@ -298,7 +333,7 @@ void loop(){
     sendCvB(4095-cvB);
   }
 
-  bool btn = !digitalRead(BUTTON_PIN);
+  bool btn = isButtonPressed();
   if(btn != button && (millis() > lastButtonPress+BUTTON_DEBOUNCE_MS)){
     button = btn;
     setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_RED);
@@ -315,7 +350,7 @@ void loop(){
     debugMessage("toggle?");
     setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_RED);
     delay(BUTTON_TOGGLE_MS);
-    if(!digitalRead(BUTTON_PIN)){
+    if(isButtonPressed()){
       setLed(LED_NONE);
       debugMessage("toggle network");
       stopServers();
@@ -356,7 +391,7 @@ void loop(){
       break;
     case 's':
       debugMessage("s: scan wifi");
-      scanner.scan();
+      scanner.start();
       //      sendOscStatus("hi");
       break;
     case '!':
@@ -422,13 +457,29 @@ void loop(){
       debugMessage("-: stop access point");
       WiFi.stopAccessPoint();
       break;
-    case '*':
+    case '*': {
       debugMessage("*: print local IP address");
       WLanConfig ip_config;
       wlan_fetch_ipconfig(&ip_config);
       IPAddress ip(ip_config.nw.aucIP);
       Serial.print("local IP: ");
       Serial.println(ip);
+      break;
+    }
+    case '[':
+      debugMessage("[: dac 0");
+      setCVA(0);
+      setCVB(0);
+      break;
+    case '|':
+      debugMessage("|: dac 1/2");
+      setCVA(2047);
+      setCVB(2047);
+      break;
+    case ']':
+      debugMessage("]: dac full");
+      setCVA(4095);
+      setCVB(4095);
       break;
     }
   }

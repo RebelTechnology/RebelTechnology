@@ -1,6 +1,9 @@
 #include "OscMessage.hpp"
 #include "UdpServer.h"
 
+void setCVA(uint16_t cv);
+void setCVB(uint16_t cv);
+
 char OscCmd_status[]      = "/status";
 char OscCmd_a_trigger[]   = "/trigger_a";
 char OscCmd_b_trigger[]   = "/trigger_b";
@@ -166,13 +169,17 @@ public:
   Osc(){
     messages[STATUS].setAddress(OscCmd_status);
     messages[STATUS].addString();
-    messages[CV_A].setAddress(OscCmd_a_cv);
+    //    messages[CV_A].setAddress(OscCmd_a_cv "/out");
+    messages[CV_A].setAddress("/a/cv");
     messages[CV_A].addFloat(.0f);
-    messages[CV_B].setAddress(OscCmd_b_cv);
+    //    messages[CV_B].setAddress(OscCmd_b_cv);
+    messages[CV_A].setAddress("/b/cv");
     messages[CV_B].addFloat(.0f);
-    messages[TRIGGER_A].setAddress(OscCmd_a_trigger);
+    //    messages[TRIGGER_A].setAddress(OscCmd_a_trigger);
+    messages[TRIGGER_A].setAddress("/a/tr");
     messages[TRIGGER_A].addInt(0);
-    messages[TRIGGER_B].setAddress(OscCmd_b_trigger);
+    //    messages[TRIGGER_B].setAddress(OscCmd_b_trigger);
+    messages[TRIGGER_B].setAddress("/b/tr");
     messages[TRIGGER_B].addInt(0);
     // osc_status_msg.addString();
     // osc_a_cv_msg.addFloat(.0f);
@@ -289,7 +296,7 @@ void oscCv(OscServer& server, OscMessage& msg){
   else // if(msg.getDataType(0) == 'i')
     a = msg.getInt(0);
   a = 4095 - max(0, min(4095, a));
-  dac_set_a(a);
+  setCVA(a);
 #ifdef SERIAL_DEBUG
   Serial.print("DAC transfer A: ");
   Serial.println(a);
@@ -299,7 +306,7 @@ void oscCv(OscServer& server, OscMessage& msg){
   else // if(msg.getDataType(1) == 'i')
     b = msg.getInt(1);
   b = 4095 - max(0, min(4095, b));
-  dac_set_b(b);
+  setCVB(b);
 #ifdef SERIAL_DEBUG
   Serial.print("DAC transfer B: ");
   Serial.println(b);
@@ -314,7 +321,7 @@ void oscCvA(OscServer& server, OscMessage& msg){
   else if(msg.getDataType(0) == 'i')
     a = msg.getInt(0);
   a = 4095 - max(0, min(4095, a));
-  dac_set_a(a);
+  setCVA(a);
 #ifdef SERIAL_DEBUG
   Serial.print("DAC transfer A: ");
   Serial.println(a);
@@ -329,7 +336,7 @@ void oscCvB(OscServer& server, OscMessage& msg){
   else if(msg.getDataType(0) == 'i')
     b = msg.getInt(0);
   b = 4095 - max(0, min(4095, b));
-  dac_set_b(b);
+  setCVB(b);
 #ifdef SERIAL_DEBUG
   Serial.print("DAC transfer B: ");
   Serial.println(b);
