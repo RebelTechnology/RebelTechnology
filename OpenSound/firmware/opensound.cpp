@@ -41,8 +41,8 @@ const char* OPENSOUND_WIFI_PASSWORD = "notwhattheyseem";
 #define DIGITAL_INPUT_PIN_A  D2
 #define DIGITAL_INPUT_PIN_B  D3
 #define BUTTON_PIN           D6
-#define GREEN_LED_PIN        A6
-#define RED_LED_PIN          A7
+#define GREEN_LED_PIN        D4
+#define RED_LED_PIN          D5
 #define ANALOG_THRESHOLD     15
 
 enum LedPin {

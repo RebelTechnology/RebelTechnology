@@ -173,7 +173,7 @@ public:
     messages[CV_A].setAddress("/a/cv");
     messages[CV_A].addFloat(.0f);
     //    messages[CV_B].setAddress(OscCmd_b_cv);
-    messages[CV_A].setAddress("/b/cv");
+    messages[CV_B].setAddress("/b/cv");
     messages[CV_B].addFloat(.0f);
     //    messages[TRIGGER_A].setAddress(OscCmd_a_trigger);
     messages[TRIGGER_A].setAddress("/a/tr");
