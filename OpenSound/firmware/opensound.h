@@ -19,11 +19,23 @@
 
 #define ASSERT(cond, msg) if(!(cond)){assert_failed(msg, __PRETTY_FUNCTION__, __LINE__);}
 
+#define NETWORK_LOCAL_WIFI   0
+#define NETWORK_ACCESS_POINT 1
+
 #ifdef  __cplusplus
 extern "C" {
 #endif
+  void connect(int iface);
+  void startServers();
+  void stopServers();
+
   void debugMessage(const char* msg);
   void assert_failed(const char* msg, const char* location, int line);
+
+  extern int remotePort;
+  extern int localPort;
+  //  extern IPAddress remoteIPAddress;
+
 #ifdef  __cplusplus
 }
 #endif

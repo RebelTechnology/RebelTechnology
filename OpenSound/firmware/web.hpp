@@ -1,15 +1,72 @@
+#include "http_server.h"
+#include "application.h"
+
+// extern "C" wiced_http_page_t osm_http_pages[];
+
+extern "C" {
+#include "web.h"
+};
+
+class WebServer {
+private:
+  wiced_http_server_t server;
+public:
+  void begin(){
+    // server, port, max sockets, pages, interface, url processor stack size
+    //    wiced_http_server_start(&server, 80, 4, osm_http_pages, WICED_AP_INTERFACE, 1024);
+    extern wiced_interface_t network; // WICED_STA_INTERFACE or WICED_AP_INTERFACE
+    wiced_http_server_start(&server, 80, 4, osm_http_pages, network, 1024);
+  }
+  void stop(){
+    wiced_http_server_stop(&server);
+  }
+  //void processConnection();
+};
+
+extern WebServer webserver;
+void configureWeb();
+
+class Streamer : public Print {
+private:
+  wiced_http_response_stream_t* stream;
+public:
+  Streamer(wiced_http_response_stream_t* s) : stream(s){}
+  // void write(const char* data){
+  //   wiced_http_response_stream_write(stream, data, strlen(data));
+  // }
+  size_t write(const char* data){
+    return write(data, strlen(data));
+  }
+  size_t write(uint8_t data){
+    return write(&data, 1);
+  }
+  size_t write(const void* data, size_t size){
+    wiced_http_response_stream_write(stream, data, size);
+    return size;
+  }
+  void flush(){
+    wiced_http_response_stream_flush(stream);
+  }
+};
+
+inline Streamer &operator <<(Streamer &obj, const char* arg) { 
+  obj.write(arg); 
+  return obj; 
+}
+
+template<class T>
+inline Print &operator <<(Print &obj, T arg)
+{ obj.print(arg); return obj; }
+
+#if 0
 #include "WebServer.h"
 
 void connect(int iface);
 void stopServers();
 void startServers();
 
-#if 1
 #define PREFIX ""
 WebServer webserver(PREFIX, HTTP_SERVER_PORT);
-#else
-WebServer webserver(HTTP_SERVER_PORT);
-#endif
 
 template<class T>
 inline Print &operator <<(Print &obj, T arg)
@@ -179,3 +236,5 @@ void configureWeb(){
   webserver.addCommand("auth", &webAuth);
   webserver.addCommand("reconnect", &webReconnect);
 }
+
+#endif

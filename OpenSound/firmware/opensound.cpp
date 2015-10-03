@@ -21,8 +21,6 @@ SYSTEM_MODE(MANUAL);
 
 #define DEFAULT_ANTENNA ANT_AUTO
 
-#define NETWORK_LOCAL_WIFI   0
-#define NETWORK_ACCESS_POINT 1
 #define BUTTON_DEBOUNCE_MS   100
 #define BUTTON_TOGGLE_MS     2000
 
@@ -376,7 +374,7 @@ void loop(){
   }
 
   /* process incoming connections one at a time forever */
-  webserver.processConnection(web_buf, &web_buf_len);
+  //  webserver.processConnection(web_buf, &web_buf_len);
   //  webserver.loop();
 
   // websocketserver.loop();
