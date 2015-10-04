@@ -1,8 +1,9 @@
-#ifndef _OSC_MESSAGE_H_
-#define _OSC_MESSAGE_H_
+#ifndef __OscMessage_h__
+#define __OscMessage_h__
 
 #include <inttypes.h>
 #include <string.h>
+#include "application.h"
 #include "opensound.h"
 
 #if 0
@@ -319,4 +320,4 @@ public:
   }
 };
 
-#endif /* _OSC_MESSAGE_H_ */
+#endif /*  __OscMessage_h__ */

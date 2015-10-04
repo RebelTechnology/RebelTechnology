@@ -1,8 +1,10 @@
 #include "web.hpp"
 #include "opensound.h"
 #include "application.h"
+#include "OscSender.h"
 
 WebServer webserver;
+extern OscSender oscsender;
 
 void configureWeb(){
 }
@@ -43,11 +45,11 @@ int32_t process_address(const char* url, wiced_http_response_stream_t* s, void* 
   stream.write(OSM_BEGIN, sizeof(OSM_BEGIN));
   stream << "<h2>Outputs</h2>"
 	 << "<form action='/address' method='POST'>"
-	 << "Status:<br><input type='text' name='0' value='" << osc.getAddress(Osc::STATUS) << "'><br>"
-	 << "CV A:<br><input type='text' name='1' value='" << osc.getAddress(Osc::CV_A) << "'><br>"
-	 << "CV B:<br><input type='text' name='2' value='" << osc.getAddress(Osc::CV_B) << "'><br>"
-	 << "Trigger A:<br><input type='text' name='3' value='" << osc.getAddress(Osc::TRIGGER_A) << "'><br>"
-	 << "Trigger B:<br><input type='text' name='4' value='" << osc.getAddress(Osc::TRIGGER_B) << "'><br>"
+	 << "Status:<br><input type='text' name='0' value='" << oscsender.getAddress(OscSender::STATUS) << "'><br>"
+	 << "CV A:<br><input type='text' name='1' value='" << oscsender.getAddress(OscSender::CV_A) << "'><br>"
+	 << "CV B:<br><input type='text' name='2' value='" << oscsender.getAddress(OscSender::CV_B) << "'><br>"
+	 << "Trigger A:<br><input type='text' name='3' value='" << oscsender.getAddress(OscSender::TRIGGER_A) << "'><br>"
+	 << "Trigger B:<br><input type='text' name='4' value='" << oscsender.getAddress(OscSender::TRIGGER_B) << "'><br>"
 	 << "<br><input type='submit'></form>"
 	 << "<br><a href='/'>return</a>";
   stream.write(OSM_END, sizeof(OSM_END));
