@@ -2,6 +2,8 @@
 #include "application.h"
 #include <string.h>
 
+Debug debug;
+
 #if 0
 void log_print_(int level, int line, const char *func, const char *file, const char *msg, ...){
   // defined in services/src/debug.c

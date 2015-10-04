@@ -23,18 +23,34 @@
 #define NETWORK_ACCESS_POINT 1
 
 #ifdef  __cplusplus
+#include "application.h"
+class Debug : public Print {
+  size_t write(uint8_t data){
+    return Serial.write(data);
+  }
+  size_t write(const uint8_t* data, size_t size){
+    return Serial.write(data, size);
+  }
+};
+extern Debug debug;
+template<class T>
+inline Print &operator <<(Print &obj, T arg)
+{ obj.print(arg); return obj; }
+#endif
+
+#ifdef  __cplusplus
 extern "C" {
 #endif
   void connect(int iface);
   void startServers();
   void stopServers();
+  void setCredentials(char* ssid, char* password, char* auth);
 
   void debugMessage(const char* msg);
   void assert_failed(const char* msg, const char* location, int line);
 
   extern int remotePort;
   extern int localPort;
-  //  extern IPAddress remoteIPAddress;
 
 #ifdef  __cplusplus
 }

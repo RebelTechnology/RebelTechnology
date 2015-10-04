@@ -18,19 +18,36 @@ int32_t process_version(const char* url, wiced_http_response_stream_t* stream, v
   return 0;
 }
 
-int32_t process_settings(const char* url, wiced_http_response_stream_t* s, void* arg, 
+int32_t process_settings(const char* u, wiced_http_response_stream_t* s, void* arg, 
 			 wiced_http_message_body_t* body){
+  UrlScanner url(u);
+  const char localport[] = "localport";
+  const char remoteport[] = "remoteport";
+  bool updated = false;
+  const char* param = url.getParameter(localport, sizeof(localport)-1);
+  if(param != NULL){
+    localPort = atol(param);
+    updated = true;
+  }
+  param = url.getParameter(remoteport, sizeof(remoteport)-1);
+  if(param != NULL){
+    remotePort = atol(param);
+    updated = true;
+  }
   Streamer stream(s);
   stream.write(OSM_BEGIN, sizeof(OSM_BEGIN));
-  stream << "<form action='/settings' method='POST'>"
+  if(updated)
+    stream << "<h3>Settings updated</h3>";
+  extern IPAddress remoteIPAddress;
+  stream << "<form action='/settings' method='GET'>"
 	 << "Local IP: "
 	 << WiFi.localIP()
 	 << "<br>Local Port:<br><input type='text' name='localport' value='"
 	 << localPort
 	 << "'><br>"
-    //	 << "Remote IP:<br><input type='text' name='remoteip' value='"
-    //	 << remoteIPAddress
-    //	 << "'><br>"
+    	 << "Remote IP:<br><input type='text' name='remoteip' value='"
+    	 << remoteIPAddress
+    	 << "'><br>"
 	 << "Remote Port:<br><input type='text' name='remoteport' value='"
 	 << remotePort
 	 << "'><br>"
@@ -40,11 +57,20 @@ int32_t process_settings(const char* url, wiced_http_response_stream_t* s, void*
   return 0;
 }
 
-int32_t process_address(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){
+int32_t process_address(const char* u, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){
+  UrlScanner url(u);
+  const char names[] = "01234";
+  for(int i=0; i<4; ++i){
+    char* param = url.getParameter(&names[i], 1);
+    if(param != NULL){
+      debug << "setting address [" << i << "] to value [" << param << "]\r\n";
+    }
+  }
+
   Streamer stream(s);
   stream.write(OSM_BEGIN, sizeof(OSM_BEGIN));
   stream << "<h2>Outputs</h2>"
-	 << "<form action='/address' method='POST'>"
+	 << "<form action='/address' method='GET'>"
 	 << "Status:<br><input type='text' name='0' value='" << oscsender.getAddress(OscSender::STATUS) << "'><br>"
 	 << "CV A:<br><input type='text' name='1' value='" << oscsender.getAddress(OscSender::CV_A) << "'><br>"
 	 << "CV B:<br><input type='text' name='2' value='" << oscsender.getAddress(OscSender::CV_B) << "'><br>"
@@ -57,11 +83,15 @@ int32_t process_address(const char* url, wiced_http_response_stream_t* s, void* 
 }
 
 int32_t process_auth(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){
+  UrlScanner params(body->data, body->message_data_length);
+  char* ssid = params.getParameter("ssid");
+  char* pass = params.getParameter("password");
+  char* auth = params.getParameter("auth");
+  if(ssid != NULL && pass != NULL && auth != NULL){
+    setCredentials(ssid, pass, auth);
+  }
   Streamer stream(s);
   stream.write(OSM_BEGIN, sizeof(OSM_BEGIN));
-  /*
-  stream.write("<form action='auth' method='POST'>");
-  */
   stream << "<form action='auth' method='POST'>"	
 	 << "SSID:<br><input name='ssid' type='text'><br>"
 	 << "Password:<br><input name='password' type='password'><br>"

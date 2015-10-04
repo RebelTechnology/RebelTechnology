@@ -1,5 +1,6 @@
 #include "http_server.h"
 #include "application.h"
+#include "opensound.h"
 
 // extern "C" wiced_http_page_t osm_http_pages[];
 
@@ -26,6 +27,46 @@ public:
 extern WebServer webserver;
 void configureWeb();
 
+class UrlScanner {
+private:
+  const char* url;
+  int len;
+public:
+  UrlScanner(const char* u) : url(u) {
+    len = strlen(url);
+    debug << "url: " << url << "[" << len << "]\r\n";
+  }
+  UrlScanner(const void* u, size_t l) : url((const char*)u), len(l)  {
+    debug << "body: " << url << "[" << len << "]\r\n";
+  }
+  char* getParameter(const char* name){
+    return getParameter(name, strlen(name));
+  }
+  char* getParameter(const char* name, size_t nlen){
+    char* found = NULL;
+    int i = 0;
+    while(i<len && found == NULL){
+      debug << "looking for [" << name << "][" << nlen << "] in [" << &url[i] << "]\r\n";
+      if(strncmp(&url[i], name, nlen) == 0){
+	i += nlen+1;
+	found = (char*)&url[i];
+      }
+      do{
+	i++; // fast forward to next parameter or end of list
+      }while(i < len && url[i] != '&' && url[i] != '\x00' && url[i] != '\n');
+      if(i < len){
+	if(url[i] == '&'){
+	  // replace & with \0 at the end of the parameter value
+	  char* tmp = (char*)url;
+	  tmp[i] = '\x00';
+	}
+	i++;
+      }
+    }
+    return found;
+  }
+};
+
 class Streamer : public Print {
 private:
   wiced_http_response_stream_t* stream;
@@ -49,14 +90,12 @@ public:
   }
 };
 
+#if 0 // superceded by Print template in opensound.h
 inline Streamer &operator <<(Streamer &obj, const char* arg) { 
   obj.write(arg); 
   return obj; 
 }
-
-template<class T>
-inline Print &operator <<(Print &obj, T arg)
-{ obj.print(arg); return obj; }
+#endif
 
 #if 0
 #include "WebServer.h"

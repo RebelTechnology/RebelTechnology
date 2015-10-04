@@ -125,6 +125,16 @@ void connect(int iface){
   setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_RED);
 }
 
+void setCredentials(char* ssid, char* password, char* auth){
+  debug << "setting credentials for ssid[" << ssid << "] auth[" << auth << "]\n";
+  int sec = atol(auth);
+  if(sec >= 0 && sec <= 3){
+    WiFi.disconnect();
+    WiFi.setCredentials(ssid, password, sec);
+    WiFi.connect();
+  }
+}
+
 void setCredentials(String ssid, String passwd){
   debugMessage("setting ssid "+ssid+" password "+passwd);
   WiFi.disconnect();
