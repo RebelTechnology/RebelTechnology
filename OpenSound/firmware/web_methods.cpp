@@ -2,9 +2,11 @@
 #include "opensound.h"
 #include "application.h"
 #include "OscSender.h"
+#include "OscServer.h"
 
 WebServer webserver;
 extern OscSender oscsender;
+extern OscServer oscserver;
 
 void configureWeb(){
 }
@@ -59,30 +61,45 @@ int32_t process_settings(const char* u, wiced_http_response_stream_t* s, void* a
 
 int32_t process_address(const char* u, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){
   UrlScanner url(u);
-  const char names[] = "01234";
-  for(int i=0; i<4; ++i){
-    char* param = url.getParameter(&names[i], 1);
+  const char inputs[] = "01234";
+  const char outputs[] = "56789";
+  for(int i=0; i<5; ++i){
+    char* param = url.getParameter(&inputs[i], 1);
     if(param != NULL){
-      debug << "setting address [" << i << "] to value [" << param << "]\r\n";
+      debug << "setting input address [" << i << "] to value [" << param << "]\r\n";
+      oscserver.setAddress(i, param);
+    }
+    param = url.getParameter(&outputs[i], 1);
+    if(param != NULL){
+      debug << "setting output address [" << i << "] to value [" << param << "]\r\n";
+      oscsender.setAddress((OscSender::OscMessageId)i, param);
     }
   }
 
   Streamer stream(s);
-  stream.write(OSM_BEGIN, sizeof(OSM_BEGIN));
+  stream << OSM_BEGIN << "<form action='/address' method='GET'>";
+  stream << "<h2>Inputs</h2>"
+	 << "Status:<br><input type='text' name='0' value='" << oscserver.getAddress(0) << "'><br>"
+	 << "CV A:<br><input type='text' name='1' value='" << oscserver.getAddress(1) << "'><br>"
+	 << "CV B:<br><input type='text' name='2' value='" << oscserver.getAddress(2) << "'><br>"
+	 << "Trigger A:<br><input type='text' name='3' value='" << oscserver.getAddress(3) << "'><br>"
+	 << "Trigger B:<br><input type='text' name='4' value='" << oscserver.getAddress(4) << "'><br>";
+
   stream << "<h2>Outputs</h2>"
-	 << "<form action='/address' method='GET'>"
-	 << "Status:<br><input type='text' name='0' value='" << oscsender.getAddress(OscSender::STATUS) << "'><br>"
-	 << "CV A:<br><input type='text' name='1' value='" << oscsender.getAddress(OscSender::CV_A) << "'><br>"
-	 << "CV B:<br><input type='text' name='2' value='" << oscsender.getAddress(OscSender::CV_B) << "'><br>"
-	 << "Trigger A:<br><input type='text' name='3' value='" << oscsender.getAddress(OscSender::TRIGGER_A) << "'><br>"
-	 << "Trigger B:<br><input type='text' name='4' value='" << oscsender.getAddress(OscSender::TRIGGER_B) << "'><br>"
-	 << "<br><input type='submit'></form>"
-	 << "<br><a href='/'>return</a>";
-  stream.write(OSM_END, sizeof(OSM_END));
+	 << "Status:<br><input type='text' name='5' value='" << oscsender.getAddress(OscSender::STATUS) << "'><br>"
+	 << "CV A:<br><input type='text' name='6' value='" << oscsender.getAddress(OscSender::CV_A) << "'><br>"
+	 << "CV B:<br><input type='text' name='7' value='" << oscsender.getAddress(OscSender::CV_B) << "'><br>"
+	 << "Trigger A:<br><input type='text' name='8' value='" << oscsender.getAddress(OscSender::TRIGGER_A) << "'><br>"
+	 << "Trigger B:<br><input type='text' name='9' value='" << oscsender.getAddress(OscSender::TRIGGER_B) << "'><br>";
+
+  stream << "<br><input type='submit'></form>"
+	 << "<br><a href='/'>return</a>" << OSM_END;
   return 0;
 }
 
 int32_t process_auth(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){
+  debug << "msg body [" << body->message_data_length << "/" << body->total_message_data_remaining << "]\r\n";
+  debug << "msg url [" << url << "]\r\n";
   UrlScanner params(body->data, body->message_data_length);
   char* ssid = params.getParameter("ssid");
   char* pass = params.getParameter("password");
@@ -104,7 +121,7 @@ int32_t process_auth(const char* url, wiced_http_response_stream_t* s, void* arg
 	 << "<br><input type='submit'></form>"
 	 << "<br><a href='/'>return</a>";
   stream.write(OSM_END, sizeof(OSM_END));
-  return 0;
+  debug << "msg body [" << body->message_data_length << "/" << body->total_message_data_remaining << "]\r\n";  return 0;
 }
 
 int32_t process_reconnect(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){

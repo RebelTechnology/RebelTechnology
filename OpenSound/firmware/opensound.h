@@ -44,7 +44,8 @@ extern "C" {
   void connect(int iface);
   void startServers();
   void stopServers();
-  void setCredentials(char* ssid, char* password, char* auth);
+  void setCredentials(const char* ssid, const char* password, const char* auth);
+  void setAccessPointCredentials(const char* ssid, const char* passwd, const char* auth);
 
   void debugMessage(const char* msg);
   void assert_failed(const char* msg, const char* location, int line);

@@ -30,6 +30,7 @@ IPAddress remoteIPAddress(192,168,2,172);
 
 const char* OPENSOUND_WIFI_SSID = "FortRebel";
 const char* OPENSOUND_WIFI_PASSWORD = "notwhattheyseem";
+const char* OPENSOUND_WIFI_SECURITY = "3";
 
 #define ANALOG_PIN_A         A0
 #define ANALOG_PIN_B         A1
@@ -125,22 +126,14 @@ void connect(int iface){
   setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_RED);
 }
 
-void setCredentials(char* ssid, char* password, char* auth){
+void setCredentials(const char* ssid, const char* passwd, const char* auth){
   debug << "setting credentials for ssid[" << ssid << "] auth[" << auth << "]\n";
   int sec = atol(auth);
   if(sec >= 0 && sec <= 3){
     WiFi.disconnect();
-    WiFi.setCredentials(ssid, password, sec);
+    WiFi.setCredentials(ssid, passwd, sec);
     WiFi.connect();
   }
-}
-
-void setCredentials(String ssid, String passwd){
-  debugMessage("setting ssid "+ssid+" password "+passwd);
-  WiFi.disconnect();
-  WiFi.setCredentials(ssid, passwd, WPA2);
-  WiFi.connect();
-  debugMessage("wifi.connect");
 }
 
 void clearCredentials(){
@@ -153,20 +146,51 @@ void readCredentials(Stream& port){
   port.println("Enter SSID:");
   String ssid = port.readStringUntil('\r');
   ssid.trim();
+  port.println("Enter AP security (0=Open, 1=WEP, 2=WPA, 3=WPA2):");
+  String auth = port.readStringUntil('\r');
+  auth.trim();
   port.println("Enter password:");
   String pass = port.readStringUntil('\r');
   pass.trim();
   port.print("SSID: [");
   port.print(ssid);
-  port.println("]");
-  port.print("Password: [");
+  port.print("] Auth: [");
+  port.print(auth);
+  port.print("] Password: [");
   port.print(pass);
   port.println("]");
   port.println("Type yes to confirm");
   String yes = port.readStringUntil('\r');
   port.setTimeout(1000);
   if(yes.equals("yes"))
-    setCredentials(ssid, pass);
+    setCredentials(ssid.c_str(), pass.c_str(), auth.c_str());
+  else
+    port.println("Cancelled");
+}
+
+void readAccessPointCredentials(Stream& port){
+  port.setTimeout(10000);
+  port.println("Enter AP SSID:");
+  String ssid = port.readStringUntil('\r');
+  ssid.trim();
+  port.println("Enter AP security (0=Open, 1=WEP, 2=WPA, 3=WPA2):");
+  String auth = port.readStringUntil('\r');
+  auth.trim();
+  port.println("Enter AP password:");
+  String pass = port.readStringUntil('\r');
+  pass.trim();
+  port.print("SSID: [");
+  port.print(ssid);
+  port.print("] Auth: [");
+  port.print(auth);
+  port.print("] Password: [");
+  port.print(pass);
+  port.println("]");
+  port.println("Type yes to confirm");
+  String yes = port.readStringUntil('\r');
+  port.setTimeout(1000);
+  if(yes.equals("yes"))
+    setAccessPointCredentials(ssid.c_str(), pass.c_str(), auth.c_str());
   else
     port.println("Cancelled");
 }
@@ -299,9 +323,6 @@ void setup(){
   WiFi.on();
   debugMessage("wifi.on");
 
-  if(!WiFi.hasCredentials())
-    WiFi.setCredentials(OPENSOUND_WIFI_SSID, OPENSOUND_WIFI_PASSWORD);
-
   if(WiFi.hasCredentials())
     connect(NETWORK_LOCAL_WIFI);
   else
@@ -400,7 +421,6 @@ void loop(){
     case 's':
       debugMessage("s: scan wifi");
       scanner.start();
-      //      sendOscStatus("hi");
       break;
     case '!':
       debugMessage("!: clear credentials");
@@ -409,7 +429,7 @@ void loop(){
       break;
     case 'd':
       debugMessage("d: default credentials");
-      setCredentials(OPENSOUND_WIFI_SSID, OPENSOUND_WIFI_PASSWORD);
+      setCredentials(OPENSOUND_WIFI_SSID, OPENSOUND_WIFI_PASSWORD, OPENSOUND_WIFI_SECURITY);
       printInfo(Serial);
       break;
     case 'b':
@@ -417,9 +437,13 @@ void loop(){
       broadcastStatus();
       //oscserver.setBroadcastMode();
       break;
-    case '=':
-      debugMessage("=: set credentials");
+    case '+':
+      debugMessage("+: add credentials");
       readCredentials(Serial);
+      break;
+    case '=':
+      debugMessage("=: set access point credentials");
+      readAccessPointCredentials(Serial);
       break;
     case 'l':
       debugMessage("l: toggle led");
@@ -457,6 +481,7 @@ void loop(){
       connect(NETWORK_LOCAL_WIFI);
       //startServers();
       break;
+      /*
     case '+':
       debugMessage("+: start access point");
       WiFi.startAccessPoint();
@@ -465,6 +490,7 @@ void loop(){
       debugMessage("-: stop access point");
       WiFi.stopAccessPoint();
       break;
+      */
     case '*': {
       debugMessage("*: print local IP address");
       WLanConfig ip_config;
@@ -493,3 +519,95 @@ void loop(){
   }
   oscserver.loop();
 }
+
+#include "dct.h"
+
+const int MAX_SSID_PREFIX_LEN = 25;
+void setAccessPointPrefix(char* prefix){
+  wiced_ssid_t ssid;
+  ssid.length = strnlen(prefix, MAX_SSID_PREFIX_LEN);
+  strncpy((char*)ssid.value, prefix, ssid.length);
+  dct_write_app_data(&ssid, DCT_SSID_PREFIX_OFFSET, ssid.length+1);
+}
+
+void setAccessPointCredentials(const char* ssid, const char* passwd, const char* auth){
+  //void setAccessPoint(char* prefix, char* auth){
+  wiced_config_soft_ap_t ap;
+  ap.SSID.length = strnlen(ssid, MAX_SSID_PREFIX_LEN);
+  strncpy((char*)ap.SSID.value, ssid, ap.SSID.length);
+  ap.channel = 11;
+  ap.details_valid = WICED_TRUE;
+  int sec = atol(auth);
+  switch(sec){
+  case 0: // Open
+    ap.security = WICED_SECURITY_OPEN;
+    break;
+  case 1: // WEP
+    ap.security = WICED_SECURITY_WEP_PSK;
+    break;
+  case 2: // WPA
+    ap.security = WICED_SECURITY_WPA_TKIP_PSK;
+    break;
+  case 3: // WPA2
+    ap.security = WICED_SECURITY_WPA2_AES_PSK;
+    break;
+  }
+  ap.security_key_length = strnlen(passwd, SECURITY_KEY_SIZE);
+  strncpy(ap.security_key, passwd, ap.security_key_length);
+  wiced_result_t result = wiced_dct_write(&ap, DCT_WIFI_CONFIG_SECTION, OFFSETOF(platform_dct_wifi_config_t, soft_ap_settings), sizeof(wiced_config_soft_ap_t));
+}
+
+#if 0
+extern "C" bool fetch_or_generate_setup_ssid(wiced_ssid_t* SSID);
+
+bool fetch_or_generate_ssid_prefix(wiced_ssid_t* SSID) {
+    const uint8_t* prefix = (const uint8_t*)dct_read_app_data(DCT_SSID_PREFIX_OFFSET);
+    uint8_t len = *prefix;
+    bool generate = (!len || len>MAX_SSID_PREFIX_LEN);
+    if (generate) {
+        strcpy((char*)SSID->value, "Photon");
+        SSID->length = 6;
+        dct_write_app_data(SSID, DCT_SSID_PREFIX_OFFSET, SSID->length+1);
+    }
+    else {
+        memcpy(SSID, prefix, DCT_SSID_PREFIX_SIZE);
+    }
+    if (SSID->length>MAX_SSID_PREFIX_LEN)
+        SSID->length = MAX_SSID_PREFIX_LEN;
+    return generate;
+}
+
+bool fetch_or_generate_setup_ssid(wiced_ssid_t* SSID) {
+    bool result = fetch_or_generate_ssid_prefix(SSID);
+    SSID->value[SSID->length++] = '-';
+    result |= fetch_or_generate_device_id(SSID);
+    return result;
+}
+
+extern "C" wiced_ip_setting_t device_init_ip_settings;
+
+wiced_result_t setup_soft_ap_credentials() {
+  wiced_config_soft_ap_t expected;
+  memset(&expected, 0, sizeof(expected));
+  fetch_or_generate_setup_ssid(&expected.SSID);
+  expected.channel = 11;
+  expected.details_valid = WICED_TRUE;
+  wiced_config_soft_ap_t* soft_ap;
+  wiced_result_t result = wiced_dct_read_lock( (void**) &soft_ap, WICED_FALSE, DCT_WIFI_CONFIG_SECTION, OFFSETOF(platform_dct_wifi_config_t, soft_ap_settings), sizeof(wiced_config_soft_ap_t) );
+  if(result == WICED_SUCCESS) {
+      if (memcmp(&expected, soft_ap, sizeof(expected))) {
+	result = wiced_dct_write(&expected, DCT_WIFI_CONFIG_SECTION, OFFSETOF(platform_dct_wifi_config_t, soft_ap_settings), sizeof(wiced_config_soft_ap_t));
+      }
+      wiced_dct_read_unlock( soft_ap, WICED_FALSE );
+    }
+  return result;
+}
+
+void setAccessPointCredentials(char* ssid, char* password, char* auth){
+  debug << "setting access point credentials: ssid[" << ssid << "] auth[" << auth << "]\n";
+  int sec = atol(auth);
+  if(sec >= 0 && sec <= 3 && false){
+
+  }
+}
+#endif

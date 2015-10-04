@@ -46,7 +46,7 @@ public:
     char* found = NULL;
     int i = 0;
     while(i<len && found == NULL){
-      debug << "looking for [" << name << "][" << nlen << "] in [" << &url[i] << "]\r\n";
+      debug << "looking for [" << name << "][" << nlen << "] in [" << &url[i] << "][" << len << "]\r\n";
       if(strncmp(&url[i], name, nlen) == 0){
 	i += nlen+1;
 	found = (char*)&url[i];

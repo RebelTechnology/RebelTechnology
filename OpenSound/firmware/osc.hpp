@@ -194,11 +194,11 @@ void sendTriggerB(bool value){
 }
 
 void configureOsc(){
+  oscserver.addCommand(OscCmd_status, &oscStatus);
   oscserver.addCommand(OscCmd_a_cv, &oscCvA, 1);
   oscserver.addCommand(OscCmd_b_cv, &oscCvB, 1);
   oscserver.addCommand(OscCmd_a_trigger, &oscTriggerA);
   oscserver.addCommand(OscCmd_b_trigger, &oscTriggerB);
-  oscserver.addCommand(OscCmd_status, &oscStatus);
   oscserver.addCommand(OscCmd_cv, &oscCv, 2);
   oscserver.addCommand(OscCmd_led, &oscLed);
 }
