@@ -7,6 +7,7 @@
 // #include "WebServer.hpp"
 #include "SparkIntervalTimer.h"
 #include "dac.h"
+#include "ApplicationSettings.h"
 
 // #define debugMessage(x) if(0){}
 
@@ -27,6 +28,7 @@ SYSTEM_MODE(MANUAL);
 int remotePort = UDP_REMOTE_PORT;
 int localPort = UDP_LOCAL_PORT;
 IPAddress remoteIPAddress(192,168,2,172);
+ApplicationSettings settings;
 
 const char* OPENSOUND_WIFI_SSID = "FortRebel";
 const char* OPENSOUND_WIFI_PASSWORD = "notwhattheyseem";
@@ -64,6 +66,7 @@ inline void setLed(LedPin led){
     digitalWrite(GREEN_LED_PIN, LOW);
   }
 }
+
 inline void toggleLed(){
   digitalWrite(RED_LED_PIN, !digitalRead(RED_LED_PIN));
   digitalWrite(GREEN_LED_PIN, !digitalRead(GREEN_LED_PIN));
@@ -75,7 +78,8 @@ inline void toggleLed(){
 // WebSocketServer websocketserver(WEBSOCKET_SERVER_PORT);
 // TcpSocketServer tcpsocketserver(TCP_SERVER_PORT);
 
-void setIpAddress(String ip){
+void setRemoteIpAddress(const char* address){
+  String ip(address);
 #ifdef SERIAL_DEBUG
   Serial.print("Set remote IP: ");
   Serial.println(ip);
@@ -85,7 +89,7 @@ void setIpAddress(String ip){
     oscserver.autoRemoteIPAddress = true;
     return;
   }
-  if(ip.equalsIgnoreCase("broadcast")){
+  if(ip.equals("broadcast")){
     oscserver.autoRemoteIPAddress = false;
     oscserver.setBroadcastMode();
     return;
@@ -315,6 +319,8 @@ void setup(){
   //  Serial1.begin(SERIAL_BAUD_RATE);
   debugMessage("Serial.go");
   //  Serial1.print("Serial1.go");
+
+  settings.init();
 
   spi_init();
   debugMessage("spi init");

@@ -46,6 +46,7 @@ extern "C" {
   void stopServers();
   void setCredentials(const char* ssid, const char* password, const char* auth);
   void setAccessPointCredentials(const char* ssid, const char* passwd, const char* auth);
+  void setRemoteIpAddress(const char* ip);
 
   void debugMessage(const char* msg);
   void assert_failed(const char* msg, const char* location, int line);

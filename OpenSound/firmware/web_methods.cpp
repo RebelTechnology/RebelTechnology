@@ -11,29 +11,58 @@ extern OscServer oscserver;
 void configureWeb(){
 }
 
-int32_t process_version(const char* url, wiced_http_response_stream_t* stream, void* arg, 
+int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* arg, 
 			wiced_http_message_body_t* body){
-  wiced_http_response_stream_write(stream, OSM_BEGIN, sizeof(OSM_BEGIN));
-  const char str[] = "<h2>v0.1</h2>";
-  wiced_http_response_stream_write(stream, str, sizeof(str));
-  wiced_http_response_stream_write(stream, OSM_END, sizeof(OSM_END));
+  Streamer stream(s);
+  stream << OSM_BEGIN << "<h1>Status</h1><p>firmware v0.1</p>";	 
+  if(WiFi.connecting())
+    stream << "<p>Device Connecting</p>";
+  if(WiFi.listening())
+    stream << "<p>Device Listening</p>";
+  if(WiFi.ready())
+    stream << "<p>Device Ready</p>";
+  /*
+  if(WiFi.hasCredentials())
+    stream << "<p>Device Has WiFi Credentials</p>";
+  */
+  stream << "<p>Device ID: " << Spark.deviceID() << "</p>";
+  stream << "<p>SSID: " << WiFi.SSID() << "</p>";
+  stream << "<p>Gateway: " << WiFi.gatewayIP() << "</p>";
+  stream << "<p>RSSI: " << WiFi.RSSI() << "</p>";
+  stream << "<p>Local IP: " << WiFi.localIP() << "</p>";
+  stream << "<p>Local Port: " << localPort << "</p>";
+  stream << "<p>Remote IP: " << oscserver.remoteIP() << "</p>";
+  stream << "<p>Remote Port: " << oscserver.remotePort() << "</p>";
+  byte mac[6];
+  WiFi.macAddress(mac);
+  stream.print("<p>MAC Address: ");
+  for(int i=0; i<6; i++){
+    if(i)
+      stream.write(':');
+    stream.print(mac[i], HEX);
+  }
+  stream << "</p><br><a href='/'>back</a>" << OSM_END;
+	 
   return 0;
 }
 
 int32_t process_settings(const char* u, wiced_http_response_stream_t* s, void* arg, 
 			 wiced_http_message_body_t* body){
   UrlScanner url(u);
-  const char localport[] = "localport";
-  const char remoteport[] = "remoteport";
   bool updated = false;
-  const char* param = url.getParameter(localport, sizeof(localport)-1);
+  const char* param = url.getParameter("localport");
   if(param != NULL){
     localPort = atol(param);
     updated = true;
   }
-  param = url.getParameter(remoteport, sizeof(remoteport)-1);
+  param = url.getParameter("remoteport");
   if(param != NULL){
     remotePort = atol(param);
+    updated = true;
+  }
+  param = url.getParameter("remoteip");
+  if(param != NULL){
+    setRemoteIpAddress(param);
     updated = true;
   }
   Streamer stream(s);
@@ -41,20 +70,22 @@ int32_t process_settings(const char* u, wiced_http_response_stream_t* s, void* a
   if(updated)
     stream << "<h3>Settings updated</h3>";
   extern IPAddress remoteIPAddress;
-  stream << "<form action='/settings' method='GET'>"
-	 << "Local IP: "
-	 << WiFi.localIP()
+  stream << "<h1>Network Settings</h1>"
+	 << "<form action='/settings' method='GET'>"
+	 << "Local IP: " << WiFi.localIP()	 
 	 << "<br>Local Port:<br><input type='text' name='localport' value='"
-	 << localPort
-	 << "'><br>"
-    	 << "Remote IP:<br><input type='text' name='remoteip' value='"
-    	 << remoteIPAddress
-    	 << "'><br>"
-	 << "Remote Port:<br><input type='text' name='remoteport' value='"
-	 << remotePort
-	 << "'><br>"
+	 << localPort << "'><br>"	 
+    	 << "Remote IP:<br><input type='text' name='remoteip' value='";
+  if(oscserver.isBroadcastMode())
+    stream << "broadcast'><br>";
+  else if(oscserver.isAutoMode())
+    stream << "auto'><br>";
+  else
+    stream << remoteIPAddress << "'><br>";
+  stream << "Remote Port:<br><input type='text' name='remoteport' value='"
+	 << remotePort << "'><br>"
 	 << "<br><input type='submit'></form>"
-	 << "<br><a href='/'>return</a>";
+	 << "<br><a href='/'>back</a>";
   stream.write(OSM_END, sizeof(OSM_END));
   return 0;
 }
@@ -77,7 +108,7 @@ int32_t process_address(const char* u, wiced_http_response_stream_t* s, void* ar
   }
 
   Streamer stream(s);
-  stream << OSM_BEGIN << "<form action='/address' method='GET'>";
+  stream << OSM_BEGIN << "<h1>OSC Address Mapping</h1><form action='/address' method='GET'>";
   stream << "<h2>Inputs</h2>"
 	 << "Status:<br><input type='text' name='0' value='" << oscserver.getAddress(0) << "'><br>"
 	 << "CV A:<br><input type='text' name='1' value='" << oscserver.getAddress(1) << "'><br>"
@@ -93,7 +124,7 @@ int32_t process_address(const char* u, wiced_http_response_stream_t* s, void* ar
 	 << "Trigger B:<br><input type='text' name='9' value='" << oscsender.getAddress(OscSender::TRIGGER_B) << "'><br>";
 
   stream << "<br><input type='submit'></form>"
-	 << "<br><a href='/'>return</a>" << OSM_END;
+	 << "<br><a href='/'>back</a>" << OSM_END;
   return 0;
 }
 
@@ -108,8 +139,8 @@ int32_t process_auth(const char* url, wiced_http_response_stream_t* s, void* arg
     setCredentials(ssid, pass, auth);
   }
   Streamer stream(s);
-  stream.write(OSM_BEGIN, sizeof(OSM_BEGIN));
-  stream << "<form action='auth' method='POST'>"	
+  stream << OSM_BEGIN << "<h1>Connect</h1>"
+	 << "<form action='auth' method='POST'>"
 	 << "SSID:<br><input name='ssid' type='text'><br>"
 	 << "Password:<br><input name='password' type='password'><br>"
 	 << "Authentication: <br> <select name='auth'><br>"
@@ -119,7 +150,7 @@ int32_t process_auth(const char* url, wiced_http_response_stream_t* s, void* arg
 	 << "<option value='3'>WPA2</option>"
 	 << "</select><br>"
 	 << "<br><input type='submit'></form>"
-	 << "<br><a href='/'>return</a>";
+	 << "<br><a href='/'>back</a>";
   stream.write(OSM_END, sizeof(OSM_END));
   debug << "msg body [" << body->message_data_length << "/" << body->total_message_data_remaining << "]\r\n";  return 0;
 }

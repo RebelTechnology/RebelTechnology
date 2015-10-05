@@ -22,6 +22,8 @@ class OscServer : public UdpServer {
 public:
   OscServer() : commandCount(0) {}
 
+  void init();
+
   void loop(){
     int len = parsePacket();
     if(len > 0) {
@@ -133,6 +135,14 @@ public:
     beginPacket();
     msg.write(*this);
     endPacket();
+  }
+
+  bool isAutoMode(){
+    return autoRemoteIPAddress;
+  }
+
+  bool isBroadcastMode(){
+    return remoteIPAddress[3] == 255;
   }
 
   void setBroadcastMode(){

@@ -5,17 +5,6 @@
 void setCVA(uint16_t cv);
 void setCVB(uint16_t cv);
 
-char OscCmd_status[]      = "/status";
-char OscCmd_a_trigger[]   = "/trigger_a";
-char OscCmd_b_trigger[]   = "/trigger_b";
-char OscCmd_cv[]          = "/cv";
-char OscCmd_a_cv[]        = "/cv_a";
-char OscCmd_b_cv[]        = "/cv_b";
-char OscCmd_led[]         = "/led";
-char OscCmd_ip[]          = "/localip";
-char OscCmd_port[]        = "/localport";
-char OscCmd_gain[]        = "/gain";
-char OscCmd_ping[]        = "/ping";
 /*
 OscMessage osc_status_msg(OscCmd_status);
 // OscMessage osc_led_msg(OscCmd_led);
@@ -54,11 +43,11 @@ void broadcastStatus(){
 }
 
 void oscStatus(OscServer& server, OscMessage& msg){
-    debugMessage("osc status");
-    if(msg.getDataType(0) == 's')
-      debugMessage(msg.getString(0));
-    sendOscStatus("hi");
-    broadcastStatus();
+  debugMessage("osc status");
+  if(msg.getDataType(0) == 's')
+    debugMessage(msg.getString(0));
+  sendOscStatus("hi");
+  broadcastStatus();
 }
 
 void oscLed(OscServer& server, OscMessage& msg){
@@ -194,11 +183,14 @@ void sendTriggerB(bool value){
 }
 
 void configureOsc(){
-  oscserver.addCommand(OscCmd_status, &oscStatus);
-  oscserver.addCommand(OscCmd_a_cv, &oscCvA, 1);
-  oscserver.addCommand(OscCmd_b_cv, &oscCvB, 1);
-  oscserver.addCommand(OscCmd_a_trigger, &oscTriggerA);
-  oscserver.addCommand(OscCmd_b_trigger, &oscTriggerB);
-  oscserver.addCommand(OscCmd_cv, &oscCv, 2);
-  oscserver.addCommand(OscCmd_led, &oscLed);
+  oscserver.init();
+  oscsender.init();
+
+  oscserver.addCommand(settings.inputAddress[0], &oscStatus);
+  oscserver.addCommand(settings.inputAddress[1], &oscCvA, 1);
+  oscserver.addCommand(settings.inputAddress[2], &oscCvB, 1);
+  oscserver.addCommand(settings.inputAddress[3], &oscTriggerA);
+  oscserver.addCommand(settings.inputAddress[4], &oscTriggerB);
+  oscserver.addCommand("/cv", &oscCv, 2);
+  oscserver.addCommand("/led", &oscLed);
 }
