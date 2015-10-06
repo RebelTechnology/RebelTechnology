@@ -17,17 +17,12 @@ SYSTEM_MODE(MANUAL);
 #define HTTP_SERVER_PORT      80
 #define WEBSOCKET_SERVER_PORT 8008
 #define SERIAL_BAUD_RATE      57600
-#define UDP_REMOTE_PORT       9000
-#define UDP_LOCAL_PORT        8000
 
-#define DEFAULT_ANTENNA ANT_AUTO
+#define DEFAULT_ANTENNA       ANT_AUTO
 
-#define BUTTON_DEBOUNCE_MS   100
-#define BUTTON_TOGGLE_MS     2000
+#define BUTTON_DEBOUNCE_MS    100
+#define BUTTON_TOGGLE_MS      2000
 
-int remotePort = UDP_REMOTE_PORT;
-int localPort = UDP_LOCAL_PORT;
-IPAddress remoteIPAddress(192,168,2,172);
 ApplicationSettings settings;
 
 const char* OPENSOUND_WIFI_SSID = "FortRebel";
@@ -49,13 +44,13 @@ const char* OPENSOUND_WIFI_SECURITY = "3";
 enum LedPin {
   LED_NONE,
   LED_GREEN,
-  LED_RED,
+  LED_YELLOW,
 };
 
 // LedPin getLed();
 
 inline void setLed(LedPin led){
-  if(led == LED_RED){
+  if(led == LED_YELLOW){
     digitalWrite(RED_LED_PIN, HIGH);
     digitalWrite(GREEN_LED_PIN, LOW);
   }else if(led == LED_GREEN){
@@ -91,7 +86,7 @@ void setRemoteIpAddress(const char* address){
   }
   if(ip.equals("broadcast")){
     oscserver.autoRemoteIPAddress = false;
-    oscserver.setBroadcastMode();
+    oscserver.setBroadcastMode(true);
     return;
   }
   oscserver.autoRemoteIPAddress = false;
@@ -103,6 +98,7 @@ void setRemoteIpAddress(const char* address){
     idx = ip.indexOf('.', pos);
   }
   oscserver.remoteIPAddress[3] = ip.substring(pos).toInt();
+  settings.remoteIPAddress = oscserver.remoteIPAddress;
 #ifdef SERIAL_DEBUG
   Serial.print("Remote IP: ");
   Serial.println(oscserver.remoteIPAddress);
@@ -127,7 +123,7 @@ void connect(int iface){
     debugMessage("wifi.connect");
     current_network = iface;
   }
-  setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_RED);
+  setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
 }
 
 void setCredentials(const char* ssid, const char* passwd, const char* auth){
@@ -208,9 +204,7 @@ void configureServers(){
 void startServers(){
   debugMessage("start servers");
   webserver.begin();
-  oscserver.setRemoteIP(remoteIPAddress);
-  oscserver.setRemotePort(remotePort);
-  oscserver.begin(localPort);
+  oscserver.begin(settings.localPort);
   debugMessage("servers.begin");
 }
 
@@ -251,7 +245,7 @@ void printInfo(Print& out){
   out.println(WiFi.RSSI());
 
   out.print("Local port: "); 
-  out.println(localPort);
+  out.println(settings.localPort);
 
   out.print("Remote IP: "); 
   out.println(oscserver.remoteIP());
@@ -304,7 +298,7 @@ bool isButtonPressed(){
 }
 
 void setup(){
-  setLed(LED_RED);
+  setLed(LED_YELLOW);
   pinMode(ANALOG_PIN_A, INPUT);
   pinMode(ANALOG_PIN_B, INPUT);
   pinMode(DIGITAL_INPUT_PIN_A, INPUT);
@@ -337,16 +331,12 @@ void setup(){
   configureServers();
   startServers();
 
-  oscserver.setBroadcastMode();
-  printInfo(Serial);
-
   lastButtonPress = 0;
   button = isButtonPressed();
   cvA = analogRead(ANALOG_PIN_A);
   cvB = analogRead(ANALOG_PIN_B);
 
   //  dacTimer.begin(dacCallback, 400, hmSec);
-
   setLed(LED_GREEN);
 }
 
@@ -371,7 +361,7 @@ void loop(){
   bool btn = isButtonPressed();
   if(btn != button && (millis() > lastButtonPress+BUTTON_DEBOUNCE_MS)){
     button = btn;
-    setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_RED);
+    setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
     if(button){
       lastButtonPress = millis();
       toggleLed();
@@ -383,7 +373,7 @@ void loop(){
 
   if(lastButtonPress && (millis() > lastButtonPress+BUTTON_TOGGLE_MS)){
     debugMessage("toggle?");
-    setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_RED);
+    setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
     delay(BUTTON_TOGGLE_MS);
     if(isButtonPressed()){
       setLed(LED_NONE);
@@ -395,7 +385,7 @@ void loop(){
 	connect(NETWORK_LOCAL_WIFI);
       startServers();
     }
-    setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_RED);
+    setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
     lastButtonPress = 0;
   }
 
@@ -440,8 +430,7 @@ void loop(){
       break;
     case 'b':
       debugMessage("b: broadcast mode");
-      broadcastStatus();
-      //oscserver.setBroadcastMode();
+      oscserver.setBroadcastMode(true);
       break;
     case '+':
       debugMessage("+: add credentials");
@@ -526,6 +515,12 @@ void loop(){
   oscserver.loop();
 }
 
+void reload(){
+  oscserver.stop();
+  configureOsc();
+  oscserver.begin(settings.localPort);
+}
+
 #include "dct.h"
 
 const int MAX_SSID_PREFIX_LEN = 25;
@@ -536,7 +531,7 @@ void setAccessPointPrefix(char* prefix){
   dct_write_app_data(&ssid, DCT_SSID_PREFIX_OFFSET, ssid.length+1);
 }
 
-void setAccessPointCredentials(const char* ssid, const char* passwd, const char* auth){
+int setAccessPointCredentials(const char* ssid, const char* passwd, const char* auth){
   //void setAccessPoint(char* prefix, char* auth){
   wiced_config_soft_ap_t ap;
   ap.SSID.length = strnlen(ssid, MAX_SSID_PREFIX_LEN);
@@ -557,63 +552,13 @@ void setAccessPointCredentials(const char* ssid, const char* passwd, const char*
   case 3: // WPA2
     ap.security = WICED_SECURITY_WPA2_AES_PSK;
     break;
+  default:
+    return false;
   }
+  if(sec == 3 && ap.SSID.length < 8)
+    return false; // password too short for WPA2
   ap.security_key_length = strnlen(passwd, SECURITY_KEY_SIZE);
   strncpy(ap.security_key, passwd, ap.security_key_length);
   wiced_result_t result = wiced_dct_write(&ap, DCT_WIFI_CONFIG_SECTION, OFFSETOF(platform_dct_wifi_config_t, soft_ap_settings), sizeof(wiced_config_soft_ap_t));
+  return result == WICED_SUCCESS;
 }
-
-#if 0
-extern "C" bool fetch_or_generate_setup_ssid(wiced_ssid_t* SSID);
-
-bool fetch_or_generate_ssid_prefix(wiced_ssid_t* SSID) {
-    const uint8_t* prefix = (const uint8_t*)dct_read_app_data(DCT_SSID_PREFIX_OFFSET);
-    uint8_t len = *prefix;
-    bool generate = (!len || len>MAX_SSID_PREFIX_LEN);
-    if (generate) {
-        strcpy((char*)SSID->value, "Photon");
-        SSID->length = 6;
-        dct_write_app_data(SSID, DCT_SSID_PREFIX_OFFSET, SSID->length+1);
-    }
-    else {
-        memcpy(SSID, prefix, DCT_SSID_PREFIX_SIZE);
-    }
-    if (SSID->length>MAX_SSID_PREFIX_LEN)
-        SSID->length = MAX_SSID_PREFIX_LEN;
-    return generate;
-}
-
-bool fetch_or_generate_setup_ssid(wiced_ssid_t* SSID) {
-    bool result = fetch_or_generate_ssid_prefix(SSID);
-    SSID->value[SSID->length++] = '-';
-    result |= fetch_or_generate_device_id(SSID);
-    return result;
-}
-
-extern "C" wiced_ip_setting_t device_init_ip_settings;
-
-wiced_result_t setup_soft_ap_credentials() {
-  wiced_config_soft_ap_t expected;
-  memset(&expected, 0, sizeof(expected));
-  fetch_or_generate_setup_ssid(&expected.SSID);
-  expected.channel = 11;
-  expected.details_valid = WICED_TRUE;
-  wiced_config_soft_ap_t* soft_ap;
-  wiced_result_t result = wiced_dct_read_lock( (void**) &soft_ap, WICED_FALSE, DCT_WIFI_CONFIG_SECTION, OFFSETOF(platform_dct_wifi_config_t, soft_ap_settings), sizeof(wiced_config_soft_ap_t) );
-  if(result == WICED_SUCCESS) {
-      if (memcmp(&expected, soft_ap, sizeof(expected))) {
-	result = wiced_dct_write(&expected, DCT_WIFI_CONFIG_SECTION, OFFSETOF(platform_dct_wifi_config_t, soft_ap_settings), sizeof(wiced_config_soft_ap_t));
-      }
-      wiced_dct_read_unlock( soft_ap, WICED_FALSE );
-    }
-  return result;
-}
-
-void setAccessPointCredentials(char* ssid, char* password, char* auth){
-  debug << "setting access point credentials: ssid[" << ssid << "] auth[" << auth << "]\n";
-  int sec = atol(auth);
-  if(sec >= 0 && sec <= 3 && false){
-
-  }
-}
-#endif

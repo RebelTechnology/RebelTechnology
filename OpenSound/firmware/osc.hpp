@@ -35,11 +35,13 @@ void sendOscStatus(const char* status){
 }
 
 void broadcastStatus(){
-  oscserver.setBroadcastMode();
+  bool broadcast = oscserver.isBroadcastMode();
+  oscserver.setBroadcastMode(true);
   IPAddress ip = WiFi.localIP();
   char buf[24];
-  sprintf(buf, "%d.%d.%d.%d:%d", ip[0], ip[1], ip[2], ip[3], localPort);
+  sprintf(buf, "%d.%d.%d.%d:%d", ip[0], ip[1], ip[2], ip[3], settings.localPort);
   sendOscStatus(buf);
+  oscserver.setBroadcastMode(broadcast);
 }
 
 void oscStatus(OscServer& server, OscMessage& msg){
@@ -54,12 +56,12 @@ void oscLed(OscServer& server, OscMessage& msg){
   debugMessage("osc led");
   if(msg.getDataType(0) == 'f'){
     if(msg.getFloat(0) > 0.5)
-      setLed(LED_RED);
+      setLed(LED_YELLOW);
     else
       setLed(LED_GREEN);
   }else if(msg.getDataType(0) == 'i'){
     if(msg.getInt(0) > 0)
-      setLed(LED_RED);
+      setLed(LED_YELLOW);
     else
       setLed(LED_GREEN);
   }else{
@@ -183,9 +185,8 @@ void sendTriggerB(bool value){
 }
 
 void configureOsc(){
-  oscserver.init();
   oscsender.init();
-
+  oscserver.init();
   oscserver.addCommand(settings.inputAddress[0], &oscStatus);
   oscserver.addCommand(settings.inputAddress[1], &oscCvA, 1);
   oscserver.addCommand(settings.inputAddress[2], &oscCvB, 1);

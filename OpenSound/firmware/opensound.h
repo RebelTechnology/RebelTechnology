@@ -45,14 +45,12 @@ extern "C" {
   void startServers();
   void stopServers();
   void setCredentials(const char* ssid, const char* password, const char* auth);
-  void setAccessPointCredentials(const char* ssid, const char* passwd, const char* auth);
+  int setAccessPointCredentials(const char* ssid, const char* passwd, const char* auth);
   void setRemoteIpAddress(const char* ip);
+  void reload();
 
   void debugMessage(const char* msg);
   void assert_failed(const char* msg, const char* location, int line);
-
-  extern int remotePort;
-  extern int localPort;
 
 #ifdef  __cplusplus
 }

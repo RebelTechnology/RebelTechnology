@@ -17,7 +17,7 @@ class OscServer : public UdpServer {
       return strncmp(msg.getAddress(), address, MAX_OSC_ADDRESS) == 0 && msg.getSize() >= minArgs;
     }
   };
-  int commandCount = 0;
+  int commandCount;
   OscCommandMap commands[MAX_OSC_COMMANDS];
 public:
   OscServer() : commandCount(0) {}
@@ -50,7 +50,7 @@ public:
 	//	debugMessage("udp read error");
     }
   }
-  bool autoRemoteIPAddress = true;
+  bool autoRemoteIPAddress;
   IPAddress remoteIPAddress;
   uint16_t remotePortNumber;
   int beginPacket(){
@@ -66,7 +66,7 @@ public:
     commandCount = 0;
   }
 
-  void addCommand(char* address, OscCommand* cmd, int minArgs = 0){
+  void addCommand(const char* address, OscCommand* cmd, int minArgs = 0){
     if(commandCount < MAX_OSC_COMMANDS){
       strncpy(commands[commandCount].address, address, MAX_OSC_ADDRESS);
       commands[commandCount].address[MAX_OSC_ADDRESS-1] = '\0';
@@ -82,7 +82,7 @@ public:
     return NULL;
   }
 
-  void setAddress(int cmd, char* address){
+  void setAddress(int cmd, const char* address){
     if(cmd < commandCount){
       strncpy(commands[cmd].address, address, MAX_OSC_ADDRESS);
       commands[cmd].address[MAX_OSC_ADDRESS-1] = '\0';
@@ -145,14 +145,7 @@ public:
     return remoteIPAddress[3] == 255;
   }
 
-  void setBroadcastMode(){
-    remoteIPAddress = WiFi.localIP();
-    remoteIPAddress[3] = 255;
-#ifdef SERIAL_DEBUG
-    Serial.print("Remote IP (broadcast): ");
-    Serial.println(remoteIPAddress);
-#endif
-  }
+  void setBroadcastMode(bool broadcast);
 };
 
 #endif /* __OscServer_h__ */
