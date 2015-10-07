@@ -2,12 +2,8 @@
 #include "opensound.h"
 #include "application.h"
 #include "ApplicationSettings.h"
-#include "OscSender.h"
-#include "OscServer.h"
 
 WebServer webserver;
-extern OscSender oscsender;
-extern OscServer oscserver;
 
 void configureWeb(){
 }
@@ -30,9 +26,9 @@ int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* a
 	 << "<p>Gateway: " << WiFi.gatewayIP() << "</p>"
 	 << "<p>RSSI: " << WiFi.RSSI() << "</p>"
 	 << "<p>Local IP: " << WiFi.localIP() << "</p>"
-	 << "<p>Local Port: " << settings.localPort << "</p>"
-	 << "<p>Remote IP: " << settings.remoteIPAddress << "</p>"
-	 << "<p>Remote Port: " << settings.remotePort << "</p>";
+	 << "<p>Local Port: " << networkSettings.localPort << "</p>"
+	 << "<p>Remote IP: " << networkSettings.remoteIPAddress << "</p>"
+	 << "<p>Remote Port: " << networkSettings.remotePort << "</p>";
 
   byte mac[6];
   WiFi.macAddress(mac);
@@ -42,7 +38,15 @@ int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* a
       stream.write(':');
     stream.print(mac[i], HEX);
   }
-  stream << "</p><button onclick='location.href=\"/reconnect_sta\"'>Reconnect as WiFi Client</button>"
+  if(networkSettings.hasChanged())
+    stream << "</p><button onclick='location.href=\"/save_net\"'>Save Network Settings</button>";
+  if(addressSettings.hasChanged())
+    stream << "<br><button onclick='location.href=\"/save_osc\"'>Save OSC Address Mappings</button>";
+  if(networkSettings.settingsInFlash())
+    stream << "<br><button onclick='location.href=\"/reset_net\"'>Reset Network Settings</button>";
+  if(addressSettings.settingsInFlash())
+    stream << "<br><button onclick='location.href=\"/reset_osc\"'>Reset OSC Address Mappings</button>";
+  stream << "<br><button onclick='location.href=\"/reconnect_sta\"'>Reconnect as WiFi Client</button>"
 	 << "<br><button onclick='location.href=\"/reconnect_ap\"'>Reconnect as Access Point</button>"
     /*
   stream << "</p<p><a href='/'>Reconnect as WiFi Client</a></p>"
@@ -59,12 +63,12 @@ int32_t process_settings(const char* u, wiced_http_response_stream_t* s, void* a
   bool updated = false;
   const char* param = url.getParameter("localport");
   if(param != NULL){
-    settings.localPort = atol(param);
+    networkSettings.localPort = atol(param);
     updated = true;
   }
   param = url.getParameter("remoteport");
   if(param != NULL){
-    settings.remotePort = atol(param);
+    networkSettings.remotePort = atol(param);
     updated = true;
   }
   param = url.getParameter("remoteip");
@@ -73,27 +77,28 @@ int32_t process_settings(const char* u, wiced_http_response_stream_t* s, void* a
     updated = true;
   }
   Streamer stream(s);
-  stream.write(OSM_BEGIN, sizeof(OSM_BEGIN));
-  if(updated){
-    stream << "<h3>Settings updated</h3>";
-    reload();
-  }
-  stream << "<h1>Network Settings</h1>"
+  stream << OSM_BEGIN << "<h1>Network Settings</h1>"
 	 << "<form action='/settings' method='GET'>"
 	 << "<p>Local IP</p><p>" << WiFi.localIP() << "</p>"
 	 << "<p>Local Port</p><input type='text' name='localport' value='"
-	 << settings.localPort << "'><br>"	 
+	 << networkSettings.localPort << "'><br>"	 
     	 << "<p>Remote IP</p><input type='text' name='remoteip' value='";
-  if(oscserver.isAutoMode())
+  if(networkSettings.autoremote)
     stream << "auto'><br>";
-  else if(oscserver.isBroadcastMode())
+  else if(networkSettings.broadcast)
     stream << "broadcast'><br>";
   else 
-    stream << settings.remoteIPAddress << "'><br>";
+    stream << networkSettings.remoteIPAddress << "'><br>";
   stream << "<p>Remote Port</p><input type='text' name='remoteport' value='"
-	 << settings.remotePort << "'><br>"
-	 << "<button type='submit'>Update</button></form>"
-	 << OSM_BACK << OSM_END;
+	 << networkSettings.remotePort << "'><br>"
+	 << "<button type='submit'>Update</button></form>";
+
+  if(updated){
+    stream << "<h3>Settings updated</h3>";
+    stream << "<br><button onclick='location.href=\"/save_net\"'>Store Settings</button>";
+    reload();
+  }
+  stream << OSM_BACK << OSM_END;
   return 0;
 }
 
@@ -106,35 +111,36 @@ int32_t process_address(const char* u, wiced_http_response_stream_t* s, void* ar
     char* param = url.getParameter(&inputs[i], 1);
     if(param != NULL){
       debug << "setting input address [" << i << "] to value [" << param << "]\r\n";
-      oscserver.setAddress(i, param);
+      addressSettings.setInputAddress(i, param);
       updated = true;
     }
     param = url.getParameter(&outputs[i], 1);
     if(param != NULL){
       debug << "setting output address [" << i << "] to value [" << param << "]\r\n";
-      oscsender.setAddress((OscSender::OscMessageId)i, param);
+      addressSettings.setOutputAddress(i, param);
       updated = true;
     }
   }
   Streamer stream(s);
   stream << OSM_BEGIN << "<h1>OSC Address Mapping</h1><form action='/address' method='GET'>";
+  stream << "<h2>Inputs</h2>"
+	 << "<p>Status</p><input type='text' name='0' value='" << addressSettings.getInputAddress(0) << "'><br>"
+	 << "<p>CV A</p><input type='text' name='1' value='" << addressSettings.getInputAddress(1) << "'><br>"
+	 << "<p>CV B</p><input type='text' name='2' value='" << addressSettings.getInputAddress(2) << "'><br>"
+	 << "<p>Trigger A</p><input type='text' name='3' value='" << addressSettings.getInputAddress(3) << "'><br>"
+	 << "<p>Trigger B</p><input type='text' name='4' value='" << addressSettings.getInputAddress(4) << "'><br>";
+  stream << "<h2>Outputs</h2>"
+	 << "<p>Status</p><input type='text' name='5' value='" << addressSettings.getOutputAddress(0) << "'><br>"
+	 << "<p>CV A</p><input type='text' name='6' value='" << addressSettings.getOutputAddress(1) << "'><br>"
+	 << "<p>CV B</p><input type='text' name='7' value='" << addressSettings.getOutputAddress(2) << "'><br>"
+	 << "<p>Trigger A</p><input type='text' name='8' value='" << addressSettings.getOutputAddress(3) << "'><br>"
+	 << "<p>Trigger B</p><input type='text' name='9' value='" << addressSettings.getOutputAddress(4) << "'><br>"
+	 << "<button type='submit'>Update</button></form>";
   if(updated){
     stream << "<h3>Settings updated</h3>";
+    stream << "<br><button onclick='location.href=\"/save_osc\"'>Store Settings</button>";
     reload();
   }
-  stream << "<h2>Inputs</h2>"
-	 << "<p>Status</p><input type='text' name='0' value='" << oscserver.getAddress(0) << "'><br>"
-	 << "<p>CV A</p><input type='text' name='1' value='" << oscserver.getAddress(1) << "'><br>"
-	 << "<p>CV B</p><input type='text' name='2' value='" << oscserver.getAddress(2) << "'><br>"
-	 << "<p>Trigger A</p><input type='text' name='3' value='" << oscserver.getAddress(3) << "'><br>"
-	 << "<p>Trigger B</p><input type='text' name='4' value='" << oscserver.getAddress(4) << "'><br>";
-  stream << "<h2>Outputs</h2>"
-	 << "<p>Status</p><input type='text' name='5' value='" << oscsender.getAddress(OscSender::STATUS) << "'><br>"
-	 << "<p>CV A</p><input type='text' name='6' value='" << oscsender.getAddress(OscSender::CV_A) << "'><br>"
-	 << "<p>CV B</p><input type='text' name='7' value='" << oscsender.getAddress(OscSender::CV_B) << "'><br>"
-	 << "<p>Trigger A</p><input type='text' name='8' value='" << oscsender.getAddress(OscSender::TRIGGER_A) << "'><br>"
-	 << "<p>Trigger B</p><input type='text' name='9' value='" << oscsender.getAddress(OscSender::TRIGGER_B) << "'><br>"
-	 << "<button type='submit'>Update</button></form>";
   stream << OSM_BACK << OSM_END;
   return 0;
 }
@@ -166,20 +172,21 @@ int32_t process_auth(const char* url, wiced_http_response_stream_t* s, void* arg
 }
 
 int32_t process_reconnect(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){
+  // raw
   Streamer stream(s);
-  stream.write(OSM_BEGIN, sizeof(OSM_BEGIN));
+  stream << OSM_BEGIN;
   if((int)arg == 1){
-    stream.write("Reconnecting as WiFi Access Point");
-  }else if((int)arg == 0){
-    stream.write("Reconnecting as WiFi Client");
+    stream.write("<h2>Reconnecting as WiFi Access Point</h2>");
+  }else if((int)arg == 2){
+    stream.write("<h2>Reconnecting as WiFi Client</h2>");
   }
-  stream.write(OSM_END, sizeof(OSM_END));
+  stream << OSM_END;
   stream.flush();
   if((int)arg == 1){
     stopServers();
     connect(NETWORK_LOCAL_WIFI);
     startServers();
-  }else if((int)arg == 0){
+  }else if((int)arg == 2){
     stopServers();
     connect(NETWORK_ACCESS_POINT);
     startServers();
@@ -188,21 +195,44 @@ int32_t process_reconnect(const char* url, wiced_http_response_stream_t* s, void
 }
 
 int32_t process_save(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){
-  settings.saveToFlash();
+  if((int)arg == 1){
+    networkSettings.saveToFlash();
+    //    EEPROM.put(NETWORK_SETTINGS_ADDRESS, networkSettings);
+  }else if((int)arg == 2){
+    //    EEPROM.put(ADDRESS_SETTINGS_ADDRESS, addressSettings);
+    addressSettings.saveToFlash();
+  }
   Streamer stream(s);
-  stream << OSM_BEGIN
-	 << "<h1>Saved Settings</h1><p>Device settings saved to flash</p>"
-	 << OSM_BACK << OSM_END;
+  stream << OSM_BEGIN;
+  stream << "<h1>Saved Settings</h1><p>Device settings saved to flash</p>";
+  stream << OSM_BACK << OSM_END;
   return 0;
 }
 
-int32_t process_reset(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){
-  settings.reset();
-  settings.clearFlash();
-  reload();
+int32_t process_reset(const char* u, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){
   Streamer stream(s);
-  stream << OSM_BEGIN
-	 << "<h1>Reset Settings</h1><p>Device settings reset to factory defaults</p>"
-	 << OSM_BACK << OSM_END;
+  stream << OSM_BEGIN << "<h1>Reset Settings</h1>";	 
+  UrlScanner url(u);
+  const char* param = url.getParameter("confirm");
+  if(param != NULL){
+    if((int)arg == 1){
+      networkSettings.reset();
+      networkSettings.clearFlash();
+      stream << "<p>Network settings reset to factory defaults</p>";
+    }else if((int)arg == 2){
+      addressSettings.reset();
+      addressSettings.clearFlash();
+      stream << "<p>OSC address mappings reset to factory defaults</p>";
+    }
+    reload();
+  }else{
+    stream << "<p>Really reset?</p>";
+    if((int)arg == 1){
+      stream << "<br><button onclick='location.href=\"/reset_net?confirm=yes\"'>Yes</button>";
+    }else if((int)arg == 2){
+      stream << "<br><button onclick='location.href=\"/reset_osc?confirm=yes\"'>Yes</button>";
+    }
+  }
+  stream << OSM_BACK << OSM_END;
   return 0;
 }
