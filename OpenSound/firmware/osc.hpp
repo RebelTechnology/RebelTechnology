@@ -1,9 +1,7 @@
+#include "opensound.h"
 #include "OscMessage.hpp"
 #include "OscSender.h"
 #include "OscServer.h"
-
-void setCVA(uint16_t cv);
-void setCVB(uint16_t cv);
 
 /*
 OscMessage osc_status_msg(OscCmd_status);
@@ -39,7 +37,7 @@ void broadcastStatus(){
   oscserver.setBroadcastMode(true);
   IPAddress ip = WiFi.localIP();
   char buf[24];
-  sprintf(buf, "%d.%d.%d.%d:%d", ip[0], ip[1], ip[2], ip[3], settings.localPort);
+  sprintf(buf, "%d.%d.%d.%d:%d", ip[0], ip[1], ip[2], ip[3], networkSettings.localPort);
   sendOscStatus(buf);
   oscserver.setBroadcastMode(broadcast);
 }
@@ -135,7 +133,7 @@ void oscTriggerA(OscServer& server, OscMessage& msg){
     value = msg.getInt(0) != 0;
   else if(msg.getDataType(0) == 'f')
     value = msg.getFloat(0) >= 0.5;
-  digitalWrite(DIGITAL_OUTPUT_PIN_A, value ? LOW : HIGH);
+  setTriggerA(value);
 #ifdef SERIAL_DEBUG
   Serial.print("trigger A: ");
   Serial.println(value);
@@ -153,7 +151,7 @@ void oscTriggerB(OscServer& server, OscMessage& msg){
     value = msg.getInt(0) != 0;
   else if(msg.getDataType(0) == 'f')
     value = msg.getFloat(0) >= 0.5;
-  digitalWrite(DIGITAL_OUTPUT_PIN_B, value ? LOW : HIGH);
+  setTriggerB(value);
 #ifdef SERIAL_DEBUG
   Serial.print("trigger B: ");
   Serial.println(value);
@@ -187,11 +185,11 @@ void sendTriggerB(bool value){
 void configureOsc(){
   oscsender.init();
   oscserver.init();
-  oscserver.addCommand(settings.inputAddress[0], &oscStatus);
-  oscserver.addCommand(settings.inputAddress[1], &oscCvA, 1);
-  oscserver.addCommand(settings.inputAddress[2], &oscCvB, 1);
-  oscserver.addCommand(settings.inputAddress[3], &oscTriggerA);
-  oscserver.addCommand(settings.inputAddress[4], &oscTriggerB);
+  oscserver.addCommand(addressSettings.inputAddress[0], &oscStatus);
+  oscserver.addCommand(addressSettings.inputAddress[1], &oscCvA, 1);
+  oscserver.addCommand(addressSettings.inputAddress[2], &oscCvB, 1);
+  oscserver.addCommand(addressSettings.inputAddress[3], &oscTriggerA);
+  oscserver.addCommand(addressSettings.inputAddress[4], &oscTriggerB);
   oscserver.addCommand("/cv", &oscCv, 2);
   oscserver.addCommand("/led", &oscLed);
 }

@@ -9,15 +9,15 @@ OscSender::OscSender(){
 }
 
 void OscSender::init(){
-  messages[STATUS].setAddress(settings.outputAddress[0]);
+  messages[STATUS].setAddress(addressSettings.outputAddress[0]);
   messages[STATUS].addString();
-  messages[CV_A].setAddress(settings.outputAddress[1]);
+  messages[CV_A].setAddress(addressSettings.outputAddress[1]);
   messages[CV_A].addFloat(.0f);
-  messages[CV_B].setAddress(settings.outputAddress[2]);
+  messages[CV_B].setAddress(addressSettings.outputAddress[2]);
   messages[CV_B].addFloat(.0f);
-  messages[TRIGGER_A].setAddress(settings.outputAddress[3]);
+  messages[TRIGGER_A].setAddress(addressSettings.outputAddress[3]);
   messages[TRIGGER_A].addInt(0);
-  messages[TRIGGER_B].setAddress(settings.outputAddress[4]);
+  messages[TRIGGER_B].setAddress(addressSettings.outputAddress[4]);
   messages[TRIGGER_B].addInt(0);
     // osc_status_msg.addString();
     // osc_a_cv_msg.addFloat(.0f);

@@ -10,7 +10,7 @@ void configureWeb(){
 
 int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){		       
   Streamer stream(s);
-  stream << OSM_BEGIN << "<h1>Status</h1><h2>Open Sound Module</h2><p>firmware v0.1</p>";	 
+  stream << OSM_BEGIN << "<h1>Status</h1><h2>Open Sound Module</h2>";
   if(WiFi.connecting())
     stream << "<p>Device Connecting</p>";
   if(WiFi.listening())
@@ -21,14 +21,20 @@ int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* a
   if(WiFi.hasCredentials())
     stream << "<p>Device Has WiFi Credentials</p>";
   */
-  stream << "<p>Device ID: " << Spark.deviceID() << "</p>"
+  stream << "<p>ID: " << Spark.deviceID() << "</p>"
 	 << "<p>SSID: " << WiFi.SSID() << "</p>"
 	 << "<p>Gateway: " << WiFi.gatewayIP() << "</p>"
 	 << "<p>RSSI: " << WiFi.RSSI() << "</p>"
 	 << "<p>Local IP: " << WiFi.localIP() << "</p>"
 	 << "<p>Local Port: " << networkSettings.localPort << "</p>"
-	 << "<p>Remote IP: " << networkSettings.remoteIPAddress << "</p>"
-	 << "<p>Remote Port: " << networkSettings.remotePort << "</p>";
+	 << "<p>Remote IP: " << 
+  if(networkSettings.autoremote)
+    stream << "auto'></p>";
+  else if(networkSettings.broadcast)
+    stream << "broadcast'></p>";
+  else 
+    stream << networkSettings.remoteIPAddress << "'></p>";
+  stream << "<p>Remote Port: " << networkSettings.remotePort << "</p>";
 
   byte mac[6];
   WiFi.macAddress(mac);
@@ -40,12 +46,10 @@ int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* a
   }
   if(networkSettings.hasChanged())
     stream << "</p><button onclick='location.href=\"/save_net\"'>Save Network Settings</button>";
+  stream << "<br><button onclick='location.href=\"/reset_net\"'>Reset Network Settings</button>";
   if(addressSettings.hasChanged())
-    stream << "<br><button onclick='location.href=\"/save_osc\"'>Save OSC Address Mappings</button>";
-  if(networkSettings.settingsInFlash())
-    stream << "<br><button onclick='location.href=\"/reset_net\"'>Reset Network Settings</button>";
-  if(addressSettings.settingsInFlash())
-    stream << "<br><button onclick='location.href=\"/reset_osc\"'>Reset OSC Address Mappings</button>";
+    stream << "<br><button onclick='location.href=\"/save_osc\"'>Save Address Mappings</button>";
+  stream << "<br><button onclick='location.href=\"/reset_osc\"'>Reset Address Mappings</button>";
   stream << "<br><button onclick='location.href=\"/reconnect_sta\"'>Reconnect as WiFi Client</button>"
 	 << "<br><button onclick='location.href=\"/reconnect_ap\"'>Reconnect as Access Point</button>"
     /*
@@ -166,9 +170,10 @@ int32_t process_auth(const char* url, wiced_http_response_stream_t* s, void* arg
 	 << "<option value='2'>WPA</option>"
 	 << "<option value='3'>WPA2</option>"
 	 << "</select><br>"
-	 << "<button type='submit'>Update</button></form>"
+	 << "<button type='submit'>Connect</button></form>"
 	 << OSM_BACK << OSM_END;
-  debug << "msg body [" << body->message_data_length << "/" << body->total_message_data_remaining << "]\r\n";  return 0;
+  debug << "msg body [" << body->message_data_length << "/" << body->total_message_data_remaining << "]\r\n";
+  return 0;
 }
 
 int32_t process_reconnect(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){

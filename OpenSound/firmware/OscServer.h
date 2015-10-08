@@ -2,19 +2,19 @@
 #define __OscServer_h__
 
 #include "OscMessage.hpp"
+#include "ApplicationSettings.h"
 #include "UdpServer.h"
 
 #define MAX_OSC_COMMANDS 8
-#define MAX_OSC_ADDRESS 16
 
 class OscServer : public UdpServer {
   typedef void OscCommand(OscServer &server, OscMessage& msg);
   struct OscCommandMap {
-    char address[MAX_OSC_ADDRESS];
+    const char* address;
     uint8_t minArgs;
     OscCommand* cmd;
     bool matches(OscMessage& msg){
-      return strncmp(msg.getAddress(), address, MAX_OSC_ADDRESS) == 0 && msg.getSize() >= minArgs;
+      return strncmp(msg.getAddress(), address, MAX_OSC_ADDRESS_LEN) == 0 && msg.getSize() >= minArgs;
     }
   };
   int commandCount;
@@ -68,15 +68,16 @@ public:
 
   void addCommand(const char* address, OscCommand* cmd, int minArgs = 0){
     if(commandCount < MAX_OSC_COMMANDS){
-      strncpy(commands[commandCount].address, address, MAX_OSC_ADDRESS);
-      commands[commandCount].address[MAX_OSC_ADDRESS-1] = '\0';
+      //      strncpy(commands[commandCount].address, address, MAX_OSC_ADDRESS_LEN);
+      //      commands[commandCount].address[MAX_OSC_ADDRESS_LEN-1] = '\0';
+      commands[commandCount].address = address;
       commands[commandCount].minArgs = minArgs;
       commands[commandCount].cmd = cmd;    
       commandCount++;
     }
   }
 
-  char* getAddress(int cmd){
+  const char* getAddress(int cmd){
     if(cmd < commandCount)
       return commands[cmd].address;
     return NULL;
@@ -84,8 +85,9 @@ public:
 
   void setAddress(int cmd, const char* address){
     if(cmd < commandCount){
-      strncpy(commands[cmd].address, address, MAX_OSC_ADDRESS);
-      commands[cmd].address[MAX_OSC_ADDRESS-1] = '\0';
+      //      strncpy(commands[cmd].address, address, MAX_OSC_ADDRESS_LEN);
+      //      commands[cmd].address[MAX_OSC_ADDRESS_LEN-1] = '\0';
+      commands[cmd].address = address;
     }
   }
 

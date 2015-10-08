@@ -1,45 +1,53 @@
 #include "web.h"
+#include "minilogo.h"
 
 static const char OSM_HELLO[] = OSM_HTML_BEGIN "<h1>Hello!</h1>" OSM_HTML_END;
 
-static const char OSM_INDEX[] = OSM_HTML_BEGIN \
-  "<h1>Open Sound Module</h1>" \
-  "<p><a href='/settings'>Network Settings</a></p>" \
-  "<p><a href='/address'>OSC Address Mapping</a></p>" \
-  "<p><a href='/auth'>Add WiFi Credentials</a></p>" \
-  "<p><a href='/status'>Device Status</a></p></ul>" \
-  "<p><a href='/about'>About Open Sound Modular</a></p>" \
+static const char OSM_INDEX[] = OSM_HTML_BEGIN		 \
+  "<h1>Open Sound Module</h1>"				 \
+  "<p><a href='/settings'>Network Settings</a></p>"	 \
+  "<p><a href='/auth'>WiFi Credentials</a></p>"		 \
+  "<p><a href='/address'>Address Mapping</a></p>"	 \
+  "<p><a href='/cvgate'>Control</a></p></ul>"		 \
+  "<p><a href='/status'>Status</a></p></ul>"		 \
+  "<p><a href='/about'>About</a></p>"			 \
   OSM_HTML_END;
 
-static const char OSM_ABOUT[] = OSM_HTML_BEGIN \
-  "<h1>About</h1>" \
-  "<p>WiFi OSC to CV/Gate interface</p>" \
-  "<p>See <a href='http://www.rebeltech.org/products/open-sound-module/'>Rebel Technology</a> for instructions and information.</p>" \
-  OSM_HTML_BACK \
+static const char OSM_CVGATE[] = OSM_HTML_BEGIN				\
+  "<h1>CV/Gate</h1>"							\
+  "<input type='range' id='cva' min='-1' max='1' step='0.1'/>"		\
+  "<br><button id='tra'>A</button>"					\
+  "<br><input type='range' id='cvb' min='-1' max='1' step='0.1'/>"	\
+  "<br><button id='trb'>B</button>"					\
+  "<script>"								\
+  "function cv(i,v){"							\
+  "var rq=new XMLHttpRequest();rq.open('GET', '/cvo'+i+'?v='+v);rq.send(null);}" \
+  "function tr(i){"							\
+  "var rq=new XMLHttpRequest();rq.open('GET', '/tro'+i);rq.send(null);}" \
+  "document.getElementById('cva').onchange=function(){cv(0,this.value)}" \
+  "document.getElementById('tra').onclick=function(){tr(0)}"		\
+  "document.getElementById('cvb').onchange=function(){cv(1,this.value)}" \
+  "document.getElementById('trb').onclick=function(){tr(1)}</script>"	\
+  OSM_HTML_BACK OSM_HTML_END;
+
+static const char OSM_ABOUT[] = OSM_HTML_BEGIN				\
+  "<h1>About</h1>"							\
+  "<h2>Open Sound Module</h2>"						\
+  "<p>WiFi OSC to CV/Gate interface</p>"				\
+  "<p>Firmware v0.1</p>"						\
+  "<p>See our <a href='http://www.rebeltech.org/products/open-sound-module/'>website</a> for instructions and information.</p>"	\
+  "<br><img src='logo.png'/><br>"					\
+  OSM_HTML_BACK								\
   OSM_HTML_END;
 
-const char OSM_STYLE[] = "html{height:100%;margin:auto;background-color:white}"\
-  "body{box-sizing:border-box;min-height:100%;padding:20px;background-color:##0082FF;font-family:'Lucida Sans Unicode','Lucida Grande',sans-serif;font-weight:normal;color:white;margin-top:0;margin-left:auto;margin-right:auto;margin-bottom:0;max-width:400px;text-align:center;border:1px solid #6e6e70;border-radius:4px}" \
-  "div{margin-top:25px;margin-bottom:25px}h1{margin-top:25px;margin-bottom:25px}" \
-  //  "a.button{appearance:button;border-color:#1c75be;background-color:#1c75be;color:white;border-radius:5px;height:30px;font-size:15px;font-weight:bold}" \
-  "button{border-color:#1c75be;background-color:#1c75be;color:white;border-radius:5px;height:30px;font-size:15px;font-weight:bold}" \
-  //  "button.input-helper{background-color:#bebebe;border-color:#bebebe;color:#6e6e70;margin-left:3px}button:disabled{background-color:#bebebe;border-color:#bebebe;color:white}" \
-  "input[type='text'],input[type='password']{background-color:white;color:#6e6e70;border-color:white;border-radius:5px;height:25px;text-align:center;font-size:15px}" \
-  "input:disabled{background-color:#bebebe;border-color:#bebebe}"	\
-  "input[type='radio']{position:relative;bottom:-0.33em;margin:0;border:0;height:1.5em;width:15%}" \
-  "label{padding-top:7px;padding-bottom:7px;padding-left:5%;display:inline-block;width:80%;text-align:left}" \
-  //  "input[type='radio']:checked+label{font-weight:bold;color:#1c75be}" \
-  //  ".scanning-error{font-weight:bold;text-align:center}"		\
-  //  ".radio-div{box-sizing:border-box;margin:2px;margin-left:auto;margin-right:auto;background-color:white;color:#6e6e70;border:1px solid #6e6e70;border-radius:3px;width:100%;padding:5px}" \
-  //  "#networks-div{margin-left:auto;margin-right:auto;text-align:left}" \
-  //  "#device-id{text-align:center}"					\
-  //  "#scan-button{min-width:100px}"					\
-  "#connect-button{display:block;min-width:100px;margin-top:10px;margin-left:auto;margin-right:auto;margin-bottom:20px}" \
-  //  "#password{margin-top:20px;margin-bottom:10px}"
-  ;
-/*
-static const char OSM_STYLE[] = "html{height:100%;margin:auto;background-color:white}body{box-sizing:border-box;min-height:100%;padding:20px;background-color:#3399ff;font-family:'Lucida Sans Unicode','Lucida Grande',sans-serif;font-weight:normal;color:white;margin-top:0;margin-left:auto;margin-right:auto;margin-bottom:0;max-width:400px;text-align:center;border:1px solid #6e6e70;border-radius:4px}div{margin-top:25px;margin-bottom:25px}h1{margin-top:25px;margin-bottom:25px}button{border-color:#1c75be;background-color:#1c75be;color:white;border-radius:5px;height:30px;font-size:15px;font-weight:bold}button.input-helper{background-color:#bebebe;border-color:#bebebe;color:#6e6e70;margin-left:3px}button:disabled{background-color:#bebebe;border-color:#bebebe;color:white}input[type='text'],input[type='password']{background-color:white;color:#6e6e70;border-color:white;border-radius:5px;height:25px;text-align:center;font-size:15px}input:disabled{background-color:#bebebe;border-color:#bebebe}input[type='radio']{position:relative;bottom:-0.33em;margin:0;border:0;height:1.5em;width:15%}label{padding-top:7px;padding-bottom:7px;padding-left:5%;display:inline-block;width:80%;text-align:left}input[type='radio']:checked+label{font-weight:bold;color:#1c75be}.scanning-error{font-weight:bold;text-align:center}.radio-div{box-sizing:border-box;margin:2px;margin-left:auto;margin-right:auto;background-color:white;color:#6e6e70;border:1px solid #6e6e70;border-radius:3px;width:100%;padding:5px}#networks-div{margin-left:auto;margin-right:auto;text-align:left}#device-id{text-align:center}#scan-button{min-width:100px}#connect-button{display:block;min-width:100px;margin-top:10px;margin-left:auto;margin-right:auto;margin-bottom:20px}#password{margin-top:20px;margin-bottom:10px}";
-*/
+static const char OSM_STYLE[] = 
+  "html{height:100%;margin:auto;background-color:white}"		\
+  "body{box-sizing:border-box;min-height:80%;padding:20px;background-color:#84AFF4;font-family:'Lucida Sans Unicode','Lucida Grande',sans-serif;font-weight:normal;color:white;margin:4px auto;max-width:380px;text-align:center;border:3px solid #6f8bb8;border-radius:5px}" \
+  "div,h1{margin:25px}"							\
+  "input,button{margin:10px;height:30px}"				\
+  "button,select{border-color:#6f8bb8;background-color:#5f7eb0;color:white;border-radius:5px;font-size:15px;font-weight:bold}" \
+  "input[type='text'],input[type='password']{background-color:white;color:#6e6e70;border-color:white;border-radius:5px;height:25px;text-align:center;font-size:15px}";
+  //  "label{padding-top:7px;padding-bottom:7px;padding-left:5%;display:inline-block;width:80%;text-align:left}";
 
 START_OF_HTTP_PAGE_DATABASE(osm_http_pages)
     ROOT_HTTP_PAGE_REDIRECT("/index.html"),
@@ -59,13 +67,29 @@ START_OF_HTTP_PAGE_DATABASE(osm_http_pages)
 	.url_content.dynamic_data = {process_address, 0 }, },
     { "/auth", "text/html", WICED_DYNAMIC_URL_CONTENT, 
 	.url_content.dynamic_data = {process_auth, 0 }, },
-    { "/reconnect_sta", "text/html", WICED_DYNAMIC_URL_CONTENT, 
-	.url_content.dynamic_data = {process_reconnect, 0 }, },
     { "/reconnect_ap", "text/html", WICED_DYNAMIC_URL_CONTENT, 
 	.url_content.dynamic_data = {process_reconnect, 1 }, },
-    { "/save", "text/html", WICED_DYNAMIC_URL_CONTENT, 
-	.url_content.dynamic_data = {process_save, 0 }, },
-    { "/reset", "text/html", WICED_DYNAMIC_URL_CONTENT, 
-	.url_content.dynamic_data = {process_reset, 0 }, },
+    { "/reconnect_sta", "text/html", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_reconnect, 2 }, },
+    { "/save_net", "text/html", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_save, 1 }, },
+    { "/save_osc", "text/html", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_save, 2 }, },
+    { "/reset_net", "text/html", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_reset, 1 }, },
+    { "/reset_osc", "text/html", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_reset, 2 }, },
+    { "/logo.png", "image/png", WICED_STATIC_URL_CONTENT, 
+	.url_content.static_data = {minilogo_png, sizeof(minilogo_png) }},
+    { "/cvgate", "text/html", WICED_STATIC_URL_CONTENT, 
+	.url_content.static_data = {OSM_CVGATE, sizeof(OSM_CVGATE)-1 }},
+    { "/cvo0", "application/json", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_cvout, 0 }, },
+    { "/cvo1", "application/json", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_cvout, 1 }, },
+    { "/tro0", "application/json", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_trout, 0 }, },
+    { "/tro1", "application/json", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_trout, 1 }, },
 END_OF_HTTP_PAGE_DATABASE();
 

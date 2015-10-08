@@ -49,6 +49,13 @@ extern "C" {
   void setRemoteIpAddress(const char* ip);
   void reload();
 
+  void setCVA(uint16_t cv);
+  void setCVB(uint16_t cv);
+  void setTriggerA(int value);
+  void setTriggerB(int value);
+  void toggleTriggerA();
+  void toggleTriggerB();
+
   void debugMessage(const char* msg);
   void assert_failed(const char* msg, const char* location, int line);
 

@@ -5,7 +5,6 @@
 // #include "TcpSocketServer.hpp"
 // #include "WebSocketServer.hpp"
 // #include "WebServer.hpp"
-#include "SparkIntervalTimer.h"
 #include "dac.h"
 #include "ApplicationSettings.h"
 
@@ -23,7 +22,8 @@ SYSTEM_MODE(MANUAL);
 #define BUTTON_DEBOUNCE_MS    100
 #define BUTTON_TOGGLE_MS      2000
 
-ApplicationSettings settings;
+NetworkSettings networkSettings;
+AddressSettings addressSettings;
 
 const char* OPENSOUND_WIFI_SSID = "FortRebel";
 const char* OPENSOUND_WIFI_PASSWORD = "notwhattheyseem";
@@ -98,7 +98,7 @@ void setRemoteIpAddress(const char* address){
     idx = ip.indexOf('.', pos);
   }
   oscserver.remoteIPAddress[3] = ip.substring(pos).toInt();
-  settings.remoteIPAddress = oscserver.remoteIPAddress;
+  networkSettings.remoteIPAddress = oscserver.remoteIPAddress;
 #ifdef SERIAL_DEBUG
   Serial.print("Remote IP: ");
   Serial.println(oscserver.remoteIPAddress);
@@ -195,16 +195,12 @@ void readAccessPointCredentials(Stream& port){
     port.println("Cancelled");
 }
 
-void configureServers(){
-  debugMessage("configure servers");
-  configureWeb();
-  configureOsc();
-}
-
 void startServers(){
   debugMessage("start servers");
+  configureWeb();
+  configureOsc();
   webserver.begin();
-  oscserver.begin(settings.localPort);
+  oscserver.begin(networkSettings.localPort);
   debugMessage("servers.begin");
 }
 
@@ -245,7 +241,7 @@ void printInfo(Print& out){
   out.println(WiFi.RSSI());
 
   out.print("Local port: "); 
-  out.println(settings.localPort);
+  out.println(networkSettings.localPort);
 
   out.print("Remote IP: "); 
   out.println(oscserver.remoteIP());
@@ -292,6 +288,24 @@ void dacCallback(){
   dac_set_b(b);
 }
 
+void setTriggerA(int value){
+  digitalWrite(DIGITAL_OUTPUT_PIN_A, value == 0 ? HIGH : LOW);
+}
+
+void setTriggerB(int value){
+  digitalWrite(DIGITAL_OUTPUT_PIN_B, value == 0 ? HIGH : LOW);
+}
+
+void toggleTriggerA(){
+  bool value = digitalRead(DIGITAL_OUTPUT_PIN_A);
+  setTriggerA(!value);
+}
+
+void toggleTriggerB(){
+  bool value = digitalRead(DIGITAL_OUTPUT_PIN_A);
+  setTriggerB(!value);
+}
+
 bool isButtonPressed(){
   //  return false;
   return !digitalRead(BUTTON_PIN);
@@ -314,7 +328,8 @@ void setup(){
   debugMessage("Serial.go");
   //  Serial1.print("Serial1.go");
 
-  settings.init();
+  networkSettings.init();
+  addressSettings.init();
 
   spi_init();
   debugMessage("spi init");
@@ -328,7 +343,6 @@ void setup(){
   else
     connect(NETWORK_ACCESS_POINT);
 
-  configureServers();
   startServers();
 
   lastButtonPress = 0;
@@ -518,7 +532,7 @@ void loop(){
 void reload(){
   oscserver.stop();
   configureOsc();
-  oscserver.begin(settings.localPort);
+  oscserver.begin(networkSettings.localPort);
 }
 
 #include "dct.h"
