@@ -1,14 +1,21 @@
 #include "wiced.h"
 
 class Scanner {
+private:
+  volatile bool processing = false;
 public:
   bool start(){
+    processing = true;
     wiced_result_t ret = wiced_wifi_scan_networks(scan_handler, this);
     return ret == WICED_SUCCESS;
   }
 
+  bool scanning(){
+    return processing;
+  }
+
   virtual void done(){
-    Serial.println("scan complete");    
+    processing = false;
   }
 
   virtual void scan(char* ssid, int sec, int channel, int dBm, uint32_t maxRate){
@@ -23,6 +30,29 @@ public:
     Serial.print("\tRSSI: ");
     Serial.print(dBm);
     Serial.println("dBm");
+  }
+
+  static const char* getSecurityName(int sec){
+    if(sec == 0)
+      return "Open";
+    if(sec & WPA2_SECURITY)
+      return "WPA2";
+    if(sec & WPA_SECURITY)
+      return "WPA";
+    if(sec & WEP_ENABLED)
+      return "WEP";
+    return "Unknown";
+    /*
+    switch(sec){
+    case WICED_SECURITY_OPEN:
+      return "Open";
+    case WICED_SECURITY_WEP_PSK:
+      return "WEP";
+    case WICED_SECURITY_WPA_TKIP_PSK:
+      return "WPA";
+    case WICED_SECURITY_WPA2_AES_PSK:
+      return "WPA2";
+    */
   }
 
   static wiced_result_t scan_handler(wiced_scan_handler_result_t* malloced_scan_result){

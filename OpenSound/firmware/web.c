@@ -1,33 +1,33 @@
 #include "web.h"
 #include "minilogo.h"
 
-static const char OSM_HELLO[] = OSM_HTML_BEGIN "<h1>Hello!</h1>" OSM_HTML_END;
-
 static const char OSM_INDEX[] = OSM_HTML_BEGIN		 \
   "<h1>Open Sound Module</h1>"				 \
+  /*  "<p><a href='/scan'>Scan Networks</a></p>"	 \ */
+  "<p><a href='/auth'>Add WiFi Credentials</a></p>"	 \
   "<p><a href='/settings'>Network Settings</a></p>"	 \
-  "<p><a href='/auth'>WiFi Credentials</a></p>"		 \
   "<p><a href='/address'>Address Mapping</a></p>"	 \
   "<p><a href='/cvgate'>Control</a></p></ul>"		 \
   "<p><a href='/status'>Status</a></p></ul>"		 \
   "<p><a href='/about'>About</a></p>"			 \
   OSM_HTML_END;
 
+static const char OSM_HELLO[] = OSM_HTML_BEGIN "<h1>Hello!</h1>" OSM_HTML_END;
+
 static const char OSM_CVGATE[] = OSM_HTML_BEGIN				\
   "<h1>CV/Gate</h1>"							\
-  "<input type='range' id='cva' min='-1' max='1' step='0.1'/>"		\
+  "<input type='range' id='cva' min='0' max='4095''/>"			\
   "<br><button id='tra'>A</button>"					\
-  "<br><input type='range' id='cvb' min='-1' max='1' step='0.1'/>"	\
+  "<br><input type='range' id='cvb' min='0' max='4095'/>"		\
   "<br><button id='trb'>B</button>"					\
   "<script>"								\
-  "function cv(i,v){"							\
-  "var rq=new XMLHttpRequest();rq.open('GET', '/cvo'+i+'?v='+v);rq.send(null);}" \
-  "function tr(i){"							\
-  "var rq=new XMLHttpRequest();rq.open('GET', '/tro'+i);rq.send(null);}" \
-  "document.getElementById('cva').onchange=function(){cv(0,this.value)}" \
-  "document.getElementById('tra').onclick=function(){tr(0)}"		\
-  "document.getElementById('cvb').onchange=function(){cv(1,this.value)}" \
-  "document.getElementById('trb').onclick=function(){tr(1)}</script>"	\
+  "function cv(i,v){var rq=new XMLHttpRequest();rq.open('GET', '/cvo'+i+'?v='+v);rq.send(null);};" \
+  "function tr(i){var rq=new XMLHttpRequest();rq.open('GET', '/tro'+i);rq.send(null);};" \
+  "document.getElementById('cva').onchange=function(){cv(0,this.value)};" \
+  "document.getElementById('cvb').onchange=function(){cv(1,this.value)};" \
+  "document.getElementById('tra').onclick=function(){tr(0)};"		\
+  "document.getElementById('trb').onclick=function(){tr(1)};"		\
+  "</script>"					\
   OSM_HTML_BACK OSM_HTML_END;
 
 static const char OSM_ABOUT[] = OSM_HTML_BEGIN				\
@@ -46,8 +46,8 @@ static const char OSM_STYLE[] =
   "div,h1{margin:25px}"							\
   "input,button{margin:10px;height:30px}"				\
   "button,select{border-color:#6f8bb8;background-color:#5f7eb0;color:white;border-radius:5px;font-size:15px;font-weight:bold}" \
-  "input[type='text'],input[type='password']{background-color:white;color:#6e6e70;border-color:white;border-radius:5px;height:25px;text-align:center;font-size:15px}";
-  //  "label{padding-top:7px;padding-bottom:7px;padding-left:5%;display:inline-block;width:80%;text-align:left}";
+  "input[type='text'],input[type='password']{background-color:white;color:#6e6e70;border-color:white;border-radius:5px;height:25px;text-align:center;font-size:15px}" \
+  "input[type='radio']{position:relative;bottom:-0.33em;border:0;height:1.5em;width:15%}";
 
 START_OF_HTTP_PAGE_DATABASE(osm_http_pages)
     ROOT_HTTP_PAGE_REDIRECT("/index.html"),
@@ -67,6 +67,8 @@ START_OF_HTTP_PAGE_DATABASE(osm_http_pages)
 	.url_content.dynamic_data = {process_address, 0 }, },
     { "/auth", "text/html", WICED_DYNAMIC_URL_CONTENT, 
 	.url_content.dynamic_data = {process_auth, 0 }, },
+    { "/scan", "text/html", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_scan, 0 }, },
     { "/reconnect_ap", "text/html", WICED_DYNAMIC_URL_CONTENT, 
 	.url_content.dynamic_data = {process_reconnect, 1 }, },
     { "/reconnect_sta", "text/html", WICED_DYNAMIC_URL_CONTENT, 
@@ -75,9 +77,11 @@ START_OF_HTTP_PAGE_DATABASE(osm_http_pages)
 	.url_content.dynamic_data = {process_save, 1 }, },
     { "/save_osc", "text/html", WICED_DYNAMIC_URL_CONTENT, 
 	.url_content.dynamic_data = {process_save, 2 }, },
-    { "/reset_net", "text/html", WICED_DYNAMIC_URL_CONTENT, 
+    { "/reset0", "text/html", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_reset, 0 }, },
+    { "/reset1", "text/html", WICED_DYNAMIC_URL_CONTENT, 
 	.url_content.dynamic_data = {process_reset, 1 }, },
-    { "/reset_osc", "text/html", WICED_DYNAMIC_URL_CONTENT, 
+    { "/reset2", "text/html", WICED_DYNAMIC_URL_CONTENT, 
 	.url_content.dynamic_data = {process_reset, 2 }, },
     { "/logo.png", "image/png", WICED_STATIC_URL_CONTENT, 
 	.url_content.static_data = {minilogo_png, sizeof(minilogo_png) }},

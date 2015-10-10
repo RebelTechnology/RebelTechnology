@@ -14,6 +14,7 @@ int32_t process_status(const char* url, wiced_http_response_stream_t* stream, vo
 int32_t process_settings(const char* url, wiced_http_response_stream_t* stream, void* arg, wiced_http_message_body_t* body);
 int32_t process_address(const char* url, wiced_http_response_stream_t* stream, void* arg, wiced_http_message_body_t* body);
 int32_t process_auth(const char* url, wiced_http_response_stream_t* stream, void* arg, wiced_http_message_body_t* body);
+int32_t process_scan(const char* url, wiced_http_response_stream_t* stream, void* arg, wiced_http_message_body_t* body);
 int32_t process_reconnect(const char* url, wiced_http_response_stream_t* stream, void* arg, wiced_http_message_body_t* body);
 int32_t process_save(const char* url, wiced_http_response_stream_t* stream, void* arg, wiced_http_message_body_t* body);
 int32_t process_reset(const char* url, wiced_http_response_stream_t* stream, void* arg, wiced_http_message_body_t* body);

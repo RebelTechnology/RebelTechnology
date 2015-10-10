@@ -34,10 +34,10 @@ private:
 public:
   UrlScanner(const char* u) : url(u) {
     len = strlen(url);
-    debug << "url: " << url << "[" << len << "]\r\n";
+    //    debug << "url: " << url << "[" << len << "]\r\n";
   }
   UrlScanner(const void* u, size_t l) : url((const char*)u), len(l)  {
-    debug << "body: " << url << "[" << len << "]\r\n";
+    //    debug << "body: " << url << "[" << len << "]\r\n";
   }
   char* getParameter(const char* name){
     return getParameter(name, strlen(name));

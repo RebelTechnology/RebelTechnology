@@ -3,7 +3,6 @@
 #include "opensound.h"
 #include <stdint.h>
 // #include "TcpSocketServer.hpp"
-// #include "WebSocketServer.hpp"
 // #include "WebServer.hpp"
 #include "dac.h"
 #include "ApplicationSettings.h"
@@ -25,13 +24,15 @@ SYSTEM_MODE(MANUAL);
 NetworkSettings networkSettings;
 AddressSettings addressSettings;
 
-const char* OPENSOUND_WIFI_SSID = "FortRebel";
-const char* OPENSOUND_WIFI_PASSWORD = "notwhattheyseem";
+const char* OPENSOUND_WIFI_SSID = "BTHub3-FQG6";
+const char* OPENSOUND_WIFI_PASSWORD = "2eb3f324af";
 const char* OPENSOUND_WIFI_SECURITY = "3";
+#define OSM_AP_SSID "OpenSoundAli"
+#define OSM_AP_PASSWD "cbe83c9c"
+#define OSM_AP_AUTH "3"
 
 #define ANALOG_PIN_A         A0
 #define ANALOG_PIN_B         A1
-/* SPI uses pins A2 to A5 */
 #define DIGITAL_OUTPUT_PIN_A D0
 #define DIGITAL_OUTPUT_PIN_B D1
 #define DIGITAL_INPUT_PIN_A  D2
@@ -48,6 +49,61 @@ enum LedPin {
 };
 
 // LedPin getLed();
+
+static WLanConfig wlan_config;
+IPAddress getDefaultGateway(){
+  wlan_fetch_ipconfig(&wlan_config);
+  IPAddress ip(wlan_config.nw.aucDefaultGateway);
+  return ip;
+}
+
+int getRSSI(){
+  return wlan_connected_rssi();
+}
+
+IPAddress getSubnetMask(){
+  wlan_fetch_ipconfig(&wlan_config);
+  IPAddress ip(wlan_config.nw.aucSubnetMask);
+  return ip;
+}
+
+const char* getSSID(){
+  if(getCurrentNetwork() == NETWORK_ACCESS_POINT){
+    return getAccessPointSSID();
+  }else{
+    wlan_fetch_ipconfig(&wlan_config);
+    return (const char*)wlan_config.uaSSID;
+  }
+}
+
+void printMacAddress(Print& out){
+  wlan_fetch_ipconfig(&wlan_config);
+  for(int i=0; i<6; i++){
+    if(i)out.write(':');      
+    out.print(wlan_config.nw.uaMacAddr[i], HEX);
+  }
+}
+
+IPAddress getLocalIPAddress(){
+      /*
+struct {
+    uint16_t size;
+    NetworkConfig nw;
+    uint8_t uaSSID[33];
+} WLanConfig;
+struct {
+    HAL_IPAddress aucIP;             // byte 0 is MSB, byte 3 is LSB
+    HAL_IPAddress aucSubnetMask;     // byte 0 is MSB, byte 3 is LSB
+    HAL_IPAddress aucDefaultGateway; // byte 0 is MSB, byte 3 is LSB
+    HAL_IPAddress aucDHCPServer;     // byte 0 is MSB, byte 3 is LSB
+    HAL_IPAddress aucDNSServer;      // byte 0 is MSB, byte 3 is LSB
+    uint8_t uaMacAddr[6];
+} NetworkConfig;
+      */
+  wlan_fetch_ipconfig(&wlan_config);
+  IPAddress ip(wlan_config.nw.aucIP);
+  return ip;
+}
 
 inline void setLed(LedPin led){
   if(led == LED_YELLOW){
@@ -105,9 +161,35 @@ void setRemoteIpAddress(const char* address){
 #endif
 }
 
-int current_network = -1;
+static int current_network = -1;
+int getCurrentNetwork(){
+  return current_network;
+}
+
 void connect(int iface){
+  /*  if(current_network != -1)
+    stopServers();
+  */
   if(current_network != iface){
+    if(wlan_reset_credentials_store_required())
+      wlan_reset_credentials_store();
+    if(iface == NETWORK_LOCAL_WIFI){
+      debugMessage("wifi.sta");
+      if(current_network == NETWORK_ACCESS_POINT)
+	wlan_stop_ap();
+    }else if(iface == NETWORK_ACCESS_POINT){
+      debugMessage("wifi.ap");
+      wlan_start_ap();
+    }
+    current_network = iface;
+    wlan_select_interface(iface);
+    wlan_connect_init();
+    wlan_connect_finalize();
+    /*
+    int ret = wlan_connect_init();
+    wlan_result_t result = wlan_connect_finalize() 
+    */
+      /*
     debugMessage("wifi.disconnect");
     WiFi.disconnect();
     if(iface == NETWORK_LOCAL_WIFI){
@@ -122,6 +204,7 @@ void connect(int iface){
     WiFi.connect();
     debugMessage("wifi.connect");
     current_network = iface;
+      */
   }
   setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
 }
@@ -130,9 +213,9 @@ void setCredentials(const char* ssid, const char* passwd, const char* auth){
   debug << "setting credentials for ssid[" << ssid << "] auth[" << auth << "]\n";
   int sec = atol(auth);
   if(sec >= 0 && sec <= 3){
-    WiFi.disconnect();
+    //    WiFi.disconnect();
     WiFi.setCredentials(ssid, passwd, sec);
-    WiFi.connect();
+    //    WiFi.connect();
   }
 }
 
@@ -189,32 +272,45 @@ void readAccessPointCredentials(Stream& port){
   port.println("Type yes to confirm");
   String yes = port.readStringUntil('\r');
   port.setTimeout(1000);
-  if(yes.equals("yes"))
+  if(yes.equals("yes")){
     setAccessPointCredentials(ssid.c_str(), pass.c_str(), auth.c_str());
-  else
+    port.println("Done");
+  }else
     port.println("Cancelled");
 }
 
 void startServers(){
   debugMessage("start servers");
+  if(!WiFi.ready())
+    debugMessage("wifi not ready");
+  if(WiFi.connecting())
+    debugMessage("wifi connecting");
   configureWeb();
   configureOsc();
-  webserver.begin();
-  oscserver.begin(networkSettings.localPort);
-  debugMessage("servers.begin");
+  if(WiFi.ready() || getCurrentNetwork() == NETWORK_ACCESS_POINT){
+    debugMessage("webserver.begin");
+    webserver.begin();
+    debugMessage("oscserver.begin");
+    oscserver.begin(networkSettings.localPort);
+    debugMessage("startServers done");
+  }
 }
 
 void stopServers(){
-  debugMessage("stop servers");
+  debugMessage("stopServers");
+  if(current_network == -1)
+    return;
   //  tcpsocketserver.stop();
   //  websocketserver.stop();
+  debugMessage("webserver.stop");
   webserver.stop();
+  debugMessage("oscserver.stop");
   oscserver.stop();
-  debugMessage("servers.end");
+  debugMessage("stopServers done");
 }
 
 void printInfo(Print& out){
-  out.print("Device Status ");
+  out.println("Device Status");
   if(WiFi.connecting())
     out.println("Connecting");
   if(WiFi.listening())
@@ -223,41 +319,26 @@ void printInfo(Print& out){
     out.println("Ready");
   if(WiFi.hasCredentials())
     out.println("Has Credentials");
-
   out.print("Device ID: "); 
   out.println(Spark.deviceID());
   //  out.println(Particle.deviceID());
-
   out.print("SSID: "); 
-  out.println(WiFi.SSID());
-
+  out.println(getSSID());
   out.print("Local IP: "); 
-  out.println(WiFi.localIP());
-
+  out.println(getLocalIPAddress());
   out.print("Gateway: "); 
-  out.println(WiFi.gatewayIP());
-
+  out.println(getDefaultGateway());
   out.print("RSSI: "); 
-  out.println(WiFi.RSSI());
-
+  out.println(getRSSI());
   out.print("Local port: "); 
   out.println(networkSettings.localPort);
-
   out.print("Remote IP: "); 
   out.println(oscserver.remoteIP());
-
   out.print("Remote Port: "); 
   out.println(oscserver.remotePort());
-
-  byte mac[6];
-  WiFi.macAddress(mac);
   out.print("MAC Address: ");
-  for(int i=0; i<6; i++){
-    if(i)out.print(":");
-    out.print(mac[i], HEX);
-  }
+  printMacAddress(out);
   out.println();
-
   //  out.print("Free memory: "); 
   //  out.println(System.freeMemory());
 }
@@ -268,13 +349,29 @@ bool triggerA, triggerB;
 bool button;
 
 //IntervalTimer dacTimer;
-uint16_t cvOutA;
-uint16_t cvOutB;
+static uint16_t cvOutA = 2047;
+static uint16_t cvOutB = 2047;
+uint16_t getCVA(){
+  return cvOutA;
+}
+
+uint16_t getCVB(){
+  return cvOutB;
+}
+
 void setCVA(uint16_t cv){
+#ifdef SERIAL_DEBUG
+  Serial.print("cv A: ");
+  Serial.println(cv);
+#endif
   cvOutA = cv;
 }
 
 void setCVB(uint16_t cv){
+#ifdef SERIAL_DEBUG
+  Serial.print("cv B: ");
+  Serial.println(cv);
+#endif
   cvOutB = cv;
 }
 
@@ -290,20 +387,28 @@ void dacCallback(){
 
 void setTriggerA(int value){
   digitalWrite(DIGITAL_OUTPUT_PIN_A, value == 0 ? HIGH : LOW);
+#ifdef SERIAL_DEBUG
+  Serial.print("trigger A: ");
+  Serial.println(value);
+#endif
 }
 
 void setTriggerB(int value){
   digitalWrite(DIGITAL_OUTPUT_PIN_B, value == 0 ? HIGH : LOW);
+#ifdef SERIAL_DEBUG
+  Serial.print("trigger B: ");
+  Serial.println(value);
+#endif
 }
 
 void toggleTriggerA(){
   bool value = digitalRead(DIGITAL_OUTPUT_PIN_A);
-  setTriggerA(!value);
+  setTriggerA(value);
 }
 
 void toggleTriggerB(){
-  bool value = digitalRead(DIGITAL_OUTPUT_PIN_A);
-  setTriggerB(!value);
+  bool value = digitalRead(DIGITAL_OUTPUT_PIN_B);
+  setTriggerB(value);
 }
 
 bool isButtonPressed(){
@@ -312,7 +417,7 @@ bool isButtonPressed(){
 }
 
 void setup(){
-  setLed(LED_YELLOW);
+  setLed(LED_GREEN);
   pinMode(ANALOG_PIN_A, INPUT);
   pinMode(ANALOG_PIN_B, INPUT);
   pinMode(DIGITAL_INPUT_PIN_A, INPUT);
@@ -331,19 +436,29 @@ void setup(){
   networkSettings.init();
   addressSettings.init();
 
-  spi_init();
-  debugMessage("spi init");
+  dac_init();
+  debugMessage("dac init");
 
   WiFi.selectAntenna(DEFAULT_ANTENNA);
-  WiFi.on();
+  // wwd_wifi_select_antenna(WICED_ANTENNA_AUTO);  
+  //  WiFi.on();
+  wlan_activate();
+
   debugMessage("wifi.on");
 
+  /*
+  if(!WiFi.hasCredentials())
+    setCredentials(OPENSOUND_WIFI_SSID, OPENSOUND_WIFI_PASSWORD, OPENSOUND_WIFI_SECURITY);
+  */
+
+  /*
   if(WiFi.hasCredentials())
     connect(NETWORK_LOCAL_WIFI);
   else
     connect(NETWORK_ACCESS_POINT);
 
   startServers();
+  */
 
   lastButtonPress = 0;
   button = isButtonPressed();
@@ -351,7 +466,7 @@ void setup(){
   cvB = analogRead(ANALOG_PIN_B);
 
   //  dacTimer.begin(dacCallback, 400, hmSec);
-  setLed(LED_GREEN);
+  //  setLed(LED_GREEN);
 }
 
 #include "Scanner.hpp"
@@ -424,6 +539,11 @@ void loop(){
   if(Serial.available() > 0){
     int c = Serial.read();
     switch(c){
+    case 'f':
+      debugMessage("f: factory reset");
+      factoryReset();
+      connect(NETWORK_ACCESS_POINT);
+      break;
     case '?':
       debugMessage("?: print info");
       printInfo(Serial);
@@ -490,39 +610,77 @@ void loop(){
       connect(NETWORK_LOCAL_WIFI);
       //startServers();
       break;
-      /*
-    case '+':
-      debugMessage("+: start access point");
-      WiFi.startAccessPoint();
-      break;
-    case '-':
-      debugMessage("-: stop access point");
-      WiFi.stopAccessPoint();
-      break;
-      */
     case '*': {
       debugMessage("*: print local IP address");
-      WLanConfig ip_config;
-      wlan_fetch_ipconfig(&ip_config);
-      IPAddress ip(ip_config.nw.aucIP);
-      Serial.print("local IP: ");
-      Serial.println(ip);
+      Serial.println(getLocalIPAddress());
+      break;
+    }
+    case ':': {
+      debugMessage("System Admin");
+      while(Serial.available() < 1); // wait
+      c = Serial.read();
+      switch(c){      
+      case '+':
+	debugMessage("+: activate wlan");
+	wlan_activate();
+	break;
+      case '-':
+	debugMessage("-: deactivate wlan");
+	wlan_deactivate();
+	break;
+      case '0':
+	debugMessage("0: select STA");
+	wlan_select_interface(NETWORK_LOCAL_WIFI);
+	current_network = NETWORK_LOCAL_WIFI;
+	break;
+      case '1':
+	debugMessage("1: select AP");
+	wlan_select_interface(NETWORK_ACCESS_POINT);
+	current_network = NETWORK_ACCESS_POINT;
+	break;
+      case 'i':
+	debugMessage("i: connect init");
+	wlan_connect_init();
+	break;
+      case 'f':
+	debugMessage("f: connect finalise");
+	wlan_connect_finalize();
+	break;
+      case 'd':
+	debugMessage("d: disconnect");
+	wlan_disconnect_now();
+	break;
+      case '>':
+	debugMessage(">: start access point");
+	WiFi.startAccessPoint();
+	break;
+      case '<':
+	debugMessage("<: stop access point");
+	WiFi.stopAccessPoint();
+	break;
+      }
       break;
     }
     case '[':
       debugMessage("[: dac 0");
       setCVA(0);
       setCVB(0);
+      dac_set_a(0);
+      dac_set_b(0);
       break;
     case '|':
       debugMessage("|: dac 1/2");
       setCVA(2047);
       setCVB(2047);
+      dac_set_a(2047);
+      dac_set_b(2047);
       break;
     case ']':
       debugMessage("]: dac full");
       setCVA(4095);
       setCVB(4095);
+      dac_set_a(4095);
+      dac_set_b(4095);
       break;
     }
   }
@@ -537,12 +695,31 @@ void reload(){
 
 #include "dct.h"
 
+void factoryReset(){
+  networkSettings.reset();
+  networkSettings.clearFlash();
+  addressSettings.reset();
+  addressSettings.clearFlash();
+  clearCredentials();
+  setAccessPointCredentials(OSM_AP_SSID, OSM_AP_PASSWD, OSM_AP_AUTH);
+}
+
 const int MAX_SSID_PREFIX_LEN = 25;
 void setAccessPointPrefix(char* prefix){
   wiced_ssid_t ssid;
   ssid.length = strnlen(prefix, MAX_SSID_PREFIX_LEN);
   strncpy((char*)ssid.value, prefix, ssid.length);
   dct_write_app_data(&ssid, DCT_SSID_PREFIX_OFFSET, ssid.length+1);
+}
+
+const char* getAccessPointSSID(){
+  wiced_config_soft_ap_t* ap;
+  wiced_result_t result = wiced_dct_read_lock((void**)&ap, WICED_FALSE, DCT_WIFI_CONFIG_SECTION, OFFSETOF(platform_dct_wifi_config_t, soft_ap_settings), sizeof(wiced_config_soft_ap_t));
+  int len = min(ap->SSID.length+1, min(33, MAX_SSID_PREFIX_LEN));
+  memcpy(wlan_config.uaSSID, ap->SSID.value, len);
+  wlan_config.uaSSID[len] = '\0';
+  wiced_dct_read_unlock(&ap, WICED_FALSE);
+  return result == WICED_SUCCESS ? (const char*)wlan_config.uaSSID : NULL;
 }
 
 int setAccessPointCredentials(const char* ssid, const char* passwd, const char* auth){

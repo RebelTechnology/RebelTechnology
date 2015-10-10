@@ -6,7 +6,6 @@
 
 #define SERIAL_DEBUG
 
-#define WEBSOCKET_BUFFER_SIZE 64
 #define OSC_MESSAGE_MAX_PREFIX_SIZE 16
 #define OSC_MESSAGE_MAX_DATA_SIZE 38
 
@@ -36,25 +35,37 @@ extern Debug debug;
 template<class T>
 inline Print &operator <<(Print &obj, T arg)
 { obj.print(arg); return obj; }
+IPAddress getLocalIPAddress();
+IPAddress getSubnetMask();
+IPAddress getDefaultGateway();
+void printMacAddress(Print& out);
 #endif
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
   void connect(int iface);
+  int getCurrentNetwork();
+  const char* getSSID();
+  const char* getAccessPointSSID();
+  int getRSSI();
   void startServers();
   void stopServers();
   void setCredentials(const char* ssid, const char* password, const char* auth);
+  void clearCredentials();
   int setAccessPointCredentials(const char* ssid, const char* passwd, const char* auth);
   void setRemoteIpAddress(const char* ip);
   void reload();
 
+  uint16_t getCVA();
+  uint16_t getCVB();
   void setCVA(uint16_t cv);
   void setCVB(uint16_t cv);
   void setTriggerA(int value);
   void setTriggerB(int value);
   void toggleTriggerA();
   void toggleTriggerB();
+  void factoryReset();
 
   void debugMessage(const char* msg);
   void assert_failed(const char* msg, const char* location, int line);

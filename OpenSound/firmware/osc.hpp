@@ -71,21 +71,15 @@ void oscCv(OscServer& server, OscMessage& msg){
   debugMessage("osc cv");
   int a = 0, b = 0;
   if(msg.getDataType(0) == 'f')
-    a = msg.getFloat(0)*4096;
+    a = msg.getFloat(0)*2047 + 2047;
   else // if(msg.getDataType(0) == 'i')
     a = msg.getInt(0);
-  a = 4095 - max(0, min(4095, a));
   setCVA(a);
-#ifdef SERIAL_DEBUG
-  Serial.print("DAC transfer A: ");
-  Serial.println(a);
-#endif
   if(msg.getDataType(1) == 'f')
-    b = msg.getFloat(1)*4096;
+    b = msg.getFloat(1)*2047 + 2047;
   else // if(msg.getDataType(1) == 'i')
     b = msg.getInt(1);
-  b = 4095 - max(0, min(4095, b));
-  setCVB(b);
+setCVB(b);
 #ifdef SERIAL_DEBUG
   Serial.print("DAC transfer B: ");
   Serial.println(b);
@@ -96,30 +90,20 @@ void oscCvA(OscServer& server, OscMessage& msg){
   debugMessage("osc cv a");
   int a = 0;
   if(msg.getDataType(0) == 'f')
-    a = msg.getFloat(0)*4096;
+    a = msg.getFloat(0)*2047 + 2047;
   else if(msg.getDataType(0) == 'i')
     a = msg.getInt(0);
-  a = 4095 - max(0, min(4095, a));
   setCVA(a);
-#ifdef SERIAL_DEBUG
-  Serial.print("DAC transfer A: ");
-  Serial.println(a);
-#endif
 }
 
 void oscCvB(OscServer& server, OscMessage& msg){
   debugMessage("osc cv b");
   int b = 0;
   if(msg.getDataType(0) == 'f')
-    b = msg.getFloat(0)*4096;
+    b = msg.getFloat(0)*2047 + 2047;
   else if(msg.getDataType(0) == 'i')
     b = msg.getInt(0);
-  b = 4095 - max(0, min(4095, b));
   setCVB(b);
-#ifdef SERIAL_DEBUG
-  Serial.print("DAC transfer B: ");
-  Serial.println(b);
-#endif
 }
 
 void oscTriggerA(OscServer& server, OscMessage& msg){
@@ -134,10 +118,6 @@ void oscTriggerA(OscServer& server, OscMessage& msg){
   else if(msg.getDataType(0) == 'f')
     value = msg.getFloat(0) >= 0.5;
   setTriggerA(value);
-#ifdef SERIAL_DEBUG
-  Serial.print("trigger A: ");
-  Serial.println(value);
-#endif
 }
 
 void oscTriggerB(OscServer& server, OscMessage& msg){
@@ -152,34 +132,22 @@ void oscTriggerB(OscServer& server, OscMessage& msg){
   else if(msg.getDataType(0) == 'f')
     value = msg.getFloat(0) >= 0.5;
   setTriggerB(value);
-#ifdef SERIAL_DEBUG
-  Serial.print("trigger B: ");
-  Serial.println(value);
-#endif
 }
 
 void sendCvA(uint16_t value){
-  oscsender.send(OscSender::CV_A, (float)value/4096.0f);
-  //  osc_a_cv_msg.setFloat(0, (float)value/4096.0);
-  //  sendMessage(osc_a_cv_msg);
+  oscsender.send(OscSender::CV_A, (float)value/2048.0f - 1.0f);
 }
 
 void sendCvB(uint16_t value){
-  oscsender.send(OscSender::CV_B, (float)value/4096.0f);
-  //  osc_b_cv_msg.setFloat(0, (float)value/4096.0);
-  //  sendMessage(osc_b_cv_msg);
+  oscsender.send(OscSender::CV_B, (float)value/2048.0f - 1.0f);
 }
 
 void sendTriggerA(bool value){
   oscsender.send(OscSender::TRIGGER_A, (int)value);
-  //  osc_a_trigger_msg.setInt(0, value);
-  //  sendMessage(osc_a_trigger_msg);  
 }
 
 void sendTriggerB(bool value){
   oscsender.send(OscSender::TRIGGER_B, (int)value);
-  //  osc_b_trigger_msg.setInt(0, value);
-  //  sendMessage(osc_b_trigger_msg);  
 }
 
 void configureOsc(){
@@ -190,6 +158,6 @@ void configureOsc(){
   oscserver.addCommand(addressSettings.inputAddress[2], &oscCvB, 1);
   oscserver.addCommand(addressSettings.inputAddress[3], &oscTriggerA);
   oscserver.addCommand(addressSettings.inputAddress[4], &oscTriggerB);
-  oscserver.addCommand("/cv", &oscCv, 2);
-  oscserver.addCommand("/led", &oscLed);
+  oscserver.addCommand("/osm/cv", &oscCv, 2);
+  oscserver.addCommand("/osm/led", &oscLed);
 }
