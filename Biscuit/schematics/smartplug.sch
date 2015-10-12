@@ -2935,6 +2935,10 @@ General purpose 1N400x type rectifier
 <part name="SUPPLY4" library="supply2" deviceset="DGND" device=""/>
 <part name="SUPPLY5" library="supply2" deviceset="DGND" device=""/>
 <part name="F1" library="smartplug" deviceset="SH32" device="" value="T15A 1 1/4&quot;"/>
+<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="10K"/>
+<part name="C11" library="SparkFun" deviceset="CAP" device="0603-CAP" value="100nF"/>
+<part name="GND1" library="supply1" deviceset="GNDA" device=""/>
+<part name="GND2" library="supply1" deviceset="GNDA" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2988,6 +2992,13 @@ General purpose 1N400x type rectifier
 <instance part="SUPPLY4" gate="G$1" x="43.18" y="-35.56"/>
 <instance part="SUPPLY5" gate="G$1" x="106.68" y="-53.34"/>
 <instance part="F1" gate="G$1" x="-27.94" y="78.74"/>
+<instance part="R10" gate="G$1" x="104.14" y="30.48" rot="R180"/>
+<instance part="C11" gate="G$1" x="91.44" y="27.94" smashed="yes" rot="R90">
+<attribute name="NAME" x="87.376" y="30.099" size="1.778" layer="95"/>
+<attribute name="VALUE" x="98.679" y="26.924" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="GND1" gate="1" x="86.36" y="22.86"/>
+<instance part="GND2" gate="1" x="109.22" y="25.4"/>
 </instances>
 <busses>
 </busses>
@@ -3054,6 +3065,16 @@ General purpose 1N400x type rectifier
 <pinref part="C9" gate="G$1" pin="1"/>
 <wire x1="55.88" y1="86.36" x2="48.26" y2="86.36" width="0.1524" layer="91"/>
 <junction x="48.26" y="86.36"/>
+</segment>
+<segment>
+<pinref part="GND1" gate="1" pin="GNDA"/>
+<pinref part="C11" gate="G$1" pin="1"/>
+<wire x1="86.36" y1="25.4" x2="86.36" y2="27.94" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND2" gate="1" pin="GNDA"/>
+<pinref part="R10" gate="G$1" pin="1"/>
+<wire x1="109.22" y1="27.94" x2="109.22" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -3253,8 +3274,16 @@ General purpose 1N400x type rectifier
 <segment>
 <pinref part="U$1" gate="G$1" pin="!RESET"/>
 <wire x1="91.44" y1="38.1" x2="96.52" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="38.1" x2="96.52" y2="22.86" width="0.1524" layer="91"/>
-<label x="96.52" y="22.86" size="1.778" layer="95"/>
+<wire x1="96.52" y1="38.1" x2="96.52" y2="30.48" width="0.1524" layer="91"/>
+<label x="96.52" y="12.7" size="1.778" layer="95"/>
+<pinref part="R10" gate="G$1" pin="2"/>
+<wire x1="96.52" y1="30.48" x2="96.52" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="30.48" x2="96.52" y2="30.48" width="0.1524" layer="91"/>
+<junction x="96.52" y="30.48"/>
+<pinref part="C11" gate="G$1" pin="2"/>
+<wire x1="93.98" y1="27.94" x2="96.52" y2="27.94" width="0.1524" layer="91"/>
+<junction x="96.52" y="27.94"/>
+<wire x1="96.52" y1="27.94" x2="96.52" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="D2"/>
