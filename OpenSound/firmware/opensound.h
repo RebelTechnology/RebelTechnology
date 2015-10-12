@@ -22,6 +22,7 @@
 #define NETWORK_ACCESS_POINT 1
 
 #ifdef  __cplusplus
+
 #include "application.h"
 class Debug : public Print {
   size_t write(uint8_t data){
@@ -35,27 +36,25 @@ extern Debug debug;
 template<class T>
 inline Print &operator <<(Print &obj, T arg)
 { obj.print(arg); return obj; }
-IPAddress getLocalIPAddress();
-IPAddress getSubnetMask();
-IPAddress getDefaultGateway();
-void printMacAddress(Print& out);
+
+enum LedPin {
+  LED_NONE,
+  LED_GREEN,
+  LED_YELLOW
+};
+
+void setLed(LedPin led);
+void toggleLed();
+
 #endif
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
-  void connect(int iface);
-  int getCurrentNetwork();
-  const char* getSSID();
-  const char* getAccessPointSSID();
-  int getRSSI();
   void startServers();
   void stopServers();
-  void setCredentials(const char* ssid, const char* password, const char* auth);
-  void clearCredentials();
-  int setAccessPointCredentials(const char* ssid, const char* passwd, const char* auth);
-  void setRemoteIpAddress(const char* ip);
   void reload();
+  void setRemoteIpAddress(const char* ip);
 
   uint16_t getCVA();
   uint16_t getCVB();

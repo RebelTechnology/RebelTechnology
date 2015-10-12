@@ -6,6 +6,7 @@
 // #include "WebServer.hpp"
 #include "dac.h"
 #include "ApplicationSettings.h"
+#include "ConnectionManager.h"
 
 // #define debugMessage(x) if(0){}
 
@@ -23,9 +24,12 @@ SYSTEM_MODE(MANUAL);
 
 NetworkSettings networkSettings;
 AddressSettings addressSettings;
+ConnectionManager connection;
 
-const char* OPENSOUND_WIFI_SSID = "BTHub3-FQG6";
-const char* OPENSOUND_WIFI_PASSWORD = "2eb3f324af";
+const char* OPENSOUND_WIFI_SSID = "FortRebel";
+const char* OPENSOUND_WIFI_PASSWORD = "notwhattheyseem";
+// const char* OPENSOUND_WIFI_SSID = "BTHub3-FQG6";
+// const char* OPENSOUND_WIFI_PASSWORD = "2eb3f324af";
 const char* OPENSOUND_WIFI_SECURITY = "3";
 #define OSM_AP_SSID "OpenSoundAli"
 #define OSM_AP_PASSWD "cbe83c9c"
@@ -42,70 +46,10 @@ const char* OPENSOUND_WIFI_SECURITY = "3";
 #define RED_LED_PIN          D5
 #define ANALOG_THRESHOLD     15
 
-enum LedPin {
-  LED_NONE,
-  LED_GREEN,
-  LED_YELLOW,
-};
 
 // LedPin getLed();
 
-static WLanConfig wlan_config;
-IPAddress getDefaultGateway(){
-  wlan_fetch_ipconfig(&wlan_config);
-  IPAddress ip(wlan_config.nw.aucDefaultGateway);
-  return ip;
-}
-
-int getRSSI(){
-  return wlan_connected_rssi();
-}
-
-IPAddress getSubnetMask(){
-  wlan_fetch_ipconfig(&wlan_config);
-  IPAddress ip(wlan_config.nw.aucSubnetMask);
-  return ip;
-}
-
-const char* getSSID(){
-  if(getCurrentNetwork() == NETWORK_ACCESS_POINT){
-    return getAccessPointSSID();
-  }else{
-    wlan_fetch_ipconfig(&wlan_config);
-    return (const char*)wlan_config.uaSSID;
-  }
-}
-
-void printMacAddress(Print& out){
-  wlan_fetch_ipconfig(&wlan_config);
-  for(int i=0; i<6; i++){
-    if(i)out.write(':');      
-    out.print(wlan_config.nw.uaMacAddr[i], HEX);
-  }
-}
-
-IPAddress getLocalIPAddress(){
-      /*
-struct {
-    uint16_t size;
-    NetworkConfig nw;
-    uint8_t uaSSID[33];
-} WLanConfig;
-struct {
-    HAL_IPAddress aucIP;             // byte 0 is MSB, byte 3 is LSB
-    HAL_IPAddress aucSubnetMask;     // byte 0 is MSB, byte 3 is LSB
-    HAL_IPAddress aucDefaultGateway; // byte 0 is MSB, byte 3 is LSB
-    HAL_IPAddress aucDHCPServer;     // byte 0 is MSB, byte 3 is LSB
-    HAL_IPAddress aucDNSServer;      // byte 0 is MSB, byte 3 is LSB
-    uint8_t uaMacAddr[6];
-} NetworkConfig;
-      */
-  wlan_fetch_ipconfig(&wlan_config);
-  IPAddress ip(wlan_config.nw.aucIP);
-  return ip;
-}
-
-inline void setLed(LedPin led){
+void setLed(LedPin led){
   if(led == LED_YELLOW){
     digitalWrite(RED_LED_PIN, HIGH);
     digitalWrite(GREEN_LED_PIN, LOW);
@@ -118,7 +62,7 @@ inline void setLed(LedPin led){
   }
 }
 
-inline void toggleLed(){
+void toggleLed(){
   digitalWrite(RED_LED_PIN, !digitalRead(RED_LED_PIN));
   digitalWrite(GREEN_LED_PIN, !digitalRead(GREEN_LED_PIN));
 }
@@ -161,15 +105,10 @@ void setRemoteIpAddress(const char* address){
 #endif
 }
 
-static int current_network = -1;
-int getCurrentNetwork(){
-  return current_network;
-}
-
+/*
 void connect(int iface){
-  /*  if(current_network != -1)
+  if(current_network != -1)
     stopServers();
-  */
   if(current_network != iface){
     if(wlan_reset_credentials_store_required())
       wlan_reset_credentials_store();
@@ -185,11 +124,11 @@ void connect(int iface){
     wlan_select_interface(iface);
     wlan_connect_init();
     wlan_connect_finalize();
-    /*
+
     int ret = wlan_connect_init();
     wlan_result_t result = wlan_connect_finalize() 
-    */
-      /*
+
+
     debugMessage("wifi.disconnect");
     WiFi.disconnect();
     if(iface == NETWORK_LOCAL_WIFI){
@@ -204,25 +143,10 @@ void connect(int iface){
     WiFi.connect();
     debugMessage("wifi.connect");
     current_network = iface;
-      */
   }
   setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
 }
-
-void setCredentials(const char* ssid, const char* passwd, const char* auth){
-  debug << "setting credentials for ssid[" << ssid << "] auth[" << auth << "]\n";
-  int sec = atol(auth);
-  if(sec >= 0 && sec <= 3){
-    //    WiFi.disconnect();
-    WiFi.setCredentials(ssid, passwd, sec);
-    //    WiFi.connect();
-  }
-}
-
-void clearCredentials(){
-  debugMessage("clearing credentials");
-  WiFi.clearCredentials();
-}
+*/
 
 void readCredentials(Stream& port){
   port.setTimeout(10000);
@@ -246,7 +170,7 @@ void readCredentials(Stream& port){
   String yes = port.readStringUntil('\r');
   port.setTimeout(1000);
   if(yes.equals("yes"))
-    setCredentials(ssid.c_str(), pass.c_str(), auth.c_str());
+    connection.setCredentials(ssid.c_str(), pass.c_str(), auth.c_str());
   else
     port.println("Cancelled");
 }
@@ -273,7 +197,7 @@ void readAccessPointCredentials(Stream& port){
   String yes = port.readStringUntil('\r');
   port.setTimeout(1000);
   if(yes.equals("yes")){
-    setAccessPointCredentials(ssid.c_str(), pass.c_str(), auth.c_str());
+    connection.setAccessPointCredentials(ssid.c_str(), pass.c_str(), auth.c_str());
     port.println("Done");
   }else
     port.println("Cancelled");
@@ -287,18 +211,16 @@ void startServers(){
     debugMessage("wifi connecting");
   configureWeb();
   configureOsc();
-  if(WiFi.ready() || getCurrentNetwork() == NETWORK_ACCESS_POINT){
-    debugMessage("webserver.begin");
-    webserver.begin();
-    debugMessage("oscserver.begin");
-    oscserver.begin(networkSettings.localPort);
-    debugMessage("startServers done");
-  }
+  debugMessage("webserver.begin");
+  webserver.begin();
+  debugMessage("oscserver.begin");
+  oscserver.begin(networkSettings.localPort);
+  debugMessage("startServers done");
 }
 
 void stopServers(){
   debugMessage("stopServers");
-  if(current_network == -1)
+  if(connection.getCurrentNetwork() == -1)
     return;
   //  tcpsocketserver.stop();
   //  websocketserver.stop();
@@ -311,6 +233,10 @@ void stopServers(){
 
 void printInfo(Print& out){
   out.println("Device Status");
+  if(connection.isWiFiConnected())
+    out.println("WiFi Connected");
+  if(connection.isIpConnected())
+    out.println("IP Connected");
   if(WiFi.connecting())
     out.println("Connecting");
   if(WiFi.listening())
@@ -323,13 +249,13 @@ void printInfo(Print& out){
   out.println(Spark.deviceID());
   //  out.println(Particle.deviceID());
   out.print("SSID: "); 
-  out.println(getSSID());
+  out.println(connection.getSSID());
   out.print("Local IP: "); 
-  out.println(getLocalIPAddress());
+  out.println(connection.getLocalIPAddress());
   out.print("Gateway: "); 
-  out.println(getDefaultGateway());
+  out.println(connection.getDefaultGateway());
   out.print("RSSI: "); 
-  out.println(getRSSI());
+  out.println(connection.getRSSI());
   out.print("Local port: "); 
   out.println(networkSettings.localPort);
   out.print("Remote IP: "); 
@@ -337,7 +263,7 @@ void printInfo(Print& out){
   out.print("Remote Port: "); 
   out.println(oscserver.remotePort());
   out.print("MAC Address: ");
-  printMacAddress(out);
+  connection.printMacAddress(out);
   out.println();
   //  out.print("Free memory: "); 
   //  out.println(System.freeMemory());
@@ -442,23 +368,21 @@ void setup(){
   WiFi.selectAntenna(DEFAULT_ANTENNA);
   // wwd_wifi_select_antenna(WICED_ANTENNA_AUTO);  
   //  WiFi.on();
+
+  // Called once at startup to initialize the wlan hardware.
+  //  void wlan_setup();
   wlan_activate();
 
   debugMessage("wifi.on");
-
   /*
   if(!WiFi.hasCredentials())
-    setCredentials(OPENSOUND_WIFI_SSID, OPENSOUND_WIFI_PASSWORD, OPENSOUND_WIFI_SECURITY);
+    connection.setCredentials(OPENSOUND_WIFI_SSID, OPENSOUND_WIFI_PASSWORD, OPENSOUND_WIFI_SECURITY);
   */
 
-  /*
   if(WiFi.hasCredentials())
-    connect(NETWORK_LOCAL_WIFI);
+    connection.connect(NETWORK_LOCAL_WIFI);
   else
-    connect(NETWORK_ACCESS_POINT);
-
-  startServers();
-  */
+    connection.connect(NETWORK_ACCESS_POINT);
 
   lastButtonPress = 0;
   button = isButtonPressed();
@@ -469,13 +393,17 @@ void setup(){
   //  setLed(LED_GREEN);
 }
 
-#include "Scanner.hpp"
-Scanner scanner;
+void process();
+void processSerial();
 
-char web_buf[64];
-int web_buf_len = sizeof(web_buf);
 void loop(){
   dacCallback();
+  if(connection.connected())
+    process();
+  processSerial();
+}
+
+void process(){
   int cv = analogRead(ANALOG_PIN_A);
   if(abs(cv - cvA) > ANALOG_THRESHOLD){
     cvA = cv;
@@ -490,7 +418,7 @@ void loop(){
   bool btn = isButtonPressed();
   if(btn != button && (millis() > lastButtonPress+BUTTON_DEBOUNCE_MS)){
     button = btn;
-    setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
+    setLed(connection.getCurrentNetwork() == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
     if(button){
       lastButtonPress = millis();
       toggleLed();
@@ -502,19 +430,20 @@ void loop(){
 
   if(lastButtonPress && (millis() > lastButtonPress+BUTTON_TOGGLE_MS)){
     debugMessage("toggle?");
-    setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
+    setLed(connection.getCurrentNetwork() == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
     delay(BUTTON_TOGGLE_MS);
     if(isButtonPressed()){
       setLed(LED_NONE);
       debugMessage("toggle network");
-      stopServers();
-      if(current_network == NETWORK_LOCAL_WIFI)
-	connect(NETWORK_ACCESS_POINT);
+      //      stopServers();
+      connection.disconnect();
+      if(connection.getCurrentNetwork() == NETWORK_LOCAL_WIFI)
+	connection.connect(NETWORK_ACCESS_POINT);
       else
-	connect(NETWORK_LOCAL_WIFI);
-      startServers();
+	connection.connect(NETWORK_LOCAL_WIFI);
+      //      startServers();
     }
-    setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
+    setLed(connection.getCurrentNetwork() == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
     lastButtonPress = 0;
   }
 
@@ -529,20 +458,21 @@ void loop(){
     sendTriggerB(btn);
   }
 
-  /* process incoming connections one at a time forever */
-  //  webserver.processConnection(web_buf, &web_buf_len);
-  //  webserver.loop();
-
   // websocketserver.loop();
   //  tcpsocketserver.loop();
+  oscserver.loop();
+}
 
+#include "Scanner.hpp"
+Scanner scanner;
+
+void processSerial(){
   if(Serial.available() > 0){
     int c = Serial.read();
     switch(c){
     case 'f':
       debugMessage("f: factory reset");
       factoryReset();
-      connect(NETWORK_ACCESS_POINT);
       break;
     case '?':
       debugMessage("?: print info");
@@ -554,12 +484,12 @@ void loop(){
       break;
     case '!':
       debugMessage("!: clear credentials");
-      clearCredentials();
+      connection.clearCredentials();
       printInfo(Serial);
       break;
     case 'd':
       debugMessage("d: default credentials");
-      setCredentials(OPENSOUND_WIFI_SSID, OPENSOUND_WIFI_PASSWORD, OPENSOUND_WIFI_SECURITY);
+      connection.setCredentials(OPENSOUND_WIFI_SSID, OPENSOUND_WIFI_PASSWORD, OPENSOUND_WIFI_SECURITY);
       printInfo(Serial);
       break;
     case 'b':
@@ -601,18 +531,18 @@ void loop(){
     case 'a':
       debugMessage("a: access point connect");
       //stopServers();
-      connect(NETWORK_ACCESS_POINT);
+      connection.connect(NETWORK_ACCESS_POINT);
       //startServers();
       break;
     case 'w':
       debugMessage("w: wifi connect");
       //stopServers();
-      connect(NETWORK_LOCAL_WIFI);
+      connection.connect(NETWORK_LOCAL_WIFI);
       //startServers();
       break;
     case '*': {
       debugMessage("*: print local IP address");
-      Serial.println(getLocalIPAddress());
+      Serial.println(connection.getLocalIPAddress());
       break;
     }
     case ':': {
@@ -631,12 +561,10 @@ void loop(){
       case '0':
 	debugMessage("0: select STA");
 	wlan_select_interface(NETWORK_LOCAL_WIFI);
-	current_network = NETWORK_LOCAL_WIFI;
 	break;
       case '1':
 	debugMessage("1: select AP");
 	wlan_select_interface(NETWORK_ACCESS_POINT);
-	current_network = NETWORK_ACCESS_POINT;
 	break;
       case 'i':
 	debugMessage("i: connect init");
@@ -684,7 +612,6 @@ void loop(){
       break;
     }
   }
-  oscserver.loop();
 }
 
 void reload(){
@@ -693,63 +620,12 @@ void reload(){
   oscserver.begin(networkSettings.localPort);
 }
 
-#include "dct.h"
-
 void factoryReset(){
   networkSettings.reset();
   networkSettings.clearFlash();
   addressSettings.reset();
   addressSettings.clearFlash();
-  clearCredentials();
-  setAccessPointCredentials(OSM_AP_SSID, OSM_AP_PASSWD, OSM_AP_AUTH);
-}
-
-const int MAX_SSID_PREFIX_LEN = 25;
-void setAccessPointPrefix(char* prefix){
-  wiced_ssid_t ssid;
-  ssid.length = strnlen(prefix, MAX_SSID_PREFIX_LEN);
-  strncpy((char*)ssid.value, prefix, ssid.length);
-  dct_write_app_data(&ssid, DCT_SSID_PREFIX_OFFSET, ssid.length+1);
-}
-
-const char* getAccessPointSSID(){
-  wiced_config_soft_ap_t* ap;
-  wiced_result_t result = wiced_dct_read_lock((void**)&ap, WICED_FALSE, DCT_WIFI_CONFIG_SECTION, OFFSETOF(platform_dct_wifi_config_t, soft_ap_settings), sizeof(wiced_config_soft_ap_t));
-  int len = min(ap->SSID.length+1, min(33, MAX_SSID_PREFIX_LEN));
-  memcpy(wlan_config.uaSSID, ap->SSID.value, len);
-  wlan_config.uaSSID[len] = '\0';
-  wiced_dct_read_unlock(&ap, WICED_FALSE);
-  return result == WICED_SUCCESS ? (const char*)wlan_config.uaSSID : NULL;
-}
-
-int setAccessPointCredentials(const char* ssid, const char* passwd, const char* auth){
-  //void setAccessPoint(char* prefix, char* auth){
-  wiced_config_soft_ap_t ap;
-  ap.SSID.length = strnlen(ssid, MAX_SSID_PREFIX_LEN);
-  strncpy((char*)ap.SSID.value, ssid, ap.SSID.length);
-  ap.channel = 11;
-  ap.details_valid = WICED_TRUE;
-  int sec = atol(auth);
-  switch(sec){
-  case 0: // Open
-    ap.security = WICED_SECURITY_OPEN;
-    break;
-  case 1: // WEP
-    ap.security = WICED_SECURITY_WEP_PSK;
-    break;
-  case 2: // WPA
-    ap.security = WICED_SECURITY_WPA_TKIP_PSK;
-    break;
-  case 3: // WPA2
-    ap.security = WICED_SECURITY_WPA2_AES_PSK;
-    break;
-  default:
-    return false;
-  }
-  if(sec == 3 && ap.SSID.length < 8)
-    return false; // password too short for WPA2
-  ap.security_key_length = strnlen(passwd, SECURITY_KEY_SIZE);
-  strncpy(ap.security_key, passwd, ap.security_key_length);
-  wiced_result_t result = wiced_dct_write(&ap, DCT_WIFI_CONFIG_SECTION, OFFSETOF(platform_dct_wifi_config_t, soft_ap_settings), sizeof(wiced_config_soft_ap_t));
-  return result == WICED_SUCCESS;
+  connection.clearCredentials();
+  connection.setAccessPointCredentials(OSM_AP_SSID, OSM_AP_PASSWD, OSM_AP_AUTH);
+  connection.connect(NETWORK_ACCESS_POINT);
 }

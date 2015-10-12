@@ -2,6 +2,7 @@
 #include "opensound.h"
 #include "application.h"
 #include "ApplicationSettings.h"
+#include "ConnectionManager.h"
 
 WebServer webserver;
 
@@ -11,6 +12,10 @@ void configureWeb(){
 int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){		       
   Streamer stream(s);
   stream << OSM_BEGIN << "<h1>Status</h1><h2>Open Sound Module</h2>";
+  if(connection.isWiFiConnected())
+    stream << "<p>WiFi Connected</p>";
+  if(connection.isIpConnected())
+    stream << "<p>Network up</p>";
   if(WiFi.connecting())
     stream << "<p>Connecting</p>";
   if(WiFi.listening())
@@ -19,13 +24,13 @@ int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* a
     stream << "<p>Ready!</p>";
   if(WiFi.hasCredentials())
     stream << "<p>WiFi credentials stored</p>";
-  if(getCurrentNetwork() == NETWORK_ACCESS_POINT)
+  if(connection.getCurrentNetwork() == NETWORK_ACCESS_POINT)
     stream << "<p>WiFi Access Point</p>";
-  stream << "<p>SSID: " << getSSID() << "</p>"
-	 << "<p>RSSI: " << getRSSI() << "dBm</p>"
-	 << "<p>Local IP: " << getLocalIPAddress() << "</p>"
-	 << "<p>Gateway: " << getDefaultGateway() << "</p>"
-	 << "<p>Subnet Mask: " << getLocalIPAddress() << "</p>"
+  stream << "<p>SSID: " << connection.getSSID() << "</p>"
+	 << "<p>RSSI: " << connection.getRSSI() << "dBm</p>"
+	 << "<p>Local IP: " << connection.getLocalIPAddress() << "</p>"
+	 << "<p>Gateway: " << connection.getDefaultGateway() << "</p>"
+	 << "<p>Subnet Mask: " << connection.getLocalIPAddress() << "</p>"
     /*  stream << "<p>SSID: " << WiFi.SSID() << "</p>"
 	 << "<p>Gateway: " << WiFi.gatewayIP() << "</p>"
 	 << "<p>RSSI: " << WiFi.RSSI() << "</p>"
@@ -41,7 +46,7 @@ int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* a
     stream << networkSettings.remoteIPAddress << "</p>";
   stream << "<p>Remote Port: " << networkSettings.remotePort << "</p>"
 	 << "<p>MAC Address: ";
-  printMacAddress(stream);
+  connection.printMacAddress(stream);
   stream << "</p><p>ID: " << Spark.deviceID() << "</p>";
   /*
   byte mac[6];
@@ -84,7 +89,7 @@ int32_t process_settings(const char* u, wiced_http_response_stream_t* s, void* a
   Streamer stream(s);
   stream << OSM_BEGIN << "<h1>Network Settings</h1>"
 	 << "<form action='/settings' method='GET'>"
-	 << "<p>Local IP</p><p>" << getLocalIPAddress() << "</p>"
+	 << "<p>Local IP</p><p>" << connection.getLocalIPAddress() << "</p>"
 	 << "<p>Local Port</p><input type='text' name='localport' value='"
 	 << networkSettings.localPort << "'><br>"	 
     	 << "<p>Remote IP</p><input type='text' name='remoteip' value='";
@@ -199,7 +204,7 @@ int32_t process_auth(const char* url, wiced_http_response_stream_t* s, void* arg
   char* auth = params.getParameter("auth");
   stream << OSM_BEGIN << "<h1>WiFi Credentials</h1>";
   if(ssid != NULL && pass != NULL && auth != NULL){
-    setCredentials(ssid, pass, auth);
+    connection.setCredentials(ssid, pass, auth);
     stream << "<br><button onclick='location.href=\"/reconnect_sta\"'>Reconnect as WiFi Client</button>";
   }else{
     stream << "<form action='auth' method='POST'>"
@@ -231,13 +236,9 @@ int32_t process_reconnect(const char* url, wiced_http_response_stream_t* s, void
   stream << OSM_END;
   stream.flush();
   if(arg == 1){
-    stopServers();
-    connect(NETWORK_LOCAL_WIFI);
-    startServers();
+    connection.connect(NETWORK_LOCAL_WIFI);
   }else if(arg == 2){
-    stopServers();
-    connect(NETWORK_ACCESS_POINT);
-    startServers();
+    connection.connect(NETWORK_ACCESS_POINT);
   }
   return 0;
 }
@@ -278,7 +279,7 @@ int32_t process_reset(const char* u, wiced_http_response_stream_t* s, void* arg,
       reload();
       break;
     case 2:
-      clearCredentials();
+      connection.clearCredentials();
       stream << "<p>WiFi credentials purged</p>";
       break;
     }
