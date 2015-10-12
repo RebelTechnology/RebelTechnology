@@ -18,7 +18,7 @@ class ConnectionManager {
 
 public:
   //  void init();
-  ConnectionManager() : next_network(-1) {}
+  ConnectionManager() : next_network(-1), failures(0) {}
 
   bool connected();
 
@@ -44,15 +44,16 @@ public:
   bool isIpConnected();
   const char* getSSID();
   int getRSSI();
-  void setCredentials(const char* ssid, const char* password, const char* auth);
+  bool setCredentials(const char* ssid, const char* password, const char* auth);
   void clearCredentials();
-  int setAccessPointCredentials(const char* ssid, const char* passwd, const char* auth);
+  bool setAccessPointCredentials(const char* ssid, const char* passwd, const char* auth);
   void setAccessPointPrefix(const char* prefix);
 private:
   const char* getAccessPointSSID();
   unsigned long lastEvent;
   OpenSoundMode mode = DISCONNECTED;
   int current_network, next_network;
+  int failures;
 };
 
 extern ConnectionManager connection;

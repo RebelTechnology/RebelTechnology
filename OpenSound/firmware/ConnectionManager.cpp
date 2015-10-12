@@ -6,6 +6,7 @@
 
 // const int MAX_SSID_PREFIX_LEN = 25;
 #define MAX_SSID_PREFIX_LEN 25
+#define MAX_FAILURES 5
 
 static WLanConfig wlan_config;
 IPAddress ConnectionManager::getDefaultGateway(){
@@ -78,36 +79,42 @@ bool ConnectionManager::connected(){
   bool connected = false;
   switch(mode){
   case DISCONNECTED:
-    if(elapsed % 200 == 0)
+    if(elapsed % 160 == 0)
       setLed(LED_YELLOW);
-    else if(elapsed % 200 == 100)
+    else if(elapsed % 160 == 80)
       setLed(LED_GREEN);
     if(elapsed > 2000){
+      // transitioning from DISCONNECTED to CONNECTING
       if(current_network != next_network)
 	current_network = next_network;
       if(current_network == -1)
 	current_network = NETWORK_ACCESS_POINT;
       wlan_select_interface(current_network);
       if(current_network == NETWORK_ACCESS_POINT)
-	wlan_start_ap();
-      //	WiFi.startAccessPoint();
+	wlan_start_ap();      
       wlan_connect_init();
+      if(wlan_reset_credentials_store_required())
+	wlan_reset_credentials_store();
       wlan_connect_finalize();
       setMode(CONNECTING);
       setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
     }
     break;
   case CONNECTING:
-    if(elapsed % 2000 == 0)
+    if(elapsed % 1600 == 0)
       setLed(LED_NONE);
-    else if(elapsed % 2000 == 1000)
+    else if(elapsed % 1600 == 800)
       setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
     if(isIpConnected()){
+      // transitioning from CONNECTING to CONNECTED
+      failures = 0;
       startServers();
       setMode(CONNECTED);
       setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
     }else if(elapsed > CONNECTION_TIMEOUT){
       cancel();
+      if(++failures > MAX_FAILURES)
+	next_network = -1;
     }
     break;
   case CONNECTED:
@@ -177,14 +184,51 @@ void ConnectionManager::cancel(){
   setLed(LED_NONE);
 }
 
-void ConnectionManager::setCredentials(const char* ssid, const char* passwd, const char* auth){
+bool ConnectionManager::setCredentials(const char* ssid, const char* passwd, const char* auth){
   debug << "setting credentials for ssid[" << ssid << "] auth[" << auth << "]\n";
+  WLanCredentials creds;
+  memset(&creds, 0, sizeof(creds));
+  creds.len = sizeof(creds);
+  creds.ssid = ssid;
+  creds.ssid_len = strlen(ssid);
+  creds.password = passwd;
+  creds.password_len = strlen(passwd);
+  int sec = atol(auth);
+  debug << "passwd[" << passwd << "] sec[" << sec << "]\n";
+  switch(sec){
+  case 0: // Open
+    creds.security = WLAN_SEC_UNSEC;
+    break;
+  case 1: // WEP
+    creds.security = WLAN_SEC_WEP;
+    break;
+  case 2: // WPA
+    creds.security = WLAN_SEC_WPA;
+    break;
+  case 3: // WPA2
+    creds.security = WLAN_SEC_WPA2;
+    if(creds.password_len < 8){
+      debugMessage("password too short for WPA2");
+      return false;
+    }
+    break;
+  default:
+    return false;
+  }
+  // creds.cipher = 0: not set
+  // creds.cipher = WLAN_CIPHER_AES_TKIP; // AES or TKIP
+  wlan_set_credentials(&creds);
+  debugMessage("wlan_set_credentials");
+  system_notify_event(wifi_credentials_add, 0, &creds);
+  return true;
+  /*
   int sec = atol(auth);
   if(sec >= 0 && sec <= 3){
     //    WiFi.disconnect();
     WiFi.setCredentials(ssid, passwd, sec);
     //    WiFi.connect();
   }
+  */
 }
 
 void ConnectionManager::clearCredentials(){
@@ -195,15 +239,15 @@ void ConnectionManager::clearCredentials(){
 
 const char* ConnectionManager::getAccessPointSSID(){
   wiced_config_soft_ap_t* ap;
-  wiced_result_t result = wiced_dct_read_lock((void**)&ap, WICED_FALSE, DCT_WIFI_CONFIG_SECTION, OFFSETOF(platform_dct_wifi_config_t, soft_ap_settings), sizeof(wiced_config_soft_ap_t));
-  int len = min(ap->SSID.length+1, min(33, MAX_SSID_PREFIX_LEN));
+  wiced_dct_read_lock((void**)&ap, WICED_FALSE, DCT_WIFI_CONFIG_SECTION, OFFSETOF(platform_dct_wifi_config_t, soft_ap_settings), sizeof(wiced_config_soft_ap_t));
+  int len = min(ap->SSID.length+1, MAX_SSID_PREFIX_LEN);
   memcpy(wlan_config.uaSSID, ap->SSID.value, len);
-  wlan_config.uaSSID[len] = '\0';
+  wlan_config.uaSSID[len-1] = '\0';
   wiced_dct_read_unlock(&ap, WICED_FALSE);
-  return result == WICED_SUCCESS ? (const char*)wlan_config.uaSSID : NULL;
+  return (const char*)wlan_config.uaSSID;
 }
 
-int ConnectionManager::setAccessPointCredentials(const char* ssid, const char* passwd, const char* auth){
+bool ConnectionManager::setAccessPointCredentials(const char* ssid, const char* passwd, const char* auth){
   //void setAccessPoint(char* prefix, char* auth){
   wiced_config_soft_ap_t ap;
   ap.SSID.length = strnlen(ssid, MAX_SSID_PREFIX_LEN);
@@ -227,8 +271,10 @@ int ConnectionManager::setAccessPointCredentials(const char* ssid, const char* p
   default:
     return false;
   }
-  if(sec == 3 && ap.SSID.length < 8)
+  if(sec == 3 && ap.SSID.length < 8){
+    debugMessage("password too short for WPA2");
     return false; // password too short for WPA2
+  }
   ap.security_key_length = strnlen(passwd, SECURITY_KEY_SIZE);
   strncpy(ap.security_key, passwd, ap.security_key_length);
   wiced_result_t result = wiced_dct_write(&ap, DCT_WIFI_CONFIG_SECTION, OFFSETOF(platform_dct_wifi_config_t, soft_ap_settings), sizeof(wiced_config_soft_ap_t));

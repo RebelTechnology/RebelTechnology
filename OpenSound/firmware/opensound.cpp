@@ -394,6 +394,7 @@ void setup(){
 }
 
 void process();
+void processButton();
 void processSerial();
 
 void loop(){
@@ -401,20 +402,10 @@ void loop(){
   if(connection.connected())
     process();
   processSerial();
+  processButton();
 }
 
-void process(){
-  int cv = analogRead(ANALOG_PIN_A);
-  if(abs(cv - cvA) > ANALOG_THRESHOLD){
-    cvA = cv;
-    sendCvA(4095-cvA);
-  }
-  cv = analogRead(ANALOG_PIN_B);
-  if(abs(cv - cvB) > ANALOG_THRESHOLD){
-    cvB = cv;
-    sendCvB(4095-cvB);
-  }
-
+void processButton(){
   bool btn = isButtonPressed();
   if(btn != button && (millis() > lastButtonPress+BUTTON_DEBOUNCE_MS)){
     button = btn;
@@ -427,7 +418,6 @@ void process(){
       lastButtonPress = 0;
     }    
   }
-
   if(lastButtonPress && (millis() > lastButtonPress+BUTTON_TOGGLE_MS)){
     debugMessage("toggle?");
     setLed(connection.getCurrentNetwork() == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
@@ -446,8 +436,20 @@ void process(){
     setLed(connection.getCurrentNetwork() == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
     lastButtonPress = 0;
   }
+}
 
-  btn = digitalRead(DIGITAL_INPUT_PIN_A);
+void process(){
+  int cv = analogRead(ANALOG_PIN_A);
+  if(abs(cv - cvA) > ANALOG_THRESHOLD){
+    cvA = cv;
+    sendCvA(4095-cvA);
+  }
+  cv = analogRead(ANALOG_PIN_B);
+  if(abs(cv - cvB) > ANALOG_THRESHOLD){
+    cvB = cv;
+    sendCvB(4095-cvB);
+  }
+  bool btn = digitalRead(DIGITAL_INPUT_PIN_A);
   if(btn != triggerA){
     triggerA = btn;
     sendTriggerA(btn);
@@ -457,7 +459,6 @@ void process(){
     triggerB = btn;
     sendTriggerB(btn);
   }
-
   // websocketserver.loop();
   //  tcpsocketserver.loop();
   oscserver.loop();
@@ -489,7 +490,8 @@ void processSerial(){
       break;
     case 'd':
       debugMessage("d: default credentials");
-      connection.setCredentials(OPENSOUND_WIFI_SSID, OPENSOUND_WIFI_PASSWORD, OPENSOUND_WIFI_SECURITY);
+      WiFi.setCredentials(OPENSOUND_WIFI_SSID, OPENSOUND_WIFI_PASSWORD, WPA2);
+      // connection.setCredentials(OPENSOUND_WIFI_SSID, OPENSOUND_WIFI_PASSWORD, OPENSOUND_WIFI_SECURITY);
       printInfo(Serial);
       break;
     case 'b':
@@ -530,15 +532,11 @@ void processSerial(){
       break;
     case 'a':
       debugMessage("a: access point connect");
-      //stopServers();
       connection.connect(NETWORK_ACCESS_POINT);
-      //startServers();
       break;
     case 'w':
       debugMessage("w: wifi connect");
-      //stopServers();
       connection.connect(NETWORK_LOCAL_WIFI);
-      //startServers();
       break;
     case '*': {
       debugMessage("*: print local IP address");
@@ -585,6 +583,18 @@ void processSerial(){
       case '<':
 	debugMessage("<: stop access point");
 	WiFi.stopAccessPoint();
+	break;
+      case 'w':
+	debugMessage("w: WiFi.connect");
+	WiFi.connect();
+	break;
+      case 'o':
+	debugMessage("o: WiFi.on");
+	WiFi.connect();
+	break;
+      case 'x':
+	debugMessage("x: WiFi.disconnect");
+	WiFi.disconnect();
 	break;
       }
       break;
