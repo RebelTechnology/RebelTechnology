@@ -2,6 +2,7 @@
 #define __ConnectionManager_h__
 
 //#include "ApplicationSettings.h"
+#include <stdint.h>
 
 #define CONNECTION_TIMEOUT 30000
 
@@ -15,18 +16,31 @@ class ConnectionManager {
     CONNECTED,
     DISCONNECTING
   };
+  enum ServiceType {
+    WIFI         = 0x01,
+    DNS_REDIRECT = 0x02,
+    SERVERS      = 0x04,
+  };
 
 public:
-  //  void init();
-  ConnectionManager() : next_network(-1), failures(0) {}
-
+  ConnectionManager();
   bool connected();
 
   OpenSoundMode getMode(){
     return mode;
   }
-
   void setMode(OpenSoundMode m);
+
+  bool getStatus(ServiceType type){
+    return (status & type) != 0;
+  }
+
+  void setStatus(ServiceType type, bool on){
+    if(on)
+      status |= type;
+    else
+      status &= ~type;
+  }
 
   void connect(int iface);
   void disconnect();
@@ -48,12 +62,18 @@ public:
   void clearCredentials();
   bool setAccessPointCredentials(const char* ssid, const char* passwd, const char* auth);
   void setAccessPointPrefix(const char* prefix);
-private:
   const char* getAccessPointSSID();
+  void updateLed();
+  bool start(ServiceType type);
+  bool stop(ServiceType type);
+  const char* getHostname();
+  void setHostname(const char* name);
+private:  
   unsigned long lastEvent;
-  OpenSoundMode mode = DISCONNECTED;
+  OpenSoundMode mode;
   int current_network, next_network;
   int failures;
+  uint8_t status;
 };
 
 extern ConnectionManager connection;

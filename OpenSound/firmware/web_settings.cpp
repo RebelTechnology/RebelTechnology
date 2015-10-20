@@ -12,6 +12,7 @@ void configureWeb(){
 int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){		       
   Streamer stream(s);
   stream << OSM_BEGIN << "<h1>Status</h1><h2>Open Sound Module</h2>";
+  /*
   if(connection.isWiFiConnected())
     stream << "<p>WiFi Connected</p>";
   if(connection.isIpConnected())
@@ -20,17 +21,20 @@ int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* a
     stream << "<p>Connecting</p>";
   if(WiFi.listening())
     stream << "<p>Listening</p>";
+  */
   if(WiFi.ready())
     stream << "<p>Ready!</p>";
+  /*
   if(WiFi.hasCredentials())
     stream << "<p>WiFi credentials stored</p>";
+  */
   if(connection.getCurrentNetwork() == NETWORK_ACCESS_POINT)
     stream << "<p>WiFi Access Point</p>";
   stream << "<p>SSID: " << connection.getSSID() << "</p>"
 	 << "<p>RSSI: " << connection.getRSSI() << "dBm</p>"
 	 << "<p>Local IP: " << connection.getLocalIPAddress() << "</p>"
 	 << "<p>Gateway: " << connection.getDefaultGateway() << "</p>"
-	 << "<p>Subnet Mask: " << connection.getLocalIPAddress() << "</p>"
+	 << "<p>Subnet Mask: " << connection.getSubnetMask() << "</p>"
     /*  stream << "<p>SSID: " << WiFi.SSID() << "</p>"
 	 << "<p>Gateway: " << WiFi.gatewayIP() << "</p>"
 	 << "<p>RSSI: " << WiFi.RSSI() << "</p>"
@@ -60,10 +64,12 @@ int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* a
   stream << "<br><button onclick='location.href=\"/reset0\"'>Reset Network Settings</button>";
   stream << "<br><button onclick='location.href=\"/reset1\"'>Reset Address Mappings</button>";
   stream << "<br><button onclick='location.href=\"/reset2\"'>Clear WiFi credentials</button>";
-  stream << "<br><button onclick='location.href=\"/reconnect_sta\"'>Reconnect as WiFi Client</button>";
-  stream << "<br><button onclick='location.href=\"/reconnect_ap\"'>Reconnect as Access Point</button>";
-  stream << OSM_BACK << OSM_END;
-	 
+  stream << "<br><button onclick='location.href=\"/reset99\"'>Factory Reset</button>";
+  if(connection.getCurrentNetwork() != NETWORK_LOCAL_WIFI)
+    stream << "<br><button onclick='location.href=\"/reconnect_sta\"'>Reconnect as WiFi Client</button>";
+  if(connection.getCurrentNetwork() != NETWORK_ACCESS_POINT)
+    stream << "<br><button onclick='location.href=\"/reconnect_ap\"'>Reconnect as Access Point</button>";
+  stream << OSM_BACK << OSM_END;	 
   return 0;
 }
 
@@ -132,7 +138,7 @@ int32_t process_address(const char* u, wiced_http_response_stream_t* s, void* ar
     }
   }
   Streamer stream(s);
-  stream << OSM_BEGIN << "<h1>OSC Address Mapping</h1><form action='/address' method='GET'>";
+  stream << OSM_BEGIN << "<h1>Address Mapping</h1><form action='/address' method='GET'>";
   stream << "<h2>Receive</h2>"
 	 << "<p>Status</p><input type='text' name='0' value='" << addressSettings.getInputAddress(0) << "'><br>"
 	 << "<p>CV A</p><input type='text' name='1' value='" << addressSettings.getInputAddress(1) << "'><br>"
@@ -170,7 +176,6 @@ public:
   }
 };
 
-
 int32_t process_scan(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){
   Streamer stream(s);
   HtmlScanner scanner(stream);
@@ -204,6 +209,7 @@ int32_t process_auth(const char* url, wiced_http_response_stream_t* s, void* arg
   char* auth = params.getParameter("auth");
   stream << OSM_BEGIN << "<h1>WiFi Credentials</h1>";
   if(ssid != NULL && pass != NULL && auth != NULL){
+    auth[1] = '\0';
     connection.setCredentials(ssid, pass, auth);
     stream << "<br><button onclick='location.href=\"/reconnect_sta\"'>Reconnect as WiFi Client</button>";
   }else{
@@ -230,16 +236,12 @@ int32_t process_reconnect(const char* url, wiced_http_response_stream_t* s, void
   stream << OSM_BEGIN;
   if(arg == 1){
     stream.write("<h2>Reconnecting as WiFi Access Point</h2>");
+    connection.connect(NETWORK_ACCESS_POINT); // asynchronous
   }else if(arg == 2){
     stream.write("<h2>Reconnecting as WiFi Client</h2>");
+    connection.connect(NETWORK_LOCAL_WIFI); // asynchronous
   }
   stream << OSM_END;
-  stream.flush();
-  if(arg == 1){
-    connection.connect(NETWORK_LOCAL_WIFI);
-  }else if(arg == 2){
-    connection.connect(NETWORK_ACCESS_POINT);
-  }
   return 0;
 }
 
@@ -281,6 +283,10 @@ int32_t process_reset(const char* u, wiced_http_response_stream_t* s, void* arg,
     case 2:
       connection.clearCredentials();
       stream << "<p>WiFi credentials purged</p>";
+      break;
+    case 99:
+      factoryReset();
+      stream << "<p>Factory Reset</p>";
       break;
     }
   }else{

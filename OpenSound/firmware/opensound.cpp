@@ -1,14 +1,17 @@
 // #include <assert.h> causes undefined symbols in nanolib
 #include "application.h"
 #include "opensound.h"
+#include "osc.hpp"
+#include "web.hpp"
 #include <stdint.h>
 // #include "TcpSocketServer.hpp"
 // #include "WebServer.hpp"
 #include "dac.h"
 #include "ApplicationSettings.h"
 #include "ConnectionManager.h"
-
-// #define debugMessage(x) if(0){}
+#ifdef SERVICE_MDNS
+#include "mdns/MDNS.h"
+#endif
 
 SYSTEM_MODE(MANUAL);
 // #define RX_BUFFER_LENGTH 64
@@ -25,50 +28,85 @@ SYSTEM_MODE(MANUAL);
 NetworkSettings networkSettings;
 AddressSettings addressSettings;
 ConnectionManager connection;
+#ifdef SERVICE_MDNS
+MDNS mdns;
+#endif
 
 const char* OPENSOUND_WIFI_SSID = "FortRebel";
 const char* OPENSOUND_WIFI_PASSWORD = "notwhattheyseem";
 // const char* OPENSOUND_WIFI_SSID = "BTHub3-FQG6";
 // const char* OPENSOUND_WIFI_PASSWORD = "2eb3f324af";
 const char* OPENSOUND_WIFI_SECURITY = "3";
-#define OSM_AP_SSID "OpenSoundAli"
-#define OSM_AP_PASSWD "cbe83c9c"
-#define OSM_AP_AUTH "3"
+#define OSM_AP_SSID                   "OpenSoundModule"
+#define OSM_AP_PASSWD                 "dadac0de"
+#define OSM_AP_AUTH                   "3"
+#define OSM_AP_HOSTNAME               "OpenSoundModule"
 
-#define ANALOG_PIN_A         A0
-#define ANALOG_PIN_B         A1
-#define DIGITAL_OUTPUT_PIN_A D0
-#define DIGITAL_OUTPUT_PIN_B D1
-#define DIGITAL_INPUT_PIN_A  D2
-#define DIGITAL_INPUT_PIN_B  D3
-#define BUTTON_PIN           D6
-#define GREEN_LED_PIN        D4
-#define RED_LED_PIN          D5
-#define ANALOG_THRESHOLD     15
-
-
-// LedPin getLed();
+void printInfo(Print& out){
+  out.println("Device Status");
+  if(connection.isWiFiConnected())
+    out.println("WiFi Connected");
+  if(connection.isIpConnected())
+    out.println("IP Connected");
+  /*
+  if(WiFi.connecting())
+    out.println("Connecting");
+  if(WiFi.listening())
+    out.println("Listening");
+  if(WiFi.ready())
+    out.println("Ready");
+  if(WiFi.hasCredentials())
+    out.println("Has Credentials");
+  */
+  out.print("Device ID: "); 
+  out.println(Spark.deviceID());
+  //  out.println(Particle.deviceID());
+  out.print("SSID: "); 
+  out.println(connection.getSSID());
+  out.print("Local IP: "); 
+  out.println(connection.getLocalIPAddress());
+  out.print("Gateway: "); 
+  out.println(connection.getDefaultGateway());
+  out.print("RSSI: "); 
+  out.println(connection.getRSSI());
+  out.print("Local port: "); 
+  out.println(networkSettings.localPort);
+  out.print("Remote IP: "); 
+  out.println(oscserver.remoteIP());
+  out.print("Remote Port: "); 
+  out.println(oscserver.remotePort());
+  out.print("MAC Address: ");
+  connection.printMacAddress(out);
+  out.println();
+  out.print("Hostname: "); 
+  out.println(connection.getHostname());
+  out.print("Accesspoint: "); 
+  out.println(connection.getAccessPointSSID());
+  //  out.print("Free memory: "); 
+  //  out.println(System.freeMemory());
+}
 
 void setLed(LedPin led){
-  if(led == LED_YELLOW){
-    digitalWrite(RED_LED_PIN, HIGH);
+  switch(led){
+  case LED_YELLOW:
+    digitalWrite(YELLOW_LED_PIN, HIGH);
     digitalWrite(GREEN_LED_PIN, LOW);
-  }else if(led == LED_GREEN){
-    digitalWrite(RED_LED_PIN, LOW);
+    break;
+  case LED_GREEN:
+    digitalWrite(YELLOW_LED_PIN, LOW);
     digitalWrite(GREEN_LED_PIN, HIGH);
-  }else{
-    digitalWrite(RED_LED_PIN, LOW);
+    break;
+  case LED_NONE:
+    digitalWrite(YELLOW_LED_PIN, LOW);
     digitalWrite(GREEN_LED_PIN, LOW);
+    break;
   }
 }
 
 void toggleLed(){
-  digitalWrite(RED_LED_PIN, !digitalRead(RED_LED_PIN));
+  digitalWrite(YELLOW_LED_PIN, !digitalRead(YELLOW_LED_PIN));
   digitalWrite(GREEN_LED_PIN, !digitalRead(GREEN_LED_PIN));
 }
-
-#include "osc.hpp"
-#include "web.hpp"
 
 // WebSocketServer websocketserver(WEBSOCKET_SERVER_PORT);
 // TcpSocketServer tcpsocketserver(TCP_SERVER_PORT);
@@ -104,49 +142,6 @@ void setRemoteIpAddress(const char* address){
   Serial.println(oscserver.remoteIPAddress);
 #endif
 }
-
-/*
-void connect(int iface){
-  if(current_network != -1)
-    stopServers();
-  if(current_network != iface){
-    if(wlan_reset_credentials_store_required())
-      wlan_reset_credentials_store();
-    if(iface == NETWORK_LOCAL_WIFI){
-      debugMessage("wifi.sta");
-      if(current_network == NETWORK_ACCESS_POINT)
-	wlan_stop_ap();
-    }else if(iface == NETWORK_ACCESS_POINT){
-      debugMessage("wifi.ap");
-      wlan_start_ap();
-    }
-    current_network = iface;
-    wlan_select_interface(iface);
-    wlan_connect_init();
-    wlan_connect_finalize();
-
-    int ret = wlan_connect_init();
-    wlan_result_t result = wlan_connect_finalize() 
-
-
-    debugMessage("wifi.disconnect");
-    WiFi.disconnect();
-    if(iface == NETWORK_LOCAL_WIFI){
-      debugMessage("wifi.sta");
-      if(current_network == NETWORK_ACCESS_POINT)
-	WiFi.stopAccessPoint(); // SOS if not running?
-    }else if(iface == NETWORK_ACCESS_POINT){
-      debugMessage("wifi.ap");
-      WiFi.startAccessPoint();
-    }
-    WiFi.selectNetworkInterface(iface);
-    WiFi.connect();
-    debugMessage("wifi.connect");
-    current_network = iface;
-  }
-  setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
-}
-*/
 
 void readCredentials(Stream& port){
   port.setTimeout(10000);
@@ -205,17 +200,38 @@ void readAccessPointCredentials(Stream& port){
 
 void startServers(){
   debugMessage("start servers");
+  /*
   if(!WiFi.ready())
     debugMessage("wifi not ready");
   if(WiFi.connecting())
     debugMessage("wifi connecting");
+  */
   configureWeb();
   configureOsc();
   debugMessage("webserver.begin");
-  webserver.begin();
+  bool success = webserver.begin();
+  if(success)
+    debugMessage("webserver success");
+  else
+    debugMessage("webserver fail");
   debugMessage("oscserver.begin");
-  oscserver.begin(networkSettings.localPort);
+  success = oscserver.begin(networkSettings.localPort);
+  if(success)
+    debugMessage("oscserver success");
+  else
+    debugMessage("oscserver fail");
+#ifdef SERVICE_MDNS
+  debugMessage("mdns.begin");
+  success = mdns.begin();
+  if(success)
+    debugMessage("mdns success");
+  else
+    debugMessage("mdns fail");
+#endif
+#ifdef SERIAL_DEBUG
   debugMessage("startServers done");
+  printInfo(Serial);
+#endif
 }
 
 void stopServers(){
@@ -228,45 +244,11 @@ void stopServers(){
   webserver.stop();
   debugMessage("oscserver.stop");
   oscserver.stop();
+#ifdef SERVICE_MDNS
+  debugMessage("mdns.stop");
+  mdns.stop();
+#endif
   debugMessage("stopServers done");
-}
-
-void printInfo(Print& out){
-  out.println("Device Status");
-  if(connection.isWiFiConnected())
-    out.println("WiFi Connected");
-  if(connection.isIpConnected())
-    out.println("IP Connected");
-  if(WiFi.connecting())
-    out.println("Connecting");
-  if(WiFi.listening())
-    out.println("Listening");
-  if(WiFi.ready())
-    out.println("Ready");
-  if(WiFi.hasCredentials())
-    out.println("Has Credentials");
-  out.print("Device ID: "); 
-  out.println(Spark.deviceID());
-  //  out.println(Particle.deviceID());
-  out.print("SSID: "); 
-  out.println(connection.getSSID());
-  out.print("Local IP: "); 
-  out.println(connection.getLocalIPAddress());
-  out.print("Gateway: "); 
-  out.println(connection.getDefaultGateway());
-  out.print("RSSI: "); 
-  out.println(connection.getRSSI());
-  out.print("Local port: "); 
-  out.println(networkSettings.localPort);
-  out.print("Remote IP: "); 
-  out.println(oscserver.remoteIP());
-  out.print("Remote Port: "); 
-  out.println(oscserver.remotePort());
-  out.print("MAC Address: ");
-  connection.printMacAddress(out);
-  out.println();
-  //  out.print("Free memory: "); 
-  //  out.println(System.freeMemory());
 }
 
 unsigned long lastButtonPress;
@@ -350,14 +332,16 @@ void setup(){
   pinMode(DIGITAL_INPUT_PIN_B, INPUT);
   pinMode(DIGITAL_OUTPUT_PIN_A, OUTPUT);
   pinMode(DIGITAL_OUTPUT_PIN_B, OUTPUT);
-  pinMode(RED_LED_PIN, OUTPUT);
+  pinMode(YELLOW_LED_PIN, OUTPUT);
   pinMode(GREEN_LED_PIN, OUTPUT);
   pinMode(BUTTON_PIN, INPUT_PULLUP);
 
+#ifdef SERIAL_DEBUG
   Serial.begin(SERIAL_BAUD_RATE);
   //  Serial1.begin(SERIAL_BAUD_RATE);
   debugMessage("Serial.go");
   //  Serial1.print("Serial1.go");
+#endif
 
   networkSettings.init();
   addressSettings.init();
@@ -365,43 +349,62 @@ void setup(){
   dac_init();
   debugMessage("dac init");
 
-  WiFi.selectAntenna(DEFAULT_ANTENNA);
-  // wwd_wifi_select_antenna(WICED_ANTENNA_AUTO);  
-  //  WiFi.on();
+  // WiFi.selectAntenna(DEFAULT_ANTENNA);
+  wwd_wifi_select_antenna(WICED_ANTENNA_AUTO);  
 
   // Called once at startup to initialize the wlan hardware.
-  //  void wlan_setup();
-  wlan_activate();
-
+  //wlan_setup();
+  //  wlan_activate();
+  WiFi.on();
   debugMessage("wifi.on");
-  /*
-  if(!WiFi.hasCredentials())
-    connection.setCredentials(OPENSOUND_WIFI_SSID, OPENSOUND_WIFI_PASSWORD, OPENSOUND_WIFI_SECURITY);
-  */
 
-  if(WiFi.hasCredentials())
-    connection.connect(NETWORK_LOCAL_WIFI);
-  else
-    connection.connect(NETWORK_ACCESS_POINT);
+  connection.connect(NETWORK_LOCAL_WIFI);
 
   lastButtonPress = 0;
   button = isButtonPressed();
   cvA = analogRead(ANALOG_PIN_A);
   cvB = analogRead(ANALOG_PIN_B);
 
+#ifdef SERVICE_MDNS
+  debugMessage("mdns");
+#if 0
+    bool success = mdns.setHostname("core-1");
+    success &= mdns.setService("tcp", "http", 80, "Core 1");
+    success &= mdns.addTXTEntry("coreid", "1");
+#else
+  // mdns
+  bool success = mdns.setHostname("osm");
+  success &= mdns.setService("udp", "osc", 8000, OSM_AP_HOSTNAME);
+  //success &= mdns.setService("tcp", "http", 80, OSM_AP_HOSTNAME);
+  success &= mdns.addTXTEntry("coreid", "1");
+#endif
+  if(success)
+    debugMessage("mdns config succeeded");
+  else
+    debugMessage("mdns config failed");  
+  debugMessage("mdns done");
+#endif /* SERVICE_MDNS */
+
   //  dacTimer.begin(dacCallback, 400, hmSec);
-  //  setLed(LED_GREEN);
 }
 
 void process();
 void processButton();
+#ifdef SERIAL_CONSOLE
 void processSerial();
+#endif
 
 void loop(){
   dacCallback();
-  if(connection.connected())
+  if(connection.connected()){
+#ifdef SERVICE_MDNS
+    mdns.processQueries();
+#endif
     process();
+  }
+#ifdef SERIAL_CONSOLE
   processSerial();
+#endif
   processButton();
 }
 
@@ -425,15 +428,15 @@ void processButton(){
     if(isButtonPressed()){
       setLed(LED_NONE);
       debugMessage("toggle network");
-      //      stopServers();
       connection.disconnect();
-      if(connection.getCurrentNetwork() == NETWORK_LOCAL_WIFI)
-	connection.connect(NETWORK_ACCESS_POINT);
-      else
+      if(connection.getCurrentNetwork() == NETWORK_ACCESS_POINT 
+	 && WiFi.hasCredentials())
 	connection.connect(NETWORK_LOCAL_WIFI);
-      //      startServers();
+      else
+	connection.connect(NETWORK_ACCESS_POINT);
+    }else{
+      setLed(connection.getCurrentNetwork() == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
     }
-    setLed(connection.getCurrentNetwork() == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
     lastButtonPress = 0;
   }
 }
@@ -449,12 +452,12 @@ void process(){
     cvB = cv;
     sendCvB(4095-cvB);
   }
-  bool btn = digitalRead(DIGITAL_INPUT_PIN_A);
+  bool btn = !digitalRead(DIGITAL_INPUT_PIN_A);
   if(btn != triggerA){
     triggerA = btn;
     sendTriggerA(btn);
   }
-  btn = digitalRead(DIGITAL_INPUT_PIN_B);
+  btn = !digitalRead(DIGITAL_INPUT_PIN_B);
   if(btn != triggerB){
     triggerB = btn;
     sendTriggerB(btn);
@@ -467,6 +470,7 @@ void process(){
 #include "Scanner.hpp"
 Scanner scanner;
 
+#ifdef SERIAL_CONSOLE
 void processSerial(){
   if(Serial.available() > 0){
     int c = Serial.read();
@@ -584,12 +588,12 @@ void processSerial(){
 	debugMessage("<: stop access point");
 	WiFi.stopAccessPoint();
 	break;
-      case 'w':
-	debugMessage("w: WiFi.connect");
-	WiFi.connect();
-	break;
       case 'o':
 	debugMessage("o: WiFi.on");
+	WiFi.on();
+	break;
+      case 'w':
+	debugMessage("w: WiFi.connect");
 	WiFi.connect();
 	break;
       case 'x':
@@ -623,6 +627,7 @@ void processSerial(){
     }
   }
 }
+#endif /* SERIAL_CONSOLE */
 
 void reload(){
   oscserver.stop();
@@ -636,6 +641,16 @@ void factoryReset(){
   addressSettings.reset();
   addressSettings.clearFlash();
   connection.clearCredentials();
+  connection.setHostname(OSM_AP_HOSTNAME);
+  connection.setAccessPointPrefix(OSM_AP_HOSTNAME);
   connection.setAccessPointCredentials(OSM_AP_SSID, OSM_AP_PASSWD, OSM_AP_AUTH);
   connection.connect(NETWORK_ACCESS_POINT);
+}
+
+const char* getDeviceName(){
+  return connection.getAccessPointSSID();
+}
+
+void setDeviceName(const char* name){
+  connection.setAccessPointPrefix(name);
 }

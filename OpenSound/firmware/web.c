@@ -83,6 +83,8 @@ START_OF_HTTP_PAGE_DATABASE(osm_http_pages)
 	.url_content.dynamic_data = {process_reset, 1 }, },
     { "/reset2", "text/html", WICED_DYNAMIC_URL_CONTENT, 
 	.url_content.dynamic_data = {process_reset, 2 }, },
+    { "/reset99", "text/html", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_reset, 99 }, },
     { "/logo.png", "image/png", WICED_STATIC_URL_CONTENT, 
 	.url_content.static_data = {minilogo_png, sizeof(minilogo_png) }},
     { "/cvgate", "text/html", WICED_STATIC_URL_CONTENT, 

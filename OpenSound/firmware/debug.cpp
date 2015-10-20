@@ -41,5 +41,7 @@ void assert_failed(const char* msg, const char* location, int line){
   p = stpncpy(p, location, 24);
   p = stpcpy(p, (const char*)" line ");
   p = stpcpy(p, sitoa(line, 10));
+#ifdef SERIAL_DEBUG
   Serial.println(buffer);
+#endif // SERIAL_DEBUG
 }

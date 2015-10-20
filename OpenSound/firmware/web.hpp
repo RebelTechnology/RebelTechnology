@@ -11,17 +11,22 @@ extern "C" {
 class WebServer {
 private:
   wiced_http_server_t server;
+  bool running;
 public:
-  void begin(){
+  WebServer() : running(false) {}
+  bool begin(){
     // server, port, max sockets, pages, interface, url processor stack size
     //    wiced_http_server_start(&server, 80, 4, osm_http_pages, WICED_AP_INTERFACE, 1024);
     extern wiced_interface_t network; // WICED_STA_INTERFACE or WICED_AP_INTERFACE
-    wiced_http_server_start(&server, 80, 4, osm_http_pages, network, 1024);
+    wiced_result_t result = wiced_http_server_start(&server, 80, 4, osm_http_pages, network, 1024);
+    running =  result == WICED_SUCCESS;
+    return running;
   }
   void stop(){
-    wiced_http_server_stop(&server);
+    if(running)
+      wiced_http_server_stop(&server);
+    running = false;
   }
-  //void processConnection();
 };
 
 extern WebServer webserver;

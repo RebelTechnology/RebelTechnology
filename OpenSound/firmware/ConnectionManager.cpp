@@ -6,7 +6,14 @@
 
 // const int MAX_SSID_PREFIX_LEN = 25;
 #define MAX_SSID_PREFIX_LEN 25
-#define MAX_FAILURES 5
+#define MAX_FAILURES 3
+
+ConnectionManager::ConnectionManager() 
+  : mode(DISCONNECTED),
+    current_network(-1), next_network(-1), 
+    failures(2), status(0) {
+  lastEvent = millis();
+}
 
 static WLanConfig wlan_config;
 IPAddress ConnectionManager::getDefaultGateway(){
@@ -73,6 +80,135 @@ bool ConnectionManager::isIpConnected(){
   return wiced_network_is_ip_up(network);
 }
 
+void ConnectionManager::updateLed(){
+  setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
+}
+
+#if 0
+bool net_connect_sta(){
+  wiced_result_t result;
+  debugMessage("net_connect_sta");
+  result = wiced_wlan_connectivity_init();
+  if(result == WICED_SUCCESS){
+    result = wiced_interface_up(WICED_STA_INTERFACE);
+    if(!result)
+      result = wiced_network_up(WICED_STA_INTERFACE, WICED_USE_EXTERNAL_DHCP_SERVER, NULL);
+    //    result = wiced_network_up(WICED_STA_INTERFACE, WICED_USE_EXTERNAL_DHCP_SERVER, NULL);
+  }else{
+    debugMessage("wiced_wlan_connectivity_init FAILED");
+  }
+  return result == WICED_SUCCESS;
+  /*
+  result = wiced_interface_up(network);
+  if(result == WICED_SUCCESS){
+    result = wiced_network_up(network, WICED_USE_EXTERNAL_DHCP_SERVER, NULL);
+  }
+  */
+}
+
+extern "C" const wiced_ip_setting_t device_init_ip_settings;
+bool net_connect_ap(){
+  wiced_result_t result;
+  debugMessage("net_connect_ap");
+  result = wiced_wlan_connectivity_init();
+  if(result == WICED_SUCCESS)
+    result = wiced_network_up(WICED_AP_INTERFACE, WICED_USE_INTERNAL_DHCP_SERVER, 
+			      &device_init_ip_settings );
+  else
+    debugMessage("wiced_wlan_connectivity_init FAILED");
+  return result == WICED_SUCCESS;
+}
+
+bool net_disconnect(){
+  wiced_result_t result;
+  debugMessage("net_disconnect");
+  result = (wiced_result_t)wlan_disconnect_now();
+  HAL_WLAN_notify_disconnected();
+  return result == WICED_SUCCESS;  
+}
+#else
+bool net_disconnect(){
+  WiFi.disconnect();
+  return true;
+}
+#endif
+
+static dns_redirector_t dns_redirector;
+bool start_dns_redirector(){
+  wiced_result_t result;
+  debugMessage("wiced_dns_redirector_start");
+  result = wiced_dns_redirector_start(&dns_redirector, WICED_AP_INTERFACE);
+  return result == WICED_SUCCESS;
+}
+
+bool stop_dns_redirector(){
+  wiced_result_t result;
+  debugMessage("wiced_dns_redirector_stop");
+  result = wiced_dns_redirector_stop(&dns_redirector);
+  return result == WICED_SUCCESS;
+}
+
+bool ConnectionManager::start(ServiceType type){
+  debug << "START[" << type << "]\r\n";
+  if(getStatus(type))
+    return false;
+  bool result = false;
+  switch(type){
+  case WIFI:
+#if 0
+    if(current_network == NETWORK_LOCAL_WIFI)
+      result = net_connect_sta();
+    else if(current_network == NETWORK_ACCESS_POINT)
+      result = net_connect_ap();
+    wlan_select_interface(current_network);
+    if(result)
+      HAL_WLAN_notify_connected();
+    HAL_WLAN_notify_dhcp(result);
+#else
+    if(!WiFi.hasCredentials())
+      current_network = NETWORK_ACCESS_POINT;
+    wlan_select_interface(current_network);
+    WiFi.connect();
+    result = true;
+#endif
+    break;
+  case DNS_REDIRECT:
+    result = start_dns_redirector();
+    break;
+  case SERVERS:
+    startServers();
+    result = true;
+    break;
+  }
+  if(result)
+    status |= type;
+  else
+    debugMessage("START FAILED");
+  return result;
+}
+
+bool ConnectionManager::stop(ServiceType type){
+  if(!getStatus(type))
+    return false;
+  bool result = false;
+  switch(type){
+  case WIFI:
+    result = net_disconnect();
+    break;
+  case DNS_REDIRECT:
+    result = stop_dns_redirector();
+    break;
+  case SERVERS:
+    stopServers();
+    result = true;
+    break;
+  }
+  if(result)
+    status &= ~type;
+  else
+    debugMessage("STOP FAILED");
+  return result;
+}
 
 bool ConnectionManager::connected(){
   unsigned long elapsed = millis() - lastEvent;
@@ -85,32 +221,27 @@ bool ConnectionManager::connected(){
       setLed(LED_GREEN);
     if(elapsed > 2000){
       // transitioning from DISCONNECTED to CONNECTING
-      if(current_network != next_network)
-	current_network = next_network;
-      if(current_network == -1)
-	current_network = NETWORK_ACCESS_POINT;
-      wlan_select_interface(current_network);
-      if(current_network == NETWORK_ACCESS_POINT)
-	wlan_start_ap();      
-      wlan_connect_init();
-      if(wlan_reset_credentials_store_required())
-	wlan_reset_credentials_store();
-      wlan_connect_finalize();
+      if(next_network == -1)
+	next_network = NETWORK_ACCESS_POINT;
+      current_network = next_network;
+      //      wlan_select_interface(current_network);
+      start(WIFI);
       setMode(CONNECTING);
-      setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
     }
     break;
   case CONNECTING:
-    if(elapsed % 1600 == 0)
+    if(elapsed % 1200 == 0)
       setLed(LED_NONE);
-    else if(elapsed % 1600 == 800)
-      setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
+    else if(elapsed % 1200 == 600)
+      updateLed();
     if(isIpConnected()){
       // transitioning from CONNECTING to CONNECTED
       failures = 0;
-      startServers();
+      if(current_network == NETWORK_ACCESS_POINT)
+	start(DNS_REDIRECT);
+      start(SERVERS);
       setMode(CONNECTED);
-      setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
+      updateLed();
     }else if(elapsed > CONNECTION_TIMEOUT){
       cancel();
       if(++failures > MAX_FAILURES)
@@ -121,13 +252,17 @@ bool ConnectionManager::connected(){
     connected = true;
     break;
   case DISCONNECTING:
-    if(elapsed % 1000 == 0)
+    if(elapsed % 800 == 0)
       setLed(LED_NONE);
-    else if(elapsed % 1000 == 800)
-      setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
+    else if(elapsed % 800 == 600)
+      updateLed();
     if(!isWiFiConnected()){
+      // transitioning from DISCONNECTING to DISCONNECTED
       setMode(DISCONNECTED);
-      setLed(LED_NONE);
+    }else if(elapsed > 2000){
+      stop(SERVERS);
+      stop(DNS_REDIRECT);
+      stop(WIFI);
     }
     break;
   }
@@ -137,6 +272,7 @@ bool ConnectionManager::connected(){
 void ConnectionManager::setMode(OpenSoundMode m){
   mode = m;
   lastEvent = millis();
+  setLed(LED_NONE);
   switch(mode){
   case DISCONNECTED:
     debugMessage("DISCONNECTED");
@@ -154,38 +290,28 @@ void ConnectionManager::setMode(OpenSoundMode m){
 }
 
 void ConnectionManager::connect(int iface){
-  debugMessage("connect()");
+  debug << "connect() to [" << iface << "] from [" << current_network << "]\r\n";
   if(current_network != iface){
-    if(getMode() == CONNECTED){
-      disconnect();
-    }else if(getMode() == CONNECTING){
+    if(mode == CONNECTING)
       cancel();
-    }
+    setMode(DISCONNECTING);
     next_network = iface;
   }
-  setLed(iface == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);  
 }
 
 void ConnectionManager::disconnect(){
   debugMessage("disconnect()");
-  if(mode == CONNECTED)
-    stopServers();
-  if(current_network == NETWORK_ACCESS_POINT)
-    wlan_stop_ap();
-  //    WiFi.stopAccessPoint();
   setMode(DISCONNECTING);
-  setLed(LED_NONE);
 }
 
 void ConnectionManager::cancel(){
-  debugMessage("cancel()");
+  debugMessage("wlan_connect_cancel()");
   wlan_connect_cancel(false);
   setMode(DISCONNECTING);
-  setLed(LED_NONE);
 }
 
 bool ConnectionManager::setCredentials(const char* ssid, const char* passwd, const char* auth){
-  debug << "setting credentials for ssid[" << ssid << "] auth[" << auth << "]\n";
+  debug << "setting credentials for ssid[" << ssid << "] auth[" << auth << "]\r\n";
   WLanCredentials creds;
   memset(&creds, 0, sizeof(creds));
   creds.len = sizeof(creds);
@@ -194,7 +320,7 @@ bool ConnectionManager::setCredentials(const char* ssid, const char* passwd, con
   creds.password = passwd;
   creds.password_len = strlen(passwd);
   int sec = atol(auth);
-  debug << "passwd[" << passwd << "] sec[" << sec << "]\n";
+  debug << "passwd[" << passwd << "] sec[" << sec << "]\r\n";
   switch(sec){
   case 0: // Open
     creds.security = WLAN_SEC_UNSEC;
@@ -217,8 +343,8 @@ bool ConnectionManager::setCredentials(const char* ssid, const char* passwd, con
   }
   // creds.cipher = 0: not set
   // creds.cipher = WLAN_CIPHER_AES_TKIP; // AES or TKIP
-  wlan_set_credentials(&creds);
   debugMessage("wlan_set_credentials");
+  wlan_set_credentials(&creds);
   system_notify_event(wifi_credentials_add, 0, &creds);
   return true;
   /*
@@ -236,14 +362,13 @@ void ConnectionManager::clearCredentials(){
   WiFi.clearCredentials();
 }
 
-
 const char* ConnectionManager::getAccessPointSSID(){
   wiced_config_soft_ap_t* ap;
   wiced_dct_read_lock((void**)&ap, WICED_FALSE, DCT_WIFI_CONFIG_SECTION, OFFSETOF(platform_dct_wifi_config_t, soft_ap_settings), sizeof(wiced_config_soft_ap_t));
   int len = min(ap->SSID.length+1, MAX_SSID_PREFIX_LEN);
   memcpy(wlan_config.uaSSID, ap->SSID.value, len);
   wlan_config.uaSSID[len-1] = '\0';
-  wiced_dct_read_unlock(&ap, WICED_FALSE);
+  wiced_dct_read_unlock(ap, WICED_FALSE);
   return (const char*)wlan_config.uaSSID;
 }
 
@@ -286,4 +411,19 @@ void ConnectionManager::setAccessPointPrefix(const char* prefix){
   ssid.length = strnlen(prefix, MAX_SSID_PREFIX_LEN);
   strncpy((char*)ssid.value, prefix, ssid.length);
   dct_write_app_data(&ssid, DCT_SSID_PREFIX_OFFSET, ssid.length+1);
+}
+
+// #define HOSTNAME_SIZE 32
+static char hostname[HOSTNAME_SIZE];
+const char* ConnectionManager::getHostname(){  
+  wiced_result_t ret = wiced_network_get_hostname(hostname, HOSTNAME_SIZE);
+  hostname[HOSTNAME_SIZE-1] = '\0';
+  return hostname;
+}
+
+void ConnectionManager::setHostname(const char* name){
+  strncpy(hostname, name, HOSTNAME_SIZE);
+  hostname[HOSTNAME_SIZE-1] = '\0';
+  wiced_result_t ret = wiced_network_set_hostname(hostname);
+
 }

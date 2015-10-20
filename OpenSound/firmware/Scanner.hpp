@@ -19,6 +19,7 @@ public:
   }
 
   virtual void scan(char* ssid, int sec, int channel, int dBm, uint32_t maxRate){
+#ifdef SERIAL_DEBUG
     Serial.print("scan SSID: ");
     Serial.print((char*)ssid);
     Serial.print("\tsecurity: ");
@@ -30,6 +31,7 @@ public:
     Serial.print("\tRSSI: ");
     Serial.print(dBm);
     Serial.println("dBm");
+#endif
   }
 
   static const char* getSecurityName(int sec){
