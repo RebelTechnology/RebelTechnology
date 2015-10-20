@@ -249,6 +249,9 @@ bool ConnectionManager::connected(){
     }
     break;
   case CONNECTED:
+    connected = isIpConnected();
+    if(!connected)
+      setMode(DISCONNECTING);
     connected = true;
     break;
   case DISCONNECTING:
