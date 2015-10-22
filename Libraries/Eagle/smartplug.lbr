@@ -2011,81 +2011,18 @@ RECOMMENDED ON ALL LAYERS</text>
 <rectangle x1="5.715" y1="2.032" x2="10.541" y2="2.54" layer="21"/>
 <rectangle x1="5.715" y1="-2.54" x2="10.541" y2="-2.032" layer="21"/>
 </package>
-<package name="SH32">
-<description>&lt;b&gt;FUSE HOLDER&lt;/b&gt;&lt;p&gt; 6 x 32 mm, SH contact, SHH3N Schukat / Wickmann 102071 (Buerklin)</description>
-<wire x1="9.017" y1="3.81" x2="9.525" y2="3.81" width="0.1524" layer="21"/>
-<wire x1="-8.89" y1="3.556" x2="8.89" y2="3.556" width="0.1524" layer="21"/>
-<wire x1="8.89" y1="3.556" x2="9.017" y2="3.556" width="0.1524" layer="21"/>
-<wire x1="9.017" y1="-3.81" x2="9.017" y2="-3.556" width="0.1524" layer="21"/>
-<wire x1="9.017" y1="-3.556" x2="8.89" y2="-3.556" width="0.1524" layer="21"/>
-<wire x1="8.89" y1="-3.556" x2="-8.89" y2="-3.556" width="0.1524" layer="21"/>
-<wire x1="9.017" y1="3.556" x2="9.017" y2="3.81" width="0.1524" layer="21"/>
-<wire x1="9.525" y1="-3.81" x2="9.525" y2="-4.445" width="0.1524" layer="21"/>
-<wire x1="9.525" y1="-3.81" x2="9.017" y2="-3.81" width="0.1524" layer="21"/>
-<wire x1="9.525" y1="-4.445" x2="16.764" y2="-4.445" width="0.1524" layer="21"/>
-<wire x1="16.764" y1="4.445" x2="9.525" y2="4.445" width="0.1524" layer="21"/>
-<wire x1="9.525" y1="3.81" x2="9.525" y2="4.445" width="0.1524" layer="21"/>
-<wire x1="9.525" y1="-3.81" x2="9.525" y2="-2.794" width="0.1524" layer="21"/>
-<wire x1="9.525" y1="3.81" x2="9.525" y2="2.794" width="0.1524" layer="21"/>
-<wire x1="9.525" y1="-2.794" x2="16.002" y2="-2.794" width="0.1524" layer="21"/>
-<wire x1="9.525" y1="2.794" x2="16.002" y2="2.794" width="0.1524" layer="21"/>
-<wire x1="16.764" y1="-2.032" x2="16.764" y2="2.032" width="0.1524" layer="51"/>
-<wire x1="16.002" y1="-2.032" x2="16.002" y2="2.032" width="0.1524" layer="51"/>
-<wire x1="9.017" y1="-2.032" x2="9.017" y2="0" width="0.1524" layer="51"/>
-<wire x1="16.764" y1="-2.032" x2="16.764" y2="-2.794" width="0.1524" layer="21"/>
-<wire x1="16.764" y1="-2.794" x2="16.764" y2="-4.445" width="0.1524" layer="21"/>
-<wire x1="16.002" y1="-2.032" x2="16.002" y2="-2.794" width="0.1524" layer="21"/>
-<wire x1="16.002" y1="-2.794" x2="16.764" y2="-2.794" width="0.1524" layer="21"/>
-<wire x1="16.764" y1="4.445" x2="16.764" y2="2.794" width="0.1524" layer="21"/>
-<wire x1="16.764" y1="2.794" x2="16.764" y2="2.032" width="0.1524" layer="21"/>
-<wire x1="16.002" y1="2.032" x2="16.002" y2="2.794" width="0.1524" layer="21"/>
-<wire x1="16.002" y1="2.794" x2="16.764" y2="2.794" width="0.1524" layer="21"/>
-<wire x1="9.017" y1="2.032" x2="9.017" y2="3.556" width="0.1524" layer="21"/>
-<wire x1="9.017" y1="-2.032" x2="9.017" y2="-3.556" width="0.1524" layer="21"/>
-<wire x1="9.017" y1="0" x2="6.985" y2="0" width="0.0508" layer="51"/>
-<wire x1="9.017" y1="0" x2="9.017" y2="2.032" width="0.1524" layer="51"/>
-<wire x1="-9.017" y1="-3.81" x2="-9.525" y2="-3.81" width="0.1524" layer="21"/>
-<wire x1="8.89" y1="-3.556" x2="-9.017" y2="-3.556" width="0.1524" layer="21"/>
-<wire x1="-9.017" y1="3.81" x2="-9.017" y2="3.556" width="0.1524" layer="21"/>
-<wire x1="-9.017" y1="3.556" x2="8.89" y2="3.556" width="0.1524" layer="21"/>
-<wire x1="-9.017" y1="-3.556" x2="-9.017" y2="-3.81" width="0.1524" layer="21"/>
-<wire x1="-9.525" y1="3.81" x2="-9.525" y2="4.445" width="0.1524" layer="21"/>
-<wire x1="-9.525" y1="3.81" x2="-9.017" y2="3.81" width="0.1524" layer="21"/>
-<wire x1="-9.525" y1="4.445" x2="-16.764" y2="4.445" width="0.1524" layer="21"/>
-<wire x1="-16.764" y1="-4.445" x2="-9.525" y2="-4.445" width="0.1524" layer="21"/>
-<wire x1="-9.525" y1="-3.81" x2="-9.525" y2="-4.445" width="0.1524" layer="21"/>
-<wire x1="-9.525" y1="3.81" x2="-9.525" y2="2.794" width="0.1524" layer="21"/>
-<wire x1="-9.525" y1="-3.81" x2="-9.525" y2="-2.794" width="0.1524" layer="21"/>
-<wire x1="-9.525" y1="2.794" x2="-16.002" y2="2.794" width="0.1524" layer="21"/>
-<wire x1="-9.525" y1="-2.794" x2="-16.002" y2="-2.794" width="0.1524" layer="21"/>
-<wire x1="-16.764" y1="2.032" x2="-16.764" y2="-2.032" width="0.1524" layer="51"/>
-<wire x1="-16.002" y1="2.032" x2="-16.002" y2="-2.032" width="0.1524" layer="51"/>
-<wire x1="-9.017" y1="2.032" x2="-9.017" y2="0" width="0.1524" layer="51"/>
-<wire x1="-16.764" y1="2.032" x2="-16.764" y2="2.794" width="0.1524" layer="21"/>
-<wire x1="-16.764" y1="2.794" x2="-16.764" y2="4.445" width="0.1524" layer="21"/>
-<wire x1="-16.002" y1="2.032" x2="-16.002" y2="2.794" width="0.1524" layer="21"/>
-<wire x1="-16.002" y1="2.794" x2="-16.764" y2="2.794" width="0.1524" layer="21"/>
-<wire x1="-16.764" y1="-4.445" x2="-16.764" y2="-2.794" width="0.1524" layer="21"/>
-<wire x1="-16.764" y1="-2.794" x2="-16.764" y2="-2.032" width="0.1524" layer="21"/>
-<wire x1="-16.002" y1="-2.032" x2="-16.002" y2="-2.794" width="0.1524" layer="21"/>
-<wire x1="-16.002" y1="-2.794" x2="-16.764" y2="-2.794" width="0.1524" layer="21"/>
-<wire x1="-9.017" y1="-2.032" x2="-9.017" y2="-3.556" width="0.1524" layer="21"/>
-<wire x1="-9.017" y1="2.032" x2="-9.017" y2="3.556" width="0.1524" layer="21"/>
-<wire x1="-9.017" y1="0" x2="-6.985" y2="0" width="0.0508" layer="51"/>
-<wire x1="-9.017" y1="0" x2="-9.017" y2="-2.032" width="0.1524" layer="51"/>
-<wire x1="-6.985" y1="0" x2="6.985" y2="0" width="0.0508" layer="21"/>
-<pad name="2B" x="16.764" y="0" drill="2.0066" shape="long" rot="R90"/>
-<pad name="2A" x="9.144" y="0" drill="2.0066" shape="long" rot="R90"/>
-<pad name="1A" x="-16.764" y="0" drill="2.0066" shape="long" rot="R90"/>
-<pad name="1B" x="-9.144" y="0" drill="2.0066" shape="long" rot="R90"/>
-<text x="-7.62" y="3.937" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-7.62" y="-5.334" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="9.017" y1="-3.81" x2="9.525" y2="-2.159" layer="21"/>
-<rectangle x1="9.017" y1="2.159" x2="9.525" y2="3.81" layer="21"/>
-<rectangle x1="9.017" y1="-2.159" x2="9.525" y2="2.159" layer="51"/>
-<rectangle x1="-9.525" y1="-3.81" x2="-9.017" y2="-2.159" layer="21"/>
-<rectangle x1="-9.525" y1="2.159" x2="-9.017" y2="3.81" layer="21"/>
-<rectangle x1="-9.525" y1="-2.159" x2="-9.017" y2="2.159" layer="51"/>
+<package name="SHURTER">
+<description>SCHURTER 	0031.8231</description>
+<text x="-7.62" y="4.937" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-7.62" y="-4.334" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<pad name="P$5" x="-14" y="3" drill="1.4" diameter="3" shape="long"/>
+<pad name="P$6" x="-14" y="-2" drill="1.4" diameter="3" shape="long"/>
+<pad name="P$7" x="6" y="-2" drill="1.4" diameter="3" shape="long"/>
+<pad name="P$8" x="6" y="3" drill="1.4" diameter="3" shape="long"/>
+<wire x1="-21.5" y1="7" x2="13.5" y2="7" width="0.127" layer="21"/>
+<wire x1="13.5" y1="7" x2="13.5" y2="-6" width="0.127" layer="21"/>
+<wire x1="13.5" y1="-6" x2="-21.5" y2="-6" width="0.127" layer="21"/>
+<wire x1="-21.5" y1="-6" x2="-21.5" y2="7" width="0.127" layer="21"/>
 </package>
 <package name="SOT95P290X145-6N">
 <smd name="1" x="-1.1938" y="0.9398" dx="1.4732" dy="0.5588" layer="1"/>
@@ -4355,25 +4292,23 @@ general purpose rectifier, 1 A</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="SH32" prefix="F" uservalue="yes">
-<description>&lt;b&gt;FUSE HOLDER&lt;/b&gt;&lt;p&gt; 6 x 32 mm, SH contact, SHH3N Schukat, 102071 Wickmann (Buerklin)</description>
+<deviceset name="SHURTER_0031.8231" prefix="F" uservalue="yes">
+<description>SCHURTER 	0031.8231  Fuse Block, 600 V, 600 V, 16 A, Cartridge Fuse Holder, Kicked Terminal, 1</description>
 <gates>
 <gate name="G$1" symbol="FUSED" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="SH32">
+<device name="" package="SHURTER">
 <connects>
-<connect gate="G$1" pin="1A" pad="1A"/>
-<connect gate="G$1" pin="1B" pad="1B"/>
-<connect gate="G$1" pin="2A" pad="2A"/>
-<connect gate="G$1" pin="2B" pad="2B"/>
+<connect gate="G$1" pin="1A" pad="P$5"/>
+<connect gate="G$1" pin="1B" pad="P$6"/>
+<connect gate="G$1" pin="2A" pad="P$7"/>
+<connect gate="G$1" pin="2B" pad="P$8"/>
 </connects>
 <technologies>
 <technology name="">
-<attribute name="FARNELL_OC" value="811786" constant="no"/>
-<attribute name="MF" value="" constant="no"/>
-<attribute name="MPN" value="10207101009" constant="no"/>
-<attribute name="OC_NEWARK" value="76R6904" constant="no"/>
+<attribute name="FARNELL_OC" value="1162725" constant="no"/>
+<attribute name="MPN" value="0031.8231" constant="no"/>
 </technology>
 </technologies>
 </device>
