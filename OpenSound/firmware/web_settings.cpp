@@ -51,7 +51,7 @@ int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* a
   stream << "<p>Remote Port: " << networkSettings.remotePort << "</p>"
 	 << "<p>MAC Address: ";
   connection.printMacAddress(stream);
-  stream << "</p><p>ID: " << Spark.deviceID() << "</p>";
+  stream << "</p><p>ID: " << Particle.deviceID() << "</p>";
   /*
   byte mac[6];
   WiFi.macAddress(mac);

@@ -59,8 +59,7 @@ void printInfo(Print& out){
     out.println("Has Credentials");
   */
   out.print("Device ID: "); 
-  out.println(Spark.deviceID());
-  //  out.println(Particle.deviceID());
+  out.println(Particle.deviceID());
   out.print("SSID: "); 
   out.println(connection.getSSID());
   out.print("Local IP: "); 
@@ -78,8 +77,10 @@ void printInfo(Print& out){
   out.print("MAC Address: ");
   connection.printMacAddress(out);
   out.println();
+  /*
   out.print("Hostname: "); 
   out.println(connection.getHostname());
+  */
   out.print("Accesspoint: "); 
   out.println(connection.getAccessPointSSID());
   //  out.print("Free memory: "); 
@@ -325,6 +326,8 @@ bool isButtonPressed(){
 }
 
 void setup(){
+  WiFi.on();
+
   setLed(LED_GREEN);
   pinMode(ANALOG_PIN_A, INPUT);
   pinMode(ANALOG_PIN_B, INPUT);
@@ -355,10 +358,12 @@ void setup(){
   // Called once at startup to initialize the wlan hardware.
   //wlan_setup();
   //  wlan_activate();
-  WiFi.on();
   debugMessage("wifi.on");
 
-  connection.connect(NETWORK_LOCAL_WIFI);
+  if(WiFi.hasCredentials())
+    connection.connect(NETWORK_LOCAL_WIFI);
+  else
+    connection.connect(NETWORK_ACCESS_POINT);
 
   lastButtonPress = 0;
   button = isButtonPressed();
@@ -421,23 +426,18 @@ void processButton(){
       lastButtonPress = 0;
     }    
   }
-  if(lastButtonPress && (millis() > lastButtonPress+BUTTON_TOGGLE_MS)){
+  if(lastButtonPress && (millis() > lastButtonPress+BUTTON_TOGGLE_MS*2)){
+    debugMessage("toggle network");
+    connection.disconnect();
+    if(connection.getCurrentNetwork() == NETWORK_ACCESS_POINT 
+       && WiFi.hasCredentials())
+      connection.connect(NETWORK_LOCAL_WIFI);
+    else
+      connection.connect(NETWORK_ACCESS_POINT);
+    lastButtonPress = 0; // prevent retrigger
+  }else if(lastButtonPress && (millis() > lastButtonPress+BUTTON_TOGGLE_MS)){
     debugMessage("toggle?");
     setLed(connection.getCurrentNetwork() == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
-    delay(BUTTON_TOGGLE_MS);
-    if(isButtonPressed()){
-      setLed(LED_NONE);
-      debugMessage("toggle network");
-      connection.disconnect();
-      if(connection.getCurrentNetwork() == NETWORK_ACCESS_POINT 
-	 && WiFi.hasCredentials())
-	connection.connect(NETWORK_LOCAL_WIFI);
-      else
-	connection.connect(NETWORK_ACCESS_POINT);
-    }else{
-      setLed(connection.getCurrentNetwork() == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
-    }
-    lastButtonPress = 0;
   }
 }
 
@@ -581,12 +581,12 @@ void processSerial(){
 	wlan_disconnect_now();
 	break;
       case '>':
-	debugMessage(">: start access point");
-	WiFi.startAccessPoint();
+	debugMessage(">: start DNS");
+	WiFi.startDNS();
 	break;
       case '<':
-	debugMessage("<: stop access point");
-	WiFi.stopAccessPoint();
+	debugMessage("<: stop DNS");
+	WiFi.stopDNS();
 	break;
       case 'o':
 	debugMessage("o: WiFi.on");
@@ -641,7 +641,7 @@ void factoryReset(){
   addressSettings.reset();
   addressSettings.clearFlash();
   connection.clearCredentials();
-  connection.setHostname(OSM_AP_HOSTNAME);
+  //  connection.setHostname(OSM_AP_HOSTNAME);
   connection.setAccessPointPrefix(OSM_AP_HOSTNAME);
   connection.setAccessPointCredentials(OSM_AP_SSID, OSM_AP_PASSWD, OSM_AP_AUTH);
   connection.connect(NETWORK_ACCESS_POINT);

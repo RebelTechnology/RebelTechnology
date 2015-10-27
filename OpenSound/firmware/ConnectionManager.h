@@ -47,7 +47,7 @@ public:
   void cancel();
 
   int getCurrentNetwork(){
-    return current_network;
+    return selected_network;
   }
 
   IPAddress getLocalIPAddress();
@@ -71,7 +71,7 @@ public:
 private:  
   unsigned long lastEvent;
   OpenSoundMode mode;
-  int current_network, next_network;
+  int selected_network, next_network;
   int failures;
   uint8_t status;
 };

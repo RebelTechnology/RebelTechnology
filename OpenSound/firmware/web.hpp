@@ -1,6 +1,7 @@
 #include "http_server.h"
 #include "application.h"
 #include "opensound.h"
+#include "network_interface.h"
 
 // extern "C" wiced_http_page_t osm_http_pages[];
 
@@ -17,8 +18,7 @@ public:
   bool begin(){
     // server, port, max sockets, pages, interface, url processor stack size
     //    wiced_http_server_start(&server, 80, 4, osm_http_pages, WICED_AP_INTERFACE, 1024);
-    extern wiced_interface_t network; // WICED_STA_INTERFACE or WICED_AP_INTERFACE
-    wiced_result_t result = wiced_http_server_start(&server, 80, 4, osm_http_pages, network, 1024);
+    wiced_result_t result = wiced_http_server_start(&server, 80, 4, osm_http_pages, current_network_if, 1024);
     running =  result == WICED_SUCCESS;
     return running;
   }

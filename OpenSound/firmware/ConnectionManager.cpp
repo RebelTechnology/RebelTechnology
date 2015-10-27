@@ -3,6 +3,7 @@
 #include "application.h"
 #include "wiced.h"
 #include "dct.h"
+#include "network_interface.h"
 
 // const int MAX_SSID_PREFIX_LEN = 25;
 #define MAX_SSID_PREFIX_LEN 25
@@ -10,7 +11,7 @@
 
 ConnectionManager::ConnectionManager() 
   : mode(DISCONNECTED),
-    current_network(-1), next_network(-1), 
+    selected_network(-1), next_network(-1), 
     failures(2), status(0) {
   lastEvent = millis();
 }
@@ -71,20 +72,18 @@ struct {
 }
 
 bool ConnectionManager::isWiFiConnected(){
-  extern wiced_interface_t network;
-  return wiced_network_is_up(network);
+  return wiced_network_is_up(current_network_if);
 }
 
 bool ConnectionManager::isIpConnected(){
-  extern wiced_interface_t network;
-  return wiced_network_is_ip_up(network);
+  return wiced_network_is_ip_up(current_network_if);
 }
 
 void ConnectionManager::updateLed(){
-  setLed(current_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
+  setLed(selected_network == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
 }
 
-#if 0
+#if 1
 bool net_connect_sta(){
   wiced_result_t result;
   debugMessage("net_connect_sta");
@@ -99,9 +98,9 @@ bool net_connect_sta(){
   }
   return result == WICED_SUCCESS;
   /*
-  result = wiced_interface_up(network);
+  result = wiced_interface_up(current_network_if);
   if(result == WICED_SUCCESS){
-    result = wiced_network_up(network, WICED_USE_EXTERNAL_DHCP_SERVER, NULL);
+    result = wiced_network_up(current_network_if, WICED_USE_EXTERNAL_DHCP_SERVER, NULL);
   }
   */
 }
@@ -133,6 +132,7 @@ bool net_disconnect(){
 }
 #endif
 
+/*
 static dns_redirector_t dns_redirector;
 bool start_dns_redirector(){
   wiced_result_t result;
@@ -147,6 +147,7 @@ bool stop_dns_redirector(){
   result = wiced_dns_redirector_stop(&dns_redirector);
   return result == WICED_SUCCESS;
 }
+*/
 
 bool ConnectionManager::start(ServiceType type){
   debug << "START[" << type << "]\r\n";
@@ -155,35 +156,37 @@ bool ConnectionManager::start(ServiceType type){
   bool result = false;
   switch(type){
   case WIFI:
-#if 0
-    if(current_network == NETWORK_LOCAL_WIFI)
+    if(!WiFi.hasCredentials())
+      selected_network = NETWORK_ACCESS_POINT;
+    wlan_select_interface(selected_network);
+#if 1
+    if(selected_network == NETWORK_LOCAL_WIFI)
       result = net_connect_sta();
-    else if(current_network == NETWORK_ACCESS_POINT)
+    else if(selected_network == NETWORK_ACCESS_POINT)
       result = net_connect_ap();
-    wlan_select_interface(current_network);
     if(result)
       HAL_WLAN_notify_connected();
     HAL_WLAN_notify_dhcp(result);
 #else
-    if(!WiFi.hasCredentials())
-      current_network = NETWORK_ACCESS_POINT;
-    wlan_select_interface(current_network);
     WiFi.connect();
     result = true;
 #endif
     break;
   case DNS_REDIRECT:
-    result = start_dns_redirector();
+    result = WiFi.startDNS(); // start_dns_redirector();
     break;
   case SERVERS:
     startServers();
     result = true;
     break;
   }
-  if(result)
-    status |= type;
-  else
+  // if(result)
+  //   status |= type;
+  // else
+  //   debugMessage("START FAILED");
+  if(!result)
     debugMessage("START FAILED");
+  status |= type;
   return result;
 }
 
@@ -196,17 +199,22 @@ bool ConnectionManager::stop(ServiceType type){
     result = net_disconnect();
     break;
   case DNS_REDIRECT:
-    result = stop_dns_redirector();
+    result = WiFi.stopDNS(); // stop_dns_redirector();
     break;
   case SERVERS:
     stopServers();
     result = true;
     break;
   }
+  /*
   if(result)
     status &= ~type;
   else
     debugMessage("STOP FAILED");
+  */
+  if(!result)
+    debugMessage("STOP FAILED");
+  status &= ~type;
   return result;
 }
 
@@ -223,8 +231,8 @@ bool ConnectionManager::connected(){
       // transitioning from DISCONNECTED to CONNECTING
       if(next_network == -1)
 	next_network = NETWORK_ACCESS_POINT;
-      current_network = next_network;
-      //      wlan_select_interface(current_network);
+      selected_network = next_network;
+      //      wlan_select_interface(selected_network);
       start(WIFI);
       setMode(CONNECTING);
     }
@@ -237,7 +245,7 @@ bool ConnectionManager::connected(){
     if(isIpConnected()){
       // transitioning from CONNECTING to CONNECTED
       failures = 0;
-      if(current_network == NETWORK_ACCESS_POINT)
+      if(selected_network == NETWORK_ACCESS_POINT)
 	start(DNS_REDIRECT);
       start(SERVERS);
       setMode(CONNECTED);
@@ -252,7 +260,7 @@ bool ConnectionManager::connected(){
     connected = isIpConnected();
     if(!connected)
       setMode(DISCONNECTING);
-    connected = true;
+    // connected = true;
     break;
   case DISCONNECTING:
     if(elapsed % 800 == 0)
@@ -293,8 +301,8 @@ void ConnectionManager::setMode(OpenSoundMode m){
 }
 
 void ConnectionManager::connect(int iface){
-  debug << "connect() to [" << iface << "] from [" << current_network << "]\r\n";
-  if(current_network != iface){
+  debug << "connect() to [" << iface << "] from [" << selected_network << "]\r\n";
+  if(selected_network != iface){
     if(mode == CONNECTING)
       cancel();
     setMode(DISCONNECTING);
@@ -317,7 +325,7 @@ bool ConnectionManager::setCredentials(const char* ssid, const char* passwd, con
   debug << "setting credentials for ssid[" << ssid << "] auth[" << auth << "]\r\n";
   WLanCredentials creds;
   memset(&creds, 0, sizeof(creds));
-  creds.len = sizeof(creds);
+  creds.size = sizeof(creds);
   creds.ssid = ssid;
   creds.ssid_len = strlen(ssid);
   creds.password = passwd;
@@ -346,9 +354,9 @@ bool ConnectionManager::setCredentials(const char* ssid, const char* passwd, con
   }
   // creds.cipher = 0: not set
   // creds.cipher = WLAN_CIPHER_AES_TKIP; // AES or TKIP
+  creds.cipher = WLAN_CIPHER_NOT_SET;
   debugMessage("wlan_set_credentials");
   wlan_set_credentials(&creds);
-  system_notify_event(wifi_credentials_add, 0, &creds);
   return true;
   /*
   int sec = atol(auth);
@@ -416,6 +424,7 @@ void ConnectionManager::setAccessPointPrefix(const char* prefix){
   dct_write_app_data(&ssid, DCT_SSID_PREFIX_OFFSET, ssid.length+1);
 }
 
+/*
 // #define HOSTNAME_SIZE 32
 static char hostname[HOSTNAME_SIZE];
 const char* ConnectionManager::getHostname(){  
@@ -428,5 +437,5 @@ void ConnectionManager::setHostname(const char* name){
   strncpy(hostname, name, HOSTNAME_SIZE);
   hostname[HOSTNAME_SIZE-1] = '\0';
   wiced_result_t ret = wiced_network_set_hostname(hostname);
-
 }
+*/
