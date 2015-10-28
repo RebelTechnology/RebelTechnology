@@ -1,11 +1,22 @@
 #include "dac.h"
 #include "application.h"
 
+// #define PHOTON_DAC
+
 void dac_init() {
+#ifdef PHOTON_DAC
   pinMode(DAC1, OUTPUT);
   pinMode(DAC2, OUTPUT);
+#else
+  // DAC pins are PA4 and PA5
+  GPIO_InitTypeDef GPIO_InitStructure;
+  GPIO_StructInit(&GPIO_InitStructure);
+  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_4;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
+  GPIO_Init(GPIOA, &GPIO_InitStructure);
+  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_5;
+  GPIO_Init(GPIOA, &GPIO_InitStructure);
 
-  //HAL_DAC_Init();
   DAC_InitTypeDef DAC_InitStructure;
 
   /* DAC Periph clock enable */
@@ -22,20 +33,43 @@ void dac_init() {
   DAC_Cmd(DAC_Channel_1, ENABLE);
   /* Enable DAC Channel2 */
   DAC_Cmd(DAC_Channel_2, ENABLE);
+
+  /* Start DAC conversion by software */
+  DAC_SoftwareTriggerCmd(DAC_Channel_1, ENABLE);
+  DAC_SoftwareTriggerCmd(DAC_Channel_2, ENABLE);
+  DAC_SetDualChannelData(DAC_Align_12b_R, 0x800, 0x800);
+#endif
 }
 
 void dac_set_a(uint16_t value){
   value = 4095 - max(0, min(4095, value));
-  pinMode(DAC1, OUTPUT);
+  //  pinMode(DAC1, OUTPUT);
+#ifdef PHOTON_DAC
   analogWrite(DAC1, value); 
+#else
   /* Set the DAC Channel1 data */
-  //  DAC_SetChannel1Data(DAC_Align_12b_R, value);
+  DAC_SetChannel1Data(DAC_Align_12b_R, value);
+#endif
 }
 
 void dac_set_b(uint16_t value){
   value = 4095 - max(0, min(4095, value));
-  pinMode(DAC2, OUTPUT);
+  //  pinMode(DAC2, OUTPUT);
+#ifdef PHOTON_DAC
   analogWrite(DAC2, value); 
+#else
   /* Set the DAC Channel2 data */
-  //  DAC_SetChannel2Data(DAC_Align_12b_R, value);
+  DAC_SetChannel2Data(DAC_Align_12b_R, value);
+#endif
+}
+
+void dac_set_ab(uint16_t a, uint16_t b){
+  a = 4095 - max(0, min(4095, a));
+  b = 4095 - max(0, min(4095, b));
+#ifdef PHOTON_DAC
+  analogWrite(DAC1, a); 
+  analogWrite(DAC2, b); 
+#else
+  DAC_SetDualChannelData(DAC_Align_12b_R, a, b);
+#endif
 }

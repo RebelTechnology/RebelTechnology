@@ -7,7 +7,7 @@
 
 // const int MAX_SSID_PREFIX_LEN = 25;
 #define MAX_SSID_PREFIX_LEN 25
-#define MAX_FAILURES 3
+#define MAX_FAILURES 2
 
 ConnectionManager::ConnectionManager() 
   : mode(DISCONNECTED),
@@ -223,24 +223,23 @@ bool ConnectionManager::connected(){
   bool connected = false;
   switch(mode){
   case DISCONNECTED:
-    if(elapsed % 160 == 0)
+    if(elapsed % 160 < 80)
       setLed(LED_YELLOW);
-    else if(elapsed % 160 == 80)
+    else
       setLed(LED_GREEN);
-    if(elapsed > 2000){
+    if(!isWiFiConnected() && elapsed > 2000){
       // transitioning from DISCONNECTED to CONNECTING
       if(next_network == -1)
 	next_network = NETWORK_ACCESS_POINT;
       selected_network = next_network;
-      //      wlan_select_interface(selected_network);
       start(WIFI);
       setMode(CONNECTING);
     }
     break;
   case CONNECTING:
-    if(elapsed % 1200 == 0)
+    if(elapsed % 1200 < 600)
       setLed(LED_NONE);
-    else if(elapsed % 1200 == 600)
+    else
       updateLed();
     if(isIpConnected()){
       // transitioning from CONNECTING to CONNECTED
@@ -251,29 +250,46 @@ bool ConnectionManager::connected(){
       setMode(CONNECTED);
       updateLed();
     }else if(elapsed > CONNECTION_TIMEOUT){
-      cancel();
       if(++failures > MAX_FAILURES)
-	next_network = -1;
+	connect(NETWORK_ACCESS_POINT);
+      else
+	cancel();
+      debug << "cancelled: " << failures << "/" << MAX_FAILURES << " failures\r\n";
     }
     break;
   case CONNECTED:
     connected = isIpConnected();
-    if(!connected)
-      setMode(DISCONNECTING);
-    // connected = true;
+    if(!connected){
+      debug << "faltering after " << elapsed << "ms\r\n";
+      setMode(FALTERING);
+    }
+    break;
+  case FALTERING:
+    connected = isIpConnected();
+    if(connected){
+      debug << "faltered " << elapsed << "ms\r\n";
+      setMode(CONNECTED);
+      updateLed();
+    }else{
+      if(elapsed > FALTERING_TIMEOUT)
+	setMode(DISCONNECTING);
+      else if(elapsed % 400 < 100)
+	setLed(LED_NONE);
+      else
+	updateLed();
+    }
     break;
   case DISCONNECTING:
-    if(elapsed % 800 == 0)
+    if(elapsed % 800 < 600)
       setLed(LED_NONE);
-    else if(elapsed % 800 == 600)
+    else
       updateLed();
-    if(!isWiFiConnected()){
+    if(elapsed > 2000){
       // transitioning from DISCONNECTING to DISCONNECTED
-      setMode(DISCONNECTED);
-    }else if(elapsed > 2000){
       stop(SERVERS);
       stop(DNS_REDIRECT);
       stop(WIFI);
+      setMode(DISCONNECTED);
     }
     break;
   }
@@ -293,6 +309,9 @@ void ConnectionManager::setMode(OpenSoundMode m){
     break;
   case CONNECTED:
     debugMessage("CONNECTED");
+    break;
+  case FALTERING:
+    debugMessage("FALTERING");
     break;
   case DISCONNECTING:
     debugMessage("DISCONNECTING");

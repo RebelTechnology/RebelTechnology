@@ -83,8 +83,8 @@ void printInfo(Print& out){
   */
   out.print("Accesspoint: "); 
   out.println(connection.getAccessPointSSID());
-  //  out.print("Free memory: "); 
-  //  out.println(System.freeMemory());
+  out.print("Free memory: "); 
+  out.println(System.freeMemory());
 }
 
 void setLed(LedPin led){
@@ -289,10 +289,12 @@ void dacCallback(){
   static uint16_t a = 0;
   static uint16_t b = 0;
   a = (a*smooth + cvOutA)/(smooth+1);
-  dac_set_a(a);
+  //  dac_set_a(a);
   b = (b*smooth + cvOutB)/(smooth+1);
-  dac_set_b(b);
+  dac_set_ab(a, b);
 }
+
+//Timer dacTimer(50, dacCallback());
 
 void setTriggerA(int value){
   digitalWrite(DIGITAL_OUTPUT_PIN_A, value == 0 ? HIGH : LOW);
@@ -391,6 +393,7 @@ void setup(){
 #endif /* SERVICE_MDNS */
 
   //  dacTimer.begin(dacCallback, 400, hmSec);
+  // dacTimer.start();
 }
 
 void process();
@@ -436,7 +439,6 @@ void processButton(){
       connection.connect(NETWORK_ACCESS_POINT);
     lastButtonPress = 0; // prevent retrigger
   }else if(lastButtonPress && (millis() > lastButtonPress+BUTTON_TOGGLE_MS)){
-    debugMessage("toggle?");
     setLed(connection.getCurrentNetwork() == NETWORK_LOCAL_WIFI ? LED_GREEN : LED_YELLOW);
   }
 }
@@ -607,22 +609,19 @@ void processSerial(){
       debugMessage("[: dac 0");
       setCVA(0);
       setCVB(0);
-      dac_set_a(0);
-      dac_set_b(0);
+      dac_set_ab(0, 0);
       break;
     case '|':
       debugMessage("|: dac 1/2");
       setCVA(2047);
       setCVB(2047);
-      dac_set_a(2047);
-      dac_set_b(2047);
+      dac_set_ab(2047, 2047);
       break;
     case ']':
       debugMessage("]: dac full");
       setCVA(4095);
       setCVB(4095);
-      dac_set_a(4095);
-      dac_set_b(4095);
+      dac_set_ab(4095, 4095);
       break;
     }
   }

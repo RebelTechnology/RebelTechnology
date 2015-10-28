@@ -4,7 +4,8 @@
 //#include "ApplicationSettings.h"
 #include <stdint.h>
 
-#define CONNECTION_TIMEOUT 30000
+#define CONNECTION_TIMEOUT 20000
+#define FALTERING_TIMEOUT  20000
 
 class IPAddress;
 class Print;
@@ -14,6 +15,7 @@ class ConnectionManager {
     DISCONNECTED,
     CONNECTING,
     CONNECTED,
+    FALTERING,
     DISCONNECTING
   };
   enum ServiceType {
