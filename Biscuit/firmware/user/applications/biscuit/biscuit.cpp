@@ -26,10 +26,6 @@ const char* BISCUIT_WIFI_SECURITY = "3";
 #define OSM_AP_AUTH                   "3"
 #define OSM_AP_HOSTNAME               "BiscuitModule"
 
-void serialEvent1(){
-  debugMessage("> > > serialEvent1");
-}
-
 class AnalogFrontEnd {
 private:
   int currentPage;
@@ -50,16 +46,72 @@ public:
   static const uint8_t CONTINUOUS_CONV = 0x15;
   static const uint8_t HALT_CONV       = 0x16;
 
+  void writeSlow(uint8_t c){
+    //int periodMicroSecs = 104; //1/9600  interval
+    // int periodMicroSecs = 26;  //1/38400 interval
+    int periodMicroSecs = 1666;  //1/600 interval
+    // 1666.666uS
+    //         writePin(LOW);
+    pinResetFast(CS_RX);
+    delayMicroseconds(periodMicroSecs);
+    for(uint8_t b = 0; b < 8; b++){
+      digitalWriteFast(CS_RX, c & 0x01);
+      c >>= 1;
+      delayMicroseconds(periodMicroSecs);
+    }         
+    //stop bit
+    pinSetFast(CS_RX);
+    //writePin(HIGH);
+    delayMicroseconds(periodMicroSecs*2);
+  };
+
+  struct Measurements {
+    uint32_t voltage;
+    uint32_t current;
+    uint32_t power;
+    uint32_t rmsVoltage;
+    uint32_t rmsCurrent;
+    uint32_t rmsPower;
+    uint32_t peakVoltage;
+    uint32_t peakCurrent;
+    uint32_t reactivePower;
+    uint32_t apparentPower;
+    uint32_t powerFactor;
+  };
+  Measurements ch1, ch2;
+  void update(){
+    ch1.voltage = readRegister(16, 2);
+    ch1.current = readRegister(16, 3);
+  }
+
 public:
   AnalogFrontEnd() : currentPage(-1) {}
   void init(){
     //    pinMode(CS_TX, INPUT);
-    //    pinMode(CS_RX, OUTPUT);
     pinMode(CS_RST, OUTPUT);
     pinMode(CS_D3, INPUT);
+    setupSerial();
+  }
+  void setupSerial(){
+    pinMode(CS_RX, OUTPUT);
     digitalWrite(CS_RST, HIGH);
     // after chip reset, the default baud rate is 600, if MCLK is 4096MHz
-    Serial1.begin(600);
+    static const int RX_CSUM_OFF = (1<<17);
+    static float multiplier = (524288 / (4.096 * 1000000));
+    // SerialCtrl: Page 0, Address 7
+    int speed = 9600;
+    int value = RX_CSUM_OFF | (int)(speed * multiplier);
+    writeSlow(PAGE_SELECT);
+    delay(10);
+    writeSlow(REGISTER_WRITE | 7);
+    delay(10);
+    writeSlow((uint8_t)(value & 0xFF));
+    value >>= 8;
+    writeSlow((uint8_t)(value & 0xFF));
+    value >>= 8;
+    writeSlow((uint8_t)(value & 0xFF));
+    delay(100);
+    Serial1.begin(9600);
   }
   void reset(bool rst){
     if(rst)
@@ -74,22 +126,20 @@ public:
     digitalWrite(CS_RST, LOW);
     delay(100);
     digitalWrite(CS_RST, HIGH);
-    Serial1.begin(600);
+    setupSerial();
   }
   void write(uint8_t data){    
-    int ret = Serial1.write(data);
-    debug << "serial write [" << data << "/" << ret << "]\r\n";    
+    Serial1.write(data);
+    // debug << "serial write [" << data << "/" << ret << "]\r\n";    
   }
   int read(){
     // blocking read
     int timeout = AFE_TIMEOUT;
-    debug << "available [" << Serial1.available() << "]\r\n";
+    // debug << "available [" << Serial1.available() << "]\r\n";
     while(Serial1.available() < 1 && --timeout)
       delayMicroseconds(2000);
     int data = Serial1.read();
-    if(timeout)
-      debug << "serial read [" << data << "]\r\n";
-    else
+    if(!timeout)
       debugMessage("serial read timeout");
     return data;
   }
@@ -102,14 +152,15 @@ public:
   void sendInstruction(uint8_t instn){
     write(INSTRUCTION|instn);
   }
-  int readRegister(uint8_t reg){
+  int readRegister(int pg, uint8_t reg){
+    selectPage(pg);
     write(REGISTER_READ|reg);
     // afe sends 3 bytes
     int timeout = AFE_TIMEOUT;
     while(Serial1.available() < 3){
       if(timeout-- == 0){
-	debug << "available [" << Serial1.available() << "][" << Serial1.peek() << "]\r\n";
-	debugMessage("register read timeout");
+	// debug << "available [" << Serial1.available() << "][" << Serial1.peek() << "]\r\n";
+	debugMessage("serial read timeout");
 	return -1;
       }
       delay(1);
@@ -117,7 +168,7 @@ public:
     uint32_t data = Serial1.read();
     data |= Serial1.read() << 8;
     data |= Serial1.read() << 16;
-    debug << "register read [" << reg << "][" << data << "]\r\n";
+    // debug << "register read [" << reg << "][" << data << "]\r\n";
     return data;
   }
   void writeRegister(uint8_t reg, int value){
@@ -148,20 +199,21 @@ public:
   void setLed(bool on){
     debug << "afe set led [" << on << "]\r\n";
     // CONFIG1 page 0, address 1
-    selectPage(0);
-    int value = readRegister(1);
+    int value = readRegister(0, 1);
     // DO2MODE are bits 5 to 7
     static const uint8_t DO2MODE_MASK = 0x70;
     writeRegister(1, value);
   }
   int getStatus0(){
-    selectPage(0);
-    return readRegister(23);
+    return readRegister(0, 23);
   }
   int getStatus1(){
     // Chip status 1 (Status1): Page 0, Address 24
     selectPage(0);
-    return readRegister(24);
+    return readRegister(0, 24);
+  }
+  int getStatus2(){
+    return readRegister(0, 25);
   }
   float getTemperature(){
     // Temperature (T): Page 16, Address 27
@@ -171,6 +223,19 @@ public:
       return -1.0f;
     return temp / 65536.0f;
   }
+  void setGain(int ch, int value){
+    // todo
+    // see System Calibration
+  }
+  void setOffset(int ch, int value){
+    // todo
+  }
+  void setSampleCount(int count){
+    // todo
+    // averaging period for RMS is count / 4000
+    // default 4000
+    // todo: enable line frequency measurement, set line-cycle synchronised averaging
+  }
   float getTotalActivePower(){
     selectPage(16);
     int data = readRegister(29);
@@ -179,8 +244,10 @@ public:
   void print(Print& out){
     out.print("AFE Status 0: 0x");
     out.println(getStatus0(), HEX);
-    out.print(" Status 1: 0x");
+    out.print("Status 1: 0x");
     out.println(getStatus1(), HEX);
+    out.print("Status 2: 0x");
+    out.println(getStatus2(), HEX);
     out.print("Temperature: ");
     out.println(getTemperature());
     out.print("Total Active Power: ");
@@ -387,6 +454,7 @@ void process(){
 #include "Scanner.hpp"
 Scanner scanner;
 
+#include "stm32f2xx.h"
 #ifdef SERIAL_CONSOLE
 void processSerial(){
   static bool unlocked = false;
@@ -555,6 +623,25 @@ void processSerial(){
       debugMessage("g: wakeup");
       afe.sendInstruction(AnalogFrontEnd::WAKEUP);
       break;
+    case 'S': {
+      uint32_t tmpreg = 0x00, apbclock = 0x00;
+      uint32_t integerdivider = 0x00;
+      uint32_t fractionaldivider = 0x00;
+      RCC_ClocksTypeDef RCC_ClocksStatus;
+      RCC_GetClocksFreq(&RCC_ClocksStatus);
+      debug << "RCC_ClocksStatus.PCLK2_Frequency [" << RCC_ClocksStatus.PCLK2_Frequency
+	    << "] RCC_ClocksStatus.PCLK1_Frequency [" << RCC_ClocksStatus.PCLK1_Frequency << "]\r\n";
+      integerdivider = ((25 * apbclock) / (2 * (600)));
+      debug << "mul8[" << ((USART1->CR1 & USART_CR1_OVER8) != 0) << "]\r\n";
+      integerdivider = ((25 * apbclock) / (2 * (600)));
+      tmpreg = (integerdivider / 100) << 4;
+      fractionaldivider = integerdivider - (100 * (tmpreg >> 4));
+      debug << "aye[" << (int)integerdivider << "][" << (int)tmpreg << "][" << (int)fractionaldivider << "]\r\n";
+      integerdivider = ((25 * apbclock) / (4 * (600)));
+      tmpreg = (integerdivider / 100) << 4;
+      fractionaldivider = integerdivider - (100 * (tmpreg >> 4));
+      debug << "aye[" << (int)integerdivider << "][" << (int)tmpreg << "][" << (int)fractionaldivider << "]\r\n";
+    }
     }
   }
 }
