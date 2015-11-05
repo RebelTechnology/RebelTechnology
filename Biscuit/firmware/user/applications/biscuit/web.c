@@ -6,8 +6,7 @@ static const char OSM_INDEX[] = OSM_HTML_BEGIN		 \
   /*  "<p><a href='/scan'>Scan Networks</a></p>"	 \ */
   "<p><a href='/auth'>Add WiFi Credentials</a></p>"	 \
   "<p><a href='/settings'>Network Settings</a></p>"	 \
-  "<p><a href='/address'>Address Mapping</a></p>"	 \
-  "<p><a href='/cvgate'>Control</a></p></ul>"		 \
+  "<p><a href='/sensors'>Sensors</a></p>"		 \
   "<p><a href='/status'>Status</a></p></ul>"		 \
   "<p><a href='/about'>About</a></p>"			 \
   OSM_HTML_END;
@@ -61,6 +60,8 @@ START_OF_HTTP_PAGE_DATABASE(osm_http_pages)
 	.url_content.static_data = {OSM_ABOUT, sizeof(OSM_ABOUT)-1 }},
     { "/status", "text/html", WICED_DYNAMIC_URL_CONTENT, 
 	.url_content.dynamic_data = {process_status, 0 }, },
+    { "/sensors", "text/html", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_sensors, 0 }, },
     { "/settings", "text/html", WICED_DYNAMIC_URL_CONTENT, 
 	.url_content.dynamic_data = {process_settings, 0 }, },
     { "/auth", "text/html", WICED_DYNAMIC_URL_CONTENT, 

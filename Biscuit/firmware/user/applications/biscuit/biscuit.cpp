@@ -65,7 +65,8 @@ public:
     delayMicroseconds(periodMicroSecs*2);
   };
 
-  struct Measurements {
+  class Measurements {
+  public:
     uint32_t voltage;
     uint32_t current;
     uint32_t power;
@@ -76,12 +77,52 @@ public:
     uint32_t peakCurrent;
     uint32_t reactivePower;
     uint32_t apparentPower;
+    uint32_t quadraturePower;
     uint32_t powerFactor;
+    void print(Print& out){
+      out << "V\t[" << voltage << "]\r\n";
+      out << "Vrms\t[" << rmsVoltage << "]\r\n";
+      out << "Vpeak\t[" << peakVoltage << "]\r\n";
+      out << "A\t[" << current << "]\r\n";
+      out << "Arms\t[" << rmsCurrent << "]\r\n";
+      out << "Apeak\t[" << peakCurrent << "]\r\n";
+      out << "P\t[" << power << "]\r\n";
+      out << "Prms\t[" << rmsPower << "]\r\n";
+      out << "Prea\t[" << reactivePower << "]\r\n";
+      out << "Papp\t[" << apparentPower << "]\r\n";
+      out << "Pqua\t[" << quadraturePower << "]\r\n";
+      out << "PF\t[" << powerFactor << "]\r\n";
+    }
   };
   Measurements ch1, ch2;
   void update(){
-    ch1.voltage = readRegister(16, 2);
-    ch1.current = readRegister(16, 3);
+    selectPage(0);
+    ch1.peakVoltage = readRegister(36);
+    ch1.peakCurrent = readRegister(37);
+    ch2.peakVoltage = readRegister(38);
+    ch2.peakCurrent = readRegister(39);
+
+    selectPage(16);
+    ch1.current = readRegister(2);
+    ch1.voltage = readRegister(3);
+    ch1.power = readRegister(4);
+    ch1.rmsPower = readRegister(5);
+    ch1.rmsCurrent = readRegister(6);
+    ch1.rmsVoltage = readRegister(7);
+    ch2.current = readRegister(8);
+    ch2.voltage = readRegister(9);
+    ch2.power = readRegister(10);
+    ch2.rmsPower = readRegister(11);
+    ch2.rmsCurrent = readRegister(12);
+    ch2.rmsVoltage = readRegister(13);
+    ch1.reactivePower = readRegister(14);
+    ch1.quadraturePower = readRegister(15);
+    ch2.reactivePower = readRegister(16);
+    ch2.quadraturePower = readRegister(16);
+    ch1.apparentPower = readRegister(20);
+    ch1.powerFactor = readRegister(21);
+    ch2.apparentPower = readRegister(24);
+    ch2.powerFactor = readRegister(25);
   }
 
 public:
@@ -154,6 +195,9 @@ public:
   }
   int readRegister(int pg, uint8_t reg){
     selectPage(pg);
+    return readRegister(reg);
+  }
+  int readRegister(uint8_t reg){
     write(REGISTER_READ|reg);
     // afe sends 3 bytes
     int timeout = AFE_TIMEOUT;
@@ -196,6 +240,12 @@ public:
   void softreset(){
     sendInstruction(SOFTWARE_RESET);
   }
+  void start(){
+    sendInstruction(CONTINUOUS_CONV);
+  }
+  void stop(){
+    sendInstruction(HALT_CONV);
+  }
   void setLed(bool on){
     debug << "afe set led [" << on << "]\r\n";
     // CONFIG1 page 0, address 1
@@ -217,8 +267,7 @@ public:
   }
   float getTemperature(){
     // Temperature (T): Page 16, Address 27
-    selectPage(16);
-    int temp = readRegister(27);
+    int temp = readRegister(16, 27);
     if(temp == -1)
       return -1.0f;
     return temp / 65536.0f;
@@ -236,11 +285,22 @@ public:
     // default 4000
     // todo: enable line frequency measurement, set line-cycle synchronised averaging
   }
+
   float getTotalActivePower(){
-    selectPage(16);
-    int data = readRegister(29);
+    int data = readRegister(16, 29);
     return data/8388608.0f;
   }
+
+  float getTotalApparentPower(){
+    int data = readRegister(16, 30);
+    return data/8388608.0f;
+  }
+
+  float getTotalReactivePower(){
+    int data = readRegister(16, 31);
+    return data/8388608.0f;
+  }
+
   void print(Print& out){
     out.print("AFE Status 0: 0x");
     out.println(getStatus0(), HEX);
@@ -250,13 +310,17 @@ public:
     out.println(getStatus2(), HEX);
     out.print("Temperature: ");
     out.println(getTemperature());
-    out.print("Total Active Power: ");
-    out.println(getTotalActivePower());
-    out.print("serial [");
-    out.print(Serial1.available());
-    out.println("]");
+    out << "serial [" << Serial1.available() << "]";
     out << "reset [" << digitalRead(CS_RST) << "]\r\n";
     out << "DO3 [" << digitalRead(CS_D3) << "]\r\n";
+    out << "DO3 [" << digitalRead(CS_D3) << "]\r\n";
+    out << "Total Active Power:\t[" << getTotalActivePower() << "]\r\n";
+    out << "Total Apparent Power:\t[" << getTotalApparentPower() << "]\r\n";
+    out << "Total Reactive Power:\t[" << getTotalReactivePower() << "]\r\n";
+    out << "Channel 1\r\n";
+    ch1.print(out);
+    out << "Channel 2\r\n";
+    ch2.print(out);
   }
 };
 
@@ -291,7 +355,11 @@ void printInfo(Print& out){
   out.println(connection.getAccessPointSSID());
   out.print("Free memory: "); 
   out.println(System.freeMemory());
+}
+
+void printSensors(Print& out){
   out << "PIR [" << analogRead(PIR_SIG) << "]\r\n";
+  afe.update();
   afe.print(out);
 }
 
@@ -427,6 +495,7 @@ void setup(){
   else
     connection.connect(NETWORK_ACCESS_POINT);
 
+  afe.start();
 }
 
 void process();
@@ -467,14 +536,6 @@ void processSerial(){
     case 'f':
       debugMessage("f: factory reset");
       factoryReset();
-      break;
-    case '?':
-      debugMessage("?: print info");
-      printInfo(Serial);
-      break;
-    case 's':
-      debugMessage("s: scan wifi");
-      scanner.start();
       break;
     case '!':
       debugMessage("!: clear credentials");
@@ -532,6 +593,14 @@ void processSerial(){
       while(Serial.available() < 1); // wait
       c = Serial.read();
       switch(c){
+      case '?':
+	debugMessage("?: print info");
+	printInfo(Serial);
+	break;
+      case 's':
+	debugMessage("s: scan wifi");
+	scanner.start();
+	break;
       case '+':
 	debugMessage("+: activate wlan");
 	wlan_activate();
@@ -593,55 +662,29 @@ void processSerial(){
       break;
     case '{':
       debugMessage("{: ls");
-      afe.setSerialSpeed(600);
+      afe.setSerialSpeed(9600);
       break;
     case '}':
       debugMessage("}: hs");
-      afe.setSerialSpeed(9600);
-      break;
-    case 'h':
-      debugMessage("h: high rx");
-      pinMode(CS_TX, INPUT);
-      digitalWrite(CS_TX, HIGH);
-      break;
-    case 'l':
-      debugMessage("l: low rx");
-      pinMode(CS_TX, INPUT);
-      digitalWrite(CS_TX, LOW);
-      break;
-    case 'o':
-      debugMessage("o: led on/off");
-      static bool ledon = false;
-      ledon = !ledon;
-      afe.setLed(ledon);
+      afe.setSerialSpeed(115200);
       break;
     case 'r':
-      debugMessage("r: soft reset");
-      afe.sendInstruction(AnalogFrontEnd::SOFTWARE_RESET);
+      debugMessage("r: run");
+      afe.start();
       break;
-    case 'g':
-      debugMessage("g: wakeup");
-      afe.sendInstruction(AnalogFrontEnd::WAKEUP);
+    case 'R':
+      debugMessage("R: stop");
+      afe.stop();
       break;
-    case 'S': {
-      uint32_t tmpreg = 0x00, apbclock = 0x00;
-      uint32_t integerdivider = 0x00;
-      uint32_t fractionaldivider = 0x00;
-      RCC_ClocksTypeDef RCC_ClocksStatus;
-      RCC_GetClocksFreq(&RCC_ClocksStatus);
-      debug << "RCC_ClocksStatus.PCLK2_Frequency [" << RCC_ClocksStatus.PCLK2_Frequency
-	    << "] RCC_ClocksStatus.PCLK1_Frequency [" << RCC_ClocksStatus.PCLK1_Frequency << "]\r\n";
-      integerdivider = ((25 * apbclock) / (2 * (600)));
-      debug << "mul8[" << ((USART1->CR1 & USART_CR1_OVER8) != 0) << "]\r\n";
-      integerdivider = ((25 * apbclock) / (2 * (600)));
-      tmpreg = (integerdivider / 100) << 4;
-      fractionaldivider = integerdivider - (100 * (tmpreg >> 4));
-      debug << "aye[" << (int)integerdivider << "][" << (int)tmpreg << "][" << (int)fractionaldivider << "]\r\n";
-      integerdivider = ((25 * apbclock) / (4 * (600)));
-      tmpreg = (integerdivider / 100) << 4;
-      fractionaldivider = integerdivider - (100 * (tmpreg >> 4));
-      debug << "aye[" << (int)integerdivider << "][" << (int)tmpreg << "][" << (int)fractionaldivider << "]\r\n";
-    }
+    case '?':
+      debugMessage("?: sensors");
+      printSensors(Serial);
+      break;
+    case 'u':
+      debugMessage("u: update");
+      afe.update();
+      afe.print(Serial);
+      break;
     }
   }
 }

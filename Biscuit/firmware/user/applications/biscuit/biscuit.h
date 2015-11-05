@@ -51,6 +51,7 @@ class Debug : public Print {
 };
 extern Debug debug;
 
+void printSensors(Print& out);
 #endif
 
 #ifdef  __cplusplus

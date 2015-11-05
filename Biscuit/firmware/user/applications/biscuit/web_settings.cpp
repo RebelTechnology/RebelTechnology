@@ -9,6 +9,15 @@ WebServer webserver;
 void configureWeb(){
 }
 
+int32_t process_sensors(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){		       
+  Streamer stream(s);
+  stream << OSM_BEGIN << "<h1>Status</h1><h2>Open Sound Module</h2>"
+	 << "<pre>";
+  printSensors(stream);
+  stream << "</pre>" << OSM_BACK << OSM_END;	 
+  return 0;
+};
+
 int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){		       
   Streamer stream(s);
   stream << OSM_BEGIN << "<h1>Status</h1><h2>Open Sound Module</h2>";
