@@ -67,18 +67,18 @@ public:
 
   class Measurements {
   public:
-    uint32_t voltage;
-    uint32_t current;
-    uint32_t power;
-    uint32_t rmsVoltage;
-    uint32_t rmsCurrent;
-    uint32_t rmsPower;
-    uint32_t peakVoltage;
-    uint32_t peakCurrent;
-    uint32_t reactivePower;
-    uint32_t apparentPower;
-    uint32_t quadraturePower;
-    uint32_t powerFactor;
+    float voltage;
+    float current;
+    float power;
+    float rmsVoltage;
+    float rmsCurrent;
+    float rmsPower;
+    float peakVoltage;
+    float peakCurrent;
+    float reactivePower;
+    float apparentPower;
+    float quadraturePower;
+    float powerFactor;
     void print(Print& out){
       out << "V\t[" << voltage << "]\r\n";
       out << "Vrms\t[" << rmsVoltage << "]\r\n";
@@ -95,36 +95,59 @@ public:
     }
   };
   Measurements ch1, ch2;
+  float totalActivePower, totalReactivePower, totalApparentPower;
+
   void update(){
     selectPage(0);
-    ch1.peakVoltage = readRegister(36);
-    ch1.peakCurrent = readRegister(37);
-    ch2.peakVoltage = readRegister(38);
-    ch2.peakCurrent = readRegister(39);
-
+    ch1.peakVoltage = readSensor(36);
+    ch1.peakCurrent = readSensor(37);
+    ch2.peakVoltage = readSensor(38);
+    ch2.peakCurrent = readSensor(39);
     selectPage(16);
-    ch1.current = readRegister(2);
-    ch1.voltage = readRegister(3);
-    ch1.power = readRegister(4);
-    ch1.rmsPower = readRegister(5);
-    ch1.rmsCurrent = readRegister(6);
-    ch1.rmsVoltage = readRegister(7);
-    ch2.current = readRegister(8);
-    ch2.voltage = readRegister(9);
-    ch2.power = readRegister(10);
-    ch2.rmsPower = readRegister(11);
-    ch2.rmsCurrent = readRegister(12);
-    ch2.rmsVoltage = readRegister(13);
-    ch1.reactivePower = readRegister(14);
-    ch1.quadraturePower = readRegister(15);
-    ch2.reactivePower = readRegister(16);
-    ch2.quadraturePower = readRegister(16);
-    ch1.apparentPower = readRegister(20);
-    ch1.powerFactor = readRegister(21);
-    ch2.apparentPower = readRegister(24);
-    ch2.powerFactor = readRegister(25);
+    ch1.current = readSensor(2);
+    ch1.voltage = readSensor(3);
+    ch1.power = readSensor(4);
+    ch1.rmsPower = readSensor(5);
+    ch1.rmsCurrent = readSensor(6);
+    ch1.rmsVoltage = readSensor(7);
+    ch2.current = readSensor(8);
+    ch2.voltage = readSensor(9);
+    ch2.power = readSensor(10);
+    ch2.rmsPower = readSensor(11);
+    ch2.rmsCurrent = readSensor(12);
+    ch2.rmsVoltage = readSensor(13);
+    ch1.reactivePower = readSensor(14);
+    ch1.quadraturePower = readSensor(15);
+    ch2.reactivePower = readSensor(16);
+    ch2.quadraturePower = readSensor(16);
+    ch1.apparentPower = readSensor(20);
+    ch1.powerFactor = readSensor(21);
+    ch2.apparentPower = readSensor(24);
+    ch2.powerFactor = readSensor(25);
+    totalActivePower = readSensor(29);
+    totalApparentPower = readSensor(30);
+    totalReactivePower = readSensor(31);
   }
 
+private:
+  uint32_t readRegister(uint8_t reg){
+    write(REGISTER_READ|reg);
+    // afe sends 3 bytes
+    int timeout = AFE_TIMEOUT;
+    while(Serial1.available() < 3){
+      if(timeout-- == 0){
+	// debug << "available [" << Serial1.available() << "][" << Serial1.peek() << "]\r\n";
+	debugMessage("serial read timeout");
+	return -1;
+      }
+      delay(1);
+    }
+    uint32_t data = Serial1.read();
+    data |= Serial1.read() << 8;
+    data |= Serial1.read() << 16;
+    // debug << "register read [" << reg << "][" << data << "]\r\n";
+    return data;
+  }
 public:
   AnalogFrontEnd() : currentPage(-1) {}
   void init(){
@@ -193,29 +216,16 @@ public:
   void sendInstruction(uint8_t instn){
     write(INSTRUCTION|instn);
   }
-  int readRegister(int pg, uint8_t reg){
+  float readSensor(uint8_t reg){    
+    int32_t value = readRegister(reg) << 8;
+    return value/2147483647.0f;
+  }
+  uint32_t readRegister(int pg, uint8_t reg){
     selectPage(pg);
     return readRegister(reg);
   }
-  int readRegister(uint8_t reg){
-    write(REGISTER_READ|reg);
-    // afe sends 3 bytes
-    int timeout = AFE_TIMEOUT;
-    while(Serial1.available() < 3){
-      if(timeout-- == 0){
-	// debug << "available [" << Serial1.available() << "][" << Serial1.peek() << "]\r\n";
-	debugMessage("serial read timeout");
-	return -1;
-      }
-      delay(1);
-    }
-    uint32_t data = Serial1.read();
-    data |= Serial1.read() << 8;
-    data |= Serial1.read() << 16;
-    // debug << "register read [" << reg << "][" << data << "]\r\n";
-    return data;
-  }
-  void writeRegister(uint8_t reg, int value){
+  void writeRegister(uint8_t pg, uint8_t reg, int value){
+    selectPage(pg);
     write(REGISTER_WRITE|reg);
     write((uint8_t)(value & 0xFF));
     value >>= 8;
@@ -229,8 +239,7 @@ public:
     static float multiplier = (524288 / (4.096 * 1000000));
     // SerialCtrl: Page 0, Address 7
     int value = RX_CSUM_OFF | (int)(speed * multiplier);
-    selectPage(0);
-    writeRegister(7, value);
+    writeRegister(0, 7, value);
     // speed = reg / multiplier;
     debug << "set serial speed [" << speed << "]\r\n";
     Serial1.end();
@@ -252,7 +261,7 @@ public:
     int value = readRegister(0, 1);
     // DO2MODE are bits 5 to 7
     static const uint8_t DO2MODE_MASK = 0x70;
-    writeRegister(1, value);
+    writeRegister(0, 1, value);
   }
   int getStatus0(){
     return readRegister(0, 23);
@@ -288,17 +297,53 @@ public:
 
   float getTotalActivePower(){
     int data = readRegister(16, 29);
-    return data/8388608.0f;
+    return (data<<8)/2147483647.0f;
+    //    return data/8388608.0f;    
   }
 
   float getTotalApparentPower(){
     int data = readRegister(16, 30);
-    return data/8388608.0f;
+    return (data<<8)/2147483647.0f;
+    //    return data/8388608.0f;
   }
 
   float getTotalReactivePower(){
     int data = readRegister(16, 31);
-    return data/8388608.0f;
+    return (data<<8)/2147483647.0f;
+    //    return data/8388608.0f;
+  }
+
+  void setHpFilter(bool on){
+    // Config2: Page 16, Address 0
+    int reg = readRegister(16, 0);
+    static const int bits = 0b0000000010101010;
+    if(on)
+      reg |= bits;
+    else
+      reg &= ~bits;
+    writeRegister(0, 0, reg);
+  }
+
+  void setTemperatureSensor(bool on){
+    // Config0: Page 0, Address 0
+    int reg = readRegister(0, 0);
+    static const int TSEL = 1<<23;
+    if(on)
+      reg |= TSEL;
+    else
+      reg &= ~TSEL;
+    writeRegister(0, 0, reg);
+  }
+
+  void setCurrentGain(bool high){
+    // Config0: Page 0, Address 0
+    int reg = readRegister(0, 0);
+    static const int bits = 0b0000000010100000;
+    if(high)
+      reg |= bits;
+    else
+      reg &= ~bits;
+    writeRegister(0, 0, reg);
   }
 
   void print(Print& out){
@@ -310,13 +355,14 @@ public:
     out.println(getStatus2(), HEX);
     out.print("Temperature: ");
     out.println(getTemperature());
+    /*
     out << "serial [" << Serial1.available() << "]";
     out << "reset [" << digitalRead(CS_RST) << "]\r\n";
     out << "DO3 [" << digitalRead(CS_D3) << "]\r\n";
-    out << "DO3 [" << digitalRead(CS_D3) << "]\r\n";
-    out << "Total Active Power:\t[" << getTotalActivePower() << "]\r\n";
-    out << "Total Apparent Power:\t[" << getTotalApparentPower() << "]\r\n";
-    out << "Total Reactive Power:\t[" << getTotalReactivePower() << "]\r\n";
+    */
+    out << "Total Active Power:\t[" << totalActivePower << "]\r\n";
+    out << "Total Apparent Power:\t[" << totalApparentPower << "]\r\n";
+    out << "Total Reactive Power:\t[" << totalReactivePower << "]\r\n";
     out << "Channel 1\r\n";
     ch1.print(out);
     out << "Channel 2\r\n";
@@ -520,176 +566,6 @@ void process(){
   }
 }
 
-#include "Scanner.hpp"
-Scanner scanner;
-
-#include "stm32f2xx.h"
-#ifdef SERIAL_CONSOLE
-void processSerial(){
-  static bool unlocked = false;
-  if(Serial.available() > 0){
-    int c = Serial.read();
-    if(!unlocked && c != '$')
-      return;
-    unlocked = true;
-    switch(c){
-    case 'f':
-      debugMessage("f: factory reset");
-      factoryReset();
-      break;
-    case '!':
-      debugMessage("!: clear credentials");
-      connection.clearCredentials();
-      printInfo(Serial);
-      break;
-    case 'd':
-      debugMessage("d: default credentials");
-      WiFi.setCredentials(BISCUIT_WIFI_SSID, BISCUIT_WIFI_PASSWORD, WPA2);
-      // connection.setCredentials(BISCUIT_WIFI_SSID, BISCUIT_WIFI_PASSWORD, BISCUIT_WIFI_SECURITY);
-      printInfo(Serial);
-      break;
-    case '+':
-      debugMessage("+: add credentials");
-      readCredentials(Serial);
-      break;
-    case '=':
-      debugMessage("=: set access point credentials");
-      readAccessPointCredentials(Serial);
-      break;
-    case 'a':
-      debugMessage("a: access point connect");
-      connection.connect(NETWORK_ACCESS_POINT);
-      break;
-    case 'w':
-      debugMessage("w: wifi connect");
-      connection.connect(NETWORK_LOCAL_WIFI);
-      break;
-    case '0':
-      debugMessage("0: internal antenna");
-      WiFi.selectAntenna(ANT_INTERNAL);
-      break;
-    case '1':
-      debugMessage("1: auto antenna");
-      WiFi.selectAntenna(ANT_AUTO);
-      break;
-    case '2':
-      debugMessage("2: external antenna");
-      WiFi.selectAntenna(ANT_EXTERNAL);
-      break;
-    case '<':
-      debugMessage("<: stop servers");
-      stopServers();
-      break;
-    case '>':
-      debugMessage(">: start servers");
-      startServers();
-      break;
-    case '*':
-      debugMessage("*: print local IP address");
-      Serial.println(connection.getLocalIPAddress());
-      break;
-    case ':': {
-      debugMessage("System Admin");
-      while(Serial.available() < 1); // wait
-      c = Serial.read();
-      switch(c){
-      case '?':
-	debugMessage("?: print info");
-	printInfo(Serial);
-	break;
-      case 's':
-	debugMessage("s: scan wifi");
-	scanner.start();
-	break;
-      case '+':
-	debugMessage("+: activate wlan");
-	wlan_activate();
-	break;
-      case '-':
-	debugMessage("-: deactivate wlan");
-	wlan_deactivate();
-	break;
-      case '0':
-	debugMessage("0: select STA");
-	wlan_select_interface(NETWORK_LOCAL_WIFI);
-	break;
-      case '1':
-	debugMessage("1: select AP");
-	wlan_select_interface(NETWORK_ACCESS_POINT);
-	break;
-      case 'i':
-	debugMessage("i: connect init");
-	wlan_connect_init();
-	break;
-      case 'f':
-	debugMessage("f: connect finalise");
-	wlan_connect_finalize();
-	break;
-      case 'd':
-	debugMessage("d: disconnect");
-	wlan_disconnect_now();
-	break;
-      case '>':
-	debugMessage(">: start DNS");
-	WiFi.startDNS();
-	break;
-      case '<':
-	debugMessage("<: stop DNS");
-	WiFi.stopDNS();
-	break;
-      case 'o':
-	debugMessage("o: WiFi.on");
-	WiFi.on();
-	break;
-      case 'w':
-	debugMessage("w: WiFi.connect");
-	WiFi.connect();
-	break;
-      case 'x':
-	debugMessage("x: WiFi.disconnect");
-	WiFi.disconnect();
-	break;
-      }
-      break;
-    }
-    case '[':
-      debugMessage("[: reset true");
-      afe.reset(true);
-      break;
-    case ']':
-      debugMessage("[: reset false");
-      afe.reset(false);
-      break;
-    case '{':
-      debugMessage("{: ls");
-      afe.setSerialSpeed(9600);
-      break;
-    case '}':
-      debugMessage("}: hs");
-      afe.setSerialSpeed(115200);
-      break;
-    case 'r':
-      debugMessage("r: run");
-      afe.start();
-      break;
-    case 'R':
-      debugMessage("R: stop");
-      afe.stop();
-      break;
-    case '?':
-      debugMessage("?: sensors");
-      printSensors(Serial);
-      break;
-    case 'u':
-      debugMessage("u: update");
-      afe.update();
-      afe.print(Serial);
-      break;
-    }
-  }
-}
-#endif /* SERIAL_CONSOLE */
-
 void factoryReset(){
   networkSettings.reset();
   networkSettings.clearFlash();
@@ -707,3 +583,5 @@ const char* getDeviceName(){
 void setDeviceName(const char* name){
   connection.setAccessPointPrefix(name);
 }
+
+#include "serial.hpp"
