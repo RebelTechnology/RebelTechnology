@@ -1,41 +1,35 @@
 #include "web.h"
-#include "minilogo.h"
 
-static const char OSM_INDEX[] = OSM_HTML_BEGIN		 \
-  "<h1>Open Sound Module</h1>"				 \
+static const char OSM_INDEX[] = OSM_HTML_BEGIN			\
+  "<h1>Biscuit</h1>"						\
   /*  "<p><a href='/scan'>Scan Networks</a></p>"	 \ */
-  "<p><a href='/auth'>Add WiFi Credentials</a></p>"	 \
-  "<p><a href='/settings'>Network Settings</a></p>"	 \
-  "<p><a href='/sensors'>Sensors</a></p>"		 \
-  "<p><a href='/status'>Status</a></p></ul>"		 \
-  "<p><a href='/about'>About</a></p>"			 \
+  "<p><a href='/auth'>Add WiFi Credentials</a></p>"		\
+  "<p><a href='/settings'>Network Settings</a></p>"		\
+  "<p><a href='/control'>Control</a></p>"			\
+  "<p><a href='/sensors'>Sensors</a></p>"			\
+  "<p><a href='/status'>Status</a></p></ul>"			\
+  "<p><a href='/about'>About</a></p>"				\
   OSM_HTML_END;
 
 static const char OSM_HELLO[] = OSM_HTML_BEGIN "<h1>Hello!</h1>" OSM_HTML_END;
 
-static const char OSM_CVGATE[] = OSM_HTML_BEGIN				\
-  "<h1>CV/Gate</h1>"							\
-  "<input type='range' id='cva' min='0' max='4095''/>"			\
-  "<br><button id='tra'>A</button>"					\
-  "<br><input type='range' id='cvb' min='0' max='4095'/>"		\
-  "<br><button id='trb'>B</button>"					\
+static const char OSM_CONTROL[] = OSM_HTML_BEGIN			\
+  "<h1>Control</h1>"							\
+  "<br><button id='tra'>Relay 1</button>"				\
+  "<br><button id='trb'>Relay 2</button>"				\
   "<script>"								\
-  "function cv(i,v){var rq=new XMLHttpRequest();rq.open('GET', '/cvo'+i+'?v='+v);rq.send(null);};" \
-  "function tr(i){var rq=new XMLHttpRequest();rq.open('GET', '/tro'+i);rq.send(null);};" \
-  "document.getElementById('cva').onchange=function(){cv(0,this.value)};" \
-  "document.getElementById('cvb').onchange=function(){cv(1,this.value)};" \
+  "function tr(i){var rq=new XMLHttpRequest();"				\
+  "rq.open('GET', '/relay'+i);rq.send(null);};"				\
   "document.getElementById('tra').onclick=function(){tr(0)};"		\
   "document.getElementById('trb').onclick=function(){tr(1)};"		\
-  "</script>"					\
+  "</script>"								\
   OSM_HTML_BACK OSM_HTML_END;
 
 static const char OSM_ABOUT[] = OSM_HTML_BEGIN				\
   "<h1>About</h1>"							\
-  "<h2>Open Sound Module</h2>"						\
-  "<p>WiFi OSC to CV/Gate interface</p>"				\
+  "<h2>Rinkya Biscuit</h2>"						\
+  "<p>WiFi Smart Socket</p>"						\
   "<p>Firmware v0.1</p>"						\
-  "<p>See our <a href='http://www.rebeltech.org/products/open-sound-module/'>website</a> for instructions and information.</p>"	\
-  "<br><img src='logo.png'/><br>"					\
   OSM_HTML_BACK								\
   OSM_HTML_END;
 
@@ -52,8 +46,10 @@ START_OF_HTTP_PAGE_DATABASE(osm_http_pages)
     ROOT_HTTP_PAGE_REDIRECT("/index.html"),
     { "/index.html", "text/html", WICED_STATIC_URL_CONTENT, 
 	.url_content.static_data = {OSM_INDEX, sizeof(OSM_INDEX)-1 }},
+    { "/control", "text/html", WICED_STATIC_URL_CONTENT, 
+	.url_content.static_data = {OSM_CONTROL, sizeof(OSM_CONTROL)-1 }},
     { "/style.css", "text/css", WICED_STATIC_URL_CONTENT, 
-    .url_content.static_data = {OSM_STYLE, sizeof(OSM_STYLE)-1 }},
+	.url_content.static_data = {OSM_STYLE, sizeof(OSM_STYLE)-1 }},
     { "/hello", "text/html", WICED_STATIC_URL_CONTENT, 
 	.url_content.static_data = {OSM_HELLO, sizeof(OSM_HELLO)-1 }},
     { "/about", "text/html", WICED_STATIC_URL_CONTENT, 
@@ -82,7 +78,11 @@ START_OF_HTTP_PAGE_DATABASE(osm_http_pages)
 	.url_content.dynamic_data = {process_reset, 2 }, },
     { "/reset99", "text/html", WICED_DYNAMIC_URL_CONTENT, 
 	.url_content.dynamic_data = {process_reset, 99 }, },
-    { "/logo.png", "image/png", WICED_STATIC_URL_CONTENT, 
-	.url_content.static_data = {minilogo_png, sizeof(minilogo_png) }},
+    { "/relay0", "text/html", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_relay, 1 }, },
+    { "/relay1", "text/html", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_relay, 2 }, },
+    { "/json", "application/json", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_json, 0 }, },
 END_OF_HTTP_PAGE_DATABASE();
 

@@ -2,6 +2,61 @@
 #include "Scanner.hpp"
 Scanner scanner;
 
+void readCredentials(Stream& port){
+  port.setTimeout(10000);
+  port.println("Enter SSID:");
+  String ssid = port.readStringUntil('\r');
+  ssid.trim();
+  port.println("Enter AP security (0=Open, 1=WEP, 2=WPA, 3=WPA2):");
+  String auth = port.readStringUntil('\r');
+  auth.trim();
+  port.println("Enter password:");
+  String pass = port.readStringUntil('\r');
+  pass.trim();
+  port.print("SSID: [");
+  port.print(ssid);
+  port.print("] Auth: [");
+  port.print(auth);
+  port.print("] Password: [");
+  port.print(pass);
+  port.println("]");
+  port.println("Type yes to confirm");
+  String yes = port.readStringUntil('\r');
+  port.setTimeout(1000);
+  if(yes.equals("yes"))
+    connection.setCredentials(ssid.c_str(), pass.c_str(), auth.c_str());
+  else
+    port.println("Cancelled");
+}
+
+void readAccessPointCredentials(Stream& port){
+  port.setTimeout(10000);
+  port.println("Enter AP SSID:");
+  String ssid = port.readStringUntil('\r');
+  ssid.trim();
+  port.println("Enter AP security (0=Open, 1=WEP, 2=WPA, 3=WPA2):");
+  String auth = port.readStringUntil('\r');
+  auth.trim();
+  port.println("Enter AP password:");
+  String pass = port.readStringUntil('\r');
+  pass.trim();
+  port.print("SSID: [");
+  port.print(ssid);
+  port.print("] Auth: [");
+  port.print(auth);
+  port.print("] Password: [");
+  port.print(pass);
+  port.println("]");
+  port.println("Type yes to confirm");
+  String yes = port.readStringUntil('\r');
+  port.setTimeout(1000);
+  if(yes.equals("yes")){
+    connection.setAccessPointCredentials(ssid.c_str(), pass.c_str(), auth.c_str());
+    port.println("Done");
+  }else
+    port.println("Cancelled");
+}
+
 void processSerial(){
   static bool unlocked = false;
   if(Serial.available() > 0){
@@ -165,22 +220,38 @@ void processSerial(){
       afe.print(Serial);
       break;
     case 'h':
-      debugMessage("h: toggle HP filter");
       static bool filter = false;
       filter = !filter;
+      debug << "h: toggle HP filter" << filter << "\r\n";
       afe.setHpFilter(filter);
       break;
     case 'g':
-      debugMessage("g: toggle gain");
       static bool gain = false;
       gain = !gain;
+      debug << "g: toggle gain high " << gain << "\r\n";
       afe.setCurrentGain(gain);
       break;
     case 't':
-      debugMessage("t: toggle temperature sensor");
-      static bool temperature = false;
+      static bool temperature = true;
       temperature = !temperature;
+      debug << "t: toggle temperature sensor" << temperature << "\r\n";
       afe.setTemperatureSensor(temperature);
+      break;
+    case '1':
+      static bool relay1 = false;
+      relay1 = !relay1;
+      debug << "1: toggle relay 1" << relay1 << "\r\n";
+      setRelay(1, relay1);
+      break;
+    case '2':
+      static bool relay2 = false;
+      relay2 = !relay2;
+      debug << "2: toggle relay 2" << relay2 << "\r\n";
+      setRelay(2, relay2);
+      break;
+    case 'x':
+      debug << "x: send HTTP request" << "\r\n";
+      sendRequest(Serial);
       break;
     }
   }

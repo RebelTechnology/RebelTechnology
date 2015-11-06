@@ -56,6 +56,8 @@ class Debug : public Print {
 extern Debug debug;
 
 void printSensors(Print& out);
+void printJson(Print& out);
+void sendRequest(Print& out);
 #endif
 
 #ifdef  __cplusplus
@@ -70,6 +72,9 @@ extern "C" {
   void setDeviceName(const char* name);
   void debugMessage(const char* msg);
   void assert_failed(const char* msg, const char* location, int line);
+  void setRelay(int ch, bool on);
+  bool getRelay(int ch);
+  void toggleRelay(int ch);
 #ifdef  __cplusplus
 }
 #endif

@@ -18,3 +18,5 @@ int32_t process_scan(const char* url, wiced_http_response_stream_t* stream, void
 int32_t process_reconnect(const char* url, wiced_http_response_stream_t* stream, void* arg, wiced_http_message_body_t* body);
 int32_t process_save(const char* url, wiced_http_response_stream_t* stream, void* arg, wiced_http_message_body_t* body);
 int32_t process_reset(const char* url, wiced_http_response_stream_t* stream, void* arg, wiced_http_message_body_t* body);
+int32_t process_relay(const char* url, wiced_http_response_stream_t* stream, void* arg, wiced_http_message_body_t* body);
+int32_t process_json(const char* url, wiced_http_response_stream_t* stream, void* arg, wiced_http_message_body_t* body);

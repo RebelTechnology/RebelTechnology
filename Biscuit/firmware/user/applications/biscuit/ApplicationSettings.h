@@ -43,9 +43,8 @@ class NetworkSettings : public ApplicationSettings<NETWORK_SETTINGS_ADDRESS> {
 public:
   int localPort;
   int remotePort;
-  bool broadcast;
-  bool autoremote;
-  IPAddress remoteIPAddress;
+  String remoteHost;
+  String remotePath;
 public:
   void reset();
   bool equals(const NetworkSettings& other){

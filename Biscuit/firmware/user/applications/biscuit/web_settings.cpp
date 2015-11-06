@@ -9,28 +9,30 @@ WebServer webserver;
 void configureWeb(){
 }
 
-int32_t process_sensors(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){		       
+int32_t process_sensors(const char* u, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){
   Streamer stream(s);
-  stream << OSM_BEGIN << "<h1>Status</h1><h2>Open Sound Module</h2>"
-	 << "<pre>";
+  stream << OSM_BEGIN << "<h1>Sensors</h1><h2>Biscuit</h2><pre>";
   printSensors(stream);
-  stream << "</pre>" << OSM_BACK << OSM_END;	 
+  stream << "</pre>" << OSM_BACK << OSM_END;
+  //  stream << "</pre><p>Relay 1: " << getRelay(1) ? "on" : "off"
+  //	 << "</p><p>Relay 2: " << getRelay(2) ? "on" : "off" 
   return 0;
-};
+}
+
+int32_t process_json(const char* u, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){
+  Streamer stream(s);
+  printJson(stream);
+  return 0;
+}
+
+int32_t process_relay(const char* u, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){
+  toggleRelay((int)arg);
+  return 0;
+}
 
 int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){		       
   Streamer stream(s);
-  stream << OSM_BEGIN << "<h1>Status</h1><h2>Open Sound Module</h2>";
-  /*
-  if(connection.isWiFiConnected())
-    stream << "<p>WiFi Connected</p>";
-  if(connection.isIpConnected())
-    stream << "<p>Network up</p>";
-  if(WiFi.connecting())
-    stream << "<p>Connecting</p>";
-  if(WiFi.listening())
-    stream << "<p>Listening</p>";
-  */
+  stream << OSM_BEGIN << "<h1>Status</h1><h2>Biscuit</h2>";
   if(WiFi.ready())
     stream << "<p>Ready!</p>";
   /*
@@ -50,14 +52,9 @@ int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* a
 	 << "<p>Local IP: " << WiFi.localIP() << "</p>"
     */
 	 << "<p>Local Port: " << networkSettings.localPort << "</p>"
-	 << "<p>Remote IP: ";
-  if(networkSettings.autoremote)
-    stream << "auto</p>";
-  else if(networkSettings.broadcast)
-    stream << "broadcast</p>";
-  else 
-    stream << networkSettings.remoteIPAddress << "</p>";
-  stream << "<p>Remote Port: " << networkSettings.remotePort << "</p>"
+	 << "<p>Remote Host: " << networkSettings.remoteHost << "</p>"
+	 << "<p>Remote Port: " << networkSettings.remotePort << "</p>"
+	 << "<p>Remote Path: " << networkSettings.remotePath << "</p>"
 	 << "<p>MAC Address: ";
   connection.printMacAddress(stream);
   stream << "</p><p>ID: " << Particle.deviceID() << "</p>";
@@ -90,14 +87,19 @@ int32_t process_settings(const char* u, wiced_http_response_stream_t* s, void* a
     networkSettings.localPort = atol(param);
     updated = true;
   }
+  param = url.getParameter("remotehost");
+  if(param != NULL){
+    networkSettings.remoteHost = param;
+    updated = true;
+  }
   param = url.getParameter("remoteport");
   if(param != NULL){
     networkSettings.remotePort = atol(param);
     updated = true;
   }
-  param = url.getParameter("remoteip");
+  param = url.getParameter("remotepath");
   if(param != NULL){
-    setRemoteIpAddress(param);
+    networkSettings.remotePath = param;
     updated = true;
   }
   Streamer stream(s);
@@ -106,15 +108,12 @@ int32_t process_settings(const char* u, wiced_http_response_stream_t* s, void* a
 	 << "<p>Local IP</p><p>" << connection.getLocalIPAddress() << "</p>"
 	 << "<p>Local Port</p><input type='text' name='localport' value='"
 	 << networkSettings.localPort << "'><br>"	 
-    	 << "<p>Remote IP</p><input type='text' name='remoteip' value='";
-  if(networkSettings.autoremote)
-    stream << "auto'><br>";
-  else if(networkSettings.broadcast)
-    stream << "broadcast'><br>";
-  else 
-    stream << networkSettings.remoteIPAddress << "'><br>";
-  stream << "<p>Remote Port</p><input type='text' name='remoteport' value='"
+    	 << "<p>Remote Host</p><input type='text' name='remotehost' value='"
+	 << networkSettings.remoteHost << "'><br>"
+	 << "<p>Remote Port</p><input type='text' name='remoteport' value='"
 	 << networkSettings.remotePort << "'><br>"
+	 << "<p>Remote Path</p><input type='text' name='remotepath' value='"
+	 << networkSettings.remotePath << "'><br>"
 	 << "<button type='submit'>Update</button></form>";
   if(updated){
     stream << "<h3>Settings updated</h3>";

@@ -18,13 +18,11 @@ NetworkSettings networkSettings;
 
 const char* BISCUIT_WIFI_SSID = "FortRebel";
 const char* BISCUIT_WIFI_PASSWORD = "notwhattheyseem";
-// const char* BISCUIT_WIFI_SSID = "BTHub3-FQG6";
-// const char* BISCUIT_WIFI_PASSWORD = "2eb3f324af";
 const char* BISCUIT_WIFI_SECURITY = "3";
-#define OSM_AP_SSID                   "BiscuitModule"
-#define OSM_AP_PASSWD                 "dadac0de"
+#define OSM_AP_SSID                   "Biscuit"
+#define OSM_AP_PASSWD                 "password"
 #define OSM_AP_AUTH                   "3"
-#define OSM_AP_HOSTNAME               "BiscuitModule"
+#define OSM_AP_HOSTNAME               "Biscuit"
 
 class AnalogFrontEnd {
 private:
@@ -92,6 +90,20 @@ public:
       out << "Papp\t[" << apparentPower << "]\r\n";
       out << "Pqua\t[" << quadraturePower << "]\r\n";
       out << "PF\t[" << powerFactor << "]\r\n";
+    }
+    void json(Print& out){
+      out << "V:" << voltage << ","
+	  << "Vrms:" << rmsVoltage << ","
+	  << "Vpeak:" << peakVoltage << ","
+	  << "A:" << current << ","
+	  << "Arms:" << rmsCurrent << ","
+	  << "Apeak:" << peakCurrent << ","
+	  << "P:" << power << ","
+	  << "Prms:" << rmsPower << ","
+	  << "Prea:" << reactivePower << ","
+	  << "Papp:" << apparentPower << ","
+	  << "Pqua:" << quadraturePower << ","
+	  << "PF:" << powerFactor;
     }
   };
   Measurements ch1, ch2;
@@ -234,7 +246,7 @@ public:
     write((uint8_t)(value & 0xFF));
   }
   void setSerialSpeed(long speed){
-    static const int RX_PU_OFF = (1<<18);
+    // static const int RX_PU_OFF = (1<<18);
     static const int RX_CSUM_OFF = (1<<17);
     static float multiplier = (524288 / (4.096 * 1000000));
     // SerialCtrl: Page 0, Address 7
@@ -260,7 +272,7 @@ public:
     // CONFIG1 page 0, address 1
     int value = readRegister(0, 1);
     // DO2MODE are bits 5 to 7
-    static const uint8_t DO2MODE_MASK = 0x70;
+    // static const uint8_t DO2MODE_MASK = 0x70;
     writeRegister(0, 1, value);
   }
   int getStatus0(){
@@ -313,37 +325,29 @@ public:
     //    return data/8388608.0f;
   }
 
-  void setHpFilter(bool on){
-    // Config2: Page 16, Address 0
-    int reg = readRegister(16, 0);
-    static const int bits = 0b0000000010101010;
+  void updateRegister(uint8_t page, uint8_t reg, uint32_t bits, bool on){
+    uint32_t value = readRegister(page, reg);
     if(on)
-      reg |= bits;
+      value |= bits;
     else
-      reg &= ~bits;
-    writeRegister(0, 0, reg);
+      value &= ~bits;
+    writeRegister(page, reg, value);
   }
 
   void setTemperatureSensor(bool on){
     // Config0: Page 0, Address 0
-    int reg = readRegister(0, 0);
-    static const int TSEL = 1<<23;
-    if(on)
-      reg |= TSEL;
-    else
-      reg &= ~TSEL;
-    writeRegister(0, 0, reg);
+    static const int TSEL = (1<<23);
+    updateRegister(0, 0, TSEL, on);
   }
 
   void setCurrentGain(bool high){
     // Config0: Page 0, Address 0
-    int reg = readRegister(0, 0);
-    static const int bits = 0b0000000010100000;
-    if(high)
-      reg |= bits;
-    else
-      reg &= ~bits;
-    writeRegister(0, 0, reg);
+    updateRegister(0, 0, 0b0000000010100000, high);
+  }
+
+  void setHpFilter(bool on){
+    // Config2: Page 16, Address 0
+    updateRegister(16, 0, 0b0000000010101010, on);
   }
 
   void print(Print& out){
@@ -360,13 +364,29 @@ public:
     out << "reset [" << digitalRead(CS_RST) << "]\r\n";
     out << "DO3 [" << digitalRead(CS_D3) << "]\r\n";
     */
-    out << "Total Active Power:\t[" << totalActivePower << "]\r\n";
-    out << "Total Apparent Power:\t[" << totalApparentPower << "]\r\n";
-    out << "Total Reactive Power:\t[" << totalReactivePower << "]\r\n";
-    out << "Channel 1\r\n";
+    out << "Total Active Power\t[" << totalActivePower << "]\r\n";
+    out << "Total Apparent Power\t[" << totalApparentPower << "]\r\n";
+    out << "Total Reactive Power\t[" << totalReactivePower << "]\r\n";
+    out << "Channel One\r\n";
     ch1.print(out);
-    out << "Channel 2\r\n";
+    out << "Relay\t[" << (getRelay(1) ? "on" : "off") << "]\r\n";
+    out << "Channel Two\r\n";
     ch2.print(out);
+    out << "Relay\t[" << (getRelay(2) ? "on" : "off") << "]\r\n";
+  }
+
+  void json(Print& out){
+    out << "T:" << getTemperature() << ","
+	<< "ActivePower:" << totalActivePower << ","
+	<< "ApparentPower:" << totalApparentPower << ","
+	<< "ReactivePower:" << totalReactivePower << ","
+	<< "Channel1{";
+    ch1.json(out);
+    out << ",Relay:" << getRelay(1)
+	<< "},Channel2{";
+    ch2.print(out);
+    out << ",Relay:" << getRelay(2)
+	<< "}";
   }
 };
 
@@ -409,59 +429,12 @@ void printSensors(Print& out){
   afe.print(out);
 }
 
-void readCredentials(Stream& port){
-  port.setTimeout(10000);
-  port.println("Enter SSID:");
-  String ssid = port.readStringUntil('\r');
-  ssid.trim();
-  port.println("Enter AP security (0=Open, 1=WEP, 2=WPA, 3=WPA2):");
-  String auth = port.readStringUntil('\r');
-  auth.trim();
-  port.println("Enter password:");
-  String pass = port.readStringUntil('\r');
-  pass.trim();
-  port.print("SSID: [");
-  port.print(ssid);
-  port.print("] Auth: [");
-  port.print(auth);
-  port.print("] Password: [");
-  port.print(pass);
-  port.println("]");
-  port.println("Type yes to confirm");
-  String yes = port.readStringUntil('\r');
-  port.setTimeout(1000);
-  if(yes.equals("yes"))
-    connection.setCredentials(ssid.c_str(), pass.c_str(), auth.c_str());
-  else
-    port.println("Cancelled");
-}
-
-void readAccessPointCredentials(Stream& port){
-  port.setTimeout(10000);
-  port.println("Enter AP SSID:");
-  String ssid = port.readStringUntil('\r');
-  ssid.trim();
-  port.println("Enter AP security (0=Open, 1=WEP, 2=WPA, 3=WPA2):");
-  String auth = port.readStringUntil('\r');
-  auth.trim();
-  port.println("Enter AP password:");
-  String pass = port.readStringUntil('\r');
-  pass.trim();
-  port.print("SSID: [");
-  port.print(ssid);
-  port.print("] Auth: [");
-  port.print(auth);
-  port.print("] Password: [");
-  port.print(pass);
-  port.println("]");
-  port.println("Type yes to confirm");
-  String yes = port.readStringUntil('\r');
-  port.setTimeout(1000);
-  if(yes.equals("yes")){
-    connection.setAccessPointCredentials(ssid.c_str(), pass.c_str(), auth.c_str());
-    port.println("Done");
-  }else
-    port.println("Cancelled");
+void printJson(Print& out){
+  out << "{ID:" << Particle.deviceID() << ",MAC:";
+  connection.printMacAddress(out);
+  out << ",PIR:" << analogRead(PIR_SIG) << ",";
+  afe.json(out);
+  out.println('}');
 }
 
 void startServers(){
@@ -494,53 +467,33 @@ void stopServers(){
   debugMessage("stopServers done");
 }
 
-void setRemoteIpAddress(const char* ip){
-  debug << "remote ip [" << ip << "]\r\n";
-}
 void reload(){
   debugMessage("reload");
 }
 
 void setup(){
-  WiFi.on();
-
   pinMode(PIR_SIG, INPUT);
   pinMode(RELAY1, OUTPUT);
   pinMode(RELAY2, OUTPUT);
-
-#if 0
-  pinMode(ANALOG_PIN_A, INPUT);
-  pinMode(ANALOG_PIN_B, INPUT);
-  pinMode(DIGITAL_INPUT_PIN_A, INPUT);
-  pinMode(DIGITAL_INPUT_PIN_B, INPUT);
-  pinMode(DIGITAL_OUTPUT_PIN_A, OUTPUT);
-  pinMode(DIGITAL_OUTPUT_PIN_B, OUTPUT);
-  pinMode(YELLOW_LED_PIN, OUTPUT);
-  pinMode(GREEN_LED_PIN, OUTPUT);
-#endif
-
 #ifdef SERIAL_DEBUG
   Serial.begin(SERIAL_BAUD_RATE);
   //  Serial1.begin(SERIAL_BAUD_RATE);
   debugMessage("Serial.go");
   //  Serial1.print("Serial1.go");
 #endif
-
+  WiFi.on();
+  networkSettings.init();
   afe.init();
 
   // WiFi.selectAntenna(DEFAULT_ANTENNA);
   wwd_wifi_select_antenna(WICED_ANTENNA_AUTO);  
-
-  // Called once at startup to initialize the wlan hardware.
-  //wlan_setup();
-  //  wlan_activate();
-  debugMessage("wifi.on");
 
   if(WiFi.hasCredentials())
     connection.connect(NETWORK_LOCAL_WIFI);
   else
     connection.connect(NETWORK_ACCESS_POINT);
 
+  afe.setTemperatureSensor(true);
   afe.start();
 }
 
@@ -558,12 +511,16 @@ void loop(){
 #endif
 }
 
+#include "console.hpp"
+#include "HttpSender.hpp"
+HttpSender sender;
 int pir;
 void process(){
   int cv = analogRead(PIR_SIG);
   if(abs(cv - pir) > ANALOG_THRESHOLD){
     pir = cv;
   }
+  //  sender.loop();
 }
 
 void factoryReset(){
@@ -584,4 +541,30 @@ void setDeviceName(const char* name){
   connection.setAccessPointPrefix(name);
 }
 
-#include "serial.hpp"
+bool getRelay(int ch){
+  if(ch == 1)
+    return digitalRead(RELAY1) == HIGH;
+  else if(ch == 2)
+    return digitalRead(RELAY2) == HIGH;
+  return false;
+}
+
+void setRelay(int ch, bool on){
+  if(ch == 1)
+    digitalWrite(RELAY1, on);
+  else if(ch == 2)
+    digitalWrite(RELAY2, on);
+}
+
+void toggleRelay(int ch){
+  if(ch == 1)
+    digitalWrite(RELAY1, !digitalRead(RELAY1));
+  else if(ch == 2)
+    digitalWrite(RELAY2, !digitalRead(RELAY2));
+}
+
+void sendRequest(Print& out){
+  sender.send(networkSettings.remoteHost, 
+	      networkSettings.remotePort, 
+	      networkSettings.remotePath, out);
+}
