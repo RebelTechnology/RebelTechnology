@@ -33,9 +33,9 @@ template<class T>
 inline Print &operator <<(Print &obj, T arg)
 { obj.print(arg); return obj; }
 
-// print floats to 8 decimal places
+// print floats to 6 decimal places
 inline Print &operator <<(Print &obj, float arg)
-{ obj.print(arg, 8); return obj; }
+{ obj.print(arg, 6); return obj; }
 
 class Debug : public Print {
   size_t write(uint8_t data){
@@ -75,6 +75,7 @@ extern "C" {
   void setRelay(int ch, bool on);
   bool getRelay(int ch);
   void toggleRelay(int ch);
+  int getPirValue();
 #ifdef  __cplusplus
 }
 #endif

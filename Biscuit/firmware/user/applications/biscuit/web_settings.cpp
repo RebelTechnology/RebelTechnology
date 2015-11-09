@@ -25,6 +25,22 @@ int32_t process_json(const char* u, wiced_http_response_stream_t* s, void* arg, 
   return 0;
 }
 
+int32_t process_send(const char* u, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){
+  Streamer stream(s);
+  UrlScanner url(u);
+  const char* host = url.getParameter("host");
+  if(host != NULL)
+    networkSettings.remoteHost = host;
+  const char* port = url.getParameter("port");
+  if(port != NULL)
+    networkSettings.remotePort = atol(port);
+  const char* path = url.getParameter("path");
+  if(path != NULL)
+    networkSettings.remotePath = path;
+  sendRequest(stream);
+  return 0;
+}
+
 int32_t process_relay(const char* u, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){
   toggleRelay((int)arg);
   return 0;

@@ -15,11 +15,13 @@ SYSTEM_MODE(MANUAL);
 
 ConnectionManager connection;
 NetworkSettings networkSettings;
+int pir;
+int maxpir;
 
 const char* BISCUIT_WIFI_SSID = "FortRebel";
 const char* BISCUIT_WIFI_PASSWORD = "notwhattheyseem";
 const char* BISCUIT_WIFI_SECURITY = "3";
-#define OSM_AP_SSID                   "Biscuit"
+#define OSM_AP_SSID                   "Biscuit-FEHG"
 #define OSM_AP_PASSWD                 "password"
 #define OSM_AP_AUTH                   "3"
 #define OSM_AP_HOSTNAME               "Biscuit"
@@ -376,7 +378,7 @@ public:
   }
 
   void json(Print& out){
-    out << "T:" << getTemperature() << ","
+    out << "Temperature:" << getTemperature() << ","
 	<< "ActivePower:" << totalActivePower << ","
 	<< "ApparentPower:" << totalApparentPower << ","
 	<< "ReactivePower:" << totalReactivePower << ","
@@ -384,7 +386,7 @@ public:
     ch1.json(out);
     out << ",Relay:" << getRelay(1)
 	<< "},Channel2{";
-    ch2.print(out);
+    ch2.json(out);
     out << ",Relay:" << getRelay(2)
 	<< "}";
   }
@@ -424,15 +426,18 @@ void printInfo(Print& out){
 }
 
 void printSensors(Print& out){
-  out << "PIR [" << analogRead(PIR_SIG) << "]\r\n";
+  out << "PIR [" << pir << "][" << maxpir << "]\r\n";
+  maxpir = 0;
   afe.update();
   afe.print(out);
 }
 
 void printJson(Print& out){
-  out << "{ID:" << Particle.deviceID() << ",MAC:";
+  out << "{DeviceId:'" << Particle.deviceID() << "',MAC:'";
   connection.printMacAddress(out);
-  out << ",PIR:" << analogRead(PIR_SIG) << ",";
+  out << "',PIR:" << getPirValue() << ",";
+  out << "',MAX:" << maxpir << ",";
+  maxpir = 0;
   afe.json(out);
   out.println('}');
 }
@@ -511,14 +516,19 @@ void loop(){
 #endif
 }
 
+int getPirValue(){
+  return pir;
+}
+
 #include "console.hpp"
 #include "HttpSender.hpp"
 HttpSender sender;
-int pir;
 void process(){
   int cv = analogRead(PIR_SIG);
   if(abs(cv - pir) > ANALOG_THRESHOLD){
     pir = cv;
+    if(pir > maxpir)
+      maxpir = pir;
   }
   //  sender.loop();
 }
@@ -543,17 +553,17 @@ void setDeviceName(const char* name){
 
 bool getRelay(int ch){
   if(ch == 1)
-    return digitalRead(RELAY1) == HIGH;
+    return digitalRead(RELAY1) == LOW;
   else if(ch == 2)
-    return digitalRead(RELAY2) == HIGH;
+    return digitalRead(RELAY2) == LOW;
   return false;
 }
 
 void setRelay(int ch, bool on){
   if(ch == 1)
-    digitalWrite(RELAY1, on);
+    digitalWrite(RELAY1, !on);
   else if(ch == 2)
-    digitalWrite(RELAY2, on);
+    digitalWrite(RELAY2, !on);
 }
 
 void toggleRelay(int ch){

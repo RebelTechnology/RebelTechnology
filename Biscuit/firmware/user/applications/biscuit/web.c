@@ -78,11 +78,13 @@ START_OF_HTTP_PAGE_DATABASE(osm_http_pages)
 	.url_content.dynamic_data = {process_reset, 2 }, },
     { "/reset99", "text/html", WICED_DYNAMIC_URL_CONTENT, 
 	.url_content.dynamic_data = {process_reset, 99 }, },
-    { "/relay0", "text/html", WICED_DYNAMIC_URL_CONTENT, 
+    { "/relay0", "application/json", WICED_DYNAMIC_URL_CONTENT, 
 	.url_content.dynamic_data = {process_relay, 1 }, },
-    { "/relay1", "text/html", WICED_DYNAMIC_URL_CONTENT, 
+    { "/relay1", "application/json", WICED_DYNAMIC_URL_CONTENT, 
 	.url_content.dynamic_data = {process_relay, 2 }, },
     { "/json", "application/json", WICED_DYNAMIC_URL_CONTENT, 
 	.url_content.dynamic_data = {process_json, 0 }, },
+    { "/send", "application/json", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_send, 0 }, },
 END_OF_HTTP_PAGE_DATABASE();
 

@@ -240,13 +240,13 @@ void processSerial(){
     case '1':
       static bool relay1 = false;
       relay1 = !relay1;
-      debug << "1: toggle relay 1" << relay1 << "\r\n";
+      debug << "1: toggle relay 1 " << relay1 << "\r\n";
       setRelay(1, relay1);
       break;
     case '2':
       static bool relay2 = false;
       relay2 = !relay2;
-      debug << "2: toggle relay 2" << relay2 << "\r\n";
+      debug << "2: toggle relay 2 " << relay2 << "\r\n";
       setRelay(2, relay2);
       break;
     case 'x':
