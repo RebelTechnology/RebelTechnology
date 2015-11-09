@@ -253,6 +253,14 @@ void processSerial(){
       debug << "x: send HTTP request" << "\r\n";
       sendRequest(Serial);
       break;
+    case '6':
+      debug << "6: calibrate 1" << "\r\n";
+      calibrate(1);
+      break;
+    case '7':
+      debug << "7: calibrate 2" << "\r\n";
+      calibrate(2);
+      break;
     }
   }
 }

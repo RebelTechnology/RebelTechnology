@@ -21,3 +21,4 @@ int32_t process_reset(const char* url, wiced_http_response_stream_t* stream, voi
 int32_t process_relay(const char* url, wiced_http_response_stream_t* stream, void* arg, wiced_http_message_body_t* body);
 int32_t process_json(const char* url, wiced_http_response_stream_t* stream, void* arg, wiced_http_message_body_t* body);
 int32_t process_send(const char* url, wiced_http_response_stream_t* stream, void* arg, wiced_http_message_body_t* body);
+int32_t process_calibrate(const char* url, wiced_http_response_stream_t* stream, void* arg, wiced_http_message_body_t* body);

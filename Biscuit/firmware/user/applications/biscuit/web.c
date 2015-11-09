@@ -86,5 +86,9 @@ START_OF_HTTP_PAGE_DATABASE(osm_http_pages)
 	.url_content.dynamic_data = {process_json, 0 }, },
     { "/send", "application/json", WICED_DYNAMIC_URL_CONTENT, 
 	.url_content.dynamic_data = {process_send, 0 }, },
+    { "/calibrate1", "application/json", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_calibrate, 1 }, },
+    { "/calibrate2", "application/json", WICED_DYNAMIC_URL_CONTENT, 
+	.url_content.dynamic_data = {process_calibrate, 2 }, },
 END_OF_HTTP_PAGE_DATABASE();
 

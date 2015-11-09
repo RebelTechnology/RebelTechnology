@@ -9,4 +9,6 @@ void NetworkSettings::reset(){
   //remotePath = "/vbkhorvb";
   remoteHost = "biscuitwebservice.azurewebsites.net";
   remotePath = "/api/outlets/D5BFAADC-31B2-43AD-91E7-20F439C54D01";
+
+  resendPeriod = 10*60*1000;
 }

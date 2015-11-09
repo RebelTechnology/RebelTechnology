@@ -45,6 +45,7 @@ public:
   int remotePort;
   String remoteHost;
   String remotePath;
+  int resendPeriod;
 public:
   void reset();
   bool equals(const NetworkSettings& other){

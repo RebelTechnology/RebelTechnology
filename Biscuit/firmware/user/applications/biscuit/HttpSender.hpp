@@ -6,15 +6,10 @@
 
 class HttpSender {
 private:
-  const int SEND_PERIOD = 20000;
-public:
-  /**
-   * Declaring the variables.
-   */
   unsigned int nextTime = 0;    // Next time to contact the server
   HttpClient http;
-
-  // Headers currently need to be set at init, useful for API keys etc.
+  http_request_t request;
+  http_response_t response;
   http_header_t headers[4] = {
     { "Content-Type", "application/json" },
     { "Authorization", "SharedAccessSignature sr=FUIFlSf8vjWgZ/K33JgXh1LVbK6NmFnUcYa7M5eHjFA=" },
@@ -22,21 +17,40 @@ public:
     // { "Accept" , "*/*"},
     { NULL, NULL } // NOTE: Always terminate headers will NULL
   };
-
-  http_request_t request;
-  http_response_t response;
-
+public:
   void setup() {
     //Serial.begin(9600);
+    nextTime = millis() + networkSettings.resendPeriod;
   }
 
   void loop() {
-    if(nextTime > millis())
+    if(networkSettings.resendPeriod != 0 && nextTime > millis())
       return;
     send(networkSettings.remoteHost, 
 	 networkSettings.remotePort, 
 	 networkSettings.remotePath, Serial);
-    nextTime = millis() + SEND_PERIOD;
+    nextTime = millis() + networkSettings.resendPeriod;
+  }
+
+  void processResponse(const String& re, const String id){
+    int index = re.indexOf(id);
+    int size = id.length();
+    if(index > 0 && re.length() > index+size+2){
+      int pos = atol(&(re.c_str()[index+size]));
+      debug << "RELAY " << id << ": [" << pos << "]\r\n";
+      if(pos == 0)
+	setRelay(1, false);
+      else if(pos == 1)
+	setRelay(1, true);    
+    }
+  }
+
+  String& getResponseBody(){
+    return response.body;
+  }
+
+  int getResponseStatus(){
+    return response.status;
   }
 
   void send(String host, int port, String path, Print& out) {
@@ -50,25 +64,6 @@ public:
     printJson(stream);
     //request.body = stream.GetText();
 
-    int index = request.body.indexOf("Channel1");
-    if(index > 0){
-      int pos = atol(&request.body.c_str()[index+10]);
-      debug << "Channel1: " << pos;
-      if(pos == 0)
-	setRelay(1, false);
-      else if(pos == 1)
-	setRelay(1, true);
-    }
-    index = request.body.indexOf("Channel2");
-    if(index > 0){
-      int pos = atol(&request.body.c_str()[index+10]);
-      debug << "Channel2: " << pos;
-      if(pos == 0)
-	setRelay(2, false);
-      else if(pos == 1)
-	setRelay(2, true);
-    }
-
     // Send HTTP Post request
     http.post(request, response, headers);
     out.print("{Status: ");
@@ -76,5 +71,10 @@ public:
     out.print(",Body: {");
     out.print(response.body);
     out.print("}}");
+
+    const static String ch1("Channel1");
+    const static String ch2("Channel2");
+    processResponse(response.body, ch1);
+    processResponse(response.body, ch2);
   }
 };

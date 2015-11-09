@@ -133,7 +133,7 @@ public:
     ch1.reactivePower = readSensor(14);
     ch1.quadraturePower = readSensor(15);
     ch2.reactivePower = readSensor(16);
-    ch2.quadraturePower = readSensor(16);
+    ch2.quadraturePower = readSensor(17);
     ch1.apparentPower = readSensor(20);
     ch1.powerFactor = readSensor(21);
     ch2.apparentPower = readSensor(24);
@@ -350,6 +350,64 @@ public:
   void setHpFilter(bool on){
     // Config2: Page 16, Address 0
     updateRegister(16, 0, 0b0000000010101010, on);
+    // When using high-pass filters, it is recommended that the DC offset register for the corresponding channel be set to zero.
+    updateRegister(16, 0, 0b0000000010101010, on);
+    writeRegister(16, 32, 0); // I1 DCOFF
+    writeRegister(16, 34, 0); // V1 DCOFF
+    writeRegister(16, 39, 0); // I2 DCOFF
+    writeRegister(16, 41, 0); // V2 DCOFF
+  }
+
+  void calibrate(int ch){
+    // stop();
+  /*
+If there is an AC offset in the Ix RMS calculation, the
+AC offset calibration should be performed on the
+current channel. Before performing AC offset
+calibration, the AC offset register should be set to 0.
+It is recommended that T SETTLE be set to 2000ms
+before performing an AC offset calibration.
+  */
+    writeRegister(16, 37, 0); // I1 ACOFF
+    writeRegister(16, 44, 0); // I2 ACOFF
+    writeRegister(16, 57, 2000); // T SETTLE
+    // AC offset calibration
+    if(ch == 1){
+      sendInstruction(0b110001); // I1
+      delay(500);
+      sendInstruction(0b110010); // V1
+    }else{
+      sendInstruction(0b110011); // I2
+      delay(500);
+      sendInstruction(0b110100); // V2
+    }
+    delay(500);
+/*
+Prior to executing the gain calibration command, gain
+registers for any path to be calibrated (Vx GAIN , Ix GAIN )
+should be set to 1.0
+  */
+    writeRegister(16, 33, 0x400000); // I1 GAIN
+    writeRegister(16, 40, 0x400000); // I2 GAIN
+    writeRegister(16, 35, 0x400000); // V1 GAIN
+    writeRegister(16, 42, 0x400000); // V2 GAIN
+    /*
+      afe.writeRegister(16, 7, ??); // V1 RMS
+      afe.writeRegister(16, 13, ??); // V1 RMS
+    */
+    // gain calibration
+    if(ch == 1){
+      sendInstruction(0b111001); // I1
+      delay(500);
+      sendInstruction(0b111010); // V1
+    }else{
+      sendInstruction(0b111011); // I2
+      delay(500);
+      sendInstruction(0b111100); // V2
+    }
+      //    sendInstruction(0b111110); // gain calibration, all channels
+    delay(500);
+    // start();
   }
 
   void print(Print& out){
@@ -498,6 +556,7 @@ void setup(){
   else
     connection.connect(NETWORK_ACCESS_POINT);
 
+  afe.setHpFilter(true);
   afe.setTemperatureSensor(true);
   afe.start();
 }
@@ -530,7 +589,7 @@ void process(){
     if(pir > maxpir)
       maxpir = pir;
   }
-  //  sender.loop();
+  sender.loop();
 }
 
 void factoryReset(){
@@ -553,17 +612,17 @@ void setDeviceName(const char* name){
 
 bool getRelay(int ch){
   if(ch == 1)
-    return digitalRead(RELAY1) == LOW;
+    return digitalRead(RELAY1) == HIGH;
   else if(ch == 2)
-    return digitalRead(RELAY2) == LOW;
+    return digitalRead(RELAY2) == HIGH;
   return false;
 }
 
 void setRelay(int ch, bool on){
   if(ch == 1)
-    digitalWrite(RELAY1, !on);
+    digitalWrite(RELAY1, on);
   else if(ch == 2)
-    digitalWrite(RELAY2, !on);
+    digitalWrite(RELAY2, on);
 }
 
 void toggleRelay(int ch){
@@ -577,4 +636,12 @@ void sendRequest(Print& out){
   sender.send(networkSettings.remoteHost, 
 	      networkSettings.remotePort, 
 	      networkSettings.remotePath, out);
+}
+
+int getLastResponseStatus(){
+  return sender.getResponseStatus();
+}
+
+void calibrate(int ch){
+  afe.calibrate(ch);
 }

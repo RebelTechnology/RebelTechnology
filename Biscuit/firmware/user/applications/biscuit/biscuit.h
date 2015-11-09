@@ -76,6 +76,8 @@ extern "C" {
   bool getRelay(int ch);
   void toggleRelay(int ch);
   int getPirValue();
+  int getLastResponseStatus();
+  void calibrate(int ch);
 #ifdef  __cplusplus
 }
 #endif

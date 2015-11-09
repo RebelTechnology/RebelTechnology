@@ -46,6 +46,11 @@ int32_t process_relay(const char* u, wiced_http_response_stream_t* s, void* arg,
   return 0;
 }
 
+int32_t process_calibrate(const char* u, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){
+  calibrate((int)arg);
+  return 0;
+}
+
 int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* arg, wiced_http_message_body_t* body){		       
   Streamer stream(s);
   stream << OSM_BEGIN << "<h1>Status</h1><h2>Biscuit</h2>";
@@ -71,21 +76,15 @@ int32_t process_status(const char* url, wiced_http_response_stream_t* s, void* a
 	 << "<p>Remote Host: " << networkSettings.remoteHost << "</p>"
 	 << "<p>Remote Port: " << networkSettings.remotePort << "</p>"
 	 << "<p>Remote Path: " << networkSettings.remotePath << "</p>"
+	 << "<p>Last Response: " << getLastResponseStatus() << "</p>"
 	 << "<p>MAC Address: ";
   connection.printMacAddress(stream);
   stream << "</p><p>ID: " << Particle.deviceID() << "</p>";
-  /*
-  byte mac[6];
-  WiFi.macAddress(mac);
-  for(int i=0; i<6; i++){
-    if(i)
-      stream.write(':');
-    stream.print(mac[i], HEX);
-  }
-  */
   stream << "<br><button onclick='location.href=\"/reset0\"'>Reset Network Settings</button>";
   stream << "<br><button onclick='location.href=\"/reset2\"'>Clear WiFi credentials</button>";
   stream << "<br><button onclick='location.href=\"/reset99\"'>Factory Reset</button>";
+  stream << "<br><button onclick='location.href=\"/calibrate1\"'>Calibrate Channel 1</button>";
+  stream << "<br><button onclick='location.href=\"/calibrate2\"'>Calibrate Channel 2</button>";
   if(connection.getCurrentNetwork() != NETWORK_LOCAL_WIFI)
     stream << "<br><button onclick='location.href=\"/reconnect_sta\"'>Reconnect as WiFi Client</button>";
   if(connection.getCurrentNetwork() != NETWORK_ACCESS_POINT)
@@ -118,6 +117,11 @@ int32_t process_settings(const char* u, wiced_http_response_stream_t* s, void* a
     networkSettings.remotePath = param;
     updated = true;
   }
+  param = url.getParameter("resend");
+  if(param != NULL){
+    networkSettings.resendPeriod = atol(param)*1000;
+    updated = true;
+  }
   Streamer stream(s);
   stream << OSM_BEGIN << "<h1>Network Settings</h1>"
 	 << "<form action='/settings' method='GET'>"
@@ -130,6 +134,8 @@ int32_t process_settings(const char* u, wiced_http_response_stream_t* s, void* a
 	 << networkSettings.remotePort << "'><br>"
 	 << "<p>Remote Path</p><input type='text' name='remotepath' value='"
 	 << networkSettings.remotePath << "'><br>"
+	 << "<p>Resend Period</p><input type='text' name='remotepath' value='"
+	 << networkSettings.resendPeriod/1000 << "'>sec<br>"
 	 << "<button type='submit'>Update</button></form>";
   if(updated){
     stream << "<h3>Settings updated</h3>";
