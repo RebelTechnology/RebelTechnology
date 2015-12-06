@@ -124,124 +124,6 @@
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
 <libraries>
-<library name="linear">
-<description>&lt;b&gt;Linear Devices&lt;/b&gt;&lt;p&gt;
-Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="DIL08">
-<description>&lt;b&gt;Dual In Line Package&lt;/b&gt;</description>
-<wire x1="5.08" y1="2.921" x2="-5.08" y2="2.921" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="-2.921" x2="5.08" y2="-2.921" width="0.1524" layer="21"/>
-<wire x1="5.08" y1="2.921" x2="5.08" y2="-2.921" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="2.921" x2="-5.08" y2="1.016" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="-2.921" x2="-5.08" y2="-1.016" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="1.016" x2="-5.08" y2="-1.016" width="0.1524" layer="21" curve="-180"/>
-<pad name="1" x="-3.81" y="-3.81" drill="0.8128" diameter="1.27" rot="R90"/>
-<pad name="2" x="-1.27" y="-3.81" drill="0.8128" diameter="1.27" rot="R90"/>
-<pad name="7" x="-1.27" y="3.81" drill="0.8128" diameter="1.27" rot="R90"/>
-<pad name="8" x="-3.81" y="3.81" drill="0.8128" diameter="1.27" rot="R90"/>
-<pad name="3" x="1.27" y="-3.81" drill="0.8128" diameter="1.27" rot="R90"/>
-<pad name="4" x="3.81" y="-3.81" drill="0.8128" diameter="1.27" rot="R90"/>
-<pad name="6" x="1.27" y="3.81" drill="0.8128" diameter="1.27" rot="R90"/>
-<pad name="5" x="3.81" y="3.81" drill="0.8128" diameter="1.27" rot="R90"/>
-<text x="-5.334" y="-2.921" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
-<text x="-3.556" y="-0.635" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-</package>
-<package name="SO08">
-<description>&lt;b&gt;Small Outline Package 8&lt;/b&gt;&lt;br&gt;
-NS Package M08A</description>
-<wire x1="2.4" y1="1.9" x2="2.4" y2="-1.4" width="0.2032" layer="51"/>
-<wire x1="2.4" y1="-1.4" x2="2.4" y2="-1.9" width="0.2032" layer="51"/>
-<wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.2032" layer="51"/>
-<wire x1="-2.4" y1="-1.9" x2="-2.4" y2="-1.4" width="0.2032" layer="51"/>
-<wire x1="-2.4" y1="-1.4" x2="-2.4" y2="1.9" width="0.2032" layer="51"/>
-<wire x1="-2.4" y1="1.9" x2="2.4" y2="1.9" width="0.2032" layer="51"/>
-<wire x1="2.4" y1="-1.4" x2="-2.4" y2="-1.4" width="0.2032" layer="51"/>
-<smd name="2" x="-0.635" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="7" x="-0.635" y="2.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="1" x="-1.905" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="3" x="0.635" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="4" x="1.905" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="8" x="-1.905" y="2.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="6" x="0.635" y="2.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="5" x="1.905" y="2.6" dx="0.6" dy="2.2" layer="1"/>
-<text x="-2.667" y="-1.905" size="1.27" layer="25" rot="R90">&gt;NAME</text>
-<text x="3.937" y="-1.905" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
-<rectangle x1="-2.15" y1="-3.1" x2="-1.66" y2="-2" layer="51"/>
-<rectangle x1="-0.88" y1="-3.1" x2="-0.39" y2="-2" layer="51"/>
-<rectangle x1="0.39" y1="-3.1" x2="0.88" y2="-2" layer="51"/>
-<rectangle x1="1.66" y1="-3.1" x2="2.15" y2="-2" layer="51"/>
-<rectangle x1="1.66" y1="2" x2="2.15" y2="3.1" layer="51"/>
-<rectangle x1="0.39" y1="2" x2="0.88" y2="3.1" layer="51"/>
-<rectangle x1="-0.88" y1="2" x2="-0.39" y2="3.1" layer="51"/>
-<rectangle x1="-2.15" y1="2" x2="-1.66" y2="3.1" layer="51"/>
-</package>
-</packages>
-<symbols>
-<symbol name="OPAMP">
-<wire x1="-5.08" y1="5.08" x2="-5.08" y2="-5.08" width="0.4064" layer="94"/>
-<wire x1="-5.08" y1="-5.08" x2="5.08" y2="0" width="0.4064" layer="94"/>
-<wire x1="5.08" y1="0" x2="-5.08" y2="5.08" width="0.4064" layer="94"/>
-<wire x1="-3.81" y1="3.175" x2="-3.81" y2="1.905" width="0.1524" layer="94"/>
-<wire x1="-4.445" y1="2.54" x2="-3.175" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="-4.445" y1="-2.54" x2="-3.175" y2="-2.54" width="0.1524" layer="94"/>
-<text x="2.54" y="3.175" size="1.778" layer="95">&gt;NAME</text>
-<text x="2.54" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="-IN" x="-7.62" y="-2.54" visible="pad" length="short" direction="in"/>
-<pin name="+IN" x="-7.62" y="2.54" visible="pad" length="short" direction="in"/>
-<pin name="OUT" x="7.62" y="0" visible="pad" length="short" direction="out" rot="R180"/>
-</symbol>
-<symbol name="PWR+-">
-<text x="1.27" y="3.175" size="0.8128" layer="93" rot="R90">V+</text>
-<text x="1.27" y="-4.445" size="0.8128" layer="93" rot="R90">V-</text>
-<pin name="V+" x="0" y="7.62" visible="pad" length="middle" direction="pwr" rot="R270"/>
-<pin name="V-" x="0" y="-7.62" visible="pad" length="middle" direction="pwr" rot="R90"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="TL072" prefix="IC">
-<description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
-<gates>
-<gate name="A" symbol="OPAMP" x="15.24" y="10.16" swaplevel="1"/>
-<gate name="B" symbol="OPAMP" x="15.24" y="-12.7" swaplevel="1"/>
-<gate name="P" symbol="PWR+-" x="15.24" y="10.16" addlevel="request"/>
-</gates>
-<devices>
-<device name="P" package="DIL08">
-<connects>
-<connect gate="A" pin="+IN" pad="3"/>
-<connect gate="A" pin="-IN" pad="2"/>
-<connect gate="A" pin="OUT" pad="1"/>
-<connect gate="B" pin="+IN" pad="5"/>
-<connect gate="B" pin="-IN" pad="6"/>
-<connect gate="B" pin="OUT" pad="7"/>
-<connect gate="P" pin="V+" pad="8"/>
-<connect gate="P" pin="V-" pad="4"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="D" package="SO08">
-<connects>
-<connect gate="A" pin="+IN" pad="3"/>
-<connect gate="A" pin="-IN" pad="2"/>
-<connect gate="A" pin="OUT" pad="1"/>
-<connect gate="B" pin="+IN" pad="5"/>
-<connect gate="B" pin="-IN" pad="6"/>
-<connect gate="B" pin="OUT" pad="7"/>
-<connect gate="P" pin="V+" pad="8"/>
-<connect gate="P" pin="V-" pad="4"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="resistor">
 <description>&lt;b&gt;Resistors, Capacitors, Inductors&lt;/b&gt;&lt;p&gt;
 Based on the previous libraries:
@@ -3430,24 +3312,6 @@ type RDH, grid 15 mm</description>
 <wire x1="-3" y1="-20.936" x2="3" y2="-20.936" width="0.127" layer="21"/>
 <wire x1="3" y1="-20.936" x2="3" y2="-10.936" width="0.127" layer="21"/>
 </package>
-<package name="LED3MM">
-<description>&lt;B&gt;LED&lt;/B&gt;&lt;p&gt;
-3 mm, round</description>
-<pad name="A" x="-1.27" y="0" drill="0.8128"/>
-<pad name="K" x="1.27" y="0" drill="0.8128" shape="square"/>
-<wire x1="2.54" y1="-1.27" x2="2.54" y2="1.27" width="0.254" layer="51"/>
-<wire x1="0" y1="2.032" x2="1.561" y2="1.3009" width="0.254" layer="21" curve="-50.193108" cap="flat"/>
-<wire x1="-1.7929" y1="0.9562" x2="0" y2="2.032" width="0.254" layer="21" curve="-61.926949" cap="flat"/>
-<wire x1="0" y1="-2.032" x2="1.5512" y2="-1.3126" width="0.254" layer="21" curve="49.763022" cap="flat"/>
-<wire x1="-1.7643" y1="-1.0082" x2="0" y2="-2.032" width="0.254" layer="21" curve="60.255215" cap="flat"/>
-<wire x1="-2.032" y1="0" x2="-1.7891" y2="0.9634" width="0.254" layer="51" curve="-28.301701" cap="flat"/>
-<wire x1="-2.032" y1="0" x2="-1.7306" y2="-1.065" width="0.254" layer="51" curve="31.60822" cap="flat"/>
-<wire x1="1.5748" y1="1.2954" x2="1.5748" y2="0.7874" width="0.254" layer="21"/>
-<wire x1="1.5748" y1="-1.2954" x2="1.5748" y2="-0.8382" width="0.254" layer="21"/>
-<text x="1.905" y="0.381" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="1.905" y="-1.651" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-<wire x1="2.54" y1="-1.27" x2="2.54" y2="1.27" width="0.254" layer="21" curve="-306.869898"/>
-</package>
 <package name="0204/7">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
 type 0204, grid 7.5 mm</description>
@@ -3573,31 +3437,6 @@ type 0204, grid 7.5 mm</description>
 <wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
 <text x="-2.794" y="0.508" size="1.778" layer="95">Shell</text>
 </symbol>
-<symbol name="LED">
-<wire x1="1.27" y1="0" x2="0" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="-2.54" x2="-1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="-2.54" x2="0" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="-2.54" x2="-1.27" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="-1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="0" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="-2.032" y1="-0.762" x2="-3.429" y2="-2.159" width="0.1524" layer="94"/>
-<wire x1="-1.905" y1="-1.905" x2="-3.302" y2="-3.302" width="0.1524" layer="94"/>
-<text x="3.556" y="-4.572" size="1.778" layer="95" rot="R90">&gt;NAME</text>
-<text x="5.715" y="-4.572" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<pin name="C" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
-<pin name="A" x="0" y="2.54" visible="off" length="short" direction="pas" rot="R270"/>
-<polygon width="0.1524" layer="94">
-<vertex x="-3.429" y="-2.159"/>
-<vertex x="-3.048" y="-1.27"/>
-<vertex x="-2.54" y="-1.778"/>
-</polygon>
-<polygon width="0.1524" layer="94">
-<vertex x="-3.302" y="-3.302"/>
-<vertex x="-2.921" y="-2.413"/>
-<vertex x="-2.413" y="-2.921"/>
-</polygon>
-</symbol>
 <symbol name="R-EU">
 <wire x1="-2.54" y1="-0.889" x2="2.54" y2="-0.889" width="0.254" layer="94"/>
 <wire x1="2.54" y1="0.889" x2="-2.54" y2="0.889" width="0.254" layer="94"/>
@@ -3673,24 +3512,6 @@ type 0204, grid 7.5 mm</description>
 <connect gate="G$1" pin="2" pad="2"/>
 <connect gate="G$1" pin="3" pad="3"/>
 <connect gate="G$2" pin="P$1" pad="P$5 P$6"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="LED" prefix="LED" uservalue="yes">
-<description>&lt;b&gt;LED&lt;/b&gt;&lt;p&gt;
-</description>
-<gates>
-<gate name="G$1" symbol="LED" x="0" y="0"/>
-</gates>
-<devices>
-<device name="3MM" package="LED3MM">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="K"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -21218,6 +21039,155 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="linear">
+<description>&lt;b&gt;Linear Devices&lt;/b&gt;&lt;p&gt;
+Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="DIL14">
+<description>&lt;b&gt;Dual In Line Package&lt;/b&gt;</description>
+<wire x1="8.89" y1="2.921" x2="-8.89" y2="2.921" width="0.1524" layer="21"/>
+<wire x1="-8.89" y1="-2.921" x2="8.89" y2="-2.921" width="0.1524" layer="21"/>
+<wire x1="8.89" y1="2.921" x2="8.89" y2="-2.921" width="0.1524" layer="21"/>
+<wire x1="-8.89" y1="2.921" x2="-8.89" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-8.89" y1="-2.921" x2="-8.89" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="-8.89" y1="1.016" x2="-8.89" y2="-1.016" width="0.1524" layer="21" curve="-180"/>
+<pad name="1" x="-7.62" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="2" x="-5.08" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="7" x="7.62" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="8" x="7.62" y="3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="3" x="-2.54" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="4" x="0" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="6" x="5.08" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="5" x="2.54" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="9" x="5.08" y="3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="10" x="2.54" y="3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="11" x="0" y="3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="12" x="-2.54" y="3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="13" x="-5.08" y="3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="14" x="-7.62" y="3.81" drill="0.8128" shape="long" rot="R90"/>
+<text x="-9.271" y="-3.048" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
+<text x="-6.731" y="-0.635" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+<package name="SO14">
+<description>&lt;b&gt;Small Outline Package 14&lt;/b&gt;</description>
+<wire x1="4.305" y1="-1.9" x2="-4.305" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="-4.305" y1="-1.9" x2="-4.305" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="-4.305" y1="-1.4" x2="-4.305" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="4.305" y1="-1.4" x2="-4.305" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="4.305" y1="1.9" x2="4.305" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="4.305" y1="-1.4" x2="4.305" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="-4.305" y1="1.9" x2="4.305" y2="1.9" width="0.2032" layer="51"/>
+<smd name="2" x="-2.54" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="13" x="-2.54" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="1" x="-3.81" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="3" x="-1.27" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="4" x="0" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="14" x="-3.81" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="12" x="-1.27" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="11" x="0" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="6" x="2.54" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="9" x="2.54" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="5" x="1.27" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="7" x="3.81" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="10" x="1.27" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="8" x="3.81" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<text x="-4.572" y="-1.905" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="5.842" y="-1.905" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-4.055" y1="-3.1" x2="-3.565" y2="-2" layer="51"/>
+<rectangle x1="-2.785" y1="-3.1" x2="-2.295" y2="-2" layer="51"/>
+<rectangle x1="-1.515" y1="-3.1" x2="-1.025" y2="-2" layer="51"/>
+<rectangle x1="-0.245" y1="-3.1" x2="0.245" y2="-2" layer="51"/>
+<rectangle x1="-0.245" y1="2" x2="0.245" y2="3.1" layer="51"/>
+<rectangle x1="-1.515" y1="2" x2="-1.025" y2="3.1" layer="51"/>
+<rectangle x1="-2.785" y1="2" x2="-2.295" y2="3.1" layer="51"/>
+<rectangle x1="-4.055" y1="2" x2="-3.565" y2="3.1" layer="51"/>
+<rectangle x1="1.025" y1="-3.1" x2="1.515" y2="-2" layer="51"/>
+<rectangle x1="2.295" y1="-3.1" x2="2.785" y2="-2" layer="51"/>
+<rectangle x1="3.565" y1="-3.1" x2="4.055" y2="-2" layer="51"/>
+<rectangle x1="3.565" y1="2" x2="4.055" y2="3.1" layer="51"/>
+<rectangle x1="2.295" y1="2" x2="2.785" y2="3.1" layer="51"/>
+<rectangle x1="1.025" y1="2" x2="1.515" y2="3.1" layer="51"/>
+</package>
+</packages>
+<symbols>
+<symbol name="OPAMP">
+<wire x1="-5.08" y1="5.08" x2="-5.08" y2="-5.08" width="0.4064" layer="94"/>
+<wire x1="-5.08" y1="-5.08" x2="5.08" y2="0" width="0.4064" layer="94"/>
+<wire x1="5.08" y1="0" x2="-5.08" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="-3.81" y1="3.175" x2="-3.81" y2="1.905" width="0.1524" layer="94"/>
+<wire x1="-4.445" y1="2.54" x2="-3.175" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="-4.445" y1="-2.54" x2="-3.175" y2="-2.54" width="0.1524" layer="94"/>
+<text x="2.54" y="3.175" size="1.778" layer="95">&gt;NAME</text>
+<text x="2.54" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="-IN" x="-7.62" y="-2.54" visible="pad" length="short" direction="in"/>
+<pin name="+IN" x="-7.62" y="2.54" visible="pad" length="short" direction="in"/>
+<pin name="OUT" x="7.62" y="0" visible="pad" length="short" direction="out" rot="R180"/>
+</symbol>
+<symbol name="PWR+-">
+<text x="1.27" y="3.175" size="0.8128" layer="93" rot="R90">V+</text>
+<text x="1.27" y="-4.445" size="0.8128" layer="93" rot="R90">V-</text>
+<pin name="V+" x="0" y="7.62" visible="pad" length="middle" direction="pwr" rot="R270"/>
+<pin name="V-" x="0" y="-7.62" visible="pad" length="middle" direction="pwr" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="TL074" prefix="IC">
+<description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
+<gates>
+<gate name="A" symbol="OPAMP" x="15.24" y="10.16" swaplevel="1"/>
+<gate name="B" symbol="OPAMP" x="50.8" y="10.16" swaplevel="1"/>
+<gate name="C" symbol="OPAMP" x="15.24" y="-10.16" swaplevel="1"/>
+<gate name="D" symbol="OPAMP" x="50.8" y="-10.16" swaplevel="1"/>
+<gate name="P" symbol="PWR+-" x="15.24" y="10.16" addlevel="request"/>
+</gates>
+<devices>
+<device name="P" package="DIL14">
+<connects>
+<connect gate="A" pin="+IN" pad="3"/>
+<connect gate="A" pin="-IN" pad="2"/>
+<connect gate="A" pin="OUT" pad="1"/>
+<connect gate="B" pin="+IN" pad="5"/>
+<connect gate="B" pin="-IN" pad="6"/>
+<connect gate="B" pin="OUT" pad="7"/>
+<connect gate="C" pin="+IN" pad="10"/>
+<connect gate="C" pin="-IN" pad="9"/>
+<connect gate="C" pin="OUT" pad="8"/>
+<connect gate="D" pin="+IN" pad="12"/>
+<connect gate="D" pin="-IN" pad="13"/>
+<connect gate="D" pin="OUT" pad="14"/>
+<connect gate="P" pin="V+" pad="4"/>
+<connect gate="P" pin="V-" pad="11"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="D" package="SO14">
+<connects>
+<connect gate="A" pin="+IN" pad="3"/>
+<connect gate="A" pin="-IN" pad="2"/>
+<connect gate="A" pin="OUT" pad="1"/>
+<connect gate="B" pin="+IN" pad="5"/>
+<connect gate="B" pin="-IN" pad="6"/>
+<connect gate="B" pin="OUT" pad="7"/>
+<connect gate="C" pin="+IN" pad="10"/>
+<connect gate="C" pin="-IN" pad="9"/>
+<connect gate="C" pin="OUT" pad="8"/>
+<connect gate="D" pin="+IN" pad="12"/>
+<connect gate="D" pin="-IN" pad="13"/>
+<connect gate="D" pin="OUT" pad="14"/>
+<connect gate="P" pin="V+" pad="4"/>
+<connect gate="P" pin="V-" pad="11"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -21228,7 +21198,6 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 </class>
 </classes>
 <parts>
-<part name="IC1" library="linear" deviceset="TL072" device="P"/>
 <part name="R102" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="R101" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
 <part name="R103" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
@@ -21264,16 +21233,8 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <part name="C3" library="rcl" deviceset="C-US" device="050-024X044" value="100n"/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
-<part name="JP1" library="SparkFun" deviceset="M06" device="SIP"/>
-<part name="C1" library="rcl" deviceset="C-US" device="050-024X044" value="100n"/>
-<part name="P+14" library="supply1" deviceset="+5V" device=""/>
-<part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="R1" library="Rebel" deviceset="R-EU_" device="0204/7" value="10K"/>
 <part name="P+15" library="supply1" deviceset="+5V" device=""/>
-<part name="R2" library="Rebel" deviceset="R-EU_" device="0204/7" value="1K"/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0204/7" value="1K"/>
-<part name="R4" library="Rebel" deviceset="R-EU_" device="0204/7" value="1K"/>
-<part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="R301" library="Rebel" deviceset="R-EU_" device="0204/7" value="100K"/>
 <part name="R303" library="Rebel" deviceset="R-EU_" device="0204/7" value="10K"/>
 <part name="Q601" library="transistor-neu-to92" deviceset="*-NPN-" device="TO92-EBC" technology="2N3904"/>
@@ -21331,9 +21292,6 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <part name="D3" library="Rebel" deviceset="DIODE" device="1N4001"/>
 <part name="P-2" library="supply1" deviceset="-12V" device=""/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
-<part name="LED1" library="Rebel" deviceset="LED" device="3MM"/>
-<part name="LED2" library="Rebel" deviceset="LED" device="3MM"/>
-<part name="LED3" library="Rebel" deviceset="LED" device="3MM"/>
 <part name="R205" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
 <part name="R105" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
 <part name="P-3" library="supply1" deviceset="-12V" device=""/>
@@ -21342,11 +21300,10 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <part name="JP3" library="SparkFun" deviceset="M06" device="SIP"/>
 <part name="P+17" library="supply1" deviceset="+5V" device=""/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
-<part name="IC3" library="linear" deviceset="TL072" device="P"/>
-<part name="R5" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
-<part name="R6" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
-<part name="R7" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
-<part name="R8" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
+<part name="R902" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
+<part name="R901" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
+<part name="R903" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
+<part name="R904" library="Rebel" deviceset="R-EU_" device="0204/7" value="51K"/>
 <part name="MULCV" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
@@ -21355,25 +21312,26 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <part name="P+3" library="supply1" deviceset="+12V" device=""/>
 <part name="MULMAN" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="MULMOD" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
-<part name="R9" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
+<part name="R905" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
 <part name="P-5" library="supply1" deviceset="-12V" device=""/>
 <part name="REPIN" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R10" library="Rebel" deviceset="R-EU_" device="0204/7" value="100K"/>
-<part name="R11" library="Rebel" deviceset="R-EU_" device="0204/7" value="10K"/>
+<part name="R801" library="Rebel" deviceset="R-EU_" device="0204/7" value="100K"/>
+<part name="R803" library="Rebel" deviceset="R-EU_" device="0204/7" value="10K"/>
 <part name="GND40" library="supply1" deviceset="GND" device=""/>
 <part name="GND41" library="supply1" deviceset="GND" device=""/>
-<part name="Q1" library="transistor-neu-to92" deviceset="*-NPN-" device="TO92-EBC" technology="2N3904"/>
+<part name="Q801" library="transistor-neu-to92" deviceset="*-NPN-" device="TO92-EBC" technology="2N3904"/>
 <part name="P+6" library="supply1" deviceset="+5V" device=""/>
-<part name="R12" library="Rebel" deviceset="R-EU_" device="0204/7" value="1M"/>
+<part name="R802" library="Rebel" deviceset="R-EU_" device="0204/7" value="1M"/>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
-<part name="D4" library="diode" deviceset="ZENER-DIODE" device="DO35Z10" value="5.1v"/>
+<part name="D4" library="diode" deviceset="ZENER-DIODE" device="DO34-7" value="5.1v"/>
+<part name="IC1" library="linear" deviceset="TL074" device="P"/>
+<part name="GND11" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 </plain>
 <instances>
-<instance part="IC1" gate="A" x="78.74" y="-104.14" rot="MR180"/>
 <instance part="R102" gate="G$1" x="78.74" y="-81.28"/>
 <instance part="R101" gate="G$1" x="55.88" y="-81.28"/>
 <instance part="R103" gate="G$1" x="55.88" y="-101.6"/>
@@ -21381,7 +21339,6 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <instance part="DURCV" gate="G$1" x="12.7" y="-88.9" rot="R180"/>
 <instance part="GND2" gate="1" x="22.86" y="-116.84"/>
 <instance part="P+2" gate="1" x="78.74" y="-91.44"/>
-<instance part="IC1" gate="P" x="78.74" y="-104.14"/>
 <instance part="GND3" gate="1" x="68.58" y="-121.92"/>
 <instance part="P-1" gate="1" x="78.74" y="-116.84"/>
 <instance part="GND1" gate="1" x="40.64" y="-93.98"/>
@@ -21405,22 +21362,13 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <instance part="DURMOD" gate="G$1" x="33.02" y="-101.6" rot="R90"/>
 <instance part="REPMAN" gate="G$1" x="40.64" y="-144.78" rot="R90"/>
 <instance part="REPMOD" gate="G$1" x="33.02" y="-165.1" rot="R90"/>
-<instance part="IC1" gate="B" x="78.74" y="-167.64" rot="MR180"/>
 <instance part="IC2" gate="G$1" x="193.04" y="-88.9"/>
 <instance part="P+7" gate="1" x="165.1" y="-50.8"/>
 <instance part="C3" gate="G$1" x="165.1" y="-106.68"/>
 <instance part="GND9" gate="1" x="149.86" y="-119.38"/>
 <instance part="GND10" gate="1" x="165.1" y="-119.38"/>
-<instance part="JP1" gate="G$1" x="236.22" y="-35.56" rot="R180"/>
-<instance part="C1" gate="G$1" x="134.62" y="-50.8"/>
-<instance part="P+14" gate="1" x="223.52" y="-22.86"/>
-<instance part="GND11" gate="1" x="228.6" y="-50.8"/>
 <instance part="R1" gate="G$1" x="152.4" y="-50.8" rot="MR90"/>
 <instance part="P+15" gate="1" x="152.4" y="-35.56"/>
-<instance part="R2" gate="G$1" x="223.52" y="-137.16" rot="R270"/>
-<instance part="R3" gate="G$1" x="231.14" y="-137.16" rot="R270"/>
-<instance part="R4" gate="G$1" x="238.76" y="-137.16" rot="R270"/>
-<instance part="GND23" gate="1" x="231.14" y="-152.4"/>
 <instance part="R301" gate="G$1" x="-55.88" y="-66.04" rot="MR180"/>
 <instance part="R303" gate="G$1" x="-33.02" y="-50.8" rot="MR270"/>
 <instance part="Q601" gate="G$1" x="302.26" y="-71.12"/>
@@ -21484,15 +21432,12 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 </instance>
 <instance part="GND35" gate="1" x="241.3" y="-2.54"/>
 <instance part="D3" gate="G$1" x="162.56" y="5.08"/>
-<instance part="P-2" gate="1" x="154.94" y="-12.7"/>
+<instance part="P-2" gate="1" x="154.94" y="-5.08"/>
 <instance part="DURMAN" gate="G$2" x="246.38" y="-170.18"/>
 <instance part="DURMOD" gate="G$2" x="256.54" y="-170.18"/>
 <instance part="REPMAN" gate="G$2" x="266.7" y="-170.18"/>
 <instance part="REPMOD" gate="G$2" x="276.86" y="-170.18"/>
 <instance part="GND36" gate="1" x="261.62" y="-185.42"/>
-<instance part="LED1" gate="G$1" x="223.52" y="-124.46"/>
-<instance part="LED2" gate="G$1" x="231.14" y="-124.46"/>
-<instance part="LED3" gate="G$1" x="238.76" y="-124.46"/>
 <instance part="R205" gate="G$1" x="55.88" y="-175.26"/>
 <instance part="R105" gate="G$1" x="55.88" y="-111.76"/>
 <instance part="P-3" gate="1" x="40.64" y="-119.38"/>
@@ -21501,10 +21446,10 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <instance part="JP3" gate="G$1" x="154.94" y="-149.86" rot="R180"/>
 <instance part="P+17" gate="1" x="134.62" y="-137.16"/>
 <instance part="GND30" gate="1" x="132.08" y="-165.1"/>
-<instance part="R5" gate="G$1" x="78.74" y="-15.24"/>
-<instance part="R6" gate="G$1" x="55.88" y="-15.24"/>
-<instance part="R7" gate="G$1" x="55.88" y="-35.56"/>
-<instance part="R8" gate="G$1" x="99.06" y="-38.1"/>
+<instance part="R902" gate="G$1" x="78.74" y="-15.24"/>
+<instance part="R901" gate="G$1" x="55.88" y="-15.24"/>
+<instance part="R903" gate="G$1" x="55.88" y="-35.56"/>
+<instance part="R904" gate="G$1" x="99.06" y="-38.1"/>
 <instance part="MULCV" gate="G$1" x="12.7" y="-22.86" rot="R180"/>
 <instance part="GND31" gate="1" x="22.86" y="-50.8"/>
 <instance part="GND37" gate="1" x="68.58" y="-55.88"/>
@@ -21513,30 +21458,37 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <instance part="P+3" gate="1" x="40.64" y="2.54"/>
 <instance part="MULMAN" gate="G$1" x="40.64" y="-15.24" rot="R90"/>
 <instance part="MULMOD" gate="G$1" x="33.02" y="-35.56" rot="R90"/>
-<instance part="IC3" gate="B" x="78.74" y="-38.1" rot="MR180"/>
-<instance part="R9" gate="G$1" x="55.88" y="-45.72"/>
+<instance part="R905" gate="G$1" x="55.88" y="-45.72"/>
 <instance part="P-5" gate="1" x="40.64" y="-53.34"/>
 <instance part="REPIN" gate="G$1" x="-76.2" y="-162.56" rot="R180"/>
-<instance part="R10" gate="G$1" x="-55.88" y="-165.1" rot="MR180"/>
-<instance part="R11" gate="G$1" x="-33.02" y="-149.86" rot="MR270"/>
+<instance part="R801" gate="G$1" x="-55.88" y="-165.1" rot="MR180"/>
+<instance part="R803" gate="G$1" x="-33.02" y="-149.86" rot="MR270"/>
 <instance part="GND40" gate="1" x="-66.04" y="-180.34" rot="MR0"/>
 <instance part="GND41" gate="1" x="-33.02" y="-180.34"/>
-<instance part="Q1" gate="G$1" x="-35.56" y="-165.1"/>
+<instance part="Q801" gate="G$1" x="-35.56" y="-165.1"/>
 <instance part="P+6" gate="1" x="-33.02" y="-139.7" smashed="yes">
 <attribute name="VALUE" x="-37.846" y="-138.684" size="1.778" layer="96"/>
 </instance>
-<instance part="R12" gate="G$1" x="-45.72" y="-170.18" rot="MR270"/>
+<instance part="R802" gate="G$1" x="-45.72" y="-170.18" rot="MR270"/>
 <instance part="GND42" gate="1" x="-45.72" y="-180.34"/>
 <instance part="D4" gate="G$1" x="215.9" y="7.62" rot="R90"/>
+<instance part="IC1" gate="A" x="78.74" y="-38.1"/>
+<instance part="IC1" gate="B" x="78.74" y="-104.14"/>
+<instance part="IC1" gate="P" x="78.74" y="-104.14"/>
+<instance part="IC1" gate="C" x="78.74" y="-167.64"/>
+<instance part="IC1" gate="D" x="182.88" y="-182.88"/>
+<instance part="MULMAN" gate="G$2" x="236.22" y="-170.18"/>
+<instance part="MULMOD" gate="G$2" x="226.06" y="-170.18"/>
+<instance part="GND11" gate="1" x="165.1" y="-190.5"/>
 </instances>
 <busses>
 </busses>
 <nets>
 <net name="+12V" class="0">
 <segment>
-<pinref part="IC1" gate="P" pin="V+"/>
 <pinref part="P+2" gate="1" pin="+12V"/>
 <wire x1="78.74" y1="-93.98" x2="78.74" y2="-96.52" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="P" pin="V+"/>
 </segment>
 <segment>
 <pinref part="P+1" gate="1" pin="+12V"/>
@@ -21599,8 +21551,8 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <segment>
 <pinref part="GND6" gate="1" pin="GND"/>
 <wire x1="71.12" y1="-170.18" x2="68.58" y2="-170.18" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="B" pin="+IN"/>
 <wire x1="68.58" y1="-182.88" x2="68.58" y2="-170.18" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="C" pin="-IN"/>
 </segment>
 <segment>
 <pinref part="REPCV" gate="G$1" pin="5"/>
@@ -21640,29 +21592,6 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <pinref part="Y1" gate="G$1" pin="2"/>
 <wire x1="149.86" y1="-81.28" x2="152.4" y2="-81.28" width="0.1524" layer="91"/>
 <junction x="149.86" y="-81.28"/>
-</segment>
-<segment>
-<pinref part="JP1" gate="G$1" pin="2"/>
-<pinref part="GND11" gate="1" pin="GND"/>
-<wire x1="231.14" y1="-33.02" x2="228.6" y2="-33.02" width="0.1524" layer="91"/>
-<wire x1="228.6" y1="-33.02" x2="228.6" y2="-48.26" width="0.1524" layer="91"/>
-<pinref part="JP1" gate="G$1" pin="1"/>
-<wire x1="231.14" y1="-30.48" x2="228.6" y2="-30.48" width="0.1524" layer="91"/>
-<wire x1="228.6" y1="-30.48" x2="228.6" y2="-33.02" width="0.1524" layer="91"/>
-<junction x="228.6" y="-33.02"/>
-</segment>
-<segment>
-<pinref part="R3" gate="G$1" pin="2"/>
-<pinref part="GND23" gate="1" pin="GND"/>
-<wire x1="231.14" y1="-149.86" x2="231.14" y2="-144.78" width="0.1524" layer="91"/>
-<pinref part="R4" gate="G$1" pin="2"/>
-<wire x1="231.14" y1="-144.78" x2="231.14" y2="-142.24" width="0.1524" layer="91"/>
-<wire x1="231.14" y1="-144.78" x2="238.76" y2="-144.78" width="0.1524" layer="91"/>
-<wire x1="238.76" y1="-144.78" x2="238.76" y2="-142.24" width="0.1524" layer="91"/>
-<junction x="231.14" y="-144.78"/>
-<pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="223.52" y1="-142.24" x2="223.52" y2="-144.78" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="-144.78" x2="231.14" y2="-144.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R604" gate="G$1" pin="1"/>
@@ -21731,9 +21660,9 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 </segment>
 <segment>
 <pinref part="GND3" gate="1" pin="GND"/>
-<pinref part="IC1" gate="A" pin="+IN"/>
 <wire x1="71.12" y1="-106.68" x2="68.58" y2="-106.68" width="0.1524" layer="91"/>
 <wire x1="68.58" y1="-119.38" x2="68.58" y2="-106.68" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="B" pin="-IN"/>
 </segment>
 <segment>
 <wire x1="215.9" y1="5.08" x2="215.9" y2="0" width="0.1524" layer="91"/>
@@ -21802,6 +21731,14 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <wire x1="256.54" y1="-177.8" x2="246.38" y2="-177.8" width="0.1524" layer="91"/>
 <wire x1="246.38" y1="-177.8" x2="246.38" y2="-175.26" width="0.1524" layer="91"/>
 <junction x="256.54" y="-177.8"/>
+<pinref part="MULMAN" gate="G$2" pin="P$1"/>
+<wire x1="246.38" y1="-177.8" x2="236.22" y2="-177.8" width="0.1524" layer="91"/>
+<wire x1="236.22" y1="-177.8" x2="236.22" y2="-175.26" width="0.1524" layer="91"/>
+<junction x="246.38" y="-177.8"/>
+<pinref part="MULMOD" gate="G$2" pin="P$1"/>
+<wire x1="236.22" y1="-177.8" x2="226.06" y2="-177.8" width="0.1524" layer="91"/>
+<wire x1="226.06" y1="-177.8" x2="226.06" y2="-175.26" width="0.1524" layer="91"/>
+<junction x="236.22" y="-177.8"/>
 </segment>
 <segment>
 <pinref part="JP3" gate="G$1" pin="1"/>
@@ -21812,8 +21749,8 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <segment>
 <pinref part="GND37" gate="1" pin="GND"/>
 <wire x1="71.12" y1="-40.64" x2="68.58" y2="-40.64" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="B" pin="+IN"/>
 <wire x1="68.58" y1="-53.34" x2="68.58" y2="-40.64" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="A" pin="-IN"/>
 </segment>
 <segment>
 <pinref part="MULCV" gate="G$1" pin="5"/>
@@ -21836,12 +21773,12 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <pinref part="MULMOD" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="Q1" gate="G$1" pin="E"/>
+<pinref part="Q801" gate="G$1" pin="E"/>
 <pinref part="GND41" gate="1" pin="GND"/>
 <wire x1="-33.02" y1="-170.18" x2="-33.02" y2="-177.8" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="R12" gate="G$1" pin="2"/>
+<pinref part="R802" gate="G$1" pin="2"/>
 <pinref part="GND42" gate="1" pin="GND"/>
 <wire x1="-45.72" y1="-177.8" x2="-45.72" y2="-175.26" width="0.1524" layer="91"/>
 </segment>
@@ -21855,10 +21792,15 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <wire x1="-71.12" y1="-162.56" x2="-66.04" y2="-162.56" width="0.1524" layer="91"/>
 <junction x="-66.04" y="-162.56"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="D" pin="+IN"/>
+<pinref part="GND11" gate="1" pin="GND"/>
+<wire x1="175.26" y1="-180.34" x2="165.1" y2="-180.34" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="-180.34" x2="165.1" y2="-187.96" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="N$2" class="0">
 <segment>
-<pinref part="IC1" gate="A" pin="-IN"/>
 <pinref part="R101" gate="G$1" pin="2"/>
 <wire x1="66.04" y1="-101.6" x2="71.12" y2="-101.6" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="-81.28" x2="66.04" y2="-81.28" width="0.1524" layer="91"/>
@@ -21872,6 +21814,7 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <pinref part="R105" gate="G$1" pin="2"/>
 <wire x1="60.96" y1="-111.76" x2="66.04" y2="-111.76" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="-111.76" x2="66.04" y2="-101.6" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="B" pin="+IN"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -21883,7 +21826,6 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 </net>
 <net name="N$4" class="0">
 <segment>
-<pinref part="IC1" gate="A" pin="OUT"/>
 <pinref part="R104" gate="G$1" pin="1"/>
 <wire x1="93.98" y1="-104.14" x2="88.9" y2="-104.14" width="0.1524" layer="91"/>
 <pinref part="R102" gate="G$1" pin="2"/>
@@ -21891,17 +21833,18 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <wire x1="83.82" y1="-81.28" x2="88.9" y2="-81.28" width="0.1524" layer="91"/>
 <wire x1="88.9" y1="-81.28" x2="88.9" y2="-104.14" width="0.1524" layer="91"/>
 <junction x="88.9" y="-104.14"/>
+<pinref part="IC1" gate="B" pin="OUT"/>
 </segment>
 </net>
 <net name="-12V" class="0">
 <segment>
-<pinref part="IC1" gate="P" pin="V-"/>
 <wire x1="78.74" y1="-114.3" x2="78.74" y2="-111.76" width="0.1524" layer="91"/>
 <pinref part="P-1" gate="1" pin="-12V"/>
+<pinref part="IC1" gate="P" pin="V-"/>
 </segment>
 <segment>
 <wire x1="160.02" y1="5.08" x2="154.94" y2="5.08" width="0.1524" layer="91"/>
-<wire x1="154.94" y1="5.08" x2="154.94" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="5.08" x2="154.94" y2="-2.54" width="0.1524" layer="91"/>
 <pinref part="P-2" gate="1" pin="-12V"/>
 <pinref part="D3" gate="G$1" pin="A"/>
 </segment>
@@ -21918,7 +21861,7 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <wire x1="40.64" y1="-175.26" x2="40.64" y2="-180.34" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="R9" gate="G$1" pin="1"/>
+<pinref part="R905" gate="G$1" pin="1"/>
 <pinref part="P-5" gate="1" pin="-12V"/>
 <wire x1="50.8" y1="-45.72" x2="40.64" y2="-45.72" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="-45.72" x2="40.64" y2="-50.8" width="0.1524" layer="91"/>
@@ -21970,12 +21913,6 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <junction x="165.1" y="-68.58"/>
 </segment>
 <segment>
-<pinref part="JP1" gate="G$1" pin="3"/>
-<wire x1="231.14" y1="-35.56" x2="223.52" y2="-35.56" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="-35.56" x2="223.52" y2="-25.4" width="0.1524" layer="91"/>
-<pinref part="P+14" gate="1" pin="+5V"/>
-</segment>
-<segment>
 <pinref part="R1" gate="G$1" pin="2"/>
 <pinref part="P+15" gate="1" pin="+5V"/>
 <wire x1="152.4" y1="-45.72" x2="152.4" y2="-38.1" width="0.1524" layer="91"/>
@@ -22011,7 +21948,7 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <pinref part="P+17" gate="1" pin="+5V"/>
 </segment>
 <segment>
-<pinref part="R11" gate="G$1" pin="1"/>
+<pinref part="R803" gate="G$1" pin="1"/>
 <wire x1="-33.02" y1="-142.24" x2="-33.02" y2="-144.78" width="0.1524" layer="91"/>
 <pinref part="P+6" gate="1" pin="+5V"/>
 </segment>
@@ -22028,10 +21965,10 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <pinref part="R203" gate="G$1" pin="2"/>
 <wire x1="66.04" y1="-165.1" x2="60.96" y2="-165.1" width="0.1524" layer="91"/>
 <junction x="66.04" y="-165.1"/>
-<pinref part="IC1" gate="B" pin="-IN"/>
 <pinref part="R205" gate="G$1" pin="2"/>
 <wire x1="60.96" y1="-175.26" x2="66.04" y2="-175.26" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="-175.26" x2="66.04" y2="-165.1" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="C" pin="+IN"/>
 </segment>
 </net>
 <net name="N$8" class="0">
@@ -22050,7 +21987,7 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <wire x1="83.82" y1="-144.78" x2="88.9" y2="-144.78" width="0.1524" layer="91"/>
 <wire x1="88.9" y1="-144.78" x2="88.9" y2="-167.64" width="0.1524" layer="91"/>
 <junction x="88.9" y="-167.64"/>
-<pinref part="IC1" gate="B" pin="OUT"/>
+<pinref part="IC1" gate="C" pin="OUT"/>
 </segment>
 </net>
 <net name="N$10" class="0">
@@ -22067,7 +22004,7 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <label x="233.68" y="-63.5" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R8" gate="G$1" pin="2"/>
+<pinref part="R904" gate="G$1" pin="2"/>
 <wire x1="104.14" y1="-38.1" x2="121.92" y2="-38.1" width="0.1524" layer="91"/>
 <label x="114.3" y="-38.1" size="1.778" layer="95"/>
 </segment>
@@ -22102,22 +22039,12 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <wire x1="218.44" y1="-86.36" x2="241.3" y2="-86.36" width="0.1524" layer="91"/>
 <label x="233.68" y="-86.36" size="1.778" layer="95"/>
 </segment>
-<segment>
-<pinref part="JP1" gate="G$1" pin="5"/>
-<wire x1="231.14" y1="-40.64" x2="215.9" y2="-40.64" width="0.1524" layer="91"/>
-<label x="215.9" y="-40.64" size="1.778" layer="95"/>
-</segment>
 </net>
 <net name="RX" class="0">
 <segment>
 <pinref part="IC2" gate="G$1" pin="PD0(RXD)"/>
 <wire x1="218.44" y1="-83.82" x2="241.3" y2="-83.82" width="0.1524" layer="91"/>
 <label x="233.68" y="-83.82" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP1" gate="G$1" pin="4"/>
-<wire x1="231.14" y1="-38.1" x2="215.9" y2="-38.1" width="0.1524" layer="91"/>
-<label x="215.9" y="-38.1" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$20" class="0">
@@ -22134,14 +22061,6 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <pinref part="Y1" gate="G$1" pin="3"/>
 </segment>
 </net>
-<net name="N$29" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="6"/>
-<pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="231.14" y1="-43.18" x2="134.62" y2="-43.18" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="-43.18" x2="134.62" y2="-48.26" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="DURIN" class="0">
 <segment>
 <pinref part="IC2" gate="G$1" pin="PD2(INT0)"/>
@@ -22156,27 +22075,6 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <pinref part="R403" gate="G$1" pin="2"/>
 <wire x1="-33.02" y1="-109.22" x2="-33.02" y2="-106.68" width="0.1524" layer="91"/>
 <junction x="-33.02" y="-109.22"/>
-</segment>
-</net>
-<net name="N$23" class="0">
-<segment>
-<pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="223.52" y1="-132.08" x2="223.52" y2="-129.54" width="0.1524" layer="91"/>
-<pinref part="LED1" gate="G$1" pin="C"/>
-</segment>
-</net>
-<net name="N$24" class="0">
-<segment>
-<pinref part="R3" gate="G$1" pin="1"/>
-<wire x1="231.14" y1="-132.08" x2="231.14" y2="-129.54" width="0.1524" layer="91"/>
-<pinref part="LED2" gate="G$1" pin="C"/>
-</segment>
-</net>
-<net name="N$25" class="0">
-<segment>
-<pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="238.76" y1="-132.08" x2="238.76" y2="-129.54" width="0.1524" layer="91"/>
-<pinref part="LED3" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$26" class="0">
@@ -22297,20 +22195,6 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <label x="233.68" y="-109.22" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="CMBOUT" class="0">
-<segment>
-<pinref part="IC2" gate="G$1" pin="PB2(SS/OC1B)"/>
-<wire x1="218.44" y1="-111.76" x2="241.3" y2="-111.76" width="0.1524" layer="91"/>
-<label x="233.68" y="-111.76" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="MODEA" class="0">
-<segment>
-<pinref part="IC2" gate="G$1" pin="PD6(AIN0)"/>
-<wire x1="218.44" y1="-99.06" x2="241.3" y2="-99.06" width="0.1524" layer="91"/>
-<label x="233.68" y="-99.06" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="N$31" class="0">
 <segment>
 <pinref part="R401" gate="G$1" pin="2"/>
@@ -22405,9 +22289,7 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="PB4(MISO)"/>
-<wire x1="231.14" y1="-116.84" x2="218.44" y2="-116.84" width="0.1524" layer="91"/>
-<wire x1="231.14" y1="-121.92" x2="231.14" y2="-116.84" width="0.1524" layer="91"/>
-<pinref part="LED2" gate="G$1" pin="A"/>
+<wire x1="241.3" y1="-116.84" x2="218.44" y2="-116.84" width="0.1524" layer="91"/>
 <label x="233.68" y="-116.84" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -22419,9 +22301,7 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="PB5(SCK)"/>
-<wire x1="218.44" y1="-119.38" x2="238.76" y2="-119.38" width="0.1524" layer="91"/>
-<wire x1="238.76" y1="-121.92" x2="238.76" y2="-119.38" width="0.1524" layer="91"/>
-<pinref part="LED3" gate="G$1" pin="A"/>
+<wire x1="218.44" y1="-119.38" x2="241.3" y2="-119.38" width="0.1524" layer="91"/>
 <label x="233.68" y="-119.38" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -22432,14 +22312,10 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <label x="139.7" y="-154.94" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="C1" gate="G$1" pin="2"/>
-<wire x1="134.62" y1="-60.96" x2="134.62" y2="-55.88" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="PC6(/RESET)"/>
-<wire x1="134.62" y1="-60.96" x2="152.4" y2="-60.96" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="152.4" y1="-60.96" x2="170.18" y2="-60.96" width="0.1524" layer="91"/>
 <wire x1="152.4" y1="-60.96" x2="152.4" y2="-55.88" width="0.1524" layer="91"/>
-<junction x="152.4" y="-60.96"/>
 <label x="157.48" y="-60.96" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -22451,53 +22327,51 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="PB3(MOSI/OC2)"/>
-<wire x1="218.44" y1="-114.3" x2="223.52" y2="-114.3" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="-114.3" x2="223.52" y2="-121.92" width="0.1524" layer="91"/>
-<pinref part="LED1" gate="G$1" pin="A"/>
 <label x="233.68" y="-114.3" size="1.778" layer="95"/>
+<wire x1="218.44" y1="-114.3" x2="241.3" y2="-114.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$16" class="0">
 <segment>
-<pinref part="R6" gate="G$1" pin="2"/>
+<pinref part="R901" gate="G$1" pin="2"/>
 <wire x1="66.04" y1="-35.56" x2="71.12" y2="-35.56" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="-15.24" x2="66.04" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="-15.24" x2="66.04" y2="-35.56" width="0.1524" layer="91"/>
 <junction x="66.04" y="-15.24"/>
-<pinref part="R5" gate="G$1" pin="1"/>
+<pinref part="R902" gate="G$1" pin="1"/>
 <wire x1="66.04" y1="-15.24" x2="73.66" y2="-15.24" width="0.1524" layer="91"/>
-<pinref part="R7" gate="G$1" pin="2"/>
+<pinref part="R903" gate="G$1" pin="2"/>
 <wire x1="66.04" y1="-35.56" x2="60.96" y2="-35.56" width="0.1524" layer="91"/>
 <junction x="66.04" y="-35.56"/>
-<pinref part="IC3" gate="B" pin="-IN"/>
-<pinref part="R9" gate="G$1" pin="2"/>
+<pinref part="R905" gate="G$1" pin="2"/>
 <wire x1="60.96" y1="-45.72" x2="66.04" y2="-45.72" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="-45.72" x2="66.04" y2="-35.56" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="A" pin="+IN"/>
 </segment>
 </net>
 <net name="N$17" class="0">
 <segment>
-<pinref part="R6" gate="G$1" pin="1"/>
+<pinref part="R901" gate="G$1" pin="1"/>
 <wire x1="50.8" y1="-15.24" x2="45.72" y2="-15.24" width="0.1524" layer="91"/>
 <pinref part="MULMAN" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$18" class="0">
 <segment>
-<pinref part="R8" gate="G$1" pin="1"/>
+<pinref part="R904" gate="G$1" pin="1"/>
 <wire x1="93.98" y1="-38.1" x2="88.9" y2="-38.1" width="0.1524" layer="91"/>
-<pinref part="R5" gate="G$1" pin="2"/>
+<pinref part="R902" gate="G$1" pin="2"/>
 <wire x1="88.9" y1="-38.1" x2="86.36" y2="-38.1" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="-15.24" x2="88.9" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="88.9" y1="-15.24" x2="88.9" y2="-38.1" width="0.1524" layer="91"/>
 <junction x="88.9" y="-38.1"/>
-<pinref part="IC3" gate="B" pin="OUT"/>
+<pinref part="IC1" gate="A" pin="OUT"/>
 </segment>
 </net>
 <net name="N$19" class="0">
 <segment>
 <wire x1="38.1" y1="-35.56" x2="50.8" y2="-35.56" width="0.1524" layer="91"/>
-<pinref part="R7" gate="G$1" pin="1"/>
+<pinref part="R903" gate="G$1" pin="1"/>
 <pinref part="MULMOD" gate="G$1" pin="2"/>
 </segment>
 </net>
@@ -22511,10 +22385,10 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 </net>
 <net name="N$39" class="0">
 <segment>
-<pinref part="R10" gate="G$1" pin="2"/>
+<pinref part="R801" gate="G$1" pin="2"/>
 <wire x1="-38.1" y1="-165.1" x2="-45.72" y2="-165.1" width="0.1524" layer="91"/>
-<pinref part="Q1" gate="G$1" pin="B"/>
-<pinref part="R12" gate="G$1" pin="1"/>
+<pinref part="Q801" gate="G$1" pin="B"/>
+<pinref part="R802" gate="G$1" pin="1"/>
 <wire x1="-45.72" y1="-165.1" x2="-50.8" y2="-165.1" width="0.1524" layer="91"/>
 <junction x="-45.72" y="-165.1"/>
 </segment>
@@ -22522,7 +22396,7 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <net name="N$41" class="0">
 <segment>
 <pinref part="REPIN" gate="G$1" pin="3"/>
-<pinref part="R10" gate="G$1" pin="1"/>
+<pinref part="R801" gate="G$1" pin="1"/>
 <wire x1="-71.12" y1="-165.1" x2="-60.96" y2="-165.1" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -22540,13 +22414,18 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 </net>
 <net name="REPIN" class="0">
 <segment>
-<pinref part="Q1" gate="G$1" pin="C"/>
+<pinref part="Q801" gate="G$1" pin="C"/>
 <wire x1="-33.02" y1="-157.48" x2="-33.02" y2="-160.02" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="-157.48" x2="-15.24" y2="-157.48" width="0.1524" layer="91"/>
 <label x="-22.86" y="-157.48" size="1.778" layer="95"/>
-<pinref part="R11" gate="G$1" pin="2"/>
+<pinref part="R803" gate="G$1" pin="2"/>
 <wire x1="-33.02" y1="-157.48" x2="-33.02" y2="-154.94" width="0.1524" layer="91"/>
 <junction x="-33.02" y="-157.48"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="PD4(XCK/T0)"/>
+<wire x1="218.44" y1="-93.98" x2="241.3" y2="-93.98" width="0.1524" layer="91"/>
+<label x="233.68" y="-93.98" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="REPOUT" class="0">
@@ -22554,6 +22433,22 @@ http://www.ee.siue.edu/~alozows/library/datasheets/BFR96.pdf</description>
 <pinref part="R701" gate="G$1" pin="1"/>
 <label x="261.62" y="-139.7" size="1.778" layer="95"/>
 <wire x1="289.56" y1="-139.7" x2="261.62" y2="-139.7" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="PB2(SS/OC1B)"/>
+<wire x1="218.44" y1="-111.76" x2="241.3" y2="-111.76" width="0.1524" layer="91"/>
+<label x="233.68" y="-111.76" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$11" class="0">
+<segment>
+<pinref part="IC1" gate="D" pin="-IN"/>
+<wire x1="175.26" y1="-185.42" x2="172.72" y2="-185.42" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="-185.42" x2="172.72" y2="-190.5" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="-190.5" x2="193.04" y2="-190.5" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="-190.5" x2="193.04" y2="-182.88" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="D" pin="OUT"/>
+<wire x1="193.04" y1="-182.88" x2="190.5" y2="-182.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
