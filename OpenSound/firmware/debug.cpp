@@ -2,6 +2,8 @@
 #include "application.h"
 #include <string.h>
 
+Debug debug;
+
 #if 0
 void log_print_(int level, int line, const char *func, const char *file, const char *msg, ...){
   // defined in services/src/debug.c
@@ -39,5 +41,7 @@ void assert_failed(const char* msg, const char* location, int line){
   p = stpncpy(p, location, 24);
   p = stpcpy(p, (const char*)" line ");
   p = stpcpy(p, sitoa(line, 10));
+#ifdef SERIAL_DEBUG
   Serial.println(buffer);
+#endif // SERIAL_DEBUG
 }

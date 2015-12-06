@@ -158,11 +158,6 @@ r1=330, r2=1000, v=5.14
 
 --------------------------------------------------------------------------
 
-change 0603 1uF footprint to 1206
-add 1206 10uF footprint
-
---------------------------------------------------------------------------
-
 Transformer board and bus boards ordered 11/3 2015
 
 --------------------------------------------------------------------------
@@ -202,12 +197,355 @@ INA137 gain -6dB (+6dB possible) (farnell £1.14 @100)
 
 --------------------------------------------------------------------------
 
+PowerBoard todo
+- change 0603 1uF footprint to 1206
+/ add 1206 10uF footprint
+/ correct vreg resistor values
+/ correct LED resistor values
+
+--------------------------------------------------------------------------
+
 TransformerBoard
 / add earth connection point
 / update transformer devices with earth
 
+output capacitors: change 0603 1u to 100n, use 100nF plus 10uF ceramic film
+
 --------------------------------------------------------------------------
 
 25/3 ordered PowerBoardRev02 stencil without smt electrolytic capacitors
+
+--------------------------------------------------------------------------
+
+Rebel Base : psu + 2 bus boards
+
+--------------------------------------------------------------------------
+
+Schroff Article number: 24561-052
+Mechanical cover for components
+For pushing into the groove of clear horizontal rails 
+(top/bottom panels)
+
+--------------------------------------------------------------------------
+
+Bridge rectifier with 12v AC input
+http://hyperphysics.phy-astr.gsu.edu/hbase/electronic/rectct.html#c3
+(calculations based on US 60Hz mains)
+
+At 500mA (30R load), C=2200uF, 15v peak input voltage,
+DC output 14.05V, ripple 3.88% / 550mV
+
+With 4700uF
+DC output 14.55V, ripple 1.75% / 255mV
+(should be capable of 1A)
+
+(actual peak voltage for 12v AC is 12*1.414 = 17v)
+R=0.030 C=4700 Vp=17v
+Vdc=16.5v Vr(rms)=290mV
+Voltage drop 1.2v, ripple neg 0.29V: Vdc min 15.51v / 14.9V at vregs
+
+R=0.030 C=2200 Vp=17v
+Vdc=15.9V Vr(rms)=618mV
+Voltage drop 1.2v, ripple neg 0.62V: Vdc min 14.0V / 13.48V at vregs (LM317 Vdo=1.2V)
+
+MAL203850222E3 capacitor
+
+2.1mm dc socket
+
+18VA 1600mA 12v AC supply
+http://uk.rs-online.com/web/p/plug-in-power-supply/7300237/
+
+Half-wave rectifier 
+Use 1N5404 3A diodes to cope with peak current
+
+Full wave rectifier:
+Vripple   =   Iload / 2 f C
+
+Half wave rectifier:
+Vripple   =   Iload / f C
+
+Vdc = Vp (1 - (1 / (100 R C))) (for EU 50Hz mains, half-rectified)
+Vr = Vp / ( 100 * sqrt(3 R C))
+
+peak time: less than 1/4 of period
+
+Falstad simulation
+4700uF, 30R load (500mA)
+Vdc max=16.2v, min=14.23v
+peak current through diode 11.6A
+
+4700uF, 60R load (250mA)
+Vdc max=16.21v, min=15.17v
+peak current through diode 8.12A
+
+2200uF, 60R load (250mA)
+Vdc max=16.22v, min=14.13v
+peak current through diode 5.61A
+
+10000uF, 15R load (1A)
+Vdc max=16.18v, min=14.32v
+peak current through diode 23.94A
+
+1N4004 surge overload rating 30A peak
+Non-Repetitive Peak Forward Surge Current 8.3ms
+single half sine-wave superimposed on rated load 
+
+4700uF safe to at least 500mA, 2200uF safe to at least 250mA
+
+dia/height/pitch
+
+ECA-1VM472 4700uF 35v  18/36/7.5
+ECA-1EM472 4700uF 25v 
+MCGPR35V478M18X36 4700uF 35v 18/36/7.5
+MAL203850222E3 2200uF 35v 16/25/7.5
+
+--------------------------------------------------------------------------
+
+mini case with 12v AC power
+42hp width = 213.36mm
+(hp times 5.08)
+
+3u height = 128.5mm
+(u times 42.8)
+
+Doepfer Beauty case 32hp (black with psu EUR 90, raw without EUR 65) (dv247, raw £54.50 incl)
+
+rails Schroff 42hp 34560342 (rs £4.72 each) robust type H-LD, 
+should be light type L-KD 34560-142
+threaded insert
+thonk http://www.thonk.co.uk/shop/caserail/
+
+http://www.ebay.co.uk/itm/351338091939
+Small: 23cmX17cmX12cm outside, 21.5cmX15.5cmX10.5 inside
+(1mm each side extra width, 13mm each side extra height)
+Screw rails straight into sides.
+Screw busboards into base with 2mm nylon washers.
+Drill hole for AC power jack into side.
+
+214mm rails + 2x2mm lining + 2x2mm mounts = 222mm inside width
+129mm rails + 4x5.08=20.32mm + 2x2mm lining = 154mm inside height
+required dimensions 222mm x 155mm x 105mm (65mm bottom, 40mm lid)
+
+--------------------------------------------------------------------------
+
+midi case
+560x280x100 fits 2x 140HP
+http://cpc.farnell.com/american-audio/ac-accessory-case/flight-case-universal-foam-lined/dp/DP30291
+
+--------------------------------------------------------------------------
+
+detachable lid, removable hinges
+http://www.flightcasehardware.co.uk/index.php?route=product/category&path=60_93_94
+
+--------------------------------------------------------------------------
+
+maxi case
+1M 196HP
+
+--------------------------------------------------------------------------
+
+Improved ripple rejection:
+add 10uF capacitor from LM337 adj pin to gnd
+
+--------------------------------------------------------------------------
+
+Join two Schroff side-panels with part 21101-954
+
+--------------------------------------------------------------------------
+
+Rectifier breadboard
+
+100mA 2200uF
++15v 15.4 / 14.2 1.12vpp ripple
++12v 12.5 / 11.8 0.7vpp ripple
+
+-15v -14.4 / -15.4 1.0vpp ripple
+-12v -11.8 / -12.5 0.7vpp ripple
+
++15v 15.5 / 14.5 1.0vpp ripple
++5v  5.36 / 4.88 0.48vpp ripple
+
+--------------------------------------------------------------------------
+
+Schroff side panel connection 21101-954
+
+--------------------------------------------------------------------------
+
+Plastic rivets
+
+PowerBoard mounting holes: 3.2mm
+
+Duratool DTRDF-137-010 for hole 3.2mm panel thickness 1-4.5mm
+Rihco MMB-125-XX hole 3.10-3.22mm panel thickness 2.0-2.5mm
+Rihco DF-137-010 hole 3.2mm panel thickness 1.0-4.5
+
+Snap Rivet Rihco SR-3055 hole 3.1-3.2mm panel thickness 3-4mm
+Duratool DTRSR3045W 3mm × 4.5mm
+
+http://hiq.co.nz/datapagesplastic/web11p-rivets.pdf
+
+Push in fastener PIF346
+
+Look for mini rivets
+
+--------------------------------------------------------------------------
+
+PowerKitPTH
+4700uF 7.5mm 18mm
+
+150mm x 44.12mm
+mounting holes:
+5x 1.3 inches horizontally
+2x 1.5 inches vertically
+
+--------------------------------------------------------------------------
+
+PowerKitPTH measurements (2x 4700uF, 10uF, 100nF)
+
+OLD PSU
+No Load:
++12v ~35mV noise
+-12v ~20mV noise
++5v  ~40mV noise
+ 
+75 Ohm
++12v ~380mV ripple
+ 
+60 Ohm
++15v ~700mV ripple
++12v ~500mV ripple
+-12v ~620mV ripple
++5v
+ 
+48 Ohm
++15v ~720mV ripple
++12v ~640mV ripple
+-15v ~820mV ripple
+-12v ~760mV ripple
++5v ~35mV noise
+ 
+24 Ohm
++12v
+-12v
++5v ~35mV noise
+ 
+NEW PSU
+No Load:
++12v ~35mV noise
+-12v ~20mV noise
++5v  ~40mV noise
+ 
+75 Ohm
++12v ~35mV noise
+ 
+60 Ohm
++12v ~35mV noise
+-12v ~35mV noise
++5v ~35mV noise
+ 
+48 Ohm
++12v ~250mV ripple
+-12v ~300mV ripple
++5v ~35mV noise
+ 
+36 Ohm
++12v ~620mV ripple
+ 
+24 Ohm
++12v ~1V ripple
++5v ~35mV noise
+
+12 Ohm
++5v ~35mV noise
+
+BOTH - & + 12V ON 48 Ohm/45 Ohm
++12v ~450mV ripple 45R
+-12v ~380mV ripple 48R
+
+--------------------------------------------------------------------------
+
+23/4 2015
+
+Hello, I'm Martin Klang, I run a small music electronics company in London called Rebel Technology.
+
+We are looking for a manufacturer to make us a small aluminium carry case. The inside dimensions should be 21.5cm X 15.5cm X 10.5cm. The bottom side should have 4 rubber or plastic feet, and the lid should be detachable.
+
+Is this something you can help us with? I look forward to your reply!
+
+---
+
+Guangzhou Dingyu Audio Equipment Factory, Angela Guo
+Guangzhou Lucky Aluminum Case Limited
+Add:Xu Bian Industrial .Dan Zao Town. Nan Hai District . Foshan City
+Phone : +86-139-2500-4056
+Skype : luckyaluminumcase
+Email : sales@luckyaluminumcase.com
+Website: http://www.luckycase.en.alibaba.com
+- us$7.5/pcs, MOQ 200, shipping 200
+- todo: send exact inside dimensions, bottom and lid
+- you can me the inner size you need . also the size for lid and bottom . like 21.5cm X 15.5cm X 10.5cm(4.5cm lid/ 6cm bottom)
+
+---
+
+Chengdu Letuo Technology Co., Ltd, Cherry
+- sent photo
+- The unit price is $15.98/units,MOQ is 100 units.
+
+---
+
+Wingmore Trade (Shanghai) Limited, Vicky Liu
+
+---
+
+Qingdao ZhongyYaDa Metal Products Co., Ltd.
+
+---
+
+Changzhou Chuang Jin Case Co., Ltd, Belle Mo
+http://www.cncjcase.com/
+- unattractive case
+- 200pieces FOB(Shanghai/Ningbo ): $3.9,delivery date:25 days after received
+
+---
+
+Vivian, eBay info.shanghaipop@gmail.com
+- requested quote for 20 pcs
+
+--------------------------------------------------------------------------
+
+top strip:
+- branding
+- power plug + led
+- 3ch mixer
+- 3way multi
+- square wave lfo, 40-240 bpm
+- rectifier+caps
+
+--------------------------------------------------------------------------
+
+TransformerBoard
+
+VTX-214-010-115 for -15v
+VTX-214-020-115 for +15v
+
+--------------------------------------------------------------------------
+
+Perspex
+- ebay seller display_pro
+- http://www.plasticsheets.com/
+
+Opal 030, Opal 050, frosted white, frosted clear, frosted opal?
+
+cutlasercut London Battersea SW8 4UB
+http://www.cutlasercut.com/laser-cutting-materials-laser-engraving-materials
+
+ordered from plasticsheets.com 13/04 2015
+Frosted Perspex Sheet Orange 3mm 450x400mm
+Frosted Perspex Sheet Clear 3mm 450x400mm
+Frosted Perspex Sheet White 3mm 450x400mm
+Tinted Perspex Sheet Light Grey 3mm 450x400mm
+
+ordered from plasticsheets.com 10/9 2015
+5x Frosted Perspex Sheet White 3mm 500x500mm
 
 --------------------------------------------------------------------------

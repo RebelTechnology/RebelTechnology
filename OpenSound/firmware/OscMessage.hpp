@@ -1,8 +1,9 @@
-#ifndef _OSC_MESSAGE_H_
-#define _OSC_MESSAGE_H_
+#ifndef __OscMessage_h__
+#define __OscMessage_h__
 
 #include <inttypes.h>
 #include <string.h>
+#include "application.h"
 #include "opensound.h"
 
 #if 0
@@ -203,6 +204,10 @@ public:
 
   void setAddress(const char* a){
     prefixLength = strnlen(a, OSC_MESSAGE_MAX_PREFIX_SIZE-5)+1;
+#if 1 // reset prefix and data
+    types = NULL;
+    dataLength = 0;
+#else // copy over
     if(types != NULL){
       uint8_t pos = prefixLength;
       while(pos & 3) pos++; // pad to 4 bytes
@@ -210,6 +215,7 @@ public:
       int sz = min(sizeof(prefix)-(types-prefix), sizeof(prefix)-pos);
       memmove(prefix+pos, types, sz-1);
     }
+#endif
     //    memset(address, 0, sizeof(address));
     memcpy(prefix, a, prefixLength);
     while(prefixLength & 3) // pad to 4 bytes
@@ -319,4 +325,4 @@ public:
   }
 };
 
-#endif /* _OSC_MESSAGE_H_ */
+#endif /*  __OscMessage_h__ */

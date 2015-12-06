@@ -30,6 +30,7 @@ uint8_t UdpServer::begin(uint16_t port, network_interface_t nif)
                 flush();
                 _port = port;
                 _nif = nif;
+		bound = 1;
             }
 	}
     return bound;

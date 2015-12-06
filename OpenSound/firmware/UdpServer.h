@@ -53,8 +53,5 @@ public:
   virtual size_t printTo(Print& p) const;
 
   using Print::write;
-
-  virtual void udp_recv_packet(uint8_t* buffer, int size){}
-
 };
 #endif /* __UDP_SERVER_H */

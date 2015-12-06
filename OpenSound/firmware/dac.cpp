@@ -1,49 +1,75 @@
 #include "dac.h"
 #include "application.h"
 
-const int DAC_CS_PIN        = A2;
-const int DAC_SCK_PIN       = A3;
-const int DAC_SDI_PIN       = A5;
+// #define PHOTON_DAC
 
-#define DAC_A_B_BIT   (1<<7) // 0=DAC A, 1=DAC b
-#define DAC_BUF_BIT   (1<<6)
-#define DAC_GA_BIT    (1<<5) // 0=2x, 1=1x gain
-#define DAC_SHDN_BIT  (1<<4) // 0=shutdown, 1=normal
-// uint8_t TRANSFER_BITS = (DAC_SHDN_BIT | DAC_GA_BIT | DAC_BUF_BIT);
-uint8_t TRANSFER_BITS = (DAC_SHDN_BIT | DAC_BUF_BIT);
+void dac_init() {
+#ifdef PHOTON_DAC
+  pinMode(DAC1, OUTPUT);
+  pinMode(DAC2, OUTPUT);
+#else
+  // DAC pins are PA4 and PA5
+  GPIO_InitTypeDef GPIO_InitStructure;
+  GPIO_StructInit(&GPIO_InitStructure);
+  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_4;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
+  GPIO_Init(GPIOA, &GPIO_InitStructure);
+  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_5;
+  GPIO_Init(GPIOA, &GPIO_InitStructure);
 
-static void spi_transfer(uint8_t working) {
-  // function to actually bit shift the data byte out
-  for(int i = 1; i <= 8; i++) {
-    if(working > 127)
-      digitalWrite (DAC_SDI_PIN, HIGH); // if it is a 1 (ie. B1XXXXXXX), set the master out pin high
-    else
-      digitalWrite (DAC_SDI_PIN, LOW); // if it is not 1 (ie. B0XXXXXXX), set the master out pin low
-    digitalWrite (DAC_SCK_PIN, HIGH); // set clock high, the pot IC will read the bit into its register
-    working = working << 1;
-    digitalWrite(DAC_SCK_PIN, LOW); // set clock low, the pot IC will stop reading and prepare for the next iteration (next significant bit
-  }
+  DAC_InitTypeDef DAC_InitStructure;
+
+  /* DAC Periph clock enable */
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_DAC, ENABLE);
+  DAC_DeInit();
+  /* DAC channel1 & channel2 Configuration */
+  DAC_InitStructure.DAC_Trigger = DAC_Trigger_None;
+  DAC_InitStructure.DAC_WaveGeneration = DAC_WaveGeneration_None;
+  DAC_InitStructure.DAC_OutputBuffer = DAC_OutputBuffer_Enable;
+  DAC_Init(DAC_Channel_1, &DAC_InitStructure);
+  DAC_Init(DAC_Channel_2, &DAC_InitStructure);
+
+  /* Enable DAC Channel1 */
+  DAC_Cmd(DAC_Channel_1, ENABLE);
+  /* Enable DAC Channel2 */
+  DAC_Cmd(DAC_Channel_2, ENABLE);
+
+  /* Start DAC conversion by software */
+  DAC_SoftwareTriggerCmd(DAC_Channel_1, ENABLE);
+  DAC_SoftwareTriggerCmd(DAC_Channel_2, ENABLE);
+  DAC_SetDualChannelData(DAC_Align_12b_R, 0x800, 0x800);
+#endif
 }
 
-static void spi_out(uint8_t high, uint8_t low) {
-  digitalWrite(DAC_CS_PIN, LOW);
-  spi_transfer(high);
-  spi_transfer(low);
-  digitalWrite(DAC_CS_PIN, HIGH);
+void dac_set_a(uint16_t value){
+  value = 4095 - max(0, min(4095, value));
+  //  pinMode(DAC1, OUTPUT);
+#ifdef PHOTON_DAC
+  analogWrite(DAC1, value); 
+#else
+  /* Set the DAC Channel1 data */
+  DAC_SetChannel1Data(DAC_Align_12b_R, value);
+#endif
 }
 
-void spi_init() {
-  pinMode(DAC_CS_PIN, OUTPUT); // set CS pin to output
-  pinMode(DAC_SCK_PIN, OUTPUT); // set SCK pin to output
-  pinMode(DAC_SDI_PIN, OUTPUT); // set MOSI pin to output
-  digitalWrite(DAC_CS_PIN, HIGH); // hold slave select 1 pin high, so that chip is not selected to begin with
+void dac_set_b(uint16_t value){
+  value = 4095 - max(0, min(4095, value));
+  //  pinMode(DAC2, OUTPUT);
+#ifdef PHOTON_DAC
+  analogWrite(DAC2, value); 
+#else
+  /* Set the DAC Channel2 data */
+  DAC_SetChannel2Data(DAC_Align_12b_R, value);
+#endif
 }
 
-void dac_set_a(int value){
-  spi_out(TRANSFER_BITS | (value >> 8 & 0xf), value & 0xff);
+void dac_set_ab(uint16_t a, uint16_t b){
+  a = 4095 - max(0, min(4095, a));
+  b = 4095 - max(0, min(4095, b));
+#ifdef PHOTON_DAC
+  analogWrite(DAC1, a); 
+  analogWrite(DAC2, b); 
+#else
+  DAC_SetDualChannelData(DAC_Align_12b_R, a, b);
+#endif
 }
-
-void dac_set_b(int value){
-  spi_out(TRANSFER_BITS | DAC_A_B_BIT | (value >> 8 & 0xf), value & 0xff);
-}
-
