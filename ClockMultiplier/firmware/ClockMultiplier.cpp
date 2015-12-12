@@ -8,9 +8,12 @@
 #include <avr/interrupt.h>
 #include "device.h"
 #include "adc_freerunner.h"
-#include "DeadbandController.h"
-#include "TapTempo.hpp"
 
+/* swapped dur and mul so that order from top is:
+   Modulate (pulse width modulation)
+   Multiply
+   Repeat
+*/
 inline bool mulIsHigh(){
   return !(CLOCKMULTIPLIER_MULIN_PINS & _BV(CLOCKMULTIPLIER_MULIN_PIN));
 }
@@ -46,15 +49,16 @@ public:
   inline void clock(){
     if(++pos == riseMark){
       on();
-    }else if(pos == fallMark){
+    }else if(pos >= fallMark){
       off();
+      pos = 0;
     }
   }
   void setMultiplier(uint16_t value){
-    value /= 64;
+    value >>= 6; // value /= 64;
     if(value != muls){
       riseMark = riseMark*muls/value;
-      fallMark = fallMark*muls/value
+      fallMark = fallMark*muls/value;
       muls = value;
     }
   }
@@ -93,7 +97,7 @@ public:
     reset();
   }
   inline void reset(){
-    riseMark = fallMark = pos = 0;
+    period = fallMark = pos = 0;
     off();
   }
   inline void rise(){
@@ -143,11 +147,11 @@ public:
 
 class ClockRepeater {
 public:
-  ClockRepeater(ClockMultiplier& cm):
-    multiplier(cm){
+  ClockRepeater(uint16_t* p):
+    period(p){
     reset();
   }
-  ClockMultiplier& multiplier;
+  uint16_t* period;
   uint16_t riseMark;
   uint16_t fallMark;
   uint8_t reps;
@@ -155,12 +159,11 @@ public:
   volatile uint16_t pos;
   volatile bool running;
   inline void start(){
-    pos = 0;
+    on();
     times = 0;
-    riseMark = multiplier.getPeriod();
-    //    riseMark = multiplier.riseMark;
-    fallMark = riseMark << 1;
-    //    fallMark = multiplier.fallMark;
+    riseMark = *period;
+    pos = riseMark;
+    fallMark = riseMark << 1; // riseMark * 2;
     running = true;
   }
   inline void stop(){
@@ -172,16 +175,15 @@ public:
   }
   inline void rise(){
     start();
-    on();
   }
   inline void fall(){
-    stop();
+    //    stop();
   }
   inline void clock(){
     if(running){
       if(++pos == riseMark){
 	on();
-      }else if(pos == fallMark){
+      }else if(pos >= fallMark){
 	off();
 	pos = 0;
 	if(times++ >= reps)
@@ -190,7 +192,7 @@ public:
     }
   }
   void setRepetitions(uint16_t value){
-    reps = value / 64;
+    reps = value >> 6; // value / 64;
     // value /= 64;
     // if(value != reps){
     //   reps = value;
@@ -213,8 +215,8 @@ public:
     printInteger(fallMark);
     printString(", pos ");
     printInteger(pos);
-    printString(", value ");
-    printInteger(value);
+    printString(", period ");
+    printInteger(*period);
     if(running)
       printString(" running");
     else
@@ -229,7 +231,7 @@ public:
 
 ClockMultiplier mul;
 ClockDuration dur;
-ClockRepeater rep(mul);
+ClockRepeater rep(&mul.riseMark);
 
 void reset(){
   mul.reset();
@@ -278,14 +280,8 @@ void setup(){
   // enable timer 0 overflow interrupt
   TIMSK0 |= _BV(TOIE0);
 
-//   dividerControl.range = 33;
-  dividerControl.value = -1;
-//   counterControl.range = 33;
-  counterControl.value = -1;
-
   setup_adc();
   reset();
-  updateMode();
 
   sei();
 
@@ -300,77 +296,63 @@ ISR(TIMER0_OVF_vect){
   mul.clock();
   dur.clock();
   rep.clock();
-  tempo.clock();
 }
 
 /* INT0/PD2 interrupt */
 ISR(INT0_vect){
-  if(mulIsHigh()){
-    mul.rise();
-    tempo.trigger(true);
-  }else{
-    mul.fall();
-    tempo.trigger(false);
-  }
-}
-
-/* INT1/PD3 interrupt */
-ISR(INT1_vect){
   if(durIsHigh())
     dur.rise();
   else
     dur.fall();
 }
 
+/* INT1/PD3 interrupt */
+ISR(INT1_vect){
+  if(mulIsHigh()){
+    mul.rise();
+  }else{
+    mul.fall();
+  }
+}
+
 void loop(){
-  mul.setMultiplier(getAnalogValue(MULCV_ADC_CHANNEL));
+  // todo: use StiffValue for hysteresis
   dur.setDuration(getAnalogValue(DURCV_ADC_CHANNEL));
+  mul.setMultiplier(getAnalogValue(MULCV_ADC_CHANNEL));
   rep.setRepetitions(getAnalogValue(REPCV_ADC_CHANNEL));
 
-  static int durstate = 0;
-  int isdur = durIsHigh();
-  if(isdur != durstate){
-    if(isdur)
-      dur.rise();
+  static int repstate = 0;
+  int isrep = repIsHigh();
+  if(isrep != repstate){
+    if(isrep)
+      rep.rise();
     else
-      dur.fall();
-    durstate = isdur;
+      rep.fall();
+    repstate = isrep;
   }
+
 #ifdef SERIAL_DEBUG
   if(serialAvailable() > 0){
     switch(serialRead()){
+    case ',':
+      CLOCKMULTIPLIER_DURIN_PORT ^= _BV(CLOCKMULTIPLIER_DURIN_PIN);
+      INT0_vect();
+      break;
     case '.':
-      CLOCKMULTIPLIER_CLOCK_PORT ^= _BV(CLOCKMULTIPLIER_CLOCK_PIN);
+      CLOCKMULTIPLIER_MULIN_PORT ^= _BV(CLOCKMULTIPLIER_MULIN_PIN);
       INT1_vect();
       break;
-    case ':':
-      CLOCKMULTIPLIER_RESET_PORT &= ~_BV(CLOCKMULTIPLIER_RESET_PIN);
-      TIMER0_OVF_vect();
-      CLOCKMULTIPLIER_RESET_PORT |= _BV(CLOCKMULTIPLIER_RESET_PIN);
-      TIMER0_OVF_vect();
-      break;
-    }      
-    printString("div[");
-    divider.dump();
-    printString("] ");
-    printString("cnt[");
-    counter.dump();
-    printString("] ");
-    printString("del[");
-    multiplier.dump();
-    printString("] ");
-    printString("swing[");
-    swinger.dump();
-    printString("] ");
-    printBinary(MULTIPLIER_OUTPUT_PINS);
-    switch(mode){
-    case DIVIDE_MODE:
-      printString(" count ");
-      break;
-    case MULTIPLIER_MODE:
-      printString(" multiplier ");
+    case '/':
+      CLOCKMULTIPLIER_REPIN_PORT ^= _BV(CLOCKMULTIPLIER_REPIN_PIN);
       break;
     }
+    printString("dur[");
+    dur.dump();
+    printString("] mul[");
+    mul.dump();
+    printString("] rep[");
+    rep.dump();
+    printString("]");
     printNewline();
   }
 #endif

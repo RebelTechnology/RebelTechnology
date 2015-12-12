@@ -1,7 +1,7 @@
 TARGET = ClockMultiplier
 # INSTALL_DIR = /Users/mars/arduino/arduino-0013
 # INSTALL_DIR = /Applications/Arduino.app/Contents/Resources/Java/
-INSTALL_DIR = /usr/share/arduino/
+# INSTALL_DIR = /usr/share/arduino/
 INSTALL_DIR = /cygdrive/c/WinAVR-20100110
 # PORT = /dev/tty.usb*
 PORT = COM7
@@ -20,7 +20,7 @@ SRC = wiring_serial.c
 
 ############################################################################
 
-AVR_TOOLS_PATH = $(INSTALL_DIR)/hardware/tools/avr/bin
+AVR_TOOLS_PATH = $(INSTALL_DIR)/bin
 FORMAT = ihex
 
 
