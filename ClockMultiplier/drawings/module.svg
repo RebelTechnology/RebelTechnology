@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:exslt="http://exslt.org/common" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" width="210mm" height="297mm" viewBox="0 0 210 297">
+  <defs>
+    <g id="potgrading">
+      <path d="M 22.469177,65.29487 C 12.864593,59.897939 6.3758317,49.616792 6.3758317,37.815007 c 0,-17.395119 14.1022403,-31.4975588 31.4994303,-31.4975588 17.392315,0 31.496992,14.1012398 31.496992,31.4975588 0,11.809085 -6.498509,22.101133 -16.116497,27.493263" style="fill:none;stroke:#030303;stroke-width:0.41032487"/>
+      <path d="m 28.906759,4.4567034 0.78974,2.9366707" style="fill:none;stroke:#030303;stroke-width:0.75"/>
+      <path d="M 19.149856,5.4303268 22.099957,10.54465" style="fill:none;stroke:#030303;stroke-width:1.0"/>
+      <path d="m 13.42878,13.404619 2.150735,2.149652" style="fill:none;stroke:#030303;stroke-width:0.75"/>
+      <path d="m 5.5191934,19.159858 5.0557506,2.91857" style="fill:none;stroke:#030303;stroke-width:1.0"/>
+      <path d="m 4.4968328,28.890192 2.9366973,0.786019" style="fill:none;stroke:#030303;stroke-width:0.75"/>
+      <path d="m 0.49999997,37.829608 5.86364623,0" style="fill:none;stroke:#030303;stroke-width:1.0"/>
+      <path d="M 4.5053627,46.769023 7.44206,45.980604" style="fill:none;stroke:#030303;stroke-width:0.75"/>
+      <path d="M 5.5106636,56.509058 10.590785,53.578387" style="fill:none;stroke:#030303;stroke-width:1.0"/>
+      <path d="m 13.451932,62.247196 2.145861,-2.149452" style="fill:none;stroke:#030303;stroke-width:0.75"/>
+      <path d="m 19.291208,70.009583 2.834339,-4.907218" style="fill:none;stroke:#030303;stroke-width:1.0"/>
+      <path d="m 56.484784,70.043684 -2.861026,-4.95962" style="fill:none;stroke:#030303;stroke-width:1.0"/>
+      <path d="M 62.293717,62.224096 60.144201,60.079444" style="fill:none;stroke:#030303;stroke-width:0.75"/>
+      <path d="m 70.111912,56.418856 -4.965577,-2.86977" style="fill:none;stroke:#030303;stroke-width:1.0"/>
+      <path d="M 71.224445,46.738522 68.290307,45.951403" style="fill:none;stroke:#030303;stroke-width:0.75"/>
+      <path d="m 75.037277,37.799107 -5.678427,0" style="fill:none;stroke:#030303;stroke-width:1.0"/>
+      <path d="M 71.216037,28.859791 68.280436,29.64821" style="fill:none;stroke:#030303;stroke-width:0.75"/>
+      <path d="m 70.076574,19.198959 -4.943643,2.855068" style="fill:none;stroke:#030303;stroke-width:1.0"/>
+      <path d="M 62.27288,13.382718 60.124704,15.53107" style="fill:none;stroke:#030303;stroke-width:0.75"/>
+      <path d="M 56.550707,5.4181265 53.598168,10.52765" style="fill:none;stroke:#030303;stroke-width:1.0"/>
+      <path d="M 46.785274,4.4507032 45.999312,7.386174" style="fill:none;stroke:#030303;stroke-width:0.75"/>
+      <path d="m 37.844676,0.500008 0,5.8162402" style="fill:none;stroke:#030303;stroke-width:1.0"/>
+      <path d="m 69.475831,37.723605 c 0,17.397619 -14.103337,31.501159 -31.500648,31.501159 -17.397312,0 -31.500649,-14.10354 -31.500649,-31.501159 0,-17.397619 14.103337,-31.5012591 31.500649,-31.5012591 17.397311,0 31.500648,14.1036401 31.500648,31.5012591 z" style="fill:none"/>
+    </g>
+  </defs>
+  <g style="fill:none;stroke-width:0.1;stroke:black"><rect x="0.0" y="0.0" width="50.50" height="128.50"/><svg:circle cx="7.5" cy="3" r="1.6"/><svg:circle cx="7.5" cy="125.5" r="1.6"/><svg:circle cx="43.06" cy="3" r="1.6"/><svg:circle cx="43.06" cy="125.5" r="1.6"/>
+
+  
+  <circle cx="12.55" cy="26.15" r="4.75"/>
+  <circle cx="37.95" cy="26.15" r="4.75"/>
+  <circle cx="12.55" cy="45.2" r="4.75"/>
+  <circle cx="37.95" cy="45.2" r="4.75"/>
+  <circle cx="12.55" cy="64.25" r="4.75"/>
+  <circle cx="37.95" cy="64.25" r="4.75"/>
+
+  
+  
+  
+  
+  
+
+  
+  <circle cx="12.55" cy="83.3" r="3.25"/>
+  <circle cx="25.25" cy="83.3" r="3.25"/>
+  <circle cx="37.95" cy="83.3" r="3.25"/>
+  <circle cx="12.55" cy="96" r="3.25"/>
+  <circle cx="25.25" cy="96" r="3.25"/>
+  <circle cx="37.95" cy="96" r="3.25"/>
+  <circle cx="12.55" cy="108.7" r="3.25"/>
+  <circle cx="25.25" cy="108.7" r="3.25"/>
+  <circle cx="37.95" cy="108.7" r="3.25"/>
+
+</g>
+</svg>
