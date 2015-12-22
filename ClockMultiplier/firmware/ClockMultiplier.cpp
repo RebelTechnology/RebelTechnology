@@ -23,6 +23,66 @@ inline bool repIsHigh(){
   return !(CLOCKMULTIPLIER_REPIN_PINS & _BV(CLOCKMULTIPLIER_REPIN_PIN));
 }
 
+class ClockDuration {
+public:
+  uint16_t period;
+  uint16_t fallMark;
+  uint16_t duration;
+  volatile uint16_t pos;
+  ClockDuration(){
+    reset();
+  }
+  inline void reset(){
+    period = fallMark = pos = 0;
+    off();
+  }
+  inline void rise(){
+    period = pos;
+    fallMark = ((uint32_t)period*duration)>>12;
+    pos = 0;
+    on();
+  }
+  inline void fall(){
+  }
+  inline void clock(){
+    if(++pos >= fallMark){
+      off();
+    }
+  }
+  void setDuration(uint16_t value){
+    if(value != duration){
+      // wait until next trigger to recalculate fallMark
+      // fallMark = (period*duration)>>11;
+      duration = value;
+    }
+  }
+  void on(){
+    CLOCKMULTIPLIER_DUROUT_PORT &= ~_BV(CLOCKMULTIPLIER_DUROUT_PIN);
+  }
+  void off(){
+    CLOCKMULTIPLIER_DUROUT_PORT |= _BV(CLOCKMULTIPLIER_DUROUT_PIN);
+  }
+  bool isOff(){
+    return CLOCKMULTIPLIER_DUROUT_PORT & _BV(CLOCKMULTIPLIER_DUROUT_PIN);
+  }
+#ifdef SERIAL_DEBUG
+  void dump(){
+    printString("period ");
+    printInteger(period);
+    printString(", duration ");
+    printInteger(duration);
+    printString(", fall ");
+    printInteger(fallMark);
+    printString(", pos ");
+    printInteger(pos);
+    if(isOff())
+      printString(" off");
+    else
+      printString(" on");
+  }
+#endif
+};
+
 class ClockMultiplier {
 public:
   uint16_t riseMark;
@@ -31,6 +91,7 @@ public:
   volatile uint16_t pos;
   volatile uint16_t counter;
   uint16_t period;
+  uint16_t duration;
   ClockMultiplier(){
     reset();
   }
@@ -42,12 +103,12 @@ public:
     on();
     riseMark = counter / muls;
     pos = riseMark;
-    fallMark = riseMark*2; // 50% pulse width
+    fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
+    // fallMark = riseMark*2; // 50% pulse width
     period = counter;
     counter = 0;
   }
   inline void fall(){
-    //    fallMark = riseMark + counter / muls;
   }
   inline void clock(){
     if(++pos == riseMark){
@@ -57,6 +118,12 @@ public:
       pos = 0;
     }
     counter++;
+  }
+  void setDuration(uint16_t value){
+    if(value != duration){
+      duration = value;
+      fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
+    }
   }
   void setMultiplier(uint16_t value){
     value >>= 8; // range of 0 to 16
@@ -94,66 +161,6 @@ public:
 #endif
 };
 
-class ClockDuration {
-public:
-  uint16_t period;
-  uint16_t fallMark;
-  uint16_t duration;
-  volatile uint16_t pos;
-  ClockDuration(){
-    reset();
-  }
-  inline void reset(){
-    period = fallMark = pos = 0;
-    off();
-  }
-  inline void rise(){
-    period = pos;
-    fallMark = ((uint32_t)period*duration)>>12; // todo: calculate overflow condition
-    pos = 0;
-    on();
-  }
-  inline void fall(){
-  }
-  inline void clock(){
-    if(++pos >= fallMark){
-      off();
-    }
-  }
-  void setDuration(uint16_t value){
-    if(value != duration){
-      // wait until next trigger to recalculate fallMark
-      // fallMark = (period*duration)>>10;
-      duration = value;
-    }
-  }
-  void on(){
-    CLOCKMULTIPLIER_DUROUT_PORT &= ~_BV(CLOCKMULTIPLIER_DUROUT_PIN);
-  }
-  void off(){
-    CLOCKMULTIPLIER_DUROUT_PORT |= _BV(CLOCKMULTIPLIER_DUROUT_PIN);
-  }
-  bool isOff(){
-    return CLOCKMULTIPLIER_DUROUT_PORT & _BV(CLOCKMULTIPLIER_DUROUT_PIN);
-  }
-#ifdef SERIAL_DEBUG
-  void dump(){
-    printString("period ");
-    printInteger(period);
-    printString(", duration ");
-    printInteger(duration);
-    printString(", fall ");
-    printInteger(fallMark);
-    printString(", pos ");
-    printInteger(pos);
-    if(isOff())
-      printString(" off");
-    else
-      printString(" on");
-  }
-#endif
-};
-
 class ClockRepeater {
 public:
   ClockRepeater(uint16_t* p):
@@ -164,6 +171,7 @@ public:
   uint16_t riseMark;
   uint16_t fallMark;
   uint8_t reps;
+  uint16_t duration;
   volatile uint8_t times;
   volatile uint16_t pos;
   volatile bool running;
@@ -172,7 +180,8 @@ public:
     times = 0;
     riseMark = *period;
     pos = riseMark;
-    fallMark = riseMark << 1; // riseMark * 2;
+    fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
+    //    fallMark = riseMark * 2;
     running = true;
   }
   inline void stop(){
@@ -198,6 +207,12 @@ public:
 	if(times++ >= reps)
 	  stop();
       }
+    }
+  }
+  void setDuration(uint16_t value){
+    if(value != duration){
+      duration = value;
+      fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
     }
   }
   void setRepetitions(uint16_t value){
@@ -328,6 +343,8 @@ ISR(CLOCKMULTIPLIER_MULIN_INT){
 void loop(){
   // todo: use StiffValue for hysteresis
   dur.setDuration(getAnalogValue(DURCV_ADC_CHANNEL));
+  mul.setDuration(getAnalogValue(DURCV_ADC_CHANNEL));
+  rep.setDuration(getAnalogValue(DURCV_ADC_CHANNEL));
   mul.setMultiplier(getAnalogValue(MULCV_ADC_CHANNEL));
   rep.setRepetitions(getAnalogValue(REPCV_ADC_CHANNEL));
 
