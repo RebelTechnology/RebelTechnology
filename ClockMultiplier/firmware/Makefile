@@ -1,12 +1,12 @@
 TARGET = ClockMultiplier
 # INSTALL_DIR = /Users/mars/arduino/arduino-0013
 # INSTALL_DIR = /Applications/Arduino.app/Contents/Resources/Java/
-# INSTALL_DIR = /usr/share/arduino/
-INSTALL_DIR = /cygdrive/c/WinAVR-20100110
-# PORT = /dev/tty.usb*
-PORT = COM7
+INSTALL_DIR = /usr/share/arduino/
+# INSTALL_DIR = /cygdrive/c/WinAVR-20100110
+PORT = /dev/ttyUSB0
+# PORT = COM7
 # PORT = /dev/ttyS4
-AVRDUDE_PROGRAMMER = avrispv2
+PROGRAMMER = avrispv2
 F_CPU = 16000000
 # MCU = atmega328p
 # UPLOAD_RATE = 57600
@@ -20,7 +20,8 @@ SRC = wiring_serial.c
 
 ############################################################################
 
-AVR_TOOLS_PATH = $(INSTALL_DIR)/bin
+AVR_TOOLS_PATH = $(INSTALL_DIR)/hardware/tools/avr/bin
+# AVR_TOOLS_PATH = $(INSTALL_DIR)/bin
 FORMAT = ihex
 
 
@@ -57,12 +58,6 @@ CFLAGS = $(CDEBUG) $(CDEFS) $(CINCS) -O$(OPT) $(CWARN) $(CSTANDARD) $(CEXTRA)
 CXXFLAGS = $(CDEFS) $(CINCS) -O$(OPT)
 #ASFLAGS = -Wa,-adhlns=$(<:.S=.lst),-gstabs 
 LDFLAGS = -lm
-
-# Programming support using avrdude. Settings and variables.
-AVRDUDE_PORT = $(PORT)
-AVRDUDE_WRITE_FLASH = -U flash:w:build/$(TARGET).hex
-AVRDUDE_FLAGS = -F -V \
--p $(MCU) -P $(AVRDUDE_PORT) -c $(AVRDUDE_PROGRAMMER) 
 
 # Program settings
 CC = $(AVR_TOOLS_PATH)/avr-gcc
@@ -102,8 +97,8 @@ lss: build/$(TARGET).lss
 sym: build/$(TARGET).sym
 
 # Program the device.  
-upload: # build/$(TARGET).hex
-	$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH)
+flash: build/$(TARGET).hex
+	$(AVRDUDE) -p $(MCU) -P $(PORT) -c $(PROGRAMMER) -e -U flash:w:build/$(TARGET).hex
 
 # Display size of file.
 HEXSIZE = $(SIZE) --target=$(FORMAT) build/$(TARGET).hex

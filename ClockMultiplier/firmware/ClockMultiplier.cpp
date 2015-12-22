@@ -3,17 +3,16 @@
 #include "serial.h"
 #endif // SERIAL_DEBUG
 
-#include <inttypes.h>
+#include <stdint.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include "device.h"
 #include "adc_freerunner.h"
 
-/* swapped dur and mul so that order from top is:
-   Modulate (pulse width modulation)
-   Multiply
-   Repeat
-*/
+#ifndef UINT16_MAX
+#define UINT16_MAX 65535
+#endif
+
 inline bool mulIsHigh(){
   return !(CLOCKMULTIPLIER_MULIN_PINS & _BV(CLOCKMULTIPLIER_MULIN_PIN));
 }
@@ -30,21 +29,25 @@ public:
   uint16_t fallMark;
   uint8_t muls;
   volatile uint16_t pos;
+  volatile uint16_t counter;
+  uint16_t period;
   ClockMultiplier(){
     reset();
   }
-  inline uint16_t getPeriod(){
-    return riseMark;
-  }
   inline void reset(){
-    riseMark = fallMark = pos = 0;
+    riseMark = fallMark = pos = period = counter = 0;    
     off();
   }
   inline void rise(){
-    riseMark = pos / muls;
+    on();
+    riseMark = counter / muls;
+    pos = riseMark;
+    fallMark = riseMark*2; // 50% pulse width
+    period = counter;
+    counter = 0;
   }
   inline void fall(){
-    fallMark = riseMark+pos;
+    //    fallMark = riseMark + counter / muls;
   }
   inline void clock(){
     if(++pos == riseMark){
@@ -53,27 +56,31 @@ public:
       off();
       pos = 0;
     }
+    counter++;
   }
   void setMultiplier(uint16_t value){
-    value >>= 6; // value /= 64;
+    value >>= 8; // range of 0 to 16
+    value <<= 1; // multiply by two
     if(value != muls){
       riseMark = riseMark*muls/value;
       fallMark = fallMark*muls/value;
       muls = value;
     }
   }
-  virtual void on(){
-    CLOCKMULTIPLIER_MULOUT_PORT |= _BV(CLOCKMULTIPLIER_MULOUT_PIN);
-  }
-  virtual void off(){
+  void on(){
     CLOCKMULTIPLIER_MULOUT_PORT &= ~_BV(CLOCKMULTIPLIER_MULOUT_PIN);
   }
-  virtual bool isOff(){
+  void off(){
+    CLOCKMULTIPLIER_MULOUT_PORT |= _BV(CLOCKMULTIPLIER_MULOUT_PIN);
+  }
+  bool isOff(){
     return CLOCKMULTIPLIER_MULOUT_PORT & _BV(CLOCKMULTIPLIER_MULOUT_PIN);
   }
 #ifdef SERIAL_DEBUG
-  virtual void dump(){
-    printString("rise ");
+  void dump(){
+    printString("mul ");
+    printInteger(muls);
+    printString(", rise ");
     printInteger(riseMark);
     printString(", fall ");
     printInteger(fallMark);
@@ -102,14 +109,14 @@ public:
   }
   inline void rise(){
     period = pos;
-    fallMark = (period*duration)>>10; // todo: calculate overflow condition
+    fallMark = ((uint32_t)period*duration)>>12; // todo: calculate overflow condition
     pos = 0;
     on();
   }
   inline void fall(){
   }
   inline void clock(){
-    if(++pos == fallMark){
+    if(++pos >= fallMark){
       off();
     }
   }
@@ -120,19 +127,21 @@ public:
       duration = value;
     }
   }
-  virtual void on(){
-    CLOCKMULTIPLIER_DUROUT_PORT |= _BV(CLOCKMULTIPLIER_DUROUT_PIN);
-  }
-  virtual void off(){
+  void on(){
     CLOCKMULTIPLIER_DUROUT_PORT &= ~_BV(CLOCKMULTIPLIER_DUROUT_PIN);
   }
-  virtual bool isOff(){
+  void off(){
+    CLOCKMULTIPLIER_DUROUT_PORT |= _BV(CLOCKMULTIPLIER_DUROUT_PIN);
+  }
+  bool isOff(){
     return CLOCKMULTIPLIER_DUROUT_PORT & _BV(CLOCKMULTIPLIER_DUROUT_PIN);
   }
 #ifdef SERIAL_DEBUG
-  virtual void dump(){
+  void dump(){
     printString("period ");
     printInteger(period);
+    printString(", duration ");
+    printInteger(duration);
     printString(", fall ");
     printInteger(fallMark);
     printString(", pos ");
@@ -192,24 +201,27 @@ public:
     }
   }
   void setRepetitions(uint16_t value){
-    reps = value >> 6; // value / 64;
-    // value /= 64;
-    // if(value != reps){
-    //   reps = value;
-    // }
+    value >>= 8; // range 0 to 16
+    if(value != reps){
+      riseMark = riseMark*reps/value;
+      fallMark = fallMark*reps/value;
+      reps = value;
+    }
   }
-  virtual void on(){
-    CLOCKMULTIPLIER_REPOUT_PORT |= _BV(CLOCKMULTIPLIER_REPOUT_PIN);
-  }
-  virtual void off(){
+  void on(){
     CLOCKMULTIPLIER_REPOUT_PORT &= ~_BV(CLOCKMULTIPLIER_REPOUT_PIN);
   }
-  virtual bool isOff(){
+  void off(){
+    CLOCKMULTIPLIER_REPOUT_PORT |= _BV(CLOCKMULTIPLIER_REPOUT_PIN);
+  }
+  bool isOff(){
     return CLOCKMULTIPLIER_REPOUT_PORT & _BV(CLOCKMULTIPLIER_REPOUT_PIN);
   }
 #ifdef SERIAL_DEBUG
-  virtual void dump(){
-    printString("rise ");
+  void dump(){
+    printString("reps ");
+    printInteger(reps);
+    printString(", rise ");
     printInteger(riseMark);
     printString(", fall ");
     printInteger(fallMark);
@@ -287,7 +299,7 @@ void setup(){
 
 #ifdef SERIAL_DEBUG
   beginSerial(9600);
-  printString("hello\n");
+  printString("hello\r\n");
 #endif
 }
 
@@ -298,16 +310,14 @@ ISR(TIMER0_OVF_vect){
   rep.clock();
 }
 
-/* INT0/PD2 interrupt */
-ISR(INT0_vect){
+ISR(CLOCKMULTIPLIER_DURIN_INT){
   if(durIsHigh())
     dur.rise();
   else
     dur.fall();
 }
 
-/* INT1/PD3 interrupt */
-ISR(INT1_vect){
+ISR(CLOCKMULTIPLIER_MULIN_INT){
   if(mulIsHigh()){
     mul.rise();
   }else{
@@ -345,12 +355,22 @@ void loop(){
     case '/':
       CLOCKMULTIPLIER_REPIN_PORT ^= _BV(CLOCKMULTIPLIER_REPIN_PIN);
       break;
+    case '<':
+      adc_values[0] -= 100;
+      adc_values[1] -= 100;
+      adc_values[2] -= 100;
+      break;
+    case '>':
+      adc_values[0] += 100;
+      adc_values[1] += 100;
+      adc_values[2] += 100;
+      break;
     }
-    printString("dur[");
+    printString("\r\ndur[");
     dur.dump();
-    printString("] mul[");
+    printString("]\r\nmul[");
     mul.dump();
-    printString("] rep[");
+    printString("]\r\nrep[");
     rep.dump();
     printString("]");
     printNewline();

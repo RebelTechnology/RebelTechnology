@@ -142,6 +142,7 @@ void printByte(unsigned char c)
 
 void printNewline()
 {
+	printByte('\r');
 	printByte('\n');
 }
 
