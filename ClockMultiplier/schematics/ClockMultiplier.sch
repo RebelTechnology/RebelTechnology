@@ -21415,7 +21415,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <instance part="P+5" gate="1" x="40.64" y="-127"/>
 <instance part="MULIN" gate="G$1" x="-66.04" y="-22.86" rot="R180"/>
 <instance part="DUROUT" gate="G$1" x="322.58" y="-91.44"/>
-<instance part="MULOUT" gate="G$1" x="322.58" y="-20.32"/>
+<instance part="MULOUT" gate="G$1" x="322.58" y="-22.86"/>
 <instance part="REPOUT" gate="G$1" x="322.58" y="-160.02"/>
 <instance part="DURMAN" gate="G$1" x="40.64" y="-81.28" rot="R90"/>
 <instance part="DURMOD" gate="G$1" x="33.02" y="-101.6" rot="R90"/>
@@ -21448,10 +21448,10 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <instance part="Q501" gate="G$1" x="287.02" y="-17.78"/>
 <instance part="R501" gate="G$1" x="279.4" y="-17.78" rot="MR180"/>
 <instance part="R503" gate="G$1" x="302.26" y="-12.7" rot="R270"/>
-<instance part="R504" gate="G$1" x="302.26" y="-30.48" rot="R90"/>
-<instance part="GND14" gate="1" x="302.26" y="-40.64"/>
-<instance part="GND17" gate="1" x="317.5" y="-40.64"/>
-<instance part="GND24" gate="1" x="289.56" y="-40.64"/>
+<instance part="R504" gate="G$1" x="302.26" y="-27.94" rot="R90"/>
+<instance part="GND14" gate="1" x="302.26" y="-38.1"/>
+<instance part="GND17" gate="1" x="314.96" y="-38.1"/>
+<instance part="GND24" gate="1" x="289.56" y="-38.1"/>
 <instance part="R502" gate="G$1" x="289.56" y="2.54" rot="R270"/>
 <instance part="Q701" gate="G$1" x="287.02" y="-157.48"/>
 <instance part="R701" gate="G$1" x="279.4" y="-157.48" rot="MR180"/>
@@ -21686,17 +21686,18 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <segment>
 <pinref part="R504" gate="G$1" pin="1"/>
 <pinref part="GND14" gate="1" pin="GND"/>
-<wire x1="302.26" y1="-38.1" x2="302.26" y2="-35.56" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="-35.56" x2="302.26" y2="-33.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND17" gate="1" pin="GND"/>
-<wire x1="317.5" y1="-22.86" x2="317.5" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="-25.4" x2="314.96" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="314.96" y1="-25.4" x2="314.96" y2="-35.56" width="0.1524" layer="91"/>
 <pinref part="MULOUT" gate="G$1" pin="5"/>
 </segment>
 <segment>
 <pinref part="Q501" gate="G$1" pin="E"/>
 <pinref part="GND24" gate="1" pin="GND"/>
-<wire x1="289.56" y1="-22.86" x2="289.56" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="289.56" y1="-22.86" x2="289.56" y2="-35.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R704" gate="G$1" pin="1"/>
@@ -22270,13 +22271,6 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <junction x="-33.02" y="-91.44"/>
 </segment>
 </net>
-<net name="N$28" class="0">
-<segment>
-<pinref part="MULIN" gate="G$1" pin="3"/>
-<pinref part="R301" gate="G$1" pin="1"/>
-<wire x1="-48.26" y1="-25.4" x2="-60.96" y2="-25.4" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$40" class="0">
 <segment>
 <pinref part="DURIN" gate="G$1" pin="3"/>
@@ -22550,21 +22544,23 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <segment>
 <pinref part="DURIN" gate="G$1" pin="4"/>
 <wire x1="-58.42" y1="-88.9" x2="-55.88" y2="-88.9" width="0.1524" layer="91"/>
-<wire x1="-55.88" y1="-88.9" x2="-55.88" y2="-78.74" width="0.1524" layer="91"/>
-<wire x1="-55.88" y1="-78.74" x2="-71.12" y2="-78.74" width="0.1524" layer="91"/>
-<label x="-71.12" y="-78.74" size="1.778" layer="95"/>
+<pinref part="MULIN" gate="G$1" pin="3"/>
+<pinref part="R301" gate="G$1" pin="1"/>
+<wire x1="-48.26" y1="-25.4" x2="-55.88" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="-55.88" y1="-25.4" x2="-60.96" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="-55.88" y1="-88.9" x2="-55.88" y2="-25.4" width="0.1524" layer="91"/>
+<junction x="-55.88" y="-25.4"/>
 </segment>
+</net>
+<net name="N$28" class="0">
 <segment>
-<pinref part="R504" gate="G$1" pin="2"/>
-<wire x1="302.26" y1="-17.78" x2="302.26" y2="-25.4" width="0.1524" layer="91"/>
-<pinref part="R503" gate="G$1" pin="2"/>
-<wire x1="317.5" y1="-17.78" x2="309.88" y2="-17.78" width="0.1524" layer="91"/>
-<junction x="302.26" y="-17.78"/>
 <pinref part="MULOUT" gate="G$1" pin="3"/>
-<wire x1="309.88" y1="-17.78" x2="302.26" y2="-17.78" width="0.1524" layer="91"/>
-<wire x1="309.88" y1="-17.78" x2="309.88" y2="0" width="0.1524" layer="91"/>
-<wire x1="309.88" y1="0" x2="297.18" y2="0" width="0.1524" layer="91"/>
-<label x="297.18" y="0" size="1.778" layer="95"/>
+<pinref part="R503" gate="G$1" pin="2"/>
+<wire x1="317.5" y1="-20.32" x2="302.26" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="-20.32" x2="302.26" y2="-17.78" width="0.1524" layer="91"/>
+<pinref part="R504" gate="G$1" pin="2"/>
+<wire x1="302.26" y1="-22.86" x2="302.26" y2="-20.32" width="0.1524" layer="91"/>
+<junction x="302.26" y="-20.32"/>
 </segment>
 </net>
 </nets>
