@@ -1,4 +1,4 @@
-#define SERIAL_DEBUG
+//#define SERIAL_DEBUG
 #ifdef SERIAL_DEBUG
 #include "serial.h"
 #endif // SERIAL_DEBUG
@@ -13,6 +13,8 @@
 #define UINT16_MAX 65535
 #endif
 
+typedef uint32_t ClockTick;
+
 inline bool mulIsHigh(){
   return !(CLOCKMULTIPLIER_MULIN_PINS & _BV(CLOCKMULTIPLIER_MULIN_PIN));
 }
@@ -25,10 +27,10 @@ inline bool repIsHigh(){
 
 class ClockDuration {
 public:
-  uint16_t period;
-  uint16_t fallMark;
+  ClockTick period;
+  ClockTick fallMark;
   uint16_t duration;
-  volatile uint16_t pos;
+  volatile ClockTick pos;
   ClockDuration(){
     reset();
   }
@@ -58,9 +60,11 @@ public:
   }
   void on(){
     CLOCKMULTIPLIER_DUROUT_PORT &= ~_BV(CLOCKMULTIPLIER_DUROUT_PIN);
+    CLOCKMULTIPLIER_LED1_PORT &= ~_BV(CLOCKMULTIPLIER_LED1_PIN);
   }
   void off(){
     CLOCKMULTIPLIER_DUROUT_PORT |= _BV(CLOCKMULTIPLIER_DUROUT_PIN);
+    CLOCKMULTIPLIER_LED1_PORT |= _BV(CLOCKMULTIPLIER_LED1_PIN);
   }
   bool isOff(){
     return CLOCKMULTIPLIER_DUROUT_PORT & _BV(CLOCKMULTIPLIER_DUROUT_PIN);
@@ -85,12 +89,12 @@ public:
 
 class ClockMultiplier {
 public:
-  uint16_t riseMark;
-  uint16_t fallMark;
+  ClockTick riseMark;
+  ClockTick fallMark;
   uint8_t muls;
-  volatile uint16_t pos;
-  volatile uint16_t counter;
-  uint16_t period;
+  volatile ClockTick pos;
+  volatile ClockTick counter;
+  ClockTick period;
   uint16_t duration;
   ClockMultiplier(){
     reset();
@@ -98,6 +102,9 @@ public:
   inline void reset(){
     riseMark = fallMark = pos = period = counter = 0;    
     off();
+  }
+  ClockTick getPeriod(){
+    return riseMark;
   }
   inline void rise(){
     on();
@@ -126,8 +133,9 @@ public:
     }
   }
   void setMultiplier(uint16_t value){
-    value >>= 8; // range of 0 to 16
+    value >>= 8; // range of 0 to 15
     value <<= 1; // multiply by two
+    value += 2;
     if(value != muls){
       riseMark = riseMark*muls/value;
       fallMark = fallMark*muls/value;
@@ -163,22 +171,21 @@ public:
 
 class ClockRepeater {
 public:
-  ClockRepeater(uint16_t* p):
-    period(p){
+  ClockRepeater(){
     reset();
   }
-  uint16_t* period;
-  uint16_t riseMark;
-  uint16_t fallMark;
+  ClockTick period;
+  ClockTick riseMark;
+  ClockTick fallMark;
   uint8_t reps;
   uint16_t duration;
   volatile uint8_t times;
-  volatile uint16_t pos;
+  volatile ClockTick pos;
   volatile bool running;
   inline void start(){
     on();
     times = 0;
-    riseMark = *period;
+    riseMark = period;
     pos = riseMark;
     fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
     //    fallMark = riseMark * 2;
@@ -209,6 +216,9 @@ public:
       }
     }
   }
+  inline void setPeriod(ClockTick value){
+    period = value;
+  }
   void setDuration(uint16_t value){
     if(value != duration){
       duration = value;
@@ -216,7 +226,8 @@ public:
     }
   }
   void setRepetitions(uint16_t value){
-    value >>= 8; // range 0 to 16
+    value >>= 8; // range 0 to 15
+    value += 1;
     if(value != reps){
       riseMark = riseMark*reps/value;
       fallMark = fallMark*reps/value;
@@ -225,9 +236,11 @@ public:
   }
   void on(){
     CLOCKMULTIPLIER_REPOUT_PORT &= ~_BV(CLOCKMULTIPLIER_REPOUT_PIN);
+    CLOCKMULTIPLIER_LED2_PORT &= ~_BV(CLOCKMULTIPLIER_LED2_PIN);
   }
   void off(){
     CLOCKMULTIPLIER_REPOUT_PORT |= _BV(CLOCKMULTIPLIER_REPOUT_PIN);
+    CLOCKMULTIPLIER_LED2_PORT |= _BV(CLOCKMULTIPLIER_LED2_PIN);
   }
   bool isOff(){
     return CLOCKMULTIPLIER_REPOUT_PORT & _BV(CLOCKMULTIPLIER_REPOUT_PIN);
@@ -256,9 +269,9 @@ public:
 #endif
 };
 
-ClockMultiplier mul;
 ClockDuration dur;
-ClockRepeater rep(&mul.riseMark);
+ClockMultiplier mul;
+ClockRepeater rep;
 
 void reset(){
   mul.reset();
@@ -287,23 +300,28 @@ void setup(){
   CLOCKMULTIPLIER_MULIN_DDR &= ~_BV(CLOCKMULTIPLIER_MULIN_PIN);
   CLOCKMULTIPLIER_MULIN_PORT |= _BV(CLOCKMULTIPLIER_MULIN_PIN); // enable pull-up resistor
   CLOCKMULTIPLIER_DURIN_DDR &= ~_BV(CLOCKMULTIPLIER_DURIN_PIN);
-  CLOCKMULTIPLIER_DURIN_PORT |= _BV(CLOCKMULTIPLIER_DURIN_PIN); // enable pull-up resistor
+  CLOCKMULTIPLIER_DURIN_PORT |= _BV(CLOCKMULTIPLIER_DURIN_PIN);
   CLOCKMULTIPLIER_REPIN_DDR &= ~_BV(CLOCKMULTIPLIER_REPIN_PIN);
-  CLOCKMULTIPLIER_REPIN_PORT |= _BV(CLOCKMULTIPLIER_REPIN_PIN); // enable pull-up resistor
+  CLOCKMULTIPLIER_REPIN_PORT |= _BV(CLOCKMULTIPLIER_REPIN_PIN);
 
   CLOCKMULTIPLIER_MULOUT_DDR |= _BV(CLOCKMULTIPLIER_MULOUT_PIN);
   CLOCKMULTIPLIER_DUROUT_DDR |= _BV(CLOCKMULTIPLIER_DUROUT_PIN);
   CLOCKMULTIPLIER_REPOUT_DDR |= _BV(CLOCKMULTIPLIER_REPOUT_PIN);
+  CLOCKMULTIPLIER_LED1_DDR   |= _BV(CLOCKMULTIPLIER_LED1_PIN);
+  CLOCKMULTIPLIER_LED2_DDR   |= _BV(CLOCKMULTIPLIER_LED2_PIN);
 
   CLOCKMULTIPLIER_MULOUT_PORT |= _BV(CLOCKMULTIPLIER_MULOUT_PIN);
   CLOCKMULTIPLIER_DUROUT_PORT |= _BV(CLOCKMULTIPLIER_DUROUT_PIN);
   CLOCKMULTIPLIER_REPOUT_PORT |= _BV(CLOCKMULTIPLIER_REPOUT_PIN);
+  CLOCKMULTIPLIER_LED1_PORT   |= _BV(CLOCKMULTIPLIER_LED1_PIN);
+  CLOCKMULTIPLIER_LED2_PORT   |= _BV(CLOCKMULTIPLIER_LED2_PIN);
 
   // At 16MHz CPU clock and prescaler 64, Timer 0 should run at 1024Hz.
   // configure Timer 0 to Fast PWM, 0xff top.
   TCCR0A |= _BV(WGM01) | _BV(WGM00);
 //   TCCR0B |= _BV(CS01) | _BV(CS00); // prescaler: 64.
-  TCCR0B |= _BV(CS01);  // prescaler: 8
+  // TCCR0B |= _BV(CS01);  // prescaler: 8
+  TCCR0B |= _BV(CS00);  // prescaler: 1
   // enable timer 0 overflow interrupt
   TIMSK0 |= _BV(TOIE0);
 
@@ -343,9 +361,10 @@ ISR(CLOCKMULTIPLIER_MULIN_INT){
 void loop(){
   // todo: use StiffValue for hysteresis
   dur.setDuration(getAnalogValue(DURCV_ADC_CHANNEL));
-  mul.setDuration(getAnalogValue(DURCV_ADC_CHANNEL));
-  rep.setDuration(getAnalogValue(DURCV_ADC_CHANNEL));
   mul.setMultiplier(getAnalogValue(MULCV_ADC_CHANNEL));
+  mul.setDuration(getAnalogValue(DURCV_ADC_CHANNEL));
+  rep.setPeriod(mul.getPeriod());
+  rep.setDuration(getAnalogValue(DURCV_ADC_CHANNEL));
   rep.setRepetitions(getAnalogValue(REPCV_ADC_CHANNEL));
 
   static int repstate = 0;

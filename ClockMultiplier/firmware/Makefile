@@ -33,7 +33,7 @@ MAKEFILE = Makefile
 # AVR (extended) COFF requires stabs, plus an avr-objcopy run.
 DEBUG = stabs
 
-OPT = s -mcall-prologues 
+OPT = 2 # -mcall-prologues 
 
 # Place -D or -U options here
 CDEFS = -DF_CPU=$(F_CPU)
@@ -49,7 +49,7 @@ CXXINCS = -I$(ARDUINO)
 # c99   - ISO C99 standard (not yet fully implemented)
 # gnu99 - c99 plus GCC extensions
 CSTANDARD = -std=gnu99
-CDEBUG = -g$(DEBUG)
+CDEBUG = # -g$(DEBUG)
 CWARN = -Wall -Wstrict-prototypes
 CTUNING = -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
 #CEXTRA = -Wa,-adhlns=$(<:.c=.lst)
