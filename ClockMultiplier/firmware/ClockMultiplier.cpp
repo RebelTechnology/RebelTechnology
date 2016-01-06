@@ -110,26 +110,26 @@ public:
     on();
     riseMark = counter / muls;
     pos = riseMark;
-    fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
-    // fallMark = riseMark*2; // 50% pulse width
+    //    fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
+    fallMark = riseMark*2; // 50% pulse width
     period = counter;
     counter = 0;
   }
   inline void fall(){
   }
   inline void clock(){
-    if(++pos == riseMark){
-      on();
-    }else if(pos >= fallMark){
+    if(pos >= fallMark){
       off();
       pos = 0;
+    }else if(++pos >= riseMark){
+      on();
     }
     counter++;
   }
   void setDuration(uint16_t value){
     if(value != duration){
       duration = value;
-      fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
+      //      fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
     }
   }
   void setMultiplier(uint16_t value){
@@ -138,7 +138,8 @@ public:
     value += 2;
     if(value != muls){
       riseMark = riseMark*muls/value;
-      fallMark = fallMark*muls/value;
+      fallMark = riseMark*2;
+      //      fallMark = fallMark*muls/value;
       muls = value;
     }
   }
@@ -187,8 +188,8 @@ public:
     times = 0;
     riseMark = period;
     pos = riseMark;
-    fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
-    //    fallMark = riseMark * 2;
+    // fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
+    fallMark = riseMark * 2;
     running = true;
   }
   inline void stop(){
@@ -211,7 +212,7 @@ public:
       }else if(pos >= fallMark){
 	off();
 	pos = 0;
-	if(times++ >= reps)
+	if(++times >= reps)
 	  stop();
       }
     }
@@ -222,7 +223,7 @@ public:
   void setDuration(uint16_t value){
     if(value != duration){
       duration = value;
-      fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
+      //      fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
     }
   }
   void setRepetitions(uint16_t value){
@@ -230,7 +231,8 @@ public:
     value += 1;
     if(value != reps){
       riseMark = riseMark*reps/value;
-      fallMark = fallMark*reps/value;
+      //      fallMark = fallMark*reps/value;
+      fallMark = riseMark * 2;
       reps = value;
     }
   }

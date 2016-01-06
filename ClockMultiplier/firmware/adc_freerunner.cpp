@@ -2,7 +2,7 @@
 
 #include <avr/interrupt.h> 
 
-uint16_t volatile adc_values[ADC_CHANNELS] = { 2048, 2048, 2048 };
+uint16_t volatile adc_values[ADC_CHANNELS] = { 0 };
 
 void setup_adc(){
    ADCSRA |= (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0); // Set ADC prescaler to 128 - 125KHz sample rate @ 16MHz
@@ -35,7 +35,7 @@ ISR(ADC_vect) {
     if(++counter == ADC_OVERSAMPLING){
       counter = 0;
       for(uint8_t i=0; i<ADC_CHANNELS; ++i){
-	//	adc_values[i] = adc_buffer[i];
+	adc_values[i] = adc_buffer[i];
 	adc_buffer[i] = 0;
       }
     }

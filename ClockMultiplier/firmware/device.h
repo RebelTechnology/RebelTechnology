@@ -4,8 +4,8 @@
 #define ADC_VALUE_RANGE                 (1024*ADC_OVERSAMPLING)
 #define CLOCKMULTIPLIER_DEADBAND_THRESHOLD  (ADC_VALUE_RANGE/32/4)
 
-#define DURCV_ADC_CHANNEL              0
-#define MULCV_ADC_CHANNEL              1
+#define DURCV_ADC_CHANNEL              1
+#define MULCV_ADC_CHANNEL              0
 #define REPCV_ADC_CHANNEL              2
 
 /* swapped dur and mul so that order from top is:
