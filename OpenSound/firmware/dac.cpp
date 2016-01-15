@@ -18,7 +18,7 @@ void dac_init() {
   GPIO_Init(GPIOA, &GPIO_InitStructure);
 
   DAC_InitTypeDef DAC_InitStructure;
-
+  DAC_StructInit(DAC_InitStruct);
   /* DAC Periph clock enable */
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_DAC, ENABLE);
   DAC_DeInit();
@@ -34,9 +34,8 @@ void dac_init() {
   /* Enable DAC Channel2 */
   DAC_Cmd(DAC_Channel_2, ENABLE);
 
-  /* Start DAC conversion by software */
-  DAC_SoftwareTriggerCmd(DAC_Channel_1, ENABLE);
-  DAC_SoftwareTriggerCmd(DAC_Channel_2, ENABLE);
+  /* Enable DAC conversion by software */
+  DAC_DualSoftwareTriggerCmd(ENABLE);
   DAC_SetDualChannelData(DAC_Align_12b_R, 0x800, 0x800);
 #endif
 }
@@ -48,7 +47,7 @@ void dac_set_a(uint16_t value){
   analogWrite(DAC1, value); 
 #else
   /* Set the DAC Channel1 data */
-  DAC_SetChannel1Data(DAC_Align_12b_R, value);
+  DAC_SetChannel2Data(DAC_Align_12b_R, value);
 #endif
 }
 
@@ -59,7 +58,7 @@ void dac_set_b(uint16_t value){
   analogWrite(DAC2, value); 
 #else
   /* Set the DAC Channel2 data */
-  DAC_SetChannel2Data(DAC_Align_12b_R, value);
+  DAC_SetChannel1Data(DAC_Align_12b_R, value);
 #endif
 }
 
@@ -70,6 +69,7 @@ void dac_set_ab(uint16_t a, uint16_t b){
   analogWrite(DAC1, a); 
   analogWrite(DAC2, b); 
 #else
-  DAC_SetDualChannelData(DAC_Align_12b_R, a, b);
+  // reversed channels??
+  DAC_SetDualChannelData(DAC_Align_12b_R, b, a);
 #endif
 }

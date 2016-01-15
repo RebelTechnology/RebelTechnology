@@ -6,13 +6,13 @@
 
 #define SPARK_NO_CLOUD
 
-#define SERIAL_DEBUG
+// #define SERIAL_DEBUG
 // #define SERIAL_CONSOLE
 #define SERVICE_MDNS
 
 #define OSC_MESSAGE_MAX_PREFIX_SIZE 16
 #define OSC_MESSAGE_MAX_DATA_SIZE   38
-#define ANALOG_THRESHOLD            15
+#define ANALOG_THRESHOLD            31
 
 #define ASSERT(cond, msg) if(!(cond)){assert_failed(msg, __PRETTY_FUNCTION__, __LINE__);}
 
