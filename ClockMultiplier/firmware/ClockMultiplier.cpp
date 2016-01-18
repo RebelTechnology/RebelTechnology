@@ -207,13 +207,13 @@ public:
   }
   inline void clock(){
     if(running){
-      if(++pos == riseMark){
-	on();
-      }else if(pos >= fallMark){
+      if(pos >= fallMark){
 	off();
 	pos = 0;
 	if(++times >= reps)
 	  stop();
+      }else if(++pos == riseMark){
+	on();
       }
     }
   }
