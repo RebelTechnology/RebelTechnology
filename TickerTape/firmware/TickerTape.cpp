@@ -22,6 +22,18 @@
   overflow called each 16.4mS
 */
 
+void ledOn(){
+  TICKER_TAPE_LEDS_PORT |= _BV(TICKER_TAPE_LED_1_PIN);
+}
+
+void ledOff(){
+  TICKER_TAPE_LEDS_PORT &= ~_BV(TICKER_TAPE_LED_1_PIN);
+}
+
+void ledToggle(){
+  TICKER_TAPE_LEDS_PORT ^= _BV(TICKER_TAPE_LED_1_PIN);
+}
+
 TickerTape tape;
 
 void reset(){
@@ -50,21 +62,22 @@ void setup(){
 
   TICKER_TAPE_GATE_OUTPUT_DDR |= _BV(TICKER_TAPE_GATE_OUTPUT_PIN);
   TICKER_TAPE_LEDS_DDR |= _BV(TICKER_TAPE_LED_1_PIN);
-  TICKER_TAPE_LEDS_DDR |= _BV(TICKER_TAPE_LED_2_PIN);
-  TICKER_TAPE_LEDS_DDR |= _BV(TICKER_TAPE_LED_3_PIN);
+//   TICKER_TAPE_LEDS_DDR |= _BV(TICKER_TAPE_LED_2_PIN);
+//   TICKER_TAPE_LEDS_DDR |= _BV(TICKER_TAPE_LED_3_PIN);
 
   TICKER_TAPE_GATE_PORT |= _BV(TICKER_TAPE_GATE_OUTPUT_PIN);
   TICKER_TAPE_LEDS_PORT |= _BV(TICKER_TAPE_LED_1_PIN);
-  TICKER_TAPE_LEDS_PORT &= ~_BV(TICKER_TAPE_LED_2_PIN);
-  TICKER_TAPE_LEDS_PORT &= ~_BV(TICKER_TAPE_LED_3_PIN);
+//   TICKER_TAPE_LEDS_PORT &= ~_BV(TICKER_TAPE_LED_2_PIN);
+//   TICKER_TAPE_LEDS_PORT &= ~_BV(TICKER_TAPE_LED_3_PIN);
 
 //   TIMSK1 = _BV(OCIE1A) | _BV(OCIE1B); // Enable Interrupt Timer/Counter1, Output Compare A & B (SIG_OUTPUT_COMPARE1A/SIG_OUTPUT_COMPARE1B)
 //   TCCR1B = _BV(CS12) | _BV(CS10) | _BV(WGM12);    // Clock/1024, 0.001024 seconds per tick, Mode=CTC
 
   TIMSK1 = _BV(OCIE1A); // Enable Interrupt Timer/Counter1, Output Compare A
+  // Set timer mode and prescaler
 //   TCCR1B = _BV(CS10) | _BV(WGM12);                       // Clock/1, Mode=CTC
-//   TCCR1B = _BV(CS11) | _BV(WGM12);                       // Clock/8, Mode=CTC
-  TCCR1B = _BV(CS11) | _BV(CS10) | _BV(WGM12);           // Clock/64, Mode=CTC
+  TCCR1B = _BV(CS11) | _BV(WGM12);                       // Clock/8, Mode=CTC
+//   TCCR1B = _BV(CS11) | _BV(CS10) | _BV(WGM12);           // Clock/64, Mode=CTC
 //   TCCR1B = _BV(CS12) | _BV(WGM12);                       // Clock/256, Mode=CTC
   OCR1A = 8; // 31250Hz with prescaler=8
 
@@ -90,7 +103,10 @@ void setup(){
 }
 
 ISR(SIG_OUTPUT_COMPARE1A){
+  ledToggle();
+//   ledOn();
   tape.clock();
+//   ledOff();
 }
 
 // ISR(SIG_OUTPUT_COMPARE1B){
@@ -117,7 +133,10 @@ ISR(SIG_OUTPUT_COMPARE1A){
 void loop(){
   tape.updateMode();
   uint16_t period = getAnalogValue(TEMPO_ADC_CHANNEL);
-  period += MINIMUM_PERIOD;
+  period |= 0x7f;
+  period <<= 3;
+  // with prescaler=8, period=[1016-65528], interrupt should run at ~ 2kHz - 30Hz, 512 bytes in 0.26s to 17s.
+//   period += MINIMUM_PERIOD;
 //   period |= 0x01; // minimum 1
   OCR1A = period;
   

@@ -16712,7 +16712,7 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="167.64" y1="-86.36" x2="177.8" y2="-86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="UART_RX" class="0">
+<net name="PB6" class="0">
 <segment>
 <wire x1="-2.54" y1="-7.62" x2="-20.32" y2="-7.62" width="0.1524" layer="91"/>
 <label x="-15.24" y="-7.62" size="1.778" layer="95"/>
@@ -16721,10 +16721,10 @@ Source: 008-0260-0_E.pdf</description>
 <segment>
 <label x="172.72" y="-83.82" size="1.778" layer="95"/>
 <pinref part="U4" gate="B" pin="PB6"/>
-<wire x1="167.64" y1="-83.82" x2="187.96" y2="-83.82" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="-83.82" x2="177.8" y2="-83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="UART_TX" class="0">
+<net name="PB7" class="0">
 <segment>
 <wire x1="-2.54" y1="-5.08" x2="-20.32" y2="-5.08" width="0.1524" layer="91"/>
 <label x="-15.24" y="-5.08" size="1.778" layer="95"/>
@@ -16733,7 +16733,7 @@ Source: 008-0260-0_E.pdf</description>
 <segment>
 <label x="172.72" y="-81.28" size="1.778" layer="95"/>
 <pinref part="U4" gate="B" pin="PB7"/>
-<wire x1="167.64" y1="-81.28" x2="187.96" y2="-81.28" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="-81.28" x2="177.8" y2="-81.28" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PB8" class="0">

@@ -78,6 +78,11 @@ public:
   T multiplier;
   ClockedTimer() {
   }
+  void setMultiplier(T mult){
+    multiplier = mult;
+    updateFrequency();
+    updateDutyCycle();
+  }
   void start(){
     time = 0;
     running = true;

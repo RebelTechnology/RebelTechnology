@@ -52,6 +52,46 @@ public:
     }
   }
 
+  // UDP
+  bool udpService(int port, SocketService* service){
+    sockaddr tUDPAddr;
+    memset(&tUDPAddr, 0, sizeof(tUDPAddr));
+    tUDPAddr.sa_family = AF_INET;
+    tUDPAddr.sa_data[0] = (_port & 0xFF00) >> 8;
+    tUDPAddr.sa_data[1] = (_port & 0x00FF);
+
+    if(bind(_sock, (sockaddr*)&tUDPAddr, sizeof(tUDPAddr)) < 0)
+      return false;
+    Serial_printf("SocketManager listening on port %d\n", port);
+    return true;
+  }
+
+  // UDP
+  int beginPacket(IPAddress ip, uint16_t port){
+    _remoteIP = ip;
+    _remotePort = port;
+    _remoteSockAddr.sa_family = AF_INET;
+    _remoteSockAddr.sa_data[0] = (_remotePort & 0xFF00) >> 8;
+    _remoteSockAddr.sa_data[1] = (_remotePort & 0x00FF);
+    _remoteSockAddr.sa_data[2] = _remoteIP._address[0];
+    _remoteSockAddr.sa_data[3] = _remoteIP._address[1];
+    _remoteSockAddr.sa_data[4] = _remoteIP._address[2];
+    _remoteSockAddr.sa_data[5] = _remoteIP._address[3];
+    _remoteSockAddrLen = sizeof(_remoteSockAddr);
+    return 1;
+  }
+
+  // UDP
+  size_t write(const uint8_t *buffer, size_t size) {
+    int rv =  sendto(_sock, buffer, size, 0, &_remoteSockAddr, _remoteSockAddrLen);
+    return rv;
+  }
+
+  int endPacket(){
+    return 1;
+  }
+
+  // TCP
   bool connect(int p, SocketService* service){
     port = p;
     services[0] = service;

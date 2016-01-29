@@ -113,6 +113,7 @@ public:
 
   void update(){
     selectPage(0);
+#if 0
     ch1.peakVoltage = readSensor(36);
     ch1.peakCurrent = readSensor(37);
     ch2.peakVoltage = readSensor(38);
@@ -138,6 +139,33 @@ public:
     ch1.powerFactor = readSensor(21);
     ch2.apparentPower = readSensor(24);
     ch2.powerFactor = readSensor(25);
+#else
+    ch1.peakVoltage = readSensor(36);
+    ch2.peakCurrent = readSensor(37);
+    ch2.peakVoltage = readSensor(38);
+    ch1.peakCurrent = readSensor(39);
+    selectPage(16);
+    ch2.current = readSensor(2);
+    ch1.voltage = readSensor(3);
+    ch2.power = readSensor(4);
+    ch2.rmsPower = readSensor(5);
+    ch2.rmsCurrent = readSensor(6);
+    ch2.rmsVoltage = readSensor(7);
+    ch1.current = readSensor(8);
+    ch2.voltage = readSensor(9);
+    ch1.power = readSensor(10);
+    ch1.rmsPower = readSensor(11);
+    ch1.rmsCurrent = readSensor(12);
+    ch2.rmsVoltage = readSensor(13);
+    ch2.reactivePower = readSensor(14);
+    ch2.quadraturePower = readSensor(15);
+    ch1.reactivePower = readSensor(16);
+    ch1.quadraturePower = readSensor(17);
+    ch2.apparentPower = readSensor(20);
+    ch2.powerFactor = readSensor(21);
+    ch1.apparentPower = readSensor(24);
+    ch1.powerFactor = readSensor(25);
+#endif
     totalActivePower = readSensor(29);
     totalApparentPower = readSensor(30);
     totalReactivePower = readSensor(31);
@@ -559,6 +587,8 @@ void setup(){
   afe.setHpFilter(true);
   afe.setTemperatureSensor(true);
   afe.start();
+  setRelay(1, true);
+  setRelay(2, true);
 }
 
 void process();

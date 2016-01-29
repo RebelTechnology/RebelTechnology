@@ -11,7 +11,7 @@
 
         <form action="" class="form-inline" id="connectForm">
             <div class="input-append">
-                <input type="text" class="input-large" value="ws://localhost:8088/echo" id="wsServer">
+                <input type="text" class="input-large" value="ws://localhost:8008/echo" id="wsServer">
                 <button class="btn" type="submit" id="connect">Connect</button>
                 <button class="btn" disabled="disabled" id="disconnect">Disconnect</button>
             </div>
@@ -66,7 +66,7 @@
             $('#sendForm').on('submit', function() {
                 var message = $('#message').val();
                 ws.send(message);
-                $('#log').append('<li>sended: <span class="badge">' + message + '</span></li>');
+                $('#log').append('<li>sent: <span class="badge">' + message + '</span></li>');
 
                 return false;
             });

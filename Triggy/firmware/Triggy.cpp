@@ -52,8 +52,8 @@ void setup(){
 #define ADC5 5
 #define ADC6 6
 
-// #define CHECK_TRG(nm) if(TEST_TRG(nm) && TEST_CLK()){
-#define CHECK_TRG(nm) if(TEST_TRG(nm)){	\
+//#define CHECK_TRG(nm) if(TEST_TRG(nm)){
+#define CHECK_TRG(nm) if(TEST_TRG(nm) && TEST_CLK()){	\
     SET_TRG(nm);\
     SET_LED(nm);\  
   }else{\
@@ -78,9 +78,9 @@ void setup(){
 
 void loop(){
   //  TGL_LED(0);
-  uint16_t limit = adc_values[ADC6];
-  uint16_t retrigger = adc_values[ADC6];
-  static uint32_t onsets[6] = {0};  
+  uint16_t limit = 4095-adc_values[ADC6];
+  // uint16_t retrigger = adc_values[ADC6];
+  // static uint32_t onsets[6] = {0};  
   if(TEST_CLK())
     SET_LED(6);
   else

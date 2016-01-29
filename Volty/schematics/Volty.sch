@@ -14663,10 +14663,10 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="C1" library="resistor" deviceset="CPOL-EU" device="E2.5-6" value="10u"/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
-<part name="R20" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
-<part name="R40" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
-<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
-<part name="R50" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
+<part name="R20" library="Rebel" deviceset="R-EU_" device="0603" value="0R"/>
+<part name="R40" library="Rebel" deviceset="R-EU_" device="0603" value="0R"/>
+<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="0R"/>
+<part name="R50" library="Rebel" deviceset="R-EU_" device="0603" value="0R"/>
 <part name="OUT3" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 <part name="OUT5" library="Rebel" deviceset="THONKICONN" device=""/>
@@ -14678,7 +14678,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <part name="OUT6" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND49" library="supply1" deviceset="GND" device=""/>
 <part name="IN+" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R60" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
+<part name="R60" library="Rebel" deviceset="R-EU_" device="0603" value="0R"/>
 <part name="P+21" library="supply1" deviceset="+12V" device=""/>
 <part name="U$3" library="SparkFun" deviceset="M08X2" device=""/>
 <part name="D2" library="SparkFun" deviceset="DIODE" device="SMA"/>
@@ -14698,19 +14698,19 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <part name="D1" library="SparkFun" deviceset="DIODE" device="SMA"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
-<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
+<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="0R"/>
 <part name="OUT+" library="Rebel" deviceset="BANANAJACK" device=""/>
 <part name="P+7" library="supply1" deviceset="+12V" device=""/>
 <part name="R100" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
 <part name="R102" library="Rebel" deviceset="R-EU_" device="0603" value="100K"/>
-<part name="R101" library="Rebel" deviceset="R-EU_" device="0603" value="100K"/>
+<part name="R101" library="Rebel" deviceset="R-EU_" device="0603" value="10K"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
-<part name="R103" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
-<part name="R203" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
+<part name="R103" library="Rebel" deviceset="R-EU_" device="0603" value="20K"/>
+<part name="R203" library="Rebel" deviceset="R-EU_" device="0603" value="20K"/>
 <part name="R202" library="Rebel" deviceset="R-EU_" device="0603" value="100K"/>
 <part name="IN-" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R201" library="Rebel" deviceset="R-EU_" device="0603" value="100K"/>
+<part name="R201" library="Rebel" deviceset="R-EU_" device="0603" value="10K"/>
 <part name="R200" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>

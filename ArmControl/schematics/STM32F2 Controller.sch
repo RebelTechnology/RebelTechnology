@@ -17404,7 +17404,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <label x="0" y="27.94" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$12" class="0">
+<net name="RST" class="0">
 <segment>
 <pinref part="U1" gate="RESET" pin="NRST"/>
 <pinref part="R603" gate="G$1" pin="2"/>

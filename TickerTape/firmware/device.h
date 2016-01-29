@@ -25,12 +25,10 @@
 #define TICKER_TAPE_GATE_OUTPUT_PORT            PORTB
 #define TICKER_TAPE_GATE_OUTPUT_PIN             PORTB2
 
-#define TICKER_TAPE_LEDS_DDR        DDRB
-#define TICKER_TAPE_LEDS_PORT       PORTB
-#define TICKER_TAPE_LEDS_PINS       PINB
-#define TICKER_TAPE_LED_1_PIN       PORTB3
-#define TICKER_TAPE_LED_2_PIN       PORTB4
-#define TICKER_TAPE_LED_3_PIN       PORTB5
+#define TICKER_TAPE_LEDS_DDR        DDRD
+#define TICKER_TAPE_LEDS_PORT       PORTD
+#define TICKER_TAPE_LEDS_PINS       PIND
+#define TICKER_TAPE_LED_1_PIN       PORTD5
 
 #define CS_DDR        DDRC
 #define CS_PORT       PORTC

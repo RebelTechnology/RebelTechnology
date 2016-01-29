@@ -4741,12 +4741,7 @@
      sodipodi:cy="57.900002"
      sodipodi:rx="3.25"
      sodipodi:ry="3.25"
-     d="m 36.099998,57.900002 c 0,1.794925 -1.455074,3.25 -3.25,3.25 -1.794925,0 -3.25,-1.455075 -3.25,-3.25 0,-1.794926 1.455075,-3.25 3.25,-3.25 1.794926,0 3.25,1.455074 3.25,3.25 z" /></g><path
-   d="m 890.87331,813.648 h 3.6 v -6 h 2.854 v 6 h 2.854"
-   sodipodi:nodetypes="cccccc"
-   inkscape:connector-curvature="0"
-   id="path12969"
-   style="fill:none;stroke:#000000;stroke-width:1" /><g
+     d="m 36.099998,57.900002 c 0,1.794925 -1.455074,3.25 -3.25,3.25 -1.794925,0 -3.25,-1.455075 -3.25,-3.25 0,-1.794926 1.455075,-3.25 3.25,-3.25 1.794926,0 3.25,1.455074 3.25,3.25 z" /></g><g
    transform="translate(-167.94895,-146.42631)"
    id="g12985">
 	<line
@@ -4944,7 +4939,7 @@
    points="955.261,735.216 946.651,720.023 939.835,727.029 "
    id="polyline13053"
    transform="matrix(0.7163857,-0.69770448,0.69770448,0.7163857,-292.50998,816.13735)" /><polyline
-   transform="matrix(-0.7163857,-0.69770448,-0.69770448,0.7163857,2081.9875,949.57329)"
+   transform="matrix(-0.7163857,-0.69770448,-0.69770448,0.7163857,2083.7759,951.36166)"
    id="polyline13055"
    points="955.261,735.216 946.651,720.023 939.835,727.029 " /><path
    style="fill:none;stroke:#000000;stroke-width:2.00000008;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
@@ -4952,8 +4947,9 @@
    id="path13565"
    inkscape:connector-curvature="0"
    transform="translate(-4.1353035e-5,0)" /><path
-   style="fill:none;stroke:#000000;stroke-width:2.00000008;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-   d="M 823.3522,702.42296 895.60117,701.70762 823.3522,567.93971"
+   style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+   d="m 823.70988,701.70761 71.89129,10e-6 -71.89129,-135.91397"
    id="path13567"
    inkscape:connector-curvature="0"
-   transform="translate(-4.1353035e-5,0)" /></svg>
+   transform="translate(-4.1353035e-5,0)"
+   sodipodi:nodetypes="ccc" /></svg>

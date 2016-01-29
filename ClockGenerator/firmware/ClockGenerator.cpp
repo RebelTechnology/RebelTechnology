@@ -12,6 +12,12 @@
 #include "ContinuousController.h"
 
 #define GENERATOR_CONTROLLER_DELTA 0.001
+uint32_t multiplier;
+
+// #define FAST_MULTIPLIER        (F_CPU / (64*16ull))
+#define FAST_MULTIPLIER        (F_CPU / (64*64ull))
+#define MEDIUM_MULTIPLIER      (F_CPU / (64*256ull))
+#define SLOW_MULTIPLIER        (F_CPU / (64*4096ull))
 
 class TimerA : public ClockedTimer<uint32_t> {
   void on(){
@@ -35,11 +41,11 @@ class TimerB : public ClockedTimer<uint32_t> {
   }
 };
 
-inline bool isChained(){
+inline bool isFast(){
   return !(GENERATOR_SWITCH_PINS & _BV(GENERATOR_SWITCH_PIN_A));
 }
 
-inline bool isFree(){
+inline bool isSlow(){
   return !(GENERATOR_SWITCH_PINS & _BV(GENERATOR_SWITCH_PIN_B));
 }
 
@@ -94,16 +100,16 @@ void setup(){
 
 //   uint32_t multiplier = F_CPU / (2*64*(1+0xff)); // MCU clock frequency divided by prescaler;
   // see Datasheet Section 14.7.4
-  uint32_t multiplier = F_CPU / (64*256); // MCU clock frequency divided by prescaler times 256 
+  multiplier = MEDIUM_MULTIPLIER; // F_CPU / (64*256); // MCU clock frequency divided by prescaler times 256 
     
   timerA.setDutyCycle(0.5);
-  timerA.minimum = 0.001;
-  timerA.maximum = 20;
+  timerA.minimum = 0.01;
+  timerA.maximum = 16;
   timerA.multiplier = multiplier;
 
   timerB.setDutyCycle(0.5);
-  timerB.minimum = 0.001;
-  timerB.maximum = 20;
+  timerB.minimum = 0.1;
+  timerB.maximum = 16;
   timerB.multiplier = multiplier;
 
   rateA.delta = GENERATOR_CONTROLLER_DELTA;
@@ -128,9 +134,7 @@ void setup(){
 // #define MEDIUM_PRESCALER    (CS01|CS00)
 // #define SLOW_PRESCALER      (CS02|CS00)
 
-#define FAST_MULTIPLIER        (F_CPU / (64*16ull))
-#define MEDIUM_MULTIPLIER      (F_CPU / (64*256ull))
-#define SLOW_MULTIPLIER        (F_CPU / (64*4096ull))
+uint8_t state;
 
 void loop(){
   rateA.update(getAnalogValue(GENERATOR_RATE_A_CONTROL));
@@ -138,19 +142,30 @@ void loop(){
   dutyA.update(getAnalogValue(GENERATOR_DUTY_A_CONTROL));
   dutyB.update(getAnalogValue(GENERATOR_DUTY_A_CONTROL));
 
-  if(isFree() && (timerA.multiplier != FAST_MULTIPLIER)){
-    timerA.multiplier = FAST_MULTIPLIER;
-    timerA.updateFrequency();
-    timerA.updateDutyCycle();
-  }else if(isChained() && (timerA.multiplier != SLOW_MULTIPLIER)){
-    timerA.multiplier = SLOW_MULTIPLIER;
-    timerA.updateFrequency();
-    timerA.updateDutyCycle();
-  }else if(timerA.multiplier != MEDIUM_MULTIPLIER){
-    timerA.multiplier = MEDIUM_MULTIPLIER;
-    timerA.updateFrequency();
-    timerA.updateDutyCycle();
+  uint32_t newmultiplier = MEDIUM_MULTIPLIER;
+  if(isFast())
+    newmultiplier = FAST_MULTIPLIER;
+  else if(isSlow())
+    newmultiplier = SLOW_MULTIPLIER;
+  if(multiplier != newmultiplier){
+    multiplier = newmultiplier;
+    timerA.setMultiplier(multiplier);
+//     timerB.setMultiplier(multiplier);
   }
+    
+//   if(isFree() && (timerA.multiplier != FAST_MULTIPLIER)){
+//     timerA.multiplier = FAST_MULTIPLIER;
+//     timerA.updateFrequency();
+//     timerA.updateDutyCycle();
+//   }else if(isChained() && (timerA.multiplier != SLOW_MULTIPLIER)){
+//     timerA.multiplier = SLOW_MULTIPLIER;
+//     timerA.updateFrequency();
+//     timerA.updateDutyCycle();
+//   }else if(timerA.multiplier != MEDIUM_MULTIPLIER){
+//     timerA.multiplier = MEDIUM_MULTIPLIER;
+//     timerA.updateFrequency();
+//     timerA.updateDutyCycle();
+//   }
 
 //   static int prescaler = MEDIUM_PRESCALER;
 //   if(isFree() && (prescaler != FAST_PRESCALER)){

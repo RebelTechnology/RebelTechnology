@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -13029,12 +13029,15 @@ NS Package M08A</description>
 <sheets>
 <sheet>
 <plain>
+<text x="-25.4" y="-58.42" size="6.4516" layer="97" font="vector">OWL Modular Revision 2</text>
+<text x="-25.4" y="-66.04" size="3.81" layer="97" font="vector">Copyright 2015 Rebel Technology</text>
+<text x="-25.4" y="-73.66" size="3.81" layer="97" font="vector">Published under the GNU GPL</text>
 </plain>
 <instances>
 <instance part="POT4" gate="G$1" x="289.56" y="-30.48" rot="R90"/>
 <instance part="POT4" gate="G$2" x="71.12" y="-33.02"/>
 <instance part="POT2" gate="G$2" x="81.28" y="-33.02"/>
-<instance part="GND36" gate="1" x="81.28" y="-50.8"/>
+<instance part="GND36" gate="1" x="81.28" y="-45.72"/>
 <instance part="POT2" gate="G$1" x="289.56" y="119.38" rot="R90"/>
 <instance part="POT3" gate="G$1" x="289.56" y="43.18" rot="R90"/>
 <instance part="GND31" gate="1" x="289.56" y="175.26"/>
@@ -13284,7 +13287,7 @@ NS Package M08A</description>
 <segment>
 <pinref part="GND36" gate="1" pin="GND"/>
 <pinref part="POT2" gate="G$2" pin="P$1"/>
-<wire x1="81.28" y1="-48.26" x2="81.28" y2="-40.64" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="-43.18" x2="81.28" y2="-40.64" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="-40.64" x2="81.28" y2="-38.1" width="0.1524" layer="91"/>
 <pinref part="POT4" gate="G$2" pin="P$1"/>
 <wire x1="81.28" y1="-40.64" x2="71.12" y2="-40.64" width="0.1524" layer="91"/>

@@ -15,10 +15,10 @@
 #define AUDIO_BIGEND
 /* #define AUDIO_SATURATE_SAMPLES */
 #define AUDIO_PROTOCOL               I2S_PROTOCOL_PHILIPS
-#define AUDIO_FORMAT                 I2S_FORMAT_24bit
+#define AUDIO_FORMAT                 I2S_FORMAT_16bit
 #define AUDIO_CODEC_MASTER           true
 #define AUDIO_CHANNELS               2
-#define AUDIO_BITDEPTH               24    /* bits per sample */
+#define AUDIO_BITDEPTH               16    /* bits per sample */
 #define AUDIO_SAMPLINGRATE           48000
 #define AUDIO_BLOCK_SIZE             128   /* size in samples of a single channel audio block */
 

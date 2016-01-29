@@ -6,13 +6,13 @@
 #include "serial.h"
 #endif // SERIAL_DEBUG
 
-/* #define TICKER_TAPE_BYTES 512 */
+#define TICKER_TAPE_BYTES 512
 
-#ifdef SERIAL_DEBUG
-#define TICKER_TAPE_BYTES 768
-#else
-#define TICKER_TAPE_BYTES 960
-#endif
+/* #ifdef SERIAL_DEBUG */
+/* #define TICKER_TAPE_BYTES 768 */
+/* #else */
+/* #define TICKER_TAPE_BYTES 960 */
+/* #endif */
 
 #define TICKER_TAPE_BITS (TICKER_TAPE_BYTES*8)
 

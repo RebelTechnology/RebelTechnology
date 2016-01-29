@@ -161,8 +161,8 @@
 <dimension x1="58.1025" y1="51.1175" x2="49.53" y2="55.245" x3="77.1525" y3="53.18125" textsize="1.778" layer="47" dtype="vertical" visible="yes"/>
 <text x="3.4925" y="44.1325" size="0.8128" layer="21" font="vector" rot="SR90">PE5</text>
 <text x="3.4925" y="21.1582" size="0.8128" layer="21" font="vector" rot="SR90">PF9</text>
-<text x="10.4775" y="53.0225" size="0.8128" layer="21" font="vector" rot="SR0">PB6</text>
-<text x="13.0175" y="53.0225" size="0.8128" layer="21" font="vector" rot="SR0">PB7</text>
+<text x="13.0175" y="53.0225" size="0.8128" layer="21" font="vector" rot="SR0">PB6</text>
+<text x="10.4775" y="53.0225" size="0.8128" layer="21" font="vector" rot="SR0">PB7</text>
 <text x="16.1925" y="53.6575" size="0.8128" layer="21" font="vector" rot="SR270">BOOT0</text>
 <text x="18.7325" y="53.6575" size="0.8128" layer="21" font="vector" rot="SR270">PG14</text>
 <text x="21.2725" y="53.6575" size="0.8128" layer="21" font="vector" rot="SR270">PD2</text>
@@ -3757,7 +3757,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <signal name="PB5">
 <contactref element="U4" pad="135"/>
 </signal>
-<signal name="UART_RX">
+<signal name="PB6">
 <contactref element="U4" pad="136"/>
 <wire x1="13.0302" y1="47.5488" x2="13.0302" y2="46.3423" width="0.2032" layer="1"/>
 <wire x1="13.0302" y1="46.3423" x2="13.335" y2="46.0375" width="0.2032" layer="1"/>
@@ -3766,7 +3766,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <contactref element="USB2" pad="4"/>
 <wire x1="13.335" y1="54.61" x2="13.97" y2="55.245" width="0.2032" layer="16"/>
 </signal>
-<signal name="UART_TX">
+<signal name="PB7">
 <contactref element="U4" pad="137"/>
 <wire x1="12.5222" y1="47.5488" x2="12.5222" y2="46.4947" width="0.2032" layer="1"/>
 <wire x1="12.5222" y1="46.4947" x2="12.065" y2="46.0375" width="0.2032" layer="1"/>

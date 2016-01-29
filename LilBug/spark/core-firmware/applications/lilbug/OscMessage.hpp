@@ -4,19 +4,19 @@
 #include <inttypes.h>
 #include <string.h>
 
-#define MAX_OSC_PREFIX_SIZE 32
-#define MAX_OSC_DATA_SIZE 32
+#define OSC_MESSAGE_MAX_PREFIX_SIZE 32
+#define OSC_MESSAGE_MAX_DATA_SIZE 32
 class OscMessage {
-  uint8_t prefix[MAX_OSC_PREFIX_SIZE];
+  uint8_t prefix[OSC_MESSAGE_MAX_PREFIX_SIZE];
   uint8_t prefixLength;
-  uint8_t data[MAX_OSC_DATA_SIZE];
+  uint8_t data[OSC_MESSAGE_MAX_DATA_SIZE];
   uint8_t dataLength;
 public:
   OscMessage(char* a) : prefixLength(0), dataLength(0){
     setAddress(a);
   }
   void setAddress(char* a){
-    prefixLength = strnlen(a, MAX_OSC_PREFIX_SIZE-5)+1;
+    prefixLength = strnlen(a, OSC_MESSAGE_MAX_PREFIX_SIZE-5)+1;
     memcpy(prefix, a, prefixLength);
     while(prefixLength & 3) // pad to 4 bytes
       prefix[prefixLength++] = '\0';

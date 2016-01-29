@@ -8,8 +8,7 @@
   <hole x="0.00" y="0.50" radius="3.5"/> <!-- tap tempo -->
 
   <!-- switches -->
-  <hole x="-0.35" y="-0.25" radius="2.3"/> <!-- mode -->
-  <!-- <hole x="0.35" y="-0.25" radius="2.3"/> -->
+  <hole x="-0.35" y="-0.25" radius="2.4"/> <!-- mode -->
 
   <!-- jacks -->
   <hole x="-0.25" y="-1.25" radius="3.25"/> <!-- trigger in -->

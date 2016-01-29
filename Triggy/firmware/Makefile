@@ -1,21 +1,20 @@
 TARGET = Triggy
-INSTALL_DIR = /usr/share/arduino
-
-PORT = /dev/ttyACM0
-AVRDUDE_PROGRAMMER = avrispv2
-
+INSTALL_DIR = /usr/share/arduino/
+PORT = /dev/ttyUSB0
+PROGRAMMER = avrispv2
 F_CPU = 16000000
 MCU = atmega168
-# UPLOAD_RATE = 19200
-UPLOAD_RATE = 115200
+UPLOAD_RATE = 19200
 
 ARDUINO = $(INSTALL_DIR)/hardware/cores/arduino
 
 CXXSRC = Triggy.cpp adc_freerunner.cpp main.cpp
+SRC =
 
 ############################################################################
 
 AVR_TOOLS_PATH = $(INSTALL_DIR)/hardware/tools/avr/bin
+# AVR_TOOLS_PATH = $(INSTALL_DIR)/bin
 FORMAT = ihex
 
 
@@ -27,7 +26,7 @@ MAKEFILE = Makefile
 # AVR (extended) COFF requires stabs, plus an avr-objcopy run.
 DEBUG = stabs
 
-OPT = s -mcall-prologues 
+OPT = 2 # -mcall-prologues 
 
 # Place -D or -U options here
 CDEFS = -DF_CPU=$(F_CPU)
@@ -43,7 +42,7 @@ CXXINCS = -I$(ARDUINO)
 # c99   - ISO C99 standard (not yet fully implemented)
 # gnu99 - c99 plus GCC extensions
 CSTANDARD = -std=gnu99
-CDEBUG = -g$(DEBUG)
+CDEBUG = # -g$(DEBUG)
 CWARN = -Wall -Wstrict-prototypes
 CTUNING = -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
 #CEXTRA = -Wa,-adhlns=$(<:.c=.lst)
@@ -53,12 +52,6 @@ CXXFLAGS = $(CDEFS) $(CINCS) -O$(OPT)
 #ASFLAGS = -Wa,-adhlns=$(<:.S=.lst),-gstabs 
 LDFLAGS = -lm
 
-# Programming support using avrdude. Settings and variables.
-AVRDUDE_PORT = $(PORT)
-AVRDUDE_WRITE_FLASH = -U flash:w:build/$(TARGET).hex
-AVRDUDE_FLAGS = -F -V -p $(MCU) -P $(AVRDUDE_PORT) -c $(AVRDUDE_PROGRAMMER)
-# -b $(UPLOAD_RATE)
-
 # Program settings
 CC = $(AVR_TOOLS_PATH)/avr-gcc
 CXX = $(AVR_TOOLS_PATH)/avr-g++
@@ -67,7 +60,7 @@ OBJDUMP = $(AVR_TOOLS_PATH)/avr-objdump
 AR  = $(AVR_TOOLS_PATH)/avr-ar
 SIZE = $(AVR_TOOLS_PATH)/avr-size
 NM = $(AVR_TOOLS_PATH)/avr-nm
-AVRDUDE = $(AVR_TOOLS_PATH)/avrdude
+AVRDUDE = avrdude
 REMOVE = rm -f
 MV = mv -f
 
@@ -85,7 +78,7 @@ ALL_ASFLAGS = -mmcu=$(MCU) -I. -x assembler-with-cpp $(ASFLAGS)
 
 
 # Default target.
-all: compile size
+all: compile sizeafter
 
 compile: elf hex
 # compile: elf hex eep
@@ -97,8 +90,8 @@ lss: build/$(TARGET).lss
 sym: build/$(TARGET).sym
 
 # Program the device.  
-upload: build/$(TARGET).hex
-	$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH)
+flash: build/$(TARGET).hex
+	$(AVRDUDE) -p $(MCU) -P $(PORT) -c $(PROGRAMMER) -e -U flash:w:build/$(TARGET).hex
 
 # Display size of file.
 HEXSIZE = $(SIZE) --target=$(FORMAT) build/$(TARGET).hex
@@ -108,9 +101,6 @@ sizebefore:
 
 sizeafter:
 	@if [ -f build/$(TARGET).elf ]; then echo; echo $(MSG_SIZE_AFTER); $(HEXSIZE); echo; fi
-
-size: build/$(TARGET).elf
-	$(SIZE) -C --mcu=$(MCU) build/$(TARGET).elf
 
 
 # Convert ELF to COFF for use in debugging / simulating in AVR Studio or VMLAB.
