@@ -115,7 +115,13 @@
     <circle cx="{$width div 2+@x*$inch}"
 	    cy="{$height div 2-@y*$inch}"
 	    r="{@radius}"/>
+  </xsl:template>
 
+  <xsl:template match="rect">
+    <rect x="{$width div 2 + @x*$inch - @width div 2}"
+	  y="{$height div 2 - @y*$inch - @height div 2}"
+	  width="{@width}" 
+	  height="{@height}"/>
   </xsl:template>
 
   <xsl:template match="pot">
