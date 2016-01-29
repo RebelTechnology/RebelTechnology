@@ -1,0 +1,42 @@
+<module type="6hp">
+
+  <!-- offset x:0.6 y:1.225 -->
+
+  <!-- oled screen -->
+  <!-- MCOT096064AZ 96x64 -->
+  <rect x="0.0" y="1.5" width="20.14" height="13.42"/> <!-- active area -->
+  <rect x="0.0" y="1.5" width="22.14" height="15.42"/> <!-- viewing area -->
+  <!-- <rect x="0.0" y="1.5" width="25.7" height="22.2"/>  -->  <!-- outline dimensions -->
+
+  <!-- MCOT096096AY 96x96 -->
+  <!-- viewing area -->
+  <!-- <rect x="0.0" y="1.5" width="21.852" height="21.852"/>  -->
+  <!-- outline dimensions -->
+  <!-- <rect x="0.0" y="1.5" width="25.9" height="30.1"/>   -->
+
+  <!-- pots -->
+  <!-- todo: change <hole> to <pot> but without markings -->
+  <!-- <hole x="0.15" y="0.45" radius="4.75"/> -->
+  <!-- <hole x="-0.15" y="-0.15" radius="4.75"/> -->
+  <pot x="0.15" y="0.65"/>
+  <pot x="-0.15" y="-0.1"/>
+
+  <!-- leds -->
+  <!-- <hole x="0.5" y="-0.425" radius="1.5"/> -->
+  <!-- <hole x="-0.5" y="-0.425" radius="1.5"/> -->
+  <!-- <hole x="0.25" y="-0.5" radius="1.5"/> -->
+  <!-- <hole x="-0.25" y="-0.5" radius="1.5"/> -->
+  <!-- <hole x="-0.25" y="-1" radius="1.5"/> -->
+  <!-- <hole x="0.25" y="-1.5" radius="1.5"/> -->
+
+  <!-- jacks -->
+  <hole x="-0.25" y="-0.75" radius="3.25"/>
+  <hole x="0.25" y="-0.75" radius="3.25"/>
+
+  <hole x="-0.25" y="-1.25" radius="3.25"/>
+  <hole x="0.25" y="-1.25" radius="3.25"/>
+
+  <hole x="-0.25" y="-1.75" radius="3.25"/>
+  <hole x="0.25" y="-1.75" radius="3.25"/>
+
+</module>
