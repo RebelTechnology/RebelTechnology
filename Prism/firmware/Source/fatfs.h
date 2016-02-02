@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
-  * @file    stm32f7xx_it.h
-  * @brief   This file contains the headers of the interrupt handlers.
+  * @file   fatfs.h
+  * @brief  Header for fatfs applications
   ******************************************************************************
   *
   * COPYRIGHT(c) 2016 STMicroelectronics
@@ -32,28 +32,31 @@
   */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __STM32F7xx_IT_H
-#define __STM32F7xx_IT_H
-
+#ifndef __fatfs_H
+#define __fatfs_H
 #ifdef __cplusplus
  extern "C" {
-#endif 
+#endif
 
-/* Includes ------------------------------------------------------------------*/
-/* Exported types ------------------------------------------------------------*/
-/* Exported constants --------------------------------------------------------*/
-/* Exported macro ------------------------------------------------------------*/
-/* Exported functions ------------------------------------------------------- */
+#include "ff.h"
+#include "ff_gen_drv.h"
+#include "user_diskio.h" /* defines USER_Driver as external */
 
-void SysTick_Handler(void);
-void DMA2_Stream1_IRQHandler(void);
-void DMA2_Stream3_IRQHandler(void);
-void DMA2_Stream4_IRQHandler(void);
+/* USER CODE BEGIN Includes */
 
+/* USER CODE END Includes */
+
+extern uint8_t retUSER; /* Return value for USER */
+extern char USER_Path[4]; /* USER logical drive path */
+
+void MX_FATFS_Init(void);
+
+/* USER CODE BEGIN Prototypes */
+
+/* USER CODE END Prototypes */
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* __STM32F7xx_IT_H */
+#endif /*__fatfs_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

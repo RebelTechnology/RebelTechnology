@@ -15,7 +15,7 @@ endif
 
 LDFLAGS += -Wl,--gc-sections
 #LDSCRIPT = Source/flash.ld
-LDSCRIPT = Source/STM32F746VG_FLASH.ld
+LDSCRIPT = Source/STM32F746VE_FLASH.ld
 
 CPPFLAGS += --specs=nano.specs
 CPPFLAGS += -DEXTERNAL_SRAM -DARM_CORTEX
@@ -29,8 +29,10 @@ CPPFLAGS += -mtune=cortex-m4
 CXXFLAGS = -fno-rtti -fno-exceptions -std=c++11
 CFLAGS  += -std=gnu99
 
-C_SRC  = stm32f7xx_it.c main.c stm32f7xx_hal_msp.c
-C_SRC += system_stm32f7xx.c
+C_SRC = $(notdir $(wildcard Source/*.c))
+
+# C_SRC  = stm32f7xx_it.c main.c stm32f7xx_hal_msp.c
+# C_SRC += system_stm32f7xx.c
 
 # CPP_SRC = main.cpp
 

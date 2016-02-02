@@ -32,6 +32,7 @@ ARCH_FLAGS = -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16
 ARCH_FLAGS += -fsingle-precision-constant
 DEF_FLAGS = -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__FPU_PRESENT -D__FPU_USED=1
 DEF_FLAGS = -DSTM32F746xx
+# DEF_FLAGS = -DSTM32F745VG
 INC_FLAGS = -I$(TEMPLATEROOT)/Libraries -I$(CMSIS) -I$(TEMPLATEROOT)/Source
 INC_FLAGS += -I$(DEVICE)/Include -I$(CMSIS)
 INC_FLAGS += -I$(DRIVERS)/Inc

@@ -1,14 +1,11 @@
 /**
+ ******************************************************************************
+  * @file    user_diskio.h
+  * @brief   This file contains the common defines and functions prototypes for  
+  *          the user_diskio driver.
   ******************************************************************************
-  * @file    ADC/ADC_RegularConversion_DMA/Inc/main.h
-  * @author  MCD Application Team
-  * @version V1.0.0
-  * @date    18-November-2015
-  * @brief   Header for main.c module
-  ******************************************************************************
-  * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2015 STMicroelectronics</center></h2>
+  * COPYRIGHT(c) 2016 STMicroelectronics
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -34,49 +31,29 @@
   *
   ******************************************************************************
   */
-
+  
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MAIN_H
-#define __MAIN_H
+#ifndef __USER_DISKIO_H
+#define __USER_DISKIO_H
+
+#ifdef __cplusplus
+ extern "C" {
+#endif 
+
+/* USER CODE BEGIN 0 */
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f7xx_hal.h"
-#include "stm32f7xx_nucleo_144.h"
-
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
-/* User can use this section to tailor ADCx instance used and associated
-   resources */
-   
-/* Definition for ADCx clock resources */
-#define ADCx                            ADC3
-#define ADCx_CLK_ENABLE()               __HAL_RCC_ADC3_CLK_ENABLE()
-#define DMAx_CLK_ENABLE()               __HAL_RCC_DMA2_CLK_ENABLE()
-#define ADCx_CHANNEL_GPIO_CLK_ENABLE()  __HAL_RCC_GPIOF_CLK_ENABLE()
-
-#define ADCx_FORCE_RESET()              __HAL_RCC_ADC_FORCE_RESET()
-#define ADCx_RELEASE_RESET()            __HAL_RCC_ADC_RELEASE_RESET()
-
-/* Definition for ADCx Channel Pin */
-#define ADCx_CHANNEL_PIN                GPIO_PIN_10
-#define ADCx_CHANNEL_GPIO_PORT          GPIOF
-
-/* Definition for ADCx's Channel */
-#define ADCx_CHANNEL                    ADC_CHANNEL_8
-
-/* Definition for ADCx's DMA */
-#define ADCx_DMA_CHANNEL                DMA_CHANNEL_2
-#define ADCx_DMA_STREAM                 DMA2_Stream0
-
-/* Definition for ADCx's NVIC */
-#define ADCx_DMA_IRQn                   DMA2_Stream0_IRQn
-#define ADCx_DMA_IRQHandler             DMA2_Stream0_IRQHandler
-/* Exported macro ------------------------------------------------------------*/
-
-
 /* Exported functions ------------------------------------------------------- */
+extern Diskio_drvTypeDef  USER_Driver;
 
+/* USER CODE END 0 */
+   
+#ifdef __cplusplus
+}
+#endif
 
-#endif /* __MAIN_H */
+#endif /* __USER_DISKIO_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

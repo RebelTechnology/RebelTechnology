@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
-  * @file    stm32f7xx_it.h
-  * @brief   This file contains the headers of the interrupt handlers.
+  * @file   fatfs.c
+  * @brief  Code for fatfs applications
   ******************************************************************************
   *
   * COPYRIGHT(c) 2016 STMicroelectronics
@@ -31,29 +31,39 @@
   ******************************************************************************
   */
 
-/* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __STM32F7xx_IT_H
-#define __STM32F7xx_IT_H
+#include "fatfs.h"
 
-#ifdef __cplusplus
- extern "C" {
-#endif 
+uint8_t retUSER;    /* Return value for USER */
+char USER_Path[4];  /* USER logical drive path */
 
-/* Includes ------------------------------------------------------------------*/
-/* Exported types ------------------------------------------------------------*/
-/* Exported constants --------------------------------------------------------*/
-/* Exported macro ------------------------------------------------------------*/
-/* Exported functions ------------------------------------------------------- */
+/* USER CODE BEGIN Variables */
 
-void SysTick_Handler(void);
-void DMA2_Stream1_IRQHandler(void);
-void DMA2_Stream3_IRQHandler(void);
-void DMA2_Stream4_IRQHandler(void);
+/* USER CODE END Variables */    
 
-#ifdef __cplusplus
+void MX_FATFS_Init(void) 
+{
+  /*## FatFS: Link the USER driver ###########################*/
+  retUSER = FATFS_LinkDriver(&USER_Driver, USER_Path);
+
+  /* USER CODE BEGIN Init */
+  /* additional user code for init */     
+  /* USER CODE END Init */
 }
-#endif
 
-#endif /* __STM32F7xx_IT_H */
+/**
+  * @brief  Gets Time from RTC 
+  * @param  None
+  * @retval Time in DWORD
+  */
+DWORD get_fattime(void)
+{
+  /* USER CODE BEGIN get_fattime */
+  return 0;
+  /* USER CODE END get_fattime */  
+}
+
+/* USER CODE BEGIN Application */
+     
+/* USER CODE END Application */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
