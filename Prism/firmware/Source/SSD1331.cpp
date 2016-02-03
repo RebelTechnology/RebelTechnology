@@ -49,17 +49,18 @@
 #define OLED_MW			(OLED_WIDTH-1)
 #define OLED_MH			(OLED_HEIGHT-1)
 
-#include "cmsis_os.h"
+// #include "cmsis_os.h"
 #include "stm32f7xx_hal.h"
 #include "mxconstants.h"
 #include "gpio.h"
 #include "SSD1331.h"
 
+extern "C" void delay(uint32_t millisec);
+
 // #define setCS()    setPin(OLED_CS_GPIO_Port, OLED_CS_Pin)
 // #define clearCS()  clearPin(OLED_CS_GPIO_Port, OLED_CS_Pin)
 #define setCS()    
 #define clearCS()  
-#define delay(x)   osDelay(x)
 
 typedef uint16_t Colour;
 Colour pixels[OLED_WIDTH][OLED_HEIGHT];

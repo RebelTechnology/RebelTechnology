@@ -4,6 +4,7 @@
 
 /* USER CODE BEGIN Includes */
 #include "SSD1331.h"
+#include "cs4272.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -537,8 +538,15 @@ void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+extern "C" {
+void delay(uint32_t ms){
+  osDelay(ms);
+}
+}
+
 void StartScreenTask(void const * argument)
 {
+  codec_init(&hsai_BlockA1, &hsai_BlockB1, &hspi2);
   screen.begin(&hspi1);
   for(;;){
     osDelay(20);
