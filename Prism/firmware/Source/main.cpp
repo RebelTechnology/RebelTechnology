@@ -328,17 +328,21 @@ void MX_SPI1_Init(void)
   hspi1.Instance = SPI1;
   hspi1.Init.Mode = SPI_MODE_MASTER;
   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+  // hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
   hspi1.Init.DataSize = SPI_DATASIZE_16BIT;
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi1.Init.NSS = SPI_NSS_HARD_OUTPUT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
+  // hspi1.Init.NSS = SPI_NSS_HARD_OUTPUT;
+  hspi1.Init.NSS = SPI_NSS_SOFT;
+  // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLED;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
   hspi1.Init.CRCPolynomial = 7;
   hspi1.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
-  hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLED;
+  // hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLED;
+  hspi1.Init.NSSPMode = SPI_NSS_PULSE_DISABLED;
   HAL_SPI_Init(&hspi1);
 
 }
@@ -463,8 +467,8 @@ void MX_DMA_Init(void)
   /* DMA interrupt init */
   HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
-  HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 5, 0);
-  HAL_NVIC_EnableIRQ(DMA2_Stream3_IRQn);
+  // HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 5, 0);
+  // HAL_NVIC_EnableIRQ(DMA2_Stream3_IRQn);
   HAL_NVIC_SetPriority(DMA2_Stream4_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream4_IRQn);
 
@@ -493,11 +497,18 @@ void MX_GPIO_Init(void)
   __GPIOB_CLK_ENABLE();
   __GPIOD_CLK_ENABLE();
 
+  /*Configure GPIO pin : OLED_CS_Pin */
+  GPIO_InitStruct.Pin = OLED_CS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+  HAL_GPIO_Init(OLED_CS_GPIO_Port, &GPIO_InitStruct);
+
   /*Configure GPIO pin : OLED_RST_Pin */
   GPIO_InitStruct.Pin = OLED_RST_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
   HAL_GPIO_Init(OLED_RST_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : SW1_Pin */
@@ -518,7 +529,7 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pin = OLED_DC_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
   HAL_GPIO_Init(OLED_DC_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : CS_RST_Pin */
@@ -546,7 +557,7 @@ void delay(uint32_t ms){
 
 void StartScreenTask(void const * argument)
 {
-  codec_init(&hsai_BlockA1, &hsai_BlockB1, &hspi2);
+  // codec_init(&hsai_BlockA1, &hsai_BlockB1, &hspi2);
   screen.begin(&hspi1);
   for(;;){
     osDelay(20);
@@ -564,6 +575,39 @@ void StartDefaultTask(void const * argument)
 
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
+
+  // draw some pixels
+  screen.fillScreen(BLACK);
+  for(int i=0; i<32; i+=3){
+    screen.drawPixel(i*3, i*2, WHITE);
+  }
+  osDelay(2000);
+
+  screen.fillScreen(WHITE);
+  osDelay(2000);
+  screen.fillScreen(BLACK);
+
+  for (int16_t i=1; i<screen.width(); i+=4) {
+    screen.drawLine(0, 0, i, screen.height()-1, GREEN);
+  }
+  osDelay(2000);
+  for (int16_t i=1; i<screen.height(); i+=4) {
+    screen.drawLine(0, 0, screen.width()-1, i, BLUE);
+  }
+  osDelay(2000);
+
+  screen.fillScreen(WHITE);
+  screen.setTextColor(BLACK);
+  screen.setTextSize(1);
+  screen.setCursor(10, 20);
+  screen.print("Hello, world!");
+  delay(2000);
+  screen.fillScreen(BLACK);
+  screen.setTextColor(WHITE);
+  screen.setCursor(0,0);
+  screen.print("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer iaculis pellentesque sem, sit amet pulvinar ex placerat et. Aenean eleifend sem sem, ac semper quam vestibulum ac.");
+  delay(2000);
+
   uint16_t i=0;
   for(;;){
     screen.fillScreen(i++);

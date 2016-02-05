@@ -76,7 +76,7 @@ void SysTick_Handler(void)
 void DMA2_Stream1_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream1_IRQn 0 */
-
+  // SAI1_A: peripheral/codec to memory
   /* USER CODE END DMA2_Stream1_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_sai1_a);
   /* USER CODE BEGIN DMA2_Stream1_IRQn 1 */
@@ -90,7 +90,7 @@ void DMA2_Stream1_IRQHandler(void)
 void DMA2_Stream3_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream3_IRQn 0 */
-
+  // SPI1_TX
   /* USER CODE END DMA2_Stream3_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_spi1_tx);
   /* USER CODE BEGIN DMA2_Stream3_IRQn 1 */
@@ -104,7 +104,7 @@ void DMA2_Stream3_IRQHandler(void)
 void DMA2_Stream4_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream4_IRQn 0 */
-
+  // SAI1_B: memory to peripheral/codec 
   /* USER CODE END DMA2_Stream4_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_sai1_b);
   /* USER CODE BEGIN DMA2_Stream4_IRQn 1 */

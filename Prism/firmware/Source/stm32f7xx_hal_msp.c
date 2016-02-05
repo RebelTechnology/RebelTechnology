@@ -284,7 +284,8 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
     PA15     ------> SPI1_NSS
     PB3     ------> SPI1_SCK 
     */
-    GPIO_InitStruct.Pin = OLED_MOSI_Pin|OLED_CS_Pin;
+    /* GPIO_InitStruct.Pin = OLED_MOSI_Pin|OLED_CS_Pin; */
+    GPIO_InitStruct.Pin = OLED_MOSI_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
@@ -300,19 +301,19 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
 
     /* Peripheral DMA init*/
   
-    hdma_spi1_tx.Instance = DMA2_Stream3;
-    hdma_spi1_tx.Init.Channel = DMA_CHANNEL_3;
-    hdma_spi1_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
-    hdma_spi1_tx.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_spi1_tx.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_spi1_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
-    hdma_spi1_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
-    hdma_spi1_tx.Init.Mode = DMA_NORMAL;
-    hdma_spi1_tx.Init.Priority = DMA_PRIORITY_LOW;
-    hdma_spi1_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
-    HAL_DMA_Init(&hdma_spi1_tx);
+    /* hdma_spi1_tx.Instance = DMA2_Stream3; */
+    /* hdma_spi1_tx.Init.Channel = DMA_CHANNEL_3; */
+    /* hdma_spi1_tx.Init.Direction = DMA_MEMORY_TO_PERIPH; */
+    /* hdma_spi1_tx.Init.PeriphInc = DMA_PINC_DISABLE; */
+    /* hdma_spi1_tx.Init.MemInc = DMA_MINC_ENABLE; */
+    /* hdma_spi1_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE; */
+    /* hdma_spi1_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE; */
+    /* hdma_spi1_tx.Init.Mode = DMA_NORMAL; */
+    /* hdma_spi1_tx.Init.Priority = DMA_PRIORITY_LOW; */
+    /* hdma_spi1_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE; */
+    /* HAL_DMA_Init(&hdma_spi1_tx); */
 
-    __HAL_LINKDMA(hspi,hdmatx,hdma_spi1_tx);
+    /* __HAL_LINKDMA(hspi,hdmatx,hdma_spi1_tx); */
 
   /* USER CODE BEGIN SPI1_MspInit 1 */
 
@@ -375,7 +376,8 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* hspi)
     PA15     ------> SPI1_NSS
     PB3     ------> SPI1_SCK 
     */
-    HAL_GPIO_DeInit(GPIOA, OLED_MOSI_Pin|OLED_CS_Pin);
+    /* HAL_GPIO_DeInit(GPIOA, OLED_MOSI_Pin|OLED_CS_Pin); */
+    HAL_GPIO_DeInit(GPIOA, OLED_MOSI_Pin);
 
     HAL_GPIO_DeInit(OLED_SCK_GPIO_Port, OLED_SCK_Pin);
 

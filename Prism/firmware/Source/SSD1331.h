@@ -6,11 +6,23 @@
 #define OLED_WIDTH			96	
 #define OLED_HEIGHT			64	
 
-class SSD1331 {
+// Color definitions
+#define	BLACK           0x0000
+#define	BLUE            0x001F
+#define	RED             0xF800
+#define	GREEN           0x07E0
+#define CYAN            0x07FF
+#define MAGENTA         0xF81F
+#define YELLOW          0xFFE0  
+#define WHITE           0xFFFF
+
+#include "Adafruit_GFX.h"
+
+class SSD1331 : public Adafruit_GFX {
 public:
   // 4 or 5 wire configuration
   /* SSD1331(uint8_t CS, uint8_t RS, uint8_t RST); */
-  SSD1331(){}
+  SSD1331() : Adafruit_GFX(OLED_WIDTH, OLED_HEIGHT) {}
   void begin(SPI_HandleTypeDef *spi);
   void display();
   uint16_t Color565(uint8_t r, uint8_t g, uint8_t b);

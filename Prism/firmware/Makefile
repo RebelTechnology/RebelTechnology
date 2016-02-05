@@ -7,10 +7,13 @@ endif
 ifeq ($(CONFIG),Debug)
   CPPFLAGS = -g -Wall -Wcpp -Wunused-function -DDEBUG -DUSE_FULL_ASSERT
   ASFLAGS  = -g
+  CFLAGS   = -g
 endif
 
 ifeq ($(CONFIG),Release)
   CPPFLAGS = -O2
+  ASFLAGS  = -O2
+  CFLAGS   = -O2
 endif
 
 LDFLAGS += -Wl,--gc-sections

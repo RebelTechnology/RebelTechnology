@@ -20,7 +20,7 @@
      port->BSRR = pin;
    }
    inline void clearPin(GPIO_TypeDef* port, uint32_t pin){
-     port->BSRR = (uint32_t)pin << 16;
+     port->BSRR = pin << 16;
    }
    inline void togglePin(GPIO_TypeDef* port, uint32_t pin){
      port->ODR ^= pin;

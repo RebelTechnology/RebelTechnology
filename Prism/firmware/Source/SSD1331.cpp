@@ -57,10 +57,10 @@
 
 extern "C" void delay(uint32_t millisec);
 
-// #define setCS()    setPin(OLED_CS_GPIO_Port, OLED_CS_Pin)
-// #define clearCS()  clearPin(OLED_CS_GPIO_Port, OLED_CS_Pin)
-#define setCS()    
-#define clearCS()  
+#define setCS()    setPin(OLED_CS_GPIO_Port, OLED_CS_Pin)
+#define clearCS()  clearPin(OLED_CS_GPIO_Port, OLED_CS_Pin)
+// #define setCS()    
+// #define clearCS()  
 
 typedef uint16_t Colour;
 Colour pixels[OLED_WIDTH][OLED_HEIGHT];
@@ -103,20 +103,9 @@ void SSD1331::drawPixel(int16_t x, int16_t y, uint16_t c){
 
 void SSD1331::display(){
   goTo(0, 0);
-  setPin(OLED_RST_GPIO_Port, OLED_RST_Pin);
+  setPin(OLED_DC_GPIO_Port, OLED_DC_Pin);
   clearCS();
-  // SPI.transfer(pixels, NULL, OLED_HEIGHT*OLED_WIDTH*sizeof(Colour), callback);
-  // while(!done)
-  //   delay(1);
-  // spiwrite(pixels, OLED_HEIGHT*OLED_WIDTH*sizeof(Colour));
   spiwrite((uint8_t*)pixels, sizeof(pixels));
-  // for(int y=0; y<OLED_HEIGHT; ++y){
-  //   for(int x=0; x<OLED_WIDTH; ++x){
-  //     // writeData(pixels[x][y] >> 8);
-  //     // writeData(pixels[x][y]);
-  //     spiwrite(pixels[x][y] >> 8);
-  //     spiwrite(pixels[x][y]);
-  //   }
   setCS();
 }
 
@@ -163,34 +152,35 @@ void SSD1331::setRegister(const uint8_t reg,uint8_t val){
   writeCommands(cmd,2);
 }
 
+#define OLED_TIMEOUT 1000
 void SSD1331::spiwrite(uint8_t* data, size_t size){
-  while(hspi->State != HAL_SPI_STATE_READY);
-  HAL_SPI_Transmit_DMA(hspi, data, size);
+  // while(hspi->State != HAL_SPI_STATE_READY);
+  // HAL_SPI_Transmit_DMA(hspi, data, size);
+  HAL_SPI_Transmit(hspi, data, size, OLED_TIMEOUT);
 }
 
 inline void SSD1331::spiwrite(uint8_t c){
-  while(hspi->State != HAL_SPI_STATE_READY);
-  HAL_SPI_Transmit_DMA(hspi, &c, 1);
+  // while(hspi->State != HAL_SPI_STATE_READY);
+  // HAL_SPI_Transmit_DMA(hspi, &c, 1);
+  HAL_SPI_Transmit(hspi, &c, 1, OLED_TIMEOUT);
 }
 	
 void SSD1331::writeCommand(uint8_t c){
-  clearPin(OLED_RST_GPIO_Port, OLED_RST_Pin);
+  clearPin(OLED_DC_GPIO_Port, OLED_DC_Pin);
   clearCS();
   spiwrite(c);
   setCS();
 }
 
 void SSD1331::writeCommands(uint8_t *cmd, uint8_t length){
-  clearPin(OLED_RST_GPIO_Port, OLED_RST_Pin);
+  clearPin(OLED_DC_GPIO_Port, OLED_DC_Pin);
   clearCS();
-  // for(uint8_t i = 0; i < length; i++) 
-  //   spiwrite(*cmd++);
   spiwrite(cmd, length);
   setCS();
 }
 	
 void SSD1331::writeData(uint8_t c){
-  setPin(OLED_RST_GPIO_Port, OLED_RST_Pin);
+  setPin(OLED_DC_GPIO_Port, OLED_DC_Pin);
   clearCS();
   spiwrite(c);
   setCS();
