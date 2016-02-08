@@ -41,8 +41,8 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern DMA_HandleTypeDef hdma_sai1_a;
-extern DMA_HandleTypeDef hdma_sai1_b;
+extern DMA_HandleTypeDef hdma_sai1_rx;
+extern DMA_HandleTypeDef hdma_sai1_tx;
 extern DMA_HandleTypeDef hdma_spi1_tx;
 
 /******************************************************************************/
@@ -55,7 +55,7 @@ extern DMA_HandleTypeDef hdma_spi1_tx;
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
-
+  HAL_IncTick();
   /* USER CODE END SysTick_IRQn 0 */
   osSystickHandler();
   /* USER CODE BEGIN SysTick_IRQn 1 */
@@ -76,9 +76,11 @@ void SysTick_Handler(void)
 void DMA2_Stream1_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream1_IRQn 0 */
-  // SAI1_A: peripheral/codec to memory
+  // TX: memory to peripheral/codec 
+  static int counter = 0;
+  counter++;
   /* USER CODE END DMA2_Stream1_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_sai1_a);
+  HAL_DMA_IRQHandler(&hdma_sai1_tx);
   /* USER CODE BEGIN DMA2_Stream1_IRQn 1 */
 
   /* USER CODE END DMA2_Stream1_IRQn 1 */
@@ -91,6 +93,8 @@ void DMA2_Stream3_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream3_IRQn 0 */
   // SPI1_TX
+  static int counter = 0;
+  counter++;
   /* USER CODE END DMA2_Stream3_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_spi1_tx);
   /* USER CODE BEGIN DMA2_Stream3_IRQn 1 */
@@ -104,9 +108,11 @@ void DMA2_Stream3_IRQHandler(void)
 void DMA2_Stream4_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream4_IRQn 0 */
-  // SAI1_B: memory to peripheral/codec 
+  // RX: peripheral/codec to memory
+  static int counter = 0;
+  counter++;
   /* USER CODE END DMA2_Stream4_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_sai1_b);
+  HAL_DMA_IRQHandler(&hdma_sai1_rx);
   /* USER CODE BEGIN DMA2_Stream4_IRQn 1 */
 
   /* USER CODE END DMA2_Stream4_IRQn 1 */
