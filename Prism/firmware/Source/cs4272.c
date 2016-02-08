@@ -4,11 +4,8 @@
 #include "stm32f7xx_hal.h"
 
 extern void delay(uint32_t millisec);
-#define CS_BUFFER_SIZE   1024
 #define CS_TIMEOUT       1000
 
-int32_t cs_txbuf[CS_BUFFER_SIZE];
-int32_t cs_rxbuf[CS_BUFFER_SIZE];
 SPI_HandleTypeDef* hspi;
 
 #define setCS()    setPin(CS_CS_GPIO_Port, CS_CS_Pin)
@@ -34,10 +31,6 @@ void codec_write(uint8_t reg, uint8_t data)
 }
 
 void codec_init(SPI_HandleTypeDef* spi){
-
-  for(int i=0; i<CS_BUFFER_SIZE; ++i){
-    cs_txbuf[i] = i*0xfff;
-  }
 
   hspi = spi;
 

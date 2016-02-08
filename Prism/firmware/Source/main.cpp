@@ -36,7 +36,11 @@ osThreadId defaultTaskHandle;
 /* Private variables ---------------------------------------------------------*/
 
 osThreadId screenTaskHandle;
-// SSD1331 screen;
+//#define OLED_SCREEN
+#define CODEC
+#ifdef OLED_SCREEN
+SSD1331 screen;
+#endif
 
 /* USER CODE END PV */
 
@@ -573,26 +577,35 @@ void delay(uint32_t ms){
 }
 }
 
+#ifdef CODEC
+#define CS_BUFFER_SIZE   1024
+int32_t cs_txbuf[CS_BUFFER_SIZE];
+int32_t cs_rxbuf[CS_BUFFER_SIZE];
+#endif
+
 void StartScreenTask(void const * argument)
 {
-  codec_init(&hspi2);
+#ifdef CODEC
+  for(int i=0; i<CS_BUFFER_SIZE; ++i)
+    cs_txbuf[i] = i*0xfff;
 
-  extern int32_t* cs_txbuf;
-  extern int32_t* cs_rxbuf;
+  codec_init(&hspi2);
 
   HAL_SAI_Receive_DMA(&hsai_BlockRx, (uint8_t*)cs_rxbuf, 1024);
   HAL_SAI_Transmit_DMA(&hsai_BlockTx, (uint8_t*)cs_txbuf, 1024);
-
+#endif
   // screen.begin(&hspi1);
   for(;;){
-    osDelay(20000);
-    HAL_SAI_Transmit(&hsai_BlockTx, (uint8_t*)cs_txbuf, 1024, 1000);
-    HAL_SAI_Receive(&hsai_BlockRx, (uint8_t*)cs_rxbuf, 1024, 1000);
+    osDelay(100);
+    // HAL_SAI_Transmit(&hsai_BlockTx, (uint8_t*)cs_txbuf, 1024, 1000);
+    // HAL_SAI_Receive(&hsai_BlockRx, (uint8_t*)cs_rxbuf, 1024, 1000);
     // osDelay(5000);
     // codec_bypass(true);
     // osDelay(5000);
     // codec_bypass(false);
-    // screen.display();
+#ifdef OLED_SCREEN
+    screen.display();
+#endif
   }
 }
 
