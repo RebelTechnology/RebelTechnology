@@ -38,6 +38,10 @@
 
 /* Private define ------------------------------------------------------------*/
 
+/* #define USE_SCREEN */
+#define OLED_SOFT_CS
+#define USE_CODEC
+
 #define QSPI_D2_Pin GPIO_PIN_2
 #define QSPI_D2_GPIO_Port GPIOE
 #define CS_SDOUT_Pin GPIO_PIN_3
@@ -94,10 +98,10 @@
 #define SWDIO_GPIO_Port GPIOA
 #define SWDCLK_Pin GPIO_PIN_14
 #define SWDCLK_GPIO_Port GPIOA
-/* #define OLED_CS_Pin GPIO_PIN_15 */
-/* #define OLED_CS_GPIO_Port GPIOA */
-#define OLED_CS_Pin GPIO_PIN_12
-#define OLED_CS_GPIO_Port GPIOC
+#define OLED_CS_Pin GPIO_PIN_15
+#define OLED_CS_GPIO_Port GPIOA
+/* #define OLED_CS_Pin GPIO_PIN_12 */
+/* #define OLED_CS_GPIO_Port GPIOC */
 #define OLED_DC_Pin GPIO_PIN_10
 #define OLED_DC_GPIO_Port GPIOC
 #define OLED_SCK_Pin GPIO_PIN_3

@@ -36,9 +36,7 @@ osThreadId defaultTaskHandle;
 /* Private variables ---------------------------------------------------------*/
 
 osThreadId screenTaskHandle;
-//#define OLED_SCREEN
-#define CODEC
-#ifdef OLED_SCREEN
+#ifdef USE_SCREEN
 SSD1331 screen;
 #endif
 
@@ -100,7 +98,7 @@ int main(void)
   MX_QUADSPI_Init();
   MX_RNG_Init();
   MX_SAI1_Init();
-  // MX_SPI1_Init();
+  MX_SPI1_Init();
   MX_SPI2_Init();
   MX_TIM1_Init();
   MX_TIM3_Init();
@@ -295,7 +293,7 @@ void MX_SAI1_Init(void)
   hsai_BlockRx.Init.DataSize = SAI_DATASIZE_24;
   hsai_BlockRx.Init.FirstBit = SAI_FIRSTBIT_MSB;
   hsai_BlockRx.Init.ClockStrobing = SAI_CLOCKSTROBING_RISINGEDGE; // was: SAI_CLOCKSTROBING_FALLINGEDGE;
-  hsai_BlockRx.Init.Synchro = SAI_ASYNCHRONOUS;
+  hsai_BlockRx.Init.Synchro = SAI_SYNCHRONOUS;
   hsai_BlockRx.Init.OutputDrive = SAI_OUTPUTDRIVE_DISABLED;
   hsai_BlockRx.Init.FIFOThreshold = SAI_FIFOTHRESHOLD_EMPTY;
   hsai_BlockRx.Init.SynchroExt = SAI_SYNCEXT_DISABLE;
@@ -319,7 +317,7 @@ void MX_SAI1_Init(void)
   hsai_BlockTx.Instance = SAI1_Block_A;
   hsai_BlockTx.Init.AudioMode = SAI_MODESLAVE_TX;
   hsai_BlockTx.Init.AudioFrequency = SAI_AUDIO_FREQUENCY_MCKDIV; // added
-  hsai_BlockTx.Init.Synchro = SAI_SYNCHRONOUS;
+  hsai_BlockTx.Init.Synchro = SAI_ASYNCHRONOUS;
   hsai_BlockTx.Init.OutputDrive = SAI_OUTPUTDRIVE_DISABLED;
   hsai_BlockTx.Init.FIFOThreshold = SAI_FIFOTHRESHOLD_EMPTY;
   hsai_BlockTx.Init.SynchroExt = SAI_SYNCEXT_DISABLE;
@@ -334,27 +332,35 @@ void MX_SAI1_Init(void)
 /* OLED SPI */
 void MX_SPI1_Init(void)
 {
-
   hspi1.Instance = SPI1;
   hspi1.Init.Mode = SPI_MODE_MASTER;
   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
-  // hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi1.Init.DataSize = SPI_DATASIZE_16BIT;
+  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+  // hspi1.Init.DataSize = SPI_DATASIZE_16BIT;
+  // SPI mode 0
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
-  // hspi1.Init.NSS = SPI_NSS_HARD_OUTPUT;
+#ifdef OLED_SOFT_CS
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32;
+#else
+  hspi1.Init.NSS = SPI_NSS_HARD_OUTPUT;
+#endif
+  // 096064 max recommended SPI speed 6.6MHz
+  // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16; // 6.75MHz
+  // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32; // 3.375MHz
+  // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64; // 1.6875MHz
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128; // 843.75kHz
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLED;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
   hspi1.Init.CRCPolynomial = 7;
   hspi1.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
-  // hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLED;
+#ifdef OLED_SOFT_CS
   hspi1.Init.NSSPMode = SPI_NSS_PULSE_DISABLED;
+#else
+  hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLED;
+#endif
   HAL_SPI_Init(&hspi1);
-
 }
 
 /* SPI2 init function */
@@ -512,12 +518,14 @@ void MX_GPIO_Init(void)
   __GPIOB_CLK_ENABLE();
   __GPIOD_CLK_ENABLE();
 
+#ifdef OLED_SOFT_CS
   /*Configure GPIO pin : OLED_CS_Pin */
   GPIO_InitStruct.Pin = OLED_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
   HAL_GPIO_Init(OLED_CS_GPIO_Port, &GPIO_InitStruct);
+#endif
 
   /*Configure GPIO pin : OLED_RST_Pin */
   GPIO_InitStruct.Pin = OLED_RST_Pin;
@@ -551,14 +559,14 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pin = CS_RST_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
   HAL_GPIO_Init(CS_RST_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : CS_CS_Pin */
   GPIO_InitStruct.Pin = CS_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
   HAL_GPIO_Init(CS_CS_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : SW2_Pin */
@@ -577,34 +585,40 @@ void delay(uint32_t ms){
 }
 }
 
-#ifdef CODEC
+#ifdef USE_CODEC
 #define CS_BUFFER_SIZE   1024
 int32_t cs_txbuf[CS_BUFFER_SIZE];
 int32_t cs_rxbuf[CS_BUFFER_SIZE];
 #endif
 
+bool usedma = false;
 void StartScreenTask(void const * argument)
 {
-#ifdef CODEC
+#ifdef USE_CODEC
   for(int i=0; i<CS_BUFFER_SIZE; ++i)
     cs_txbuf[i] = i*0xfff;
-
   codec_init(&hspi2);
-
-  HAL_SAI_Receive_DMA(&hsai_BlockRx, (uint8_t*)cs_rxbuf, 1024);
-  HAL_SAI_Transmit_DMA(&hsai_BlockTx, (uint8_t*)cs_txbuf, 1024);
+  if(usedma){
+    HAL_SAI_Receive_DMA(&hsai_BlockRx, (uint8_t*)cs_rxbuf, 1024);
+    HAL_SAI_Transmit_DMA(&hsai_BlockTx, (uint8_t*)cs_txbuf, 1024);
+  }
 #endif
+  MX_GPIO_Init(); // let's do this again to get OLED_CS onboard
   // screen.begin(&hspi1);
+  uint32_t fms = 1000/20;
+  codec_bypass(false);
   for(;;){
-    osDelay(100);
-    // HAL_SAI_Transmit(&hsai_BlockTx, (uint8_t*)cs_txbuf, 1024, 1000);
-    // HAL_SAI_Receive(&hsai_BlockRx, (uint8_t*)cs_rxbuf, 1024, 1000);
-    // osDelay(5000);
+    // osDelay(fms);
+    if(!usedma){
+      HAL_SAI_Receive(&hsai_BlockRx, (uint8_t*)cs_rxbuf, 1024, 1000);
+      HAL_SAI_Transmit(&hsai_BlockTx, (uint8_t*)cs_rxbuf, 1024, 1000);
+    }
+    // osDelay(10000);
     // codec_bypass(true);
-    // osDelay(5000);
+    // osDelay(10000);
     // codec_bypass(false);
-#ifdef OLED_SCREEN
-    screen.display();
+#ifdef USE_SCREEN
+    // screen.display();
 #endif
   }
 }
@@ -620,25 +634,39 @@ void StartDefaultTask(void const * argument)
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
 
-#if OLED_SCREEN
+#ifdef USE_SCREEN
+  screen.begin(&hspi1);
+
   // draw some pixels
   screen.fillScreen(BLACK);
-  for(int i=0; i<32; i+=3){
+  for(int i=0; i<31; i+=3){
     screen.drawPixel(i*3, i*2, WHITE);
   }
+  screen.display();
+  osDelay(2000);
+
+  screen.fillScreen(MAGENTA);
+  screen.lock();
+  screen.display();
+  osDelay(2000);
+  screen.unlock();
+
+  screen.fillScreen(YELLOW);
+  screen.display();
   osDelay(2000);
 
   screen.fillScreen(WHITE);
+  screen.display();
   osDelay(2000);
   screen.fillScreen(BLACK);
-
   for (int16_t i=1; i<screen.width(); i+=4) {
     screen.drawLine(0, 0, i, screen.height()-1, GREEN);
   }
+  screen.display();
   osDelay(2000);
-  for (int16_t i=1; i<screen.height(); i+=4) {
+  for (int16_t i=1; i<screen.height(); i+=4)
     screen.drawLine(0, 0, screen.width()-1, i, BLUE);
-  }
+  screen.display();
   osDelay(2000);
 
   screen.fillScreen(WHITE);
@@ -646,16 +674,19 @@ void StartDefaultTask(void const * argument)
   screen.setTextSize(1);
   screen.setCursor(10, 20);
   screen.print("Hello, world!");
+  screen.display();
   delay(2000);
   screen.fillScreen(BLACK);
   screen.setTextColor(WHITE);
   screen.setCursor(0,0);
   screen.print("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer iaculis pellentesque sem, sit amet pulvinar ex placerat et. Aenean eleifend sem sem, ac semper quam vestibulum ac.");
-  delay(2000);
+  screen.display();
+  delay(20000);
 
   uint16_t i=0;
   for(;;){
     screen.fillScreen(i++);
+    screen.display();
     osDelay(20);
   }
 #endif

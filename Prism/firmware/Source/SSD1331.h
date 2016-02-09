@@ -22,7 +22,7 @@ class SSD1331 : public Adafruit_GFX {
 public:
   // 4 or 5 wire configuration
   /* SSD1331(uint8_t CS, uint8_t RS, uint8_t RST); */
-  SSD1331() : Adafruit_GFX(OLED_WIDTH, OLED_HEIGHT) {}
+  SSD1331() : Adafruit_GFX(OLED_WIDTH, OLED_HEIGHT), hspi(NULL) {}
   void begin(SPI_HandleTypeDef *spi);
   void display();
   uint16_t Color565(uint8_t r, uint8_t g, uint8_t b);
@@ -31,6 +31,12 @@ public:
   // void drawRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color);
   // void fillRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t fillcolor);
   void fillScreen(int16_t color);
+  void zero();
+  void clear();
+  void on();
+  void off();
+  void lock();
+  void unlock();
 protected:
   void goTo(int x, int y);
   //experimental
@@ -43,10 +49,10 @@ private:
   /* volatile bool	filling; */
   /* bool	_inited; */
   void	writeCommand(uint8_t c);
-  void	writeCommands(uint8_t *cmd, uint8_t length);
-  void	setRegister(const uint8_t reg, uint8_t val);
+  void	writeCommands(const uint8_t* cmd, uint8_t length);
+  void	setRegister(uint8_t reg, uint8_t val);
   void	spiwrite(uint8_t data);
-  void	spiwrite(uint8_t* data, size_t size);
+  void	spiwrite(const uint8_t* data, size_t size);
   /* bool	reversalTool(bool rev);//helper */
   /* bool	fillTool(bool fillState);//helper */
   /* void	hdwre_drawRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color, bool filled = false); */

@@ -33,6 +33,7 @@
   */
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f7xx_hal.h"
+#include "mxconstants.h"
 
 extern DMA_HandleTypeDef hdma_spi1_tx;
 
@@ -284,8 +285,11 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
     PA15     ------> SPI1_NSS
     PB3     ------> SPI1_SCK 
     */
-    /* GPIO_InitStruct.Pin = OLED_MOSI_Pin|OLED_CS_Pin; */
+#ifdef OLED_SOFT_CS
     GPIO_InitStruct.Pin = OLED_MOSI_Pin;
+#else
+    GPIO_InitStruct.Pin = OLED_MOSI_Pin|OLED_CS_Pin;
+#endif
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
@@ -376,8 +380,11 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* hspi)
     PA15     ------> SPI1_NSS
     PB3     ------> SPI1_SCK 
     */
-    /* HAL_GPIO_DeInit(GPIOA, OLED_MOSI_Pin|OLED_CS_Pin); */
+#ifdef OLED_SOFT_CS
     HAL_GPIO_DeInit(GPIOA, OLED_MOSI_Pin);
+#else
+    HAL_GPIO_DeInit(GPIOA, OLED_MOSI_Pin|OLED_CS_Pin);
+#endif
 
     HAL_GPIO_DeInit(OLED_SCK_GPIO_Port, OLED_SCK_Pin);
 
