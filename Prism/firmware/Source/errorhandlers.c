@@ -2,6 +2,12 @@
 #include "stm32f7xx_hal.h"
 
 volatile int8_t errorcode = 0;
+
+void error(int8_t code, const char* reason){
+  errorcode = code;
+  assert_param(0);
+}
+
 int8_t getErrorStatus(){
   return errorcode;
 }

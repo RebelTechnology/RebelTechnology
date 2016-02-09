@@ -5,6 +5,7 @@
 /* USER CODE BEGIN Includes */
 #include "SSD1331.h"
 #include "cs4272.h"
+#include "errorhandlers.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -284,6 +285,7 @@ void MX_RNG_Init(void)
 /* SAI1 init function */
 void MX_SAI1_Init(void)
 {
+  HAL_StatusTypeDef ret;
 
   HAL_SAI_DeInit(&hsai_BlockRx);
   hsai_BlockRx.Instance = SAI1_Block_B;
@@ -311,7 +313,9 @@ void MX_SAI1_Init(void)
   // hsai_BlockRx.SlotInit.SlotNumber = 1;
   hsai_BlockRx.SlotInit.SlotNumber = 2;
   hsai_BlockRx.SlotInit.SlotActive = SAI_SLOTACTIVE_ALL;
-  HAL_SAI_Init(&hsai_BlockRx);
+  ret = HAL_SAI_Init(&hsai_BlockRx);
+  if(ret != HAL_OK)
+    error(CONFIG_ERROR, "failed to initialise sai rx");
   
   HAL_SAI_DeInit(&hsai_BlockTx);
   hsai_BlockTx.Instance = SAI1_Block_A;
@@ -324,8 +328,9 @@ void MX_SAI1_Init(void)
   hsai_BlockTx.Init.MonoStereoMode = SAI_STEREOMODE;
   hsai_BlockTx.Init.CompandingMode = SAI_NOCOMPANDING;
   hsai_BlockTx.Init.TriState = SAI_OUTPUT_NOTRELEASED;
-  HAL_SAI_InitProtocol(&hsai_BlockTx, SAI_I2S_STANDARD, SAI_PROTOCOL_DATASIZE_24BIT, 2);
-
+  ret = HAL_SAI_InitProtocol(&hsai_BlockTx, SAI_I2S_STANDARD, SAI_PROTOCOL_DATASIZE_24BIT, 2);
+  if(ret != HAL_OK)
+    error(CONFIG_ERROR, "failed to initialise sai tx");
 }
 
 /* SPI1 init function */
@@ -591,27 +596,33 @@ int32_t cs_txbuf[CS_BUFFER_SIZE];
 int32_t cs_rxbuf[CS_BUFFER_SIZE];
 #endif
 
-bool usedma = false;
+bool usedma = true;
 void StartScreenTask(void const * argument)
 {
 #ifdef USE_CODEC
+  __HAL_SAI_ENABLE(&hsai_BlockRx);
+  __HAL_SAI_ENABLE(&hsai_BlockTx);
   for(int i=0; i<CS_BUFFER_SIZE; ++i)
     cs_txbuf[i] = i*0xfff;
   codec_init(&hspi2);
+  HAL_StatusTypeDef ret;
   if(usedma){
-    HAL_SAI_Receive_DMA(&hsai_BlockRx, (uint8_t*)cs_rxbuf, 1024);
-    HAL_SAI_Transmit_DMA(&hsai_BlockTx, (uint8_t*)cs_txbuf, 1024);
+    ret = HAL_SAI_Receive_DMA(&hsai_BlockRx, (uint8_t*)cs_rxbuf, 1024);
+    assert_param(ret == HAL_OK);
+    ret = HAL_SAI_Transmit_DMA(&hsai_BlockTx, (uint8_t*)cs_txbuf, 1024);
+    assert_param(ret == HAL_OK);
   }
 #endif
-  MX_GPIO_Init(); // let's do this again to get OLED_CS onboard
   // screen.begin(&hspi1);
   uint32_t fms = 1000/20;
   codec_bypass(false);
   for(;;){
     // osDelay(fms);
     if(!usedma){
-      HAL_SAI_Receive(&hsai_BlockRx, (uint8_t*)cs_rxbuf, 1024, 1000);
-      HAL_SAI_Transmit(&hsai_BlockTx, (uint8_t*)cs_rxbuf, 1024, 1000);
+      ret = HAL_SAI_Receive(&hsai_BlockRx, (uint8_t*)cs_rxbuf, 1024, 1000);
+      assert_param(ret == HAL_OK);
+      ret = HAL_SAI_Transmit(&hsai_BlockTx, (uint8_t*)cs_rxbuf, 1024, 1000);
+      assert_param(ret == HAL_OK);
     }
     // osDelay(10000);
     // codec_bypass(true);

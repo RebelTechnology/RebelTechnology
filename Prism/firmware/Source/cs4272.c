@@ -108,6 +108,7 @@ void codec_bypass(int bypass){
 
 int txcount = 0;
 int rxcount = 0;
+int errorcount = 0;
 
 void HAL_SAI_TxHalfCpltCallback(SAI_HandleTypeDef *hsai){
   txcount++;
@@ -117,3 +118,7 @@ void HAL_SAI_RxHalfCpltCallback(SAI_HandleTypeDef *hsai){
   rxcount++;
 }
 
+void HAL_SAI_ErrorCallback(SAI_HandleTypeDef *hsai){
+  errorcount++;
+  assert_param(false);
+}
