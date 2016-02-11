@@ -48,7 +48,7 @@ void MX_SAI1_Init(void)
 {
   HAL_StatusTypeDef ret;
 
-  HAL_SAI_DeInit(&hsai_BlockRx);
+  HAL_SAI_DeInit(&hsai_BlockRx); // added
   hsai_BlockRx.Instance = SAI1_Block_B;
   hsai_BlockRx.Init.Protocol = SAI_FREE_PROTOCOL;
   hsai_BlockRx.Init.AudioMode = SAI_MODESLAVE_RX;
@@ -63,22 +63,20 @@ void MX_SAI1_Init(void)
   hsai_BlockRx.Init.MonoStereoMode = SAI_STEREOMODE;
   hsai_BlockRx.Init.CompandingMode = SAI_NOCOMPANDING;
   hsai_BlockRx.Init.TriState = SAI_OUTPUT_NOTRELEASED;
-  hsai_BlockRx.FrameInit.FrameLength = 64; // was: 24
-  hsai_BlockRx.FrameInit.ActiveFrameLength = 32; // was: 1
+  hsai_BlockRx.FrameInit.FrameLength = 64; // was: 24;
+  hsai_BlockRx.FrameInit.ActiveFrameLength = 32; // was: 1;
   hsai_BlockRx.FrameInit.FSDefinition = SAI_FS_CHANNEL_IDENTIFICATION; // was: SAI_FS_STARTFRAME;
   hsai_BlockRx.FrameInit.FSPolarity = SAI_FS_ACTIVE_LOW;
   hsai_BlockRx.FrameInit.FSOffset = SAI_FS_BEFOREFIRSTBIT; // was: SAI_FS_FIRSTBIT;
   hsai_BlockRx.SlotInit.FirstBitOffset = 0;
-  // hsai_BlockRx.SlotInit.SlotSize = SAI_SLOTSIZE_DATASIZE;
-  hsai_BlockRx.SlotInit.SlotSize = SAI_SLOTSIZE_32B;
-  // hsai_BlockRx.SlotInit.SlotNumber = 1;
-  hsai_BlockRx.SlotInit.SlotNumber = 2;
+  hsai_BlockRx.SlotInit.SlotSize = SAI_SLOTSIZE_32B; // was: SAI_SLOTSIZE_DATASIZE;
+  hsai_BlockRx.SlotInit.SlotNumber = 2; // was: 1;
   hsai_BlockRx.SlotInit.SlotActive = SAI_SLOTACTIVE_ALL;
   ret = HAL_SAI_Init(&hsai_BlockRx);
   if(ret != HAL_OK)
     error(CONFIG_ERROR, "failed to initialise sai rx");
   
-  HAL_SAI_DeInit(&hsai_BlockTx);
+  HAL_SAI_DeInit(&hsai_BlockTx); // added
   hsai_BlockTx.Instance = SAI1_Block_A;
   hsai_BlockTx.Init.AudioMode = SAI_MODESLAVE_TX;
   hsai_BlockTx.Init.AudioFrequency = SAI_AUDIO_FREQUENCY_MCKDIV; // added
