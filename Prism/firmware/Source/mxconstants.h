@@ -1,8 +1,10 @@
-#define USE_SCREEN
-#define OLED_SOFT_CS
-#define OLED_BITBANG
-#define OLED_B1
-/* #define USE_CODEC */
+/* #define USE_SCREEN */
+/* #define OLED_SOFT_CS */
+/* #define OLED_BITBANG */
+/* #define OLED_B1 */
+#define USE_CODEC
+#define CS_BUFFER_SIZE   1024
+/* #define USE_OVERDRIVE // 216MHz */
 
 #define QSPI_D2_Pin GPIO_PIN_2
 #define QSPI_D2_GPIO_Port GPIOE

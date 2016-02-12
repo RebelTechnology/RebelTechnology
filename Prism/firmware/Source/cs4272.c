@@ -83,10 +83,6 @@ void codec_init(SPI_HandleTypeDef* spi){
   /* 	    CODEC_DAC_VOL_ZERO_CROSS | */
   /* 	    CODEC_DAC_VOL_ATAPI_DEFAULT); */
 
-  // configure i2s mode for DAC and ADC
-  codec_write(1, 1 | (1<<3) | (1<<5));
-  codec_write(6, (1<<4));
-
   // Release power down bit to start up codec
   codec_write(CODEC_MODE_CTRL2_REG, CODEC_MODE_CTRL2_CTRL_PORT_EN);
 }
@@ -106,19 +102,3 @@ void codec_bypass(int bypass){
 /*   codec_write(CODEC_DAC_CHA_VOL, value); */
 /* } */
 
-int txcount = 0;
-int rxcount = 0;
-int errorcount = 0;
-
-void HAL_SAI_TxHalfCpltCallback(SAI_HandleTypeDef *hsai){
-  txcount++;
-}
-
-void HAL_SAI_RxHalfCpltCallback(SAI_HandleTypeDef *hsai){
-  rxcount++;
-}
-
-void HAL_SAI_ErrorCallback(SAI_HandleTypeDef *hsai){
-  errorcount++;
-  assert_param(false);
-}

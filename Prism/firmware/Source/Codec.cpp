@@ -3,6 +3,10 @@
 #include "errorhandlers.h"
 #include "mxconstants.h"
 
+#define CS_BUFFER_HALFSIZE (CS_BUFFER_SIZE/2)
+uint32_t txbuf[CS_BUFFER_SIZE];
+uint32_t rxbuf[CS_BUFFER_SIZE];
+
 extern "C" {
   void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai);
   static void MX_SPI2_Init();
@@ -66,8 +70,13 @@ void MX_SAI1_Init(void)
   hsai_BlockRx.FrameInit.FrameLength = 64; // was: 24;
   hsai_BlockRx.FrameInit.ActiveFrameLength = 32; // was: 1;
   hsai_BlockRx.FrameInit.FSDefinition = SAI_FS_CHANNEL_IDENTIFICATION; // was: SAI_FS_STARTFRAME;
+  // I2S Standard format
   hsai_BlockRx.FrameInit.FSPolarity = SAI_FS_ACTIVE_LOW;
   hsai_BlockRx.FrameInit.FSOffset = SAI_FS_BEFOREFIRSTBIT; // was: SAI_FS_FIRSTBIT;
+  // I2S LSB format
+  // hsai_BlockRx.FrameInit.FSPolarity = SAI_FS_ACTIVE_HIGH;
+  // hsai_BlockRx.FrameInit.FSOffset = SAI_FS_FIRSTBIT; // was: SAI_FS_FIRSTBIT;
+
   hsai_BlockRx.SlotInit.FirstBitOffset = 0;
   hsai_BlockRx.SlotInit.SlotSize = SAI_SLOTSIZE_32B; // was: SAI_SLOTSIZE_DATASIZE;
   hsai_BlockRx.SlotInit.SlotNumber = 2; // was: 1;
@@ -88,6 +97,7 @@ void MX_SAI1_Init(void)
   hsai_BlockTx.Init.CompandingMode = SAI_NOCOMPANDING;
   hsai_BlockTx.Init.TriState = SAI_OUTPUT_NOTRELEASED;
   ret = HAL_SAI_InitProtocol(&hsai_BlockTx, SAI_I2S_STANDARD, SAI_PROTOCOL_DATASIZE_24BIT, 2);
+  // ret = HAL_SAI_InitProtocol(&hsai_BlockTx, SAI_I2S_LSBJUSTIFIED, SAI_PROTOCOL_DATASIZE_24BIT, 2);
   if(ret != HAL_OK)
     error(CONFIG_ERROR, "failed to initialise sai tx");
 }
@@ -229,16 +239,62 @@ void HAL_SAI_MspDeInit(SAI_HandleTypeDef* hsai)
     }
 }
 
+void Codec::ramp(uint32_t max){
+  uint32_t incr = max/CS_BUFFER_SIZE;
+  for(int i=0; i<CS_BUFFER_SIZE; ++i)
+    txbuf[i] = i*incr;
+}
+
 void Codec::reset(){
   MX_SAI1_Init();
   MX_SPI2_Init();
 
   __HAL_SAI_ENABLE(&hsai_BlockRx);
   __HAL_SAI_ENABLE(&hsai_BlockTx);
-  for(int i=0; i<CS_BUFFER_SIZE; ++i)
-    txbuf[i] = i*0xfff;
   codec_init(&hspi2);
 
+  // configure i2s mode for DAC and ADC, hp filters off
+  codec_write(0x01, (1<<3) | (1<<5) | 1);
+  codec_write(0x06, (1<<4) | (1<<1) | 1) ;
+  // codec_write(0x01, 1 | (1<<3) | (1<<5));
+  // codec_write(0x06, (1<<4));
+}
+
+void Codec::clear(){
+  set(0);
+}
+
+void Codec::txrx(){
+  HAL_SAI_DMAStop(&hsai_BlockTx);
+  HAL_SAI_Transmit_DMA(&hsai_BlockTx, (uint8_t*)rxbuf, CS_BUFFER_SIZE);
+}
+
+uint32_t Codec::getMin(){
+  uint32_t min = txbuf[0];
+  for(int i=1; i<CS_BUFFER_SIZE; ++i)
+    if(txbuf[i] < min)
+      min  = txbuf[i];
+  return min;
+}
+
+uint32_t Codec::getMax(){
+  uint32_t max = txbuf[0];
+  for(int i=1; i<CS_BUFFER_SIZE; ++i)
+    if(txbuf[i] > max)
+      max  = txbuf[i];
+  return max;
+}
+
+float Codec::getAvg(){
+  float avg = 0;
+  for(int i=0; i<CS_BUFFER_SIZE; ++i)
+    avg += txbuf[i];
+  return avg / CS_BUFFER_SIZE;
+}
+
+void Codec::set(uint32_t value){
+  for(int i=0; i<CS_BUFFER_SIZE; ++i)
+    txbuf[i] = value;
 }
 
 void Codec::bypass(bool doBypass){
@@ -262,4 +318,31 @@ void Codec::start(){
     //   ret = HAL_SAI_Transmit(&hsai_BlockTx, (uint8_t*)rxbuf, 1024, 1000);
     //   assert_param(ret == HAL_OK);
     // }
+}
+
+extern "C" {
+int txcount = 0;
+int rxcount = 0;
+int errorcount = 0;
+
+void HAL_SAI_TxHalfCpltCallback(SAI_HandleTypeDef *hsai){
+  txcount++;
+}
+
+extern void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size);
+
+void HAL_SAI_RxCpltCallback(SAI_HandleTypeDef *hsai){
+  rxcount++;
+  audioCallback(rxbuf+CS_BUFFER_HALFSIZE, txbuf+CS_BUFFER_HALFSIZE, CS_BUFFER_HALFSIZE);
+}
+
+void HAL_SAI_RxHalfCpltCallback(SAI_HandleTypeDef *hsai){
+  rxcount++;
+  audioCallback(rxbuf, txbuf, CS_BUFFER_HALFSIZE);
+}
+
+void HAL_SAI_ErrorCallback(SAI_HandleTypeDef *hsai){
+  errorcount++;
+  assert_param(false);
+}
 }

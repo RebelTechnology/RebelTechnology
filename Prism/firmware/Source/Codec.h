@@ -9,10 +9,14 @@ class Codec {
   void start();
   void stop();
   void bypass(bool doBypass);
+  void clear();
+  void txrx();
+  void set(uint32_t value);
+  void ramp(uint32_t max);
+  uint32_t getMin();
+  uint32_t getMax();
+  float getAvg();
  private:
-#define CS_BUFFER_SIZE   1024
-uint32_t txbuf[CS_BUFFER_SIZE];
-uint32_t rxbuf[CS_BUFFER_SIZE];
 };
 
 #endif /* __Codec_h */

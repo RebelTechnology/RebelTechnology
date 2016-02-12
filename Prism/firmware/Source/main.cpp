@@ -6,6 +6,7 @@
 #include "SSD1331.h"
 #include "Codec.h"
 #include "errorhandlers.h"
+#include "SampleBuffer.hpp"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -176,7 +177,9 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLQ = 9;
   HAL_RCC_OscConfig(&RCC_OscInitStruct);
 
+#ifdef USE_OVERDRIVE
   HAL_PWREx_ActivateOverDrive();
+#endif
 
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
@@ -525,12 +528,23 @@ void delay(uint32_t ms){
 }
 }
 
+SampleBuffer samples;
+extern "C" {
+  void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size){
+  samples.split(rx, size/2);
+  // process samples
+  samples.comb(tx);
+}
+}
+
 void StartScreenTask(void const * argument)
 {
 #ifdef USE_CODEC
   codec.reset();
   codec.start();
   codec.bypass(false);
+  codec.ramp(1<<23);
+  codec.set(0);
 #endif
   // screen.begin(&hspi1);
   uint32_t fms = 1000/20;
@@ -546,6 +560,8 @@ void StartScreenTask(void const * argument)
   }
 #ifdef USE_CODEC
   codec.stop();
+  codec.clear();
+  codec.txrx();
 #endif
 }
 
