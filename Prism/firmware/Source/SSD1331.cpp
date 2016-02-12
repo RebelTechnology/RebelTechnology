@@ -54,6 +54,7 @@
 #include "mxconstants.h"
 #include "gpio.h"
 #include "SSD1331.h"
+#include "FreeRTOS.h"
 
 extern "C" void delay(uint32_t millisec);
 
@@ -73,17 +74,18 @@ static Colour pixels[OLED_HEIGHT][OLED_WIDTH];
 
 void SSD1331::begin(SPI_HandleTypeDef *spi) {
   hspi = spi;
-  commonInit();
   off();
+  commonInit();
   chipInit();
   fillScreen(BLACK);
   // display();
-  clear();
+  // clear();
   on();
 }
 
 void SSD1331::zero() {
-  uint8_t cmd[] = {_CMD_SETCOLUMN, 0, OLED_MW, _CMD_SETROW, 0 ,OLED_MH };
+  // uint8_t cmd[] = {_CMD_SETCOLUMN, 0, OLED_MW, _CMD_SETROW, 0 ,OLED_MH };
+  uint8_t cmd[] = {0x15, 0, OLED_MW, 0x75, 0 ,OLED_MH };
   writeCommands(cmd, 6);
 }
 
@@ -121,13 +123,13 @@ void SSD1331::drawPixel(int16_t x, int16_t y, uint16_t c){
 // }
 
 bool bytepush = false;
-bool dozero = false;
+bool dozero = true;
 void SSD1331::display(){
   // goTo(0, 0);
   if(dozero)
     zero();
   setDC();
-  clearCS();
+  // clearCS();
   if(bytepush){
     for(int y=0; y<OLED_HEIGHT; ++y){
       for(int x=0; x<OLED_WIDTH; ++x){
@@ -143,7 +145,7 @@ void SSD1331::display(){
   }else{
     spiwrite((uint8_t*)pixels, sizeof(pixels));
   }
-  setCS();
+  // setCS();
 }
 
 // void SSD1331::fillRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t c){
@@ -193,42 +195,58 @@ void SSD1331::setRegister(const uint8_t reg,uint8_t val){
 void SSD1331::spiwrite(const uint8_t* data, size_t size){
   // while(hspi->State != HAL_SPI_STATE_READY);
   // HAL_SPI_Transmit_DMA(hspi, data, size);
+#ifdef OLED_BITBANG
+  vPortEnterCritical();
+  clearPin(OLED_SCK_GPIO_Port, OLED_SCK_Pin);
+  clearCS();
+  for(unsigned int i=0; i<size; ++i){
+    char c = data[i];
+    for(uint8_t bit = 0x80; bit; bit >>= 1){
+      if(c & bit)
+	setPin(OLED_MOSI_GPIO_Port, OLED_MOSI_Pin);
+      else
+	clearPin(OLED_MOSI_GPIO_Port, OLED_MOSI_Pin);
+      setPin(OLED_SCK_GPIO_Port, OLED_SCK_Pin);
+      clearPin(OLED_SCK_GPIO_Port, OLED_SCK_Pin);
+    }
+  }
+  setCS();
+  vPortExitCritical();
+#else
   while(hspi->State != HAL_SPI_STATE_READY);
   HAL_StatusTypeDef ret = HAL_SPI_Transmit(hspi, (uint8_t*)data, size, OLED_TIMEOUT);
   assert_param(ret == HAL_OK);
+#endif
 }
 
 inline void SSD1331::spiwrite(uint8_t c){
   // while(hspi->State != HAL_SPI_STATE_READY);
   // HAL_SPI_Transmit_DMA(hspi, &c, 1);
-  while(hspi->State != HAL_SPI_STATE_READY);
-  HAL_StatusTypeDef ret = HAL_SPI_Transmit(hspi, &c, 1, OLED_TIMEOUT);
-  assert_param(ret == HAL_OK);
+  spiwrite(&c, 1);
+  // while(hspi->State != HAL_SPI_STATE_READY);
+  // HAL_StatusTypeDef ret = HAL_SPI_Transmit(hspi, &c, 1, OLED_TIMEOUT);
+  // assert_param(ret == HAL_OK);
 }
 	
 void SSD1331::writeCommand(uint8_t c){
   clearDC();
-  clearCS();
+  // clearCS();
   spiwrite(c);
-  setCS();
+  // setCS();
 }
 
 void SSD1331::writeCommands(const uint8_t *cmd, uint8_t length){
   clearDC();
-  clearCS();
-  if(bytepush)
-    for(uint8_t i = 0; i < length; i++) 
-      spiwrite(*cmd++);
-  else
-    spiwrite(cmd, length);
-  setCS();
+  // clearCS();
+  spiwrite(cmd, length);
+  // setCS();
 }
 	
 void SSD1331::writeData(uint8_t c){
   setDC();
-  clearCS();
+  // clearCS();
   spiwrite(c);
-  setCS();
+  // setCS();
 }
 
 /* Initialize PIN, direction and stuff related to hardware on CPU */

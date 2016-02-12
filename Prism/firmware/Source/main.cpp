@@ -284,7 +284,7 @@ void MX_RNG_Init(void)
 /* OLED SPI */
 void MX_SPI1_Init(void)
 {
-  hspi1.Instance = SPI1;
+  hspi1.Instance = OLED_SPI;
   hspi1.Init.Mode = SPI_MODE_MASTER;
   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
@@ -499,6 +499,22 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(SW2_GPIO_Port, &GPIO_InitStruct);
 
+#ifdef OLED_BITBANG
+
+  /*Configure GPIO pin : OLED_SCK_Pin */
+  GPIO_InitStruct.Pin = OLED_SCK_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+  HAL_GPIO_Init(OLED_SCK_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : OLED_MOSI_Pin */
+  GPIO_InitStruct.Pin = OLED_MOSI_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+  HAL_GPIO_Init(OLED_MOSI_GPIO_Port, &GPIO_InitStruct);
+#endif
 }
 
 /* USER CODE BEGIN 4 */
@@ -514,10 +530,10 @@ void StartScreenTask(void const * argument)
 #ifdef USE_CODEC
   codec.reset();
   codec.start();
+  codec.bypass(false);
 #endif
   // screen.begin(&hspi1);
   uint32_t fms = 1000/20;
-  codec.bypass(false);
   for(;;){
     // osDelay(fms);
     // osDelay(10000);
@@ -528,7 +544,9 @@ void StartScreenTask(void const * argument)
     // screen.display();
 #endif
   }
+#ifdef USE_CODEC
   codec.stop();
+#endif
 }
 
 /* USER CODE END 4 */
@@ -597,6 +615,7 @@ void StartDefaultTask(void const * argument)
     screen.display();
     osDelay(20);
   }
+  screen.clear();
 #endif
   for(;;){
   }

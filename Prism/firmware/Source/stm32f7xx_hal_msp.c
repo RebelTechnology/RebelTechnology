@@ -272,13 +272,17 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
 {
 
   GPIO_InitTypeDef GPIO_InitStruct;
-  if(hspi->Instance==SPI1)
+  if(hspi->Instance==OLED_SPI)
   {
   /* USER CODE BEGIN SPI1_MspInit 0 */
-
+#ifndef OLED_BITBANG
   /* USER CODE END SPI1_MspInit 0 */
     /* Peripheral clock enable */
+#ifdef OLED_B1
+    __SPI3_CLK_ENABLE();
+#else
     __SPI1_CLK_ENABLE();
+#endif
   
     /**SPI1 GPIO Configuration    
     PA7     ------> SPI1_MOSI
@@ -293,20 +297,35 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+#ifdef OLED_B1
+    GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
+#else
     GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
+#endif
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
     GPIO_InitStruct.Pin = OLED_SCK_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+#ifdef OLED_B1
+    GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
+#else
     GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
+#endif
     HAL_GPIO_Init(OLED_SCK_GPIO_Port, &GPIO_InitStruct);
 
     /* Peripheral DMA init*/
   
+#ifdef OLED_B1
+    // SPI3_TX: DMA1 Stream 5 Channel 0 (also on 1/7/0)
+    /* hdma_spi1_tx.Instance = DMA1_Stream5; */
+    /* hdma_spi1_tx.Init.Channel = DMA_CHANNEL_0; */
+#else
+    // SPI1_TX DMA2 Stream 3 Channel 3 (also on 2/5/3)
     /* hdma_spi1_tx.Instance = DMA2_Stream3; */
     /* hdma_spi1_tx.Init.Channel = DMA_CHANNEL_3; */
+#endif
     /* hdma_spi1_tx.Init.Direction = DMA_MEMORY_TO_PERIPH; */
     /* hdma_spi1_tx.Init.PeriphInc = DMA_PINC_DISABLE; */
     /* hdma_spi1_tx.Init.MemInc = DMA_MINC_ENABLE; */
@@ -316,11 +335,10 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
     /* hdma_spi1_tx.Init.Priority = DMA_PRIORITY_LOW; */
     /* hdma_spi1_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE; */
     /* HAL_DMA_Init(&hdma_spi1_tx); */
-
     /* __HAL_LINKDMA(hspi,hdmatx,hdma_spi1_tx); */
 
   /* USER CODE BEGIN SPI1_MspInit 1 */
-
+#endif // OLED_BITBANG
   /* USER CODE END SPI1_MspInit 1 */
   }
   else if(hspi->Instance==SPI2)
