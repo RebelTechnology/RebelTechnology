@@ -25,11 +25,32 @@ inline bool repIsHigh(){
   return !(CLOCKMULTIPLIER_REPIN_PINS & _BV(CLOCKMULTIPLIER_REPIN_PIN));
 }
 
+inline uint16_t getDuration(){
+  return getAnalogValue(DURCV_ADC_CHANNEL);
+  // todo: use StiffValue for hysteresis
+}
+
+inline uint16_t getMultiplication(){
+  uint16_t value = getAnalogValue(MULCV_ADC_CHANNEL);
+  value >>= 8; // range of 0 to 15
+  value <<= 1; // multiply by two
+  value += 2;
+  return value;
+}
+
+inline uint16_t getRepetition(){
+  uint16_t value = getAnalogValue(REPCV_ADC_CHANNEL);
+  value >>= 8; // range 0 to 15
+  value += 1;
+  return value;
+}
+
+uint16_t getMultipliedPeriod();
+
 class ClockDuration {
 public:
   ClockTick period;
   ClockTick fallMark;
-  uint16_t duration;
   volatile ClockTick pos;
   ClockDuration(){
     reset();
@@ -40,7 +61,7 @@ public:
   }
   inline void rise(){
     period = pos;
-    fallMark = ((uint32_t)period*duration)>>12;
+    fallMark = ((uint32_t)period*getDuration())>>12;
     pos = 0;
     on();
   }
@@ -49,13 +70,6 @@ public:
   inline void clock(){
     if(++pos >= fallMark){
       off();
-    }
-  }
-  void setDuration(uint16_t value){
-    if(value != duration){
-      // wait until next trigger to recalculate fallMark
-      // fallMark = (period*duration)>>11;
-      duration = value;
     }
   }
   void on(){
@@ -73,8 +87,6 @@ public:
   void dump(){
     printString("period ");
     printInteger(period);
-    printString(", duration ");
-    printInteger(duration);
     printString(", fall ");
     printInteger(fallMark);
     printString(", pos ");
@@ -89,59 +101,35 @@ public:
 
 class ClockMultiplier {
 public:
-  ClockTick riseMark;
   ClockTick fallMark;
-  uint8_t muls;
   volatile ClockTick pos;
   volatile ClockTick counter;
   ClockTick period;
-  uint16_t duration;
   ClockMultiplier(){
     reset();
   }
   inline void reset(){
-    riseMark = fallMark = pos = period = counter = 0;    
+    fallMark = pos = period = counter = 0;    
     off();
   }
-  ClockTick getPeriod(){
-    return riseMark;
-  }
   inline void rise(){
-    on();
-    riseMark = counter / muls;
-    pos = riseMark;
-    //    fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
-    fallMark = riseMark*2; // 50% pulse width
-    period = counter;
+    on();    
+    period = counter / getMultiplication();
+    fallMark = (((uint32_t)period*getDuration())>>12);
     counter = 0;
+    pos = 0;
   }
   inline void fall(){
   }
   inline void clock(){
-    if(pos >= fallMark){
+    if(pos++ == fallMark){
       off();
-      pos = 0;
-    }else if(++pos >= riseMark){
+    }else if(pos >= period){
       on();
+      pos = 0;
+      fallMark = (((uint32_t)period*getDuration())>>12);
     }
     counter++;
-  }
-  void setDuration(uint16_t value){
-    if(value != duration){
-      duration = value;
-      //      fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
-    }
-  }
-  void setMultiplier(uint16_t value){
-    value >>= 8; // range of 0 to 15
-    value <<= 1; // multiply by two
-    value += 2;
-    if(value != muls){
-      riseMark = riseMark*muls/value;
-      fallMark = riseMark*2;
-      //      fallMark = fallMark*muls/value;
-      muls = value;
-    }
   }
   void on(){
     CLOCKMULTIPLIER_MULOUT_PORT &= ~_BV(CLOCKMULTIPLIER_MULOUT_PIN);
@@ -156,8 +144,8 @@ public:
   void dump(){
     printString("mul ");
     printInteger(muls);
-    printString(", rise ");
-    printInteger(riseMark);
+    printString(", period ");
+    printInteger(period);
     printString(", fall ");
     printInteger(fallMark);
     printString(", pos ");
@@ -176,22 +164,11 @@ public:
     reset();
   }
   ClockTick period;
-  ClockTick riseMark;
   ClockTick fallMark;
   uint8_t reps;
-  uint16_t duration;
   volatile uint8_t times;
   volatile ClockTick pos;
   volatile bool running;
-  inline void start(){
-    on();
-    times = 0;
-    riseMark = period;
-    pos = riseMark;
-    // fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
-    fallMark = riseMark * 2;
-    running = true;
-  }
   inline void stop(){
     running = false;
   }
@@ -200,40 +177,30 @@ public:
     off();
   }
   inline void rise(){
-    start();
+    on();
+    times = 0;
+    reps = getRepetition();
+    period = getMultipliedPeriod();
+    fallMark = (((uint32_t)period*getDuration())>>12);
+    pos = 0;
+    running = true;
   }
   inline void fall(){
     //    stop();
   }
   inline void clock(){
     if(running){
-      if(pos >= fallMark){
+      if(pos++ == fallMark){
 	off();
-	pos = 0;
-	if(++times >= reps)
+      }else if(pos >= period){
+	if(++times >= reps){
 	  stop();
-      }else if(++pos == riseMark){
-	on();
+	}else{
+	  on();
+	  fallMark = (((uint32_t)period*getDuration())>>12);
+	}
+	pos = 0;
       }
-    }
-  }
-  inline void setPeriod(ClockTick value){
-    period = value;
-  }
-  void setDuration(uint16_t value){
-    if(value != duration){
-      duration = value;
-      //      fallMark = riseMark + (((uint32_t)riseMark*duration)>>11);
-    }
-  }
-  void setRepetitions(uint16_t value){
-    value >>= 8; // range 0 to 15
-    value += 1;
-    if(value != reps){
-      riseMark = riseMark*reps/value;
-      //      fallMark = fallMark*reps/value;
-      fallMark = riseMark * 2;
-      reps = value;
     }
   }
   void on(){
@@ -251,8 +218,6 @@ public:
   void dump(){
     printString("reps ");
     printInteger(reps);
-    printString(", rise ");
-    printInteger(riseMark);
     printString(", fall ");
     printInteger(fallMark);
     printString(", pos ");
@@ -274,6 +239,10 @@ public:
 ClockDuration dur;
 ClockMultiplier mul;
 ClockRepeater rep;
+
+inline uint16_t getMultipliedPeriod(){
+  return mul.period;
+}
 
 void reset(){
   mul.reset();
@@ -361,14 +330,6 @@ ISR(CLOCKMULTIPLIER_MULIN_INT){
 }
 
 void loop(){
-  // todo: use StiffValue for hysteresis
-  dur.setDuration(getAnalogValue(DURCV_ADC_CHANNEL));
-  mul.setMultiplier(getAnalogValue(MULCV_ADC_CHANNEL));
-  mul.setDuration(getAnalogValue(DURCV_ADC_CHANNEL));
-  rep.setPeriod(mul.getPeriod());
-  rep.setDuration(getAnalogValue(DURCV_ADC_CHANNEL));
-  rep.setRepetitions(getAnalogValue(REPCV_ADC_CHANNEL));
-
   static int repstate = 0;
   int isrep = repIsHigh();
   if(isrep != repstate){
