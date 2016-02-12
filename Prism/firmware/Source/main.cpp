@@ -5,6 +5,7 @@
 /* USER CODE BEGIN Includes */
 #include "SSD1331.h"
 #include "Codec.h"
+#include "qspi.h"
 #include "errorhandlers.h"
 #include "SampleBuffer.hpp"
 /* USER CODE END Includes */
@@ -261,16 +262,25 @@ void MX_DMA2D_Init(void)
 /* QUADSPI init function */
 void MX_QUADSPI_Init(void)
 {
+  // hqspi.Instance = QUADSPI;
+  // hqspi.Init.ClockPrescaler = 255;
+  // hqspi.Init.FifoThreshold = 1;
+  // hqspi.Init.SampleShifting = QSPI_SAMPLE_SHIFTING_NONE;
+  // hqspi.Init.FlashSize = 1;
+  // hqspi.Init.ChipSelectHighTime = QSPI_CS_HIGH_TIME_1_CYCLE;
+  // hqspi.Init.ClockMode = QSPI_CLOCK_MODE_0;
+  // HAL_QSPI_Init(&hqspi);
 
+  /* ClockPrescaler set to 2, so QSPI clock = 216MHz / (2+1) = 72MHz */
   hqspi.Instance = QUADSPI;
-  hqspi.Init.ClockPrescaler = 255;
-  hqspi.Init.FifoThreshold = 1;
+  hqspi.Init.ClockPrescaler = 2;
+  hqspi.Init.FifoThreshold = 4;
   hqspi.Init.SampleShifting = QSPI_SAMPLE_SHIFTING_NONE;
-  hqspi.Init.FlashSize = 1;
+  hqspi.Init.FlashSize = QSPI_FLASH_SIZE;
   hqspi.Init.ChipSelectHighTime = QSPI_CS_HIGH_TIME_1_CYCLE;
   hqspi.Init.ClockMode = QSPI_CLOCK_MODE_0;
+  HAL_QSPI_DeInit(&hqspi);
   HAL_QSPI_Init(&hqspi);
-
 }
 
 /* RNG init function */
@@ -537,8 +547,24 @@ extern "C" {
 }
 }
 
+uint8_t qspitx[] = "hello and welcome once again";
+uint8_t qspirx[128];
+
 void StartScreenTask(void const * argument)
 {
+#ifdef USE_QSPI_FLASH
+  /* Enable write operations ------------------------------------------- */
+  QSPI_WriteEnable(&hqspi);
+
+  qspi_erase(0, 128);
+  osDelay(1000);
+  qspi_write(0, qspitx, 29);
+  osDelay(1000);
+  qspi_read(0, qspirx, 29);
+  osDelay(1000);
+
+#endif
+
 #ifdef USE_CODEC
   codec.reset();
   codec.start();

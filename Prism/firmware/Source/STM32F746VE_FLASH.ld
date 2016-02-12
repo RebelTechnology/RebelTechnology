@@ -43,6 +43,7 @@ MEMORY
 {
 FLASH (rx)      : ORIGIN = 0x08000000, LENGTH = 512K
 RAM (xrw)      : ORIGIN = 0x20000000, LENGTH = 320K
+QSPI (xrw)  : ORIGIN = 0x90000000, LENGTH = 128M
 }
 
 /* Define output sections */
@@ -88,6 +89,19 @@ SECTIONS
     *(.ARM.exidx*)
     __exidx_end = .;
   } >FLASH
+
+  _qspi_init_base = LOADADDR(.qspi);
+  _qspi_init_length = SIZEOF(.qspi);
+  
+  .qspi :
+  {
+    . = ALIGN(4);
+    _qspi_start = .;        /* create a global symbol at qspi start */
+    *(.qspi)         /* .qspi sections */
+    *(.qspi*)        /* .qspi* sections */
+    . = ALIGN(4);
+    _qspi_end = .;         /* define a global symbols at end of qspi */    
+  } >QSPI AT> FLASH
 
   .preinit_array     :
   {

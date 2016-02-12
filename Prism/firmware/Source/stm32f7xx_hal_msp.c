@@ -158,6 +158,9 @@ void HAL_QSPI_MspInit(QSPI_HandleTypeDef* hqspi)
   /* USER CODE END QUADSPI_MspInit 0 */
     /* Peripheral clock enable */
     __HAL_RCC_QSPI_CLK_ENABLE();
+    /* Reset the QuadSPI memory interface (added) */
+    __HAL_RCC_QSPI_FORCE_RESET();
+    __HAL_RCC_QSPI_RELEASE_RESET();
   
     /**QUADSPI GPIO Configuration    
     PE2     ------> QUADSPI_BK1_IO2
