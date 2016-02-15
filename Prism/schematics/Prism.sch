@@ -16782,6 +16782,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="JP8" gate="G$1" pin="9"/>
 </segment>
 </net>
+<net name="CS_MCLK" class="0">
+<segment>
+<pinref part="IC4" gate="CS4271" pin="MCLK"/>
+<wire x1="355.6" y1="116.84" x2="340.36" y2="116.84" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
