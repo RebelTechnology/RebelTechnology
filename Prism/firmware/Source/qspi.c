@@ -118,7 +118,7 @@ void qspi_erase(uint32_t address, uint32_t size){
   sCommand.AlternateByteMode = QSPI_ALTERNATE_BYTES_NONE;
   sCommand.DdrMode           = QSPI_DDR_MODE_DISABLE;
   sCommand.DdrHoldHalfCycle  = QSPI_DDR_HHC_ANALOG_DELAY;
-  sCommand.SIOOMode         = QSPI_SIOO_INST_EVERY_CMD;
+  sCommand.SIOOMode          = QSPI_SIOO_INST_EVERY_CMD;
 
   /* Erasing Sequence -------------------------------------------------- */
   sCommand.Instruction = SECTOR_ERASE_CMD;
@@ -141,7 +141,7 @@ void qspi_write(uint32_t address, uint8_t* buffer, uint32_t size){
   sCommand.AlternateByteMode = QSPI_ALTERNATE_BYTES_NONE;
   sCommand.DdrMode           = QSPI_DDR_MODE_DISABLE;
   sCommand.DdrHoldHalfCycle  = QSPI_DDR_HHC_ANALOG_DELAY;
-  sCommand.SIOOMode         = QSPI_SIOO_INST_EVERY_CMD;
+  sCommand.SIOOMode          = QSPI_SIOO_INST_EVERY_CMD;
 
   /* Writing Sequence ------------------------------------------------ */
   sCommand.Instruction = QUAD_IN_FAST_PROG_CMD;
@@ -169,7 +169,7 @@ void qspi_read(uint32_t address, uint8_t* buffer, uint32_t size){
   sCommand.AlternateByteMode = QSPI_ALTERNATE_BYTES_NONE;
   sCommand.DdrMode           = QSPI_DDR_MODE_DISABLE;
   sCommand.DdrHoldHalfCycle  = QSPI_DDR_HHC_ANALOG_DELAY;
-  sCommand.SIOOMode         = QSPI_SIOO_INST_EVERY_CMD;
+  sCommand.SIOOMode          = QSPI_SIOO_INST_EVERY_CMD;
 
   /* .... from Writing Sequence ------------------------------------------------ */
   sCommand.AddressMode = QSPI_ADDRESS_1_LINE;

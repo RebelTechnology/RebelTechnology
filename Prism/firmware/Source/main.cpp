@@ -541,13 +541,13 @@ void delay(uint32_t ms){
 SampleBuffer samples;
 extern "C" {
   void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size){
-  samples.split(rx, size/2);
+  samples.split(rx, size);
   // process samples
   samples.comb(tx);
 }
 }
 
-uint8_t qspitx[] = "hello and welcome once again";
+uint8_t qspitx[128] = "hello and welcome once again";
 uint8_t qspirx[128];
 
 void StartScreenTask(void const * argument)
@@ -555,14 +555,12 @@ void StartScreenTask(void const * argument)
 #ifdef USE_QSPI_FLASH
   /* Enable write operations ------------------------------------------- */
   QSPI_WriteEnable(&hqspi);
-
   qspi_erase(0, 128);
   osDelay(1000);
   qspi_write(0, qspitx, 29);
   osDelay(1000);
   qspi_read(0, qspirx, 29);
   osDelay(1000);
-
 #endif
 
 #ifdef USE_CODEC
@@ -571,6 +569,13 @@ void StartScreenTask(void const * argument)
   codec.bypass(false);
   codec.ramp(1<<23);
   codec.set(0);
+
+  if(0){
+    codec.stop();
+    codec.clear();
+    codec.txrx();
+  }
+
 #endif
   // screen.begin(&hspi1);
   uint32_t fms = 1000/20;
@@ -584,11 +589,6 @@ void StartScreenTask(void const * argument)
     // screen.display();
 #endif
   }
-#ifdef USE_CODEC
-  codec.stop();
-  codec.clear();
-  codec.txrx();
-#endif
 }
 
 /* USER CODE END 4 */

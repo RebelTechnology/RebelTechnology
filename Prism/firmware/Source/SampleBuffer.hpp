@@ -19,7 +19,7 @@ public:
     size = blocksize;
     float* l = left;
     float* r = right;
-    uint32_t cnt = size >> 1u; // multiply by 2 then divide by 4
+    uint32_t cnt = size >> 1u; // *2/4
     while(cnt > 0u){
       *l++ = (float)(int32_t)((*input++)<<8) / 2147483648.0f;
       *r++ = (float)(int32_t)((*input++)<<8) / 2147483648.0f;
@@ -29,16 +29,31 @@ public:
     }
   }
   void comb(uint32_t* output){
-    float* l = left;
-    float* r = right;
-    uint32_t cnt = size >> 1u; // multiply by 2 then divide by 4
-    while(cnt > 0u){
-      *output++ = ((uint32_t)(*l++ * 2147483648.0f))>>8;
-      *output++ = ((uint32_t)(*r++ * 2147483648.0f))>>8;
-      *output++ = ((uint32_t)(*l++ * 2147483648.0f))>>8;
-      *output++ = ((uint32_t)(*r++ * 2147483648.0f))>>8;
-      cnt--;
+    uint32_t* dest = output;
+    int32_t tmp;
+    // Seems CS4271 ADC samples are signed, DAC are unsigned. I2S Standard mode.
+    for(int i=0; i<size; ++i){
+      tmp = (int32_t)(left[i] * 0x800000);
+      *dest++ = (uint32_t)(tmp+0x800000);
+      tmp = (int32_t)(right[i] * 0x800000);
+      *dest++ = (uint32_t)(tmp+0x800000);
+      // tmp = (uint32_t)((int32_t)(right[i] * 2147483648.0f));
+      // *dest++ = tmp>>8;
     }
+    // float* l = left;
+    // float* r = right;
+    // uint32_t cnt = size >> 1u; // *2/4
+    // while(cnt > 0u){
+    //   // *output++ = ((uint32_t)(*l++ * 2147483648.0f))>>8;
+    //   // *output++ = ((uint32_t)(*r++ * 2147483648.0f))>>8;
+    //   // *output++ = ((uint32_t)(*l++ * 2147483648.0f))>>8;
+    //   // *output++ = ((uint32_t)(*r++ * 2147483648.0f))>>8;
+    //   *output++ = ((uint32_t)(*l++ * 8388608.0f));
+    //   *output++ = ((uint32_t)(*r++ * 8388608.0f));
+    //   *output++ = ((uint32_t)(*l++ * 8388608.0f));
+    //   *output++ = ((uint32_t)(*r++ * 8388608.0f));
+    //   cnt--;
+    // }
   }
   void set(float value){
     for(int i=0; i<size; ++i){

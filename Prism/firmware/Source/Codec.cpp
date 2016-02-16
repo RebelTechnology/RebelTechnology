@@ -4,6 +4,7 @@
 #include "mxconstants.h"
 
 #define CS_BUFFER_HALFSIZE (CS_BUFFER_SIZE/2)
+#define CS_BUFFER_QUARTSIZE (CS_BUFFER_SIZE/4)
 uint32_t txbuf[CS_BUFFER_SIZE];
 uint32_t rxbuf[CS_BUFFER_SIZE];
 
@@ -321,28 +322,22 @@ void Codec::start(){
 }
 
 extern "C" {
-int txcount = 0;
-int rxcount = 0;
-int errorcount = 0;
 
 void HAL_SAI_TxHalfCpltCallback(SAI_HandleTypeDef *hsai){
-  txcount++;
 }
 
 extern void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size);
 
 void HAL_SAI_RxCpltCallback(SAI_HandleTypeDef *hsai){
-  rxcount++;
-  audioCallback(rxbuf+CS_BUFFER_HALFSIZE, txbuf+CS_BUFFER_HALFSIZE, CS_BUFFER_HALFSIZE);
+  audioCallback(rxbuf+CS_BUFFER_HALFSIZE, txbuf+CS_BUFFER_HALFSIZE, CS_BUFFER_QUARTSIZE);
 }
 
 void HAL_SAI_RxHalfCpltCallback(SAI_HandleTypeDef *hsai){
-  rxcount++;
-  audioCallback(rxbuf, txbuf, CS_BUFFER_HALFSIZE);
+  audioCallback(rxbuf, txbuf, CS_BUFFER_QUARTSIZE);
 }
 
 void HAL_SAI_ErrorCallback(SAI_HandleTypeDef *hsai){
-  errorcount++;
-  assert_param(false);
+  error(CONFIG_ERROR, "SAI DMA Error");
 }
+
 }
