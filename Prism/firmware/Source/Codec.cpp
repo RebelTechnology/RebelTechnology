@@ -85,11 +85,15 @@ void MX_SAI1_Init(void)
   ret = HAL_SAI_Init(&hsai_BlockRx);
   if(ret != HAL_OK)
     error(CONFIG_ERROR, "failed to initialise sai rx");
-  
-  HAL_SAI_DeInit(&hsai_BlockTx); // added
+
+  HAL_SAI_DeInit(&hsai_BlockTx);
   hsai_BlockTx.Instance = SAI1_Block_A;
+  hsai_BlockTx.Init.Protocol = SAI_FREE_PROTOCOL;
   hsai_BlockTx.Init.AudioMode = SAI_MODESLAVE_TX;
-  hsai_BlockTx.Init.AudioFrequency = SAI_AUDIO_FREQUENCY_MCKDIV; // added
+  hsai_BlockTx.Init.AudioFrequency = SAI_AUDIO_FREQUENCY_MCKDIV; 
+  hsai_BlockTx.Init.DataSize = SAI_DATASIZE_24;
+  hsai_BlockTx.Init.FirstBit = SAI_FIRSTBIT_MSB;
+  hsai_BlockTx.Init.ClockStrobing = SAI_CLOCKSTROBING_RISINGEDGE;
   hsai_BlockTx.Init.Synchro = SAI_ASYNCHRONOUS;
   hsai_BlockTx.Init.OutputDrive = SAI_OUTPUTDRIVE_DISABLED;
   hsai_BlockTx.Init.FIFOThreshold = SAI_FIFOTHRESHOLD_EMPTY;
@@ -97,8 +101,30 @@ void MX_SAI1_Init(void)
   hsai_BlockTx.Init.MonoStereoMode = SAI_STEREOMODE;
   hsai_BlockTx.Init.CompandingMode = SAI_NOCOMPANDING;
   hsai_BlockTx.Init.TriState = SAI_OUTPUT_NOTRELEASED;
-  ret = HAL_SAI_InitProtocol(&hsai_BlockTx, SAI_I2S_STANDARD, SAI_PROTOCOL_DATASIZE_24BIT, 2);
-  // ret = HAL_SAI_InitProtocol(&hsai_BlockTx, SAI_I2S_LSBJUSTIFIED, SAI_PROTOCOL_DATASIZE_24BIT, 2);
+  hsai_BlockTx.FrameInit.FrameLength = 64;
+  hsai_BlockTx.FrameInit.ActiveFrameLength = 32;
+  hsai_BlockTx.FrameInit.FSDefinition = SAI_FS_CHANNEL_IDENTIFICATION;
+  // I2S Standard format
+  hsai_BlockTx.FrameInit.FSPolarity = SAI_FS_ACTIVE_LOW;
+  hsai_BlockTx.FrameInit.FSOffset = SAI_FS_BEFOREFIRSTBIT;
+  hsai_BlockTx.SlotInit.FirstBitOffset = 0;
+  hsai_BlockTx.SlotInit.SlotSize = SAI_SLOTSIZE_32B;
+  hsai_BlockTx.SlotInit.SlotNumber = 2;
+  hsai_BlockTx.SlotInit.SlotActive = SAI_SLOTACTIVE_ALL;
+  ret = HAL_SAI_Init(&hsai_BlockTx);
+  // HAL_SAI_DeInit(&hsai_BlockTx); // added
+  // hsai_BlockTx.Instance = SAI1_Block_A;
+  // hsai_BlockTx.Init.AudioMode = SAI_MODESLAVE_TX;
+  // hsai_BlockTx.Init.AudioFrequency = SAI_AUDIO_FREQUENCY_MCKDIV; // added
+  // hsai_BlockTx.Init.Synchro = SAI_ASYNCHRONOUS;
+  // hsai_BlockTx.Init.OutputDrive = SAI_OUTPUTDRIVE_DISABLED;
+  // hsai_BlockTx.Init.FIFOThreshold = SAI_FIFOTHRESHOLD_EMPTY;
+  // hsai_BlockTx.Init.SynchroExt = SAI_SYNCEXT_DISABLE;
+  // hsai_BlockTx.Init.MonoStereoMode = SAI_STEREOMODE;
+  // hsai_BlockTx.Init.CompandingMode = SAI_NOCOMPANDING;
+  // hsai_BlockTx.Init.TriState = SAI_OUTPUT_NOTRELEASED;
+  // ret = HAL_SAI_InitProtocol(&hsai_BlockTx, SAI_I2S_STANDARD, SAI_PROTOCOL_DATASIZE_24BIT, 2);
+  // // ret = HAL_SAI_InitProtocol(&hsai_BlockTx, SAI_I2S_LSBJUSTIFIED, SAI_PROTOCOL_DATASIZE_24BIT, 2);
   if(ret != HAL_OK)
     error(CONFIG_ERROR, "failed to initialise sai tx");
 }
@@ -257,7 +283,7 @@ void Codec::reset(){
   // configure i2s mode for DAC and ADC, hp filters off
   codec_write(0x01, (1<<3) | (1<<5) | 1);
   codec_write(0x06, (1<<4) | (1<<1) | 1) ;
-  // codec_write(0x01, 1 | (1<<3) | (1<<5));
+  // codec_write(0x01, (1<<3) | (1<<5));
   // codec_write(0x06, (1<<4));
 }
 

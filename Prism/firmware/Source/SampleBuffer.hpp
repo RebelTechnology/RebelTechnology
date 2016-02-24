@@ -32,13 +32,16 @@ public:
     uint32_t* dest = output;
     int32_t tmp;
     // Seems CS4271 ADC samples are signed, DAC are unsigned. I2S Standard mode.
+    // Also appears that setting any of the high bits causes a
     for(int i=0; i<size; ++i){
-      tmp = (int32_t)(left[i] * 0x800000);
-      *dest++ = (uint32_t)(tmp+0x800000);
-      tmp = (int32_t)(right[i] * 0x800000);
-      *dest++ = (uint32_t)(tmp+0x800000);
-      // tmp = (uint32_t)((int32_t)(right[i] * 2147483648.0f));
-      // *dest++ = tmp>>8;
+      // tmp = (int32_t)(left[i] * 0x800000);
+      // *dest++ = (uint32_t)(tmp+0x800000);
+      // tmp = (int32_t)(right[i] * 0x800000);
+      // *dest++ = (uint32_t)(tmp+0x800000);
+      tmp = (uint32_t)((int32_t)(right[i] * 2147483648.0f));
+      *dest++ = tmp>>8;
+      tmp = (uint32_t)((int32_t)(right[i] * 2147483648.0f));
+      *dest++ = tmp>>8;
     }
     // float* l = left;
     // float* r = right;
