@@ -43,6 +43,7 @@ Codec codec;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
+extern "C"{
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
@@ -62,6 +63,7 @@ void StartDefaultTask(void const * argument);
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
 void StartScreenTask(void const * argument);
+}
 
 /* USER CODE END PFP */
 
@@ -539,12 +541,15 @@ void delay(uint32_t ms){
 }
 
 SampleBuffer samples;
+bool bypass = true;
 extern "C" {
   void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size){
-  samples.split(rx, size);
-  // process samples
-  samples.comb(tx);
-}
+    samples.split(rx, size);
+    if(bypass){
+      // process samples
+      samples.comb(tx);
+    }
+  }
 }
 
 uint8_t qspitx[128] = "hello and welcome once again";

@@ -15,7 +15,7 @@
 / Functions and Buffer Configurations
 /-----------------------------------------------------------------------------*/
 
-#define _FS_TINY             0      /* 0:Normal or 1:Tiny */
+#define _FS_TINY             1      /* 0:Normal or 1:Tiny */
 /* This option switches tiny buffer configuration. (0:Normal or 1:Tiny)
 /  At the tiny configuration, size of the file object (FIL) is reduced _MAX_SS
 /  bytes. Instead of private sector buffer eliminated from the file object,
@@ -37,7 +37,7 @@
 /   2: f_opendir(), f_readdir() and f_closedir() are removed in addition to 1.
 /   3: f_lseek() function is removed in addition to 2. */
 
-#define _USE_STRFUNC         2      /* 0:Disable or 1-2:Enable */
+#define _USE_STRFUNC         0      /* 0:Disable or 1-2:Enable */
 /* This option switches string functions, f_gets(), f_putc(), f_puts() and
 /  f_printf().
 /
