@@ -1,4 +1,4 @@
-#include "stm32f7xx_hal.h"
+#include "qspi.h"
 #include "errorhandlers.h"
 
 /* Reset Operations */

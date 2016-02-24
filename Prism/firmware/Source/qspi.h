@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include "stm32f7xx_hal.h"
 
 /* N25Q512A Micron memory */
 /* Size of the flash */
