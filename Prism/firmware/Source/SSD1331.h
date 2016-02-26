@@ -43,6 +43,8 @@ public:
   uint16_t getWidth(){
     return OLED_WIDTH;
   }
+  bool isReady(); // true if last screen update has been sent
+  void complete(); // call after finishing a screen update
 protected:
   void goTo(int x, int y);
   //experimental

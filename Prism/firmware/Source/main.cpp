@@ -550,7 +550,7 @@ extern "C" {
       // process samples
       samples.comb(tx);
     }
-    if(dowave){
+    if(dowave && screen.isReady()){
       float* left = samples.getSamples(0);
       float* right = samples.getSamples(1);
       int step = samples.getSize()/screen.getWidth();
@@ -562,6 +562,7 @@ extern "C" {
 	screen.drawPixel(x, height+height*right[i], GREEN);
 	x++;
       }
+      screen.complete();
     }
   }
 }

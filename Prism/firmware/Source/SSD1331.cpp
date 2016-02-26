@@ -70,7 +70,8 @@ extern "C" void delay(uint32_t millisec);
 #define clearDC() clearPin(OLED_DC_GPIO_Port, OLED_DC_Pin)
 
 typedef uint16_t Colour;
-static Colour pixels[OLED_HEIGHT][OLED_WIDTH];
+uint8_t currentscreen = 0;
+static Colour pixels[2][OLED_HEIGHT][OLED_WIDTH];
 
 void SSD1331::begin(SPI_HandleTypeDef *spi) {
   hspi = spi;
@@ -109,9 +110,9 @@ bool byteswap = false;
 void SSD1331::drawPixel(int16_t x, int16_t y, uint16_t c){
   assert_param(x < OLED_WIDTH && y < OLED_HEIGHT);
   if(byteswap)
-    pixels[y][x] = __REV16(c);
+    pixels[currentscreen][y][x] = __REV16(c);
   else
-    pixels[y][x] = c;
+    pixels[currentscreen][y][x] = c;
 }
 
 // #include "screen.h"
@@ -122,29 +123,29 @@ void SSD1331::drawPixel(int16_t x, int16_t y, uint16_t c){
 //   done = true;
 // }
 
-bool bytepush = false;
+uint8_t screenstatus = 0x00;
+// bit is clear if buffer is ready to write to
+bool SSD1331::isReady(){
+  return (screenstatus & currentscreen) == 0;
+}
+
+void SSD1331::complete(){
+  screenstatus |= currentscreen;
+}
+
 bool dozero = false;
 void SSD1331::display(){
-  // goTo(0, 0);
+  // if((screenstatus & currentscreen) == 0)
+  //   return;
   if(dozero)
-    zero();
+    zero();   // goTo(0, 0);
   setDC();
   // clearCS();
-  if(bytepush){
-    for(int y=0; y<OLED_HEIGHT; ++y){
-      for(int x=0; x<OLED_WIDTH; ++x){
-	if(byteswap){
-	  spiwrite(pixels[y][x]);
-	  spiwrite(pixels[y][x] >> 8);
-	}else{
-	  spiwrite(pixels[y][x] >> 8);
-	  spiwrite(pixels[y][x]);
-	}
-      }
-    }
-  }else{
-    spiwrite((uint8_t*)pixels, sizeof(pixels));
-  }
+  // display the buffer which is not currently written to
+  uint8_t screen = currentscreen ? 1 : 0;
+  spiwrite((uint8_t*)pixels[screen], sizeof(pixels));
+  screenstatus &= ~currentscreen;
+  currentscreen = screen;
   // setCS();
 }
 
@@ -156,19 +157,8 @@ void SSD1331::display(){
 // }
 
 void SSD1331::fillScreen(int16_t c) {
-  if(bytepush){
-  for(int x=0; x<OLED_WIDTH; ++x)
-    for(int y=0; y<OLED_HEIGHT; ++y)
-      drawPixel(x, y, c);
-  }else{
-    if(byteswap){
-    for(int i=0; i<OLED_HEIGHT*OLED_WIDTH; ++i)
-      pixels[0][i] = __REV16(c);
-    }else{
-    for(int i=0; i<OLED_HEIGHT*OLED_WIDTH; ++i)
-      pixels[0][i] = c;
-    }
-  }
+  for(int i=0; i<OLED_HEIGHT*OLED_WIDTH; ++i)
+    pixels[currentscreen][0][i] = c;
 }
 
 // void SSD1331::drawFastHLine(int16_t x, int16_t y, int16_t w, uint16_t c) {
