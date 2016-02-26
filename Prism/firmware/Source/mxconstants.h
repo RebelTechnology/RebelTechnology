@@ -1,5 +1,5 @@
-/* #define USE_SCREEN */
-/* #define OLED_SOFT_CS */
+#define USE_SCREEN
+#define OLED_SOFT_CS
 /* #define OLED_BITBANG */
 /* #define OLED_B1 */
 #define USE_CODEC

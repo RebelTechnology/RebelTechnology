@@ -542,6 +542,7 @@ void delay(uint32_t ms){
 
 SampleBuffer samples;
 bool bypass = true;
+bool dowave = true;
 extern "C" {
   void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size){
     samples.split(rx, size);
@@ -549,11 +550,25 @@ extern "C" {
       // process samples
       samples.comb(tx);
     }
+    if(dowave){
+      float* left = samples.getSamples(0);
+      float* right = samples.getSamples(1);
+      int step = samples.getSize()/screen.getWidth();
+      int height = screen.getHeight()/2;
+      int x=0;
+      screen.fillScreen(BLACK);
+      for(int i=0; i<samples.getSize() && x < screen.getWidth(); i+=step){
+	screen.drawPixel(x, height+height*left[i], RED);
+	screen.drawPixel(x, height+height*right[i], GREEN);
+	x++;
+      }
+    }
   }
 }
 
 uint8_t qspitx[128] = "hello and welcome once again";
 uint8_t qspirx[128];
+bool dotxrx = false;
 
 void StartScreenTask(void const * argument)
 {
@@ -580,24 +595,82 @@ void StartScreenTask(void const * argument)
     codec.clear();
     codec.txrx();
   }
-
 #endif
   // screen.begin(&hspi1);
-  uint32_t fms = 1000/20;
+  uint32_t fms = 1000/30;
   for(;;){
-    // osDelay(fms);
-    // osDelay(10000);
-    // codec_bypass(true);
-    // osDelay(10000);
-    // codec_bypass(false);
 #ifdef USE_SCREEN
-    // screen.display();
+    osDelay(fms);
+    if(dowave)
+      screen.display();
 #endif
   }
 }
 
 /* USER CODE END 4 */
 
+void demoScreen(int step){
+  switch(step){
+  case 0:
+    // draw some pixels
+    screen.fillScreen(BLACK);
+    for(int i=0; i<31; i+=3){
+      screen.drawPixel(i*3, i*2, WHITE);
+    }
+    screen.display();
+    osDelay(2000);
+    break;
+  case 1:
+    screen.fillScreen(MAGENTA);
+    screen.lock();
+    screen.display();
+    osDelay(2000);
+    screen.unlock();
+    screen.fillScreen(YELLOW);
+    screen.display();
+    osDelay(2000);
+    screen.fillScreen(WHITE);
+    screen.display();
+    osDelay(2000);
+    break;
+  case 2:
+    screen.fillScreen(BLACK);
+    for (int16_t i=1; i<screen.width(); i+=4) {
+      screen.drawLine(0, 0, i, screen.height()-1, GREEN);
+    }
+    screen.display();
+    osDelay(2000);
+    for (int16_t i=1; i<screen.height(); i+=4)
+      screen.drawLine(0, 0, screen.width()-1, i, BLUE);
+    screen.display();
+    osDelay(2000);
+    break;
+  case 3:
+    screen.fillScreen(WHITE);
+    screen.setTextColor(BLACK);
+    screen.setTextSize(1);
+    screen.setCursor(40, 30);
+    screen.print("Hello, world!");
+    screen.display();
+    delay(2000);
+    break;
+  case 4:
+    screen.fillScreen(BLACK);
+    screen.setTextColor(WHITE);
+    screen.setCursor(0,0);
+    screen.print("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer iaculis pellentesque sem, sit amet pulvinar ex placerat et. Aenean eleifend sem sem, ac semper quam vestibulum ac.");
+    screen.display();
+    delay(2000);
+    break;
+  default:    
+    screen.fillScreen(step);
+    screen.display();
+    delay(2000);
+    break;
+  }
+}
+
+bool dodemoscreen = false;
 /* StartDefaultTask function */
 void StartDefaultTask(void const * argument)
 {
@@ -610,62 +683,14 @@ void StartDefaultTask(void const * argument)
 #ifdef USE_SCREEN
   screen.begin(&hspi1);
 
-  // draw some pixels
-  screen.fillScreen(BLACK);
-  for(int i=0; i<31; i+=3){
-    screen.drawPixel(i*3, i*2, WHITE);
-  }
-  screen.display();
-  osDelay(2000);
-
-  screen.fillScreen(MAGENTA);
-  screen.lock();
-  screen.display();
-  osDelay(2000);
-  screen.unlock();
-
-  screen.fillScreen(YELLOW);
-  screen.display();
-  osDelay(2000);
-
-  screen.fillScreen(WHITE);
-  screen.display();
-  osDelay(2000);
-  screen.fillScreen(BLACK);
-  for (int16_t i=1; i<screen.width(); i+=4) {
-    screen.drawLine(0, 0, i, screen.height()-1, GREEN);
-  }
-  screen.display();
-  osDelay(2000);
-  for (int16_t i=1; i<screen.height(); i+=4)
-    screen.drawLine(0, 0, screen.width()-1, i, BLUE);
-  screen.display();
-  osDelay(2000);
-
-  screen.fillScreen(WHITE);
-  screen.setTextColor(BLACK);
-  screen.setTextSize(1);
-  screen.setCursor(10, 20);
-  screen.print("Hello, world!");
-  screen.display();
-  delay(2000);
-  screen.fillScreen(BLACK);
-  screen.setTextColor(WHITE);
-  screen.setCursor(0,0);
-  screen.print("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer iaculis pellentesque sem, sit amet pulvinar ex placerat et. Aenean eleifend sem sem, ac semper quam vestibulum ac.");
-  screen.display();
-  delay(20000);
-
-  uint16_t i=0;
   for(;;){
-    screen.fillScreen(i++);
-    screen.display();
-    osDelay(20);
+    for(int i=0;dodemoscreen;i++)
+      demoScreen(i++);
   }
+  
   screen.clear();
 #endif
-  for(;;){
-  }
+  for(;;);
   /* USER CODE END 5 */ 
 }
 

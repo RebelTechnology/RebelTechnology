@@ -123,7 +123,7 @@ void SSD1331::drawPixel(int16_t x, int16_t y, uint16_t c){
 // }
 
 bool bytepush = false;
-bool dozero = true;
+bool dozero = false;
 void SSD1331::display(){
   // goTo(0, 0);
   if(dozero)
@@ -213,9 +213,12 @@ void SSD1331::spiwrite(const uint8_t* data, size_t size){
   setCS();
   vPortExitCritical();
 #else
+  clearPin(OLED_SCK_GPIO_Port, OLED_SCK_Pin);
+  clearCS();
   while(hspi->State != HAL_SPI_STATE_READY);
   HAL_StatusTypeDef ret = HAL_SPI_Transmit(hspi, (uint8_t*)data, size, OLED_TIMEOUT);
   assert_param(ret == HAL_OK);
+  setCS();
 #endif
 }
 
@@ -284,7 +287,7 @@ void SSD1331::unlock() {
 }
 
 static const uint8_t initSequence[] = {
-  0xae, 0xa0, 0x74, 0xa1, 0x00, 0xa2, 0x00, 0xa4, 0xa8, 0x3f, 0xad, 0x8e,
+  0xae, 0xa0, 0x76, 0xa1, 0x00, 0xa2, 0x00, 0xa4, 0xa8, 0x3f, 0xad, 0x8e,
   0xb0, 0x0b, 0xb1, 0x31, 0xb3, 0xf0, 0x8a, 0x64, 0x8b, 0x78, 0x8c, 0x64, 0xbb, 0x3a,
   0xbe, 0x3e, 0x87, 0x06, 0x81, 0x91, 0x82, 0x50, 0x83, 0x7d, // 0xaf display on
   0x2e // deactivate scrolling
@@ -309,11 +312,8 @@ void SSD1331::chipInit() {
      * 0x74: 0b01110100
      */
     // writeCommand(0b00000000);
-#if defined SSD1331_COLORORDER_RGB
-    writeCommand(0x72);				// RGB Color
-#else
-    writeCommand(0x76);				// BGR Color
-#endif
+    // writeCommand(0x72);
+    writeCommand(0x76); // mirror screen
     setRegister(_CMD_FILL,0x01);
     setRegister(_CMD_STARTLINE,0x00);//default 0x00	
     setRegister(_CMD_DISPLAYOFFSET,0x01);//default 0x00

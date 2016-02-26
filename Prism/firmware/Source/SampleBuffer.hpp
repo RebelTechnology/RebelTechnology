@@ -72,9 +72,9 @@ public:
   // inline FloatArray getSamples(int channel){
   //   return channel == 0 ? FloatArray(left, size) : FloatArray(right, size);
   // }
-  // inline float* getSamples(int channel){
-  //   return channel == 0 ? left : right;
-  // }
+  inline float* getSamples(int channel){
+    return channel == 0 ? left : right;
+  }
   inline int getChannels(){
     return 2;
   }

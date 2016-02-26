@@ -37,6 +37,12 @@ public:
   void off();
   void lock();
   void unlock();
+  uint16_t getHeight(){
+    return OLED_HEIGHT;
+  }
+  uint16_t getWidth(){
+    return OLED_WIDTH;
+  }
 protected:
   void goTo(int x, int y);
   //experimental
