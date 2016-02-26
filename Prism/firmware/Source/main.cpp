@@ -535,34 +535,26 @@ void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 
 extern "C" {
-void delay(uint32_t ms){
-  osDelay(ms);
-}
+  void delay(uint32_t ms){
+    osDelay(ms);
+  }
 }
 
 SampleBuffer samples;
 bool bypass = true;
 bool dowave = true;
+volatile bool doProcessAudio = false;
+uint32_t* rxbuffer;
+uint32_t* txbuffer;
+uint16_t buffersize;
 extern "C" {
   void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size){
-    samples.split(rx, size);
-    if(bypass){
-      // process samples
-      samples.comb(tx);
-    }
-    if(dowave && screen.isReady()){
-      float* left = samples.getSamples(0);
-      float* right = samples.getSamples(1);
-      int step = samples.getSize()/screen.getWidth();
-      int height = screen.getHeight()/2;
-      int x=0;
-      screen.fillScreen(BLACK);
-      for(int i=0; i<samples.getSize() && x < screen.getWidth(); i+=step){
-	screen.drawPixel(x, height+height*left[i], RED);
-	screen.drawPixel(x, height+height*right[i], GREEN);
-	x++;
-      }
-      screen.complete();
+    if(!doProcessAudio){
+      rxbuffer = rx;
+      txbuffer = tx;
+      buffersize = size;
+      samples.split(rxbuffer, buffersize);
+      doProcessAudio = true;
     }
   }
 }
@@ -591,7 +583,7 @@ void StartScreenTask(void const * argument)
   codec.ramp(1<<23);
   codec.set(0);
 
-  if(0){
+  if(dotxrx){
     codec.stop();
     codec.clear();
     codec.txrx();
@@ -600,11 +592,27 @@ void StartScreenTask(void const * argument)
   // screen.begin(&hspi1);
   uint32_t fms = 1000/30;
   for(;;){
-#ifdef USE_SCREEN
-    osDelay(fms);
-    if(dowave)
-      screen.display();
-#endif
+    if(doProcessAudio){
+      if(bypass){
+	// process samples
+	samples.comb(txbuffer);
+      }
+      if(dowave){
+	float* left = samples.getSamples(0);
+	float* right = samples.getSamples(1);
+	int step = samples.getSize()/screen.getWidth();
+	int height = screen.getHeight()/2;
+	int x=0;
+	screen.fillScreen(BLACK);
+	for(int i=0; i<samples.getSize() && x < screen.getWidth(); i+=step){
+	  screen.drawPixel(x, height+height*left[i], RED);
+	  screen.drawPixel(x, height+height*right[i], GREEN);
+	  x++;
+	}
+	screen.display();
+	doProcessAudio = false;
+      }
+    }
   }
 }
 
@@ -683,7 +691,6 @@ void StartDefaultTask(void const * argument)
 
 #ifdef USE_SCREEN
   screen.begin(&hspi1);
-
   for(;;){
     for(int i=0;dodemoscreen;i++)
       demoScreen(i++);
