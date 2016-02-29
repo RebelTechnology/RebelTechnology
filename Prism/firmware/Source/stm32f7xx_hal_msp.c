@@ -463,7 +463,8 @@ void HAL_TIM_Encoder_MspInit(TIM_HandleTypeDef* htim_encoder)
     HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
   /* USER CODE BEGIN TIM1_MspInit 1 */
-
+    HAL_NVIC_SetPriority(TIM1_CC_IRQn, 0, 1);
+    HAL_NVIC_EnableIRQ(TIM1_CC_IRQn);
   /* USER CODE END TIM1_MspInit 1 */
   }
   else if(htim_encoder->Instance==TIM3)
@@ -486,7 +487,8 @@ void HAL_TIM_Encoder_MspInit(TIM_HandleTypeDef* htim_encoder)
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /* USER CODE BEGIN TIM3_MspInit 1 */
-
+    HAL_NVIC_SetPriority(TIM3_IRQn, 0, 1);
+    HAL_NVIC_EnableIRQ(TIM3_IRQn);
   /* USER CODE END TIM3_MspInit 1 */
   }
 

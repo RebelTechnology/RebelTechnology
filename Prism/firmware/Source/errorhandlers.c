@@ -2,6 +2,7 @@
 #include "stm32f7xx_hal.h"
 
 volatile int8_t errorcode = 0;
+const char* errormsg = 0;
 
 void error(int8_t code, const char* reason){
   errorcode = code;
@@ -14,6 +15,11 @@ int8_t getErrorStatus(){
 
 void setErrorStatus(int8_t err){
   errorcode = err;
+}
+
+void setErrorMessage(int8_t err, const char* msg){
+  errorcode = err;
+  errormsg = msg;
 }
 
 /**

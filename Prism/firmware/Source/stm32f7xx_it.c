@@ -140,6 +140,21 @@ void OTG_HS_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
+extern TIM_HandleTypeDef htim1;
+extern TIM_HandleTypeDef htim3;
+
+void TIM1_CC_IRQHandler(void){
+  HAL_TIM_IRQHandler(&htim1);
+}
+
+int32_t encoder3 = 0;
+void TIM3_IRQHandler(void){
+  HAL_TIM_IRQHandler(&htim3);
+  if(__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim3))
+    encoder3--;
+  else
+    encoder3++;
+}
 
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

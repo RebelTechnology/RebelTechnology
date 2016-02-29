@@ -1,3 +1,5 @@
+#define USE_ADC
+#define USE_ENCODERS
 #define USE_SCREEN
 #define OLED_SOFT_CS
 /* #define OLED_BITBANG */

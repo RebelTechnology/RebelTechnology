@@ -313,10 +313,10 @@ void MX_SPI1_Init(void)
   hspi1.Init.NSS = SPI_NSS_HARD_OUTPUT;
 #endif
   // 096064 max recommended SPI speed 6.6MHz
-  // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16; // 6.75MHz
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16; // 6.75MHz
   // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32; // 3.375MHz
   // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64; // 1.6875MHz
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128; // 843.75kHz
+  // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128; // 843.75kHz
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLED;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
@@ -341,10 +341,10 @@ void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 0;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 0;
+  htim1.Init.Period = 0xffff;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
-  sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
+  sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
@@ -373,9 +373,9 @@ void MX_TIM3_Init(void)
   htim3.Instance = TIM3;
   htim3.Init.Prescaler = 0;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 0;
+  htim3.Init.Period = 0xffff;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
+  sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
@@ -541,8 +541,13 @@ extern "C" {
 }
 
 SampleBuffer samples;
-bool bypass = true;
+bool dobypass = true;
 bool dowave = true;
+bool dooffset = true;
+int32_t encoder1;
+int32_t encoder2;
+uint16_t adcvalues[2];
+extern int32_t encoder3;
 volatile bool doProcessAudio = false;
 uint32_t* rxbuffer;
 uint32_t* txbuffer;
@@ -576,6 +581,23 @@ void StartScreenTask(void const * argument)
   osDelay(1000);
 #endif
 
+  HAL_StatusTypeDef ret;
+// #ifdef USE_ADC
+//   ret = HAL_ADC_Start(&hadc1);
+//   ASSERT(ret == HAL_OK, "adc1 start failed");
+// #endif
+
+#ifdef USE_ENCODERS
+  encoder1 = 0;
+  encoder2 = 256;
+  __HAL_TIM_SetCounter(&htim1, encoder1);
+  __HAL_TIM_SetCounter(&htim3, encoder2);
+  ret = HAL_TIM_Encoder_Start(&htim1, 0);
+  ASSERT(ret == HAL_OK, "tim1 encoder start failed");
+  ret = HAL_TIM_Encoder_Start_IT(&htim3, TIM_CHANNEL_ALL);
+  ASSERT(ret == HAL_OK, "tim3 encoder start failed");    
+#endif
+
 #ifdef USE_CODEC
   codec.reset();
   codec.start();
@@ -590,10 +612,17 @@ void StartScreenTask(void const * argument)
   }
 #endif
   // screen.begin(&hspi1);
-  uint32_t fms = 1000/30;
   for(;;){
     if(doProcessAudio){
-      if(bypass){
+      if(dooffset){
+	float* left = samples.getSamples(0);
+	float* right = samples.getSamples(1);
+	for(int i=0; i<samples.getSize(); ++i){
+	  left[i] += encoder2 / 256.0f - 0.5;
+	  right[i] += adcvalues[0] / 4096.0f - 0.5;
+	}
+      }
+      if(dobypass){
 	// process samples
 	samples.comb(txbuffer);
       }
@@ -617,6 +646,33 @@ void StartScreenTask(void const * argument)
 }
 
 /* USER CODE END 4 */
+
+void readadc(int step){
+  HAL_StatusTypeDef ret;
+  ret = HAL_ADC_Start(&hadc1);
+  ASSERT(ret == HAL_OK, "adc1 start failed");
+  if(HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK)
+    adcvalues[0] = HAL_ADC_GetValue(&hadc1);
+  ret = HAL_ADC_Stop(&hadc1);
+  ASSERT(ret == HAL_OK, "adc1 stop failed");
+}
+
+void encoders(int step){
+  encoder1 = __HAL_TIM_GET_COUNTER(&htim1);
+
+  // uint16_t val = __HAL_TIM_GET_COUNTER(&htim1);
+  // if(__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim1))
+  //   encoder1 -= val;
+  // else
+  //   encoder1 += val;
+  // __HAL_TIM_SET_COUNTER(&htim1, 0);
+  // val = __HAL_TIM_GET_COUNTER(&htim3);
+  encoder2 = __HAL_TIM_GET_COUNTER(&htim3);
+  // if(__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim3))
+  //   encoder2 -= val;
+  // else
+  //   encoder2 += val;
+}
 
 void demoScreen(int step){
   switch(step){
@@ -679,7 +735,9 @@ void demoScreen(int step){
   }
 }
 
-bool dodemoscreen = false;
+ bool dodemoscreen = false;
+ bool doencoders = true;
+ bool doadc = true;
 /* StartDefaultTask function */
 void StartDefaultTask(void const * argument)
 {
@@ -691,11 +749,26 @@ void StartDefaultTask(void const * argument)
 
 #ifdef USE_SCREEN
   screen.begin(&hspi1);
+#endif
+
   for(;;){
-    for(int i=0;dodemoscreen;i++)
-      demoScreen(i++);
+    for(int i=0;;i++){
+#ifdef USE_SCREEN
+      if(dodemoscreen)
+	demoScreen(i);
+#endif
+#ifdef USE_ENCODERS
+      if(doencoders)
+	encoders(i);
+#endif
+#ifdef USE_ADC
+      if(doadc)
+	readadc(i);
+#endif
+    }
   }
   
+#ifdef USE_SCREEN
   screen.clear();
 #endif
   for(;;);

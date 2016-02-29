@@ -105,13 +105,11 @@ uint16_t SSD1331::Color565(uint8_t r, uint8_t g, uint8_t b) {
   return c;
 }
 
-bool byteswap = false;
 void SSD1331::drawPixel(int16_t x, int16_t y, uint16_t c){
-  assert_param(x < OLED_WIDTH && y < OLED_HEIGHT);
-  if(byteswap)
-    pixels[y][x] = __REV16(c);
-  else
-    pixels[y][x] = c;
+  // assert_param(x < OLED_WIDTH && y < OLED_HEIGHT);
+  if(x >= OLED_WIDTH || y >= OLED_HEIGHT)
+    return;
+  pixels[y][x] = c;
 }
 
 // #include "screen.h"
