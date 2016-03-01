@@ -35,6 +35,8 @@
 #include "stm32f7xx_hal.h"
 #include "mxconstants.h"
 
+extern DMA_HandleTypeDef hdma_adc1;
+
 extern DMA_HandleTypeDef hdma_spi1_tx;
 
 /* USER CODE BEGIN 0 */
@@ -82,6 +84,24 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+    /* Peripheral DMA init*/
+  
+#ifdef ADC_DMA
+    hdma_adc1.Instance = DMA2_Stream0;
+    hdma_adc1.Init.Channel = DMA_CHANNEL_0;
+    hdma_adc1.Init.Direction = DMA_PERIPH_TO_MEMORY;
+    hdma_adc1.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_adc1.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_adc1.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;
+    hdma_adc1.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
+    hdma_adc1.Init.Mode = DMA_NORMAL;
+    hdma_adc1.Init.Priority = DMA_PRIORITY_LOW;
+    hdma_adc1.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+    HAL_DMA_Init(&hdma_adc1);
+
+    __HAL_LINKDMA(hadc,DMA_Handle,hdma_adc1);
+#endif
+
   /* USER CODE BEGIN ADC1_MspInit 1 */
 
   /* USER CODE END ADC1_MspInit 1 */
@@ -106,6 +126,8 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
     */
     HAL_GPIO_DeInit(GPIOA, ADC0_Pin|ADC1_Pin);
 
+    /* Peripheral DMA DeInit*/
+    HAL_DMA_DeInit(hadc->DMA_Handle);
   }
   /* USER CODE BEGIN ADC1_MspDeInit 1 */
 
@@ -372,12 +394,14 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
     GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
     HAL_GPIO_Init(CS_SCL_GPIO_Port, &GPIO_InitStruct);
 
-    /* GPIO_InitStruct.Pin = CS_CS_Pin; */
-    /* GPIO_InitStruct.Mode = GPIO_MODE_AF_PP; */
-    /* GPIO_InitStruct.Pull = GPIO_NOPULL; */
-    /* GPIO_InitStruct.Speed = GPIO_SPEED_HIGH; */
-    /* GPIO_InitStruct.Alternate = GPIO_AF7_SPI2; */
-    /* HAL_GPIO_Init(CS_CS_GPIO_Port, &GPIO_InitStruct); */
+#ifndef CODEC_SOFT_CS
+    GPIO_InitStruct.Pin = CS_CS_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF7_SPI2;
+    HAL_GPIO_Init(CS_CS_GPIO_Port, &GPIO_InitStruct);
+#endif
 
   /* USER CODE BEGIN SPI2_MspInit 1 */
 

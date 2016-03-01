@@ -5,7 +5,7 @@
 // #include "arm_math.h"
 // #endif //ARM_CORTEX
 
-#define AUDIO_MAX_BLOCK_SIZE (CS_BUFFER_SIZE/4)
+#define AUDIO_MAX_BLOCK_SIZE (CODEC_BUFFER_SIZE/4)
 
 // class SampleBuffer : public AudioBuffer {
 class SampleBuffer {

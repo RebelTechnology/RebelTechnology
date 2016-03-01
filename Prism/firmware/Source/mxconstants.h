@@ -1,4 +1,5 @@
 #define USE_ADC
+/* #define ADC_DMA */
 #define USE_ENCODERS
 #define USE_SCREEN
 #define OLED_SOFT_CS
@@ -7,7 +8,8 @@
 /* #define OLED_BITBANG */
 /* #define OLED_B1 */
 #define USE_CODEC
-#define CS_BUFFER_SIZE   1024
+#define CODEC_SOFT_CS
+#define CODEC_BUFFER_SIZE   4096
 /* #define USE_OVERDRIVE // 216MHz */
 /* #define QSPI_FLASH_SIZE (128*1024) */
 #define USE_QSPI_FLASH

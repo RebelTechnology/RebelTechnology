@@ -225,11 +225,15 @@ extern DMA_HandleTypeDef hdma_spi1_tx;
 
 extern "C" {
   void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi){
-  ASSERT(0, "SPI Error");
+    ASSERT(0, "SPI Error");
   }
 
   void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
-  setCS();
+    setCS();
+  }
+
+  void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi){
+    setCS();
   }
 }
 

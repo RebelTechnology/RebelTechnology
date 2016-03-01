@@ -42,6 +42,7 @@
 
 /* External variables --------------------------------------------------------*/
 extern PCD_HandleTypeDef hpcd_USB_OTG_HS;
+extern DMA_HandleTypeDef hdma_adc1;
 extern DMA_HandleTypeDef hdma_sai1_rx;
 extern DMA_HandleTypeDef hdma_sai1_tx;
 extern DMA_HandleTypeDef hdma_spi1_tx;
@@ -72,12 +73,29 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
+* @brief This function handles DMA2 stream0 global interrupt.
+*/
+void DMA2_Stream0_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Stream0_IRQn 0 */
+  // ADC DMA
+  /* USER CODE END DMA2_Stream0_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_adc1);
+  /* USER CODE BEGIN DMA2_Stream0_IRQn 1 */
+  if(__HAL_DMA_GET_FLAG(&hdma_adc1,  __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_adc1)))
+    __HAL_DMA_CLEAR_FLAG(&hdma_adc1, __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_adc1));
+  if(__HAL_DMA_GET_FLAG(&hdma_adc1,  __HAL_DMA_GET_HT_FLAG_INDEX(&hdma_adc1)))
+    __HAL_DMA_CLEAR_FLAG(&hdma_adc1, __HAL_DMA_GET_HT_FLAG_INDEX(&hdma_adc1));
+  /* USER CODE END DMA2_Stream0_IRQn 1 */
+}
+
+/**
 * @brief This function handles DMA2 stream1 global interrupt.
 */
 void DMA2_Stream1_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream1_IRQn 0 */
-  // TX: memory to peripheral/codec 
+  // SAI TX: memory to peripheral/codec 
   static int counter = 0;
   counter++;
   /* USER CODE END DMA2_Stream1_IRQn 0 */
@@ -104,6 +122,8 @@ void DMA2_Stream3_IRQHandler(void)
   /* USER CODE BEGIN DMA2_Stream3_IRQn 1 */
   if(__HAL_DMA_GET_FLAG(&hdma_spi1_tx,  __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx)))
     __HAL_DMA_CLEAR_FLAG(&hdma_spi1_tx, __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx));
+  if(__HAL_DMA_GET_FLAG(&hdma_spi1_tx,  __HAL_DMA_GET_HT_FLAG_INDEX(&hdma_spi1_tx)))
+    __HAL_DMA_CLEAR_FLAG(&hdma_spi1_tx, __HAL_DMA_GET_HT_FLAG_INDEX(&hdma_spi1_tx));
   /* USER CODE END DMA2_Stream3_IRQn 1 */
 }
 
@@ -113,7 +133,7 @@ void DMA2_Stream3_IRQHandler(void)
 void DMA2_Stream4_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream4_IRQn 0 */
-  // RX: peripheral/codec to memory
+  // SAI RX: peripheral/codec to memory
   static int counter = 0;
   counter++;
   /* USER CODE END DMA2_Stream4_IRQn 0 */

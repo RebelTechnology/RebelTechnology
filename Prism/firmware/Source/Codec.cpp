@@ -3,10 +3,10 @@
 #include "errorhandlers.h"
 #include "mxconstants.h"
 
-#define CS_BUFFER_HALFSIZE (CS_BUFFER_SIZE/2)
-#define CS_BUFFER_QUARTSIZE (CS_BUFFER_SIZE/4)
-uint32_t txbuf[CS_BUFFER_SIZE];
-uint32_t rxbuf[CS_BUFFER_SIZE];
+#define CODEC_BUFFER_HALFSIZE (CODEC_BUFFER_SIZE/2)
+#define CODEC_BUFFER_QUARTSIZE (CODEC_BUFFER_SIZE/4)
+uint32_t txbuf[CODEC_BUFFER_SIZE];
+uint32_t rxbuf[CODEC_BUFFER_SIZE];
 
 extern "C" {
   void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai);
@@ -32,8 +32,13 @@ void MX_SPI2_Init(void)
   hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
   hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
-  // hspi2.Init.NSS = SPI_NSS_HARD_OUTPUT;
+#ifdef CODEC_SOFT_CS
   hspi2.Init.NSS = SPI_NSS_SOFT;
+  hspi2.Init.NSSPMode = SPI_NSS_PULSE_DISABLED;
+#else
+  hspi2.Init.NSS = SPI_NSS_HARD_OUTPUT;
+  hspi2.Init.NSSPMode = SPI_NSS_PULSE_ENABLED;
+#endif
   // hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
   // CS4271 max SPI baud rate 6MHz
   hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16; // 3.375MHz
@@ -42,8 +47,6 @@ void MX_SPI2_Init(void)
   hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
   hspi2.Init.CRCPolynomial = 7;
   hspi2.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
-  // hspi2.Init.NSSPMode = SPI_NSS_PULSE_ENABLED;
-  hspi2.Init.NSSPMode = SPI_NSS_PULSE_DISABLED;
   HAL_SPI_Init(&hspi2);
 
 }
@@ -267,8 +270,8 @@ void HAL_SAI_MspDeInit(SAI_HandleTypeDef* hsai)
 }
 
 void Codec::ramp(uint32_t max){
-  uint32_t incr = max/CS_BUFFER_SIZE;
-  for(int i=0; i<CS_BUFFER_SIZE; ++i)
+  uint32_t incr = max/CODEC_BUFFER_SIZE;
+  for(int i=0; i<CODEC_BUFFER_SIZE; ++i)
     txbuf[i] = i*incr;
 }
 
@@ -293,12 +296,12 @@ void Codec::clear(){
 
 void Codec::txrx(){
   HAL_SAI_DMAStop(&hsai_BlockTx);
-  HAL_SAI_Transmit_DMA(&hsai_BlockTx, (uint8_t*)rxbuf, CS_BUFFER_SIZE);
+  HAL_SAI_Transmit_DMA(&hsai_BlockTx, (uint8_t*)rxbuf, CODEC_BUFFER_SIZE);
 }
 
 uint32_t Codec::getMin(){
   uint32_t min = txbuf[0];
-  for(int i=1; i<CS_BUFFER_SIZE; ++i)
+  for(int i=1; i<CODEC_BUFFER_SIZE; ++i)
     if(txbuf[i] < min)
       min  = txbuf[i];
   return min;
@@ -306,7 +309,7 @@ uint32_t Codec::getMin(){
 
 uint32_t Codec::getMax(){
   uint32_t max = txbuf[0];
-  for(int i=1; i<CS_BUFFER_SIZE; ++i)
+  for(int i=1; i<CODEC_BUFFER_SIZE; ++i)
     if(txbuf[i] > max)
       max  = txbuf[i];
   return max;
@@ -314,13 +317,13 @@ uint32_t Codec::getMax(){
 
 float Codec::getAvg(){
   float avg = 0;
-  for(int i=0; i<CS_BUFFER_SIZE; ++i)
+  for(int i=0; i<CODEC_BUFFER_SIZE; ++i)
     avg += txbuf[i];
-  return avg / CS_BUFFER_SIZE;
+  return avg / CODEC_BUFFER_SIZE;
 }
 
 void Codec::set(uint32_t value){
-  for(int i=0; i<CS_BUFFER_SIZE; ++i)
+  for(int i=0; i<CODEC_BUFFER_SIZE; ++i)
     txbuf[i] = value;
 }
 
@@ -335,16 +338,10 @@ void Codec::stop(){
 
 void Codec::start(){
   HAL_StatusTypeDef ret;
-  ret = HAL_SAI_Receive_DMA(&hsai_BlockRx, (uint8_t*)rxbuf, 1024);
+  ret = HAL_SAI_Receive_DMA(&hsai_BlockRx, (uint8_t*)rxbuf, CODEC_BUFFER_SIZE);
   assert_param(ret == HAL_OK);
-  ret = HAL_SAI_Transmit_DMA(&hsai_BlockTx, (uint8_t*)txbuf, 1024);
+  ret = HAL_SAI_Transmit_DMA(&hsai_BlockTx, (uint8_t*)txbuf, CODEC_BUFFER_SIZE);
   assert_param(ret == HAL_OK);
-    // if(!usedma){
-    //   ret = HAL_SAI_Receive(&hsai_BlockRx, (uint8_t*)rxbuf, 1024, 1000);
-    //   assert_param(ret == HAL_OK);
-    //   ret = HAL_SAI_Transmit(&hsai_BlockTx, (uint8_t*)rxbuf, 1024, 1000);
-    //   assert_param(ret == HAL_OK);
-    // }
 }
 
 extern "C" {
@@ -355,11 +352,11 @@ void HAL_SAI_TxHalfCpltCallback(SAI_HandleTypeDef *hsai){
 extern void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size);
 
 void HAL_SAI_RxCpltCallback(SAI_HandleTypeDef *hsai){
-  audioCallback(rxbuf+CS_BUFFER_HALFSIZE, txbuf+CS_BUFFER_HALFSIZE, CS_BUFFER_QUARTSIZE);
+  audioCallback(rxbuf+CODEC_BUFFER_HALFSIZE, txbuf+CODEC_BUFFER_HALFSIZE, CODEC_BUFFER_QUARTSIZE);
 }
 
 void HAL_SAI_RxHalfCpltCallback(SAI_HandleTypeDef *hsai){
-  audioCallback(rxbuf, txbuf, CS_BUFFER_QUARTSIZE);
+  audioCallback(rxbuf, txbuf, CODEC_BUFFER_QUARTSIZE);
 }
 
 void HAL_SAI_ErrorCallback(SAI_HandleTypeDef *hsai){
