@@ -563,7 +563,7 @@ bool dowave = true;
 bool dooffset = true;
 volatile int32_t encoder1;
 volatile int32_t encoder2;
-uint32_t adc_values[4];
+uint16_t adc_values[4];
 extern int32_t encoder3;
 volatile bool doProcessAudio = false;
 uint32_t* rxbuffer;
@@ -605,7 +605,7 @@ void StartScreenTask(void const * argument)
 
 #ifdef USE_ADC
 #ifdef ADC_DMA
-  ret = HAL_ADC_Start_DMA(&hadc1, adc_values, 4);
+  ret = HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_values, 4);
   ASSERT(ret == HAL_OK, "adc1 dma start failed");
 #endif
   // ret = HAL_ADC_Start(&hadc1);
