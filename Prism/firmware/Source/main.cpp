@@ -544,9 +544,9 @@ SampleBuffer samples;
 bool dobypass = true;
 bool dowave = true;
 bool dooffset = true;
-int32_t encoder1;
-int32_t encoder2;
-uint16_t adcvalues[2];
+volatile int32_t encoder1;
+volatile int32_t encoder2;
+uint16_t adc_values[2];
 extern int32_t encoder3;
 volatile bool doProcessAudio = false;
 uint32_t* rxbuffer;
@@ -619,7 +619,7 @@ void StartScreenTask(void const * argument)
 	float* right = samples.getSamples(1);
 	for(int i=0; i<samples.getSize(); ++i){
 	  left[i] += encoder2 / 256.0f - 0.5;
-	  right[i] += adcvalues[0] / 4096.0f - 0.5;
+	  right[i] += adc_values[0] / 4096.0f - 0.5;
 	}
       }
       if(dobypass){
@@ -627,12 +627,13 @@ void StartScreenTask(void const * argument)
 	samples.comb(txbuffer);
       }
       if(dowave){
+	uint16_t bg = encoder1;
 	float* left = samples.getSamples(0);
 	float* right = samples.getSamples(1);
 	int step = samples.getSize()/screen.getWidth();
 	int height = screen.getHeight()/2;
 	int x=0;
-	screen.fillScreen(BLACK);
+	screen.fillScreen(bg);
 	for(int i=0; i<samples.getSize() && x < screen.getWidth(); i+=step){
 	  screen.drawPixel(x, height+height*left[i], RED);
 	  screen.drawPixel(x, height+height*right[i], GREEN);
@@ -652,9 +653,23 @@ void readadc(int step){
   ret = HAL_ADC_Start(&hadc1);
   ASSERT(ret == HAL_OK, "adc1 start failed");
   if(HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK)
-    adcvalues[0] = HAL_ADC_GetValue(&hadc1);
+    adc_values[0] = HAL_ADC_GetValue(&hadc1);
   ret = HAL_ADC_Stop(&hadc1);
   ASSERT(ret == HAL_OK, "adc1 stop failed");
+}
+
+float enc_values[2];
+extern "C" {
+  void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim){
+    if(htim == &htim1)
+      enc_values[0] = __HAL_TIM_GET_COUNTER(&htim1) / 256.0f - 0.5;
+    else if(htim == &htim3)
+      enc_values[1] = __HAL_TIM_GET_COUNTER(&htim3) / 256.0f - 0.5;
+  }
+
+  void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
+
+  }
 }
 
 void encoders(int step){

@@ -55,6 +55,7 @@
 #include "gpio.h"
 #include "SSD1331.h"
 #include "FreeRTOS.h"
+#include "errorhandlers.h"
 
 extern "C" void delay(uint32_t millisec);
 
@@ -181,8 +182,6 @@ void SSD1331::setRegister(const uint8_t reg,uint8_t val){
 
 #define OLED_TIMEOUT 1000
 void SSD1331::spiwrite(const uint8_t* data, size_t size){
-  // while(hspi->State != HAL_SPI_STATE_READY);
-  // HAL_SPI_Transmit_DMA(hspi, data, size);
 #ifdef OLED_BITBANG
   vPortEnterCritical();
   clearPin(OLED_SCK_GPIO_Port, OLED_SCK_Pin);
@@ -200,23 +199,42 @@ void SSD1331::spiwrite(const uint8_t* data, size_t size){
   }
   setCS();
   vPortExitCritical();
-#else
+#elif defined OLED_DMA
+  while(hspi->State != HAL_SPI_STATE_READY);
   clearPin(OLED_SCK_GPIO_Port, OLED_SCK_Pin);
   clearCS();
+  HAL_StatusTypeDef ret = HAL_SPI_Transmit_DMA(hspi, (uint8_t*)data, size);
+  assert_param(ret == HAL_OK);
+#elif defined OLED_IT
   while(hspi->State != HAL_SPI_STATE_READY);
+  clearPin(OLED_SCK_GPIO_Port, OLED_SCK_Pin);
+  clearCS();
+  HAL_StatusTypeDef ret = HAL_SPI_Transmit_IT(hspi, (uint8_t*)data, size);
+  assert_param(ret == HAL_OK);
+#else
+  while(hspi->State != HAL_SPI_STATE_READY);
+  clearPin(OLED_SCK_GPIO_Port, OLED_SCK_Pin);
+  clearCS();
   HAL_StatusTypeDef ret = HAL_SPI_Transmit(hspi, (uint8_t*)data, size, OLED_TIMEOUT);
   assert_param(ret == HAL_OK);
   setCS();
 #endif
 }
 
+extern DMA_HandleTypeDef hdma_spi1_tx;
+
+extern "C" {
+  void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi){
+  ASSERT(0, "SPI Error");
+  }
+
+  void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
+  setCS();
+  }
+}
+
 inline void SSD1331::spiwrite(uint8_t c){
-  // while(hspi->State != HAL_SPI_STATE_READY);
-  // HAL_SPI_Transmit_DMA(hspi, &c, 1);
   spiwrite(&c, 1);
-  // while(hspi->State != HAL_SPI_STATE_READY);
-  // HAL_StatusTypeDef ret = HAL_SPI_Transmit(hspi, &c, 1, OLED_TIMEOUT);
-  // assert_param(ret == HAL_OK);
 }
 	
 void SSD1331::writeCommand(uint8_t c){

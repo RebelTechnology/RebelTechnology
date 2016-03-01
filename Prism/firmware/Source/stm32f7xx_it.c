@@ -96,13 +96,14 @@ void DMA2_Stream1_IRQHandler(void)
 void DMA2_Stream3_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream3_IRQn 0 */
-  // SPI1_TX
+  // SPI1_TX OLED TX
   static int counter = 0;
   counter++;
   /* USER CODE END DMA2_Stream3_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_spi1_tx);
   /* USER CODE BEGIN DMA2_Stream3_IRQn 1 */
-
+  if(__HAL_DMA_GET_FLAG(&hdma_spi1_tx,  __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx)))
+    __HAL_DMA_CLEAR_FLAG(&hdma_spi1_tx, __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx));
   /* USER CODE END DMA2_Stream3_IRQn 1 */
 }
 
@@ -147,13 +148,14 @@ void TIM1_CC_IRQHandler(void){
   HAL_TIM_IRQHandler(&htim1);
 }
 
-int32_t encoder3 = 0;
 void TIM3_IRQHandler(void){
   HAL_TIM_IRQHandler(&htim3);
-  if(__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim3))
-    encoder3--;
-  else
-    encoder3++;
+}
+
+extern ADC_HandleTypeDef hadc1;
+
+void ADC_IRQHandler(void){
+  HAL_ADC_IRQHandler(&hadc1);
 }
 
 /* USER CODE END 1 */

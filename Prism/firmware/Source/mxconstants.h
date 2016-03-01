@@ -2,6 +2,8 @@
 #define USE_ENCODERS
 #define USE_SCREEN
 #define OLED_SOFT_CS
+/* #define OLED_IT */
+/* #define OLED_DMA */
 /* #define OLED_BITBANG */
 /* #define OLED_B1 */
 #define USE_CODEC
