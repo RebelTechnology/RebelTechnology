@@ -9,7 +9,7 @@
 /* #define OLED_B1 */
 #define USE_CODEC
 #define CODEC_SOFT_CS
-#define CODEC_BUFFER_SIZE   4096
+#define CODEC_BUFFER_SIZE   8192
 /* #define USE_OVERDRIVE // 216MHz */
 /* #define QSPI_FLASH_SIZE (128*1024) */
 #define USE_QSPI_FLASH

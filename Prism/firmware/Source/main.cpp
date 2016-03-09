@@ -8,6 +8,17 @@
 #include "qspi.h"
 #include "errorhandlers.h"
 #include "SampleBuffer.hpp"
+
+#ifndef min
+#define min(a,b) ((a)<(b)?(a):(b))
+#endif
+#ifndef max
+#define max(a,b) ((a)>(b)?(a):(b))
+#endif
+#ifndef abs
+#define abs(x) ((x)>0?(x):-(x))
+#endif
+
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -588,6 +599,19 @@ uint8_t qspitx[128] = "hello and welcome once again";
 uint8_t qspirx[128];
 bool dotxrx = false;
 
+uint16_t drawVerticalLine(uint16_t x, uint16_t y, uint16_t to, uint16_t c){
+  for(;;){
+    screen.drawPixel(x, y, c);
+    if(y < to)
+      y++;
+    else if(y > to)
+      y--;
+    else
+      break;
+  }
+  return y;
+}
+
 void StartScreenTask(void const * argument)
 {
 #ifdef USE_QSPI_FLASH
@@ -643,7 +667,7 @@ void StartScreenTask(void const * argument)
 	float* left = samples.getSamples(0);
 	float* right = samples.getSamples(1);
 	for(int i=0; i<samples.getSize(); ++i){
-	  left[i] += encoder2 / 256.0f - 0.5;
+	  // left[i] += encoder2 / 256.0f - 0.5;
 	  right[i] += adc_values[0] / 4096.0f - 0.5;
 	}
       }
@@ -652,16 +676,32 @@ void StartScreenTask(void const * argument)
 	samples.comb(txbuffer);
       }
       if(dowave){
-	uint16_t bg = encoder1;
+	uint16_t bg = BLACK;
+	// uint16_t bg = encoder1;
 	float* left = samples.getSamples(0);
 	float* right = samples.getSamples(1);
-	int step = samples.getSize()/screen.getWidth();
+	float trig = 0.0f;
+	// int divs = samples.getSize()/screen.getWidth();
+	int div = min(samples.getSize()/screen.getWidth(), max(1, encoder1));
 	int height = screen.getHeight()/2;
-	int x=0;
+	int offset = 0;
+	// fast forward to trigger
+	// look for rising edge
+	while(left[offset] > trig-0.0001 && offset < samples.getSize())
+	  offset++;
+	while(left[offset] < trig && offset < samples.getSize())
+	  offset++;	    
 	screen.fillScreen(bg);
-	for(int i=0; i<samples.getSize() && x < screen.getWidth(); i+=step){
-	  screen.drawPixel(x, height+height*left[i], RED);
-	  screen.drawPixel(x, height+height*right[i], GREEN);
+	screen.setCursor(40, 0);
+	screen.print("scope");
+	screen.setCursor(6, 56);
+	screen.print(div);
+	int ly = height+height*left[offset];
+	int ry = height+height*right[offset];
+	int x=0;
+	for(int i=offset; i<samples.getSize() && x < screen.getWidth(); i+=div){
+	  ly = drawVerticalLine(x, ly, height+height*left[i], RED);
+	  ry = drawVerticalLine(x, ry, height+height*right[i], GREEN);
 	  x++;
 	}
 	screen.display();
@@ -679,6 +719,12 @@ void readadc(int step){
   ASSERT(ret == HAL_OK, "adc1 start failed");
   if(HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK)
     adc_values[0] = HAL_ADC_GetValue(&hadc1);
+  if(HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK)
+    adc_values[1] = HAL_ADC_GetValue(&hadc1);
+  if(HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK)
+    adc_values[2] = HAL_ADC_GetValue(&hadc1);
+  if(HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK)
+    adc_values[3] = HAL_ADC_GetValue(&hadc1);
   ret = HAL_ADC_Stop(&hadc1);
   ASSERT(ret == HAL_OK, "adc1 stop failed");
 }

@@ -56,8 +56,10 @@ class Adafruit_GFX { // : public Print {
     setTextWrap(boolean w),
     setRotation(uint8_t r);
 
-   virtual size_t write(uint8_t);
-   virtual void print(const char* str);
+  size_t write(uint8_t);
+  void print(const char* str);
+  void print(int num);
+  void print(float num);
 
   int16_t
     height(void),

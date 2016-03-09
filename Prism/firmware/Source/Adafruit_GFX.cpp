@@ -623,7 +623,6 @@ void Adafruit_GFX::drawBitmap(int16_t x, int16_t y,
 }
 
 size_t Adafruit_GFX::write(uint8_t c) {
-
   if (c == '\n') {
     cursor_y += textsize*8;
     cursor_x  = 0;
@@ -641,9 +640,52 @@ size_t Adafruit_GFX::write(uint8_t c) {
 }
 
 void Adafruit_GFX::print(const char* str) {
-  int len = strlen(str);
+  int len = strnlen(str, 256);
   for(int i=0; i<len; ++i)
-    write(str[0]);
+    write(str[i]);
+}
+
+const char hexnumerals[] = "0123456789abcdef";
+
+char* itoa(int val, int base){
+  static char buf[13] = {0};
+  int i = 11;
+  unsigned int part = abs(val);
+  do{
+    buf[i--] = hexnumerals[part % base];
+    part /= base;
+  }while(part && i);
+  if(val < 0)
+    buf[i--] = '-';
+  return &buf[i+1];
+}
+
+char* ftoa(float val, int base){
+  static char buf[16] = {0};
+  int i = 14;
+  // print 4 decimal points
+  unsigned int part = abs((int)((val-int(val))*10000));
+  do{
+    buf[i--] = hexnumerals[part % base];
+    part /= base;
+  }while(i>10);
+  buf[i--] = '.';
+  part = abs(int(val));
+  do{
+    buf[i--] = hexnumerals[part % base];
+    part /= base;
+  }while(part && i);
+  if(val < 0.0f)
+    buf[i--] = '-';
+  return &buf[i+1];
+}
+
+void Adafruit_GFX::print(float num) {
+  print(ftoa(num, 10));
+}
+
+void Adafruit_GFX::print(int num) {
+  print(itoa(num, 10));
 }
 
 // Draw a character
