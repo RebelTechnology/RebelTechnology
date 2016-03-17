@@ -1,0 +1,36 @@
+<module type="10hp">
+
+  <!-- oled screen -->
+  <!-- MCOT128064BY 128x64 -->
+  <!-- active area -->
+  <rect x="0.0" y="1.625" width="35.052" height="17.516"/>
+  <!-- viewing area -->
+  <rect x="0.0" y="1.625" width="37.052" height="19.516"/>
+  <!-- outline dimensions -->
+  <!-- <rect x="0.0" y="1.5" width="42.04" height="27.22"/> -->
+
+  <!-- jacks -->
+  <hole x="0.75" y="0.75" radius="3.25"/>
+  <hole x="0.75" y="0.25" radius="3.25"/>
+  <hole x="0.75" y="-0.25" radius="3.25"/>
+  <hole x="0.75" y="-0.75" radius="3.25"/>
+  <hole x="0.75" y="-1.25" radius="3.25"/>
+  <hole x="0.75" y="-1.75" radius="3.25"/>
+
+  <hole x="-0.75" y="0.75" radius="3.25"/>
+  <hole x="-0.75" y="0.25" radius="3.25"/>
+  <hole x="-0.75" y="-0.25" radius="3.25"/>
+  <hole x="-0.75" y="-0.75" radius="3.25"/>
+  <hole x="-0.75" y="-1.25" radius="3.25"/>
+  <hole x="-0.75" y="-1.75" radius="3.25"/>
+
+  <pot x="0.00" y="0.5"/>
+  <pot x="0.00" y="-0.5"/>
+
+  <!-- usb client connector -->
+  <rect x="0.0" y="-1.25" width="12" height="11"/>
+
+  <!-- usb host connector -->
+  <rect x="0.0" y="-1.75" width="14" height="6"/>
+
+</module>
