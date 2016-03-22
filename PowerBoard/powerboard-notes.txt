@@ -304,6 +304,8 @@ MAL203850222E3 2200uF 35v 16/25/7.5
 mini case with 12v AC power
 42hp width = 213.36mm
 (hp times 5.08)
+84hp width = 426.72mm
+104hp width = 528.32mm
 
 3u height = 128.5mm
 (u times 42.8)
@@ -547,5 +549,87 @@ Tinted Perspex Sheet Light Grey 3mm 450x400mm
 
 ordered from plasticsheets.com 10/9 2015
 5x Frosted Perspex Sheet White 3mm 500x500mm
+
+ordered from plasticsheets.com 12/2 2016
+2x Frosted Clear 3mm 500x500
+2x Frosted Clear 3mm 1000x500
+2x Clear 2mm A3
+
+--------------------------------------------------------------------------
+
+Studiospares TROJAN AL4 CASE
+External Dims: L 570mm x D 325mm (inc.handle & feet) x H 185mm (inc.feet)
+Internal Dims: L 548mm x D 265mm x H 90mm(bottom); 55mm(lid)
+104HP = 524.16mm (23.84mm spare)
+6U = 257mm (4mm spare each side)
+3u height = 128.5mm
+
+http://boxmaker.connectionlab.org/
+outer dimensions: 524.16+6 x 257 x 90
+530.16
+
+T-strut rails 25mm wide
+
+height 80mm, minus rails 55mm
+
+Hackspace Silvertail A0 laser cutter
+1200mm by 900mm cutting area (A0 sized)
+cuts up to 10mm acrylic
+
+--------------------------------------------------------------------------
+
+Gie Tec 
+
+The cost of the 80mm deep housing depends on the quantity, because the side plate has to be produced especially for you. So, please let me know.
+
+Gie tec rack rails and accessories
+http://www.gie-tec.com/housings---profiles/19-inch-enclosures/index.html
+http://www.gie-tec.de/downloads/db_133050.pdf
+http://www.gie-tec.de/downloads/db_zubehoer19-zoll.pdf
+
+The 19-inch housing profile 1, length 524,2mm, natural anodized:
+quantity 10 pieces:                         4,36€/pcs
+quantity 25 pieces:                         4,06€/pcs
+
+BGT19 (19-inch housing)
+Part no:               133052
+Price:                    37,50€
+
+19-inch housing profile 1 (with lip), length 432,00mm
+Part no.:              125010 0432
+Price:                    3,80€
+
+19-inch housing profile 2 (without lip), length 432,00mm
+Part no.:              125020 0432
+Price:                    3,60€
+
+Thread stripes, for screws M3, pitch 5.08mm, length 426,7mm
+Part no.:              138049 0000
+Price:                    2,55€
+
+Regarding your inquiry of 19-inch housing (depth 80mm) it is possible to produce every dimension of 19-inch housing.
+
+--------------------------------------------------------------------------
+
+Rebel Base Skiff / Tray
+
+rail holes: M5, 2.5mm radius, 3mm from outer edge (giving 1mm margin / insert)
+attaching sides min 1"+2mm = 27.4mm
+
+hole centres 125.5 - 2x3mm = 119.5
+
+Vector T-struts 1" x 0.291" / 25.4mm x 7.3194mm
+
+hole centre 1.905+2.5mm = 4.4050mm from outside, 2.9864mm from inside
+hole centres across: 128.5-2x4.4050 = 119.69mm
+
+Dual tray: front 92.070 back 69.153mm tall
+
+--------------------------------------------------------------------------
+
+todo: 10W/6W Vigortronix transformer:
+VTX-214-010-215 and VTX-214-006-115 fit same footprint
+
+Alternatively: 2x 12v vigortronix plus big caps and LM7805.
 
 --------------------------------------------------------------------------
