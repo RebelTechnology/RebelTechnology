@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.0125" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -134,30 +134,29 @@
 <text x="59.055" y="6.985" size="1.778" layer="21" font="vector">Rev02</text>
 <text x="140.0175" y="34.925" size="1.27" layer="21" font="vector">gate</text>
 <text x="141.9225" y="32.385" size="1.27" layer="21" font="vector">cv</text>
-<text x="108.2675" y="14.9225" size="1.27" layer="21" font="vector">-12v</text>
-<text x="9.2075" y="14.9225" size="1.27" layer="21" font="vector">-12v</text>
-<text x="42.2275" y="14.9225" size="1.27" layer="21" font="vector">-12v</text>
-<text x="75.2475" y="14.9225" size="1.27" layer="21" font="vector">-12v</text>
+<text x="107.95" y="14.605" size="1.524" layer="21" font="vector">-12v</text>
+<text x="8.89" y="14.605" size="1.524" layer="21" font="vector">-12v</text>
+<text x="41.91" y="14.605" size="1.524" layer="21" font="vector">-12v</text>
+<text x="74.93" y="14.605" size="1.524" layer="21" font="vector">-12v</text>
 <text x="140.6525" y="29.845" size="1.27" layer="21" font="vector">+5v</text>
 <text x="139.3825" y="27.305" size="1.27" layer="21" font="vector">+12v</text>
 <text x="145.415" y="14.9225" size="1.27" layer="21" font="vector">-12v</text>
-<text x="6.985" y="10.795" size="1.27" layer="21" font="vector">+15v</text>
-<text x="6.985" y="5.715" size="1.27" layer="21" font="vector">-15v</text>
-<text x="6.985" y="8.255" size="1.27" layer="21" font="vector">gnd</text>
+<text x="6.985" y="11.1125" size="1.27" layer="21" font="vector">+15v</text>
+<text x="6.985" y="6.0325" size="1.27" layer="21" font="vector">-15v</text>
+<text x="6.985" y="8.5725" size="1.27" layer="21" font="vector">gnd</text>
 <text x="20.32" y="1.905" size="1.27" layer="21" font="vector">+12v</text>
 <text x="54.61" y="1.905" size="1.27" layer="21" font="vector">+5v</text>
 <text x="86.36" y="1.905" size="1.27" layer="21" font="vector">-12v</text>
 <dimension x1="0" y1="0" x2="0" y2="44.12" x3="-2.54" y3="22.06" textsize="1.778" layer="47"/>
 <dimension x1="0" y1="0" x2="150" y2="0" x3="75" y3="-6.35" textsize="1.778" layer="47"/>
-<wire x1="2.54" y1="17.78" x2="12.7" y2="17.78" width="1.016" layer="21"/>
-<wire x1="109.22" y1="17.78" x2="147.955" y2="17.78" width="1.016" layer="21"/>
-<text x="1.5875" y="14.9225" size="1.27" layer="21" font="vector">-12v</text>
+<wire x1="2.54" y1="17.78" x2="147.955" y2="17.78" width="1.016" layer="21"/>
+<text x="1.27" y="14.605" size="1.524" layer="21" font="vector">-12v</text>
 <text x="140.6525" y="24.765" size="1.27" layer="21" font="vector">gnd</text>
 <text x="140.6525" y="22.225" size="1.27" layer="21" font="vector">gnd</text>
 <text x="140.6525" y="19.685" size="1.27" layer="21" font="vector">gnd</text>
 <text x="136.525" y="5.715" size="1.27" layer="21" font="vector">12v</text>
-<text x="5.3975" y="40.64" size="1.27" layer="21" font="vector">gate</text>
-<text x="5.3975" y="38.1" size="1.27" layer="21" font="vector">cv</text>
+<text x="4.1275" y="40.64" size="1.27" layer="21" font="vector">gate</text>
+<text x="4.1275" y="38.1" size="1.27" layer="21" font="vector">cv</text>
 <text x="136.525" y="37.719" size="1.27" layer="21" font="vector">12v</text>
 <text x="136.525" y="36.195" size="1.27" layer="21" font="vector">AC</text>
 </plain>
@@ -2934,6 +2933,9 @@ design rules under a new name.</description>
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="50mil"/>
+<param name="AutoGrid" value="1"/>
+<param name="Efforts" value="0"/>
+<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>
@@ -3104,11 +3106,11 @@ design rules under a new name.</description>
 <attribute name="NAME" x="101.6" y="3.048" size="1.016" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="C103" library="resistor" package="C050-025X075" value="100n" x="21.59" y="17.78" smashed="yes" rot="R270">
-<attribute name="NAME" x="20.0025" y="16.1925" size="1.016" layer="25" rot="R90"/>
+<attribute name="NAME" x="22.225" y="21.59" size="1.016" layer="25" rot="R90"/>
 <attribute name="VALUE" x="19.685" y="18.415" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C203" library="resistor" package="C050-025X075" value="100n" x="54.61" y="17.78" smashed="yes" rot="R270">
-<attribute name="NAME" x="53.0225" y="16.1925" size="1.016" layer="25" rot="R90"/>
+<attribute name="NAME" x="55.245" y="21.59" size="1.016" layer="25" rot="R90"/>
 <attribute name="VALUE" x="52.705" y="18.415" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="D300" library="diode" package="DO41-10" value="1N4004" x="83.82" y="20.32" smashed="yes" rot="R90">
@@ -3128,7 +3130,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="89.535" y="17.145" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="C303" library="resistor" package="C050-025X075" value="100n" x="100.33" y="17.78" smashed="yes" rot="R270">
-<attribute name="NAME" x="101.9175" y="19.3675" size="1.016" layer="25" rot="R270"/>
+<attribute name="NAME" x="100.6475" y="21.59" size="1.016" layer="25" rot="R90"/>
 <attribute name="VALUE" x="98.425" y="18.415" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C100" library="rcl" package="E2,5-6" value="10u" x="35.56" y="36.83" smashed="yes" rot="R180">
@@ -3168,8 +3170,8 @@ design rules under a new name.</description>
 <element name="U$8" library="holes" package="3,2" value="" x="77.47" y="2.54"/>
 <element name="U$12" library="holes" package="3,2" value="" x="143.51" y="40.64"/>
 <element name="U$13" library="holes" package="3,2" value="" x="143.51" y="2.54"/>
-<element name="JP1" library="pinhead" package="1X02" value="" x="3.81" y="40.005" smashed="yes" rot="R270">
-<attribute name="VALUE" x="0.635" y="42.545" size="1.27" layer="27" rot="R270"/>
+<element name="JP1" library="pinhead" package="1X02" value="" x="2.54" y="40.005" smashed="yes" rot="R270">
+<attribute name="VALUE" x="-0.635" y="42.545" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C2" library="resistor" package="E7,5-18" value="2200u" x="127" y="35.56" smashed="yes" rot="R180">
 <attribute name="NAME" x="128.524" y="41.91" size="1.778" layer="25" ratio="10" rot="R180"/>
@@ -3572,9 +3574,8 @@ design rules under a new name.</description>
 <vertex x="151.13" y="44.45"/>
 </polygon>
 <wire x1="76.2" y1="20.32" x2="77.47" y2="19.05" width="0.6096" layer="1"/>
-<wire x1="3.81" y1="8.89" x2="4.445" y2="8.255" width="0.8128" layer="16"/>
-<wire x1="4.445" y1="8.255" x2="13.97" y2="8.255" width="0.8128" layer="16"/>
-<wire x1="13.97" y1="8.255" x2="15.24" y2="6.985" width="0.8128" layer="16"/>
+<wire x1="3.81" y1="8.89" x2="13.335" y2="8.89" width="0.8128" layer="16"/>
+<wire x1="13.335" y1="8.89" x2="15.24" y2="6.985" width="0.8128" layer="16"/>
 <wire x1="41.91" y1="8.255" x2="47.625" y2="8.255" width="0.8128" layer="16"/>
 <wire x1="47.625" y1="8.255" x2="48.895" y2="6.985" width="0.8128" layer="16"/>
 <wire x1="48.895" y1="6.985" x2="72.39" y2="6.985" width="0.8128" layer="16"/>
@@ -3705,7 +3706,6 @@ design rules under a new name.</description>
 <wire x1="2.54" y1="33.02" x2="1.27" y2="34.29" width="0.6096" layer="1"/>
 <wire x1="1.27" y1="34.29" x2="1.27" y2="37.465" width="0.6096" layer="1"/>
 <wire x1="1.27" y1="37.465" x2="2.54" y2="38.735" width="0.6096" layer="1"/>
-<wire x1="2.54" y1="38.735" x2="3.81" y2="38.735" width="0.6096" layer="1"/>
 <wire x1="111.76" y1="33.02" x2="118.11" y2="33.02" width="0.6096" layer="16"/>
 <wire x1="120.015" y1="31.115" x2="140.97" y2="31.115" width="0.6096" layer="16"/>
 <wire x1="140.97" y1="31.115" x2="145.415" y2="33.02" width="0.6096" layer="16" curve="46.397174"/>
@@ -3742,10 +3742,9 @@ design rules under a new name.</description>
 <wire x1="111.76" y1="35.56" x2="109.22" y2="35.56" width="0.6096" layer="1"/>
 <wire x1="147.955" y1="35.56" x2="145.415" y2="35.56" width="0.6096" layer="1"/>
 <contactref element="JP1" pad="1"/>
-<wire x1="3.81" y1="41.275" x2="5.08" y2="41.275" width="0.6096" layer="1"/>
-<wire x1="5.08" y1="41.275" x2="6.35" y2="40.005" width="0.6096" layer="1"/>
-<wire x1="6.35" y1="40.005" x2="6.35" y2="36.83" width="0.6096" layer="1"/>
-<wire x1="6.35" y1="36.83" x2="5.08" y2="35.56" width="0.6096" layer="1"/>
+<wire x1="2.54" y1="41.275" x2="3.81" y2="41.275" width="0.6096" layer="1"/>
+<wire x1="3.81" y1="41.275" x2="5.08" y2="40.005" width="0.6096" layer="1"/>
+<wire x1="5.08" y1="40.005" x2="5.08" y2="35.56" width="0.6096" layer="1"/>
 <wire x1="111.76" y1="35.56" x2="119.38" y2="35.56" width="0.6096" layer="16"/>
 <wire x1="121.92" y1="33.02" x2="140.335" y2="33.02" width="0.6096" layer="16"/>
 <wire x1="140.335" y1="33.02" x2="145.415" y2="35.56" width="0.6096" layer="16" curve="53.130102"/>
