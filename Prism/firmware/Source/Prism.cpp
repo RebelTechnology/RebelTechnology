@@ -17,7 +17,6 @@ extern int32_t encoder3;
 
 class ScopePatch : public Patch {
 private:
-
   uint16_t drawVerticalLine(uint16_t x, uint16_t y, uint16_t to, uint16_t c){
     if(y > to)
       drawVerticalLine(x, to, y, c);
@@ -25,7 +24,7 @@ private:
       do{
 	screen.drawPixel(x, y++, c);
       }while(y < to);
-  return to;
+    return to;
   }
 
 public:
@@ -44,7 +43,9 @@ public:
     while(left[offset] > trig-0.0001 && offset < samples.getSize())
       offset++;
     while(left[offset] < trig && offset < samples.getSize())
-      offset++;	    
+      offset++;
+    if(offset+screen.getWidth() >= samples.getSize())
+      return; // no trigger, don't update screen
     screen.fillScreen(bg);
     screen.setCursor(40, 0);
     screen.print("scope");
@@ -74,8 +75,8 @@ public:
   }
 };
 
-SampleBuffer* samples;
-Patch* patch;
+SampleBuffer samples;
+ScopePatch patch;
 void setup(ProgramVector* pv){
 #ifdef DEBUG_MEM
 #ifdef ARM_CORTEX
@@ -92,14 +93,14 @@ void setup(ProgramVector* pv){
 #endif
 #endif
   // samples = new SampleBuffer(getBlockSize());
-  samples = new SampleBuffer();
-  patch = new ScopePatch();
+  // samples = new SampleBuffer();
+  // patch = new ScopePatch();
 }
 
 void processBlock(ProgramVector* pv){
-  samples->split(pv->audio_input, pv->audio_blocksize);
-  patch->processAudio(*samples);
+  samples.split(pv->audio_input, pv->audio_blocksize);
+  patch.processAudio(samples);
   // processor.setParameterValues(pv->parameters);
   // processor.patch->processAudio(*buffer);
-  samples->comb(pv->audio_output);
+  samples.comb(pv->audio_output);
 }
