@@ -28,6 +28,9 @@ OBJS += $(USB_DEVICE_FILE)/Core/Src/usbd_core.o
 OBJS += $(USB_DEVICE_FILE)/Core/Src/usbd_ioreq.o
 OBJS += $(USB_DEVICE_FILE)/Core/Src/usbd_ctlreq.o
 
+OBJS += $(TEMPLATEROOT)/LibSource/FloatArray.o
+OBJS += $(TEMPLATEROOT)/LibSource/StompBox.o
+
 # OBJS += $(BUILD)/startup.o
 # OBJS += $(BUILD)/libnosys_gnu.o
 # OBJS += $(USB_DEVICE) $(USB_OTG)

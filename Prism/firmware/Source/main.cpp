@@ -7,7 +7,8 @@
 #include "Codec.h"
 #include "qspi.h"
 #include "errorhandlers.h"
-#include "SampleBuffer.hpp"
+#include "Prism.h"
+#include "ProgramVector.h"
 
 #ifndef min
 #define min(a,b) ((a)<(b)?(a):(b))
@@ -568,26 +569,21 @@ extern "C" {
   }
 }
 
-SampleBuffer samples;
-bool dobypass = true;
-bool dowave = true;
-bool dooffset = true;
+ProgramVector programVector;
+// ProgramVector pv;
+
 volatile int32_t encoder1;
 volatile int32_t encoder2;
 uint16_t adc_values[4];
 extern int32_t encoder3;
 volatile bool doProcessAudio = false;
-uint32_t* rxbuffer;
-uint32_t* txbuffer;
-uint16_t buffersize;
 uint32_t dropouts = 0;
 extern "C" {
   void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size){
     if(!doProcessAudio){
-      rxbuffer = rx;
-      txbuffer = tx;
-      buffersize = size;
-      samples.split(rxbuffer, buffersize);
+      programVector.audio_input = rx;
+      programVector.audio_output = tx;
+      programVector.audio_blocksize = size;
       doProcessAudio = true;
     }else{
       dropouts++;
@@ -598,19 +594,6 @@ extern "C" {
 uint8_t qspitx[128] = "hello and welcome once again";
 uint8_t qspirx[128];
 bool dotxrx = false;
-
-uint16_t drawVerticalLine(uint16_t x, uint16_t y, uint16_t to, uint16_t c){
-  for(;;){
-    screen.drawPixel(x, y, c);
-    if(y < to)
-      y++;
-    else if(y > to)
-      y--;
-    else
-      break;
-  }
-  return y;
-}
 
 void StartScreenTask(void const * argument)
 {
@@ -650,6 +633,7 @@ void StartScreenTask(void const * argument)
 #ifdef USE_CODEC
   codec.reset();
   codec.start();
+  // make sure functions are compiled in
   codec.bypass(false);
   codec.ramp(1<<23);
   codec.set(0);
@@ -661,52 +645,12 @@ void StartScreenTask(void const * argument)
   }
 #endif
   // screen.begin(&hspi1);
+  setup(&programVector);
   for(;;){
     if(doProcessAudio){
-      if(dooffset){
-	float* left = samples.getSamples(0);
-	float* right = samples.getSamples(1);
-	for(int i=0; i<samples.getSize(); ++i){
-	  // left[i] += encoder2 / 256.0f - 0.5;
-	  right[i] += adc_values[0] / 4096.0f - 0.5;
-	}
-      }
-      if(dobypass){
-	// process samples
-	samples.comb(txbuffer);
-      }
-      if(dowave){
-	uint16_t bg = BLACK;
-	// uint16_t bg = encoder1;
-	float* left = samples.getSamples(0);
-	float* right = samples.getSamples(1);
-	float trig = 0.0f;
-	// int divs = samples.getSize()/screen.getWidth();
-	int div = min(samples.getSize()/screen.getWidth(), max(1, encoder1));
-	int height = screen.getHeight()/2;
-	int offset = 0;
-	// fast forward to trigger
-	// look for rising edge
-	while(left[offset] > trig-0.0001 && offset < samples.getSize())
-	  offset++;
-	while(left[offset] < trig && offset < samples.getSize())
-	  offset++;	    
-	screen.fillScreen(bg);
-	screen.setCursor(40, 0);
-	screen.print("scope");
-	screen.setCursor(6, 56);
-	screen.print(div);
-	int ly = height+height*left[offset];
-	int ry = height+height*right[offset];
-	int x=0;
-	for(int i=offset; i<samples.getSize() && x < screen.getWidth(); i+=div){
-	  ly = drawVerticalLine(x, ly, height+height*left[i], RED);
-	  ry = drawVerticalLine(x, ry, height+height*right[i], GREEN);
-	  x++;
-	}
-	screen.display();
-	doProcessAudio = false;
-      }
+      processBlock(&programVector);
+      screen.display();
+      doProcessAudio = false;
     }
   }
 }

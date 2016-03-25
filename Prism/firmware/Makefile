@@ -20,6 +20,8 @@ LDFLAGS += -Wl,--gc-sections
 #LDSCRIPT = Source/flash.ld
 LDSCRIPT = Source/STM32F746VE_FLASH.ld
 
+CPPFLAGS += -ILibSource
+
 CPPFLAGS += --specs=nano.specs
 CPPFLAGS += -DEXTERNAL_SRAM -DARM_CORTEX
 # CPPFLAGS += -fpic -fpie

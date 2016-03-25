@@ -1,7 +1,7 @@
 #ifndef _SSD1331H_
 #define _SSD1331H_
-
 #include <stdint.h>
+#include "stm32f7xx_hal.h"
 
 #define OLED_WIDTH			96	
 #define OLED_HEIGHT			64	

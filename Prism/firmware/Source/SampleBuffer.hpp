@@ -1,21 +1,25 @@
 #ifndef __SAMPLEBUFFER_H__
 #define __SAMPLEBUFFER_H__
 
+#include <stdint.h>
+#include "errorhandlers.h"
+#include "StompBox.h"
+#include "FloatArray.h"
+
 // #ifdef ARM_CORTEX
 // #include "arm_math.h"
 // #endif //ARM_CORTEX
 
 #define AUDIO_MAX_BLOCK_SIZE (CODEC_BUFFER_SIZE/4)
 
-// class SampleBuffer : public AudioBuffer {
-class SampleBuffer {
+class SampleBuffer : public AudioBuffer {
 protected:
   float left[AUDIO_MAX_BLOCK_SIZE];
   float right[AUDIO_MAX_BLOCK_SIZE];
   uint16_t size;
 public:
   void split(uint32_t* input, uint16_t blocksize){
-    assert_param((blocksize & 0x3) == 0);
+    ASSERT((blocksize & 0x3) == 0, "invalid blocksize");
     size = blocksize;
     float* l = left;
     float* r = right;
@@ -69,12 +73,12 @@ public:
     // memset(left, 0, getSize()*sizeof(float));
     // memset(right, 0, getSize()*sizeof(float));
   }
-  // inline FloatArray getSamples(int channel){
-  //   return channel == 0 ? FloatArray(left, size) : FloatArray(right, size);
-  // }
-  inline float* getSamples(int channel){
-    return channel == 0 ? left : right;
+  inline FloatArray getSamples(int channel){
+    return channel == 0 ? FloatArray(left, size) : FloatArray(right, size);
   }
+  // inline float* getSamples(int channel){
+  //   return channel == 0 ? left : right;
+  // }
   inline int getChannels(){
     return 2;
   }
