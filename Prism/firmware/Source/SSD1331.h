@@ -26,11 +26,13 @@ public:
   void begin(SPI_HandleTypeDef *spi);
   void display();
   uint16_t Color565(uint8_t r, uint8_t g, uint8_t b);
-  void drawPixel(int16_t x, int16_t y, uint16_t color);
+  uint16_t getPixel(uint16_t x, uint16_t y);
+  void drawPixel(uint16_t x, uint16_t y, uint16_t color);
   // void drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color);
   // void drawRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color);
   // void fillRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t fillcolor);
-  void fillScreen(int16_t color);
+  void fillScreen(uint16_t color);
+  void fade(uint16_t steps);
   void zero();
   void clear();
   void on();

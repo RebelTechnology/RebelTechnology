@@ -106,7 +106,13 @@ uint16_t SSD1331::Color565(uint8_t r, uint8_t g, uint8_t b) {
   return c;
 }
 
-void SSD1331::drawPixel(int16_t x, int16_t y, uint16_t c){
+uint16_t SSD1331::getPixel(uint16_t x, uint16_t y){
+  if(x >= OLED_WIDTH || y >= OLED_HEIGHT)
+    return 0;
+  return pixels[y][x];
+}
+
+void SSD1331::drawPixel(uint16_t x, uint16_t y, uint16_t c){
   // assert_param(x < OLED_WIDTH && y < OLED_HEIGHT);
   if(x >= OLED_WIDTH || y >= OLED_HEIGHT)
     return;
@@ -155,7 +161,15 @@ void SSD1331::display(){
 //   }
 // }
 
-void SSD1331::fillScreen(int16_t c) {
+void SSD1331::fade(uint16_t steps){
+  for(int i=0; i<OLED_HEIGHT*OLED_WIDTH; ++i)
+    pixels[0][i] = 
+      (((pixels[0][i] & RED) >> steps) & RED) | 
+      (((pixels[0][i] & GREEN) >> steps) & GREEN) |
+      (((pixels[0][i] & BLUE) >> steps) & BLUE);
+}
+
+void SSD1331::fillScreen(uint16_t c) {
   for(int i=0; i<OLED_HEIGHT*OLED_WIDTH; ++i)
     pixels[0][i] = c;
 }
