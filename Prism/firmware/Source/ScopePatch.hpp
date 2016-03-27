@@ -14,12 +14,11 @@ private:
 public:
   void processAudio(AudioBuffer& samples){
     uint16_t bg = BLACK;
-    // uint16_t bg = encoder1;
     float* left = samples.getSamples(0);
     float* right = samples.getSamples(1);
     float trig = 0.0f;
     // int divs = samples.getSize()/screen.getWidth();
-    int div = min(samples.getSize()/screen.getWidth(), max(1, encoder1));
+    int div = min(samples.getSize()/screen.getWidth(), max(1, encoder2));
     int height = screen.getHeight()/2;
     int offset = 0;
     // fast forward to trigger

@@ -1,5 +1,6 @@
 #define USE_ADC
 /* #define ADC_DMA */
+/* #define ADC_IT */
 #define USE_ENCODERS
 #define USE_SCREEN
 #define OLED_SOFT_CS

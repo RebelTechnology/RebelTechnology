@@ -10,6 +10,8 @@ public:
     fadesteps = 1;
   }
   void processAudio(AudioBuffer& samples){
+    if(getParameterValue(PARAMETER_A) > 0.1 && getParameterValue(PARAMETER_A) < 1.0)
+      colour = getParameterValue(PARAMETER_A)*WHITE;
     float* left = samples.getSamples(0);
     float* right = samples.getSamples(1);
     int height = screen.getHeight()/2;

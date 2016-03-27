@@ -238,20 +238,24 @@ void MX_ADC1_Init(void)
   hadc1.Init.ClockPrescaler = ADC_CLOCKPRESCALER_PCLK_DIV4;
   hadc1.Init.Resolution = ADC_RESOLUTION12b;
   hadc1.Init.ScanConvMode = ENABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc1.Init.NbrOfConversion = 4;
   hadc1.Init.DMAContinuousRequests = ENABLE;
+#if defined ADC_DMA || defined ADC_IT
+  hadc1.Init.EOCSelection = DISABLE;
+#else
   hadc1.Init.EOCSelection = EOC_SINGLE_CONV;
+#endif
   HAL_ADC_Init(&hadc1);
 
     /**Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
     */
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES; // 3CYCLES - 480CYCLES
   HAL_ADC_ConfigChannel(&hadc1, &sConfig);
 
     /**Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
@@ -572,10 +576,7 @@ extern "C" {
 ProgramVector programVector;
 // ProgramVector pv;
 
-volatile int32_t encoder1;
-volatile int32_t encoder2;
 uint16_t adc_values[4];
-extern int32_t encoder3;
 volatile bool doProcessAudio = false;
 uint32_t dropouts = 0;
 extern "C" {
@@ -614,17 +615,18 @@ void StartScreenTask(void const * argument)
 #ifdef ADC_DMA
   ret = HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_values, 4);
   ASSERT(ret == HAL_OK, "adc1 dma start failed");
+#elif defined ADC_IT
+  ret = HAL_ADC_Start_IT(&hadc1);
+  ASSERT(ret == HAL_OK, "adc1 it start failed");
 #endif
   // ret = HAL_ADC_Start(&hadc1);
   // ASSERT(ret == HAL_OK, "adc1 start failed");
 #endif
 
 #ifdef USE_ENCODERS
-  encoder1 = 0;
-  encoder2 = 256;
-  __HAL_TIM_SetCounter(&htim1, encoder1);
-  __HAL_TIM_SetCounter(&htim3, encoder2);
-  ret = HAL_TIM_Encoder_Start(&htim1, 0);
+  __HAL_TIM_SetCounter(&htim1, 0);
+  __HAL_TIM_SetCounter(&htim3, 0);
+  ret = HAL_TIM_Encoder_Start_IT(&htim1, 0);
   ASSERT(ret == HAL_OK, "tim1 encoder start failed");
   ret = HAL_TIM_Encoder_Start_IT(&htim3, TIM_CHANNEL_ALL);
   ASSERT(ret == HAL_OK, "tim3 encoder start failed");    
@@ -665,44 +667,43 @@ void readadc(int step){
     adc_values[0] = HAL_ADC_GetValue(&hadc1);
   if(HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK)
     adc_values[1] = HAL_ADC_GetValue(&hadc1);
-  if(HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK)
-    adc_values[2] = HAL_ADC_GetValue(&hadc1);
-  if(HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK)
-    adc_values[3] = HAL_ADC_GetValue(&hadc1);
+  // if(HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK)
+  //   adc_values[2] = HAL_ADC_GetValue(&hadc1);
+  // if(HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK)
+  //   adc_values[3] = HAL_ADC_GetValue(&hadc1);
   ret = HAL_ADC_Stop(&hadc1);
   ASSERT(ret == HAL_OK, "adc1 stop failed");
 }
 
-float enc_values[2];
 extern "C" {
   void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim){
     if(htim == &htim1)
-      enc_values[0] = __HAL_TIM_GET_COUNTER(&htim1) / 256.0f - 0.5;
+      encoderChanged(0, __HAL_TIM_GET_COUNTER(&htim1));
     else if(htim == &htim3)
-      enc_values[1] = __HAL_TIM_GET_COUNTER(&htim3) / 256.0f - 0.5;
+      encoderChanged(1, __HAL_TIM_GET_COUNTER(&htim3));
   }
 
   void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
-
+#ifdef ADC_IT
+    static int counter = 0;
+    adc_values[counter] = HAL_ADC_GetValue(hadc);
+    if(counter++ == 4)
+      counter =  0;
+#endif
   }
+
+  void HAL_ADC_ErrorCallback(ADC_HandleTypeDef *hadc){
+    ASSERT(0, "adc error callback");
+  }
+
 }
 
+#if 0
 void encoders(int step){
   encoder1 = __HAL_TIM_GET_COUNTER(&htim1);
-
-  // uint16_t val = __HAL_TIM_GET_COUNTER(&htim1);
-  // if(__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim1))
-  //   encoder1 -= val;
-  // else
-  //   encoder1 += val;
-  // __HAL_TIM_SET_COUNTER(&htim1, 0);
-  // val = __HAL_TIM_GET_COUNTER(&htim3);
   encoder2 = __HAL_TIM_GET_COUNTER(&htim3);
-  // if(__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim3))
-  //   encoder2 -= val;
-  // else
-  //   encoder2 += val;
 }
+#endif
 
 void demoScreen(int step){
   switch(step){
@@ -766,8 +767,8 @@ void demoScreen(int step){
 }
 
  bool dodemoscreen = false;
- bool doencoders = true;
- bool doadc = true;
+// bool doencoders = false;
+ bool doreadadc = true;
 /* StartDefaultTask function */
 void StartDefaultTask(void const * argument)
 {
@@ -787,13 +788,9 @@ void StartDefaultTask(void const * argument)
       if(dodemoscreen)
 	demoScreen(i);
 #endif
-#ifdef USE_ENCODERS
-      if(doencoders)
-	encoders(i);
-#endif
 #ifdef USE_ADC
-#ifndef ADC_DMA
-      if(doadc)
+#if !defined ADC_DMA && !defined ADC_IT
+      if(doreadadc)
 	readadc(i);
 #endif
 #endif
