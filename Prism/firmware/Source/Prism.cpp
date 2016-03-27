@@ -19,8 +19,11 @@ extern int32_t encoder3;
 #include "LissajouPatch.hpp"
 
 SampleBuffer samples;
-// ScopePatch patch;
-LissajouPatch patch;
+ScopePatch scope;
+LissajouPatch lissajou;
+// Patch* patches[2] = {&scope, &lissajou};
+Patch* currentPatch = &scope;
+
 void setup(ProgramVector* pv){
 #ifdef DEBUG_MEM
 #ifdef ARM_CORTEX
@@ -43,7 +46,7 @@ void setup(ProgramVector* pv){
 
 void processBlock(ProgramVector* pv){
   samples.split(pv->audio_input, pv->audio_blocksize);
-  patch.processAudio(samples);
+  currentPatch->processAudio(samples);
   // processor.setParameterValues(pv->parameters);
   // processor.patch->processAudio(*buffer);
   samples.comb(pv->audio_output);
