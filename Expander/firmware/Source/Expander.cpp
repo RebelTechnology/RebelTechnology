@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "periph.h"
 #include "Pixi.h"
+#include "serial.h"
 
 void setAnalogValue(uint8_t channel, uint16_t value){
   value = value & 0xfff;
@@ -23,9 +24,10 @@ void setup(){
 // #ifdef DEBUG_PINS
 //   configureDigitalOutput(GPIOB, GPIO_Pin_10); // debug
 // #endif
+  setupSerialPort(9600);
   pixi.begin();
+  printString("hello expander");
 }
-
 
 volatile float temp[3] = {0};
 volatile int dac[8];
@@ -33,7 +35,7 @@ volatile int adc[8];
 void run(){
 
   int pixi_id = pixi.config();
-  int test = pixi.readRawTemperature ( TEMP_CHANNEL_INT );
+  printHex(pixi_id);
   for(int ch=0; ch<8; ++ch){
     pixi.configChannel ( CHANNEL_0+ch, CH_MODE_ADC_P, 0, CH_5N_TO_5P, ADC_MODE_CONT );
     pixi.configChannel ( CHANNEL_15-ch, CH_MODE_DAC, 0, CH_5N_TO_5P, 0 );
@@ -50,9 +52,20 @@ void run(){
       // adc[ch] = pixi.ReadRegister( PIXI_ADC_DATA+CHANNEL_0+ch, false );
       adc[ch] = pixi.readAnalog(ch);
       pixi.writeAnalog(CHANNEL_15-ch, adc[ch]);
+
+      printHex(adc[ch]);
     }
 
     if(i++ == (1<<12)-1)
       i = 0;
+  }
+}
+
+extern "C" {
+  void USART1_IRQHandler(void){
+    /* RXNE handler */
+    if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET){
+      char c = USART_ReceiveData(USART1);
+    }
   }
 }

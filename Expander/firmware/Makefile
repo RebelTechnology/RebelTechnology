@@ -4,7 +4,7 @@ CFLAGS = -g -Wall -Wcpp -DUSE_FULL_ASSERT
 # CFLAGS   = -O2 -Wall -Wcpp -DUSE_FULL_ASSERT
 CXXFLAGS = -fno-rtti -fno-exceptions -std=c++11 $(CFLAGS) 
 
-C_SRC  = gpio.c periph.c
+C_SRC  = gpio.c periph.c serial.c
 CPP_SRC = main.cpp Expander.cpp Pixi.cpp
 OBJS = $(C_SRC:%.c=Build/%.o) $(CPP_SRC:%.cpp=Build/%.o)
 

@@ -5,6 +5,9 @@
 #define FIRMWARE_VERSION             "001"
 #define HARDWARE_VERSION             "Expander Rev01"
 
+#define SERIAL_PORT_PRIORITY         3
+#define SERIAL_PORT_SUBPRIORITY      0
+
 #ifdef  USE_FULL_ASSERT
 #ifdef __cplusplus
  extern "C" {
