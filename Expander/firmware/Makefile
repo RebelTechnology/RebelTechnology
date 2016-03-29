@@ -1,7 +1,7 @@
 TEMPLATEROOT = .
 
-# CFLAGS = -g -Wall -Wcpp -DUSE_FULL_ASSERT
-CFLAGS   = -O2 -Wall -Wcpp -DUSE_FULL_ASSERT
+CFLAGS = -g -Wall -Wcpp -DUSE_FULL_ASSERT
+# CFLAGS   = -O2 -Wall -Wcpp -DUSE_FULL_ASSERT
 CXXFLAGS = -fno-rtti -fno-exceptions -std=c++11 $(CFLAGS) 
 
 C_SRC  = gpio.c periph.c serial.c

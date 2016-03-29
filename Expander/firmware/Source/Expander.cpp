@@ -28,10 +28,10 @@ void setup(){
   pixi.begin();
 }
 
-uint8_t cc_values[8] = {0};
+uint8_t cc_values[16] = {0};
 
-volatile int dac[8];
-volatile int adc[8];
+volatile int dac[16];
+volatile int adc[16];
 
 // #define USE_TEMP
 #ifdef USE_TEMP
@@ -40,18 +40,24 @@ volatile float temp[3] = {0};
 
 void midiReceiveCC(uint8_t ch, uint8_t cc, uint8_t value){
   ch = cc-20;
-  if(ch < 8)
+  if(ch < 16)
     dac[ch] = value << 5;
 }
 
 void run(){
   int pixi_id = pixi.config();
-  for(int ch=0; ch<8; ++ch){
-    pixi.configChannel ( CHANNEL_0+ch, CH_MODE_ADC_P, 0, CH_5N_TO_5P, ADC_MODE_CONT );
-    pixi.configChannel ( CHANNEL_15-ch, CH_MODE_DAC, 0, CH_5N_TO_5P, 0 );
+  for(int ch=7; ch<16; ++ch)
+    dac[ch] = 2048;
+  for(int ch=0; ch<7; ++ch){
+    // pixi.configChannel ( CHANNEL_0+ch, CH_MODE_ADC_P, 0, CH_5N_TO_5P, ADC_MODE_CONT );
+    // pixi.configChannel ( CHANNEL_15-ch, CH_MODE_DAC, 0, CH_5N_TO_5P, 0 );
     // pixi.configChannel ( CHANNEL_0+ch, CH_MODE_ADC_P, 0, CH_0_TO_10P, ADC_MODE_CONT );
     // pixi.configChannel ( CHANNEL_15-ch, CH_MODE_DAC, 0, CH_0_TO_10P, 0 );
+    pixi.configChannel ( CHANNEL_0+ch, CH_MODE_ADC_P, 0, CH_0_TO_10P, ADC_MODE_CONT );
+    pixi.configChannel ( CHANNEL_15-ch, CH_MODE_ADC_P, 0, CH_5N_TO_5P, ADC_MODE_CONT );
   }
+  pixi.configChannel ( CHANNEL_7, CH_MODE_DAC, 0, CH_0_TO_10P, 0 );
+  pixi.configChannel ( CHANNEL_8, CH_MODE_DAC, 0, CH_5N_TO_5P, 0 );
 
   uint16_t i = 0;
   for(;;){
@@ -60,18 +66,20 @@ void run(){
     temp[1] = pixi.readTemperature ( TEMP_CHANNEL_EXT0 );
     temp[2] = pixi.readTemperature ( TEMP_CHANNEL_EXT1 );
 #endif
-    for(int ch=0; ch<8; ++ch){
-      adc[ch] = pixi.readAnalog(ch);
-      uint8_t cc = adc[ch] >> 5;
-      if(abs(cc - cc_values[ch]) > 3){
-	midiSendCC(0, 20+ch, cc);
-	cc_values[ch] = cc;
+    for(int ch=0; ch<16; ++ch){
+      if(ch != 7 && ch != 8){
+	adc[ch] = pixi.readAnalog(ch);
+	uint8_t cc = adc[ch] >> 5;
+	if(abs(cc - cc_values[ch]) > 3){
+	  midiSendCC(0, 20+ch, cc);
+	  cc_values[ch] = cc;
+	}
       }
-      if(ch < 7)
-	pixi.writeAnalog(CHANNEL_15-ch, dac[ch]);
     }
-    pixi.writeAnalog(CHANNEL_15-7, i); // output ramp on
-    if(i++ == (1<<12)-1)
+    pixi.writeAnalog(CHANNEL_7, i); // output ramp on
+    pixi.writeAnalog(CHANNEL_8, dac[8]);
+    // pixi.writeAnalog(CHANNEL_7, dac[7]);
+    if(i++ >= 2048)
       i = 0;
   }
 }
