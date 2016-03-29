@@ -8,6 +8,11 @@ void USART_puts(USART_TypeDef* USARTx, volatile const char *s);
 void USART_putc(USART_TypeDef* USARTx, char c);
 USART_TypeDef* usart = 0;
 
+void serialputchar(uint8_t c){
+  if(usart != 0)
+    USART_putc(usart, c);
+}  
+
 void setupSerialPort(uint32_t baudrate){
   usart = USART1;
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO, ENABLE); 

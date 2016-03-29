@@ -46,28 +46,30 @@ public:
 #ifdef DEBUG_USART
     Serial.printf("program change: %d %d\n", channel, value);
 #endif /* DEBUG_USART */
-    AppleMIDI.programChange(value, channel+1);
+    // AppleMIDI.programChange(value, channel+1);
   }
 
   void handleChannelPressure(uint8_t channel, uint8_t value){
 #ifdef DEBUG_USART
     Serial.printf("channel pressure: %d %d\n", channel, value);
 #endif /* DEBUG_USART */
-    AppleMIDI.afterTouch(value, channel+1);
+    // AppleMIDI.afterTouch(value, channel+1);
   }
 
   void handleControlChange(uint8_t channel, uint8_t cc, uint8_t value){
 #ifdef DEBUG_USART
     Serial.printf("cc: %d %d %d\n", channel, cc, value);
 #endif /* DEBUG_USART */
-    AppleMIDI.controlChange(cc, value, channel+1);
+    // AppleMIDI.controlChange(cc, value, channel+1);
+    if(cc >= 20 && cc < 28)
+      midiReceiveCC(channel, cc, value);
   }
 
   void handleNoteOff(uint8_t channel, uint8_t note, uint8_t velocity){
 #ifdef DEBUG_USART
     Serial.printf("Note off: %d %d %d\n", channel, note, velocity);
 #endif /* DEBUG_USART */
-    AppleMIDI.noteOff(note, velocity, channel+1);
+    // AppleMIDI.noteOff(note, velocity, channel+1);
   }
 
   void handleNoteOn(uint8_t channel, uint8_t note, uint8_t velocity){
@@ -76,28 +78,28 @@ public:
 #ifdef DEBUG_USART
     Serial.printf("Note on: %d %d %d\n", channel, note, velocity);
 #endif /* DEBUG_USART */
-    AppleMIDI.noteOn(note, velocity, channel+1);
+    // AppleMIDI.noteOn(note, velocity, channel+1);
   }
 
   void handlePitchBend(uint8_t channel, int16_t value){
 #ifdef DEBUG_USART
     Serial.printf("pb: %d %d\n", channel, value);
 #endif /* DEBUG_USART */
-    AppleMIDI.pitchBend(value, channel+1);
+    // AppleMIDI.pitchBend(value, channel+1);
   }
 
   void handleAftertouch(uint8_t channel, uint8_t note, uint8_t value){
 #ifdef DEBUG_USART
     Serial.printf("at: %d %d %d\n", channel, note, value);
 #endif /* DEBUG_USART */
-    AppleMIDI.polyPressure(note, value, channel+1);
+    // AppleMIDI.polyPressure(note, value, channel+1);
   }
 
   void handleSysEx(uint8_t* data, uint8_t size){
 #ifdef DEBUG_USART
     Serial.printf("sysex: %d\n", size);
 #endif /* DEBUG_USART */
-    AppleMIDI.sysEx(size, data, false);
+    // AppleMIDI.sysEx(size, data, false);
   }
 
   void clear(){

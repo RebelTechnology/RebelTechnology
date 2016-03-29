@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "periph.h"
 #include "Pixi.h"
-#include "serial.h"
+#include "midi.h"
 
 void setAnalogValue(uint8_t channel, uint16_t value){
   value = value & 0xfff;
@@ -24,48 +24,54 @@ void setup(){
 // #ifdef DEBUG_PINS
 //   configureDigitalOutput(GPIOB, GPIO_Pin_10); // debug
 // #endif
-  setupSerialPort(9600);
+  midiSetup();
   pixi.begin();
-  printString("hello expander");
 }
 
-volatile float temp[3] = {0};
+uint8_t cc_values[8] = {0};
+
 volatile int dac[8];
 volatile int adc[8];
-void run(){
 
+// #define USE_TEMP
+#ifdef USE_TEMP
+volatile float temp[3] = {0};
+#endif
+
+void midiReceiveCC(uint8_t ch, uint8_t cc, uint8_t value){
+  ch = cc-20;
+  if(ch < 8)
+    dac[ch] = value << 5;
+}
+
+void run(){
   int pixi_id = pixi.config();
-  printHex(pixi_id);
   for(int ch=0; ch<8; ++ch){
     pixi.configChannel ( CHANNEL_0+ch, CH_MODE_ADC_P, 0, CH_5N_TO_5P, ADC_MODE_CONT );
     pixi.configChannel ( CHANNEL_15-ch, CH_MODE_DAC, 0, CH_5N_TO_5P, 0 );
+    // pixi.configChannel ( CHANNEL_0+ch, CH_MODE_ADC_P, 0, CH_0_TO_10P, ADC_MODE_CONT );
+    // pixi.configChannel ( CHANNEL_15-ch, CH_MODE_DAC, 0, CH_0_TO_10P, 0 );
   }
 
   uint16_t i = 0;
   for(;;){
+#ifdef USE_TEMP
     temp[0] = pixi.readTemperature ( TEMP_CHANNEL_INT );
     temp[1] = pixi.readTemperature ( TEMP_CHANNEL_EXT0 );
     temp[2] = pixi.readTemperature ( TEMP_CHANNEL_EXT1 );
-
+#endif
     for(int ch=0; ch<8; ++ch){
-      // dac[ch] = pixi.ReadRegister( PIXI_DAC_DATA+CHANNEL_15-ch, false );
-      // adc[ch] = pixi.ReadRegister( PIXI_ADC_DATA+CHANNEL_0+ch, false );
       adc[ch] = pixi.readAnalog(ch);
-      pixi.writeAnalog(CHANNEL_15-ch, adc[ch]);
-
-      printHex(adc[ch]);
+      uint8_t cc = adc[ch] >> 5;
+      if(abs(cc - cc_values[ch]) > 3){
+	midiSendCC(0, 20+ch, cc);
+	cc_values[ch] = cc;
+      }
+      if(ch < 7)
+	pixi.writeAnalog(CHANNEL_15-ch, dac[ch]);
     }
-
+    pixi.writeAnalog(CHANNEL_15-7, i); // output ramp on
     if(i++ == (1<<12)-1)
       i = 0;
-  }
-}
-
-extern "C" {
-  void USART1_IRQHandler(void){
-    /* RXNE handler */
-    if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET){
-      char c = USART_ReceiveData(USART1);
-    }
   }
 }

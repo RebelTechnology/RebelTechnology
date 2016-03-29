@@ -116,20 +116,18 @@ public:
   }
 
   void write(uint8_t *data, uint8_t length){
-    Serial1.write(data, length);
-    // for(int i=0; i<length; ++i)
-    //   write(data[i]);
+    // Serial1.write(data, length);
+    for(int i=0; i<length; ++i)
+      write(data[i]);
     // uart_transmit_bytes(data, length );
   }
 
   void write(uint8_t data){
-    // Serial1.write(data);
     /* Wait until end of previous transmit */
-    while(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
-    /* send data */
-    USART_SendData(USART_PERIPH, data);
-    // putchar(data);
-    // uart_transmit_bytes(&data, 1);
+    // while(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
+    // /* send data */
+    // USART_SendData(USART_PERIPH, data);
+    serialputchar(data);
   }
 
 private:
