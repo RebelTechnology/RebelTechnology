@@ -2,6 +2,9 @@
 
 class ScopePatch : public Patch {
 private:
+  uint16_t bg = BLACK;
+  uint16_t fg = WHITE;
+
   uint16_t drawVerticalLine(uint16_t x, uint16_t y, uint16_t to, uint16_t c){
     if(y > to)
       drawVerticalLine(x, to, y, c);
@@ -13,7 +16,8 @@ private:
   }
 public:
   void processAudio(AudioBuffer& samples){
-    uint16_t bg = BLACK;
+    screen.setTextColor(fg);
+    screen.setTextSize(1);
     float* left = samples.getSamples(0);
     float* right = samples.getSamples(1);
     float trig = 0.0f;
@@ -27,12 +31,16 @@ public:
       offset++;
     while(left[offset] < trig && offset < samples.getSize())
       offset++;
-    if(offset+screen.getWidth() >= samples.getSize())
+    if(offset+screen.getWidth() >= samples.getSize()){
+      screen.setCursor(40, 0);
+      screen.fillRect(0, 0, 96, 8, BLACK);
+      screen.print("Scope");
       return; // no trigger, don't update screen
+    }
     // todo: redraw only parameters ie divs
     screen.fillScreen(bg);
     screen.setCursor(40, 0);
-    screen.print("scope");
+    screen.print("Scope");
     screen.setCursor(6, 56);
     screen.print(div);
     int ly = height+height*left[offset];

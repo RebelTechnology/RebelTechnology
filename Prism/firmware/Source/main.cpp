@@ -244,10 +244,13 @@ void MX_ADC1_Init(void)
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc1.Init.NbrOfConversion = 4;
   hadc1.Init.DMAContinuousRequests = ENABLE;
-#if defined ADC_DMA || defined ADC_IT
-  hadc1.Init.EOCSelection = DISABLE;
+#if defined ADC_IT
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+// #elif defined ADC_DMA
+//   hadc1.Init.EOCSelection = DISABLE;
+//   hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;
 #else
-  hadc1.Init.EOCSelection = EOC_SINGLE_CONV;
+  hadc1.Init.EOCSelection = DISABLE;
 #endif
   HAL_ADC_Init(&hadc1);
 

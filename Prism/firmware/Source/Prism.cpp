@@ -16,11 +16,15 @@ extern uint16_t adc_values[4];
 
 #include "ScopePatch.hpp"
 #include "LissajouPatch.hpp"
+#include "DemoPatch.hpp"
+#include "SplashPatch.hpp"
 
 SampleBuffer samples;
 ScopePatch scope;
 LissajouPatch lissajou;
-Patch* patches[2] = {&scope, &lissajou};
+DemoPatch demo;
+SplashPatch splash;
+Patch* patches[4] = {&scope, &lissajou, &demo, &splash};
 
 void setup(ProgramVector* pv){
   pv->checksum = sizeof(ProgramVector);
@@ -52,18 +56,29 @@ void setup(ProgramVector* pv){
 #endif
 }
 
-volatile int currentPatch = 0;
+uint8_t currentPatch = 0;
+void changePatch(uint8_t pid){
+  if(pid < 3){
+    currentPatch = pid;
+    encoder2 = 1;
+    screen.fillScreen(BLACK);
+  }
+}
+
 void encoderChanged(int encoder, int32_t value){
   switch(encoder){
   case 0:
-    if(value != encoder1)
-      currentPatch = (currentPatch == 0) ? 1 : 0;
-    // if(value > encoder_values[0]){
-    //   if(currentPatch > 0)
-    // 	currentPatch = 1;
-    //   else
-    // 	currentPatch = 0;
-    // 	}else if(value < encoder_values[0])
+    if(value > encoder1){
+      if(currentPatch < 3)
+	changePatch(currentPatch+1);
+      else
+	changePatch(0);
+    }else if(value < encoder1){
+      if(currentPatch > 0)
+	changePatch(currentPatch-1);
+      else
+	changePatch(3);
+    }
     encoder1 = value;
     break;
   case 1:
