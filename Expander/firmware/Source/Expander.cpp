@@ -24,12 +24,16 @@ void setup(){
 // #ifdef DEBUG_PINS
 //   configureDigitalOutput(GPIOB, GPIO_Pin_10); // debug
 // #endif
-  midiSetup();
+
+  configureDigitalOutput(TLC_BLANK_GPIO_Port, TLC_BLANK_Pin);
+  setPin(TLC_BLANK_GPIO_Port, TLC_BLANK_Pin); // bring BLANK high to turn LEDs off
+
   pixi.begin();
+
+  midiSetup();
 }
 
 uint8_t cc_values[16] = {0};
-
 volatile int dac[16];
 volatile int adc[16];
 

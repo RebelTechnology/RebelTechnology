@@ -23,8 +23,14 @@
 #define MAX_SPI        SPI1
 #define MAX_DUMMY_BYTE 0x00
 
-void delay(int ms){
+// #include "delay.h"
+
+void delay(uint32_t ms){
   // spin
+  for(uint32_t i=0; i<ms*100000; ++i)
+    asm("NOP");
+
+  // DWT_Delay(ms*1000);
 }
 
 uint16_t SPI_Write(uint16_t Data){
