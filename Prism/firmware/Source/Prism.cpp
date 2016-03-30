@@ -24,7 +24,43 @@ ScopePatch scope;
 LissajouPatch lissajou;
 DemoPatch demo;
 SplashPatch splash;
-Patch* patches[4] = {&scope, &lissajou, &demo, &splash};
+Patch* patches[4] = {&scope, &lissajou, &splash, &demo};
+
+uint8_t currentPatch = 1;
+void changePatch(uint8_t pid){
+  if(pid < 3 && pid != currentPatch){
+    currentPatch = pid;
+    screen.fillScreen(BLACK);
+    patches[currentPatch]->reset();
+  }
+}
+
+void encoderChanged(int encoder, int32_t value){
+  switch(encoder){
+  case 0:
+    if(value > encoder1){
+      if(currentPatch == 3)
+	changePatch(0);
+      else
+	changePatch(currentPatch+1);
+    }else if(value < encoder1){
+      if(currentPatch == 0)
+	changePatch(3);
+      else
+	changePatch(currentPatch-1);
+    }
+    encoder1 = value;
+    break;
+  case 1:
+    if(value > 64)
+      encoderReset(encoder, 64);
+    else if(value < 4)
+      encoderReset(encoder, 4);
+    else
+      encoder2 = value;
+    break;
+  }  
+}
 
 void setup(ProgramVector* pv){
   pv->checksum = sizeof(ProgramVector);
@@ -54,37 +90,9 @@ void setup(ProgramVector* pv){
   pv->heap_bytes_used = before - xPortGetFreeHeapSize();
 #endif
 #endif
-}
 
-uint8_t currentPatch = 0;
-void changePatch(uint8_t pid){
-  if(pid < 3){
-    currentPatch = pid;
-    encoder2 = 1;
-    screen.fillScreen(BLACK);
-  }
-}
-
-void encoderChanged(int encoder, int32_t value){
-  switch(encoder){
-  case 0:
-    if(value > encoder1){
-      if(currentPatch < 3)
-	changePatch(currentPatch+1);
-      else
-	changePatch(0);
-    }else if(value < encoder1){
-      if(currentPatch > 0)
-	changePatch(currentPatch-1);
-      else
-	changePatch(3);
-    }
-    encoder1 = value;
-    break;
-  case 1:
-    encoder2 = value;
-    break;
-  }  
+  encoderReset(1, 4);
+  changePatch(0);
 }
 
 void processBlock(ProgramVector* pv){

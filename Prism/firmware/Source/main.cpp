@@ -40,8 +40,6 @@ TIM_HandleTypeDef htim3;
 
 UART_HandleTypeDef huart1;
 
-osThreadId defaultTaskHandle;
-
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 
@@ -71,11 +69,12 @@ static void MX_TIM1_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_USB_OTG_HS_USB_Init(void);
-void StartDefaultTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
 void StartScreenTask(void const * argument);
+void readadc();
+
 }
 
 /* USER CODE END PFP */
@@ -135,11 +134,6 @@ int main(void)
   /* USER CODE BEGIN RTOS_TIMERS */
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
-
-  /* Create the thread(s) */
-  /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
-  defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -649,20 +643,29 @@ void StartScreenTask(void const * argument)
     codec.txrx();
   }
 #endif
-  // screen.begin(&hspi1);
+
+#ifdef USE_SCREEN
+  screen.begin(&hspi1);
+#endif
+
   setup(&programVector);
   for(;;){
     if(doProcessAudio){
       processBlock(&programVector);
       screen.display();
       doProcessAudio = false;
+#ifdef USE_ADC
+#if !defined ADC_DMA && !defined ADC_IT
+      readadc();
+#endif
+#endif
     }
   }
 }
 
 /* USER CODE END 4 */
 
-void readadc(int step){
+void readadc(){
   HAL_StatusTypeDef ret;
   ret = HAL_ADC_Start(&hadc1);
   ASSERT(ret == HAL_OK, "adc1 start failed");
@@ -676,6 +679,13 @@ void readadc(int step){
   //   adc_values[3] = HAL_ADC_GetValue(&hadc1);
   ret = HAL_ADC_Stop(&hadc1);
   ASSERT(ret == HAL_OK, "adc1 stop failed");
+}
+
+void encoderReset(int encoder, int32_t value){
+  if(encoder == 0)
+    __HAL_TIM_SetCounter(&htim1, value);
+  else if(encoder == 1)
+    __HAL_TIM_SetCounter(&htim3, value);
 }
 
 extern "C" {
@@ -700,120 +710,3 @@ extern "C" {
   }
 
 }
-
-#if 0
-void encoders(int step){
-  encoder1 = __HAL_TIM_GET_COUNTER(&htim1);
-  encoder2 = __HAL_TIM_GET_COUNTER(&htim3);
-}
-#endif
-
-void demoScreen(int step){
-  switch(step){
-  case 0:
-    // draw some pixels
-    screen.fillScreen(BLACK);
-    for(int i=0; i<31; i+=3){
-      screen.drawPixel(i*3, i*2, WHITE);
-    }
-    screen.display();
-    osDelay(2000);
-    break;
-  case 1:
-    screen.fillScreen(MAGENTA);
-    screen.lock();
-    screen.display();
-    osDelay(2000);
-    screen.unlock();
-    screen.fillScreen(YELLOW);
-    screen.display();
-    osDelay(2000);
-    screen.fillScreen(WHITE);
-    screen.display();
-    osDelay(2000);
-    break;
-  case 2:
-    screen.fillScreen(BLACK);
-    for (int16_t i=1; i<screen.width(); i+=4) {
-      screen.drawLine(0, 0, i, screen.height()-1, GREEN);
-    }
-    screen.display();
-    osDelay(2000);
-    for (int16_t i=1; i<screen.height(); i+=4)
-      screen.drawLine(0, 0, screen.width()-1, i, BLUE);
-    screen.display();
-    osDelay(2000);
-    break;
-  case 3:
-    screen.fillScreen(WHITE);
-    screen.setTextColor(BLACK);
-    screen.setTextSize(1);
-    screen.setCursor(40, 30);
-    screen.print("Hello, world!");
-    screen.display();
-    delay(2000);
-    break;
-  case 4:
-    screen.fillScreen(BLACK);
-    screen.setTextColor(WHITE);
-    screen.setCursor(0,0);
-    screen.print("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer iaculis pellentesque sem, sit amet pulvinar ex placerat et. Aenean eleifend sem sem, ac semper quam vestibulum ac.");
-    screen.display();
-    delay(2000);
-    break;
-  default:    
-    screen.fillScreen(step);
-    screen.display();
-    delay(2000);
-    break;
-  }
-}
-
- bool dodemoscreen = false;
-// bool doencoders = false;
- bool doreadadc = true;
-/* StartDefaultTask function */
-void StartDefaultTask(void const * argument)
-{
-  /* init code for FATFS */
-  // MX_FATFS_Init();
-
-  /* USER CODE BEGIN 5 */
-  /* Infinite loop */
-
-#ifdef USE_SCREEN
-  screen.begin(&hspi1);
-#endif
-
-  for(;;){
-    for(int i=0;;i++){
-#ifdef USE_SCREEN
-      if(dodemoscreen)
-	demoScreen(i);
-#endif
-#ifdef USE_ADC
-#if !defined ADC_DMA && !defined ADC_IT
-      if(doreadadc)
-	readadc(i);
-#endif
-#endif
-    }
-  }
-  
-#ifdef USE_SCREEN
-  screen.clear();
-#endif
-  for(;;);
-  /* USER CODE END 5 */ 
-}
-
-
-/**
-  * @}
-  */ 
-
-/**
-  * @}
-*/ 
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

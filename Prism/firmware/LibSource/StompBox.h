@@ -51,6 +51,7 @@ public:
   float getElapsedBlockTime();
   int getElapsedCycles();
 public:
+  virtual void reset(){};
   virtual void processAudio(AudioBuffer& output) = 0;
 private:
   PatchProcessor* processor;

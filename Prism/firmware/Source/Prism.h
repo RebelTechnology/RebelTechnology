@@ -8,6 +8,7 @@
 #endif
 
    void encoderChanged(int encoder, int32_t value);
+   void encoderReset(int encoder, int32_t value);
    void setup(ProgramVector* pv);
    void processBlock(ProgramVector* pv);
 

@@ -13,7 +13,7 @@
 #define CODEC_BUFFER_SIZE   8192 // 2048 samples per block
 /* #define USE_OVERDRIVE // 216MHz */
 /* #define QSPI_FLASH_SIZE (128*1024) */
-#define USE_QSPI_FLASH
+/* #define USE_QSPI_FLASH */
 
 #define QSPI_D2_Pin GPIO_PIN_2
 #define QSPI_D2_GPIO_Port GPIOE

@@ -9,6 +9,10 @@ public:
   DemoPatch(){
     // fps = getSampleRate() / getBlockSize();
   }
+  void reset(){
+    step = 0;
+    wait = 0;
+  }
   void processAudio(AudioBuffer& samples){
     if(wait > 0){
       wait--;
@@ -57,6 +61,6 @@ public:
       step = 0;
       break;
     }
-    wait = 10*fps;
+    wait = 2*fps;
   }
 };
