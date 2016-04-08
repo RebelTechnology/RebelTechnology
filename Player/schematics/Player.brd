@@ -4602,10 +4602,10 @@ design rules under a new name.</description>
 <wire x1="1.9" y1="-41.5" x2="-1.1" y2="-41.5" width="0" layer="19" extent="1-1"/>
 <wire x1="-1.96" y1="-32.9" x2="-1.1" y2="-41.5" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$31">
+<signal name="CVOUTA">
 <contactref element="R404" pad="2"/>
 </signal>
-<signal name="N$32">
+<signal name="CVOUTB">
 <contactref element="R6" pad="2"/>
 </signal>
 <signal name="DAC1">
@@ -4649,7 +4649,7 @@ design rules under a new name.</description>
 <wire x1="11.9" y1="-73.5" x2="9.1" y2="-73.5" width="0" layer="19" extent="1-1"/>
 <wire x1="7.5" y1="-61.15" x2="9.1" y2="-73.5" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$44">
+<signal name="TRINB">
 <contactref element="R10" pad="1"/>
 </signal>
 <signal name="D1">
@@ -4668,7 +4668,7 @@ design rules under a new name.</description>
 <contactref element="R11" pad="2"/>
 <wire x1="0.75" y1="-61.15" x2="-4.65" y2="-84.25" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$46">
+<signal name="TROUTB">
 <contactref element="R704" pad="2"/>
 <contactref element="R703" pad="2"/>
 <wire x1="13.6" y1="-73.5" x2="-7.65" y2="-81" width="0" layer="19" extent="1-1"/>
@@ -4685,7 +4685,7 @@ design rules under a new name.</description>
 <wire x1="5.85" y1="-81" x2="-8.5" y2="-73.9" width="0" layer="19" extent="1-1"/>
 <wire x1="8.65" y1="-81" x2="5.85" y2="-81" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$53">
+<signal name="TROUTA">
 <contactref element="R904" pad="2"/>
 <contactref element="R903" pad="2"/>
 <wire x1="14.85" y1="-81" x2="10.35" y2="-81" width="0" layer="19" extent="1-1"/>
@@ -4697,7 +4697,7 @@ design rules under a new name.</description>
 <wire x1="5.85" y1="-84.25" x2="-4.85" y2="-81" width="0" layer="19" extent="1-1"/>
 <wire x1="13.3" y1="-63.35" x2="5.85" y2="-84.25" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$55">
+<signal name="TRINA">
 <contactref element="R14" pad="1"/>
 </signal>
 </signals>

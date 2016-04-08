@@ -18995,14 +18995,14 @@ Standard quad package</description>
 <junction x="76.2" y="403.86"/>
 </segment>
 </net>
-<net name="N$31" class="0">
+<net name="CVOUTA" class="0">
 <segment>
 <pinref part="R404" gate="G$1" pin="2"/>
 <wire x1="124.46" y1="406.4" x2="111.76" y2="406.4" width="0.1524" layer="91"/>
 <label x="116.84" y="406.4" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$32" class="0">
+<net name="CVOUTB" class="0">
 <segment>
 <pinref part="R6" gate="G$1" pin="2"/>
 <wire x1="111.76" y1="370.84" x2="124.46" y2="370.84" width="0.1524" layer="91"/>
@@ -19078,10 +19078,11 @@ Standard quad package</description>
 <pinref part="R702" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="N$44" class="0">
+<net name="TRINB" class="0">
 <segment>
 <pinref part="R10" gate="G$1" pin="1"/>
 <wire x1="161.29" y1="374.65" x2="171.45" y2="374.65" width="0.1524" layer="91"/>
+<label x="162.56" y="375.92" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="D1" class="0">
@@ -19120,7 +19121,7 @@ Standard quad package</description>
 <junction x="199.39" y="382.27"/>
 </segment>
 </net>
-<net name="N$46" class="0">
+<net name="TROUTB" class="0">
 <segment>
 <pinref part="R704" gate="G$1" pin="2"/>
 <pinref part="R703" gate="G$1" pin="2"/>
@@ -19128,6 +19129,7 @@ Standard quad package</description>
 <junction x="186.69" y="478.79"/>
 <wire x1="186.69" y1="478.79" x2="204.47" y2="478.79" width="0.1524" layer="91"/>
 <wire x1="186.69" y1="478.79" x2="186.69" y2="476.25" width="0.1524" layer="91"/>
+<label x="198.12" y="480.06" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$47" class="0">
@@ -19148,7 +19150,7 @@ Standard quad package</description>
 <pinref part="R902" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="N$53" class="0">
+<net name="TROUTA" class="0">
 <segment>
 <pinref part="R904" gate="G$1" pin="2"/>
 <pinref part="R903" gate="G$1" pin="2"/>
@@ -19156,6 +19158,7 @@ Standard quad package</description>
 <junction x="186.69" y="539.75"/>
 <wire x1="186.69" y1="539.75" x2="204.47" y2="539.75" width="0.1524" layer="91"/>
 <wire x1="186.69" y1="539.75" x2="186.69" y2="537.21" width="0.1524" layer="91"/>
+<label x="198.12" y="541.02" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$54" class="0">
@@ -19168,10 +19171,11 @@ Standard quad package</description>
 <junction x="186.69" y="422.91"/>
 </segment>
 </net>
-<net name="N$55" class="0">
+<net name="TRINA" class="0">
 <segment>
 <pinref part="R14" gate="G$1" pin="1"/>
 <wire x1="161.29" y1="422.91" x2="171.45" y2="422.91" width="0.1524" layer="91"/>
+<label x="162.56" y="424.18" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
