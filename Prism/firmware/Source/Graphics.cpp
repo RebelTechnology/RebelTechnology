@@ -23,18 +23,23 @@ extern "C" void delay(uint32_t millisec);
 typedef uint16_t Colour;
 static Colour pixels[OLED_HEIGHT][OLED_WIDTH];
 
+#if defined SEPS114A
 #include "seps114a.h"
+#elif defined SSD1131
+#include "ssd1331.h"
+#endif
 
 void Graphics::begin(SPI_HandleTypeDef *spi) {
   hspi = spi;
-  // off();
+  off();
   commonInit();
   chipInit();
   // fillScreen(BLACK);
   // display();
   // clear();
-  seps114a_bg();
-  // on();
+  // seps114a_bg();
+  on();
+  zero();
 }
 
 // void SSD1331::goTo(int x, int y) {
@@ -86,15 +91,15 @@ void Graphics::drawPixel(uint16_t x, uint16_t y, uint16_t c){
 
 bool dozero = false;
 void Graphics::display(){
-  // if((screenstatus & currentscreen) == 0)
-  //   return;
-  if(!dozero)
-    return;
-  zero();   // goTo(0, 0);
+  if(dozero)
+    zero();
+
   setDC();
   spiwrite((uint8_t*)pixels, sizeof(pixels));
 
   // // display the buffer which is not currently written to
+  // if((screenstatus & currentscreen) == 0)
+  //   return;
   // uint8_t screen = currentscreen ? 1 : 0;
   // spiwrite((uint8_t*)pixels[screen], sizeof(pixels));
   // screenstatus &= ~currentscreen;
@@ -234,26 +239,6 @@ void Graphics::commonInit(){
   delay(10);
   setPin(OLED_RST_GPIO_Port, OLED_RST_Pin);
   delay(10);
-}
-
-void Graphics::off() {
-#ifdef SSD1331
-  // writeCommand(_CMD_DISPLAYOFF);
-  writeCommand(0xae);
-#elif defined SEPS114A
-  uint8_t cmd[] = {0x02, 0x00};
-  writeCommands(cmd, sizeof(cmd));
-#endif
-}
-
-void Graphics::on() {
-#ifdef SSD1331
-  // writeCommand(_CMD_DISPLAYON);
-  writeCommand(0xaf);
-#elif defined SEPS114A
-  uint8_t cmd[] = {0x02, 0x01};
-  writeCommands(cmd, sizeof(cmd));
-#endif
 }
 
 // void Graphics::clear() {

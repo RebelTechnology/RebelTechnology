@@ -40,61 +40,9 @@
 #define SEPS114A_RGB_POL 0xE1
 #define SEPS114A_DISPLAY_MODE_CONTROL 0xE5
 
-extern SPI_HandleTypeDef hspi1;
-
-void spiwrite(const uint8_t* data, size_t size){
-  while(hspi1.State != HAL_SPI_STATE_READY);
-  clearPin(OLED_SCK_GPIO_Port, OLED_SCK_Pin);
-  clearCS();
-  HAL_StatusTypeDef ret = HAL_SPI_Transmit(&hspi1, (uint8_t*)data, size, 100);
-  assert_param(ret == HAL_OK);
-  setCS();
-}
-
-void spiwrite(uint8_t c){
-  spiwrite(&c, 1);
-}
-
-//Send command to OLED C display
-
-void writeCommand(unsigned char reg_index, unsigned char reg_value){
-  /* uint8_t cmd[] = {reg_index, reg_value}; */
-  clearDC();
-  spiwrite(reg_index);
-  setDC();
-  spiwrite(reg_value);
-/* //Select index addr */
-/*     OLED_CS = 0; */
-/*     OLED_DC = 0; */
-/*     SPI3_Write(reg_index); */
-/*     OLED_CS = 1; */
-/* //Write data to reg */
-/*     OLED_CS = 0; */
-/*     OLED_DC = 1; */
-/*     SPI3_Write(reg_value); */
-/*     OLED_CS = 1; */
-}
-
-//Send data to OLED C display
-void seps114a_data(unsigned char data_value){
-  setDC();
-  spiwrite(data_value);
-    /* OLED_CS = 0; */
-    /* OLED_DC = 1; */
-    /* SPI3_Write(data_value); */
-    /* OLED_CS = 1; */
-}
-
 // Init sequence for 96x96 OLED color module
 void Graphics::chipInit(){
-  /* OLED_RST=0; */
-  /* Delay_ms(10); */
-  /* OLED_RST=1; */
-  /* Delay_ms(10); */
-  /* commonInit(); */
-  /*  Soft reset */
   writeCommand(SEPS114A_SOFT_RESET,0x00);      
-  /* Standby ON/OFF*/
   writeCommand(SEPS114A_STANDBY_ON_OFF,0x01);          // Standby on
   delay(5);                                           // Wait for 5ms (1ms Delay Minimum)
   writeCommand(SEPS114A_STANDBY_ON_OFF,0x00);          // Standby off
@@ -115,11 +63,11 @@ void Graphics::chipInit(){
   /* Set RGB polarity */
   writeCommand(SEPS114A_RGB_POL,0x00);
   /* Set display mode control */
-  writeCommand(SEPS114A_DISPLAY_MODE_CONTROL,0x80);   // SWAP:BGR, Reduce current : Normal, DC[1:0] : Normal
+  writeCommand(SEPS114A_DISPLAY_MODE_CONTROL, 0x00);  // SWAP:BGR, Reduce current : Normal, DC[1:0] : Normal
   /* Set MCU Interface */
   writeCommand(SEPS114A_CPU_IF,0x00);                 // MPU External interface mode, 8bits
   /* Set Memory Read/Write mode */
-  writeCommand(SEPS114A_MEMORY_WRITE_READ,0x00);
+  writeCommand(SEPS114A_MEMORY_WRITE_READ, 0x01);     // Memory write/read direction (was: 0x00)
   /* Set row scan direction */
   writeCommand(SEPS114A_ROW_SCAN_DIRECTION,0x00);     // Column : 0 --> Max, Row : 0 --> Max
   /* Set row scan mode */
@@ -149,110 +97,57 @@ void Graphics::chipInit(){
   /* Set memory access point */
   writeCommand(SEPS114A_DISPLAYSTART_X,0x00);
   writeCommand(SEPS114A_DISPLAYSTART_Y,0x00);
-  /* Display ON */
-  writeCommand(SEPS114A_DISPLAY_ON_OFF,0x01);
-}
 
-//Sekvence before writing data to memory
-void DDRAM_access(){
-    /* OLED_CS=0; */
-    /* OLED_DC=0; */
-  clearDC();
-  spiwrite(0x08);
-    /* OLED_CS=1; */
-}
-
-//Set memory area(address) to write a display data
-void seps114a_MemorySize(char X1, char X2, char Y1, char Y2){
-  writeCommand(SEPS114A_MEM_X1,X1);
-  writeCommand(SEPS114A_MEM_X2,X2);
-  writeCommand(SEPS114A_MEM_Y1,Y1);
-  writeCommand(SEPS114A_MEM_Y2,Y2);
-}
-
-//Select color
-void seps114a_Color(char colorMSB, char colorLSB ){
-  seps114a_data(colorMSB);
-  seps114a_data(colorLSB);
-}
-
-void seps114a_bg(){
-  unsigned j;
-    
-  writeCommand(0x1D,0x02);                //Set Memory Read/Write mode
-    
-  seps114a_MemorySize(0x00,0x5F,0x00,0x5F);
-  DDRAM_access();
-  for(j=0;j<9216;j++){
-    seps114a_Color(0xFF,0xFF);
-  }
-  //delay_ms(1000);
-    
-  seps114a_MemorySize(0x05,0x5A,0x05,0x5A);
-  DDRAM_access();
-  for(j=0;j<8100;j++){
-    seps114a_Color(0x0C,0xC0);
-  }
-  //delay_ms(1000);
-     
-  seps114a_MemorySize(0x0A,0x55,0x0A,0x55);
-  DDRAM_access();
-  for(j=0;j<7225;j++){
-    seps114a_Color(0xFF,0x00);
-  }
-  //delay_ms(1000);
-                       
-  seps114a_MemorySize(0x0F,0x50,0x0F,0x50);
-  DDRAM_access();
-  for(j=0;j<6400;j++){
-    seps114a_Color(0x80,0x00);
-  }
-  // delay_ms(1000);
-                       
-  seps114a_MemorySize(0x14,0x4B,0x14,0x4B);
-  DDRAM_access();
-  for(j=0;j<5625;j++){
-    seps114a_Color(0xF8,0x00);
-  }
-  //delay_ms(1000);
-                       
-  seps114a_MemorySize(0x19,0x46,0x19,0x46);
-  DDRAM_access();
-  for(j=0;j<4900;j++){
-    seps114a_Color(0x00,0xFF);
-  }
-  // delay_ms(1000);
-  seps114a_MemorySize(0x1E,0x41,0x1E,0x41);
-  DDRAM_access();
-  for(j=0;j<4225;j++){
-    seps114a_Color(0x80,0xFF);
-  }
-  /* delay_ms(5000); */
+/*   static const uint8_t initSequence[] = { */
+/*     // 0x01, 0x00, 0x14, 0x01, /\* 1ms delay *\/ */
+/*     // 0x14, 0x00, /\* 1ms delay *\/ */
+/*     /\* display off 0x02, 0x00, *\/ */
+/*     // 0x0f, 0x40,  */
+/*     0x0f, 0x00, // external resistor, internal osc */
+/*     // 0x1a, 0x03,  */
+/*     0x1a, 0x0a, // frame rate 95Hz */
+/*     0x30, 0x00, 0x31, 0x5f, 0x32, 0x00, 0x33, 0x5f, // set display x/y 1/2 */
+/*     0xe0, 0x01, // RGB IF 16bit (doesn't matter for SPI) */
+/*     0xe1, 0x00, // RGB polarity */
+/*     0xe5, 0x80, // display mode control */
+/*     0x0d, 0x00, // CPU_IF */
+/*     0x1d, 0x00, // memory write read */
+/*     0x09, 0x00, 0x13, 0x00,  */
+/*     0x40, 0x6e, 0x41, 0x4f, 0x42, 0x77, // column current */
+/*     0x48, 0x00, // row overlap */
+/*     0x18, 0x01, // discharge time */
+/*     0x16, 0x00, // peak pulse delay */
+/*     0x3a, 0x02, 0x3b, 0x02, 0x3c, 0x02, // peak pulse width */
+/*     0x3d, 0x14, 0x3e, 0x50, 0x3f, 0x19, // precharge current */
+/*     0x17, 0x00, 0x49, 0x04, /\* clear screen *\/ */
+/*     /\* zero 0x38, 0x00, 0x39, 0x00, *\/ */
+/*     /\* display on 0x02, 0x01 *\/ */
+/*   }; */
+/*   static const uint8_t rst[] = {0x01, 0x00, 0x14, 0x01}; /\* reset, standby on *\/ */
+/*   writeCommands(rst, sizeof(rst));  */
+/*   delay(1);   */
+/*   static const uint8_t stdby[] = {0x14, 0x00}; /\* standby off *\/ */
+/*   writeCommands(stdby, sizeof(stdby)); */
+/*   delay(1);   */
+/*   writeCommands(initSequence, sizeof(initSequence));   */
 }
 
 void Graphics::zero() {
-  // uint8_t cmd[] = {0x38, 0, 0x39, 0 };
   /* uint8_t cmd[] = {0x34, 0x00, 0x35, 0x5F, 0x36, 0x00, 0x37, 0x5F, 0x08}; */
   /* writeCommands(cmd, sizeof(cmd)); */
-
-  seps114a_MemorySize(0x00,0x5F,0x00,0x5F);
-  DDRAM_access();
+  /* seps114a_MemorySize(0x00, 0x5F, 0x00, 0x5F); */
+  writeCommand(SEPS114A_MEM_X1, 0x00);
+  writeCommand(SEPS114A_MEM_X2, 0x5f);
+  writeCommand(SEPS114A_MEM_Y1, 0x00);
+  writeCommand(SEPS114A_MEM_Y2, 0x5f);
+  clearDC();
+  spiwrite(SEPS114A_DDRAM_DATA_ACCESS_PORT);
 }
 
-/* void main(){ */
-/*       int i; */
-/*       InitMCU(); */
-/*       UART1_Init(56000); */
-/*       seps114a_Init(); */
-/*       seps114a_Beckground(); */
+void Graphics::off() {
+  writeCommand(SEPS114A_DISPLAY_ON_OFF, 0x00);
+}
 
-/*      while(1){ */
-/*              for(i=0;i<8;i++){ */
-/*                              writeCommand(SEPS114A_SCREEN_SAVER_MODE,i); */
-/*                              writeCommand(SEPS114A_SCREEN_SAVER_CONTROL,0x88); */
-/*                              delay_ms(5000); */
-/*                              writeCommand(SEPS114A_SCREEN_SAVER_CONTROL,0x00); */
-/*                              } */
-/*       delay_ms(5000);   */
-/*       } */
-/* } */
+void Graphics::on() {
+  writeCommand(SEPS114A_DISPLAY_ON_OFF, 0x01);
+}
