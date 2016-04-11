@@ -1,14 +1,14 @@
 #include "mxconstants.h"
 #include "SampleBuffer.hpp"
 #include "Prism.h"
-#include "SSD1331.h"
+#include "Graphics.h"
 #include "StompBox.h"
 
 bool dobypass = true;
 bool dowave = true;
 bool dooffset = true;
 
-extern SSD1331 screen;
+extern Graphics screen;
 
 volatile int32_t encoder1;
 volatile int32_t encoder2;
@@ -24,6 +24,8 @@ ScopePatch scope;
 LissajouPatch lissajou;
 DemoPatch demo;
 SplashPatch splash;
+// why is last patch not enabling?
+// add polar coordinates plotting
 Patch* patches[4] = {&scope, &lissajou, &splash, &demo};
 
 uint8_t currentPatch = 1;

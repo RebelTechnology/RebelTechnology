@@ -3,7 +3,7 @@
 // #include "fatfs.h"
 
 /* USER CODE BEGIN Includes */
-#include "SSD1331.h"
+#include "Graphics.h"
 #include "Codec.h"
 #include "qspi.h"
 #include "errorhandlers.h"
@@ -45,7 +45,7 @@ UART_HandleTypeDef huart1;
 
 osThreadId screenTaskHandle;
 #ifdef USE_SCREEN
-SSD1331 screen;
+Graphics screen;
 #endif
 #ifdef USE_CODEC
 Codec codec;
@@ -346,8 +346,8 @@ void MX_SPI1_Init(void)
   hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLED;
 #endif
   // 096064 max recommended SPI speed 6.6MHz
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16; // 6.75MHz
-  // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32; // 3.375MHz
+  // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16; // 6.75MHz
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32; // 3.375MHz
   // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64; // 1.6875MHz
   // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128; // 843.75kHz
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
