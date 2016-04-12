@@ -1,0 +1,48 @@
+<module type="6hp">
+
+  <!-- jacks -->
+  <hole x="0.25" y="1.75" radius="3.25"/>
+  <hole x="0.25" y="1.25" radius="3.25"/>
+  <hole x="0.25" y="0.75" radius="3.25"/>
+  <hole x="0.25" y="0.25" radius="3.25"/>
+  <hole x="0.25" y="-0.25" radius="3.25"/>
+  <hole x="0.25" y="-0.75" radius="3.25"/>
+  <hole x="0.25" y="-1.25" radius="3.25"/>
+  <hole x="0.25" y="-1.75" radius="3.25"/>
+
+  <hole x="-0.25" y="1.75" radius="3.25"/>
+  <hole x="-0.25" y="1.25" radius="3.25"/>
+  <hole x="-0.25" y="0.75" radius="3.25"/>
+  <hole x="-0.25" y="0.25" radius="3.25"/>
+  <hole x="-0.25" y="-0.25" radius="3.25"/>
+  <hole x="-0.25" y="-0.75" radius="3.25"/>
+  <hole x="-0.25" y="-1.25" radius="3.25"/>
+  <hole x="-0.25" y="-1.75" radius="3.25"/>
+
+  <!-- leds -->
+  <!-- <hole x="0.00" y="0.375" radius="1.5"/> -->
+  <!-- <hole x="0.00" y="0.625" radius="1.5"/> -->
+  <!-- <hole x="0.00" y="0.875" radius="1.5"/> -->
+  <!-- <hole x="0.00" y="1.125" radius="1.5"/> -->
+  <!-- <hole x="0.00" y="1.375" radius="1.5"/> -->
+  <!-- <hole x="0.00" y="1.625" radius="1.5"/> -->
+  <!-- <hole x="0.00" y="1.875" radius="1.5"/> -->
+
+  <hole x="0.10" y="1.50" radius="1.5"/>
+  <hole x="-0.10" y="1.50" radius="1.5"/>
+  <hole x="0.10" y="1.00" radius="1.5"/>
+  <hole x="-0.10" y="1.00" radius="1.5"/>
+  <hole x="0.10" y="0.50" radius="1.5"/>
+  <hole x="-0.10" y="0.50" radius="1.5"/>
+  <hole x="0.10" y="-0.0" radius="1.5"/>
+  <hole x="-0.10" y="-0.0" radius="1.5"/>
+  <hole x="0.10" y="-0.50" radius="1.5"/>
+  <hole x="-0.10" y="-0.50" radius="1.5"/>
+  <hole x="0.10" y="-1.00" radius="1.5"/>
+  <hole x="-0.10" y="-1.00" radius="1.5"/>
+  <hole x="0.10" y="-1.50" radius="1.5"/>
+  <hole x="-0.10" y="-1.50" radius="1.5"/>
+  <hole x="0.10" y="-2.00" radius="1.5"/>
+  <hole x="-0.10" y="-2.00" radius="1.5"/>
+
+</module>
