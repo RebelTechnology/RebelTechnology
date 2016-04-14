@@ -14529,8 +14529,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="C402" library="Rebel" deviceset="C-EU" device="C0603" value="39pF C0G"/>
 <part name="IC4" library="Rebel" deviceset="CS4271" device=""/>
 <part name="C502" library="Rebel" deviceset="C-EU" device="C0603" value="2n7 C0G"/>
-<part name="R301" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
-<part name="R304" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
+<part name="R301" library="Rebel" deviceset="R-EU_" device="0603" value="16k5"/>
+<part name="R304" library="Rebel" deviceset="R-EU_" device="0603" value="16k5"/>
 <part name="R305" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R302" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="IC3" library="linear" deviceset="TL074" device="D"/>
@@ -14595,11 +14595,11 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="C301" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
 <part name="C414" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C413" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="1u"/>
+<part name="C413" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="10u"/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
-<part name="R306" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
-<part name="R309" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
+<part name="R306" library="Rebel" deviceset="R-EU_" device="0603" value="16k5"/>
+<part name="R309" library="Rebel" deviceset="R-EU_" device="0603" value="16k5"/>
 <part name="R310" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R307" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
@@ -14611,7 +14611,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="C302" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND40" library="supply1" deviceset="GND" device=""/>
-<part name="C303" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="1u"/>
+<part name="C303" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="10u"/>
 <part name="C304" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND41" library="supply1" deviceset="GND" device=""/>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
@@ -14765,12 +14765,10 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="C16" library="Rebel" deviceset="CPOL-EU" device="CT3216" value="4u7 20v Tantalum"/>
 <part name="GND93" library="supply1" deviceset="GND" device=""/>
 <part name="C17" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C18" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C19" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C20" library="Rebel" deviceset="CPOL-EU" device="CT3216" value="4u7"/>
-<part name="C21" library="Rebel" deviceset="CPOL-EU" device="CT3216" value="4u7"/>
-<part name="C24" library="Rebel" deviceset="CPOL-EU" device="CT3216" value="2u2"/>
-<part name="GND94" library="supply1" deviceset="GND" device=""/>
+<part name="C20" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="4u7"/>
+<part name="C21" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="4u7"/>
+<part name="C24" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="2u2"/>
 <part name="GND95" library="supply1" deviceset="GND" device=""/>
 <part name="GND96" library="supply1" deviceset="GND" device=""/>
 <part name="GND97" library="supply1" deviceset="GND" device=""/>
@@ -14836,12 +14834,10 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="C16" gate="G$1" x="213.36" y="284.48"/>
 <instance part="GND93" gate="1" x="172.72" y="228.6"/>
 <instance part="C17" gate="G$1" x="160.02" y="294.64"/>
-<instance part="C18" gate="G$1" x="185.42" y="304.8"/>
 <instance part="C19" gate="G$1" x="205.74" y="284.48"/>
 <instance part="C20" gate="G$1" x="152.4" y="294.64"/>
 <instance part="C21" gate="G$1" x="203.2" y="320.04"/>
 <instance part="C24" gate="G$1" x="203.2" y="304.8"/>
-<instance part="GND94" gate="1" x="185.42" y="294.64"/>
 <instance part="GND95" gate="1" x="203.2" y="294.64"/>
 <instance part="GND96" gate="1" x="160.02" y="287.02"/>
 <instance part="GND97" gate="1" x="152.4" y="287.02"/>
@@ -14964,11 +14960,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="170.18" y1="236.22" x2="170.18" y2="238.76" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="C18" gate="G$1" pin="2"/>
-<pinref part="GND94" gate="1" pin="GND"/>
-<wire x1="185.42" y1="299.72" x2="185.42" y2="297.18" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="C24" gate="G$1" pin="-"/>
 <pinref part="GND95" gate="1" pin="GND"/>
 <wire x1="203.2" y1="297.18" x2="203.2" y2="299.72" width="0.1524" layer="91"/>
@@ -15056,10 +15047,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <pinref part="U$1" gate="G$1" pin="VDDIO"/>
 <wire x1="175.26" y1="287.02" x2="175.26" y2="309.88" width="0.1524" layer="91"/>
-<pinref part="C18" gate="G$1" pin="1"/>
-<wire x1="175.26" y1="309.88" x2="185.42" y2="309.88" width="0.1524" layer="91"/>
-<wire x1="185.42" y1="309.88" x2="185.42" y2="307.34" width="0.1524" layer="91"/>
-<junction x="175.26" y="309.88"/>
 <pinref part="C17" gate="G$1" pin="1"/>
 <wire x1="160.02" y1="297.18" x2="160.02" y2="299.72" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="VDD"/>
