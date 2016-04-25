@@ -8,34 +8,34 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
-<layer number="2" name="Route2" color="10" fill="3" visible="yes" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
-<layer number="15" name="Route15" color="13" fill="6" visible="yes" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
-<layer number="19" name="Unrouted" color="13" fill="1" visible="yes" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
+<layer number="2" name="Route2" color="10" fill="3" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
+<layer number="15" name="Route15" color="13" fill="6" visible="no" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
+<layer number="19" name="Unrouted" color="13" fill="1" visible="no" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -44,8 +44,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -53,20 +53,20 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
-<layer number="58" name="bCAD" color="11" fill="1" visible="yes" active="no"/>
-<layer number="59" name="tCarbon" color="7" fill="1" visible="yes" active="no"/>
-<layer number="60" name="bCarbon" color="7" fill="1" visible="yes" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
+<layer number="58" name="bCAD" color="11" fill="1" visible="no" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -16756,7 +16756,6 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="GND57" library="supply1" deviceset="GND" device=""/>
 <part name="GND58" library="supply1" deviceset="GND" device=""/>
 <part name="GND59" library="supply1" deviceset="GND" device=""/>
-<part name="P+10" library="supply1" deviceset="+5V" device=""/>
 <part name="P+13" library="supply1" deviceset="+12V" device=""/>
 <part name="GND60" library="supply1" deviceset="GND" device=""/>
 <part name="P-4" library="supply1" deviceset="-12V" device=""/>
@@ -16823,7 +16822,6 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="Q1" library="transistor-small-signal" deviceset="BSS84" device=""/>
 <part name="Q2" library="transistor-small-signal" deviceset="BSS123" device=""/>
 <part name="U$1" library="James" deviceset="MIC2005" device=""/>
-<part name="P+15" library="supply1" deviceset="+5V" device=""/>
 <part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="+3V20" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND101" library="supply1" deviceset="GND" device=""/>
@@ -17043,13 +17041,11 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <instance part="GND57" gate="1" x="96.52" y="307.34"/>
 <instance part="GND58" gate="1" x="109.22" y="307.34"/>
 <instance part="GND59" gate="1" x="119.38" y="307.34"/>
-<instance part="P+10" gate="1" x="119.38" y="330.2"/>
 <instance part="IC3" gate="1" x="96.52" y="322.58"/>
 <instance part="GND99" gate="1" x="71.12" y="307.34"/>
 <instance part="C23" gate="G$1" x="71.12" y="317.5"/>
 <instance part="P+14" gate="1" x="71.12" y="330.2"/>
 <instance part="U$1" gate="MIC2005" x="96.52" y="261.62"/>
-<instance part="P+15" gate="1" x="78.74" y="276.86"/>
 <instance part="GND101" gate="1" x="78.74" y="259.08"/>
 <instance part="JP4" gate="G$1" x="101.6" y="109.22" rot="R180"/>
 <instance part="C28" gate="G$1" x="165.1" y="180.34"/>
@@ -17447,25 +17443,24 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <pinref part="C102" gate="G$1" pin="1"/>
 <wire x1="119.38" y1="320.04" x2="119.38" y2="322.58" width="0.1524" layer="91"/>
 <pinref part="C101" gate="G$1" pin="+"/>
-<wire x1="119.38" y1="322.58" x2="119.38" y2="327.66" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="322.58" x2="109.22" y2="322.58" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="322.58" x2="109.22" y2="320.04" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="322.58" x2="119.38" y2="322.58" width="0.1524" layer="91"/>
 <junction x="109.22" y="322.58"/>
-<junction x="119.38" y="322.58"/>
-<pinref part="P+10" gate="1" pin="+5V"/>
 <pinref part="IC3" gate="1" pin="OUT"/>
-</segment>
-<segment>
-<pinref part="U$1" gate="MIC2005" pin="VIN"/>
-<pinref part="P+15" gate="1" pin="+5V"/>
-<wire x1="81.28" y1="269.24" x2="78.74" y2="269.24" width="0.1524" layer="91"/>
-<wire x1="78.74" y1="269.24" x2="78.74" y2="274.32" width="0.1524" layer="91"/>
+<label x="121.92" y="322.58" size="1.778" layer="95"/>
+<wire x1="119.38" y1="322.58" x2="132.08" y2="322.58" width="0.1524" layer="91"/>
+<junction x="119.38" y="322.58"/>
 </segment>
 <segment>
 <wire x1="2.54" y1="93.98" x2="-20.32" y2="93.98" width="0.1524" layer="91"/>
 <label x="-20.32" y="93.98" size="1.778" layer="95"/>
 <pinref part="JP10" gate="G$1" pin="7"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="MIC2005" pin="VIN"/>
+<label x="68.58" y="269.24" size="1.778" layer="95"/>
+<wire x1="68.58" y1="269.24" x2="81.28" y2="269.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="TOP_USB_H_PWR_EN" class="0">
@@ -19641,20 +19636,6 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <pinref part="R508" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="CVA" class="0">
-<segment>
-<pinref part="R16" gate="G$1" pin="1"/>
-<wire x1="279.4" y1="259.08" x2="271.78" y2="259.08" width="0.1524" layer="91"/>
-<label x="271.78" y="259.08" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="CVB" class="0">
-<segment>
-<pinref part="R15" gate="G$1" pin="1"/>
-<wire x1="279.4" y1="218.44" x2="271.78" y2="218.44" width="0.1524" layer="91"/>
-<label x="271.78" y="218.44" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="OUTL" class="0">
 <segment>
 <pinref part="R604" gate="G$1" pin="1"/>
@@ -19839,13 +19820,6 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <pinref part="Q1" gate="G$1" pin="D"/>
 <wire x1="45.72" y1="294.64" x2="48.26" y2="294.64" width="0.1524" layer="91"/>
 <junction x="45.72" y="294.64"/>
-</segment>
-</net>
-<net name="USB_H__PWR_FAULT" class="0">
-<segment>
-<wire x1="269.24" y1="101.6" x2="297.18" y2="101.6" width="0.1524" layer="91"/>
-<label x="271.78" y="101.6" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$3" pin="PA10"/>
 </segment>
 </net>
 <net name="USB_H_VBUS" class="0">
@@ -20826,6 +20800,11 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <pinref part="R5" gate="G$1" pin="2"/>
 <wire x1="398.78" y1="-20.32" x2="398.78" y2="-17.78" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<wire x1="269.24" y1="101.6" x2="297.18" y2="101.6" width="0.1524" layer="91"/>
+<label x="271.78" y="101.6" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$3" pin="PA10"/>
+</segment>
 </net>
 <net name="ENC1_SW" class="0">
 <segment>
@@ -20905,6 +20884,11 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <label x="381" y="25.4" size="1.778" layer="95"/>
 <wire x1="398.78" y1="25.4" x2="381" y2="25.4" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="R15" gate="G$1" pin="1"/>
+<wire x1="279.4" y1="218.44" x2="264.16" y2="218.44" width="0.1524" layer="91"/>
+<label x="264.16" y="218.44" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="CVINA" class="0">
 <segment>
@@ -20912,16 +20896,24 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <label x="381" y="30.48" size="1.778" layer="95"/>
 <wire x1="398.78" y1="30.48" x2="381" y2="30.48" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="R16" gate="G$1" pin="1"/>
+<wire x1="279.4" y1="259.08" x2="264.16" y2="259.08" width="0.1524" layer="91"/>
+<label x="264.16" y="259.08" size="1.778" layer="95"/>
+</segment>
 </net>
 </nets>
 </sheet>
 </sheets>
 <errors>
-<approved hash="102,1,101.6,340.36,VCC,TOP_VCC,,,,"/>
+<approved hash="101,2,170.18,30.48,X4-4,1,,,,"/>
+<approved hash="101,2,170.18,2.54,X4-15,1,,,,"/>
+<approved hash="102,1,71.12,327.66,+12V,TOP_+12V,,,,"/>
 <approved hash="104,2,480.06,55.88,IC6P,V+,+12V,,,"/>
 <approved hash="104,2,480.06,40.64,IC6P,V-,-12V,,,"/>
 <approved hash="104,2,231.14,241.3,IC5P,V+,+12V,,,"/>
 <approved hash="104,2,231.14,226.06,IC5P,V-,-12V,,,"/>
+<approved hash="104,1,81.28,269.24,U$1,VIN,TOP_+5V,,,"/>
 <approved hash="104,2,419.1,302.26,IC1P,V+,+12V,,,"/>
 <approved hash="104,2,419.1,287.02,IC1P,V-,-12V,,,"/>
 <approved hash="104,2,231.14,314.96,IC2P,V+,+12V,,,"/>

@@ -3475,9 +3475,9 @@ design rules under a new name.</description>
 <contactref element="C110" pad="1"/>
 <contactref element="IC110" pad="3"/>
 <wire x1="90.8925" y1="93.6475" x2="92.9575" y2="93.8525" width="0" layer="19" extent="1-1"/>
-<wire x1="102" y1="77.22" x2="92.9575" y2="93.8525" width="0" layer="19" extent="1-1"/>
+<wire x1="89.1" y1="88.1" x2="90.8925" y2="93.6475" width="0" layer="19" extent="1-1"/>
+<wire x1="102" y1="77.22" x2="89.1" y2="88.1" width="0" layer="19" extent="1-1"/>
 <wire x1="120.53" y1="25.9325" x2="102" y2="77.22" width="0" layer="19" extent="1-1"/>
-<wire x1="89.1" y1="88.1" x2="90.8925" y2="93.6475" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="FLASH_NCS">
 <contactref element="IC9" pad="1"/>
@@ -3670,9 +3670,6 @@ design rules under a new name.</description>
 <wire x1="160.45" y1="72.3" x2="152.5" y2="67.05" width="0" layer="19" extent="1-1"/>
 <wire x1="80.101378125" y1="83.557290625" x2="152.5" y2="67.05" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="CVA">
-<contactref element="R16" pad="1"/>
-</signal>
 <signal name="+12V">
 <contactref element="C605" pad="1"/>
 <contactref element="C503" pad="1"/>
@@ -3856,9 +3853,6 @@ design rules under a new name.</description>
 <wire x1="69.215" y1="7.085" x2="69.85" y2="7.72" width="0.4064" layer="1"/>
 <wire x1="69.85" y1="7.72" x2="69.85" y2="10.26" width="0.4064" layer="1"/>
 </signal>
-<signal name="CVB">
-<contactref element="R15" pad="1"/>
-</signal>
 <signal name="ADC1">
 <contactref element="D3" pad="3"/>
 <contactref element="R22" pad="2"/>
@@ -4016,9 +4010,6 @@ design rules under a new name.</description>
 <contactref element="Q1" pad="3"/>
 <wire x1="100.73" y1="70.08" x2="103.27" y2="70.08" width="0" layer="19" extent="1-1"/>
 <wire x1="97.7" y1="68.75" x2="100.73" y2="70.08" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="USB_H__PWR_FAULT">
-<contactref element="IC8" pad="102"/>
 </signal>
 <signal name="USB_H_VBUS">
 <contactref element="JP6" pad="1"/>
@@ -4508,8 +4499,8 @@ design rules under a new name.</description>
 <contactref element="C102" pad="1"/>
 <contactref element="C101" pad="+"/>
 <contactref element="IC3" pad="3"/>
-<contactref element="U$1" pad="1"/>
 <contactref element="JP10" pad="7"/>
+<contactref element="U$1" pad="1"/>
 <wire x1="22.72" y1="88.5" x2="47" y2="79.76" width="0" layer="19" extent="16-16"/>
 <wire x1="18.765" y1="90.805" x2="22.72" y2="88.5" width="0" layer="19" extent="16-16"/>
 <wire x1="19.73" y1="95.545" x2="18.765" y2="90.805" width="0" layer="19" extent="16-16"/>
@@ -4528,7 +4519,9 @@ design rules under a new name.</description>
 <signal name="USB_H_PWR_FAULT">
 <contactref element="JP6" pad="5"/>
 <contactref element="R5" pad="2"/>
+<contactref element="IC8" pad="102"/>
 <wire x1="58" y1="84.84" x2="60.5" y2="84.85" width="0" layer="19" extent="1-1"/>
+<wire x1="74.4797375" y1="58.8615875" x2="60.5" y2="84.85" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="TOP_ENC1_SW">
 <contactref element="JP10" pad="1"/>
@@ -4640,9 +4633,13 @@ design rules under a new name.</description>
 </signal>
 <signal name="CVINB">
 <contactref element="JP2" pad="5"/>
+<contactref element="R15" pad="1"/>
+<wire x1="70" y1="30.16" x2="142.65" y2="27.35" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="CVINA">
 <contactref element="JP2" pad="3"/>
+<contactref element="R16" pad="1"/>
+<wire x1="70" y1="25.08" x2="141.9" y2="2.6" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>
