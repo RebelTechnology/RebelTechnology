@@ -52,7 +52,9 @@ public:
   int getElapsedCycles();
 public:
   virtual void reset(){};
-  virtual void processAudio(AudioBuffer& output) = 0;
+  virtual void encoderChanged(uint8_t encoder, int32_t dir){};
+  /* virtual void processVideo(VideoBuffer&); */
+  virtual void processAudio(AudioBuffer&) = 0;
 private:
   PatchProcessor* processor;
 };

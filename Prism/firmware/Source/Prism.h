@@ -7,8 +7,8 @@
  extern "C" {
 #endif
 
-   void encoderChanged(int encoder, int32_t value);
-   void encoderReset(int encoder, int32_t value);
+   void encoderChanged(uint8_t encoder, int32_t value);
+   void encoderReset(uint8_t encoder, int32_t value);
    void setup(ProgramVector* pv);
    void processBlock(ProgramVector* pv);
 

@@ -1,3 +1,16 @@
+/*
+todo:
+circular buffer for 1/2 pixel buffer pre-trigger history
+pixel buffer 16x screen size (x and y)
+display buffer 96x96
+
+on trigger, copy circular buffer to pixel buffer and start filling
+when full, copy to display buffer with current pos and divs x and y
+on changing pos or divs copy from pixel buffer to display buffer. 
+
+split processBlock() from processFrame()
+*/
+
 class ScopePatch : public Patch {
 private:
   uint16_t bg = BLACK;
@@ -24,18 +37,20 @@ public:
       buffer[1][i] = 33;
     }
   }
+  void encoderChanged(uint8_t encoder, int32_t dir){
+    if(dir > 0 && div < 16)
+      div++;
+    else if(div > 1)
+      div--;
+    writepos = 0;
+    reset();
+  }
   void processAudio(AudioBuffer& samples){
     screen.setTextColor(fg);
     screen.setTextSize(1);
     float* left = samples.getSamples(0);
     float* right = samples.getSamples(1);
     float trig = 0.0f;
-    int newdiv = encoder2/4;
-    if(div != newdiv){
-      div = newdiv;
-      writepos = 0;
-      reset();
-    }
     int height = screen.getHeight()/2;
     int offset = 0;
     // fast forward to trigger

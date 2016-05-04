@@ -10,8 +10,6 @@ bool dooffset = true;
 
 extern Graphics screen;
 
-volatile int32_t encoder1;
-volatile int32_t encoder2;
 extern uint16_t adc_values[4];
 
 #include "ScopePatch.hpp"
@@ -37,31 +35,28 @@ void changePatch(uint8_t pid){
   }
 }
 
-void encoderChanged(int encoder, int32_t value){
-  switch(encoder){
-  case 0:
-    if(value > encoder1){
+void encoderChanged(uint8_t encoder, int32_t value){
+  static int32_t encoders[2] = {0, 0};
+  if(encoder == 1){
+    // pass encoder change event to patch
+    int32_t delta = encoders[encoder] - value;
+    patches[currentPatch]->encoderChanged(encoder, delta);
+    encoders[encoder] = value;
+  }
+  if(encoder == 0){
+    if(value > encoders[encoder]){
       if(currentPatch == 3)
 	changePatch(0);
       else
 	changePatch(currentPatch+1);
-    }else if(value < encoder1){
+    }else if(value < encoders[encoder]){
       if(currentPatch == 0)
 	changePatch(3);
       else
 	changePatch(currentPatch-1);
     }
-    encoder1 = value;
-    break;
-  case 1:
-    if(value > 64)
-      encoderReset(encoder, 64);
-    else if(value < 4)
-      encoderReset(encoder, 4);
-    else
-      encoder2 = value;
-    break;
-  }  
+    encoders[encoder] = value;
+  }
 }
 
 void setup(ProgramVector* pv){

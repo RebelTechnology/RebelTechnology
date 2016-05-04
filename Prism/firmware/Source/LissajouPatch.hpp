@@ -3,10 +3,13 @@ private:
   uint16_t colour = CYAN;
   uint16_t fadesteps = 1;
   uint16_t fg = WHITE;
+  float scale = 1.0;
 public:
   LissajouPatch(){}
+  void encoderChanged(uint8_t encoder, int32_t dir){
+    scale = min(4.0, max(0.1, scale+0.05*dir));
+  }
   void processAudio(AudioBuffer& samples){
-    float scale = encoder2*0.05;
     screen.setTextColor(fg);
     screen.setTextSize(1);
     float* left = samples.getSamples(0);

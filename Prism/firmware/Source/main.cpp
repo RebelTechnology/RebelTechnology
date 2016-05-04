@@ -681,7 +681,7 @@ void readadc(){
   ASSERT(ret == HAL_OK, "adc1 stop failed");
 }
 
-void encoderReset(int encoder, int32_t value){
+void encoderReset(uint8_t encoder, int32_t value){
   if(encoder == 0)
     __HAL_TIM_SetCounter(&htim1, value);
   else if(encoder == 1)
