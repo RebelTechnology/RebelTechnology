@@ -1,4 +1,3 @@
-
 #define SSD1331
 /* #define SEPS114A */
 
@@ -13,12 +12,22 @@
 /* #define OLED_BITBANG */
 #define USE_CODEC
 #define CODEC_SOFT_CS
-#define CODEC_BUFFER_SIZE   8192 // 2048 samples per block, 23.4 FPS
+#define CODEC_BLOCKSIZE 2048 // 23.4 FPS
 /* #define USE_OVERDRIVE // 216MHz */
 /* #define QSPI_FLASH_SIZE (128*1024) */
 /* #define USE_QSPI_FLASH */
 /* #define USE_DMA2D */
 /* #define USE_RNG */
+
+#define CODEC_BUFFER_SIZE (4*CODEC_BLOCKSIZE)
+
+#ifdef SSD1331
+#define OLED_WIDTH			96
+#define OLED_HEIGHT			64
+#elif defined SEPS114A
+#define OLED_WIDTH			96
+#define OLED_HEIGHT			96
+#endif
 
 #define QSPI_D2_Pin GPIO_PIN_2
 #define QSPI_D2_GPIO_Port GPIOE

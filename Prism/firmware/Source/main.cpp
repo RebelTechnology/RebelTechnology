@@ -45,7 +45,7 @@ UART_HandleTypeDef huart1;
 
 osThreadId screenTaskHandle;
 #ifdef USE_SCREEN
-Graphics screen;
+Graphics graphics;
 #endif
 #ifdef USE_CODEC
 Codec codec;
@@ -594,9 +594,15 @@ extern "C" {
   }
 }
 
+#ifdef USE_QSPI_FLASH
 uint8_t qspitx[128] = "hello and welcome once again";
 uint8_t qspirx[128];
+#endif
 bool dotxrx = false;
+
+static uint16_t pixelbuffer[2][OLED_HEIGHT][OLED_WIDTH];
+static uint16_t** pb1 = (uint16_t**)pixelbuffer[0];
+static uint16_t** pb2 = (uint16_t**)pixelbuffer[1];
 
 void StartScreenTask(void const * argument)
 {
@@ -626,8 +632,8 @@ void StartScreenTask(void const * argument)
 #endif
 
 #ifdef USE_ENCODERS
-  __HAL_TIM_SetCounter(&htim1, 0);
-  __HAL_TIM_SetCounter(&htim3, 0);
+  __HAL_TIM_SetCounter(&htim1, INT32_MAX/2);
+  __HAL_TIM_SetCounter(&htim3, INT32_MAX/2);
   ret = HAL_TIM_Encoder_Start_IT(&htim1, 0);
   ASSERT(ret == HAL_OK, "tim1 encoder start failed");
   ret = HAL_TIM_Encoder_Start_IT(&htim3, TIM_CHANNEL_ALL);
@@ -650,14 +656,19 @@ void StartScreenTask(void const * argument)
 #endif
 
 #ifdef USE_SCREEN
-  screen.begin(&hspi1);
+  graphics.begin(&hspi1);
 #endif
 
   setup(&programVector);
   for(;;){
     if(doProcessAudio){
+      // swap pixelbuffer
+      if(programVector.pixels == pb1)
+	programVector.pixels = pb2;
+      else
+	programVector.pixels = pb1;
       processBlock(&programVector);
-      screen.display();
+      graphics.display(programVector.pixels);
       doProcessAudio = false;
 #ifdef USE_ADC
 #if !defined ADC_DMA && !defined ADC_IT

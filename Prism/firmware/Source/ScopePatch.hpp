@@ -24,7 +24,7 @@ private:
       drawVerticalLine(x, to, y, c);
     else
       do{
-	screen.drawPixel(x, y++, c);
+	screen.setPixel(x, y++, c);
       }while(y < to);
     return to;
   }
@@ -46,7 +46,7 @@ public:
     reset();
   }
   void processAudio(AudioBuffer& samples){
-    screen.setTextColor(fg);
+    screen.setTextColour(fg);
     screen.setTextSize(1);
     float* left = samples.getSamples(0);
     float* right = samples.getSamples(1);
@@ -66,7 +66,7 @@ public:
       buffer[1][writepos] = height+height*right[i]+2;
       writepos++;
     }
-    screen.fillScreen(bg);
+    screen.fill(bg);
     screen.setCursor(35, 0);
     screen.print("Scope");
     screen.setCursor(0, 56);

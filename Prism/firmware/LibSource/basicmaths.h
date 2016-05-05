@@ -3,7 +3,8 @@
 
 #include <stdlib.h>
 #include <stdint.h>
-#include "heap.h"
+/* #include "heap.h" */
+/* #include "FreeRTOS.h" */
 
 #define _USE_MATH_DEFINES
 /* Definitions of useful mathematical constants

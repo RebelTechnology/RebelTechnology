@@ -39,6 +39,9 @@
      uint32_t cycles_per_block;
      uint32_t heap_bytes_used;
      char* message;
+     uint16_t** pixels;
+     uint16_t screen_width;
+     uint16_t screen_height;
    } ProgramVector;
 
 #define CHECKSUM_ERROR_STATUS      -10

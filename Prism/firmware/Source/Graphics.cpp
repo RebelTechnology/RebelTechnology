@@ -1,4 +1,3 @@
-
 // #include "cmsis_os.h"
 #include "stm32f7xx_hal.h"
 #include "mxconstants.h"
@@ -20,8 +19,7 @@ extern "C" void delay(uint32_t millisec);
 #define setDC()   setPin(OLED_DC_GPIO_Port, OLED_DC_Pin)
 #define clearDC() clearPin(OLED_DC_GPIO_Port, OLED_DC_Pin)
 
-typedef uint16_t Colour;
-static Colour pixels[OLED_HEIGHT][OLED_WIDTH];
+// static Colour** pixels;
 
 #if defined SEPS114A
 #include "seps114a.h"
@@ -30,73 +28,48 @@ static Colour pixels[OLED_HEIGHT][OLED_WIDTH];
 #endif
 
 void Graphics::begin(SPI_HandleTypeDef *spi) {
-  fillScreen(BLUE);
   hspi = spi;
   // off();
   commonInit();
   chipInit();
   delay(10);
-  // fillScreen(BLACK);
   // display();
   // clear();
   // on();
   zero();
 }
 
-// void SSD1331::goTo(int x, int y) {
-//   assert_param(x < OLED_WIDTH && y < OLED_HEIGHT);
-//   uint8_t cmd[] = {_CMD_SETCOLUMN,(uint8_t)x,OLED_MW,_CMD_SETROW,(uint8_t)y,OLED_MH};
-//   writeCommands(cmd, 6);
+// Colour Graphics::Color565(uint8_t r, uint8_t g, uint8_t b) {
+//   Colour c;
+//   c = r >> 3;
+//   c <<= 6;
+//   c |= g >> 2;
+//   c <<= 5;
+//   c |= b >> 3;
+//   return c;
 // }
 
-uint16_t Graphics::Color565(uint8_t r, uint8_t g, uint8_t b) {
-  uint16_t c;
-  c = r >> 3;
-  c <<= 6;
-  c |= g >> 2;
-  c <<= 5;
-  c |= b >> 3;
-  return c;
-}
-
-uint16_t Graphics::getPixel(uint16_t x, uint16_t y){
-  if(x >= OLED_WIDTH || y >= OLED_HEIGHT)
-    return 0;
-  return pixels[y][x];
-}
-
-void Graphics::drawPixel(uint16_t x, uint16_t y, uint16_t c){
-  // assert_param(x < OLED_WIDTH && y < OLED_HEIGHT);
-  if(x >= OLED_WIDTH || y >= OLED_HEIGHT)
-    return;
-  pixels[y][x] = c;
-}
-
-// #include "screen.h"
-// volatile bool done;
-// void callback(){
-//   //  pinSetFast(_cs);
-//   setCS();
-//   done = true;
+// Colour Graphics::getPixel(uint16_t x, uint16_t y){
+//   if(x >= OLED_WIDTH || y >= OLED_HEIGHT)
+//     return 0;
+//   return pixels[y][x];
 // }
 
-// uint8_t screenstatus = 0x00;
-// // bit is clear if buffer is ready to write to
-// bool Graphics::isReady(){
-//   return (screenstatus & currentscreen) == 0;
-// }
-
-// void Graphics::complete(){
-//   screenstatus |= currentscreen;
+// void Graphics::drawPixel(uint16_t x, uint16_t y, Colour c){
+//   // assert_param(x < OLED_WIDTH && y < OLED_HEIGHT);
+//   if(x >= OLED_WIDTH || y >= OLED_HEIGHT)
+//     return;
+//   pixels[y][x] = c;
 // }
 
 bool dozero = false;
-void Graphics::display(){
+// void Graphics::display(uint16_t** pixels, uint16_t width, uint16_t height){
+void Graphics::display(uint16_t** pixels){
   if(dozero)
     zero();
-
   setDC();
-  spiwrite((uint8_t*)pixels, sizeof(pixels));
+  spiwrite((uint8_t*)pixels, OLED_WIDTH*OLED_HEIGHT);
+  // spiwrite((uint8_t*)pixels, width*height);
 
   // // display the buffer which is not currently written to
   // if((screenstatus & currentscreen) == 0)
@@ -114,18 +87,18 @@ void Graphics::display(){
 //   }
 // }
 
-void Graphics::fade(uint16_t steps){
-  for(int i=0; i<OLED_HEIGHT*OLED_WIDTH; ++i)
-    pixels[0][i] = 
-      (((pixels[0][i] & RED) >> steps) & RED) | 
-      (((pixels[0][i] & GREEN) >> steps) & GREEN) |
-      (((pixels[0][i] & BLUE) >> steps) & BLUE);
-}
+// void Graphics::fade(uint16_t steps){
+//   for(int i=0; i<OLED_HEIGHT*OLED_WIDTH; ++i)
+//     pixels[0][i] = 
+//       (((pixels[0][i] & RED) >> steps) & RED) | 
+//       (((pixels[0][i] & GREEN) >> steps) & GREEN) |
+//       (((pixels[0][i] & BLUE) >> steps) & BLUE);
+// }
 
-void Graphics::fillScreen(uint16_t c) {
-  for(int i=0; i<OLED_HEIGHT*OLED_WIDTH; ++i)
-    pixels[0][i] = c;
-}
+// void Graphics::fillScreen(uint16_t c) {
+//   for(int i=0; i<OLED_HEIGHT*OLED_WIDTH; ++i)
+//     pixels[0][i] = c;
+// }
 
 // void Graphics::drawFastHLine(int16_t x, int16_t y, int16_t w, uint16_t c) {
 //   if(x+w < OLED_WIDTH && y < OLED_HEIGHT)
@@ -197,10 +170,13 @@ extern "C" {
     ASSERT(0, "SPI Error");
   }
 
+  static unsigned int missedcalls = 0;
   void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
     if(__HAL_DMA_GET_FLAG(&hdma_spi1_tx,  __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx))){
       setCS();
       dmaready = true;
+    }else{
+      missedcalls++;
     }
   }
 
@@ -243,14 +219,4 @@ void Graphics::commonInit(){
 // void Graphics::clear() {
 //   uint8_t cmd[] = {0x25, 0x00, 0x00, OLED_MW, OLED_MH};
 //   writeCommands(cmd, 5);
-// }
-
-// void Graphics::lock() {
-//   uint8_t cmd[] = {0xfd, 0x04};
-//   writeCommands(cmd, 2);
-// }
-
-// void Graphics::unlock() {
-//   uint8_t cmd[] = {0xfd, 0x00};
-//   writeCommands(cmd, 2);
 // }

@@ -10,14 +10,12 @@ public:
   SplashPatch(){
   }
   void processAudio(AudioBuffer& samples){
-    screen.fillScreen(WHITE);
-    screen.setTextColor(BLACK);
+    screen.fill(WHITE);
+    screen.setTextColour(BLACK);
     screen.setTextSize(2);
-    screen.setCursor(x, y);
-    screen.print("PRISM");
+    screen.print(x, y, "PRISM");
     screen.setTextSize(1);
-    screen.setCursor(0, 56);
-    screen.print("Rebel Technology");
+    screen.print(0, 56, "Rebel Technology");
     // animate
     // if(x < 24 && ratex > 0)
     //   x += ratex;

@@ -1,16 +1,10 @@
 #include "mxconstants.h"
 #include "SampleBuffer.hpp"
+#include "ScreenBuffer.h"
 #include "Prism.h"
-#include "Graphics.h"
 #include "StompBox.h"
 
-bool dobypass = true;
-bool dowave = true;
-bool dooffset = true;
-
-extern Graphics screen;
-
-extern uint16_t adc_values[4];
+ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
 
 #include "ScopePatch.hpp"
 #include "LissajouPatch.hpp"
@@ -26,11 +20,13 @@ SplashPatch splash;
 // add polar coordinates plotting
 Patch* patches[4] = {&scope, &lissajou, &splash, &demo};
 
+extern uint16_t adc_values[4];
+
 uint8_t currentPatch = 1;
 void changePatch(uint8_t pid){
   if(pid < 3 && pid != currentPatch){
     currentPatch = pid;
-    screen.fillScreen(BLACK);
+    screen.fill(WHITE);
     patches[currentPatch]->reset();
   }
 }
@@ -43,7 +39,7 @@ void encoderChanged(uint8_t encoder, int32_t value){
     patches[currentPatch]->encoderChanged(encoder, delta);
     encoders[encoder] = value;
   }
-  if(encoder == 0 && ((value & 0x01) == 0)){
+  if(encoder == 0){
     if(value > encoders[encoder]){
       if(currentPatch == 3)
 	changePatch(0);
@@ -75,7 +71,9 @@ void setup(ProgramVector* pv){
   pv->programStatus = NULL;
   pv->serviceCall = NULL;
   pv->message = NULL;
-
+  pv->pixels = NULL;
+  pv->screen_width = OLED_WIDTH;
+  pv->screen_height = OLED_HEIGHT;
 #ifdef DEBUG_MEM
 #ifdef ARM_CORTEX
   size_t before = xPortGetFreeHeapSize();
@@ -87,13 +85,13 @@ void setup(ProgramVector* pv){
   pv->heap_bytes_used = before - xPortGetFreeHeapSize();
 #endif
 #endif
-
-  encoderReset(1, 4);
   changePatch(0);
 }
 
 void processBlock(ProgramVector* pv){
   samples.split(pv->audio_input, pv->audio_blocksize);
+  screen.setBuffer(pv->pixels);
+  screen.setPixel(30, 30, BLUE);
   patches[currentPatch]->processAudio(samples);
   // processor.setParameterValues(pv->parameters);
   // processor.patch->processAudio(*buffer);
