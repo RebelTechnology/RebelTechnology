@@ -35,6 +35,8 @@
 #include "stm32f7xx.h"
 #include "stm32f7xx_it.h"
 #include "cmsis_os.h"
+#include "mxconstants.h"
+#include "gpio.h"
 
 /* USER CODE BEGIN 0 */
 
@@ -108,23 +110,45 @@ void DMA2_Stream1_IRQHandler(void)
   /* USER CODE END DMA2_Stream1_IRQn 1 */
 }
 
+#ifdef OLED_SOFT_CS
+#define setCS()    setPin(OLED_CS_GPIO_Port, OLED_CS_Pin)
+#define clearCS()  clearPin(OLED_CS_GPIO_Port, OLED_CS_Pin)
+#else
+#define setCS()    
+#define clearCS()
+#endif
+extern SPI_HandleTypeDef hspi1;
+
 /**
 * @brief This function handles DMA2 stream3 global interrupt.
 */
+static int otxcounter = 0;
 void DMA2_Stream3_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream3_IRQn 0 */
   // SPI1_TX OLED TX
-  static int counter = 0;
-  counter++;
+  otxcounter++;
   /* USER CODE END DMA2_Stream3_IRQn 0 */
+
+  // calling the HAL IRQ handler triggers a TC callback too soon
   HAL_DMA_IRQHandler(&hdma_spi1_tx);
+
   /* USER CODE BEGIN DMA2_Stream3_IRQn 1 */
-  if(__HAL_DMA_GET_FLAG(&hdma_spi1_tx,  __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx)))
-    __HAL_DMA_CLEAR_FLAG(&hdma_spi1_tx, __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx));
-  if(__HAL_DMA_GET_FLAG(&hdma_spi1_tx,  __HAL_DMA_GET_HT_FLAG_INDEX(&hdma_spi1_tx)))
-    __HAL_DMA_CLEAR_FLAG(&hdma_spi1_tx, __HAL_DMA_GET_HT_FLAG_INDEX(&hdma_spi1_tx));
-  /* USER CODE END DMA2_Stream3_IRQn 1 */
+
+  /* if(__HAL_DMA_GET_FLAG(&hdma_spi1_tx,  __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx))){ */
+  /*   __HAL_DMA_CLEAR_FLAG(&hdma_spi1_tx, __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx)); */
+  /*   setCS();     */
+  /*   /\* Update error code *\/ */
+  /*   hdma_spi1_tx.ErrorCode |= HAL_DMA_ERROR_NONE; */
+  /*   /\* Change the DMA state *\/ */
+  /*   hdma_spi1_tx.State = HAL_DMA_STATE_READY_MEM0; */
+  /*   /\* Process Unlocked *\/ */
+  /*   __HAL_UNLOCK(&hdma_spi1_tx); */
+  /*   hspi1.TxXferCount = 0; */
+  /*   hspi1.State = HAL_SPI_STATE_READY; */
+  /* } */
+
+  /* user CODE END DMA2_Stream3_IRQn 1 */
 }
 
 /**

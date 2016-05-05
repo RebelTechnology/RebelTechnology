@@ -39,11 +39,11 @@ void encoderChanged(uint8_t encoder, int32_t value){
   static int32_t encoders[2] = {0, 0};
   if(encoder == 1){
     // pass encoder change event to patch
-    int32_t delta = encoders[encoder] - value;
+    int32_t delta = value - encoders[encoder];
     patches[currentPatch]->encoderChanged(encoder, delta);
     encoders[encoder] = value;
   }
-  if(encoder == 0){
+  if(encoder == 0 && ((value & 0x01) == 0)){
     if(value > encoders[encoder]){
       if(currentPatch == 3)
 	changePatch(0);

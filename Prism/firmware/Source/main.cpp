@@ -108,9 +108,15 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_ADC1_Init();
+#ifdef USE_DMA2D
   MX_DMA2D_Init();
+#endif
+#ifdef USE_QSPI_FLASH
   MX_QUADSPI_Init();
+#endif
+#ifdef USE_RNG
   MX_RNG_Init();
+#endif
   // MX_SAI1_Init();
   MX_SPI1_Init();
   // MX_SPI2_Init();
@@ -320,12 +326,9 @@ void MX_QUADSPI_Init(void)
 /* RNG init function */
 void MX_RNG_Init(void)
 {
-
   hrng.Instance = RNG;
   HAL_RNG_Init(&hrng);
-
 }
-
 
 /* SPI1 init function */
 /* OLED SPI */
@@ -345,7 +348,7 @@ void MX_SPI1_Init(void)
   hspi1.Init.NSS = SPI_NSS_HARD_OUTPUT;
   hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLED;
 #endif
-  // 096064 max recommended SPI speed 6.6MHz
+  // MCOT096064 max recommended SPI speed 6.6MHz
   // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16; // 6.75MHz
   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32; // 3.375MHz
   // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64; // 1.6875MHz
@@ -455,8 +458,10 @@ void MX_DMA_Init(void)
   /* DMA interrupt init */
   HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
-  // HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 5, 0);
-  // HAL_NVIC_EnableIRQ(DMA2_Stream3_IRQn);
+#ifdef OLED_DMA
+  HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream3_IRQn);
+#endif
   HAL_NVIC_SetPriority(DMA2_Stream4_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream4_IRQn);
 

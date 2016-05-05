@@ -25,20 +25,21 @@ static Colour pixels[OLED_HEIGHT][OLED_WIDTH];
 
 #if defined SEPS114A
 #include "seps114a.h"
-#elif defined SSD1131
+#elif defined SSD1331
 #include "ssd1331.h"
 #endif
 
 void Graphics::begin(SPI_HandleTypeDef *spi) {
+  fillScreen(BLUE);
   hspi = spi;
-  off();
+  // off();
   commonInit();
   chipInit();
+  delay(10);
   // fillScreen(BLACK);
   // display();
   // clear();
-  // seps114a_bg();
-  on();
+  // on();
   zero();
 }
 
@@ -131,22 +132,22 @@ void Graphics::fillScreen(uint16_t c) {
 //     wmemset(&pixels[y][x], c, sizeof(Colour)*w);
 // }
 
-// //not tested
-// void Graphics::setBrightness(uint8_t val){
-//   writeCommand(_CMD_MASTERCURRENT);
-//   if (val < 0x17) {
-//     writeData(val);
-//   } else {
-//     writeData(0x0F);
-//   }
-// }
-
 // void Graphics::setRegister(const uint8_t reg,uint8_t val){
 //   uint8_t cmd[2] = {reg,val};
 //   writeCommands(cmd,2);
 // }
 
 #define OLED_TIMEOUT 1000
+void Graphics::spiwritesync(const uint8_t* data, size_t size){
+  while(hspi->State != HAL_SPI_STATE_READY);
+  clearPin(OLED_SCK_GPIO_Port, OLED_SCK_Pin);
+  clearCS();
+  HAL_StatusTypeDef ret = HAL_SPI_Transmit(hspi, (uint8_t*)data, size, OLED_TIMEOUT);
+  assert_param(ret == HAL_OK);
+  setCS();
+}
+
+volatile bool dmaready = true;
 void Graphics::spiwrite(const uint8_t* data, size_t size){
 #ifdef OLED_BITBANG
   vPortEnterCritical();
@@ -166,7 +167,9 @@ void Graphics::spiwrite(const uint8_t* data, size_t size){
   setCS();
   vPortExitCritical();
 #elif defined OLED_DMA
+  // while(!dmaready);
   while(hspi->State != HAL_SPI_STATE_READY);
+  dmaready = false;
   clearPin(OLED_SCK_GPIO_Port, OLED_SCK_Pin);
   clearCS();
   HAL_StatusTypeDef ret = HAL_SPI_Transmit_DMA(hspi, (uint8_t*)data, size);
@@ -195,12 +198,12 @@ extern "C" {
   }
 
   void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
-    setCS();
+    if(__HAL_DMA_GET_FLAG(&hdma_spi1_tx,  __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx))){
+      setCS();
+      dmaready = true;
+    }
   }
 
-  void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi){
-    setCS();
-  }
 }
 #endif
 
@@ -222,12 +225,8 @@ void Graphics::writeCommand(uint8_t reg, uint8_t value){
 
 void Graphics::writeCommands(const uint8_t *cmd, uint8_t length){
   clearDC();
-  spiwrite(cmd, length);
-}
-	
-void Graphics::writeData(uint8_t c){
-  setDC();
-  spiwrite(c);
+  // writing with DMA appears to trigger a TC callback too soon
+  spiwritesync(cmd, length);
 }
 
 /* Initialize PIN, direction and stuff related to hardware on CPU */

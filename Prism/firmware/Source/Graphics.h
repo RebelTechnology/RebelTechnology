@@ -62,6 +62,7 @@ protected:
 
    void spiwrite(uint8_t data);
    void spiwrite(const uint8_t* data, size_t size);
+   void spiwritesync(const uint8_t* data, size_t size);
 private:
   /* volatile bool	reversal; */
   /* volatile bool	filling; */

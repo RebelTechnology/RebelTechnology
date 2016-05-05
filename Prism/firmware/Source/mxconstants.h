@@ -1,6 +1,6 @@
 
-/* #define SSD1331 */
-#define SEPS114A
+#define SSD1331
+/* #define SEPS114A */
 
 #define USE_ADC
 /* #define ADC_DMA */
@@ -9,15 +9,16 @@
 #define USE_SCREEN
 #define OLED_SOFT_CS
 /* #define OLED_IT */
-/* #define OLED_DMA */
+#define OLED_DMA
 /* #define OLED_BITBANG */
-/* #define OLED_B1 */
 #define USE_CODEC
 #define CODEC_SOFT_CS
-#define CODEC_BUFFER_SIZE   8192 // 2048 samples per block
+#define CODEC_BUFFER_SIZE   8192 // 2048 samples per block, 23.4 FPS
 /* #define USE_OVERDRIVE // 216MHz */
 /* #define QSPI_FLASH_SIZE (128*1024) */
 /* #define USE_QSPI_FLASH */
+/* #define USE_DMA2D */
+/* #define USE_RNG */
 
 #define QSPI_D2_Pin GPIO_PIN_2
 #define QSPI_D2_GPIO_Port GPIOE
@@ -73,19 +74,11 @@
 #define SWDIO_GPIO_Port GPIOA
 #define SWDCLK_Pin GPIO_PIN_14
 #define SWDCLK_GPIO_Port GPIOA
-#ifdef OLED_B1
-#define OLED_MOSI_Pin GPIO_PIN_12
-#define OLED_MOSI_GPIO_Port GPIOC
-#define OLED_CS_Pin GPIO_PIN_11
-#define OLED_CS_GPIO_Port GPIOC
-#define OLED_SPI SPI3
-#else
 #define OLED_MOSI_Pin GPIO_PIN_7
 #define OLED_MOSI_GPIO_Port GPIOA
 #define OLED_CS_Pin GPIO_PIN_15
 #define OLED_CS_GPIO_Port GPIOA
 #define OLED_SPI SPI1
-#endif
 #define OLED_DC_Pin GPIO_PIN_10
 #define OLED_DC_GPIO_Port GPIOC
 #define OLED_SCK_Pin GPIO_PIN_3
