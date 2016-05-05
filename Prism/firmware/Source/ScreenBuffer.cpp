@@ -4,7 +4,7 @@
 #define swap(a, b) { int16_t t = a; a = b; b = t; }
 #include "font.c"
 
-  // ScreenBuffer(int w, int h, Colour** buffer) : width(w), height(h), pixels(buffer){}
+  // ScreenBuffer(int w, int h, Colour* buffer) : width(w), height(h), pixels(buffer){}
 ScreenBuffer::ScreenBuffer(int w, int h) : width(w), height(h), pixels(NULL){
   cursor_y  = cursor_x    = 0;
   textsize  = 1;
@@ -14,25 +14,25 @@ ScreenBuffer::ScreenBuffer(int w, int h) : width(w), height(h), pixels(NULL){
 Colour ScreenBuffer::getPixel(int x, int y){
   if(x >= width || y >= height)
     return 0;
-  return pixels[y][x];
+  return pixels[y*width+x];
 }
 
 void ScreenBuffer::setPixel(int x, int y, Colour c){
   if(x < width && y < height)
-    pixels[y][x] = c;
+    pixels[y*width+x] = c;
 }
 
 void ScreenBuffer::fade(uint16_t steps){
   for(int i=0; i<height*width; ++i)
-    pixels[0][i] = 
-      (((pixels[0][i] & RED) >> steps) & RED) | 
-      (((pixels[0][i] & GREEN) >> steps) & GREEN) |
-      (((pixels[0][i] & BLUE) >> steps) & BLUE);
+    pixels[i] = 
+      (((pixels[i] & RED) >> steps) & RED) | 
+      (((pixels[i] & GREEN) >> steps) & GREEN) |
+      (((pixels[i] & BLUE) >> steps) & BLUE);
 }
 
 void ScreenBuffer::fill(uint16_t c) {
   for(int i=0; i<height*width; ++i)
-    pixels[0][i] = c;
+    pixels[i] = c;
 }
 
 size_t ScreenBuffer::write(uint8_t c) {

@@ -64,11 +64,11 @@ void Graphics::begin(SPI_HandleTypeDef *spi) {
 
 bool dozero = false;
 // void Graphics::display(uint16_t** pixels, uint16_t width, uint16_t height){
-void Graphics::display(uint16_t** pixels){
+void Graphics::display(uint16_t* pixels){
   if(dozero)
     zero();
   setDC();
-  spiwrite((uint8_t*)pixels, OLED_WIDTH*OLED_HEIGHT);
+  spiwrite((uint8_t*)pixels, OLED_WIDTH*OLED_HEIGHT*sizeof(uint16_t));
   // spiwrite((uint8_t*)pixels, width*height);
 
   // // display the buffer which is not currently written to

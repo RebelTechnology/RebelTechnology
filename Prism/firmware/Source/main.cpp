@@ -59,9 +59,15 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
+#ifdef USE_DMA2D
 static void MX_DMA2D_Init(void);
+#endif
+#ifdef USE_QSPI_FLASH
 static void MX_QUADSPI_Init(void);
+#endif
+#ifdef USE_RNG
 static void MX_RNG_Init(void);
+#endif
 // static void MX_SAI1_Init(void);
 static void MX_SPI1_Init(void);
 // static void MX_SPI2_Init(void);
@@ -282,6 +288,7 @@ void MX_ADC1_Init(void)
 }
 
 /* DMA2D init function */
+#ifdef USE_DMA2D
 void MX_DMA2D_Init(void)
 {
 
@@ -294,12 +301,12 @@ void MX_DMA2D_Init(void)
   hdma2d.LayerCfg[1].AlphaMode = DMA2D_NO_MODIF_ALPHA;
   hdma2d.LayerCfg[1].InputAlpha = 0;
   HAL_DMA2D_Init(&hdma2d);
-
   HAL_DMA2D_ConfigLayer(&hdma2d, 1);
-
 }
+#endif
 
 /* QUADSPI init function */
+#ifdef USE_QSPI_FLASH
 void MX_QUADSPI_Init(void)
 {
   // hqspi.Instance = QUADSPI;
@@ -322,13 +329,16 @@ void MX_QUADSPI_Init(void)
   HAL_QSPI_DeInit(&hqspi);
   HAL_QSPI_Init(&hqspi);
 }
+#endif
 
 /* RNG init function */
+#ifdef USE_RNG
 void MX_RNG_Init(void)
 {
   hrng.Instance = RNG;
   HAL_RNG_Init(&hrng);
 }
+#endif
 
 /* SPI1 init function */
 /* OLED SPI */
@@ -348,11 +358,7 @@ void MX_SPI1_Init(void)
   hspi1.Init.NSS = SPI_NSS_HARD_OUTPUT;
   hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLED;
 #endif
-  // MCOT096064 max recommended SPI speed 6.6MHz
-  // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16; // 6.75MHz
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32; // 3.375MHz
-  // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64; // 1.6875MHz
-  // hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128; // 843.75kHz
+  hspi1.Init.BaudRatePrescaler = OLED_SPI_PRESCALER;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLED;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
@@ -600,9 +606,8 @@ uint8_t qspirx[128];
 #endif
 bool dotxrx = false;
 
-static uint16_t pixelbuffer[2][OLED_HEIGHT][OLED_WIDTH];
-static uint16_t** pb1 = (uint16_t**)pixelbuffer[0];
-static uint16_t** pb2 = (uint16_t**)pixelbuffer[1];
+static uint16_t pixelbuffer[2][OLED_HEIGHT*OLED_WIDTH];
+int swappb = 0;
 
 void StartScreenTask(void const * argument)
 {
@@ -663,18 +668,16 @@ void StartScreenTask(void const * argument)
   for(;;){
     if(doProcessAudio){
       // swap pixelbuffer
-      if(programVector.pixels == pb1)
-	programVector.pixels = pb2;
-      else
-	programVector.pixels = pb1;
+      programVector.pixels = pixelbuffer[swappb];
+      swappb = !swappb;
       processBlock(&programVector);
       graphics.display(programVector.pixels);
-      doProcessAudio = false;
 #ifdef USE_ADC
 #if !defined ADC_DMA && !defined ADC_IT
       readadc();
 #endif
 #endif
+      doProcessAudio = false;
     }
   }
 }

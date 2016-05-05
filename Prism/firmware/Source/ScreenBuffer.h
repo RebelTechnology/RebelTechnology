@@ -15,19 +15,19 @@ typedef uint16_t Colour;
 #define YELLOW          0xFFE0  
 #define WHITE           0xFFFF
 
-class PixelBuffer {
-public:
-  void copy(const PixelBuffer& other);
-  Colour* getPixels();
-  int getWidth();
-  int getHeight();
-};
+// class PixelBuffer {
+// public:
+//   void copy(const PixelBuffer& other);
+//   Colour* getPixels();
+//   int getWidth();
+//   int getHeight();
+// };
 
 class ScreenBuffer {
 private:
-  int width;
-  int height;
-  Colour** pixels;
+  const int width;
+  const int height;
+  Colour* pixels;
 
   uint16_t textcolor, textbgcolor;
   uint16_t cursor_x, cursor_y;  
@@ -36,7 +36,7 @@ public:
   // ScreenBuffer(int w, int h, Colour** buffer) : width(w), height(h), pixels(buffer){}
   // ScreenBuffer();
   ScreenBuffer(int w, int h);
-  void setBuffer(uint16_t** buffer){
+  void setBuffer(uint16_t* buffer){
     pixels = buffer;
   }
   Colour getPixel(int x, int y);

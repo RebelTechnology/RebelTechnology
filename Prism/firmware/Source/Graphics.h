@@ -24,7 +24,7 @@ public:
   Graphics() : hspi(NULL) {}
   void begin(SPI_HandleTypeDef *spi);
   /* void display(uint16_t** pixels, uint16_t width, uint16_t height); */
-  void display(uint16_t** pixels);
+  void display(uint16_t* pixels);
   /* Colour Color565(uint8_t r, uint8_t g, uint8_t b); */
   /* Colour getPixel(uint16_t x, uint16_t y); */
   /* void drawPixel(uint16_t x, uint16_t y, Colour colour); */

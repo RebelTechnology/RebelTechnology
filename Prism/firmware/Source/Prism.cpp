@@ -32,7 +32,7 @@ void changePatch(uint8_t pid){
 }
 
 void encoderChanged(uint8_t encoder, int32_t value){
-  static int32_t encoders[2] = {0, 0};
+  static int32_t encoders[2] = {INT32_MAX/2, INT32_MAX/2};
   if(encoder == 1){
     // pass encoder change event to patch
     int32_t delta = value - encoders[encoder];
@@ -91,7 +91,6 @@ void setup(ProgramVector* pv){
 void processBlock(ProgramVector* pv){
   samples.split(pv->audio_input, pv->audio_blocksize);
   screen.setBuffer(pv->pixels);
-  screen.setPixel(30, 30, BLUE);
   patches[currentPatch]->processAudio(samples);
   // processor.setParameterValues(pv->parameters);
   // processor.patch->processAudio(*buffer);
