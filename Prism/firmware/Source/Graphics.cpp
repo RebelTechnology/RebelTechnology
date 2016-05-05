@@ -19,8 +19,6 @@ extern "C" void delay(uint32_t millisec);
 #define setDC()   setPin(OLED_DC_GPIO_Port, OLED_DC_Pin)
 #define clearDC() clearPin(OLED_DC_GPIO_Port, OLED_DC_Pin)
 
-// static Colour** pixels;
-
 #if defined SEPS114A
 #include "seps114a.h"
 #elif defined SSD1331
@@ -39,29 +37,6 @@ void Graphics::begin(SPI_HandleTypeDef *spi) {
   zero();
 }
 
-// Colour Graphics::Color565(uint8_t r, uint8_t g, uint8_t b) {
-//   Colour c;
-//   c = r >> 3;
-//   c <<= 6;
-//   c |= g >> 2;
-//   c <<= 5;
-//   c |= b >> 3;
-//   return c;
-// }
-
-// Colour Graphics::getPixel(uint16_t x, uint16_t y){
-//   if(x >= OLED_WIDTH || y >= OLED_HEIGHT)
-//     return 0;
-//   return pixels[y][x];
-// }
-
-// void Graphics::drawPixel(uint16_t x, uint16_t y, Colour c){
-//   // assert_param(x < OLED_WIDTH && y < OLED_HEIGHT);
-//   if(x >= OLED_WIDTH || y >= OLED_HEIGHT)
-//     return;
-//   pixels[y][x] = c;
-// }
-
 bool dozero = false;
 // void Graphics::display(uint16_t** pixels, uint16_t width, uint16_t height){
 void Graphics::display(uint16_t* pixels){
@@ -70,40 +45,7 @@ void Graphics::display(uint16_t* pixels){
   setDC();
   spiwrite((uint8_t*)pixels, OLED_WIDTH*OLED_HEIGHT*sizeof(uint16_t));
   // spiwrite((uint8_t*)pixels, width*height);
-
-  // // display the buffer which is not currently written to
-  // if((screenstatus & currentscreen) == 0)
-  //   return;
-  // uint8_t screen = currentscreen ? 1 : 0;
-  // spiwrite((uint8_t*)pixels[screen], sizeof(pixels));
-  // screenstatus &= ~currentscreen;
-  // currentscreen = screen;
 }
-
-// void Graphics::fillRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t c){
-//   if(x+w < OLED_WIDTH && y+h < OLED_HEIGHT){
-//     while(h-- != 0)
-//       wmemset(&pixels[x][y++], c, sizeof(Colour)*w);
-//   }
-// }
-
-// void Graphics::fade(uint16_t steps){
-//   for(int i=0; i<OLED_HEIGHT*OLED_WIDTH; ++i)
-//     pixels[0][i] = 
-//       (((pixels[0][i] & RED) >> steps) & RED) | 
-//       (((pixels[0][i] & GREEN) >> steps) & GREEN) |
-//       (((pixels[0][i] & BLUE) >> steps) & BLUE);
-// }
-
-// void Graphics::fillScreen(uint16_t c) {
-//   for(int i=0; i<OLED_HEIGHT*OLED_WIDTH; ++i)
-//     pixels[0][i] = c;
-// }
-
-// void Graphics::drawFastHLine(int16_t x, int16_t y, int16_t w, uint16_t c) {
-//   if(x+w < OLED_WIDTH && y < OLED_HEIGHT)
-//     wmemset(&pixels[y][x], c, sizeof(Colour)*w);
-// }
 
 // void Graphics::setRegister(const uint8_t reg,uint8_t val){
 //   uint8_t cmd[2] = {reg,val};

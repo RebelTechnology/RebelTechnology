@@ -32,7 +32,7 @@ void changePatch(uint8_t pid){
 }
 
 void encoderChanged(uint8_t encoder, int32_t value){
-  static int32_t encoders[2] = {INT32_MAX/2, INT32_MAX/2};
+  static int16_t encoders[2] = {INT16_MAX/2, INT16_MAX/2};
   if(encoder == 1){
     // pass encoder change event to patch
     int32_t delta = value - encoders[encoder];

@@ -637,8 +637,8 @@ void StartScreenTask(void const * argument)
 #endif
 
 #ifdef USE_ENCODERS
-  __HAL_TIM_SetCounter(&htim1, INT32_MAX/2);
-  __HAL_TIM_SetCounter(&htim3, INT32_MAX/2);
+  __HAL_TIM_SetCounter(&htim1, INT16_MAX/2);
+  __HAL_TIM_SetCounter(&htim3, INT16_MAX/2);
   ret = HAL_TIM_Encoder_Start_IT(&htim1, 0);
   ASSERT(ret == HAL_OK, "tim1 encoder start failed");
   ret = HAL_TIM_Encoder_Start_IT(&htim3, TIM_CHANNEL_ALL);
