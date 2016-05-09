@@ -31,20 +31,16 @@ void Graphics::begin(SPI_HandleTypeDef *spi) {
   commonInit();
   chipInit();
   delay(10);
-  // display();
-  // clear();
   // on();
   zero();
 }
 
 bool dozero = false;
-// void Graphics::display(uint16_t** pixels, uint16_t width, uint16_t height){
-void Graphics::display(uint16_t* pixels){
+void Graphics::display(uint16_t* pixels, uint16_t size){
   if(dozero)
     zero();
   setDC();
-  spiwrite((uint8_t*)pixels, OLED_WIDTH*OLED_HEIGHT*sizeof(uint16_t));
-  // spiwrite((uint8_t*)pixels, width*height);
+  spiwrite((uint8_t*)pixels, size*sizeof(uint16_t));
 }
 
 // void Graphics::setRegister(const uint8_t reg,uint8_t val){

@@ -605,7 +605,7 @@ uint8_t qspitx[128] = "hello and welcome once again";
 uint8_t qspirx[128];
 #endif
 bool dotxrx = false;
-
+bool dodisplay = true;
 static uint16_t pixelbuffer[2][OLED_HEIGHT*OLED_WIDTH];
 int swappb = 0;
 
@@ -671,7 +671,8 @@ void StartScreenTask(void const * argument)
       programVector.pixels = pixelbuffer[swappb];
       swappb = !swappb;
       processBlock(&programVector);
-      graphics.display(programVector.pixels);
+      if(dodisplay)
+	graphics.display(programVector.pixels, OLED_WIDTH*OLED_HEIGHT);
 #ifdef USE_ADC
 #if !defined ADC_DMA && !defined ADC_IT
       readadc();

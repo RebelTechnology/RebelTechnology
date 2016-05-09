@@ -52,8 +52,12 @@ public:
   void fill(Colour c);
   void invert();
   void fade(uint16_t steps);
-  void clear();
-  void clear(int x, int y, int width, int height);
+  void clear(){
+    fill(BLACK);
+  }
+  void clear(int x, int y, int width, int height){
+    fillRectangle(x, y, width, height, BLACK);
+  }
   inline int getWidth(){
     return width;
   }

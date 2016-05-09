@@ -3,18 +3,17 @@
 #include <stdint.h>
 #include "stm32f7xx_hal.h"
 
-class Graphics { // : public Adafruit_GFX {
+class Graphics {
 public:
   Graphics() : hspi(NULL) {}
   void begin(SPI_HandleTypeDef *spi);
-  /* void display(uint16_t** pixels, uint16_t width, uint16_t height); */
-  void display(uint16_t* pixels);
-  void zero();
+  void display(uint16_t* pixels, uint16_t size);
   void on();
   void off();
   /* bool isReady(); // true if last screen update has been sent */
   /* void complete(); // call after finishing a screen update */
 protected:
+  void zero();
    void spiwrite(uint8_t data);
    void spiwrite(const uint8_t* data, size_t size);
    void spiwritesync(const uint8_t* data, size_t size);
@@ -22,7 +21,7 @@ private:
   void writeCommand(uint8_t c);
   void writeCommand(uint8_t reg, uint8_t value);
   void writeCommands(const uint8_t* cmd, uint8_t length);
-  void setRegister(uint8_t reg, uint8_t val);
+  /* void setRegister(uint8_t reg, uint8_t val); */
   void chipInit();
   void commonInit();
   SPI_HandleTypeDef *hspi;
