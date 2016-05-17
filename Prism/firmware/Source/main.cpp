@@ -435,15 +435,19 @@ void MX_USART1_UART_Init(void)
 
   huart1.Instance = USART1;
   huart1.Init.BaudRate = 115200;
-  huart1.Init.WordLength = UART_WORDLENGTH_7B;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  // huart1.Init.WordLength = UART_WORDLENGTH_7B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
   huart1.Init.Mode = UART_MODE_TX_RX;
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
-  huart1.Init.OneBitSampling = UART_ONEBIT_SAMPLING_DISABLED;
+  // huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  // huart1.Init.OneBitSampling = UART_ONEBIT_SAMPLING_DISABLED;
   huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-  HAL_MultiProcessor_Init(&huart1, 0, UART_WAKEUPMETHOD_IDLELINE);
+  // HAL_MultiProcessor_Init(&huart1, 0, UART_WAKEUPMETHOD_IDLELINE);
+  // ASSERT(HAL_UART_DeInit(&huart1) == HAL_OK);
+  // ASSERT(HAL_UART_Init(&huart1) == HAL_OK);
+  HAL_UART_Init(&huart1);
 
 }
 
@@ -609,6 +613,27 @@ bool dodisplay = true;
 static uint16_t pixelbuffer[2][OLED_HEIGHT*OLED_WIDTH];
 int swappb = 0;
 
+void updateProgramVector(ProgramVector* pv){
+  pv->checksum = sizeof(ProgramVector);
+  pv->hardware_version = PRISM_HARDWARE;
+  pv->parameters_size = 2;
+  pv->parameters = adc_values;
+  pv->audio_bitdepth = 24;
+  pv->audio_samplingrate = 48000;
+  pv->buttons = 0;
+  pv->registerPatch = NULL;
+  pv->registerPatchParameter = NULL;
+  pv->cycles_per_block = 0;
+  pv->heap_bytes_used = 0;
+  pv->programReady = NULL;
+  pv->programStatus = NULL;
+  pv->serviceCall = NULL;
+  pv->message = NULL;
+  pv->pixels = pixelbuffer[0];
+  pv->screen_width = OLED_WIDTH;
+  pv->screen_height = OLED_HEIGHT;
+}
+
 void StartScreenTask(void const * argument)
 {
 #ifdef USE_QSPI_FLASH
@@ -664,6 +689,7 @@ void StartScreenTask(void const * argument)
   graphics.begin(&hspi1);
 #endif
 
+  updateProgramVector(&programVector);
   setup(&programVector);
   for(;;){
     if(doProcessAudio){

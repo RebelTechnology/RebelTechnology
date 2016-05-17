@@ -202,5 +202,12 @@ void ADC_IRQHandler(void){
   HAL_ADC_IRQHandler(&hadc1);
 }
 
+extern UART_HandleTypeDef huart1;
+
+void USARTx_IRQHandler(void)
+{
+  HAL_UART_IRQHandler(&huart1);
+}
+
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
