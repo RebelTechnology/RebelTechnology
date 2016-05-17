@@ -22,7 +22,7 @@ Patch* patches[4] = {&scope, &lissajou, &splash, &demo};
 
 extern uint16_t adc_values[4];
 
-uint8_t currentPatch = 1;
+uint8_t currentPatch = 0;
 void changePatch(uint8_t pid){
   if(pid < 3 && pid != currentPatch){
     currentPatch = pid;
@@ -56,36 +56,18 @@ void encoderChanged(uint8_t encoder, int32_t value){
 }
 
 void setup(ProgramVector* pv){
-  pv->checksum = sizeof(ProgramVector);
-  pv->hardware_version = PRISM_HARDWARE;
-  pv->parameters_size = 2;
-  pv->parameters = adc_values;
-  pv->audio_bitdepth = 24;
-  pv->audio_samplingrate = 48000;
-  pv->buttons = 0;
-  pv->registerPatch = NULL;
-  pv->registerPatchParameter = NULL;
-  pv->cycles_per_block = 0;
-  pv->heap_bytes_used = 0;
-  pv->programReady = NULL;
-  pv->programStatus = NULL;
-  pv->serviceCall = NULL;
-  pv->message = NULL;
-  pv->pixels = NULL;
-  pv->screen_width = OLED_WIDTH;
-  pv->screen_height = OLED_HEIGHT;
-#ifdef DEBUG_MEM
-#ifdef ARM_CORTEX
-  size_t before = xPortGetFreeHeapSize();
-#endif
-#endif
+  patches[currentPatch]->reset();
+// #ifdef DEBUG_MEM
+// #ifdef ARM_CORTEX
+//   size_t before = xPortGetFreeHeapSize();
+// #endif
+// #endif
 // #include "patch.cpp"
-#ifdef DEBUG_MEM
-#ifdef ARM_CORTEX
-  pv->heap_bytes_used = before - xPortGetFreeHeapSize();
-#endif
-#endif
-  changePatch(0);
+// #ifdef DEBUG_MEM
+// #ifdef ARM_CORTEX
+//   pv->heap_bytes_used = before - xPortGetFreeHeapSize();
+// #endif
+// #endif
 }
 
 void processBlock(ProgramVector* pv){

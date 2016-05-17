@@ -9,6 +9,7 @@
 #include "errorhandlers.h"
 #include "Prism.h"
 #include "ProgramVector.h"
+#include "midi.h"
 
 #ifndef min
 #define min(a,b) ((a)<(b)?(a):(b))
@@ -73,8 +74,12 @@ static void MX_SPI1_Init(void);
 // static void MX_SPI2_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_TIM3_Init(void);
+#ifdef USE_UART
 static void MX_USART1_UART_Init(void);
+#endif
+#ifdef USE_USB
 static void MX_USB_OTG_HS_USB_Init(void);
+#endif
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -128,8 +133,12 @@ int main(void)
   // MX_SPI2_Init();
   MX_TIM1_Init();
   MX_TIM3_Init();
+#ifdef USE_UART
   MX_USART1_UART_Init();
+#endif
+#ifdef USE_USB
   MX_USB_OTG_HS_USB_Init();
+#endif
 
   /* USER CODE BEGIN 2 */
 
@@ -670,19 +679,12 @@ void StartScreenTask(void const * argument)
   ASSERT(ret == HAL_OK, "tim3 encoder start failed");    
 #endif
 
+#ifdef USE_UART
+  midiSetup();
+#endif
+
 #ifdef USE_CODEC
   codec.reset();
-  codec.start();
-  // make sure functions are compiled in
-  codec.bypass(false);
-  codec.ramp(1<<23);
-  codec.set(0);
-
-  if(dotxrx){
-    codec.stop();
-    codec.clear();
-    codec.txrx();
-  }
 #endif
 
 #ifdef USE_SCREEN
@@ -691,6 +693,20 @@ void StartScreenTask(void const * argument)
 
   updateProgramVector(&programVector);
   setup(&programVector);
+
+#ifdef USE_CODEC
+  codec.start();
+  if(dotxrx){
+    // make sure functions are compiled in
+    codec.bypass(false);
+    codec.ramp(1<<23);
+    codec.set(0);
+    codec.stop();
+    codec.clear();
+    codec.txrx();
+  }
+#endif
+
   for(;;){
     if(doProcessAudio){
       // swap pixelbuffer

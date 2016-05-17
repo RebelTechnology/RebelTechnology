@@ -20,6 +20,9 @@
 /* #define USE_DMA2D */
 /* #define USE_RNG */
 
+/* #define USE_UART */
+/* #define USE_USB */
+
 // MCOT096064 max recommended SPI speed 6.6MHz
 // MCOT096096AY-RGBM max 5MHz
 /* #define OLED_SPI_PRESCALER SPI_BAUDRATEPRESCALER_16  // 6.75MHz */

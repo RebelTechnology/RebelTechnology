@@ -3,6 +3,9 @@
 #include "MidiReader.hpp"
 #include "MidiWriter.hpp"
 #include "stm32f7xx_hal.h"
+#include "mxconstants.h"
+
+#ifdef USE_MIDI
 
 static uint8_t frame[4];
 static uint8_t rxbuffer[256];
@@ -62,3 +65,5 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 //     }
 //   }
 // }
+
+#endif
