@@ -1,5 +1,5 @@
-/* #define SSD1331 */
-#define SEPS114A
+#define SSD1331
+/* #define SEPS114A */
 
 #define USE_ADC
 /* #define ADC_DMA */

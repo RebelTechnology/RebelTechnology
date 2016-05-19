@@ -59,6 +59,11 @@ void Graphics::spiwritesync(const uint8_t* data, size_t size){
 }
 
 volatile bool dmaready = true;
+bool Graphics::isReady(){
+  // true if last screen update has been sent
+  return dmaready;
+}
+
 void Graphics::spiwrite(const uint8_t* data, size_t size){
 #ifdef OLED_BITBANG
   vPortEnterCritical();
@@ -110,6 +115,8 @@ extern "C" {
 
   static unsigned int missedcalls = 0;
   void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
+    // todo: find out why this is called when tx is not complete
+    // and apparently sometimes not called when it is ready
     if(__HAL_DMA_GET_FLAG(&hdma_spi1_tx,  __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx))){
       setCS();
       dmaready = true;

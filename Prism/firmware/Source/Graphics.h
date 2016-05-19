@@ -10,7 +10,7 @@ public:
   void display(uint16_t* pixels, uint16_t size);
   void on();
   void off();
-  /* bool isReady(); // true if last screen update has been sent */
+  bool isReady();
   /* void complete(); // call after finishing a screen update */
 protected:
   void zero();

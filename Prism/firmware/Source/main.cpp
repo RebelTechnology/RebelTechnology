@@ -709,12 +709,14 @@ void StartScreenTask(void const * argument)
 
   for(;;){
     if(doProcessAudio){
-      // swap pixelbuffer
-      programVector.pixels = pixelbuffer[swappb];
-      swappb = !swappb;
       processBlock(&programVector);
-      if(dodisplay)
+      if(dodisplay){
+      // if(dodisplay && graphics.isReady()){
 	graphics.display(programVector.pixels, OLED_WIDTH*OLED_HEIGHT);
+	// swap pixelbuffer
+	programVector.pixels = pixelbuffer[swappb];
+	swappb = !swappb;
+      }
 #ifdef USE_ADC
 #if !defined ADC_DMA && !defined ADC_IT
       readadc();
