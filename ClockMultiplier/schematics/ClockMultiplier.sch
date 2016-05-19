@@ -21337,12 +21337,12 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <part name="P+13" library="supply1" deviceset="+12V" device=""/>
 <part name="U$2" library="SparkFun" deviceset="M08X2" device=""/>
 <part name="C2" library="rcl" deviceset="CPOL-EU" device="E5-6" value="10u"/>
-<part name="D2" library="diode" deviceset="1N581*" device="" technology="9-B"/>
+<part name="D2" library="diode" deviceset="1N581*" device="" technology="9-B" value="1N5817"/>
 <part name="F1" library="Rebel" deviceset="PTC" device="PTH"/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
 <part name="P+16" library="supply1" deviceset="+5V" device=""/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
-<part name="D3" library="diode" deviceset="1N581*" device="" technology="9-B"/>
+<part name="D3" library="diode" deviceset="1N581*" device="" technology="9-B" value="1N5817"/>
 <part name="P-2" library="supply1" deviceset="-12V" device=""/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
 <part name="R205" library="Rebel" deviceset="R-EU_" device="0204/7" value="120K"/>
@@ -21389,6 +21389,8 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <sheets>
 <sheet>
 <plain>
+<text x="177.8" y="-177.8" size="3.048" layer="97" font="vector">Rebel Technology Phoreo Rev02</text>
+<text x="177.8" y="-185.42" size="3.048" layer="97" font="vector">published 2016 under the GNU GPL v2</text>
 </plain>
 <instances>
 <instance part="R102" gate="G$1" x="78.74" y="-81.28"/>
