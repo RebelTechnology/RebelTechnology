@@ -121,21 +121,21 @@ extern "C" {
 }
 #endif
 
-inline void Graphics::spiwrite(uint8_t c){
-  spiwrite(&c, 1);
-}
+// inline void Graphics::spiwrite(uint8_t c){
+//   spiwrite(&c, 1);
+// }
 	
-void Graphics::writeCommand(uint8_t c){
-  clearDC();
-  spiwrite(c);
-}
+// void Graphics::writeCommand(uint8_t c){
+//   clearDC();
+//   spiwrite(c);
+// }
 
-void Graphics::writeCommand(uint8_t reg, uint8_t value){
-  clearDC();
-  spiwrite(reg);
-  setDC();
-  spiwrite(value);
-}
+// void Graphics::writeCommand(uint8_t reg, uint8_t value){
+//   clearDC();
+//   spiwrite(reg);
+//   setDC();
+//   spiwrite(value);
+// }
 
 void Graphics::writeCommands(const uint8_t *cmd, uint8_t length){
   clearDC();
