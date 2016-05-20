@@ -17259,7 +17259,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="C38" library="Rebel" deviceset="C-EU" device="C0603" value="10u"/>
 <part name="GND61" library="supply1" deviceset="GND" device=""/>
 <part name="X5" library="SparkFun" deviceset="USB" device="PTH-VERTICAL"/>
-<part name="U$4" library="James" deviceset="V_REG_LM3940IMP" device=""/>
+<part name="U4" library="James" deviceset="V_REG_LM3940IMP" device=""/>
 <part name="C39" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C40" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="+3V27" library="supply1" deviceset="+3V3" device=""/>
@@ -18308,7 +18308,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <instance part="U$3" gate="G$1" x="408.94" y="147.32" rot="R180"/>
 <instance part="C38" gate="G$1" x="429.26" y="142.24"/>
 <instance part="GND61" gate="1" x="429.26" y="132.08"/>
-<instance part="U$4" gate="G$1" x="35.56" y="246.38"/>
+<instance part="U4" gate="G$1" x="35.56" y="246.38"/>
 <instance part="C39" gate="G$1" x="106.68" y="-17.78"/>
 <instance part="C40" gate="G$1" x="114.3" y="-17.78"/>
 <instance part="+3V27" gate="G$1" x="106.68" y="-10.16"/>
@@ -18389,7 +18389,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <segment>
 <pinref part="GND53" gate="1" pin="GND"/>
 <wire x1="35.56" y1="233.68" x2="35.56" y2="238.76" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="GND"/>
+<pinref part="U4" gate="G$1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="C111" gate="G$1" pin="-"/>
@@ -19032,7 +19032,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <junction x="58.42" y="246.38"/>
 <wire x1="63.5" y1="246.38" x2="58.42" y2="246.38" width="0.1524" layer="91"/>
 <pinref part="U$2" gate="G$1" pin="2"/>
-<pinref part="U$4" gate="G$1" pin="OUT"/>
+<pinref part="U4" gate="G$1" pin="OUT"/>
 </segment>
 <segment>
 <pinref part="IC4" gate="CS4271" pin="VL"/>
@@ -19563,7 +19563,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <wire x1="27.94" y1="246.38" x2="20.32" y2="246.38" width="0.1524" layer="91"/>
 <junction x="20.32" y="246.38"/>
 <pinref part="P+1" gate="1" pin="+5V"/>
-<pinref part="U$4" gate="G$1" pin="IN"/>
+<pinref part="U4" gate="G$1" pin="IN"/>
 </segment>
 <segment>
 <pinref part="C37" gate="G$1" pin="1"/>
