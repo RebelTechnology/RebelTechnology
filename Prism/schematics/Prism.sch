@@ -8018,124 +8018,6 @@ Source: AVX .. aphvc.pdf</description>
 <text x="-4.064" y="8.636" size="1.778" layer="95">&gt;NAME</text>
 <text x="-4.572" y="-10.414" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
-<symbol name="STM32F746VGT6">
-<description>STM32F746VGT6 LQFP100</description>
-<wire x1="-12.7" y1="-45.72" x2="-12.7" y2="45.72" width="0.254" layer="94"/>
-<wire x1="12.7" y1="45.72" x2="12.7" y2="-45.72" width="0.254" layer="94"/>
-<wire x1="12.7" y1="-45.72" x2="-12.7" y2="-45.72" width="0.254" layer="94"/>
-<pin name="VSSA" x="-17.78" y="-40.64" length="middle"/>
-<pin name="VSS" x="-17.78" y="-38.1" length="middle"/>
-<pin name="VSS_2" x="-17.78" y="-35.56" length="middle"/>
-<pin name="PA2" x="-17.78" y="-30.48" length="middle"/>
-<pin name="PA1" x="-17.78" y="-27.94" length="middle"/>
-<pin name="PA0" x="-17.78" y="-25.4" length="middle"/>
-<pin name="PC3" x="-17.78" y="-20.32" length="middle"/>
-<pin name="PC2" x="-17.78" y="-17.78" length="middle"/>
-<pin name="PC1" x="-17.78" y="-15.24" length="middle"/>
-<pin name="PC0" x="-17.78" y="-12.7" length="middle"/>
-<pin name="NRST" x="-17.78" y="-10.16" length="middle"/>
-<pin name="PH1" x="-17.78" y="-7.62" length="middle"/>
-<pin name="PH0" x="-17.78" y="-5.08" length="middle"/>
-<pin name="PC15" x="-17.78" y="0" length="middle"/>
-<pin name="PC14" x="-17.78" y="2.54" length="middle"/>
-<pin name="PC13" x="-17.78" y="5.08" length="middle"/>
-<wire x1="-12.7" y1="45.72" x2="12.7" y2="45.72" width="0.254" layer="94"/>
-<pin name="PE6" x="-17.78" y="10.16" length="middle"/>
-<pin name="PE5" x="-17.78" y="12.7" length="middle"/>
-<pin name="PE4" x="-17.78" y="15.24" length="middle"/>
-<pin name="PE3" x="-17.78" y="17.78" length="middle"/>
-<pin name="PE2" x="-17.78" y="20.32" length="middle"/>
-<pin name="VREF+" x="-17.78" y="25.4" length="middle"/>
-<pin name="VDD" x="-17.78" y="27.94" length="middle"/>
-<pin name="VDD_4" x="-17.78" y="30.48" length="middle"/>
-<pin name="VDD_3" x="-17.78" y="33.02" length="middle"/>
-<pin name="VDD_2" x="-17.78" y="35.56" length="middle"/>
-<pin name="VDDA" x="-17.78" y="38.1" length="middle"/>
-<pin name="VBAT" x="-17.78" y="40.64" length="middle"/>
-<pin name="VCAP_1" x="17.78" y="33.02" length="middle" rot="R180"/>
-<pin name="PB11" x="17.78" y="30.48" length="middle" rot="R180"/>
-<pin name="PB10" x="17.78" y="27.94" length="middle" rot="R180"/>
-<pin name="PE15" x="17.78" y="25.4" length="middle" rot="R180"/>
-<pin name="PE14" x="17.78" y="22.86" length="middle" rot="R180"/>
-<pin name="PE13" x="17.78" y="20.32" length="middle" rot="R180"/>
-<pin name="PE12" x="17.78" y="17.78" length="middle" rot="R180"/>
-<pin name="PE11" x="17.78" y="15.24" length="middle" rot="R180"/>
-<pin name="PE10" x="17.78" y="12.7" length="middle" rot="R180"/>
-<pin name="PE9" x="17.78" y="10.16" length="middle" rot="R180"/>
-<pin name="PE8" x="17.78" y="7.62" length="middle" rot="R180"/>
-<pin name="PE7" x="17.78" y="5.08" length="middle" rot="R180"/>
-<pin name="PB2" x="17.78" y="2.54" length="middle" rot="R180"/>
-<pin name="PB1" x="17.78" y="0" length="middle" rot="R180"/>
-<pin name="PB0" x="17.78" y="-2.54" length="middle" rot="R180"/>
-<pin name="PC5" x="17.78" y="-5.08" length="middle" rot="R180"/>
-<pin name="PC4" x="17.78" y="-7.62" length="middle" rot="R180"/>
-<pin name="PA7" x="17.78" y="-10.16" length="middle" rot="R180"/>
-<pin name="PA6" x="17.78" y="-12.7" length="middle" rot="R180"/>
-<pin name="PA5" x="17.78" y="-15.24" length="middle" rot="R180"/>
-<pin name="PA4" x="17.78" y="-17.78" length="middle" rot="R180"/>
-<pin name="PA3" x="17.78" y="-25.4" length="middle" rot="R180"/>
-<text x="-4.064" y="46.482" size="1.778" layer="95">&gt;NAME</text>
-<text x="-5.334" y="-48.26" size="1.778" layer="96">&gt;VALUE</text>
-</symbol>
-<symbol name="STM32F746VGT_B">
-<description>STM32F746VGT6</description>
-<wire x1="-12.7" y1="-45.72" x2="-12.7" y2="45.72" width="0.254" layer="94"/>
-<wire x1="-12.7" y1="45.72" x2="12.7" y2="45.72" width="0.254" layer="94"/>
-<wire x1="12.7" y1="45.72" x2="12.7" y2="-45.72" width="0.254" layer="94"/>
-<wire x1="12.7" y1="-45.72" x2="-12.7" y2="-45.72" width="0.254" layer="94"/>
-<pin name="VSS" x="-17.78" y="-43.18" length="middle"/>
-<pin name="VSS_2" x="-17.78" y="-40.64" length="middle"/>
-<pin name="BOOT0" x="-17.78" y="-33.02" length="middle"/>
-<pin name="VCAP_2" x="-17.78" y="-27.94" length="middle"/>
-<pin name="PA13" x="-17.78" y="-22.86" length="middle"/>
-<pin name="PA12" x="-17.78" y="-20.32" length="middle"/>
-<pin name="PA_11" x="-17.78" y="-17.78" length="middle"/>
-<pin name="PA10" x="-17.78" y="-15.24" length="middle"/>
-<pin name="PA9" x="-17.78" y="-12.7" length="middle"/>
-<pin name="PA8" x="-17.78" y="-10.16" length="middle"/>
-<pin name="PC9" x="-17.78" y="-7.62" length="middle"/>
-<pin name="PC8" x="-17.78" y="-5.08" length="middle"/>
-<pin name="PC7" x="-17.78" y="-2.54" length="middle"/>
-<pin name="PC6" x="-17.78" y="0" length="middle"/>
-<pin name="PD15" x="-17.78" y="2.54" length="middle"/>
-<pin name="PD14" x="-17.78" y="5.08" length="middle"/>
-<pin name="PD13" x="-17.78" y="7.62" length="middle"/>
-<pin name="PD12" x="-17.78" y="10.16" length="middle"/>
-<pin name="PD11" x="-17.78" y="12.7" length="middle"/>
-<pin name="PD10" x="-17.78" y="15.24" length="middle"/>
-<pin name="PD9" x="-17.78" y="17.78" length="middle"/>
-<pin name="PD8" x="-17.78" y="20.32" length="middle"/>
-<pin name="PB15" x="-17.78" y="22.86" length="middle"/>
-<pin name="PB14" x="-17.78" y="25.4" length="middle"/>
-<pin name="PB13" x="-17.78" y="27.94" length="middle"/>
-<pin name="PB12" x="-17.78" y="30.48" length="middle"/>
-<pin name="VDD" x="-17.78" y="38.1" length="middle"/>
-<pin name="VSS_3" x="-17.78" y="-38.1" length="middle"/>
-<pin name="PE1" x="17.78" y="30.48" length="middle" rot="R180"/>
-<pin name="PE0" x="17.78" y="27.94" length="middle" rot="R180"/>
-<pin name="PB9" x="17.78" y="25.4" length="middle" rot="R180"/>
-<pin name="PB8" x="17.78" y="22.86" length="middle" rot="R180"/>
-<pin name="PB7" x="17.78" y="20.32" length="middle" rot="R180"/>
-<pin name="PB6" x="17.78" y="17.78" length="middle" rot="R180"/>
-<pin name="PB5" x="17.78" y="15.24" length="middle" rot="R180"/>
-<pin name="PB4" x="17.78" y="12.7" length="middle" rot="R180"/>
-<pin name="PB3" x="17.78" y="10.16" length="middle" rot="R180"/>
-<pin name="PD7" x="17.78" y="7.62" length="middle" rot="R180"/>
-<pin name="PD6" x="17.78" y="5.08" length="middle" rot="R180"/>
-<pin name="PD5" x="17.78" y="2.54" length="middle" rot="R180"/>
-<pin name="PD4" x="17.78" y="0" length="middle" rot="R180"/>
-<pin name="PD3" x="17.78" y="-2.54" length="middle" rot="R180"/>
-<pin name="PD2" x="17.78" y="-5.08" length="middle" rot="R180"/>
-<pin name="PD1" x="17.78" y="-7.62" length="middle" rot="R180"/>
-<pin name="PD0" x="17.78" y="-10.16" length="middle" rot="R180"/>
-<pin name="PC12" x="17.78" y="-12.7" length="middle" rot="R180"/>
-<pin name="PC11" x="17.78" y="-15.24" length="middle" rot="R180"/>
-<pin name="PC10" x="17.78" y="-17.78" length="middle" rot="R180"/>
-<pin name="PA15" x="17.78" y="-20.32" length="middle" rot="R180"/>
-<pin name="PA14" x="17.78" y="-22.86" length="middle" rot="R180"/>
-<text x="-4.064" y="46.736" size="1.778" layer="95">&gt;NAME</text>
-<text x="-4.572" y="-48.26" size="1.778" layer="96">&gt;VALUE</text>
-</symbol>
 <symbol name="TS">
 <wire x1="0" y1="-3.175" x2="0" y2="-2.54" width="0.254" layer="94"/>
 <wire x1="0" y1="2.54" x2="0" y2="3.175" width="0.254" layer="94"/>
@@ -8257,6 +8139,122 @@ Source: AVX .. aphvc.pdf</description>
 <pin name="RPRE" x="20.32" y="-7.62" length="middle" rot="R180"/>
 <pin name="GND" x="0" y="-22.86" length="middle" rot="R90"/>
 </symbol>
+<symbol name="STM32F405VGT6_A">
+<pin name="VBAT" x="-17.78" y="38.1" length="middle" direction="pwr"/>
+<pin name="VDDA" x="-17.78" y="35.56" length="middle" direction="pwr"/>
+<pin name="VDD_2" x="-17.78" y="33.02" length="middle" direction="pwr"/>
+<pin name="VDD_3" x="-17.78" y="30.48" length="middle" direction="pwr"/>
+<pin name="VDD_4" x="-17.78" y="27.94" length="middle" direction="pwr"/>
+<pin name="VDD" x="-17.78" y="25.4" length="middle" direction="pwr"/>
+<pin name="VREF+" x="-17.78" y="22.86" length="middle" direction="pwr"/>
+<pin name="PE2" x="-17.78" y="17.78" length="middle"/>
+<pin name="PE3" x="-17.78" y="15.24" length="middle"/>
+<pin name="PE4" x="-17.78" y="12.7" length="middle"/>
+<pin name="PE5" x="-17.78" y="10.16" length="middle"/>
+<pin name="PE6" x="-17.78" y="7.62" length="middle"/>
+<pin name="PC13" x="-17.78" y="2.54" length="middle"/>
+<pin name="PC14" x="-17.78" y="0" length="middle"/>
+<pin name="PC15" x="-17.78" y="-2.54" length="middle"/>
+<pin name="PH0" x="-17.78" y="-7.62" length="middle"/>
+<pin name="PH1" x="-17.78" y="-10.16" length="middle"/>
+<pin name="NRST" x="-17.78" y="-12.7" length="middle"/>
+<pin name="PC0" x="-17.78" y="-15.24" length="middle"/>
+<pin name="PC1" x="-17.78" y="-17.78" length="middle"/>
+<pin name="PC2" x="-17.78" y="-20.32" length="middle"/>
+<pin name="PC3" x="-17.78" y="-22.86" length="middle"/>
+<pin name="PA0" x="-17.78" y="-27.94" length="middle"/>
+<pin name="PA1" x="-17.78" y="-30.48" length="middle"/>
+<pin name="PA2" x="-17.78" y="-33.02" length="middle"/>
+<pin name="VSS_2" x="-17.78" y="-38.1" length="middle" direction="pas"/>
+<pin name="VSS" x="-17.78" y="-40.64" length="middle" direction="pas"/>
+<pin name="VSSA" x="-17.78" y="-43.18" length="middle" direction="pas"/>
+<pin name="PA3" x="17.78" y="-27.94" length="middle" rot="R180"/>
+<pin name="PA4" x="17.78" y="-20.32" length="middle" rot="R180"/>
+<pin name="PA5" x="17.78" y="-17.78" length="middle" rot="R180"/>
+<pin name="PA6" x="17.78" y="-15.24" length="middle" rot="R180"/>
+<pin name="PA7" x="17.78" y="-12.7" length="middle" rot="R180"/>
+<pin name="PC4" x="17.78" y="-10.16" length="middle" rot="R180"/>
+<pin name="PC5" x="17.78" y="-7.62" length="middle" rot="R180"/>
+<pin name="PB0" x="17.78" y="-5.08" length="middle" rot="R180"/>
+<pin name="PB1" x="17.78" y="-2.54" length="middle" rot="R180"/>
+<pin name="PB2" x="17.78" y="0" length="middle" rot="R180"/>
+<pin name="PE7" x="17.78" y="2.54" length="middle" rot="R180"/>
+<pin name="PE8" x="17.78" y="5.08" length="middle" rot="R180"/>
+<pin name="PE9" x="17.78" y="7.62" length="middle" rot="R180"/>
+<pin name="PE10" x="17.78" y="10.16" length="middle" rot="R180"/>
+<pin name="PE11" x="17.78" y="12.7" length="middle" rot="R180"/>
+<pin name="PE12" x="17.78" y="15.24" length="middle" rot="R180"/>
+<pin name="PE13" x="17.78" y="17.78" length="middle" rot="R180"/>
+<pin name="PE14" x="17.78" y="20.32" length="middle" rot="R180"/>
+<pin name="PE15" x="17.78" y="22.86" length="middle" rot="R180"/>
+<pin name="PB10" x="17.78" y="25.4" length="middle" rot="R180"/>
+<pin name="PB11" x="17.78" y="27.94" length="middle" rot="R180"/>
+<pin name="VCAP_1" x="17.78" y="30.48" length="middle" direction="pwr" rot="R180"/>
+<wire x1="-12.7" y1="43.18" x2="-12.7" y2="-48.26" width="0.4064" layer="94"/>
+<wire x1="-12.7" y1="-48.26" x2="12.7" y2="-48.26" width="0.4064" layer="94"/>
+<wire x1="12.7" y1="-48.26" x2="12.7" y2="43.18" width="0.4064" layer="94"/>
+<wire x1="12.7" y1="43.18" x2="-12.7" y2="43.18" width="0.4064" layer="94"/>
+<text x="-5.3848" y="44.577" size="2.0828" layer="95" ratio="10" rot="SR0">&gt;NAME</text>
+<text x="-6.0706" y="-51.5366" size="2.0828" layer="96" ratio="10" rot="SR0">&gt;VALUE</text>
+</symbol>
+<symbol name="STM32F405VGT6_B">
+<pin name="VDD_2" x="-17.78" y="38.1" length="middle" direction="pwr"/>
+<pin name="VDD" x="-17.78" y="35.56" length="middle" direction="pwr"/>
+<pin name="PB12" x="-17.78" y="27.94" length="middle"/>
+<pin name="PB13" x="-17.78" y="25.4" length="middle"/>
+<pin name="PB14" x="-17.78" y="22.86" length="middle"/>
+<pin name="PB15" x="-17.78" y="20.32" length="middle"/>
+<pin name="PD8" x="-17.78" y="17.78" length="middle"/>
+<pin name="PD9" x="-17.78" y="15.24" length="middle"/>
+<pin name="PD10" x="-17.78" y="12.7" length="middle"/>
+<pin name="PD11" x="-17.78" y="10.16" length="middle"/>
+<pin name="PD12" x="-17.78" y="7.62" length="middle"/>
+<pin name="PD13" x="-17.78" y="5.08" length="middle"/>
+<pin name="PD14" x="-17.78" y="2.54" length="middle"/>
+<pin name="PD15" x="-17.78" y="0" length="middle"/>
+<pin name="PC6" x="-17.78" y="-2.54" length="middle"/>
+<pin name="PC7" x="-17.78" y="-5.08" length="middle"/>
+<pin name="PC8" x="-17.78" y="-7.62" length="middle"/>
+<pin name="PC9" x="-17.78" y="-10.16" length="middle"/>
+<pin name="PA8" x="-17.78" y="-12.7" length="middle"/>
+<pin name="PA9" x="-17.78" y="-15.24" length="middle"/>
+<pin name="PA10" x="-17.78" y="-17.78" length="middle"/>
+<pin name="PA_11" x="-17.78" y="-20.32" length="middle"/>
+<pin name="PA12" x="-17.78" y="-22.86" length="middle"/>
+<pin name="PA13" x="-17.78" y="-25.4" length="middle"/>
+<pin name="VCAP_2" x="-17.78" y="-30.48" length="middle" direction="pwr"/>
+<pin name="BOOT0" x="-17.78" y="-35.56" length="middle" direction="in"/>
+<pin name="VSS_2" x="-17.78" y="-40.64" length="middle" direction="pas"/>
+<pin name="VSS" x="-17.78" y="-43.18" length="middle" direction="pas"/>
+<pin name="PA14" x="17.78" y="-25.4" length="middle" rot="R180"/>
+<pin name="PA15" x="17.78" y="-22.86" length="middle" rot="R180"/>
+<pin name="PC10" x="17.78" y="-20.32" length="middle" rot="R180"/>
+<pin name="PC11" x="17.78" y="-17.78" length="middle" rot="R180"/>
+<pin name="PC12" x="17.78" y="-15.24" length="middle" rot="R180"/>
+<pin name="PD0" x="17.78" y="-12.7" length="middle" rot="R180"/>
+<pin name="PD1" x="17.78" y="-10.16" length="middle" rot="R180"/>
+<pin name="PD2" x="17.78" y="-7.62" length="middle" rot="R180"/>
+<pin name="PD3" x="17.78" y="-5.08" length="middle" rot="R180"/>
+<pin name="PD4" x="17.78" y="-2.54" length="middle" rot="R180"/>
+<pin name="PD5" x="17.78" y="0" length="middle" rot="R180"/>
+<pin name="PD6" x="17.78" y="2.54" length="middle" rot="R180"/>
+<pin name="PD7" x="17.78" y="5.08" length="middle" rot="R180"/>
+<pin name="PB3" x="17.78" y="7.62" length="middle" rot="R180"/>
+<pin name="PB4" x="17.78" y="10.16" length="middle" rot="R180"/>
+<pin name="PB5" x="17.78" y="12.7" length="middle" rot="R180"/>
+<pin name="PB6" x="17.78" y="15.24" length="middle" rot="R180"/>
+<pin name="PB7" x="17.78" y="17.78" length="middle" rot="R180"/>
+<pin name="PB8" x="17.78" y="20.32" length="middle" rot="R180"/>
+<pin name="PB9" x="17.78" y="22.86" length="middle" rot="R180"/>
+<pin name="PE0" x="17.78" y="25.4" length="middle" rot="R180"/>
+<pin name="PE1" x="17.78" y="27.94" length="middle" rot="R180"/>
+<wire x1="-12.7" y1="43.18" x2="-12.7" y2="-48.26" width="0.4064" layer="94"/>
+<wire x1="-12.7" y1="-48.26" x2="12.7" y2="-48.26" width="0.4064" layer="94"/>
+<wire x1="12.7" y1="-48.26" x2="12.7" y2="43.18" width="0.4064" layer="94"/>
+<wire x1="12.7" y1="43.18" x2="-12.7" y2="43.18" width="0.4064" layer="94"/>
+<text x="-4.826" y="44.4246" size="2.0828" layer="95" ratio="10" rot="SR0">&gt;NAME</text>
+<text x="-6.0198" y="-51.7144" size="2.0828" layer="96" ratio="10" rot="SR0">&gt;VALUE</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="CS4271">
@@ -8344,122 +8342,6 @@ Source: AVX .. aphvc.pdf</description>
 <connect gate="G$2" pin="P" pad="SWITCH1"/>
 <connect gate="G$2" pin="S" pad="SWITCH2"/>
 <connect gate="G$3" pin="P$1" pad="P$1 P$2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="STM32F746VGT6">
-<description>STM32F746VGT6</description>
-<gates>
-<gate name="A" symbol="STM32F746VGT6" x="-43.18" y="-2.54"/>
-<gate name="B" symbol="STM32F746VGT_B" x="0" y="-2.54"/>
-</gates>
-<devices>
-<device name="" package="QFP50P1600X1600X160-100N">
-<connects>
-<connect gate="A" pin="NRST" pad="14"/>
-<connect gate="A" pin="PA0" pad="22"/>
-<connect gate="A" pin="PA1" pad="23"/>
-<connect gate="A" pin="PA2" pad="24"/>
-<connect gate="A" pin="PA3" pad="25"/>
-<connect gate="A" pin="PA4" pad="28"/>
-<connect gate="A" pin="PA5" pad="29"/>
-<connect gate="A" pin="PA6" pad="30"/>
-<connect gate="A" pin="PA7" pad="31"/>
-<connect gate="A" pin="PB0" pad="34"/>
-<connect gate="A" pin="PB1" pad="35"/>
-<connect gate="A" pin="PB10" pad="46"/>
-<connect gate="A" pin="PB11" pad="47"/>
-<connect gate="A" pin="PB2" pad="36"/>
-<connect gate="A" pin="PC0" pad="15"/>
-<connect gate="A" pin="PC1" pad="16"/>
-<connect gate="A" pin="PC13" pad="7"/>
-<connect gate="A" pin="PC14" pad="8"/>
-<connect gate="A" pin="PC15" pad="9"/>
-<connect gate="A" pin="PC2" pad="17"/>
-<connect gate="A" pin="PC3" pad="18"/>
-<connect gate="A" pin="PC4" pad="32"/>
-<connect gate="A" pin="PC5" pad="33"/>
-<connect gate="A" pin="PE10" pad="40"/>
-<connect gate="A" pin="PE11" pad="41"/>
-<connect gate="A" pin="PE12" pad="42"/>
-<connect gate="A" pin="PE13" pad="43"/>
-<connect gate="A" pin="PE14" pad="44"/>
-<connect gate="A" pin="PE15" pad="45"/>
-<connect gate="A" pin="PE2" pad="1"/>
-<connect gate="A" pin="PE3" pad="2"/>
-<connect gate="A" pin="PE4" pad="3"/>
-<connect gate="A" pin="PE5" pad="4"/>
-<connect gate="A" pin="PE6" pad="5"/>
-<connect gate="A" pin="PE7" pad="37"/>
-<connect gate="A" pin="PE8" pad="38"/>
-<connect gate="A" pin="PE9" pad="39"/>
-<connect gate="A" pin="PH0" pad="12"/>
-<connect gate="A" pin="PH1" pad="13"/>
-<connect gate="A" pin="VBAT" pad="6"/>
-<connect gate="A" pin="VCAP_1" pad="48"/>
-<connect gate="A" pin="VDD" pad="27"/>
-<connect gate="A" pin="VDDA" pad="21"/>
-<connect gate="A" pin="VDD_2" pad="50"/>
-<connect gate="A" pin="VDD_3" pad="75"/>
-<connect gate="A" pin="VDD_4" pad="100"/>
-<connect gate="A" pin="VREF+" pad="20"/>
-<connect gate="A" pin="VSS" pad="74"/>
-<connect gate="A" pin="VSSA" pad="19"/>
-<connect gate="A" pin="VSS_2" pad="49"/>
-<connect gate="B" pin="BOOT0" pad="94"/>
-<connect gate="B" pin="PA10" pad="69"/>
-<connect gate="B" pin="PA12" pad="71"/>
-<connect gate="B" pin="PA13" pad="72"/>
-<connect gate="B" pin="PA14" pad="76"/>
-<connect gate="B" pin="PA15" pad="77"/>
-<connect gate="B" pin="PA8" pad="67"/>
-<connect gate="B" pin="PA9" pad="68"/>
-<connect gate="B" pin="PA_11" pad="70"/>
-<connect gate="B" pin="PB12" pad="51"/>
-<connect gate="B" pin="PB13" pad="52"/>
-<connect gate="B" pin="PB14" pad="53"/>
-<connect gate="B" pin="PB15" pad="54"/>
-<connect gate="B" pin="PB3" pad="89"/>
-<connect gate="B" pin="PB4" pad="90"/>
-<connect gate="B" pin="PB5" pad="91"/>
-<connect gate="B" pin="PB6" pad="92"/>
-<connect gate="B" pin="PB7" pad="93"/>
-<connect gate="B" pin="PB8" pad="95"/>
-<connect gate="B" pin="PB9" pad="96"/>
-<connect gate="B" pin="PC10" pad="78"/>
-<connect gate="B" pin="PC11" pad="79"/>
-<connect gate="B" pin="PC12" pad="80"/>
-<connect gate="B" pin="PC6" pad="63"/>
-<connect gate="B" pin="PC7" pad="64"/>
-<connect gate="B" pin="PC8" pad="65"/>
-<connect gate="B" pin="PC9" pad="66"/>
-<connect gate="B" pin="PD0" pad="81"/>
-<connect gate="B" pin="PD1" pad="82"/>
-<connect gate="B" pin="PD10" pad="57"/>
-<connect gate="B" pin="PD11" pad="58"/>
-<connect gate="B" pin="PD12" pad="59"/>
-<connect gate="B" pin="PD13" pad="60"/>
-<connect gate="B" pin="PD14" pad="61"/>
-<connect gate="B" pin="PD15" pad="62"/>
-<connect gate="B" pin="PD2" pad="83"/>
-<connect gate="B" pin="PD3" pad="84"/>
-<connect gate="B" pin="PD4" pad="85"/>
-<connect gate="B" pin="PD5" pad="86"/>
-<connect gate="B" pin="PD6" pad="87"/>
-<connect gate="B" pin="PD7" pad="88"/>
-<connect gate="B" pin="PD8" pad="55"/>
-<connect gate="B" pin="PD9" pad="56"/>
-<connect gate="B" pin="PE0" pad="97"/>
-<connect gate="B" pin="PE1" pad="98"/>
-<connect gate="B" pin="VCAP_2" pad="73"/>
-<connect gate="B" pin="VDD" pad="11"/>
-<connect gate="B" pin="VSS" pad="10"/>
-<connect gate="B" pin="VSS_2" pad="99"/>
-<connect gate="B" pin="VSS_3" pad="26"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -10900,6 +10782,128 @@ Source: AVX .. aphvc.pdf</description>
 </connects>
 <technologies>
 <technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="STM32F405VGT6" prefix="U">
+<description>IC MCU, 32BIT, 1MB FLASH, 100LQFP</description>
+<gates>
+<gate name="A" symbol="STM32F405VGT6_A" x="0" y="0"/>
+<gate name="B" symbol="STM32F405VGT6_B" x="-48.26" y="0"/>
+</gates>
+<devices>
+<device name="" package="QFP50P1600X1600X160-100N">
+<connects>
+<connect gate="A" pin="NRST" pad="14"/>
+<connect gate="A" pin="PA0" pad="23"/>
+<connect gate="A" pin="PA1" pad="24"/>
+<connect gate="A" pin="PA2" pad="25"/>
+<connect gate="A" pin="PA3" pad="26"/>
+<connect gate="A" pin="PA4" pad="29"/>
+<connect gate="A" pin="PA5" pad="30"/>
+<connect gate="A" pin="PA6" pad="31"/>
+<connect gate="A" pin="PA7" pad="32"/>
+<connect gate="A" pin="PB0" pad="35"/>
+<connect gate="A" pin="PB1" pad="36"/>
+<connect gate="A" pin="PB10" pad="47"/>
+<connect gate="A" pin="PB11" pad="48"/>
+<connect gate="A" pin="PB2" pad="37"/>
+<connect gate="A" pin="PC0" pad="15"/>
+<connect gate="A" pin="PC1" pad="16"/>
+<connect gate="A" pin="PC13" pad="7"/>
+<connect gate="A" pin="PC14" pad="8"/>
+<connect gate="A" pin="PC15" pad="9"/>
+<connect gate="A" pin="PC2" pad="17"/>
+<connect gate="A" pin="PC3" pad="18"/>
+<connect gate="A" pin="PC4" pad="33"/>
+<connect gate="A" pin="PC5" pad="34"/>
+<connect gate="A" pin="PE10" pad="41"/>
+<connect gate="A" pin="PE11" pad="42"/>
+<connect gate="A" pin="PE12" pad="43"/>
+<connect gate="A" pin="PE13" pad="44"/>
+<connect gate="A" pin="PE14" pad="45"/>
+<connect gate="A" pin="PE15" pad="46"/>
+<connect gate="A" pin="PE2" pad="1"/>
+<connect gate="A" pin="PE3" pad="2"/>
+<connect gate="A" pin="PE4" pad="3"/>
+<connect gate="A" pin="PE5" pad="4"/>
+<connect gate="A" pin="PE6" pad="5"/>
+<connect gate="A" pin="PE7" pad="38"/>
+<connect gate="A" pin="PE8" pad="39"/>
+<connect gate="A" pin="PE9" pad="40"/>
+<connect gate="A" pin="PH0" pad="12"/>
+<connect gate="A" pin="PH1" pad="13"/>
+<connect gate="A" pin="VBAT" pad="6"/>
+<connect gate="A" pin="VCAP_1" pad="49"/>
+<connect gate="A" pin="VDD" pad="50"/>
+<connect gate="A" pin="VDDA" pad="22"/>
+<connect gate="A" pin="VDD_2" pad="11"/>
+<connect gate="A" pin="VDD_3" pad="19"/>
+<connect gate="A" pin="VDD_4" pad="28"/>
+<connect gate="A" pin="VREF+" pad="21"/>
+<connect gate="A" pin="VSS" pad="27"/>
+<connect gate="A" pin="VSSA" pad="20"/>
+<connect gate="A" pin="VSS_2" pad="10"/>
+<connect gate="B" pin="BOOT0" pad="94"/>
+<connect gate="B" pin="PA10" pad="69"/>
+<connect gate="B" pin="PA12" pad="71"/>
+<connect gate="B" pin="PA13" pad="72"/>
+<connect gate="B" pin="PA14" pad="76"/>
+<connect gate="B" pin="PA15" pad="77"/>
+<connect gate="B" pin="PA8" pad="67"/>
+<connect gate="B" pin="PA9" pad="68"/>
+<connect gate="B" pin="PA_11" pad="70"/>
+<connect gate="B" pin="PB12" pad="51"/>
+<connect gate="B" pin="PB13" pad="52"/>
+<connect gate="B" pin="PB14" pad="53"/>
+<connect gate="B" pin="PB15" pad="54"/>
+<connect gate="B" pin="PB3" pad="89"/>
+<connect gate="B" pin="PB4" pad="90"/>
+<connect gate="B" pin="PB5" pad="91"/>
+<connect gate="B" pin="PB6" pad="92"/>
+<connect gate="B" pin="PB7" pad="93"/>
+<connect gate="B" pin="PB8" pad="95"/>
+<connect gate="B" pin="PB9" pad="96"/>
+<connect gate="B" pin="PC10" pad="78"/>
+<connect gate="B" pin="PC11" pad="79"/>
+<connect gate="B" pin="PC12" pad="80"/>
+<connect gate="B" pin="PC6" pad="63"/>
+<connect gate="B" pin="PC7" pad="64"/>
+<connect gate="B" pin="PC8" pad="65"/>
+<connect gate="B" pin="PC9" pad="66"/>
+<connect gate="B" pin="PD0" pad="81"/>
+<connect gate="B" pin="PD1" pad="82"/>
+<connect gate="B" pin="PD10" pad="57"/>
+<connect gate="B" pin="PD11" pad="58"/>
+<connect gate="B" pin="PD12" pad="59"/>
+<connect gate="B" pin="PD13" pad="60"/>
+<connect gate="B" pin="PD14" pad="61"/>
+<connect gate="B" pin="PD15" pad="62"/>
+<connect gate="B" pin="PD2" pad="83"/>
+<connect gate="B" pin="PD3" pad="84"/>
+<connect gate="B" pin="PD4" pad="85"/>
+<connect gate="B" pin="PD5" pad="86"/>
+<connect gate="B" pin="PD6" pad="87"/>
+<connect gate="B" pin="PD7" pad="88"/>
+<connect gate="B" pin="PD8" pad="55"/>
+<connect gate="B" pin="PD9" pad="56"/>
+<connect gate="B" pin="PE0" pad="97"/>
+<connect gate="B" pin="PE1" pad="98"/>
+<connect gate="B" pin="VCAP_2" pad="73"/>
+<connect gate="B" pin="VDD" pad="75"/>
+<connect gate="B" pin="VDD_2" pad="100"/>
+<connect gate="B" pin="VSS" pad="99"/>
+<connect gate="B" pin="VSS_2" pad="74"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="MPN" value="STM32F405VGT6" constant="no"/>
+<attribute name="OC_FARNELL" value="2215224" constant="no"/>
+<attribute name="OC_NEWARK" value="46W2199" constant="no"/>
+<attribute name="PACKAGE" value="100LQFP" constant="no"/>
+<attribute name="SUPPLIER" value="STMicroelectronics" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -14499,7 +14503,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </class>
 </classes>
 <parts>
-<part name="IC1" library="Rebel" deviceset="STM32F746VGT6" device=""/>
 <part name="IC9" library="Rebel" deviceset="N25Q128A13" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
@@ -14784,6 +14787,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V21" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
+<part name="U1" library="Rebel" deviceset="STM32F405VGT6" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -15370,8 +15374,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <text x="83.82" y="279.4" size="1.778" layer="97">1.2V drop-out Max 15Vin</text>
 </plain>
 <instances>
-<instance part="IC1" gate="A" x="116.84" y="119.38"/>
-<instance part="IC1" gate="B" x="236.22" y="119.38"/>
 <instance part="IC9" gate="N25Q128A13" x="200.66" y="10.16"/>
 <instance part="GND10" gate="1" x="198.12" y="-15.24"/>
 <instance part="+3V4" gate="G$1" x="198.12" y="48.26"/>
@@ -15602,6 +15604,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="JP8" gate="G$1" x="40.64" y="259.08"/>
 <instance part="P+1" gate="VCC" x="314.96" y="25.4"/>
 <instance part="GND92" gate="1" x="314.96" y="7.62"/>
+<instance part="U1" gate="A" x="116.84" y="121.92"/>
+<instance part="U1" gate="B" x="236.22" y="121.92"/>
 </instances>
 <busses>
 </busses>
@@ -15678,32 +15682,31 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="190.5" y1="71.12" x2="190.5" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="B" pin="VSS"/>
 <pinref part="GND80" gate="1" pin="GND"/>
 <wire x1="218.44" y1="76.2" x2="215.9" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="215.9" y1="76.2" x2="215.9" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="B" pin="VSS_2"/>
 <wire x1="218.44" y1="78.74" x2="215.9" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="215.9" y1="78.74" x2="215.9" y2="76.2" width="0.1524" layer="91"/>
 <junction x="215.9" y="76.2"/>
-<pinref part="IC1" gate="B" pin="VSS_3"/>
 <wire x1="218.44" y1="81.28" x2="215.9" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="215.9" y1="81.28" x2="215.9" y2="78.74" width="0.1524" layer="91"/>
 <junction x="215.9" y="78.74"/>
+<pinref part="U1" gate="B" pin="VSS_2"/>
+<pinref part="U1" gate="B" pin="VSS"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="A" pin="VSSA"/>
 <pinref part="GND81" gate="1" pin="GND"/>
 <wire x1="99.06" y1="78.74" x2="96.52" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="78.74" x2="96.52" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="A" pin="VSS_2"/>
 <wire x1="99.06" y1="83.82" x2="96.52" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="83.82" x2="96.52" y2="81.28" width="0.1524" layer="91"/>
 <junction x="96.52" y="78.74"/>
-<pinref part="IC1" gate="A" pin="VSS"/>
 <wire x1="96.52" y1="81.28" x2="96.52" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="81.28" x2="96.52" y2="81.28" width="0.1524" layer="91"/>
 <junction x="96.52" y="81.28"/>
+<pinref part="U1" gate="A" pin="VSS_2"/>
+<pinref part="U1" gate="A" pin="VSS"/>
+<pinref part="U1" gate="A" pin="VSSA"/>
 </segment>
 <segment>
 <pinref part="C11" gate="G$1" pin="2"/>
@@ -16074,11 +16077,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="127" y1="203.2" x2="127" y2="200.66" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="A" pin="VDD"/>
 <pinref part="+3V14" gate="G$1" pin="+3V3"/>
 <wire x1="99.06" y1="147.32" x2="93.98" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="93.98" y1="147.32" x2="93.98" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="A" pin="VDDA"/>
 <wire x1="93.98" y1="149.86" x2="93.98" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="93.98" y1="152.4" x2="93.98" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="93.98" y1="154.94" x2="93.98" y2="157.48" width="0.1524" layer="91"/>
@@ -16086,27 +16087,32 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="93.98" y1="160.02" x2="93.98" y2="167.64" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="157.48" x2="93.98" y2="157.48" width="0.1524" layer="91"/>
 <junction x="93.98" y="157.48"/>
-<pinref part="IC1" gate="A" pin="VDD_2"/>
 <wire x1="99.06" y1="154.94" x2="93.98" y2="154.94" width="0.1524" layer="91"/>
 <junction x="93.98" y="154.94"/>
-<pinref part="IC1" gate="A" pin="VDD_3"/>
 <wire x1="99.06" y1="152.4" x2="93.98" y2="152.4" width="0.1524" layer="91"/>
 <junction x="93.98" y="152.4"/>
-<pinref part="IC1" gate="A" pin="VDD_4"/>
 <wire x1="99.06" y1="149.86" x2="93.98" y2="149.86" width="0.1524" layer="91"/>
 <junction x="93.98" y="149.86"/>
-<pinref part="IC1" gate="A" pin="VBAT"/>
 <wire x1="99.06" y1="160.02" x2="93.98" y2="160.02" width="0.1524" layer="91"/>
 <junction x="93.98" y="160.02"/>
+<pinref part="U1" gate="A" pin="VBAT"/>
+<pinref part="U1" gate="A" pin="VDDA"/>
+<pinref part="U1" gate="A" pin="VDD_2"/>
+<pinref part="U1" gate="A" pin="VDD_3"/>
+<pinref part="U1" gate="A" pin="VDD_4"/>
+<pinref part="U1" gate="A" pin="VDD"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="B" pin="VDD"/>
 <pinref part="+3V18" gate="G$1" pin="+3V3"/>
 <wire x1="218.44" y1="157.48" x2="215.9" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="215.9" y1="157.48" x2="215.9" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="157.48" x2="215.9" y2="160.02" width="0.1524" layer="91"/>
+<pinref part="U1" gate="B" pin="VDD"/>
+<pinref part="U1" gate="B" pin="VDD_2"/>
+<wire x1="215.9" y1="160.02" x2="215.9" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="218.44" y1="160.02" x2="215.9" y2="160.02" width="0.1524" layer="91"/>
+<junction x="215.9" y="160.02"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="A" pin="VREF+"/>
 <wire x1="99.06" y1="144.78" x2="50.8" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="C12" gate="G$1" pin="1"/>
 <wire x1="50.8" y1="144.78" x2="40.64" y2="144.78" width="0.1524" layer="91"/>
@@ -16116,6 +16122,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <junction x="50.8" y="144.78"/>
 <pinref part="+3V15" gate="G$1" pin="+3V3"/>
 <wire x1="50.8" y1="144.78" x2="50.8" y2="167.64" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="VREF+"/>
 </segment>
 <segment>
 <pinref part="+3V16" gate="G$1" pin="+3V3"/>
@@ -16183,9 +16190,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="OLED_CS" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="PA15"/>
 <wire x1="254" y1="99.06" x2="271.78" y2="99.06" width="0.1524" layer="91"/>
 <label x="259.08" y="99.06" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PA15"/>
 </segment>
 <segment>
 <pinref part="JP4" gate="G$1" pin="3"/>
@@ -16195,9 +16202,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="OLED_MOSI" class="0">
 <segment>
-<pinref part="IC1" gate="A" pin="PA7"/>
 <wire x1="134.62" y1="109.22" x2="154.94" y2="109.22" width="0.1524" layer="91"/>
 <label x="139.7" y="109.22" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PA7"/>
 </segment>
 <segment>
 <pinref part="JP4" gate="G$1" pin="7"/>
@@ -16207,9 +16214,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="OLED_SCK" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="PB3"/>
 <wire x1="254" y1="129.54" x2="271.78" y2="129.54" width="0.1524" layer="91"/>
 <label x="259.08" y="129.54" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PB3"/>
 </segment>
 <segment>
 <pinref part="JP4" gate="G$1" pin="6"/>
@@ -16219,9 +16226,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="OLED_DC" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="PC10"/>
 <wire x1="254" y1="101.6" x2="271.78" y2="101.6" width="0.1524" layer="91"/>
 <label x="259.08" y="101.6" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PC10"/>
 </segment>
 <segment>
 <pinref part="JP4" gate="G$1" pin="5"/>
@@ -16231,9 +16238,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="OLED_RST" class="0">
 <segment>
-<pinref part="IC1" gate="A" pin="PA6"/>
 <wire x1="134.62" y1="106.68" x2="154.94" y2="106.68" width="0.1524" layer="91"/>
 <label x="139.7" y="106.68" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PA6"/>
 </segment>
 <segment>
 <pinref part="JP4" gate="G$1" pin="4"/>
@@ -16252,9 +16259,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <junction x="243.84" y="5.08"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="B" pin="PB6"/>
 <wire x1="254" y1="137.16" x2="271.78" y2="137.16" width="0.1524" layer="91"/>
 <label x="259.08" y="137.16" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PB6"/>
 </segment>
 </net>
 <net name="QSPI_D2" class="0">
@@ -16264,9 +16271,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="226.06" y="15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="A" pin="PE2"/>
 <wire x1="99.06" y1="139.7" x2="81.28" y2="139.7" width="0.1524" layer="91"/>
 <label x="81.28" y="139.7" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PE2"/>
 </segment>
 </net>
 <net name="QSPI_D0" class="0">
@@ -16276,9 +16283,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="165.1" y="15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="B" pin="PD11"/>
 <wire x1="218.44" y1="132.08" x2="200.66" y2="132.08" width="0.1524" layer="91"/>
 <label x="200.66" y="132.08" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PD11"/>
 </segment>
 </net>
 <net name="QSPI_D1" class="0">
@@ -16288,9 +16295,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="165.1" y="10.16" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="B" pin="PD12"/>
 <wire x1="218.44" y1="129.54" x2="200.66" y2="129.54" width="0.1524" layer="91"/>
 <label x="200.66" y="129.54" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PD12"/>
 </segment>
 </net>
 <net name="QSPI_CLK" class="0">
@@ -16300,16 +16307,16 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="165.1" y="5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="A" pin="PB2"/>
 <wire x1="134.62" y1="121.92" x2="152.4" y2="121.92" width="0.1524" layer="91"/>
 <label x="139.7" y="121.92" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PB2"/>
 </segment>
 </net>
 <net name="QSPI_D3" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="PD13"/>
 <wire x1="218.44" y1="127" x2="200.66" y2="127" width="0.1524" layer="91"/>
 <label x="200.66" y="127" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PD13"/>
 </segment>
 <segment>
 <pinref part="IC9" gate="N25Q128A13" pin="HOLD#/DQ3"/>
@@ -16319,9 +16326,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="CS_LRCK" class="0">
 <segment>
-<pinref part="IC1" gate="A" pin="PE4"/>
 <wire x1="99.06" y1="134.62" x2="81.28" y2="134.62" width="0.1524" layer="91"/>
 <label x="81.28" y="134.62" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PE4"/>
 </segment>
 <segment>
 <wire x1="355.6" y1="114.3" x2="330.2" y2="114.3" width="0.1524" layer="91"/>
@@ -16331,9 +16338,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="CS_SCLK" class="0">
 <segment>
-<pinref part="IC1" gate="A" pin="PE5"/>
 <wire x1="99.06" y1="132.08" x2="81.28" y2="132.08" width="0.1524" layer="91"/>
 <label x="81.28" y="132.08" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PE5"/>
 </segment>
 <segment>
 <wire x1="355.6" y1="111.76" x2="330.2" y2="111.76" width="0.1524" layer="91"/>
@@ -16343,9 +16350,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="CS_SDOUT" class="0">
 <segment>
-<pinref part="IC1" gate="A" pin="PE3"/>
 <wire x1="99.06" y1="137.16" x2="81.28" y2="137.16" width="0.1524" layer="91"/>
 <label x="81.28" y="137.16" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PE3"/>
 </segment>
 <segment>
 <wire x1="355.6" y1="109.22" x2="330.2" y2="109.22" width="0.1524" layer="91"/>
@@ -16355,9 +16362,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="CS_SDIN" class="0">
 <segment>
-<pinref part="IC1" gate="A" pin="PE6"/>
 <wire x1="99.06" y1="129.54" x2="81.28" y2="129.54" width="0.1524" layer="91"/>
 <label x="81.28" y="129.54" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PE6"/>
 </segment>
 <segment>
 <wire x1="355.6" y1="106.68" x2="330.2" y2="106.68" width="0.1524" layer="91"/>
@@ -16367,9 +16374,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="CS_SCL" class="0">
 <segment>
-<pinref part="IC1" gate="A" pin="PB10"/>
 <wire x1="134.62" y1="147.32" x2="152.4" y2="147.32" width="0.1524" layer="91"/>
 <label x="139.7" y="147.32" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PB10"/>
 </segment>
 <segment>
 <wire x1="355.6" y1="96.52" x2="330.2" y2="96.52" width="0.1524" layer="91"/>
@@ -16379,9 +16386,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="SW2" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="PB9"/>
 <wire x1="254" y1="144.78" x2="271.78" y2="144.78" width="0.1524" layer="91"/>
 <label x="259.08" y="144.78" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PB9"/>
 </segment>
 <segment>
 <pinref part="JP12" gate="G$1" pin="1"/>
@@ -16391,9 +16398,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="CS_CS" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="PB4"/>
 <wire x1="254" y1="132.08" x2="271.78" y2="132.08" width="0.1524" layer="91"/>
 <label x="259.08" y="132.08" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PB4"/>
 </segment>
 <segment>
 <wire x1="355.6" y1="91.44" x2="330.2" y2="91.44" width="0.1524" layer="91"/>
@@ -16403,9 +16410,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="CS_RST" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="PB5"/>
 <wire x1="254" y1="134.62" x2="271.78" y2="134.62" width="0.1524" layer="91"/>
 <label x="259.08" y="134.62" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PB5"/>
 </segment>
 <segment>
 <wire x1="355.6" y1="88.9" x2="353.06" y2="88.9" width="0.1524" layer="91"/>
@@ -16419,9 +16426,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="ADC0" class="0">
 <segment>
-<pinref part="IC1" gate="A" pin="PA0"/>
 <wire x1="99.06" y1="93.98" x2="83.82" y2="93.98" width="0.1524" layer="91"/>
 <label x="83.82" y="93.98" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PA0"/>
 </segment>
 <segment>
 <label x="403.86" y="264.16" size="1.778" layer="95"/>
@@ -16439,9 +16446,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="ADC1" class="0">
 <segment>
-<pinref part="IC1" gate="A" pin="PA1"/>
 <wire x1="99.06" y1="91.44" x2="83.82" y2="91.44" width="0.1524" layer="91"/>
 <label x="83.82" y="91.44" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PA1"/>
 </segment>
 <segment>
 <label x="403.86" y="213.36" size="1.778" layer="95"/>
@@ -16459,7 +16466,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="BOOT" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="BOOT0"/>
 <wire x1="218.44" y1="86.36" x2="208.28" y2="86.36" width="0.1524" layer="91"/>
 <label x="195.58" y="86.36" size="1.778" layer="95"/>
 <pinref part="R3" gate="G$1" pin="2"/>
@@ -16467,13 +16473,14 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="208.28" y1="83.82" x2="208.28" y2="86.36" width="0.1524" layer="91"/>
 <junction x="208.28" y="86.36"/>
 <pinref part="BOOT" gate="1" pin="2"/>
+<pinref part="U1" gate="B" pin="BOOT0"/>
 </segment>
 </net>
 <net name="USB_ID" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="PB12"/>
 <wire x1="218.44" y1="149.86" x2="200.66" y2="149.86" width="0.1524" layer="91"/>
 <label x="200.66" y="149.86" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PB12"/>
 </segment>
 <segment>
 <pinref part="USB1" gate="USB" pin="ID"/>
@@ -16483,9 +16490,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="USB_VBUS" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="PB13"/>
 <wire x1="218.44" y1="147.32" x2="200.66" y2="147.32" width="0.1524" layer="91"/>
 <label x="200.66" y="147.32" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PB13"/>
 </segment>
 <segment>
 <pinref part="USB1" gate="USB" pin="VCC"/>
@@ -16495,9 +16502,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="USB_DM" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="PB14"/>
 <wire x1="218.44" y1="144.78" x2="200.66" y2="144.78" width="0.1524" layer="91"/>
 <label x="200.66" y="144.78" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PB14"/>
 </segment>
 <segment>
 <label x="76.2" y="10.16" size="1.778" layer="95"/>
@@ -16507,9 +16514,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="USB_DP" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="PB15"/>
 <wire x1="218.44" y1="142.24" x2="200.66" y2="142.24" width="0.1524" layer="91"/>
 <label x="200.66" y="142.24" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PB15"/>
 </segment>
 <segment>
 <label x="76.2" y="12.7" size="1.778" layer="95"/>
@@ -16519,9 +16526,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="CS_SDA" class="0">
 <segment>
-<pinref part="IC1" gate="A" pin="PC1"/>
 <wire x1="99.06" y1="104.14" x2="83.82" y2="104.14" width="0.1524" layer="91"/>
 <label x="83.82" y="104.14" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PC1"/>
 </segment>
 <segment>
 <wire x1="355.6" y1="93.98" x2="330.2" y2="93.98" width="0.1524" layer="91"/>
@@ -16534,10 +16541,10 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="C23" gate="G$1" pin="1"/>
 <wire x1="71.12" y1="106.68" x2="71.12" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="71.12" y1="111.76" x2="99.06" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="A" pin="PH1"/>
 <pinref part="Y2" gate="G$1" pin="1"/>
 <wire x1="71.12" y1="111.76" x2="68.58" y2="111.76" width="0.1524" layer="91"/>
 <junction x="71.12" y="111.76"/>
+<pinref part="U1" gate="A" pin="PH1"/>
 </segment>
 </net>
 <net name="N$15" class="0">
@@ -16545,11 +16552,11 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="C22" gate="G$1" pin="1"/>
 <wire x1="99.06" y1="114.3" x2="58.42" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="114.3" x2="58.42" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="A" pin="PH0"/>
 <pinref part="Y2" gate="G$1" pin="2"/>
 <wire x1="58.42" y1="111.76" x2="58.42" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="111.76" x2="58.42" y2="111.76" width="0.1524" layer="91"/>
 <junction x="58.42" y="111.76"/>
+<pinref part="U1" gate="A" pin="PH0"/>
 </segment>
 </net>
 <net name="N$19" class="0">
@@ -16568,9 +16575,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="SWENC_B" class="0">
 <segment>
-<pinref part="IC1" gate="A" pin="PE11"/>
 <wire x1="134.62" y1="134.62" x2="152.4" y2="134.62" width="0.1524" layer="91"/>
 <label x="139.7" y="134.62" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PE11"/>
 </segment>
 <segment>
 <label x="411.48" y="15.24" size="1.778" layer="95"/>
@@ -16580,9 +16587,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="SWENC_A" class="0">
 <segment>
-<pinref part="IC1" gate="A" pin="PE9"/>
 <wire x1="134.62" y1="129.54" x2="152.4" y2="129.54" width="0.1524" layer="91"/>
 <label x="139.7" y="129.54" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PE9"/>
 </segment>
 <segment>
 <label x="411.48" y="25.4" size="1.778" layer="95"/>
@@ -16592,9 +16599,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="ENC_B" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="PC7"/>
 <wire x1="218.44" y1="116.84" x2="200.66" y2="116.84" width="0.1524" layer="91"/>
 <label x="200.66" y="116.84" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PC7"/>
 </segment>
 <segment>
 <label x="411.48" y="17.78" size="1.778" layer="95"/>
@@ -16604,9 +16611,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="ENC_A" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="PC6"/>
 <wire x1="218.44" y1="119.38" x2="200.66" y2="119.38" width="0.1524" layer="91"/>
 <label x="200.66" y="119.38" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PC6"/>
 </segment>
 <segment>
 <label x="411.48" y="20.32" size="1.778" layer="95"/>
@@ -16616,18 +16623,18 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="N$11" class="0">
 <segment>
-<pinref part="IC1" gate="A" pin="VCAP_1"/>
 <pinref part="C13" gate="G$1" pin="1"/>
 <wire x1="134.62" y1="152.4" x2="160.02" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="160.02" y1="152.4" x2="160.02" y2="149.86" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="VCAP_1"/>
 </segment>
 </net>
 <net name="N$17" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="VCAP_2"/>
 <pinref part="C14" gate="G$1" pin="1"/>
 <wire x1="218.44" y1="91.44" x2="190.5" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="190.5" y1="91.44" x2="190.5" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="U1" gate="B" pin="VCAP_2"/>
 </segment>
 </net>
 <net name="UART_RX" class="0">
@@ -16637,9 +16644,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="53.34" y="30.48" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="B" pin="PA10"/>
 <wire x1="218.44" y1="104.14" x2="200.66" y2="104.14" width="0.1524" layer="91"/>
 <label x="200.66" y="104.14" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PA10"/>
 </segment>
 </net>
 <net name="UART_TX" class="0">
@@ -16649,16 +16656,16 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="53.34" y="35.56" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="B" pin="PA9"/>
 <wire x1="218.44" y1="106.68" x2="200.66" y2="106.68" width="0.1524" layer="91"/>
 <label x="200.66" y="106.68" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PA9"/>
 </segment>
 </net>
 <net name="SW1" class="0">
 <segment>
-<pinref part="IC1" gate="A" pin="PE10"/>
 <wire x1="134.62" y1="132.08" x2="152.4" y2="132.08" width="0.1524" layer="91"/>
 <label x="139.7" y="132.08" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PE10"/>
 </segment>
 <segment>
 <label x="411.48" y="27.94" size="1.778" layer="95"/>
@@ -16668,9 +16675,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="SWDIO" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="PA13"/>
 <wire x1="218.44" y1="96.52" x2="200.66" y2="96.52" width="0.1524" layer="91"/>
 <label x="200.66" y="96.52" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PA13"/>
 </segment>
 <segment>
 <wire x1="132.08" y1="40.64" x2="116.84" y2="40.64" width="0.1524" layer="91"/>
@@ -16680,9 +16687,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="SWCLK" class="0">
 <segment>
-<pinref part="IC1" gate="B" pin="PA14"/>
 <wire x1="254" y1="96.52" x2="271.78" y2="96.52" width="0.1524" layer="91"/>
 <label x="259.08" y="96.52" size="1.778" layer="95"/>
+<pinref part="U1" gate="B" pin="PA14"/>
 </segment>
 <segment>
 <wire x1="132.08" y1="45.72" x2="116.84" y2="45.72" width="0.1524" layer="91"/>
@@ -16697,9 +16704,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="X2" gate="-5" pin="S"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="A" pin="NRST"/>
 <wire x1="99.06" y1="109.22" x2="83.82" y2="109.22" width="0.1524" layer="91"/>
 <label x="83.82" y="109.22" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="NRST"/>
 </segment>
 </net>
 <net name="+5V" class="0">
