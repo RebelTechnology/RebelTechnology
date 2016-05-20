@@ -14699,7 +14699,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="C4" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND73" library="supply1" deviceset="GND" device=""/>
 <part name="GND74" library="supply1" deviceset="GND" device=""/>
-<part name="Y2" library="Seeed-OPL-crystal-osctllator" deviceset="SMD-CRYSTAL-8MHZ-20PF-20PPM(2P-5.0X3.2MM)" device="" value="25MHz"/>
+<part name="Y2" library="Seeed-OPL-crystal-osctllator" deviceset="SMD-CRYSTAL-8MHZ-20PF-20PPM(2P-5.0X3.2MM)" device="" value="8MHz"/>
 <part name="JP1" library="SparkFun" deviceset="M07" device=""/>
 <part name="JP2" library="SparkFun" deviceset="M07" device=""/>
 <part name="D3" library="SparkFun" deviceset="DIODE" device="SMA" value="S1J"/>
