@@ -8,34 +8,34 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="10" fill="3" visible="no" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="13" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="13" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="10" fill="1" visible="yes" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="13" fill="1" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="14" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -44,8 +44,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -53,20 +53,20 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="58" name="bCAD" color="11" fill="1" visible="no" active="no"/>
-<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
-<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="58" name="bCAD" color="11" fill="1" visible="yes" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="yes" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="yes" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -16541,7 +16541,9 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="C802" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="R801" library="Rebel" deviceset="R-EU_" device="0603" value="560k"/>
-<part name="IC9" library="Rebel" deviceset="N25Q128A13" device=""/>
+<part name="IC9" library="Rebel" deviceset="N25Q128A13" device="">
+<attribute name="OC_FARNELL" value="2253682"/>
+</part>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 <part name="C901" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
@@ -16728,9 +16730,15 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="GND96" library="supply1" deviceset="GND" device=""/>
 <part name="GND97" library="supply1" deviceset="GND" device=""/>
 <part name="GND98" library="supply1" deviceset="GND" device=""/>
-<part name="Q1" library="transistor-small-signal" deviceset="BSS84" device=""/>
-<part name="Q2" library="transistor-small-signal" deviceset="BSS123" device=""/>
-<part name="U$1" library="James" deviceset="MIC2005" device=""/>
+<part name="Q1" library="transistor-small-signal" deviceset="BSS84" device="">
+<attribute name="OC_FARNELL" value="1779264"/>
+</part>
+<part name="Q2" library="transistor-small-signal" deviceset="BSS123" device="">
+<attribute name="OC_FARNELL" value="1843725"/>
+</part>
+<part name="U$1" library="James" deviceset="MIC2005" device="">
+<attribute name="OC_FARNELL" value="2509882"/>
+</part>
 <part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="+3V20" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND101" library="supply1" deviceset="GND" device=""/>
@@ -16739,10 +16747,14 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="X3" library="con-kycon" deviceset="KUSBVX" device=""/>
 <part name="GND103" library="supply1" deviceset="GND" device=""/>
 <part name="GND104" library="supply1" deviceset="GND" device=""/>
-<part name="IC10" library="James" deviceset="IS42S16400J" device=""/>
+<part name="IC10" library="James" deviceset="IS42S16400J" device="">
+<attribute name="OC_FARNELL" value="2253831"/>
+</part>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="+3V21" library="supply1" deviceset="+3V3" device=""/>
-<part name="IC8" library="James" deviceset="STM32F756Z" device="LQFP144"/>
+<part name="IC8" library="James" deviceset="STM32F756Z" device="LQFP144">
+<attribute name="OC_FARNELL" value="2484975"/>
+</part>
 <part name="GND105" library="supply1" deviceset="GND" device=""/>
 <part name="GND106" library="supply1" deviceset="GND" device=""/>
 <part name="GND107" library="supply1" deviceset="GND" device=""/>
@@ -16839,19 +16851,29 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="IC1" library="linear" deviceset="TL074" device="D"/>
 <part name="IC2" library="linear" deviceset="NE5532" device="D"/>
 <part name="GND77" library="supply1" deviceset="GND" device=""/>
-<part name="IC3" library="James" deviceset="MC78XX" device="" value="MC7805CDTG"/>
+<part name="IC3" library="James" deviceset="MC78XX" device="" value="MC7805CDTG">
+<attribute name="OC_FARNELL" value="2296028"/>
+</part>
 <part name="GND99" library="supply1" deviceset="GND" device=""/>
 <part name="C23" library="Rebel" deviceset="CPOL-EU" device="D" value="220u"/>
 <part name="JP13" library="jumper" deviceset="JP1Q" device=""/>
-<part name="D2" library="diode" deviceset="DIODE-" device="SOD123"/>
-<part name="D5" library="diode" deviceset="DIODE-" device="SOD123"/>
+<part name="D2" library="diode" deviceset="DIODE-" device="SOD123" value="B130LAW-7-F">
+<attribute name="OC_FARNELL" value="1858617"/>
+</part>
+<part name="D5" library="diode" deviceset="DIODE-" device="SOD123" value="B130LAW-7-F">
+<attribute name="OC_FARNELL" value="1858617"/>
+</part>
 <part name="GND120" library="supply1" deviceset="GND" device=""/>
 <part name="P+20" library="supply1" deviceset="+5V" device=""/>
-<part name="D1" library="diode" deviceset="DIODE-" device="SOD123"/>
+<part name="D1" library="diode" deviceset="DIODE-" device="SOD123" value="B130LAW-7-F">
+<attribute name="OC_FARNELL" value="1858617"/>
+</part>
 <part name="GND121" library="supply1" deviceset="GND" device=""/>
 <part name="C24" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND122" library="supply1" deviceset="GND" device=""/>
-<part name="U$2" library="Rebel" deviceset="INDUCTOR" device=""/>
+<part name="U$2" library="Rebel" deviceset="INDUCTOR" device="" value="1uH">
+<attribute name="OC_FARNELL" value="2288736"/>
+</part>
 <part name="C27" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
 <part name="GND123" library="supply1" deviceset="GND" device=""/>
 <part name="GND124" library="supply1" deviceset="GND" device=""/>
@@ -16878,11 +16900,15 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="C36" library="Rebel" deviceset="C-EU" device="C1206" value="10u"/>
 <part name="C37" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
-<part name="U$3" library="Rebel" deviceset="INDUCTOR" device=""/>
+<part name="U$3" library="Rebel" deviceset="INDUCTOR" device="" value="1uH">
+<attribute name="OC_FARNELL" value="2288736"/>
+</part>
 <part name="C38" library="Rebel" deviceset="C-EU" device="C0603" value="10u"/>
 <part name="GND61" library="supply1" deviceset="GND" device=""/>
 <part name="X5" library="SparkFun" deviceset="USB" device="PTH-VERTICAL"/>
-<part name="U4" library="James" deviceset="V_REG_LM3940IMP" device=""/>
+<part name="U4" library="James" deviceset="V_REG_LM3940IMP" device="">
+<attribute name="OC_FARNELL" value="1469104"/>
+</part>
 <part name="C39" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C40" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="+3V27" library="supply1" deviceset="+3V3" device=""/>
@@ -16955,11 +16981,23 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <attribute name="NAME" x="190.5" y="142.24" size="1.778" layer="95"/>
 <attribute name="VALUE" x="187.96" y="140.335" size="1.778" layer="96"/>
 </instance>
-<instance part="D2" gate="G$1" x="157.48" y="139.7" rot="R90"/>
-<instance part="D5" gate="G$1" x="157.48" y="149.86" rot="R90"/>
+<instance part="D2" gate="G$1" x="157.48" y="139.7" smashed="yes" rot="R90">
+<attribute name="NAME" x="156.9974" y="142.24" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="160.02" y="139.9286" size="1.778" layer="96"/>
+<attribute name="OC_FARNELL" x="157.48" y="139.7" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="D5" gate="G$1" x="157.48" y="149.86" smashed="yes" rot="R90">
+<attribute name="NAME" x="156.9974" y="152.4" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="160.02" y="150.0886" size="1.778" layer="96"/>
+<attribute name="OC_FARNELL" x="157.48" y="149.86" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="GND120" gate="1" x="157.48" y="129.54"/>
 <instance part="P+20" gate="1" x="157.48" y="160.02"/>
-<instance part="D1" gate="G$1" x="157.48" y="180.34" rot="R90"/>
+<instance part="D1" gate="G$1" x="157.48" y="180.34" smashed="yes" rot="R90">
+<attribute name="NAME" x="156.9974" y="182.88" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="154.94" y="180.1114" size="1.778" layer="96" rot="R180"/>
+<attribute name="OC_FARNELL" x="157.48" y="180.34" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="GND121" gate="1" x="157.48" y="170.18"/>
 <instance part="GND124" gate="1" x="165.1" y="170.18"/>
 <instance part="C101" gate="G$1" x="109.22" y="317.5"/>
@@ -16969,11 +17007,15 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <instance part="GND57" gate="1" x="96.52" y="307.34"/>
 <instance part="GND58" gate="1" x="109.22" y="307.34"/>
 <instance part="GND59" gate="1" x="119.38" y="307.34"/>
-<instance part="IC3" gate="1" x="96.52" y="322.58"/>
+<instance part="IC3" gate="1" x="96.52" y="322.58">
+<attribute name="OC_FARNELL" x="96.52" y="322.58" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="GND99" gate="1" x="71.12" y="307.34"/>
 <instance part="C23" gate="G$1" x="71.12" y="317.5"/>
 <instance part="P+14" gate="1" x="71.12" y="330.2"/>
-<instance part="U$1" gate="MIC2005" x="96.52" y="261.62"/>
+<instance part="U$1" gate="MIC2005" x="96.52" y="261.62">
+<attribute name="OC_FARNELL" x="96.52" y="261.62" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="GND101" gate="1" x="78.74" y="259.08"/>
 <instance part="JP4" gate="G$1" x="101.6" y="109.22" rot="R180"/>
 <instance part="C28" gate="G$1" x="165.1" y="180.34"/>
@@ -17634,7 +17676,9 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <text x="149.86" y="43.18" size="2.54" layer="97">OLED</text>
 </plain>
 <instances>
-<instance part="IC9" gate="N25Q128A13" x="251.46" y="5.08"/>
+<instance part="IC9" gate="N25Q128A13" x="251.46" y="5.08">
+<attribute name="OC_FARNELL" x="251.46" y="5.08" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="GND10" gate="1" x="248.92" y="-20.32"/>
 <instance part="+3V4" gate="G$1" x="248.92" y="43.18"/>
 <instance part="C901" gate="G$1" x="254" y="33.02"/>
@@ -17779,13 +17823,21 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <instance part="GND60" gate="1" x="27.94" y="276.86"/>
 <instance part="P-4" gate="1" x="63.5" y="274.32"/>
 <instance part="JP8" gate="G$1" x="38.1" y="289.56"/>
-<instance part="Q1" gate="G$1" x="53.34" y="294.64" rot="MR90"/>
-<instance part="Q2" gate="G$1" x="53.34" y="284.48" rot="MR270"/>
+<instance part="Q1" gate="G$1" x="53.34" y="294.64" rot="MR90">
+<attribute name="OC_FARNELL" x="53.34" y="294.64" size="1.778" layer="96" rot="MR90" display="off"/>
+</instance>
+<instance part="Q2" gate="G$1" x="53.34" y="284.48" rot="MR270">
+<attribute name="OC_FARNELL" x="53.34" y="284.48" size="1.778" layer="96" rot="MR270" display="off"/>
+</instance>
 <instance part="JP6" gate="G$1" x="436.88" y="-17.78" rot="R180"/>
-<instance part="IC10" gate="G$1" x="58.42" y="7.62"/>
+<instance part="IC10" gate="G$1" x="58.42" y="7.62">
+<attribute name="OC_FARNELL" x="58.42" y="7.62" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="GND16" gate="1" x="76.2" y="-33.02"/>
 <instance part="+3V21" gate="G$1" x="40.64" y="48.26"/>
-<instance part="IC8" gate="G$1" x="58.42" y="116.84"/>
+<instance part="IC8" gate="G$1" x="58.42" y="116.84">
+<attribute name="OC_FARNELL" x="58.42" y="116.84" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="IC8" gate="G$2" x="154.94" y="116.84"/>
 <instance part="IC8" gate="G$3" x="254" y="119.38"/>
 <instance part="GND105" gate="1" x="236.22" y="68.58"/>
@@ -17892,7 +17944,9 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <instance part="GND77" gate="1" x="193.04" y="292.1"/>
 <instance part="C24" gate="G$1" x="81.28" y="241.3"/>
 <instance part="GND122" gate="1" x="81.28" y="231.14"/>
-<instance part="U$2" gate="G$1" x="71.12" y="246.38" rot="R180"/>
+<instance part="U$2" gate="G$1" x="71.12" y="246.38" rot="R180">
+<attribute name="OC_FARNELL" x="71.12" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
 <instance part="C27" gate="G$1" x="91.44" y="241.3"/>
 <instance part="GND123" gate="1" x="91.44" y="231.14"/>
 <instance part="C802" gate="G$1" x="129.54" y="20.32" rot="R180"/>
@@ -17944,10 +17998,14 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <instance part="C36" gate="G$1" x="154.94" y="304.8" rot="R180"/>
 <instance part="C37" gate="G$1" x="419.1" y="142.24"/>
 <instance part="GND6" gate="1" x="419.1" y="132.08"/>
-<instance part="U$3" gate="G$1" x="408.94" y="147.32" rot="R180"/>
+<instance part="U$3" gate="G$1" x="408.94" y="147.32" rot="R180">
+<attribute name="OC_FARNELL" x="408.94" y="147.32" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
 <instance part="C38" gate="G$1" x="429.26" y="142.24"/>
 <instance part="GND61" gate="1" x="429.26" y="132.08"/>
-<instance part="U4" gate="G$1" x="35.56" y="246.38"/>
+<instance part="U4" gate="G$1" x="35.56" y="246.38">
+<attribute name="OC_FARNELL" x="35.56" y="246.38" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="C39" gate="G$1" x="106.68" y="-17.78"/>
 <instance part="C40" gate="G$1" x="114.3" y="-17.78"/>
 <instance part="+3V27" gate="G$1" x="106.68" y="-10.16"/>
