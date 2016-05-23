@@ -7,8 +7,8 @@
 #define USE_ENCODERS
 #define USE_SCREEN
 #define OLED_SOFT_CS
+/* #define OLED_DMA */
 /* #define OLED_IT */
-#define OLED_DMA
 /* #define OLED_BITBANG */
 #define USE_CODEC
 #define CODEC_SOFT_CS
@@ -19,8 +19,8 @@
 /* #define USE_QSPI_FLASH */
 /* #define USE_DMA2D */
 /* #define USE_RNG */
-
-/* #define USE_UART */
+#define MCU_CLOCK_168MHZ
+#define USE_UART
 /* #define USE_USB */
 
 // MCOT096064 max recommended SPI speed 6.6MHz

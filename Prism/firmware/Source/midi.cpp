@@ -5,7 +5,7 @@
 #include "stm32f7xx_hal.h"
 #include "mxconstants.h"
 
-#ifdef USE_MIDI
+#ifdef USE_UART
 
 static uint8_t frame[4];
 static uint8_t rxbuffer[256];
@@ -19,6 +19,10 @@ void midiSetup(){
 
 void midiSendCC(uint8_t ch, uint8_t cc, uint8_t value){
   writer.controlChange(ch, cc, value);
+}
+
+void midiSendPC(uint8_t ch, uint8_t pc){
+  writer.programChange(ch, pc);
 }
 
 extern "C" {

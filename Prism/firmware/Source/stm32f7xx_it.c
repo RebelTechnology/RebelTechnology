@@ -135,6 +135,11 @@ void DMA2_Stream3_IRQHandler(void)
 
   /* USER CODE BEGIN DMA2_Stream3_IRQn 1 */
 
+  if(__HAL_DMA_GET_FLAG(&hdma_spi1_tx,  __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx)))
+    __HAL_DMA_CLEAR_FLAG(&hdma_spi1_tx, __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx));
+  if(__HAL_DMA_GET_FLAG(&hdma_spi1_tx,  __HAL_DMA_GET_HT_FLAG_INDEX(&hdma_spi1_tx)))
+    __HAL_DMA_CLEAR_FLAG(&hdma_spi1_tx, __HAL_DMA_GET_HT_FLAG_INDEX(&hdma_spi1_tx));
+
   /* if(__HAL_DMA_GET_FLAG(&hdma_spi1_tx,  __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx))){ */
   /*   __HAL_DMA_CLEAR_FLAG(&hdma_spi1_tx, __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx)); */
   /*   setCS();     */
