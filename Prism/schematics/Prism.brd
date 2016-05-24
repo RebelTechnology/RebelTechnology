@@ -1160,6 +1160,20 @@ http://www.bccomponents.com/</description>
 <text x="-2.54" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="-0.1999" y1="-0.5999" x2="0.1999" y2="0.5999" layer="35"/>
 </package>
+<package name="JST-B3B-PH-KL">
+<wire x1="3.95" y1="-1.7" x2="0.5" y2="-1.7" width="0.127" layer="21"/>
+<wire x1="0.5" y1="-1.7" x2="0.5" y2="-2.2" width="0.127" layer="21"/>
+<wire x1="0.5" y1="-2.2" x2="-0.5" y2="-2.2" width="0.127" layer="21"/>
+<wire x1="-0.5" y1="-2.2" x2="-0.5" y2="-1.7" width="0.127" layer="21"/>
+<wire x1="-0.5" y1="-1.7" x2="-3.95" y2="-1.7" width="0.127" layer="21"/>
+<wire x1="-3.95" y1="-1.7" x2="-3.95" y2="2.8" width="0.127" layer="21"/>
+<wire x1="-3.95" y1="2.8" x2="3.95" y2="2.8" width="0.127" layer="21"/>
+<wire x1="3.95" y1="2.8" x2="3.95" y2="-1.7" width="0.127" layer="21"/>
+<pad name="2" x="0" y="0" drill="0.8" diameter="1.4224" rot="R180"/>
+<pad name="3" x="-2" y="0" drill="0.8" diameter="1.4224" rot="R180"/>
+<text x="0" y="1.25" size="1.27" layer="25" font="vector" align="bottom-center">&gt;NAME</text>
+<pad name="1" x="2" y="0" drill="0.8" diameter="1.4224" rot="R180"/>
+</package>
 </packages>
 </library>
 <library name="diode">
@@ -2150,9 +2164,6 @@ design rules under a new name.</description>
 </element>
 <element name="C13" library="Rebel" package="C0603" value="2u2 C0G" x="63.5" y="70.1675"/>
 <element name="C14" library="Rebel" package="C0603" value="2u2 C0G" x="57.15" y="84.1375"/>
-<element name="JP3" library="SparkFun" package="1X03" value="" x="64.77" y="93.345" smashed="yes" rot="R90">
-<attribute name="VALUE" x="67.945" y="92.075" size="1.27" layer="27" rot="R90"/>
-</element>
 <element name="JP5" library="SparkFun" package="1X07" value="" x="7.62" y="91.44" smashed="yes">
 <attribute name="VALUE" x="6.35" y="88.265" size="1.27" layer="27"/>
 </element>
@@ -2232,6 +2243,7 @@ design rules under a new name.</description>
 <attribute name="MPN" value="STM32F405VGT6" x="52.705" y="74.295" size="1.778" layer="27" rot="R45" display="off"/>
 <attribute name="SUPPLIER" value="STMicroelectronics" x="52.705" y="74.295" size="1.778" layer="27" rot="R45" display="off"/>
 </element>
+<element name="CN1" library="Rebel" package="JST-B3B-PH-KL" value="" x="64.77" y="96.52" rot="MR270"/>
 </elements>
 <signals>
 <signal name="C2P">
@@ -2413,7 +2425,6 @@ design rules under a new name.</description>
 <via x="40.9575" y="71.4375" extent="1-16" drill="0.5"/>
 <wire x1="67.6275" y1="77.89" x2="67.6275" y2="76.835" width="0.4064" layer="1"/>
 <via x="67.6275" y="76.835" extent="1-16" drill="0.5"/>
-<contactref element="JP3" pad="2"/>
 <wire x1="58.4175" y1="55.8825" x2="58.42" y2="55.88" width="0.4064" layer="1"/>
 <via x="58.42" y="55.88" extent="1-16" drill="0.5"/>
 <wire x1="57.615" y1="59.0575" x2="57.7875" y2="59.0575" width="0.4064" layer="1"/>
@@ -2602,6 +2613,7 @@ design rules under a new name.</description>
 <via x="54.2925" y="63.1825" extent="1-16" drill="0.5"/>
 <wire x1="54.9275" y1="64.277634375" x2="54.9275" y2="62.9675" width="0.254" layer="1"/>
 <wire x1="54.9275" y1="62.9675" x2="55.03" y2="62.865" width="0.254" layer="1"/>
+<contactref element="CN1" pad="2"/>
 </signal>
 <signal name="+3V3">
 <contactref element="IC9" pad="8"/>
@@ -4130,8 +4142,6 @@ design rules under a new name.</description>
 <contactref element="U1" pad="73"/>
 </signal>
 <signal name="UART_RX">
-<contactref element="JP3" pad="1"/>
-<wire x1="64.77" y1="93.345" x2="64.77" y2="89.535" width="0.254" layer="16"/>
 <wire x1="64.77" y1="89.535" x2="63.5" y2="88.265" width="0.254" layer="16"/>
 <wire x1="63.5" y1="88.265" x2="62.865" y2="88.265" width="0.254" layer="16"/>
 <wire x1="62.865" y1="88.265" x2="62.5475" y2="87.9475" width="0.254" layer="1"/>
@@ -4148,10 +4158,10 @@ design rules under a new name.</description>
 <wire x1="58.42" y1="82.55" x2="58.7375" y2="82.8675" width="0.254" layer="16"/>
 <wire x1="58.7375" y1="82.8675" x2="58.7375" y2="86.995" width="0.254" layer="16"/>
 <contactref element="U1" pad="69"/>
+<contactref element="CN1" pad="1"/>
+<wire x1="64.77" y1="89.535" x2="64.77" y2="94.52" width="0.254" layer="16"/>
 </signal>
 <signal name="UART_TX">
-<contactref element="JP3" pad="3"/>
-<wire x1="64.77" y1="98.425" x2="63.1825" y2="96.8375" width="0.254" layer="1"/>
 <wire x1="63.1825" y1="96.8375" x2="63.1825" y2="91.1225" width="0.254" layer="1"/>
 <wire x1="63.1825" y1="91.1225" x2="61.9125" y2="89.8525" width="0.254" layer="1"/>
 <wire x1="61.9125" y1="89.8525" x2="60.0075" y2="89.8525" width="0.254" layer="1"/>
@@ -4171,6 +4181,9 @@ design rules under a new name.</description>
 <wire x1="60.0075" y1="82.2325" x2="60.0075" y2="83.5025" width="0.254" layer="16"/>
 <wire x1="60.0075" y1="83.5025" x2="60.96" y2="84.455" width="0.254" layer="16"/>
 <contactref element="U1" pad="68"/>
+<contactref element="CN1" pad="3"/>
+<wire x1="63.1825" y1="96.8375" x2="63.1825" y2="96.9325" width="0.254" layer="1"/>
+<wire x1="63.1825" y1="96.9325" x2="64.77" y2="98.52" width="0.254" layer="1"/>
 </signal>
 <signal name="SW1">
 <wire x1="66.675" y1="67.945" x2="66.04" y2="68.58" width="0.254" layer="1"/>

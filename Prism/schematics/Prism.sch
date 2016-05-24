@@ -7951,6 +7951,42 @@ Source: AVX .. aphvc.pdf</description>
 <hole x="11.85" y="1.1" drill="0.6"/>
 <hole x="-11.85" y="1.1" drill="0.6"/>
 </package>
+<package name="JST-PH-3-SMT">
+<wire x1="-4.2" y1="-1" x2="-4.2" y2="-3.5" width="0.2032" layer="51"/>
+<wire x1="-4.2" y1="-3.5" x2="-5" y2="-3.5" width="0.2032" layer="51"/>
+<wire x1="5" y1="-3.5" x2="4.2" y2="-3.5" width="0.2032" layer="51"/>
+<wire x1="4.2" y1="-3.5" x2="4.2" y2="-1" width="0.2032" layer="51"/>
+<wire x1="-3.25" y1="4" x2="3.25" y2="4" width="0.127" layer="21"/>
+<wire x1="5" y1="0.5" x2="5" y2="-3.5" width="0.127" layer="21"/>
+<wire x1="5" y1="-3.5" x2="4.15" y2="-3.5" width="0.127" layer="21"/>
+<wire x1="4.15" y1="-3.5" x2="4.15" y2="-1" width="0.127" layer="21"/>
+<wire x1="4.15" y1="-1" x2="2.75" y2="-1" width="0.127" layer="21"/>
+<wire x1="-2.75" y1="-1" x2="-4.15" y2="-1" width="0.127" layer="21"/>
+<wire x1="-4.15" y1="-1" x2="-4.15" y2="-3.5" width="0.127" layer="21"/>
+<wire x1="-4.15" y1="-3.5" x2="-5" y2="-3.5" width="0.127" layer="21"/>
+<wire x1="-5" y1="-3.5" x2="-5" y2="0.5" width="0.127" layer="21"/>
+<smd name="1" x="-2" y="-2.7" dx="1" dy="4.6" layer="1"/>
+<smd name="2" x="0" y="-2.7" dx="1" dy="4.6" layer="1"/>
+<smd name="NC1" x="-4.4" y="2.5" dx="3.4" dy="1.6" layer="1" rot="R90"/>
+<smd name="NC2" x="4.4" y="2.5" dx="3.4" dy="1.6" layer="1" rot="R90"/>
+<smd name="3" x="2" y="-2.7" dx="1" dy="4.6" layer="1"/>
+<text x="-3.2225" y="3.2225" size="0.4064" layer="25">&gt;Name</text>
+<text x="-3.2225" y="2.524" size="0.4064" layer="27">&gt;Value</text>
+</package>
+<package name="JST-B3B-PH-KL">
+<wire x1="3.95" y1="-1.7" x2="0.5" y2="-1.7" width="0.127" layer="21"/>
+<wire x1="0.5" y1="-1.7" x2="0.5" y2="-2.2" width="0.127" layer="21"/>
+<wire x1="0.5" y1="-2.2" x2="-0.5" y2="-2.2" width="0.127" layer="21"/>
+<wire x1="-0.5" y1="-2.2" x2="-0.5" y2="-1.7" width="0.127" layer="21"/>
+<wire x1="-0.5" y1="-1.7" x2="-3.95" y2="-1.7" width="0.127" layer="21"/>
+<wire x1="-3.95" y1="-1.7" x2="-3.95" y2="2.8" width="0.127" layer="21"/>
+<wire x1="-3.95" y1="2.8" x2="3.95" y2="2.8" width="0.127" layer="21"/>
+<wire x1="3.95" y1="2.8" x2="3.95" y2="-1.7" width="0.127" layer="21"/>
+<pad name="2" x="0" y="0" drill="0.8" diameter="1.4224" rot="R180"/>
+<pad name="3" x="-2" y="0" drill="0.8" diameter="1.4224" rot="R180"/>
+<text x="0" y="1.25" size="1.27" layer="25" font="vector" align="bottom-center">&gt;NAME</text>
+<pad name="1" x="2" y="0" drill="0.8" diameter="1.4224" rot="R180"/>
+</package>
 </packages>
 <symbols>
 <symbol name="CS4271">
@@ -8254,6 +8290,17 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="12.7" y1="43.18" x2="-12.7" y2="43.18" width="0.4064" layer="94"/>
 <text x="-4.826" y="44.4246" size="2.0828" layer="95" ratio="10" rot="SR0">&gt;NAME</text>
 <text x="-6.0198" y="-51.7144" size="2.0828" layer="96" ratio="10" rot="SR0">&gt;VALUE</text>
+</symbol>
+<symbol name="PINHD3">
+<wire x1="-6.35" y1="-5.08" x2="1.27" y2="-5.08" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="-5.08" x2="1.27" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="5.08" x2="-6.35" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="-6.35" y1="5.08" x2="-6.35" y2="-5.08" width="0.4064" layer="94"/>
+<text x="-6.35" y="5.715" size="1.778" layer="95">&gt;NAME</text>
+<text x="-6.35" y="-7.62" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="1" x="-2.54" y="2.54" visible="pad" length="short" direction="pas" function="dot"/>
+<pin name="2" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
+<pin name="3" x="-2.54" y="-2.54" visible="pad" length="short" direction="pas" function="dot"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -10904,6 +10951,33 @@ Source: AVX .. aphvc.pdf</description>
 <attribute name="PACKAGE" value="100LQFP" constant="no"/>
 <attribute name="SUPPLIER" value="STMicroelectronics" constant="no"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="CON-JST-1X03" prefix="CN" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="PINHD3" x="0" y="0"/>
+</gates>
+<devices>
+<device name="PH-SMT-RA" package="JST-PH-3-SMT">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="PH-TH" package="JST-B3B-PH-KL">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -14738,7 +14812,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="GND82" library="supply1" deviceset="GND" device=""/>
 <part name="GND83" library="supply1" deviceset="GND" device=""/>
 <part name="+3V15" library="supply1" deviceset="+3V3" device=""/>
-<part name="JP3" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="GND84" library="supply1" deviceset="GND" device=""/>
 <part name="GND88" library="supply1" deviceset="GND" device=""/>
 <part name="JP5" library="SparkFun" deviceset="M07" device=""/>
@@ -14788,6 +14861,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="+3V21" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="U1" library="Rebel" deviceset="STM32F405VGT6" device=""/>
+<part name="CN1" library="Rebel" deviceset="CON-JST-1X03" device="PH-TH"/>
 </parts>
 <sheets>
 <sheet>
@@ -15421,7 +15495,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="GND82" gate="1" x="50.8" y="129.54"/>
 <instance part="GND83" gate="1" x="40.64" y="129.54"/>
 <instance part="+3V15" gate="G$1" x="50.8" y="170.18"/>
-<instance part="JP3" gate="G$1" x="40.64" y="33.02"/>
 <instance part="GND84" gate="1" x="50.8" y="25.4"/>
 <instance part="GND89" gate="1" x="129.54" y="27.94"/>
 <instance part="+3V16" gate="G$1" x="129.54" y="55.88"/>
@@ -15606,6 +15679,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="GND92" gate="1" x="314.96" y="7.62"/>
 <instance part="U1" gate="A" x="116.84" y="121.92"/>
 <instance part="U1" gate="B" x="236.22" y="121.92"/>
+<instance part="CN1" gate="G$1" x="38.1" y="33.02" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -15719,10 +15793,10 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="40.64" y1="134.62" x2="40.64" y2="132.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="JP3" gate="G$1" pin="2"/>
 <pinref part="GND84" gate="1" pin="GND"/>
-<wire x1="48.26" y1="33.02" x2="50.8" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="33.02" x2="50.8" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="33.02" x2="50.8" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="CN1" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <wire x1="132.08" y1="43.18" x2="129.54" y2="43.18" width="0.1524" layer="91"/>
@@ -16639,9 +16713,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="UART_RX" class="0">
 <segment>
-<pinref part="JP3" gate="G$1" pin="1"/>
-<wire x1="48.26" y1="30.48" x2="63.5" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="30.48" x2="63.5" y2="30.48" width="0.1524" layer="91"/>
 <label x="53.34" y="30.48" size="1.778" layer="95"/>
+<pinref part="CN1" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <wire x1="218.44" y1="104.14" x2="200.66" y2="104.14" width="0.1524" layer="91"/>
@@ -16651,9 +16725,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="UART_TX" class="0">
 <segment>
-<pinref part="JP3" gate="G$1" pin="3"/>
-<wire x1="48.26" y1="35.56" x2="63.5" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="35.56" x2="63.5" y2="35.56" width="0.1524" layer="91"/>
 <label x="53.34" y="35.56" size="1.778" layer="95"/>
+<pinref part="CN1" gate="G$1" pin="3"/>
 </segment>
 <segment>
 <wire x1="218.44" y1="106.68" x2="200.66" y2="106.68" width="0.1524" layer="91"/>
