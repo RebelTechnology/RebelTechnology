@@ -10,6 +10,7 @@
    void midiSetup();
    void midiSendPC(uint8_t ch, uint8_t pc);
    void midiSendCC(uint8_t ch, uint8_t cc, uint8_t value);
+   void midiReceivePC(uint8_t ch, uint8_t pc);
    void midiReceiveCC(uint8_t ch, uint8_t cc, uint8_t value);
 
 #ifdef __cplusplus

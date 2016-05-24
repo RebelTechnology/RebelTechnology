@@ -47,6 +47,7 @@ public:
     Serial.printf("program change: %d %d\n", channel, value);
 #endif /* DEBUG_USART */
     // AppleMIDI.programChange(value, channel+1);
+    midiReceivePC(channel, value);
   }
 
   void handleChannelPressure(uint8_t channel, uint8_t value){
@@ -62,7 +63,7 @@ public:
 #endif /* DEBUG_USART */
     // AppleMIDI.controlChange(cc, value, channel+1);
     // if(cc >= 20 && cc < 28)
-    //   midiReceiveCC(channel, cc, value);
+      midiReceiveCC(channel, cc, value);
   }
 
   void handleNoteOff(uint8_t channel, uint8_t note, uint8_t velocity){

@@ -8,17 +8,19 @@ ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
 
 #include "ScopePatch.hpp"
 #include "LissajouPatch.hpp"
-#include "DemoPatch.hpp"
+// #include "DemoPatch.hpp"
 #include "SplashPatch.hpp"
+#include "PresetDisplayPatch.hpp"
 
 SampleBuffer samples;
 ScopePatch scope;
 LissajouPatch lissajou;
-DemoPatch demo;
+// DemoPatch demo;
 SplashPatch splash;
+PresetDisplayPatch preset;
 // why is last patch not enabling?
 // add polar coordinates plotting
-Patch* patches[4] = {&scope, &lissajou, &splash, &demo};
+Patch* patches[4] = {&scope, &lissajou, &preset, &splash};
 
 extern uint16_t adc_values[4];
 
