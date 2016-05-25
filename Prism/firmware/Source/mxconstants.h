@@ -1,7 +1,7 @@
 #define SSD1331
 /* #define SEPS114A */
 
-#define USE_ADC
+/* #define USE_ADC */
 /* #define ADC_DMA */
 /* #define ADC_IT */
 #define USE_ENCODERS
@@ -10,7 +10,7 @@
 /* #define OLED_DMA */
 /* #define OLED_IT */
 /* #define OLED_BITBANG */
-#define USE_CODEC
+/* #define USE_CODEC */
 #define CODEC_SOFT_CS
 /* #define CODEC_BLOCKSIZE 1024 */
 #define CODEC_BLOCKSIZE 2048 // 23.4 FPS

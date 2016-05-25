@@ -727,6 +727,7 @@ void StartScreenTask(void const * argument)
 	programVector.pixels = pixelbuffer[swappb];
 	swappb = !swappb;
       }
+
 #ifdef USE_ADC
 #if !defined ADC_DMA && !defined ADC_IT
       readadc();
@@ -734,6 +735,16 @@ void StartScreenTask(void const * argument)
 #endif
       doProcessAudio = false;
     }
+#ifndef USE_CODEC
+    // doProcessAudio will never be true
+    processBlock(&programVector);
+    // while(!graphics.isReady()); // wait
+    graphics.display(programVector.pixels, OLED_WIDTH*OLED_HEIGHT);
+    // swap pixelbuffer
+    programVector.pixels = pixelbuffer[swappb];
+    swappb = !swappb;
+    // this is only used for rack mount so we'll skip adc
+#endif
   }
 }
 

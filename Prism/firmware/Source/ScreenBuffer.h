@@ -67,7 +67,8 @@ public:
   void draw(int x, int y, ScreenBuffer& pixels);
   static ScreenBuffer* create(int width, int height);
 
-  void drawChar(uint16_t x, uint16_t y, unsigned char c, Colour fg, uint16_t bg, uint8_t size);		
+  void drawChar(uint16_t x, uint16_t y, unsigned char c, Colour fg, uint16_t bg, uint8_t size);
+  void drawRotatedChar(uint16_t x, uint16_t y, unsigned char c, Colour fg, uint16_t bg, uint8_t size);
   void setCursor(uint16_t x, uint16_t y);
   void setTextColour(Colour c);
   void setTextColour(Colour fg, Colour bg);

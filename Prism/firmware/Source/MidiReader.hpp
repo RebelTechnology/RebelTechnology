@@ -3,7 +3,6 @@
 
 #include <inttypes.h>
 #include "MidiStatus.h"
-#include <stdio.h>
 
 class MidiReader;
 typedef MidiReader MidiMessage;
