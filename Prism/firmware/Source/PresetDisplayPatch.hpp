@@ -1,15 +1,16 @@
 #include "StompBox.h"
 
 #include "midi.h"
+#include "gpio.h"
 extern "C" uint32_t HAL_GetTick();
 
 class PresetDisplayPatch : public Patch {
 private:
-  int parameterA = 0;
-  const int maxPreset = 24;
+  int preset;
+  const int maxPreset = 11;
   int debounceDelay = 60;
   int size = 5;
-  uint16_t x = 1;
+  uint16_t x = 4;
   uint16_t y = 28;
   uint16_t bg = BLACK;
   uint16_t fg = WHITE;
@@ -17,13 +18,13 @@ public:
   PresetDisplayPatch(){
   }
   void reset(){
-    parameterA = 0;
+    preset = 1;
     // send PC to change to last program, E8: PC40
     midiSendPC(0, 40);
     // send CC 26 value 127 to turn remote control on: CC26/127
     midiSendCC(0, 26, 127);
     // send parameter A value 0 to select first preset: CC20/0
-    midiSendCC(0, 20, parameterA);
+    midiSendCC(0, 20, preset);
   }
   void encoderChanged(uint8_t encoder, int32_t dir){
     // if(dir > 0)
@@ -37,16 +38,23 @@ public:
       return;
     last = now;
     if(dir > 0)
-      parameterA = min(maxPreset, parameterA+1);
+      preset = min(maxPreset, preset+1);
     else if(dir < 0)
-      parameterA = max(0, parameterA-1);
-    midiSendCC(0, 20, parameterA);
+      preset = max(1, preset-1);
+    midiSendCC(0, 20, preset*127/maxPreset);
   }
   void processAudio(AudioBuffer& samples){
-    screen.fill(bg);
-    char low = (parameterA % 10) +'0';
-    char high = (parameterA/10)+'0';
+    if(sw1()){
+      screen.fill(fg);
+      reset();
+    }else{
+      screen.fill(bg);
+    }
+    if(sw2())
+      screen.fill(BLUE);
+    char low = (preset % 10) +'0';
+    char high = (preset/10)+'0';
     screen.drawRotatedChar(x, y, high, fg, bg, size);
-    screen.drawRotatedChar(x+size*6+4, y, low, fg, bg, size);
+    screen.drawRotatedChar(x+size*6+2, y, low, fg, bg, size);
   }
 };

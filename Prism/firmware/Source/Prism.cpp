@@ -3,6 +3,19 @@
 #include "ScreenBuffer.h"
 #include "Prism.h"
 #include "StompBox.h"
+#include "stm32f7xx_hal.h"
+#include "gpio.h"
+
+bool sw1(){
+  // return !getPin(SW1_GPIO_Port, SW1_Pin);
+  return HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin) != GPIO_PIN_SET;
+  // HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin) 
+}
+
+bool sw2(){
+  return HAL_GPIO_ReadPin(SW2_GPIO_Port, SW2_Pin) != GPIO_PIN_SET;
+  // return !getPin(SW2_GPIO_Port, SW2_Pin);
+}
 
 ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
 
@@ -72,6 +85,8 @@ void setup(ProgramVector* pv){
 //   pv->heap_bytes_used = before - xPortGetFreeHeapSize();
 // #endif
 // #endif
+  // setPin(SW1_GPIO_Port, SW1_Pin);
+  // setPin(SW2_GPIO_Port, SW2_Pin);
 }
 
 void processBlock(ProgramVector* pv){
