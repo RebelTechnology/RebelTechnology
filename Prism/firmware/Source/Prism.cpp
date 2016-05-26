@@ -34,10 +34,8 @@ void changePatch(uint8_t pid){
   }
 }
 
-static int debounceDelay = 10;
 void encoderChanged(uint8_t encoder, int32_t value){
   static int16_t encoders[2] = {INT16_MAX/2, INT16_MAX/2};
-  delay(debounceDelay);
   // todo: debounce
   // if(encoder == 1){
     // pass encoder change event to patch

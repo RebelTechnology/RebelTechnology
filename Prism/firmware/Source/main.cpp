@@ -101,12 +101,13 @@ int main(void)
 
   /* USER CODE END 1 */
 
+#ifdef USE_CACHE
   /* Enable I-Cache-------------------------------------------------------------*/
   SCB_EnableICache();
 
   /* Enable D-Cache-------------------------------------------------------------*/
   SCB_EnableDCache();
-
+#endif
   /* MCU Configuration----------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
