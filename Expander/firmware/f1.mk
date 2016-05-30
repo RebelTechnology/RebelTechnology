@@ -12,7 +12,7 @@ SYSTEM_FILE=$(LIBROOT)/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/
 STARTUP_FILE=$(LIBROOT)/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/TrueSTUDIO/
 
 # Processor specific
-LDSCRIPT ?= $(LIBROOT)/Project/STM32F10x_StdPeriph_Template/TrueSTUDIO/STM32100B-EVAL/stm32_flash.ld
+LDSCRIPT ?= $(LIBROOT)/Source/stm32_flash.ld
 STARTUP ?= $(BUILD)/startup_stm32f10x_md_vl.o # medium density value line
 SYSTEM ?= $(BUILD)/system_stm32f10x.o
 PERIPH = $(BUILD)/stm32f10x_gpio.o $(BUILD)/stm32f10x_adc.o $(BUILD)/stm32f10x_rcc.o $(BUILD)/stm32f10x_pwr.o 
