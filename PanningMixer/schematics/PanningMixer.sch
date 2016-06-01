@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -21429,7 +21429,7 @@ www.irf.com&lt;p&gt;
 <pinref part="R9" gate="G$2" pin="3"/>
 </segment>
 </net>
-<net name="N$34" class="0">
+<net name="N$26" class="0">
 <segment>
 <pinref part="R22" gate="G$1" pin="2"/>
 <wire x1="139.7" y1="127" x2="142.24" y2="127" width="0.1524" layer="91"/>
@@ -21511,7 +21511,7 @@ www.irf.com&lt;p&gt;
 <pinref part="R4" gate="G$2" pin="3"/>
 </segment>
 </net>
-<net name="N$40" class="0">
+<net name="N$25" class="0">
 <segment>
 <pinref part="R30" gate="G$1" pin="2"/>
 <wire x1="139.7" y1="25.4" x2="142.24" y2="25.4" width="0.1524" layer="91"/>
