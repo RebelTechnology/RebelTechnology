@@ -18,7 +18,8 @@ endif
 
 LDFLAGS += -Wl,--gc-sections
 #LDSCRIPT = Source/flash.ld
-LDSCRIPT = Source/STM32F746VE_FLASH.ld
+# LDSCRIPT = Source/STM32F746VE_FLASH.ld
+LDSCRIPT = Source/STM32F427VG_FLASH.ld
 
 CPPFLAGS += -ILibSource
 
@@ -47,4 +48,4 @@ OBJS = $(C_SRC:%.c=Build/%.o) $(CPP_SRC:%.cpp=Build/%.o)
 OBJS += $(BUILD)/startup_stm32f746xx.o
 
 include $(TEMPLATEROOT)/libs.mk
-include $(TEMPLATEROOT)/f7.mk
+include $(TEMPLATEROOT)/f4.mk
