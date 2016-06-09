@@ -1,11 +1,11 @@
-#include "stm32f7xx_hal.h"
+#include "stm32f4xx_hal.h"
 #include "cmsis_os.h"
 // #include "fatfs.h"
 
 /* USER CODE BEGIN Includes */
 #include "Graphics.h"
 #include "Codec.h"
-#include "qspi.h"
+// #include "qspi.h"
 #include "errorhandlers.h"
 #include "Prism.h"
 #include "ProgramVector.h"
@@ -29,7 +29,9 @@ DMA_HandleTypeDef hdma_adc1;
 
 DMA2D_HandleTypeDef hdma2d;
 
+#ifdef USE_QSPI_FLASH
 QSPI_HandleTypeDef hqspi;
+#endif
 
 RNG_HandleTypeDef hrng;
 

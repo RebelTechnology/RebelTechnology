@@ -115,19 +115,6 @@ void MX_SAI1_Init(void)
   hsai_BlockTx.SlotInit.SlotNumber = 2;
   hsai_BlockTx.SlotInit.SlotActive = SAI_SLOTACTIVE_ALL;
   ret = HAL_SAI_Init(&hsai_BlockTx);
-  // HAL_SAI_DeInit(&hsai_BlockTx); // added
-  // hsai_BlockTx.Instance = SAI1_Block_A;
-  // hsai_BlockTx.Init.AudioMode = SAI_MODESLAVE_TX;
-  // hsai_BlockTx.Init.AudioFrequency = SAI_AUDIO_FREQUENCY_MCKDIV; // added
-  // hsai_BlockTx.Init.Synchro = SAI_ASYNCHRONOUS;
-  // hsai_BlockTx.Init.OutputDrive = SAI_OUTPUTDRIVE_DISABLED;
-  // hsai_BlockTx.Init.FIFOThreshold = SAI_FIFOTHRESHOLD_EMPTY;
-  // hsai_BlockTx.Init.SynchroExt = SAI_SYNCEXT_DISABLE;
-  // hsai_BlockTx.Init.MonoStereoMode = SAI_STEREOMODE;
-  // hsai_BlockTx.Init.CompandingMode = SAI_NOCOMPANDING;
-  // hsai_BlockTx.Init.TriState = SAI_OUTPUT_NOTRELEASED;
-  // ret = HAL_SAI_InitProtocol(&hsai_BlockTx, SAI_I2S_STANDARD, SAI_PROTOCOL_DATASIZE_24BIT, 2);
-  // // ret = HAL_SAI_InitProtocol(&hsai_BlockTx, SAI_I2S_LSBJUSTIFIED, SAI_PROTOCOL_DATASIZE_24BIT, 2);
   if(ret != HAL_OK)
     error(CONFIG_ERROR, "failed to initialise sai tx");
 }

@@ -1,5 +1,5 @@
 #include "errorhandlers.h"
-#include "stm32f7xx_hal.h"
+#include "stm32f4xx_hal.h"
 
 volatile int8_t errorcode = 0;
 const char* errormsg = 0;
