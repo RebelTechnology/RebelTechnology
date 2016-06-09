@@ -41,22 +41,31 @@ public:
   }
 
   void controlChange(uint8_t channel, uint8_t cc, uint8_t value){
+#if 1
     uint8_t packet[4] = { USB_COMMAND_CONTROL_CHANGE,
+    			  (uint8_t)(CONTROL_CHANGE | channel),
+    			  cc, value };
+    serial_write(packet, sizeof(packet));
+#else
+    uint8_t packet[3] = { 
 			  (uint8_t)(CONTROL_CHANGE | channel),
 			  cc, value };
     serial_write(packet, sizeof(packet));
-    // write(0xb0 | channel);
-    // write(cc & 0x7f);
-    // write(value & 0x7f);
+#endif
   }
 
   void programChange(uint8_t channel, uint8_t pc){
+#if 1
     uint8_t packet[4] = { USB_COMMAND_PROGRAM_CHANGE,
-			  (uint8_t)(PROGRAM_CHANGE | channel),
-			  pc, 0 };
+    			  (uint8_t)(PROGRAM_CHANGE | channel),
+    			  pc, 0 };
     serial_write(packet, sizeof(packet));
-    // write(0xc0 | channel);
-    // write(pc & 0x7f);
+#else
+    uint8_t packet[2] = { 
+			  (uint8_t)(PROGRAM_CHANGE | channel),
+			  pc };
+    serial_write(packet, sizeof(packet));
+#endif
   }
 
   void noteOff(uint8_t channel, uint8_t note, uint8_t velocity){
@@ -117,6 +126,7 @@ public:
   }
 
   void sysex(uint8_t manufacturer, uint8_t device, uint8_t *data, uint16_t size){
+#if 1
     uint8_t packet[4] = { USB_COMMAND_SYSEX, SYSEX, manufacturer, device };
     serial_write(packet, sizeof(packet));
     int count = size/3;
@@ -149,12 +159,13 @@ public:
       break;
     }
     serial_write(packet, sizeof(packet));
-
-    // write(SYSEX);
-    // write(manufacturer & 0x7f);
-    // for(int i=0; i<size; ++i)
-    //   write(data[i] & 0x7f);
-    // write(SYSEX_EOX);
+#else
+    write(SYSEX);
+    write(manufacturer & 0x7f);
+    for(int i=0; i<size; ++i)
+      write(data[i] & 0x7f);
+    write(SYSEX_EOX);
+#endif
   }
 
   void write(uint8_t *data, uint8_t length){

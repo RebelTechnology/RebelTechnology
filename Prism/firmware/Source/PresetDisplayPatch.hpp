@@ -2,6 +2,7 @@
 
 #include "midi.h"
 #include "gpio.h"
+#include "OpenWareMidiControl.h"
 extern "C" uint32_t HAL_GetTick();
 
 class PresetDisplayPatch : public Patch {
@@ -22,9 +23,10 @@ public:
     // send PC to change to last program, E8: PC40
     midiSendPC(0, 40);
     // send CC 26 value 127 to turn remote control on: CC26/127
-    midiSendCC(0, 26, 127);
+    midiSendCC(0, PATCH_CONTROL, 127);
     // send parameter A value 0 to select first preset: CC20/0
-    midiSendCC(0, 20, preset);
+    // send parameter E value 0 to select first preset: CC24/0
+    midiSendCC(0, PATCH_PARAMETER_E, preset);
   }
   void encoderChanged(uint8_t encoder, int32_t dir){
     // if(dir > 0)
@@ -41,7 +43,9 @@ public:
       preset = min(maxPreset, preset+1);
     else if(dir < 0)
       preset = max(1, preset-1);
-    midiSendCC(0, 20, preset*127/maxPreset);
+
+    midiSendCC(0, PATCH_CONTROL, 127);
+    midiSendCC(0, PATCH_PARAMETER_E, preset*127/maxPreset);
   }
   void processAudio(AudioBuffer& samples){
     if(sw1()){
