@@ -15283,6 +15283,7 @@ W = angled&lt;p&gt;
 <part name="R8" library="resistor" deviceset="R-EU_" device="R0603" value="22k"/>
 <part name="R9" library="resistor" deviceset="R-EU_" device="R0603" value="22k"/>
 <part name="R10" library="resistor" deviceset="R-EU_" device="R0603" value="22k"/>
+<part name="R11" library="resistor" deviceset="R-EU_" device="R0603" value="22k"/>
 </parts>
 <sheets>
 <sheet>
@@ -15445,6 +15446,7 @@ W = angled&lt;p&gt;
 <instance part="R8" gate="G$1" x="-40.64" y="45.72" rot="R270"/>
 <instance part="R9" gate="G$1" x="-7.62" y="45.72" rot="R270"/>
 <instance part="R10" gate="G$1" x="25.4" y="45.72" rot="R270"/>
+<instance part="R11" gate="G$1" x="-73.66" y="45.72" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -15605,9 +15607,14 @@ W = angled&lt;p&gt;
 <junction x="17.78" y="86.36"/>
 </segment>
 <segment>
-<wire x1="-81.28" y1="35.56" x2="-81.28" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="-81.28" y1="35.56" x2="-81.28" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="GND14" gate="1" pin="GND"/>
 <pinref part="POT1B" gate="G$1" pin="1"/>
+<pinref part="R11" gate="G$1" pin="2"/>
+<wire x1="-81.28" y1="38.1" x2="-81.28" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="-73.66" y1="40.64" x2="-73.66" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="-73.66" y1="38.1" x2="-81.28" y2="38.1" width="0.1524" layer="91"/>
+<junction x="-81.28" y="38.1"/>
 </segment>
 <segment>
 <wire x1="-81.28" y1="83.82" x2="-81.28" y2="86.36" width="0.1524" layer="91"/>
@@ -16096,9 +16103,13 @@ W = angled&lt;p&gt;
 </net>
 <net name="N$20" class="0">
 <segment>
-<wire x1="-71.12" y1="53.34" x2="-76.2" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="-71.12" y1="53.34" x2="-73.66" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="POT1B" gate="G$1" pin="2"/>
 <pinref part="R201" gate="G$1" pin="2"/>
+<pinref part="R11" gate="G$1" pin="1"/>
+<wire x1="-73.66" y1="53.34" x2="-76.2" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="-73.66" y1="50.8" x2="-73.66" y2="53.34" width="0.1524" layer="91"/>
+<junction x="-73.66" y="53.34"/>
 </segment>
 </net>
 <net name="N$29" class="0">
