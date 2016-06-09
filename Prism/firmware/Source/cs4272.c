@@ -1,7 +1,7 @@
 #include "cs4272.h"
 #include "gpio.h"
 #include "mxconstants.h"
-#include "stm32f7xx_hal.h"
+#include "stm32f4xx_hal.h"
 
 extern void delay(uint32_t millisec);
 #define CS_TIMEOUT       1000
