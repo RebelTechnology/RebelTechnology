@@ -3,8 +3,9 @@
 #include "ScreenBuffer.h"
 #include "Prism.h"
 #include "StompBox.h"
-#include "stm32f7xx_hal.h"
 #include "gpio.h"
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx.h"
 
 bool sw1(){
   // return !getPin(SW1_GPIO_Port, SW1_Pin);

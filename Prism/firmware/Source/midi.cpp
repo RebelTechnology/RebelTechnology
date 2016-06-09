@@ -2,7 +2,7 @@
 #include "uart.h"
 #include "MidiReader.hpp"
 #include "MidiWriter.hpp"
-#include "stm32f7xx_hal.h"
+#include "stm32f4xx_hal.h"
 #include "mxconstants.h"
 
 #ifdef USE_UART

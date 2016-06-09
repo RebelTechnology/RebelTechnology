@@ -27,13 +27,14 @@
 ADC_HandleTypeDef hadc1;
 DMA_HandleTypeDef hdma_adc1;
 
-DMA2D_HandleTypeDef hdma2d;
-
 #ifdef USE_QSPI_FLASH
+DMA2D_HandleTypeDef hdma2d;
 QSPI_HandleTypeDef hqspi;
 #endif
 
+#ifdef USE_RNG
 RNG_HandleTypeDef hrng;
+#endif
 
 SPI_HandleTypeDef hspi1;
 DMA_HandleTypeDef hdma_spi1_tx;
@@ -201,49 +202,63 @@ void SystemClock_Config(void)
 
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
+//   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+//   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+//   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+//   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+//   RCC_OscInitStruct.PLL.PLLM = 25;
+// #ifdef MCU_CLOCK_168MHZ
+//   // 168MHz
+//   RCC_OscInitStruct.PLL.PLLN = 336;
+//   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+//   RCC_OscInitStruct.PLL.PLLQ = 7;
+// #else
+//   // 216MHz
+//   RCC_OscInitStruct.PLL.PLLN = 432;
+//   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+//   RCC_OscInitStruct.PLL.PLLQ = 9;
+// #endif
+
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLM = 25;
-
-#ifdef MCU_CLOCK_168MHZ
-  // 168MHz
-  RCC_OscInitStruct.PLL.PLLN = 336;
+  RCC_OscInitStruct.PLL.PLLM = 4;
+  RCC_OscInitStruct.PLL.PLLN = 168;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 7;
-#else
-  // 216MHz
-  RCC_OscInitStruct.PLL.PLLN = 432;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-  RCC_OscInitStruct.PLL.PLLQ = 9;
-#endif
 
   HAL_RCC_OscConfig(&RCC_OscInitStruct);
 
-#ifdef USE_OVERDRIVE
-  HAL_PWREx_ActivateOverDrive();
-#endif
-
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_SYSCLK|RCC_CLOCKTYPE_PCLK1
+                              |RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
-  HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_7);
+  HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5);
 
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USART1|RCC_PERIPHCLK_SAI1
-                              |RCC_PERIPHCLK_CLK48;
-  PeriphClkInitStruct.PLLSAI.PLLSAIN = 100;
-  PeriphClkInitStruct.PLLSAI.PLLSAIR = 2;
+  // PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USART1|RCC_PERIPHCLK_SAI1
+  //                             |RCC_PERIPHCLK_CLK48;
+  // PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SAI_PLLSAI;
+  // PeriphClkInitStruct.PLLSAI.PLLSAIN = 50;
+  // PeriphClkInitStruct.PLLSAI.PLLSAIQ = 2;
+  // PeriphClkInitStruct.PLLSAIDivQ = 1;
+  // PeriphClkInitStruct.PLLSAI.PLLSAIN = 100;
+  // PeriphClkInitStruct.PLLSAI.PLLSAIR = 2;
+  // PeriphClkInitStruct.PLLSAI.PLLSAIQ = 2;
+  // PeriphClkInitStruct.PLLSAI.PLLSAIP = RCC_PLLSAIP_DIV2;
+  // PeriphClkInitStruct.PLLSAIDivQ = 1;
+  // PeriphClkInitStruct.PLLSAIDivR = RCC_PLLSAIDIVR_2;
+  // PeriphClkInitStruct.Sai1ClockSelection = RCC_SAI1CLKSOURCE_PLLSAI;
+  // PeriphClkInitStruct.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK2;
+  // PeriphClkInitStruct.Clk48ClockSelection = RCC_CLK48SOURCE_PLL;
+  // HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct);
+
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SAI_PLLSAI;
+  PeriphClkInitStruct.PLLSAI.PLLSAIN = 50;
   PeriphClkInitStruct.PLLSAI.PLLSAIQ = 2;
-  PeriphClkInitStruct.PLLSAI.PLLSAIP = RCC_PLLSAIP_DIV2;
   PeriphClkInitStruct.PLLSAIDivQ = 1;
-  PeriphClkInitStruct.PLLSAIDivR = RCC_PLLSAIDIVR_2;
-  PeriphClkInitStruct.Sai1ClockSelection = RCC_SAI1CLKSOURCE_PLLSAI;
-  PeriphClkInitStruct.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK2;
-  PeriphClkInitStruct.Clk48ClockSelection = RCC_CLK48SOURCE_PLL;
   HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct);
 
   HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
@@ -366,6 +381,28 @@ void MX_RNG_Init(void)
 /* OLED SPI */
 void MX_SPI1_Init(void)
 {
+//   hspi1.Instance = OLED_SPI;
+//   hspi1.Init.Mode = SPI_MODE_MASTER;
+//   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+//   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+//   // SPI mode 0
+//   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+//   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+// #ifdef OLED_SOFT_CS
+//   hspi1.Init.NSS = SPI_NSS_SOFT;
+//   hspi1.Init.NSSPMode = SPI_NSS_PULSE_DISABLED;
+// #else
+//   hspi1.Init.NSS = SPI_NSS_HARD_OUTPUT;
+//   hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLED;
+// #endif
+//   hspi1.Init.BaudRatePrescaler = OLED_SPI_PRESCALER;
+//   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+//   hspi1.Init.TIMode = SPI_TIMODE_DISABLED;
+//   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
+//   hspi1.Init.CRCPolynomial = 7;
+//   hspi1.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+//   HAL_SPI_Init(&hspi1);
+
   hspi1.Instance = OLED_SPI;
   hspi1.Init.Mode = SPI_MODE_MASTER;
   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
@@ -373,19 +410,12 @@ void MX_SPI1_Init(void)
   // SPI mode 0
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
-#ifdef OLED_SOFT_CS
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.NSSPMode = SPI_NSS_PULSE_DISABLED;
-#else
-  hspi1.Init.NSS = SPI_NSS_HARD_OUTPUT;
-  hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLED;
-#endif
   hspi1.Init.BaudRatePrescaler = OLED_SPI_PRESCALER;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLED;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
-  hspi1.Init.CRCPolynomial = 7;
-  hspi1.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+  hspi1.Init.CRCPolynomial = 10;
   HAL_SPI_Init(&hspi1);
 }
 
@@ -415,7 +445,7 @@ void MX_TIM1_Init(void)
   HAL_TIM_Encoder_Init(&htim1, &sConfig);
 
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
+  // sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
   HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig);
 
@@ -454,21 +484,29 @@ void MX_TIM3_Init(void)
 /* USART1 init function */
 void MX_USART1_UART_Init(void)
 {
+  // huart1.Instance = USART1;
+  // huart1.Init.BaudRate = 115200;
+  // huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  // // huart1.Init.WordLength = UART_WORDLENGTH_7B;
+  // huart1.Init.StopBits = UART_STOPBITS_1;
+  // huart1.Init.Parity = UART_PARITY_NONE;
+  // huart1.Init.Mode = UART_MODE_TX_RX;
+  // huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  // // huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  // // huart1.Init.OneBitSampling = UART_ONEBIT_SAMPLING_DISABLED;
+  // huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  // // HAL_MultiProcessor_Init(&huart1, 0, UART_WAKEUPMETHOD_IDLELINE);
+  // // ASSERT(HAL_UART_DeInit(&huart1) == HAL_OK);
+  // // ASSERT(HAL_UART_Init(&huart1) == HAL_OK);
 
   huart1.Instance = USART1;
   huart1.Init.BaudRate = 115200;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
-  // huart1.Init.WordLength = UART_WORDLENGTH_7B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
   huart1.Init.Mode = UART_MODE_TX_RX;
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  // huart1.Init.OverSampling = UART_OVERSAMPLING_16;
-  // huart1.Init.OneBitSampling = UART_ONEBIT_SAMPLING_DISABLED;
-  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-  // HAL_MultiProcessor_Init(&huart1, 0, UART_WAKEUPMETHOD_IDLELINE);
-  // ASSERT(HAL_UART_DeInit(&huart1) == HAL_OK);
-  // ASSERT(HAL_UART_Init(&huart1) == HAL_OK);
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
   HAL_UART_Init(&huart1);
 
 }

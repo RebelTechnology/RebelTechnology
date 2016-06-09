@@ -108,6 +108,7 @@
 
 #define QSPI_TIMEOUT 1000
 
+#ifdef USE_QSPI_FLASH
 extern QSPI_HandleTypeDef hqspi;
 
 void qspi_erase(uint32_t address, uint32_t size){
@@ -321,3 +322,5 @@ void QSPI_DummyCyclesCfg(QSPI_HandleTypeDef *QSPIHandle)
       error(CONFIG_ERROR, "qspi receive failed");
   }
 }
+
+#endif /* USE_QSPI_FLASH */

@@ -2,6 +2,9 @@
 #include "cs4272.h"
 #include "errorhandlers.h"
 #include "mxconstants.h"
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx.h"
+#include "cmsis_os.h"
 
 #define CODEC_BUFFER_HALFSIZE (CODEC_BUFFER_SIZE/2)
 #define CODEC_BUFFER_QUARTSIZE (CODEC_BUFFER_SIZE/4)
@@ -32,13 +35,8 @@ void MX_SPI2_Init(void)
   hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
   hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
-#ifdef CODEC_SOFT_CS
   hspi2.Init.NSS = SPI_NSS_SOFT;
-  hspi2.Init.NSSPMode = SPI_NSS_PULSE_DISABLED;
-#else
-  hspi2.Init.NSS = SPI_NSS_HARD_OUTPUT;
-  hspi2.Init.NSSPMode = SPI_NSS_PULSE_ENABLED;
-#endif
+  // hspi2.Init.NSSPMode = SPI_NSS_PULSE_DISABLED;
   // hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
   // CS4271 max SPI baud rate 6MHz
   hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16; // 3.375MHz
@@ -46,7 +44,7 @@ void MX_SPI2_Init(void)
   hspi2.Init.TIMode = SPI_TIMODE_DISABLED;
   hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
   hspi2.Init.CRCPolynomial = 7;
-  hspi2.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+  // hspi2.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
   HAL_SPI_Init(&hspi2);
 
 }

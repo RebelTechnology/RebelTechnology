@@ -1,50 +1,43 @@
 /**
   ******************************************************************************
-  * @file      startup_stm32f746xx.s
+  * @file      startup_stm32f429_439xx.s
   * @author    MCD Application Team
-  * @Version    V1.0.2
-  * @Date       21-September-2015
-  * @brief     STM32F746xx Devices vector table for GCC based toolchain. 
+  * @version   V1.7.0
+  * @date      22-April-2016
+  * @brief     STM32F429xx/439xx Devices vector table for GCC based toolchain.   
   *            This module performs:
   *                - Set the initial SP
   *                - Set the initial PC == Reset_Handler,
   *                - Set the vector table entries with the exceptions ISR address
+  *                - Configure the clock system and the external SRAM mounted on 
+  *                  STM324x9I-EVAL board to be used as data memory  
+  *                  (optional, to be enabled by user)
   *                - Branches to main in the C library (which eventually
   *                  calls main()).
-  *            After Reset the Cortex-M7 processor is in Thread mode,
+  *            After Reset the Cortex-M4 processor is in Thread mode,
   *            priority is Privileged, and the Stack is set to Main.
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT 2015 STMicroelectronics</center></h2>
+  * <h2><center>&copy; COPYRIGHT 2016 STMicroelectronics</center></h2>
   *
-  * Redistribution and use in source and binary forms, with or without modification,
-  * are permitted provided that the following conditions are met:
-  *   1. Redistributions of source code must retain the above copyright notice,
-  *      this list of conditions and the following disclaimer.
-  *   2. Redistributions in binary form must reproduce the above copyright notice,
-  *      this list of conditions and the following disclaimer in the documentation
-  *      and/or other materials provided with the distribution.
-  *   3. Neither the name of STMicroelectronics nor the names of its contributors
-  *      may be used to endorse or promote products derived from this software
-  *      without specific prior written permission.
+  * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
+  * You may not use this file except in compliance with the License.
+  * You may obtain a copy of the License at:
   *
-  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  *        http://www.st.com/software_license_agreement_liberty_v2
+  *
+  * Unless required by applicable law or agreed to in writing, software 
+  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
   *
   ******************************************************************************
   */
     
   .syntax unified
-  .cpu cortex-m7
+  .cpu cortex-m4
   .fpu softvfp
   .thumb
 
@@ -73,12 +66,13 @@ defined in linker script */
  * @retval : None
 */
 
+/* stack used for SystemInit & SystemInit_ExtMemCtl*/
+.equ __initial_spTop, 0x20000400
     .section  .text.Reset_Handler
   .weak  Reset_Handler
   .type  Reset_Handler, %function
 Reset_Handler:  
-  ldr   sp, =_estack      /* set stack pointer */
-
+ ldr   sp, =__initial_spTop     /* set stack pointer */
 /* Copy the data segment initializers from flash to SRAM */  
   movs  r1, #0
   b  LoopCopyDataInit
@@ -107,10 +101,14 @@ LoopFillZerobss:
   cmp  r2, r3
   bcc  FillZerobss
 
-/* Call the clock system initialization function.*/
+/* Call the clock system intitialization function.*/
   bl  SystemInit   
 /* Call static constructors */
     bl __libc_init_array
+
+    /* Restore original stack pointer. */
+  ldr     r0, =_estack
+  msr     MSP, r0
 /* Call the application's entry point.*/
   bl  main
   bx  lr    
@@ -130,7 +128,7 @@ Infinite_Loop:
   .size  Default_Handler, .-Default_Handler
 /******************************************************************************
 *
-* The minimal vector table for a Cortex M7. Note that the proper constructs
+* The minimal vector table for a Cortex M3. Note that the proper constructs
 * must be placed on this to ensure that it ends up at physical address
 * 0x0000.0000.
 * 
@@ -138,12 +136,11 @@ Infinite_Loop:
    .section  .isr_vector,"a",%progbits
   .type  g_pfnVectors, %object
   .size  g_pfnVectors, .-g_pfnVectors
-   
-   
+    
+    
 g_pfnVectors:
-  .word  _estack
+  .word  __initial_spTop /* Use internal RAM for stack for calling SystemInit. */
   .word  Reset_Handler
-
   .word  NMI_Handler
   .word  HardFault_Handler
   .word  MemManage_Handler
@@ -160,16 +157,16 @@ g_pfnVectors:
   .word  SysTick_Handler
   
   /* External Interrupts */
-  .word     WWDG_IRQHandler                   /* Window WatchDog              */                                        
-  .word     PVD_IRQHandler                    /* PVD through EXTI Line detection */                        
-  .word     TAMP_STAMP_IRQHandler             /* Tamper and TimeStamps through the EXTI line */            
-  .word     RTC_WKUP_IRQHandler               /* RTC Wakeup through the EXTI line */                      
-  .word     FLASH_IRQHandler                  /* FLASH                        */                                          
-  .word     RCC_IRQHandler                    /* RCC                          */                                            
-  .word     EXTI0_IRQHandler                  /* EXTI Line0                   */                        
-  .word     EXTI1_IRQHandler                  /* EXTI Line1                   */                          
-  .word     EXTI2_IRQHandler                  /* EXTI Line2                   */                          
-  .word     EXTI3_IRQHandler                  /* EXTI Line3                   */                          
+  .word     WWDG_IRQHandler                   /* Window WatchDog                              */                                        
+  .word     PVD_IRQHandler                    /* PVD through EXTI Line detection              */                        
+  .word     TAMP_STAMP_IRQHandler             /* Tamper and TimeStamps through the EXTI line  */            
+  .word     RTC_WKUP_IRQHandler               /* RTC Wakeup through the EXTI line             */                      
+  .word     FLASH_IRQHandler                  /* FLASH                                        */                                          
+  .word     RCC_IRQHandler                    /* RCC                                          */                                            
+  .word     EXTI0_IRQHandler                  /* EXTI Line0                                   */                        
+  .word     EXTI1_IRQHandler                  /* EXTI Line1                                   */                          
+  .word     EXTI2_IRQHandler                  /* EXTI Line2                                   */                          
+  .word     EXTI3_IRQHandler                  /* EXTI Line3                                   */                          
   .word     EXTI4_IRQHandler                  /* EXTI Line4                   */                          
   .word     DMA1_Stream0_IRQHandler           /* DMA1 Stream 0                */                  
   .word     DMA1_Stream1_IRQHandler           /* DMA1 Stream 1                */                   
@@ -208,8 +205,8 @@ g_pfnVectors:
   .word     TIM8_TRG_COM_TIM14_IRQHandler     /* TIM8 Trigger and Commutation and TIM14 */
   .word     TIM8_CC_IRQHandler                /* TIM8 Capture Compare         */                          
   .word     DMA1_Stream7_IRQHandler           /* DMA1 Stream7                 */                          
-  .word     FMC_IRQHandler                    /* FMC                          */                   
-  .word     SDMMC1_IRQHandler                 /* SDMMC1                       */                   
+  .word     FSMC_IRQHandler                   /* FSMC                         */                   
+  .word     SDIO_IRQHandler                   /* SDIO                         */                   
   .word     TIM5_IRQHandler                   /* TIM5                         */                   
   .word     SPI3_IRQHandler                   /* SPI3                         */                   
   .word     UART4_IRQHandler                  /* UART4                        */                   
@@ -239,26 +236,19 @@ g_pfnVectors:
   .word     OTG_HS_WKUP_IRQHandler            /* USB OTG HS Wakeup through EXTI */                         
   .word     OTG_HS_IRQHandler                 /* USB OTG HS                   */                   
   .word     DCMI_IRQHandler                   /* DCMI                         */                   
-  .word     0                                 /* Reserved                     */                   
-  .word     RNG_IRQHandler                    /* Rng                          */
+  .word     CRYP_IRQHandler                   /* CRYP crypto                  */                   
+  .word     HASH_RNG_IRQHandler               /* Hash and Rng                 */
   .word     FPU_IRQHandler                    /* FPU                          */
-  .word     UART7_IRQHandler                  /* UART7                        */      
+  .word     UART7_IRQHandler                  /* UART7                        */
   .word     UART8_IRQHandler                  /* UART8                        */
   .word     SPI4_IRQHandler                   /* SPI4                         */
-  .word     SPI5_IRQHandler                   /* SPI5	 		              */
-  .word     SPI6_IRQHandler                   /* SPI6   			          */
-  .word     SAI1_IRQHandler                   /* SAI1						  */
-  .word     LTDC_IRQHandler                   /* LTDC					      */
-  .word     LTDC_ER_IRQHandler                /* LTDC error					  */
-  .word     DMA2D_IRQHandler                  /* DMA2D    				      */
-  .word     SAI2_IRQHandler                   /* SAI2                         */
-  .word     QUADSPI_IRQHandler                /* QUADSPI                      */
-  .word     LPTIM1_IRQHandler                 /* LPTIM1                       */
-  .word     CEC_IRQHandler                    /* HDMI_CEC                     */
-  .word     I2C4_EV_IRQHandler                /* I2C4 Event                   */
-  .word     I2C4_ER_IRQHandler                /* I2C4 Error                   */
-  .word     SPDIF_RX_IRQHandler               /* SPDIF_RX                     */  
-  
+  .word     SPI5_IRQHandler                   /* SPI5                         */
+  .word     SPI6_IRQHandler                   /* SPI6                         */
+  .word     SAI1_IRQHandler                   /* SAI1                         */
+  .word     LTDC_IRQHandler                   /* LTDC                         */
+  .word     LTDC_ER_IRQHandler                /* LTDC error                   */
+  .word     DMA2D_IRQHandler                  /* DMA2D                        */
+                        
 /*******************************************************************************
 *
 * Provide weak aliases for each Exception handler to the Default_Handler. 
@@ -370,7 +360,7 @@ g_pfnVectors:
             
    .weak      TIM1_UP_TIM10_IRQHandler            
    .thumb_set TIM1_UP_TIM10_IRQHandler,Default_Handler
-
+      
    .weak      TIM1_TRG_COM_TIM11_IRQHandler      
    .thumb_set TIM1_TRG_COM_TIM11_IRQHandler,Default_Handler
       
@@ -437,11 +427,11 @@ g_pfnVectors:
    .weak      DMA1_Stream7_IRQHandler               
    .thumb_set DMA1_Stream7_IRQHandler,Default_Handler
                      
-   .weak      FMC_IRQHandler            
-   .thumb_set FMC_IRQHandler,Default_Handler
+   .weak      FSMC_IRQHandler            
+   .thumb_set FSMC_IRQHandler,Default_Handler
                      
-   .weak      SDMMC1_IRQHandler            
-   .thumb_set SDMMC1_IRQHandler,Default_Handler
+   .weak      SDIO_IRQHandler            
+   .thumb_set SDIO_IRQHandler,Default_Handler
                      
    .weak      TIM5_IRQHandler            
    .thumb_set TIM5_IRQHandler,Default_Handler
@@ -475,18 +465,15 @@ g_pfnVectors:
             
    .weak      DMA2_Stream4_IRQHandler               
    .thumb_set DMA2_Stream4_IRQHandler,Default_Handler
-   
-   .weak      DMA2_Stream4_IRQHandler               
-   .thumb_set DMA2_Stream4_IRQHandler,Default_Handler   
-
-   .weak      ETH_IRQHandler   
+            
+   .weak      ETH_IRQHandler      
    .thumb_set ETH_IRQHandler,Default_Handler
-   
-   .weak      ETH_WKUP_IRQHandler   
+                  
+   .weak      ETH_WKUP_IRQHandler                  
    .thumb_set ETH_WKUP_IRQHandler,Default_Handler
-
+            
    .weak      CAN2_TX_IRQHandler   
-   .thumb_set CAN2_TX_IRQHandler,Default_Handler   
+   .thumb_set CAN2_TX_IRQHandler,Default_Handler
                            
    .weak      CAN2_RX0_IRQHandler                  
    .thumb_set CAN2_RX0_IRQHandler,Default_Handler
@@ -532,60 +519,41 @@ g_pfnVectors:
                   
    .weak      DCMI_IRQHandler            
    .thumb_set DCMI_IRQHandler,Default_Handler
-
-   .weak      RNG_IRQHandler            
-   .thumb_set RNG_IRQHandler,Default_Handler   
+                     
+   .weak      CRYP_IRQHandler            
+   .thumb_set CRYP_IRQHandler,Default_Handler
+               
+   .weak      HASH_RNG_IRQHandler                  
+   .thumb_set HASH_RNG_IRQHandler,Default_Handler   
 
    .weak      FPU_IRQHandler                  
-   .thumb_set FPU_IRQHandler,Default_Handler
+   .thumb_set FPU_IRQHandler,Default_Handler  
 
    .weak      UART7_IRQHandler                  
-   .thumb_set UART7_IRQHandler,Default_Handler
-
+   .thumb_set UART7_IRQHandler,Default_Handler                   
+   
    .weak      UART8_IRQHandler                  
-   .thumb_set UART8_IRQHandler,Default_Handler   
-
-   .weak      SPI4_IRQHandler            
-   .thumb_set SPI4_IRQHandler,Default_Handler
+   .thumb_set UART8_IRQHandler,Default_Handler 
    
-   .weak      SPI5_IRQHandler            
-   .thumb_set SPI5_IRQHandler,Default_Handler
-
-   .weak      SPI6_IRQHandler            
-   .thumb_set SPI6_IRQHandler,Default_Handler   
-
-   .weak      SAI1_IRQHandler            
-   .thumb_set SAI1_IRQHandler,Default_Handler
+   .weak      SPI4_IRQHandler                   
+   .thumb_set SPI4_IRQHandler,Default_Handler 
    
-   .weak      LTDC_IRQHandler            
-   .thumb_set LTDC_IRQHandler,Default_Handler
-
-   .weak      LTDC_ER_IRQHandler            
-   .thumb_set LTDC_ER_IRQHandler,Default_Handler
-
-   .weak      DMA2D_IRQHandler            
-   .thumb_set DMA2D_IRQHandler,Default_Handler   
-
-   .weak      SAI2_IRQHandler            
-   .thumb_set SAI2_IRQHandler,Default_Handler
+   .weak      SPI5_IRQHandler                   
+   .thumb_set SPI5_IRQHandler,Default_Handler 
    
-   .weak      QUADSPI_IRQHandler            
-   .thumb_set QUADSPI_IRQHandler,Default_Handler
- 
-   .weak      LPTIM1_IRQHandler            
-   .thumb_set LPTIM1_IRQHandler,Default_Handler
-
-   .weak      CEC_IRQHandler            
-   .thumb_set CEC_IRQHandler,Default_Handler
+   .weak      SPI6_IRQHandler
+   .thumb_set SPI6_IRQHandler,Default_Handler
    
-   .weak      I2C4_EV_IRQHandler            
-   .thumb_set I2C4_EV_IRQHandler,Default_Handler 
- 
-   .weak      I2C4_ER_IRQHandler            
-   .thumb_set I2C4_ER_IRQHandler,Default_Handler
+   .weak      SAI1_IRQHandler
+   .thumb_set SAI1_IRQHandler,Default_Handler 
    
-   .weak      SPDIF_RX_IRQHandler            
-   .thumb_set SPDIF_RX_IRQHandler,Default_Handler 
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/		
- 
+   .weak      LTDC_IRQHandler
+   .thumb_set LTDC_IRQHandler,Default_Handler 
+   
+   .weak      LTDC_ER_IRQHandler
+   .thumb_set LTDC_ER_IRQHandler,Default_Handler 
+   
+   .weak      DMA2D_IRQHandler
+   .thumb_set DMA2D_IRQHandler,Default_Handler 
+      
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

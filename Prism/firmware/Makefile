@@ -45,7 +45,8 @@ C_SRC = $(notdir $(wildcard Source/*.c))
 CPP_SRC = $(notdir $(wildcard Source/*.cpp))
 
 OBJS = $(C_SRC:%.c=Build/%.o) $(CPP_SRC:%.cpp=Build/%.o)
-OBJS += $(BUILD)/startup_stm32f746xx.o
+# OBJS += $(BUILD)/startup_stm32f746xx.o
+OBJS += $(BUILD)/startup_stm32f429_439xx.o
 
 include $(TEMPLATEROOT)/libs.mk
 include $(TEMPLATEROOT)/f4.mk

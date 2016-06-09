@@ -1,7 +1,7 @@
 #ifndef _Graphics_h_
 #define _Graphics_h_
 #include <stdint.h>
-#include "stm32f7xx_hal.h"
+#include "stm32f4xx_hal.h"
 
 class Graphics {
 public:
