@@ -40,8 +40,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "stm32f7xx.h"
-#include "stm32f7xx_hal.h"
+#include "stm32f4xx.h"
+#include "stm32f4xx_hal.h"
 
 /** @addtogroup USBD_OTG_DRIVER
   * @{
@@ -67,11 +67,11 @@
 /*---------- -----------*/
 #define USBD_DEBUG_LEVEL     0
 /*---------- -----------*/
-#define USBD_LPM_ENABLED     1
+#define USBD_LPM_ENABLED     0
 /*---------- -----------*/
 #define USBD_SELF_POWERED     1
 /*---------- -----------*/
-#define USBD_AUDIO_FREQ     22100
+#define USBD_AUDIO_FREQ     48000
 
 /****************************************/
 /* #define for FS and HS identification */
