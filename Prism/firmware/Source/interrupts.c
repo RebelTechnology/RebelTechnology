@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    stm32f7xx_it.c
+  * @file    stm32f4xx_it.c
   * @brief   Interrupt Service Routines.
   ******************************************************************************
   *
@@ -31,14 +31,15 @@
   ******************************************************************************
   */
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f7xx_hal.h"
-#include "stm32f7xx.h"
-#include "stm32f7xx_it.h"
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx.h"
+#include "stm32f4xx_it.h"
 #include "cmsis_os.h"
 #include "mxconstants.h"
 #include "gpio.h"
 
 /* USER CODE BEGIN 0 */
+extern SPI_HandleTypeDef hspi1;
 
 /* USER CODE END 0 */
 
@@ -50,7 +51,7 @@ extern DMA_HandleTypeDef hdma_sai1_tx;
 extern DMA_HandleTypeDef hdma_spi1_tx;
 
 /******************************************************************************/
-/*            Cortex-M7 Processor Interruption and Exception Handlers         */ 
+/*            Cortex-M4 Processor Interruption and Exception Handlers         */ 
 /******************************************************************************/
 
 /**
@@ -68,10 +69,10 @@ void SysTick_Handler(void)
 }
 
 /******************************************************************************/
-/* STM32F7xx Peripheral Interrupt Handlers                                    */
+/* STM32F4xx Peripheral Interrupt Handlers                                    */
 /* Add here the Interrupt Handlers for the used peripherals.                  */
 /* For the available peripheral interrupt handler names,                      */
-/* please refer to the startup file (startup_stm32f7xx.s).                    */
+/* please refer to the startup file (startup_stm32f4xx.s).                    */
 /******************************************************************************/
 
 /**
@@ -98,8 +99,6 @@ void DMA2_Stream1_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream1_IRQn 0 */
   // SAI TX: memory to peripheral/codec 
-  static int counter = 0;
-  counter++;
   /* USER CODE END DMA2_Stream1_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_sai1_tx);
   /* USER CODE BEGIN DMA2_Stream1_IRQn 1 */
@@ -110,50 +109,18 @@ void DMA2_Stream1_IRQHandler(void)
   /* USER CODE END DMA2_Stream1_IRQn 1 */
 }
 
-#ifdef OLED_SOFT_CS
-#define setCS()    setPin(OLED_CS_GPIO_Port, OLED_CS_Pin)
-#define clearCS()  clearPin(OLED_CS_GPIO_Port, OLED_CS_Pin)
-#else
-#define setCS()    
-#define clearCS()
-#endif
-extern SPI_HandleTypeDef hspi1;
-
 /**
 * @brief This function handles DMA2 stream3 global interrupt.
 */
-static int otxcounter = 0;
 void DMA2_Stream3_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream3_IRQn 0 */
   // SPI1_TX OLED TX
-  otxcounter++;
   /* USER CODE END DMA2_Stream3_IRQn 0 */
-
-  // calling the HAL IRQ handler triggers a TC callback too soon
   HAL_DMA_IRQHandler(&hdma_spi1_tx);
-
   /* USER CODE BEGIN DMA2_Stream3_IRQn 1 */
-
-  if(__HAL_DMA_GET_FLAG(&hdma_spi1_tx,  __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx)))
-    __HAL_DMA_CLEAR_FLAG(&hdma_spi1_tx, __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx));
-  if(__HAL_DMA_GET_FLAG(&hdma_spi1_tx,  __HAL_DMA_GET_HT_FLAG_INDEX(&hdma_spi1_tx)))
-    __HAL_DMA_CLEAR_FLAG(&hdma_spi1_tx, __HAL_DMA_GET_HT_FLAG_INDEX(&hdma_spi1_tx));
-
-  /* if(__HAL_DMA_GET_FLAG(&hdma_spi1_tx,  __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx))){ */
-  /*   __HAL_DMA_CLEAR_FLAG(&hdma_spi1_tx, __HAL_DMA_GET_TC_FLAG_INDEX(&hdma_spi1_tx)); */
-  /*   setCS();     */
-  /*   /\* Update error code *\/ */
-  /*   hdma_spi1_tx.ErrorCode |= HAL_DMA_ERROR_NONE; */
-  /*   /\* Change the DMA state *\/ */
-  /*   hdma_spi1_tx.State = HAL_DMA_STATE_READY_MEM0; */
-  /*   /\* Process Unlocked *\/ */
-  /*   __HAL_UNLOCK(&hdma_spi1_tx); */
-  /*   hspi1.TxXferCount = 0; */
-  /*   hspi1.State = HAL_SPI_STATE_READY; */
-  /* } */
-
-  /* user CODE END DMA2_Stream3_IRQn 1 */
+  // calling the HAL IRQ handler triggers a TC callback too soon
+  /* USER CODE END DMA2_Stream3_IRQn 1 */
 }
 
 /**
@@ -162,17 +129,43 @@ void DMA2_Stream3_IRQHandler(void)
 void DMA2_Stream4_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream4_IRQn 0 */
-  // SAI RX: peripheral/codec to memory
-  static int counter = 0;
-  counter++;
+
   /* USER CODE END DMA2_Stream4_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_sai1_rx);
   /* USER CODE BEGIN DMA2_Stream4_IRQn 1 */
   if(__HAL_DMA_GET_FLAG(&hdma_sai1_rx, DMA_FLAG_TCIF0_4))
     __HAL_DMA_CLEAR_FLAG(&hdma_sai1_rx, DMA_FLAG_TCIF0_4); // transfer complete
   if(__HAL_DMA_GET_FLAG(&hdma_sai1_rx, DMA_FLAG_HTIF0_4))
-    __HAL_DMA_CLEAR_FLAG(&hdma_sai1_rx, DMA_FLAG_HTIF0_4); // half transfer complete
+    __HAL_DMA_CLEAR_FLAG(&hdma_sai1_rx, DMA_FLAG_HTIF0_4); // half transfer com
   /* USER CODE END DMA2_Stream4_IRQn 1 */
+}
+
+/**
+* @brief This function handles USB On The Go HS End Point 1 Out global interrupt.
+*/
+void OTG_HS_EP1_OUT_IRQHandler(void)
+{
+  /* USER CODE BEGIN OTG_HS_EP1_OUT_IRQn 0 */
+
+  /* USER CODE END OTG_HS_EP1_OUT_IRQn 0 */
+  HAL_PCD_IRQHandler(&hpcd_USB_OTG_HS);
+  /* USER CODE BEGIN OTG_HS_EP1_OUT_IRQn 1 */
+
+  /* USER CODE END OTG_HS_EP1_OUT_IRQn 1 */
+}
+
+/**
+* @brief This function handles USB On The Go HS End Point 1 In global interrupt.
+*/
+void OTG_HS_EP1_IN_IRQHandler(void)
+{
+  /* USER CODE BEGIN OTG_HS_EP1_IN_IRQn 0 */
+
+  /* USER CODE END OTG_HS_EP1_IN_IRQn 0 */
+  HAL_PCD_IRQHandler(&hpcd_USB_OTG_HS);
+  /* USER CODE BEGIN OTG_HS_EP1_IN_IRQn 1 */
+
+  /* USER CODE END OTG_HS_EP1_IN_IRQn 1 */
 }
 
 /**
@@ -190,29 +183,6 @@ void OTG_HS_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
-extern TIM_HandleTypeDef htim1;
-extern TIM_HandleTypeDef htim3;
-
-void TIM1_CC_IRQHandler(void){
-  HAL_TIM_IRQHandler(&htim1);
-}
-
-void TIM3_IRQHandler(void){
-  HAL_TIM_IRQHandler(&htim3);
-}
-
-extern ADC_HandleTypeDef hadc1;
-
-void ADC_IRQHandler(void){
-  HAL_ADC_IRQHandler(&hadc1);
-}
-
-extern UART_HandleTypeDef huart1;
-
-void USARTx_IRQHandler(void)
-{
-  HAL_UART_IRQHandler(&huart1);
-}
 
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
