@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * File Name          : stm32f7xx_hal_msp.c
+  * File Name          : stm32f4xx_hal_msp.c
   * Description        : This file provides code for the MSP Initialization 
   *                      and de-Initialization codes.
   ******************************************************************************
@@ -32,7 +32,7 @@
   ******************************************************************************
   */
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f7xx_hal.h"
+#include "stm32f4xx_hal.h"
 #include "mxconstants.h"
 
 extern DMA_HandleTypeDef hdma_adc1;
@@ -85,7 +85,6 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
     /* Peripheral DMA init*/
-  
 #ifdef ADC_DMA
     hdma_adc1.Instance = DMA2_Stream0;
     hdma_adc1.Init.Channel = DMA_CHANNEL_0;
@@ -101,7 +100,6 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
 
     __HAL_LINKDMA(hadc,DMA_Handle,hdma_adc1);
 #endif
-
   /* USER CODE BEGIN ADC1_MspInit 1 */
 
   /* USER CODE END ADC1_MspInit 1 */
@@ -135,164 +133,6 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
 
 }
 
-void HAL_DMA2D_MspInit(DMA2D_HandleTypeDef* hdma2d)
-{
-
-  if(hdma2d->Instance==DMA2D)
-  {
-  /* USER CODE BEGIN DMA2D_MspInit 0 */
-
-  /* USER CODE END DMA2D_MspInit 0 */
-    /* Peripheral clock enable */
-    __DMA2D_CLK_ENABLE();
-  /* USER CODE BEGIN DMA2D_MspInit 1 */
-
-  /* USER CODE END DMA2D_MspInit 1 */
-  }
-
-}
-
-void HAL_DMA2D_MspDeInit(DMA2D_HandleTypeDef* hdma2d)
-{
-
-  if(hdma2d->Instance==DMA2D)
-  {
-  /* USER CODE BEGIN DMA2D_MspDeInit 0 */
-
-  /* USER CODE END DMA2D_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __DMA2D_CLK_DISABLE();
-  }
-  /* USER CODE BEGIN DMA2D_MspDeInit 1 */
-
-  /* USER CODE END DMA2D_MspDeInit 1 */
-
-}
-
-void HAL_QSPI_MspInit(QSPI_HandleTypeDef* hqspi)
-{
-
-  GPIO_InitTypeDef GPIO_InitStruct;
-  if(hqspi->Instance==QUADSPI)
-  {
-  /* USER CODE BEGIN QUADSPI_MspInit 0 */
-
-  /* USER CODE END QUADSPI_MspInit 0 */
-    /* Peripheral clock enable */
-    __HAL_RCC_QSPI_CLK_ENABLE();
-    /* Reset the QuadSPI memory interface (added) */
-    __HAL_RCC_QSPI_FORCE_RESET();
-    __HAL_RCC_QSPI_RELEASE_RESET();
-  
-    /**QUADSPI GPIO Configuration    
-    PE2     ------> QUADSPI_BK1_IO2
-    PB2     ------> QUADSPI_CLK
-    PD11     ------> QUADSPI_BK1_IO0
-    PD12     ------> QUADSPI_BK1_IO1
-    PD13     ------> QUADSPI_BK1_IO3
-    PB6     ------> QUADSPI_BK1_NCS 
-    */
-    GPIO_InitStruct.Pin = QSPI_D2_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF9_QUADSPI;
-    HAL_GPIO_Init(QSPI_D2_GPIO_Port, &GPIO_InitStruct);
-
-    GPIO_InitStruct.Pin = QSPI_CLK_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF9_QUADSPI;
-    HAL_GPIO_Init(QSPI_CLK_GPIO_Port, &GPIO_InitStruct);
-
-    GPIO_InitStruct.Pin = QSPI_D0_Pin|QSPI_D1_Pin|QSPI_D3_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF9_QUADSPI;
-    HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-
-    GPIO_InitStruct.Pin = QSPI_NCS_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF10_QUADSPI;
-    HAL_GPIO_Init(QSPI_NCS_GPIO_Port, &GPIO_InitStruct);
-
-  /* USER CODE BEGIN QUADSPI_MspInit 1 */
-
-  /* USER CODE END QUADSPI_MspInit 1 */
-  }
-
-}
-
-void HAL_QSPI_MspDeInit(QSPI_HandleTypeDef* hqspi)
-{
-
-  if(hqspi->Instance==QUADSPI)
-  {
-  /* USER CODE BEGIN QUADSPI_MspDeInit 0 */
-
-  /* USER CODE END QUADSPI_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __HAL_RCC_QSPI_CLK_DISABLE();
-  
-    /**QUADSPI GPIO Configuration    
-    PE2     ------> QUADSPI_BK1_IO2
-    PB2     ------> QUADSPI_CLK
-    PD11     ------> QUADSPI_BK1_IO0
-    PD12     ------> QUADSPI_BK1_IO1
-    PD13     ------> QUADSPI_BK1_IO3
-    PB6     ------> QUADSPI_BK1_NCS 
-    */
-    HAL_GPIO_DeInit(QSPI_D2_GPIO_Port, QSPI_D2_Pin);
-
-    HAL_GPIO_DeInit(GPIOB, QSPI_CLK_Pin|QSPI_NCS_Pin);
-
-    HAL_GPIO_DeInit(GPIOD, QSPI_D0_Pin|QSPI_D1_Pin|QSPI_D3_Pin);
-
-  }
-  /* USER CODE BEGIN QUADSPI_MspDeInit 1 */
-
-  /* USER CODE END QUADSPI_MspDeInit 1 */
-
-}
-
-void HAL_RNG_MspInit(RNG_HandleTypeDef* hrng)
-{
-
-  if(hrng->Instance==RNG)
-  {
-  /* USER CODE BEGIN RNG_MspInit 0 */
-
-  /* USER CODE END RNG_MspInit 0 */
-    /* Peripheral clock enable */
-    __RNG_CLK_ENABLE();
-  /* USER CODE BEGIN RNG_MspInit 1 */
-
-  /* USER CODE END RNG_MspInit 1 */
-  }
-
-}
-
-void HAL_RNG_MspDeInit(RNG_HandleTypeDef* hrng)
-{
-
-  if(hrng->Instance==RNG)
-  {
-  /* USER CODE BEGIN RNG_MspDeInit 0 */
-
-  /* USER CODE END RNG_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __RNG_CLK_DISABLE();
-  }
-  /* USER CODE BEGIN RNG_MspDeInit 1 */
-
-  /* USER CODE END RNG_MspDeInit 1 */
-
-}
-
 void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
 {
 
@@ -300,26 +140,21 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
   if(hspi->Instance==OLED_SPI)
   {
   /* USER CODE BEGIN SPI1_MspInit 0 */
-#ifndef OLED_BITBANG
+
   /* USER CODE END SPI1_MspInit 0 */
     /* Peripheral clock enable */
     __SPI1_CLK_ENABLE();
   
     /**SPI1 GPIO Configuration    
     PA7     ------> SPI1_MOSI
-    PA15     ------> SPI1_NSS
     PB3     ------> SPI1_SCK 
     */
-#ifdef OLED_SOFT_CS
     GPIO_InitStruct.Pin = OLED_MOSI_Pin;
-#else
-    GPIO_InitStruct.Pin = OLED_MOSI_Pin|OLED_CS_Pin;
-#endif
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
     GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+    HAL_GPIO_Init(OLED_MOSI_GPIO_Port, &GPIO_InitStruct);
 
     GPIO_InitStruct.Pin = OLED_SCK_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -329,7 +164,7 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
     HAL_GPIO_Init(OLED_SCK_GPIO_Port, &GPIO_InitStruct);
 
     /* Peripheral DMA init*/
-#ifdef OLED_DMA  
+#ifdef OLED_DMA
     /* SPI1_TX DMA2 Stream 3 Channel 3 (also on 2/5/3) */
     hdma_spi1_tx.Instance = DMA2_Stream3;
     hdma_spi1_tx.Init.Channel = DMA_CHANNEL_3;
@@ -341,59 +176,12 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
     hdma_spi1_tx.Init.Mode = DMA_NORMAL;
     hdma_spi1_tx.Init.Priority = DMA_PRIORITY_LOW;
     hdma_spi1_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
-    hdma_spi1_tx.Init.FIFOThreshold = DMA_FIFO_THRESHOLD_FULL;
-    /* burst not used when FIFO is disabled */
-    hdma_spi1_tx.Init.MemBurst = DMA_MBURST_INC4;
-    hdma_spi1_tx.Init.PeriphBurst = DMA_PBURST_INC4;
-
     HAL_DMA_Init(&hdma_spi1_tx);
+
     __HAL_LINKDMA(hspi,hdmatx,hdma_spi1_tx);
-
 #endif /* OLED_DMA */
-
   /* USER CODE BEGIN SPI1_MspInit 1 */
-#endif // OLED_BITBANG
   /* USER CODE END SPI1_MspInit 1 */
-  }
-  else if(hspi->Instance==SPI2)
-  {
-  /* USER CODE BEGIN SPI2_MspInit 0 */
-
-  /* USER CODE END SPI2_MspInit 0 */
-    /* Peripheral clock enable */
-    __SPI2_CLK_ENABLE();
-  
-    /**SPI2 GPIO Configuration    
-    PC1     ------> SPI2_MOSI
-    PB10     ------> SPI2_SCK
-    PB4     ------> SPI2_NSS 
-    */
-    GPIO_InitStruct.Pin = CS_SDA_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
-    HAL_GPIO_Init(CS_SDA_GPIO_Port, &GPIO_InitStruct);
-
-    GPIO_InitStruct.Pin = CS_SCL_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
-    HAL_GPIO_Init(CS_SCL_GPIO_Port, &GPIO_InitStruct);
-
-#ifndef CODEC_SOFT_CS
-    GPIO_InitStruct.Pin = CS_CS_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF7_SPI2;
-    HAL_GPIO_Init(CS_CS_GPIO_Port, &GPIO_InitStruct);
-#endif
-
-  /* USER CODE BEGIN SPI2_MspInit 1 */
-
-  /* USER CODE END SPI2_MspInit 1 */
   }
 
 }
@@ -411,45 +199,19 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* hspi)
   
     /**SPI1 GPIO Configuration    
     PA7     ------> SPI1_MOSI
-    PA15     ------> SPI1_NSS
     PB3     ------> SPI1_SCK 
     */
-#ifdef OLED_SOFT_CS
-    HAL_GPIO_DeInit(GPIOA, OLED_MOSI_Pin);
-#else
-    HAL_GPIO_DeInit(GPIOA, OLED_MOSI_Pin|OLED_CS_Pin);
-#endif
+    HAL_GPIO_DeInit(OLED_MOSI_GPIO_Port, OLED_MOSI_Pin);
 
     HAL_GPIO_DeInit(OLED_SCK_GPIO_Port, OLED_SCK_Pin);
 
     /* Peripheral DMA DeInit*/
     HAL_DMA_DeInit(hspi->hdmatx);
+  }
   /* USER CODE BEGIN SPI1_MspDeInit 1 */
-    HAL_NVIC_DisableIRQ(DMA2_Stream3_IRQn);
+  HAL_NVIC_DisableIRQ(DMA2_Stream3_IRQn);
 
   /* USER CODE END SPI1_MspDeInit 1 */
-  }
-  else if(hspi->Instance==SPI2)
-  {
-  /* USER CODE BEGIN SPI2_MspDeInit 0 */
-
-  /* USER CODE END SPI2_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __SPI2_CLK_DISABLE();
-  
-    /**SPI2 GPIO Configuration    
-    PC1     ------> SPI2_MOSI
-    PB10     ------> SPI2_SCK
-    PB4     ------> SPI2_NSS 
-    */
-    HAL_GPIO_DeInit(CS_SDA_GPIO_Port, CS_SDA_Pin);
-
-    HAL_GPIO_DeInit(GPIOB, CS_SCL_Pin|CS_CS_Pin);
-
-  /* USER CODE BEGIN SPI2_MspDeInit 1 */
-
-  /* USER CODE END SPI2_MspDeInit 1 */
-  }
 
 }
 
@@ -568,6 +330,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     */
     GPIO_InitStruct.Pin = UART_TX_Pin|UART_RX_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    /* GPIO_InitStruct.Pull = GPIO_PULLUP; */
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
     GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
@@ -603,7 +366,6 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
   /* USER CODE END USART1_MspDeInit 1 */
 
 }
-
 
 
 /* USER CODE BEGIN 1 */

@@ -10,7 +10,6 @@
 #define OLED_SOFT_CS
 /* #define OLED_DMA */
 /* #define OLED_IT */
-/* #define OLED_BITBANG */
 /* #define USE_CODEC */
 #define CODEC_SOFT_CS
 /* #define CODEC_BLOCKSIZE 1024 */
