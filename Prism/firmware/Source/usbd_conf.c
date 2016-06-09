@@ -32,8 +32,8 @@
   ******************************************************************************
 */
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f7xx.h"
-#include "stm32f7xx_hal.h"
+#include "stm32f4xx.h"
+#include "stm32f4xx_hal.h"
 #include "usbd_def.h"
 #include "usbd_core.h"
 
@@ -65,9 +65,15 @@ void HAL_PCD_MspInit(PCD_HandleTypeDef* hpcd)
   /* USER CODE END USB_OTG_HS_MspInit 0 */
   
     /**USB_OTG_HS GPIO Configuration    
+    PB13     ------> USB_OTG_HS_VBUS
     PB14     ------> USB_OTG_HS_DM
     PB15     ------> USB_OTG_HS_DP 
     */
+    GPIO_InitStruct.Pin = USB_VBUS_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(USB_VBUS_GPIO_Port, &GPIO_InitStruct);
+
     GPIO_InitStruct.Pin = USB_DM_Pin|USB_DP_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -79,6 +85,10 @@ void HAL_PCD_MspInit(PCD_HandleTypeDef* hpcd)
     __USB_OTG_HS_CLK_ENABLE();
 
     /* Peripheral interrupt init*/
+    HAL_NVIC_SetPriority(OTG_HS_EP1_OUT_IRQn, 5, 0);
+    HAL_NVIC_EnableIRQ(OTG_HS_EP1_OUT_IRQn);
+    HAL_NVIC_SetPriority(OTG_HS_EP1_IN_IRQn, 5, 0);
+    HAL_NVIC_EnableIRQ(OTG_HS_EP1_IN_IRQn);
     HAL_NVIC_SetPriority(OTG_HS_IRQn, 5, 0);
     HAL_NVIC_EnableIRQ(OTG_HS_IRQn);
   /* USER CODE BEGIN USB_OTG_HS_MspInit 1 */
@@ -98,12 +108,17 @@ void HAL_PCD_MspDeInit(PCD_HandleTypeDef* hpcd)
     __USB_OTG_HS_CLK_DISABLE();
   
     /**USB_OTG_HS GPIO Configuration    
+    PB13     ------> USB_OTG_HS_VBUS
     PB14     ------> USB_OTG_HS_DM
     PB15     ------> USB_OTG_HS_DP 
     */
-    HAL_GPIO_DeInit(GPIOB, USB_DM_Pin|USB_DP_Pin);
+    HAL_GPIO_DeInit(GPIOB, USB_VBUS_Pin|USB_DM_Pin|USB_DP_Pin);
 
     /* Peripheral interrupt Deinit*/
+    HAL_NVIC_DisableIRQ(OTG_HS_EP1_OUT_IRQn);
+
+    HAL_NVIC_DisableIRQ(OTG_HS_EP1_IN_IRQn);
+
     HAL_NVIC_DisableIRQ(OTG_HS_IRQn);
 
   /* USER CODE BEGIN USB_OTG_HS_MspDeInit 1 */
