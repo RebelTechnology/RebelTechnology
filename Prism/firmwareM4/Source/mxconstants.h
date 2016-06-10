@@ -1,5 +1,5 @@
-#define SSD1331
-/* #define SEPS114A */
+/* #define SSD1331 */
+#define SEPS114A
 
 /* #define USE_CACHE */
 /* #define USE_ADC */
@@ -8,6 +8,7 @@
 #define USE_ENCODERS
 #define USE_SCREEN
 #define OLED_SOFT_CS
+/* #define OLED_BITBANG */
 /* #define OLED_DMA */
 /* #define OLED_IT */
 /* #define USE_CODEC */
