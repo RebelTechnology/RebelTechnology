@@ -184,5 +184,25 @@ void OTG_HS_IRQHandler(void)
 
 /* USER CODE BEGIN 1 */
 
+
+/* USER CODE BEGIN 1 */
+extern TIM_HandleTypeDef htim1;
+extern TIM_HandleTypeDef htim3;
+
+void TIM1_CC_IRQHandler(void){
+  HAL_TIM_IRQHandler(&htim1);
+}
+
+void TIM3_IRQHandler(void){
+  HAL_TIM_IRQHandler(&htim3);
+}
+
+extern UART_HandleTypeDef huart1;
+
+void USARTx_IRQHandler(void)
+{
+  HAL_UART_IRQHandler(&huart1);
+}
+
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
