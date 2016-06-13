@@ -20,28 +20,29 @@ bool sw2(){
 
 ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
 
-// #include "ScopePatch.hpp"
-// #include "LissajouPatch.hpp"
-// #include "DemoPatch.hpp"
-// #include "SplashPatch.hpp"
-#include "PresetDisplayPatch.hpp"
+#include "ScopePatch.hpp"
+#include "LissajouPatch.hpp"
+#include "DemoPatch.hpp"
+#include "SplashPatch.hpp"
+// #include "PresetDisplayPatch.hpp"
 
 SampleBuffer samples;
-// ScopePatch scope;
-// LissajouPatch lissajou;
-// DemoPatch demo;
-// SplashPatch splash;
-PresetDisplayPatch preset;
+ScopePatch scope;
+LissajouPatch lissajou;
+DemoPatch demo;
+SplashPatch splash;
+// PresetDisplayPatch preset;
 // why is last patch not enabling?
 // add polar coordinates plotting
-Patch* patches[1] = {&preset};
-// Patch* patches[1] = {&scope, &lissajou, &preset, &splash};
+// Patch* patches[1] = {&preset};
+#define NOF_PATCHES 4
+Patch* patches[NOF_PATCHES] = {&scope, &lissajou, &demo, &splash};
 
 extern uint16_t adc_values[4];
 
 uint8_t currentPatch = 0;
 void changePatch(uint8_t pid){
-  if(pid < 3 && pid != currentPatch){
+  if(pid < NOF_PATCHES && pid != currentPatch){
     currentPatch = pid;
     screen.fill(WHITE);
     patches[currentPatch]->reset();
@@ -51,26 +52,26 @@ void changePatch(uint8_t pid){
 void encoderChanged(uint8_t encoder, int32_t value){
   static int16_t encoders[2] = {INT16_MAX/2, INT16_MAX/2};
   // todo: debounce
-  // if(encoder == 1){
+  if(encoder == 1){
     // pass encoder change event to patch
     int32_t delta = value - encoders[encoder];
     patches[currentPatch]->encoderChanged(encoder, delta);
     encoders[encoder] = value;
-  // }
-  // if(encoder == 0){
-  //   if(value > encoders[encoder]){
-  //     if(currentPatch == 3)
-  // 	changePatch(0);
-  //     else
-  // 	changePatch(currentPatch+1);
-  //   }else if(value < encoders[encoder]){
-  //     if(currentPatch == 0)
-  // 	changePatch(3);
-  //     else
-  // 	changePatch(currentPatch-1);
-  //   }
-  //   encoders[encoder] = value;
-  // }
+  }
+  if(encoder == 0){
+    if(value > encoders[encoder]){
+      if(currentPatch == NOF_PATCHES-1)
+  	changePatch(0);
+      else
+  	changePatch(currentPatch+1);
+    }else if(value < encoders[encoder]){
+      if(currentPatch == 0)
+  	changePatch(NOF_PATCHES-1);
+      else
+  	changePatch(currentPatch-1);
+    }
+    encoders[encoder] = value;
+  }
 }
 
 void setup(ProgramVector* pv){
