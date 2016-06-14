@@ -37,9 +37,9 @@ void MX_SPI2_Init(void)
   hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi2.Init.NSS = SPI_NSS_SOFT;
   // hspi2.Init.NSSPMode = SPI_NSS_PULSE_DISABLED;
-  // hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
-  // CS4271 max SPI baud rate 6MHz
-  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16; // 3.375MHz
+  // cs4271 max SPI baud rate 6MHz
+  // hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8; // 5.25MBits @168MHz
+  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16; // 3.375Mbits @216MHz / 2.625MBits @168MHz
   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi2.Init.TIMode = SPI_TIMODE_DISABLED;
   hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
@@ -148,7 +148,6 @@ void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai)
     
     hdma_sai1_tx.Instance = DMA2_Stream1;
     hdma_sai1_tx.Init.Channel = DMA_CHANNEL_0;
-    // hdma_sai1_tx.Init.Direction = DMA_PERIPH_TO_MEMORY;
     hdma_sai1_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
     hdma_sai1_tx.Init.PeriphInc = DMA_PINC_DISABLE;
     hdma_sai1_tx.Init.MemInc = DMA_MINC_ENABLE;
@@ -159,7 +158,7 @@ void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai)
     hdma_sai1_tx.Init.Priority = DMA_PRIORITY_VERY_HIGH;
     // hdma_sai1_tx.Init.FIFOMode = DMA_FIFOMODE_ENABLE;
     hdma_sai1_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
-    hdma_sai1_tx.Init.FIFOThreshold = DMA_FIFO_THRESHOLD_FULL;
+    hdma_sai1_tx.Init.FIFOThreshold = DMA_FIFO_THRESHOLD_HALFFULL;
     hdma_sai1_tx.Init.MemBurst = DMA_MBURST_SINGLE;
     hdma_sai1_tx.Init.PeriphBurst = DMA_PBURST_SINGLE;
     HAL_DMA_Init(&hdma_sai1_tx);
@@ -167,7 +166,6 @@ void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai)
     /* Several peripheral DMA handle pointers point to the same DMA handle.
      Be aware that there is only one stream to perform all the requested DMAs. */
     __HAL_LINKDMA(hsai,hdmarx,hdma_sai1_tx);
-
     __HAL_LINKDMA(hsai,hdmatx,hdma_sai1_tx);
 
     }
@@ -186,7 +184,6 @@ void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai)
     GPIO_InitStruct.Pin = CS_SDOUT_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
-    // GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
     GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
     GPIO_InitStruct.Alternate = GPIO_AF6_SAI1;
     HAL_GPIO_Init(CS_SDOUT_GPIO_Port, &GPIO_InitStruct);
@@ -195,7 +192,6 @@ void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai)
     
     hdma_sai1_rx.Instance = DMA2_Stream4;
     hdma_sai1_rx.Init.Channel = DMA_CHANNEL_1;
-    // hdma_sai1_rx.Init.Direction = DMA_MEMORY_TO_PERIPH;
     hdma_sai1_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
     hdma_sai1_rx.Init.PeriphInc = DMA_PINC_DISABLE;
     hdma_sai1_rx.Init.MemInc = DMA_MINC_ENABLE;
