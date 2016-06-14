@@ -16600,9 +16600,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="CS_SDA" class="0">
 <segment>
-<wire x1="99.06" y1="104.14" x2="83.82" y2="104.14" width="0.1524" layer="91"/>
-<label x="83.82" y="104.14" size="1.778" layer="95"/>
-<pinref part="U1" gate="A" pin="PC1"/>
+<label x="83.82" y="99.06" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PC3"/>
+<wire x1="99.06" y1="99.06" x2="83.82" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="355.6" y1="93.98" x2="330.2" y2="93.98" width="0.1524" layer="91"/>
