@@ -52,26 +52,24 @@ void changePatch(uint8_t pid){
 void encoderChanged(uint8_t encoder, int32_t value){
   static int16_t encoders[2] = {INT16_MAX/2, INT16_MAX/2};
   // todo: debounce
-  if(encoder == 1){
-    // pass encoder change event to patch
-    int32_t delta = value - encoders[encoder];
-    patches[currentPatch]->encoderChanged(encoder, delta);
-    encoders[encoder] = value;
-  }
+  // pass encoder change event to patch
+  int32_t delta = value - encoders[encoder];
+  encoders[encoder] = value;
   if(encoder == 0){
-    if(value > encoders[encoder]){
+    if(delta > 0){
       if(currentPatch == NOF_PATCHES-1)
-  	changePatch(0);
+	changePatch(0);
       else
-  	changePatch(currentPatch+1);
-    }else if(value < encoders[encoder]){
+	changePatch(currentPatch+1);
+    }else if(delta < 0){
       if(currentPatch == 0)
-  	changePatch(NOF_PATCHES-1);
+	changePatch(NOF_PATCHES-1);
       else
-  	changePatch(currentPatch-1);
+	changePatch(currentPatch-1);
     }
-    encoders[encoder] = value;
-  }
+  }else if(encoder == 1){
+    patches[currentPatch]->encoderChanged(encoder, delta);
+  }  
 }
 
 void setup(ProgramVector* pv){

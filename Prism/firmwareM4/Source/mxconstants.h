@@ -3,7 +3,7 @@
 
 /* #define USE_CACHE */
 /* #define USE_ADC */
-/* #define ADC_DMA */
+#define ADC_DMA
 /* #define ADC_IT */
 #define USE_ENCODERS
 #define USE_SCREEN

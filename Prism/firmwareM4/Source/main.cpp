@@ -296,7 +296,6 @@ void MX_ADC1_Init(void)
 #if defined ADC_IT
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
 // #elif defined ADC_DMA
-//   hadc1.Init.EOCSelection = DISABLE;
 //   hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;
 #else
   hadc1.Init.EOCSelection = DISABLE;
@@ -529,9 +528,14 @@ void MX_USB_OTG_HS_USB_Init(void)
 void MX_DMA_Init(void) 
 {
   /* DMA controller clock enable */
-  __HAL_RCC_DMA2_CLK_ENABLE();
+  __DMA2_CLK_ENABLE();
+  // __HAL_RCC_DMA2_CLK_ENABLE();
 
   /* DMA interrupt init */
+#ifdef ADC_DMA
+  HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
+#endif
   HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
 #ifdef OLED_DMA
