@@ -13059,9 +13059,9 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
 <part name="CVOUTB" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND38" library="supply1" deviceset="GND" device=""/>
-<part name="C101" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="47u"/>
+<part name="C101" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="47u 10v"/>
 <part name="C102" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C100" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C100" library="Rebel" deviceset="C-EU" device="C0603" value="100n 16v"/>
 <part name="GND56" library="supply1" deviceset="GND" device=""/>
 <part name="GND57" library="supply1" deviceset="GND" device=""/>
 <part name="GND58" library="supply1" deviceset="GND" device=""/>
@@ -13106,7 +13106,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <attribute name="OC_FARNELL" value="2296028"/>
 </part>
 <part name="GND99" library="supply1" deviceset="GND" device=""/>
-<part name="C23" library="Rebel" deviceset="CPOL-EU" device="D" value="220u"/>
+<part name="C23" library="Rebel" deviceset="CPOL-EU" device="D" value="47u 16v"/>
 <part name="JP13" library="jumper" deviceset="JP1Q" device=""/>
 <part name="D2" library="diode" deviceset="DIODE-" device="SOD123" value="B130LAW-7-F">
 <attribute name="OC_FARNELL" value="1858617"/>

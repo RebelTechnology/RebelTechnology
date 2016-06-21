@@ -13392,15 +13392,15 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="C602" library="Rebel" deviceset="C-EU" device="C0603" value="100p C0G"/>
 <part name="C604" library="Rebel" deviceset="C-EU" device="C0603" value="100p C0G"/>
-<part name="C501" library="Rebel" deviceset="C-EU" device="C0603" value="100n C0G"/>
-<part name="R508" library="Rebel" deviceset="R-EU_" device="0603" value="390R"/>
-<part name="R503" library="Rebel" deviceset="R-EU_" device="0603" value="390R"/>
+<part name="C501" library="Rebel" deviceset="C-EU" device="C0603" value="2n7 C0G"/>
+<part name="R508" library="Rebel" deviceset="R-EU_" device="0603" value="91R"/>
+<part name="R503" library="Rebel" deviceset="R-EU_" device="0603" value="91R"/>
 <part name="R402" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="Y1" library="Seeed-OPL-crystal-osctllator" deviceset="SMD-CRYSTAL-8MHZ-20PF-20PPM(2P-5.0X3.2MM)" device="" value="24.576MHz"/>
 <part name="C402" library="Rebel" deviceset="C-EU" device="C0603" value="39pF C0G"/>
 <part name="IC4" library="Rebel" deviceset="CS4271" device=""/>
-<part name="C502" library="Rebel" deviceset="C-EU" device="C0603" value="100n C0G"/>
+<part name="C502" library="Rebel" deviceset="C-EU" device="C0603" value="2n7 C0G"/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="IC6" library="linear" deviceset="NE5532" device="D"/>
 <part name="C605" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
@@ -13530,7 +13530,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="GND105" library="supply1" deviceset="GND" device=""/>
 <part name="GND106" library="supply1" deviceset="GND" device=""/>
 <part name="GND107" library="supply1" deviceset="GND" device=""/>
-<part name="C17" library="Rebel" deviceset="C-EU" device="C0603" value="10n C0G"/>
+<part name="C17" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C18" library="Rebel" deviceset="C-EU" device="C0603" value="1u"/>
 <part name="GND108" library="supply1" deviceset="GND" device=""/>
 <part name="GND109" library="supply1" deviceset="GND" device=""/>
@@ -13538,9 +13538,9 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="+3V23" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V24" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V25" library="supply1" deviceset="+3V3" device=""/>
-<part name="C19" library="Rebel" deviceset="C-EU" device="C0603" value="2u2 C0G"/>
+<part name="C19" library="Rebel" deviceset="C-EU" device="C0603" value="4u7"/>
 <part name="GND110" library="supply1" deviceset="GND" device=""/>
-<part name="C20" library="Rebel" deviceset="C-EU" device="C0603" value="2u2 C0G"/>
+<part name="C20" library="Rebel" deviceset="C-EU" device="C0603" value="4u7"/>
 <part name="GND111" library="supply1" deviceset="GND" device=""/>
 <part name="C11" library="Rebel" deviceset="C-EU" device="C0603" value="20pF"/>
 <part name="C12" library="Rebel" deviceset="C-EU" device="C0603" value="20pF"/>
@@ -13589,16 +13589,16 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="D4" library="diode" deviceset="BAT54S" device=""/>
 <part name="GND119" library="supply1" deviceset="GND" device=""/>
 <part name="+3V26" library="supply1" deviceset="+3V3" device=""/>
-<part name="R8" library="Rebel" deviceset="R-EU_" device="0603" value="390"/>
+<part name="R8" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C13" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
-<part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="390"/>
+<part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C14" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
-<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="390"/>
+<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C15" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C16" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="390"/>
+<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C21" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C22" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
@@ -13634,11 +13634,11 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="GND126" library="supply1" deviceset="GND" device=""/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND125" library="supply1" deviceset="GND" device=""/>
-<part name="C29" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C29" library="Rebel" deviceset="C-EU" device="C0603" value="100n 16V"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="C31" library="Rebel" deviceset="CPOL-EU" device="SMCA" value="4u7 16V Tantalum"/>
 <part name="C32" library="Rebel" deviceset="C-EU" device="C1206" value="10u"/>
-<part name="C30" library="Rebel" deviceset="C-EU" device="C1206" value="10u"/>
+<part name="C30" library="Rebel" deviceset="C-EU" device="C1206" value="10u 16V"/>
 <part name="JP5" library="SparkFun" deviceset="M07" device=""/>
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
 <part name="C33" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
@@ -13685,6 +13685,8 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <text x="490.22" y="208.28" size="2.54" layer="97">Trigger In</text>
 <text x="612.14" y="205.74" size="2.54" layer="97">Trigger Out</text>
 <text x="149.86" y="43.18" size="2.54" layer="97">OLED</text>
+<text x="429.26" y="261.62" size="1.778" layer="97">RC LP Fc=1.5kHz</text>
+<text x="325.12" y="261.62" size="1.778" layer="97">RC LP Fc=1.5kHz</text>
 </plain>
 <instances>
 <instance part="IC9" gate="N25Q128A13" x="251.46" y="5.08">
@@ -16918,11 +16920,6 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 </net>
 <net name="N$48" class="0">
 <segment>
-<label x="325.12" y="30.48" size="1.778" layer="95"/>
-<pinref part="JP9" gate="G$1" pin="4"/>
-<wire x1="347.98" y1="30.48" x2="325.12" y2="30.48" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <wire x1="269.24" y1="144.78" x2="284.48" y2="144.78" width="0.1524" layer="91"/>
 <label x="271.78" y="144.78" size="1.778" layer="95"/>
 <pinref part="IC8" gate="G$3" pin="PB4"/>
@@ -16991,6 +16988,13 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <pinref part="C408" gate="G$1" pin="1"/>
 <wire x1="393.7" y1="142.24" x2="393.7" y2="147.32" width="0.1524" layer="91"/>
 <junction x="393.7" y="147.32"/>
+</segment>
+</net>
+<net name="ENC2_SW" class="0">
+<segment>
+<label x="325.12" y="30.48" size="1.778" layer="95"/>
+<pinref part="JP9" gate="G$1" pin="4"/>
+<wire x1="347.98" y1="30.48" x2="325.12" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
