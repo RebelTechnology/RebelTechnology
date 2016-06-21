@@ -579,9 +579,9 @@ cuts up to 10mm acrylic
 --------------------------------------------------------------------------
 
 todo: 10W/6W Vigortronix transformer:
-VTX-214-010-215 and VTX-214-006-115 fit same footprint
+VTX-214-010-215 (10W miniature) and VTX-214-006-115 (6W) fit same footprint
 
-One bus board plus small transformer in 42hp case, 12W / 16W / 20W.
+One bus board plus small transformer in 42hp or 60hp case, 12W / 16W / 20W.
 
 --------------------------------------------------------------------------
 
@@ -590,3 +590,15 @@ Balanced output build with THAT1646
 short front caps or use non-polarized 10uF electrolytic
 
 --------------------------------------------------------------------------
+
+MiniDC
+DC input 7V to 12V DC (9v nominal), centre positive
+(LM317 dropout voltage 1.2V plus rectifying diode 0.6V)
+output +12V 50mA, -12V 50mA, +5v 250mA
+LM317 (for 5v) and LTC3265 (for +/-12v)
+
+VLDO = 1.2V * (R1 / R2 + 1)
+for 12v, R1/R2 = 9, 180k / 20k = 9
+
+--------------------------------------------------------------------------
+
