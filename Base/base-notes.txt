@@ -10,6 +10,85 @@
 
 --------------------------------------------------------------------------
 
+Vector TS209 T-Strut rails 104HP / 20.85" / 529mm
+(mouser 1: £6.42)
+
+--------------------------------------------------------------------------
+
+Alto Sax case
+Interior 590 x 240 x 120mm
+
+84HP = 431.80mm = 17"
+
+Vector T-Struts	mouser
+TS81    8.1"	£16.10
+TS169   16.85"	£6.34 @10
+TS180	18" 	£7.15 @5 non stocked
+TS300	30"x1	£11.60 @10
+TS600	60"x4	£60.15 (+£62 delivery charge)
+
+RITTAL - 3685269 - RAILS, HORIZ, FRONT, EXT, 84HP, PK2		£34.16
+RITTAL - 3650310 - TAPPED STRIP, M2.5, 84HP, PK2		£4.83
+SCHROFF - 30837-619 - HORIZONTAL RAIL, HL HANDLE, ALUMINIUM	£27.18
+SCHROFF - 34561-384 - THREADED STRIP, HORIZONTAL RAILS		£4.85
+SCHROFF SUBRACK, 3U, 175MM, 84HP      		 		£30.25
+FISCHER ELEKTRONIK - BGT 384 180 - 3 U SUBRACKS			£30.58
+Mean Well RT-65B SPSU 64.6W 5V/5A 12V/2.8A -12V/0.5A		£30.70
+
+http://uk.farnell.com/rittal/3685269/rails-horiz-front-ext-84hp-pk2/dp/1198869
+http://uk.mouser.com/Search/ProductDetail.aspx?qs=l0g2inPJSHND8ryGZwADcw%3d%3d
+
+Schroff front rail with lip L-KD, 1m 34560-101
+without lip L-OD, 1m, 34560-100
+Threaded strip 84HP M3 34561-484, M2.5 34561-384
+
+Spider Shallow ABS Plastic 6u Rack Case £49.99
+http://www.spider-engineering.co.uk/audio-visual-cases/types2.asp?case=spider-shallow-abs-plastic-6u-rack-case-7140-9060
+
+IKEA Rast table 52x30cm
+Unmodified, it can only hold 6 rack units, but if you lower the shelf, you can hold up to 8.
+http://www.instructables.com/id/8U-Rack-Case-From-IKEA-RAST-Table
+
+XP POWER - ECL30UD02 - AC/DC PSU, DUAL O/P, 30W, SCREW TERM 15V/-15V 1A/1A (farnell £41.00 enclosed, £32.00 open)
+TRACOPOWER TXL 035-1212D 35W +12/-12v 3A/1.5A (farnell £41.50)
+TRACOPOWER TXL 035-1515D - POWER SUPPLY, ENCL, 35W, +/-15V, 2.4A/1.5A (farnell £41.50)
+ARTESYN EMBEDDED TECHNOLOGIES - NLP40-7627J - PSU, OPEN FRAME, 2 OUTPUT, 40W, +12v/-12v
+
+MYRRA - 47254 - POWER SUPPLY, 4W 12V/-12V REG  0.168A (farnell 7.93)
+
+--------------------------------------------------------------------------
+
+mounting rails
+19" subrack front rails
+Fischer GB29L 431.8mm (farnell £6.62)
+Schroff A Horizontal rail, Standard version, with lip, 84hp 30819-166
+Schroff C Double horizontal rail with lip, 30825-076
+Schroff propac E Front horizontal rail, with top cover 84hp 30837-334
+Schroff propac D double horizontal rail at top lip and notches 84hp 30825-750 
+Schroff propac A horizontal rail front/rear 84hp 30818-115 
+Schroff propac A1 EMC horizontal rail front/rear 84hp 20850-267 (rs £11.55) (rs 9.99+5.95)
+Schroff compac B2 rear horizontal rail, with Z 84hp 30819-525 (rs £8.35)
+Schroff horizontal rail L-KD 84HP 34560-184, L-ST 84HP 34560-484
+Schroff Horizontal rail centre, type ST
+
+complete subracks
+Schroff Unshielded Europac Pro case, 3U 235mm 24563-132 (rs £44.75) 175mm 24563-131 (rs £43.99)
+SCHROFF SUBRACK, 3U, 175MM, 84HP (farnell 24563-131 £43.11 24563-191 £35.92)
+SCHROFF SUBRACK, 6U, 175MM, 84HP (no mid front rail) (farnell 24563-431 £65.91 24563-491 £52.47)
+SCHROFF DESKTOP CASE, 3U, 255MM, 42HP 24572-002 (farnell £148.90)
+Fischer 3U subrack 175.5mm  BGT 384 180 (farnell £25.71) BGT 384 180 IZ (farnell £32.15)
+also: card frames, plug-in modules, PSU's, hinged panels, handles, brackets...
+SCHROFF SUBRACK, 3U, shielded, 24563-142 (farnell £116.62)
+SCHROFF SUBRACK, 3U, shielded, 24563-442 (farnell £167.58)
+
+nice: compacPro with tip-up carrying handle and hinged acrylic glass front door (40mm clearance).
+CompacPRO case 3U 84HP (rs £104.82) front door (rs £41.49) handle (rs £28.07)
+
+see also
+http://www.vectorelect.com/
+
+--------------------------------------------------------------------------
+
 Gie Tec 
 
 The cost of the 80mm deep housing depends on the quantity, because the side plate has to be produced especially for you. So, please let me know.
@@ -61,7 +140,117 @@ Dual tray: front 92.070 back 69.153mm tall
 
 Threaded insert
 Schroff inserts are M2.5, fits Vector T-struts
-84HP Schroff 34561384, 42HP Schroff 34561342
+84HP Schroff 34561-384
+42HP Schroff 34561-342
+
+"The collar screws for mounting front panels must be 12.3 mm long" - schroff rails+inserts
 
 --------------------------------------------------------------------------
 
+T-Strut rails
+TS81  8.12"  206.248mm 40HP+3.048mm
+TS169 16.85" 427.99mm  84HP+1.27mm
+TS209 20.85" 529.59mm  104HP+1.27mm
+TS300 30"    762mm
+TS600 60"    1524mm
+
+42hp width = 213.36mm
+84hp width = 426.72mm
+104hp width = 528.32mm
+
+--------------------------------------------------------------------------
+
+Base 104 / 42hp
+3mm stand offs, 12mm 3M machine screws
+
+--------------------------------------------------------------------------
+
+Make custom system for SAE Institute
+
+- 104HP case
+- budget apprx £1k
+- stereo line output
+- one of each production module: £1140
+
+--------------------------------------------------------------------------
+
+Arctic Cases	HP	W/S	MSRP
+Scout		42	40	62.40		no PSU
+Explorer	42	60	93.60		AC adapter PSU
+Excursion	60	90	140.40		15W PSU 1x active bus board
+Expedition	84	120	187.20		30W PSU 2x active bus boards
+Base		104	150	234.00		30W PSU 3x active bus boards
+		126
+		168
+Fort		150
+AC Adapter		10	15.60
+
+All cases come with M2.5 mounting screws.
+
+20W (+15v) for +12 and +5, e.g. 1.25A +12v 1A +5v, or 1.5A/400mA
+10W for -12v: 833mA
+
+1 week lead time
+
+names:
+Patrol, Voyage, Journey, Probe, Recon, Fort, Outpost, Casern, Armory, Garrison, Castle
+Arctic, Lunar, Solar, Mars, Woodland, Forest, Tundra, Savannah, Safari, Desert
+
+--------------------------------------------------------------------------
+
+Elma 
+84HP Front Extrusion with lip 66-111-23
+
+http://www.elma.com/en/products/enclosures-and-components/accessories/product-pages/front-extrusions-product-detail/
+
+SRS extrusions and tapped strips
+http://www.srs-products.co.uk/extrusions.htm
+http://www.srs-products.co.uk/extrusions5.htm
+
+Tapped Strip M3
+84HP 793317
+42HP 793314
+
+--------------------------------------------------------------------------
+
+Threaded inserts in 104 and 126HP
+http://clicksclocks.de/925
+
+--------------------------------------------------------------------------
+
+Thomann case factory: custom size flight cases
+
+--------------------------------------------------------------------------
+
+Plastic pins
+
+--------------------------------------------------------------------------
+
+Voltage controlled light VCL
+
+LED driver op amps
+2ch, min 80mA per channel, soic / so
+MC33178 (80mA source, 100mA sink)
+TS27L2, TS272 (only 30mA?)
+KA358 (30mA source?)
+TLV4112 (> 300mA, max 6v supply, farnell £0.626 @100)
+
+U=RI, I=40mA, U=10v, R=250R. At 5v I=20mA
+
+Howland Integrator
+http://www.ti.com/lit/an/snoa474a/snoa474a.pdf
+
+Voltage controlled LED dimmer
+http://powerelectronics.com/lighting/how-add-analog-dimming-virtually-any-led-driver
+http://powerelectronics.com/site-files/powerelectronics.com/files/archive/powerelectronics.com/lighting_systems/led_drivers/analog-dimming-fig3.jpg
+How To Add Analog Dimming To Virtually Any LED Driver
+(by changing the feedback voltage of an LED driver)
+
+LS7642 VOLTAGE CONTROLLED LIGHT DIMMER with SOFT ON/OFF
+(not available from farnell or mouser)
+
+--------------------------------------------------------------------------
+
+AC input 2.5mm DC jack
+
+--------------------------------------------------------------------------
