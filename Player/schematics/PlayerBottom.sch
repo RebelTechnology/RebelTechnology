@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -13685,8 +13685,6 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <text x="490.22" y="208.28" size="2.54" layer="97">Trigger In</text>
 <text x="612.14" y="205.74" size="2.54" layer="97">Trigger Out</text>
 <text x="149.86" y="43.18" size="2.54" layer="97">OLED</text>
-<text x="429.26" y="261.62" size="1.778" layer="97">RC LP Fc=1.5kHz</text>
-<text x="325.12" y="261.62" size="1.778" layer="97">RC LP Fc=1.5kHz</text>
 </plain>
 <instances>
 <instance part="IC9" gate="N25Q128A13" x="251.46" y="5.08">
@@ -16532,62 +16530,6 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <wire x1="398.78" y1="33.02" x2="381" y2="33.02" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="D1" class="0">
-<segment>
-<pinref part="R701" gate="G$1" pin="2"/>
-<label x="560.07" y="179.07" size="1.778" layer="95"/>
-<wire x1="570.23" y1="179.07" x2="560.07" y2="179.07" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="IC8" gate="G$3" pin="PD2"/>
-<wire x1="238.76" y1="119.38" x2="231.14" y2="119.38" width="0.1524" layer="91"/>
-<label x="231.14" y="119.38" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="D0" class="0">
-<segment>
-<pinref part="R13" gate="G$1" pin="2"/>
-<label x="560.07" y="240.03" size="1.778" layer="95"/>
-<wire x1="570.23" y1="240.03" x2="560.07" y2="240.03" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<wire x1="238.76" y1="88.9" x2="231.14" y2="88.9" width="0.1524" layer="91"/>
-<label x="231.14" y="88.9" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$3" pin="PC12"/>
-</segment>
-</net>
-<net name="D2" class="0">
-<segment>
-<pinref part="Q801" gate="G$1" pin="C"/>
-<wire x1="529.59" y1="240.03" x2="529.59" y2="237.49" width="0.1524" layer="91"/>
-<wire x1="529.59" y1="240.03" x2="542.29" y2="240.03" width="0.1524" layer="91"/>
-<label x="539.75" y="240.03" size="1.778" layer="95"/>
-<pinref part="R803" gate="G$1" pin="2"/>
-<wire x1="529.59" y1="240.03" x2="529.59" y2="242.57" width="0.1524" layer="91"/>
-<junction x="529.59" y="240.03"/>
-</segment>
-<segment>
-<wire x1="238.76" y1="91.44" x2="231.14" y2="91.44" width="0.1524" layer="91"/>
-<label x="231.14" y="91.44" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$3" pin="PC11"/>
-</segment>
-</net>
-<net name="D3" class="0">
-<segment>
-<pinref part="Q601" gate="G$1" pin="C"/>
-<wire x1="529.59" y1="191.77" x2="529.59" y2="189.23" width="0.1524" layer="91"/>
-<wire x1="529.59" y1="191.77" x2="542.29" y2="191.77" width="0.1524" layer="91"/>
-<label x="539.75" y="191.77" size="1.778" layer="95"/>
-<pinref part="R11" gate="G$1" pin="2"/>
-<wire x1="529.59" y1="191.77" x2="529.59" y2="194.31" width="0.1524" layer="91"/>
-<junction x="529.59" y="191.77"/>
-</segment>
-<segment>
-<wire x1="238.76" y1="93.98" x2="231.14" y2="93.98" width="0.1524" layer="91"/>
-<label x="231.14" y="93.98" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$3" pin="PC10"/>
-</segment>
-</net>
 <net name="TROUTB" class="0">
 <segment>
 <pinref part="R704" gate="G$1" pin="2"/>
@@ -16918,13 +16860,6 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <pinref part="IC8" gate="G$1" pin="PA7"/>
 </segment>
 </net>
-<net name="N$48" class="0">
-<segment>
-<wire x1="269.24" y1="144.78" x2="284.48" y2="144.78" width="0.1524" layer="91"/>
-<label x="271.78" y="144.78" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$3" pin="PB4"/>
-</segment>
-</net>
 <net name="ENC2_A" class="0">
 <segment>
 <label x="325.12" y="27.94" size="1.778" layer="95"/>
@@ -16990,7 +16925,68 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <junction x="393.7" y="147.32"/>
 </segment>
 </net>
+<net name="TR_IN_A" class="0">
+<segment>
+<pinref part="Q801" gate="G$1" pin="C"/>
+<wire x1="529.59" y1="240.03" x2="529.59" y2="237.49" width="0.1524" layer="91"/>
+<wire x1="529.59" y1="240.03" x2="544.83" y2="240.03" width="0.1524" layer="91"/>
+<label x="534.67" y="240.03" size="1.778" layer="95"/>
+<pinref part="R803" gate="G$1" pin="2"/>
+<wire x1="529.59" y1="240.03" x2="529.59" y2="242.57" width="0.1524" layer="91"/>
+<junction x="529.59" y="240.03"/>
+</segment>
+<segment>
+<wire x1="238.76" y1="91.44" x2="218.44" y2="91.44" width="0.1524" layer="91"/>
+<label x="218.44" y="91.44" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$3" pin="PC11"/>
+</segment>
+</net>
+<net name="TR_IN_B" class="0">
+<segment>
+<pinref part="Q601" gate="G$1" pin="C"/>
+<wire x1="529.59" y1="191.77" x2="529.59" y2="189.23" width="0.1524" layer="91"/>
+<wire x1="529.59" y1="191.77" x2="544.83" y2="191.77" width="0.1524" layer="91"/>
+<label x="534.67" y="191.77" size="1.778" layer="95"/>
+<pinref part="R11" gate="G$1" pin="2"/>
+<wire x1="529.59" y1="191.77" x2="529.59" y2="194.31" width="0.1524" layer="91"/>
+<junction x="529.59" y="191.77"/>
+</segment>
+<segment>
+<wire x1="238.76" y1="93.98" x2="218.44" y2="93.98" width="0.1524" layer="91"/>
+<label x="218.44" y="93.98" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$3" pin="PC10"/>
+</segment>
+</net>
+<net name="TR_OUT_A" class="0">
+<segment>
+<pinref part="R13" gate="G$1" pin="2"/>
+<label x="554.99" y="240.03" size="1.778" layer="95"/>
+<wire x1="570.23" y1="240.03" x2="554.99" y2="240.03" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="238.76" y1="88.9" x2="218.44" y2="88.9" width="0.1524" layer="91"/>
+<label x="218.44" y="88.9" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$3" pin="PC12"/>
+</segment>
+</net>
+<net name="TR_OUT_B" class="0">
+<segment>
+<pinref part="IC8" gate="G$3" pin="PD2"/>
+<wire x1="238.76" y1="119.38" x2="220.98" y2="119.38" width="0.1524" layer="91"/>
+<label x="220.98" y="119.38" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R701" gate="G$1" pin="2"/>
+<label x="554.99" y="179.07" size="1.778" layer="95"/>
+<wire x1="570.23" y1="179.07" x2="554.99" y2="179.07" width="0.1524" layer="91"/>
+</segment>
+</net>
 <net name="ENC2_SW" class="0">
+<segment>
+<wire x1="269.24" y1="144.78" x2="284.48" y2="144.78" width="0.1524" layer="91"/>
+<label x="271.78" y="144.78" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$3" pin="PB4"/>
+</segment>
 <segment>
 <label x="325.12" y="30.48" size="1.778" layer="95"/>
 <pinref part="JP9" gate="G$1" pin="4"/>
