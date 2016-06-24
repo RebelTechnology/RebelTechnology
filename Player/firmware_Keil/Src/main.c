@@ -32,10 +32,10 @@
   */
 /* Includes ------------------------------------------------------------------*/
 
-#include "..\main.h"
-#include "..\HAL_Triggers.h"
-#include "..\HAL_Encoders.h"
-#include "..\HAL_CV_IO.h"
+#include "main.h"
+#include "HAL_Triggers.h"
+#include "HAL_Encoders.h"
+#include "HAL_CV_IO.h"
 
 int main(void)
 {
