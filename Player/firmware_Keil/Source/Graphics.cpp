@@ -3,8 +3,9 @@
 #include "mxconstants.h"
 #include "gpio.h"
 #include "Graphics.h"
-#include "FreeRTOS.h"
-#include "errorhandlers.h"
+// #include "FreeRTOS.h"
+// #include "errorhandlers.h"
+#include "device.h"
 
 extern "C" void delay(uint32_t millisec);
 

@@ -9,9 +9,9 @@ uint32_t txbuf[CODEC_BUFFER_SIZE];
 uint32_t rxbuf[CODEC_BUFFER_SIZE];
 
 extern "C" {
-  void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai);
-  static void MX_SPI2_Init();
-  static void MX_SAI1_Init();
+  // void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai);
+  // static void MX_SPI2_Init();
+  // static void MX_SAI1_Init();
   SPI_HandleTypeDef hspi2;
   SAI_HandleTypeDef hsai_BlockRx;
   SAI_HandleTypeDef hsai_BlockTx;
