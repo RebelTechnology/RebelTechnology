@@ -11926,82 +11926,82 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <part name="P+1" library="supply1" deviceset="+12V" device=""/>
 <part name="P-1" library="supply1" deviceset="-12V" device=""/>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
-<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C8" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="P2" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C9" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="P3" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C12" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="P4" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C13" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="P5" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R6" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R6" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C14" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="P6" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R7" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R7" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C15" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
 <part name="P7" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R8" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R8" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C16" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 <part name="P8" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R9" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R9" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C17" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
 <part name="P9" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C18" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
 <part name="P10" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C19" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
 <part name="GND38" library="supply1" deviceset="GND" device=""/>
 <part name="P11" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C20" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND40" library="supply1" deviceset="GND" device=""/>
 <part name="GND43" library="supply1" deviceset="GND" device=""/>
 <part name="P12" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R13" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R13" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C21" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND44" library="supply1" deviceset="GND" device=""/>
 <part name="GND45" library="supply1" deviceset="GND" device=""/>
 <part name="P13" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C22" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND46" library="supply1" deviceset="GND" device=""/>
 <part name="GND47" library="supply1" deviceset="GND" device=""/>
 <part name="P14" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R15" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R15" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C23" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND50" library="supply1" deviceset="GND" device=""/>
 <part name="GND51" library="supply1" deviceset="GND" device=""/>
 <part name="P15" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R16" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R16" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C24" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND52" library="supply1" deviceset="GND" device=""/>
 <part name="GND53" library="supply1" deviceset="GND" device=""/>
 <part name="P16" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R17" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R17" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C25" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND54" library="supply1" deviceset="GND" device=""/>
 <part name="GND55" library="supply1" deviceset="GND" device=""/>
