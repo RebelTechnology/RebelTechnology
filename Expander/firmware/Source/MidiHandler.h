@@ -2,12 +2,10 @@
 #define _MidiHandler_HPP_
 
 #include <stdint.h>
-#include "FirmwareLoader.hpp"
 
 class MidiHandler {
 private:
-  int16_t midi_values[NOF_PARAMETERS];
-  FirmwareLoader loader;
+  /* int16_t midi_values[NOF_PARAMETERS]; */
 public:
   MidiHandler();
   void handleProgramChange(uint8_t status, uint8_t pc);

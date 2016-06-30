@@ -5,6 +5,8 @@
 #include "MidiStatus.h"
 #include "MidiHandler.h"
 
+#define MIDI_MAX_MESSAGE_SIZE 0
+
 class MidiReader : public MidiHandler {
 protected:
   uint8_t buffer[MIDI_MAX_MESSAGE_SIZE];
@@ -13,6 +15,7 @@ protected:
 public:
   MidiReader() : pos(0) {}  
   void readMidiFrame(uint8_t* frame);
+  void reset();
 };
 
 

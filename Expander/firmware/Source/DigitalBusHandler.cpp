@@ -1,7 +1,10 @@
 #include "DigitalBusHandler.h"
 #include "MidiStatus.h"
+#include "message.h"
 #include "serial.h"
 #include "bus.h"
+
+#define getDeviceId() ((uint32_t *)0x1FFF7A10)
 
 DigitalBusHandler::DigitalBusHandler() 
   : uid(NO_UID), nuid(NO_UID), token(NO_TOKEN), peers(0), parameterOffset(0) {

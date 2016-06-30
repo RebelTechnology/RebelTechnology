@@ -5,7 +5,13 @@ CFLAGS = -g -Wall -Wcpp -DUSE_FULL_ASSERT
 CXXFLAGS = -fno-rtti -fno-exceptions -std=c++11 $(CFLAGS) 
 
 C_SRC  = gpio.c periph.c serial.c
-CPP_SRC = main.cpp Expander.cpp Pixi.cpp midi.cpp
+# C_SRC  += 
+
+CPP_SRC = main.cpp Expander.cpp Pixi.cpp 
+CPP_SRC += MidiHandler.cpp MidiReader.cpp
+CPP_SRC += bus.cpp DigitalBusHandler.cpp DigitalBusReader.cpp
+CPP_SRC += message.cpp
+
 OBJS = $(C_SRC:%.c=Build/%.o) $(CPP_SRC:%.cpp=Build/%.o)
 
 # object files

@@ -1,4 +1,5 @@
 #include "DigitalBusReader.h"
+#include "message.h"
 #include "bus.h"
 
 // read a 4-byte data frame

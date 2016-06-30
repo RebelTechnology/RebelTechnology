@@ -7,10 +7,9 @@
  extern "C" {
 #endif
 
-   void midiSetup();
-   void midiSendCC(uint8_t ch, uint8_t cc, uint8_t value);
-
-   void midiReceiveCC(uint8_t ch, uint8_t cc, uint8_t value);
+   void midi_setup();
+   void midi_send_cc(uint8_t ch, uint8_t cc, uint8_t value);
+   void midi_receive_cc(uint8_t ch, uint8_t cc, uint8_t value);
 
 #ifdef __cplusplus
 }
