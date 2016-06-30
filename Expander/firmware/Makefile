@@ -16,5 +16,7 @@ OBJS += $(PERIPH)
 OBJS += $(BUILD)/system_stm32f10x.o
 OBJS += $(BUILD)/startup_stm32f10x_md_vl.o # medium density value line
 
+LDSCRIPT = $(TEMPLATEROOT)/Source/stm32_flash.ld
+
 # include common make file
 include $(TEMPLATEROOT)/f1.mk
