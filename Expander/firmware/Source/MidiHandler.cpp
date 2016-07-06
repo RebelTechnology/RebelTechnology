@@ -116,6 +116,8 @@ void MidiHandler::handleSysEx(uint8_t* data, uint16_t size){
     break;
   }
 }
+#else
+void MidiHandler::handleSysEx(uint8_t* data, uint16_t size){}
+
 #endif
 
-void MidiHandler::handleSysEx(uint8_t* data, uint16_t size){}

@@ -44,7 +44,7 @@ volatile ChannelMode cfg[16];
 volatile int dac[16];
 volatile int adc[16];
 
-// #define USE_TEMP
+#define USE_TEMP
 #ifdef USE_TEMP
 volatile float temp[3] = {0};
 #endif
@@ -91,13 +91,10 @@ void run(){
 	  bus_tx_parameter(PARAMETER_AA+ch, adc[ch]);
 	  cc_values[ch] = cc;
 	}
+      }else if(cfg[ch] > DAC_MODE){
+	pixi.writeAnalog(ch, dac[ch]);
       }
     }
-    // pixi.writeAnalog(CHANNEL_7, i); // output ramp on
-    // pixi.writeAnalog(CHANNEL_8, dac[8]);
-    // pixi.writeAnalog(CHANNEL_7, dac[7]);
-    if(i++ >= 2048)
-      i = 0;
   }
 }
 
