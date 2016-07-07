@@ -73,6 +73,16 @@ void bus_tx_button(uint8_t bid, int16_t value){
   bushandler.sendButtonChange(bid, value);
 }
 
+void bus_tx_command(uint8_t cmd, int16_t data){
+  debug << "tx command [" << cmd << "][" << data << "]" ;
+  bushandler.sendCommand(cmd, data);
+}
+
+void bus_tx_message(const char* msg){
+  debug << "tx msg [" << msg << "]" ;
+  bushandler.sendMessage(msg);
+}
+
 void bus_tx_error(const char* reason){
   debug << "Digital bus send error: " << reason << ".";
 }

@@ -50,21 +50,22 @@ const char* getDebugMessage(){
   return debugmessage;
 }
 
-static void put_char(char c){
-    asm (
-    "mov r0, #0x03\n"   /* SYS_WRITEC */
-    "mov r1, %[msg]\n"
-    "bkpt #0xAB\n"
-    :
-    : [msg] "r" (&c)
-    : "r0", "r1"
-    );
-}
+// semihosting
+// static void put_char(char c){
+//     asm (
+//     "mov r0, #0x03\n"   /* SYS_WRITEC */
+//     "mov r1, %[msg]\n"
+//     "bkpt #0xAB\n"
+//     :
+//     : [msg] "r" (&c)
+//     : "r0", "r1"
+//     );
+// }
 
 void setDebugMessage(const char* msg){
-  size_t len = strnlen(msg, sizeof(buffer));
-  for(int i=0; i<len; ++i)
-    put_char(msg[i]);
+  // size_t len = strnlen(msg, sizeof(buffer));
+  // for(int i=0; i<len; ++i)
+  //   put_char(msg[i]);
   debugmessage = msg;
 }
 

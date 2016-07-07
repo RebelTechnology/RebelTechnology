@@ -37,7 +37,8 @@ enum ChannelMode {
   DAC_MODE,
   DAC_5TO5,
   DAC_0TO10,
-  DAC_10TO0
+  DAC_10TO0,
+  CHANNEL_MODES
 };
 
 uint8_t cc_values[16] = {0};
@@ -63,6 +64,10 @@ void configureChannel(uint8_t ch, ChannelMode mode){
     break;
   case DAC_0TO10:
     pixi.configChannel(CHANNEL_0+ch, CH_MODE_DAC, 0, CH_0_TO_10P, 0);
+    break;
+  default:
+    debug << "Invalid mode [" << mode << "]\r\n";
+    return;
     break;
   }
   cfg[ch] = mode;
@@ -101,7 +106,7 @@ void run(){
 }
 
 void bus_rx_parameter(uint8_t pid, int16_t value){
-  debug << "rx parameter [" << pid << "][" << value << "]" ;
+  debug << "rx parameter [" << pid << "][" << value << "]\r\n" ;
   if(pid >= PARAMETER_AA && pid <= PARAMETER_BH){
     uint8_t ch = pid-PARAMETER_AA;
     if(cfg[ch] < DAC_MODE){
@@ -115,7 +120,26 @@ void bus_rx_parameter(uint8_t pid, int16_t value){
   }
 }
 
-void bus_rx_button(uint8_t bid, int16_t value){
-  debug << "rx button [" << bid << "][" << value << "]" ;
+void bus_rx_command(uint8_t cmd, int16_t data){
+  if(cmd == BUS_CMD_CONFIGURE_IO){
+    uint8_t ch = data>>8;
+    ChannelMode mode = (ChannelMode)(data&0xff);
+    debug << "rx command [" << cmd << "][" << ch << "][" << mode << "]\r\n" ;
+    if(ch < 16){
+      configureChannel(ch, mode);
+      bus_tx_message("Configured channel");
+    }
+  }
 }
 
+void bus_rx_button(uint8_t bid, int16_t value){
+  debug << "rx button [" << bid << "][" << value << "]\r\n" ;
+}
+
+void bus_rx_message(const char* msg){
+  debug << "rx msg [" << msg << "]\r\n" ;
+}
+
+void bus_rx_data(uint8_t* data, int16_t size){
+  debug << "rx data [" << size << "]\r\n" ;
+}

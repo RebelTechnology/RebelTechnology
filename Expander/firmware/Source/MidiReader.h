@@ -5,7 +5,7 @@
 #include "MidiStatus.h"
 #include "MidiHandler.h"
 
-#define MIDI_MAX_MESSAGE_SIZE 0
+#define MIDI_MAX_MESSAGE_SIZE 64 // also used for bus messages and bus data
 
 class MidiReader : public MidiHandler {
 protected:
