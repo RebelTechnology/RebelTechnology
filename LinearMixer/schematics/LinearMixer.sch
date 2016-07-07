@@ -15266,8 +15266,8 @@ W = angled&lt;p&gt;
 <part name="J2" library="Rebel" deviceset="CON-JST_PH_3W" device=""/>
 <part name="U2" library="Rebel" deviceset="CON-JST_PH_5W" device=""/>
 <part name="U3" library="Rebel" deviceset="CON-JST_PH_5W" device=""/>
-<part name="C3" library="Rebel" deviceset="C-EU" device="C1210" value="1uF"/>
-<part name="C4" library="Rebel" deviceset="C-EU" device="C1210" value="1uF"/>
+<part name="C3" library="Rebel" deviceset="C-EU" device="C1210" value="1uF Polyester"/>
+<part name="C4" library="Rebel" deviceset="C-EU" device="C1210" value="1uF Polyester"/>
 <part name="Q1" library="transistor-small-signal" deviceset="BSS84" device=""/>
 <part name="Q2" library="transistor-small-signal" deviceset="BSS123" device=""/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
