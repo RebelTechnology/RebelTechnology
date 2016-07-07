@@ -140,6 +140,6 @@ void bus_rx_message(const char* msg){
   debug << "rx msg [" << msg << "]\r\n" ;
 }
 
-void bus_rx_data(uint8_t* data, int16_t size){
+void bus_rx_data(uint8_t* data, uint16_t size){
   debug << "rx data [" << size << "]\r\n" ;
 }
