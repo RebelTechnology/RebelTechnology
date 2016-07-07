@@ -5,7 +5,7 @@ CFLAGS = -g -Wall -Wcpp -DUSE_FULL_ASSERT
 CXXFLAGS = -fno-rtti -fno-exceptions -std=c++11 $(CFLAGS) 
 
 C_SRC  = gpio.c periph.c serial.c
-# C_SRC  += 
+C_SRC  += clock.c
 
 CPP_SRC = main.cpp Expander.cpp Pixi.cpp 
 CPP_SRC += MidiHandler.cpp MidiReader.cpp

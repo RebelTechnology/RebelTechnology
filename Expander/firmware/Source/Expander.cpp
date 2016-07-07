@@ -2,6 +2,7 @@
 #include "periph.h"
 #include "Pixi.h"
 #include "bus.h"
+#include "clock.h"
 #include "message.h"
 #include "OpenWareMidiControl.h"
 
@@ -24,8 +25,8 @@ void setup(){
   configureDigitalOutput(TLC_BLANK_GPIO_Port, TLC_BLANK_Pin);
   setPin(TLC_BLANK_GPIO_Port, TLC_BLANK_Pin); // bring BLANK high to turn LEDs off
 
+  clock_setup();
   pixi.begin();
-
   bus_setup();
 }
 
@@ -78,6 +79,7 @@ void run(){
     configureChannel(ch, cfg[ch]);
   uint16_t i = 0;
   for(;;){
+    bus_status();
 #ifdef USE_TEMP
     temp[0] = pixi.readTemperature ( TEMP_CHANNEL_INT );
     temp[1] = pixi.readTemperature ( TEMP_CHANNEL_EXT0 );

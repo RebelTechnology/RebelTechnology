@@ -2,6 +2,7 @@
 #include "bus.h"
 #include "message.h"
 #include "serial.h"
+#include "clock.h"
 #include "DigitalBusReader.h"
 
 static DigitalBusReader bushandler;
@@ -9,9 +10,25 @@ static DigitalBusReader bushandler;
 #define USART_BAUDRATE               115200
 #define USART_PERIPH                 USART1
 
+uint8_t* bus_deviceid(){
+  return ((uint8_t*)0x1ffff7e8); /* STM32F1 */
+  // return ((uint8_t *)0x1FFF7A10); /* STM32F4, STM32F0 */ 
+}
+
 void bus_setup(){
-  debug << "bus_setup";
+  debug << "bus_setup\r\n";
   serial_setup(USART_BAUDRATE);
+}
+
+#define BUS_IDLE_INTERVAL 2300
+
+int bus_status(){
+  static uint32_t lastpolled = 0;
+  if(getSysTicks() > lastpolled + BUS_IDLE_INTERVAL){
+    bushandler.connected();
+    lastpolled = getSysTicks();
+  }
+  return bushandler.getStatus();
 }
 
 extern "C" {

@@ -4,11 +4,9 @@
 #include "serial.h"
 #include "bus.h"
 
-#define getDeviceId() ((uint32_t *)0x1FFF7A10)
-
 DigitalBusHandler::DigitalBusHandler() 
   : uid(NO_UID), nuid(NO_UID), token(NO_TOKEN), peers(0), parameterOffset(0) {
-  UUID = (uint8_t*)getDeviceId();
+  UUID = (uint8_t*)bus_deviceid();
 }
 
 void DigitalBusHandler::sendMessage(uint8_t d1, uint8_t d2, uint8_t d3, uint8_t d4){
@@ -48,6 +46,7 @@ void DigitalBusHandler::sendDiscover(uint8_t seq, uint32_t token){
 }
 
 void DigitalBusHandler::handleDiscover(uint8_t seq, uint32_t other){
+  status = DISCOVERING;
   debug << "rx disco [" << seq << "][" << (int)other << "]\r\n";
   // on receipt of other token, add +1 to seq and pass it on, then send own token.
   // once we get our own token back, the seq tells us how many peers there are.
@@ -85,6 +84,7 @@ void DigitalBusHandler::sendEnum(uint8_t id, uint8_t version, uint8_t product, u
 }
 
 void DigitalBusHandler::handleEnum(uint8_t id, uint8_t version, uint8_t product, uint8_t params){
+  status = ENUMERATING;
   debug << "rx enum [" << id << "][" << version << "][" << product << "][" << params << "]\r\n";
   if(uid == NO_UID){
     // our UID has not been set yet
@@ -94,18 +94,19 @@ void DigitalBusHandler::handleEnum(uint8_t id, uint8_t version, uint8_t product,
     sendEnum(uid, VERSION, PRODUCT, parameterOffset+PARAMETERS);
     // note that only one ENUM should be received as they are not propagated.
     // downstream UID will be (uid+1 > peers) ? 0 : uid+1
+  }
+  if(nuid == NO_UID){
     nuid = uid+1;
     if(nuid >= peers)
       nuid = 0;
-  }else if(uid == 0){
-    nuid = 1;
-  }else if(uid == id){
-    // we are talking to ourselves: ignore
-  }else{
-    // something must have gone wrong, we already have a UID
-    // but this might be the second round?
-    debug << "enum error [" << uid << "] " << "[" << parameterOffset << "]\r\n";
   }
+  // }else if(uid == id){
+  //   // we are talking to ourselves: ignore
+  // }else{
+  //   // something must have gone wrong, we already have a UID
+  //   // but this might be the second round?
+  //   debug << "enum error [" << uid << "] " << "[" << parameterOffset << "]\r\n";
+  // }
   debug << "enumerated [" << uid << "][" << nuid << "][" << peers << "][" << parameterOffset << "]\r\n";
 }
 
@@ -130,6 +131,7 @@ void DigitalBusHandler::sendIdent(uint8_t id, uint8_t version, uint8_t device, u
 /* } */
 
 void DigitalBusHandler::handleIdent(uint8_t id, uint8_t d1, uint8_t d2, uint8_t d3){
+  status = IDENTIFYING;
   // todo: need to wait for full set of 6 messages and buffer UUID?
   // no because uid is contained in every message
   debug << "rx ident [" << id << "][" << d1 << "][" << d2 << "][" << d3 << "]\r\n";
@@ -142,6 +144,7 @@ void DigitalBusHandler::sendParameterChange(uint8_t pid, int16_t value){
 }
 
 void DigitalBusHandler::handleParameterChange(uint8_t pid, int16_t value){
+  status = CONNECTED;
   debug << "rx param [" << pid << "][" << value << "]\r\n";
   bus_rx_parameter(pid, value);
   // todo
@@ -154,6 +157,7 @@ void DigitalBusHandler::sendButtonChange(uint8_t bid, int16_t value){
 }
 
 void DigitalBusHandler::handleButtonChange(uint8_t bid, int16_t value){
+  status = CONNECTED;
   debug << "rx button [" << bid << "][" << value << "]\r\n";
   bus_rx_button(bid, value);
 }

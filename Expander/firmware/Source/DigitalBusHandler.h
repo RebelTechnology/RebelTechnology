@@ -2,8 +2,17 @@
 #define _DigitalBusHandler_h_
 
 #include "MidiReader.h"
+#include "bus.h"
 
 class DigitalBusHandler : public MidiReader {
+  enum DigitalBusStatus {
+    IDLE = BUS_STATUS_IDLE,
+    DISCOVERING = BUS_STATUS_DISCO,
+    ENUMERATING = BUS_STATUS_ENUM,
+    IDENTIFYING = BUS_STATUS_IDENT,
+    CONNECTED = BUS_STATUS_CONNECTED,
+    ERROR = BUS_STATUS_ERROR
+  };
 protected:
   uint8_t uid; // this device id
   uint8_t nuid; // downstream device id
@@ -11,6 +20,7 @@ protected:
   uint8_t peers;
   uint16_t parameterOffset;
   uint8_t* UUID;
+  DigitalBusStatus status = IDLE;  
   static const uint8_t VERSION = 0x01; // protocol version
   static const uint8_t PRODUCT = 0x01;  // product id
   static const uint8_t PARAMETERS = 5; // number of parameters defined by this product
@@ -19,6 +29,9 @@ protected:
 public:
   DigitalBusHandler();
   bool connected();
+  DigitalBusStatus getStatus(){
+    return status;
+  }
   uint32_t generateToken();
   uint8_t getPeers(){ return peers; }
   uint8_t getUid(){ return uid; }
