@@ -1,4 +1,5 @@
 #include <inttypes.h>
+#include <stdlib.h>
 
 #undef _DigitalBusReader_h_
 #undef _DigitalBusHandler_h_

@@ -10,6 +10,14 @@ DigitalBusHandler::DigitalBusHandler()
   UUID = (uint8_t*)bus_deviceid();
 }
 
+void DigitalBusHandler::reset(){
+  uid = NO_UID;
+  nuid = NO_UID;
+  // token = NO_TOKEN;
+  peers = 0;
+  parameterOffset = 0;
+}
+
 void DigitalBusHandler::sendFrame(uint8_t d1, uint8_t d2, uint8_t d3, uint8_t d4){
   uint8_t buf[4] = {d1, d2, d3, d4};
   sendFrame(buf);
@@ -28,6 +36,14 @@ uint32_t DigitalBusHandler::generateToken(){
   tok ^= (UUID[4] << 16) | (UUID[3] << 8) | UUID[2];
   tok ^= (UUID[1] << 16) | (UUID[0] << 8) | PRODUCT;
   return tok;
+}
+
+bool DigitalBusHandler::connected(){
+  if(peers == 0)
+    startDiscover();
+  else if(nuid == NO_UID && uid == 0)
+    startEnum();
+  return peers > 0 && nuid != NO_UID;
 }
 
 void DigitalBusHandler::startDiscover(){
@@ -55,22 +71,18 @@ void DigitalBusHandler::handleDiscover(uint8_t seq, uint32_t other){
   if(other == token){
     // that's our token.
     peers = seq;
-    return;
+  }else{
+    if(seq < 0x0f)
+      // increment seq and pass it on
+      sendDiscover(seq+1, other);
+    if(peers == 0)
+      startDiscover();
+    if(other < token)
+      uid = NO_UID; // we will not be UID 0
+    // if(peers != 0 && seq == peers-1 && uid == 0)
+    //   // this should be the last of the disco msgs and we are uid 0: start enum
+    //   startEnum();
   }
-  if(seq < 0x0f) // increment seq and pass it on
-    sendDiscover(seq+1, other);
-  if(peers == 0)
-    startDiscover();
-  if(other < token)
-    uid = NO_UID; // we will not be UID 0
-}
-
-bool DigitalBusHandler::connected(){
-  if(peers == 0)
-    startDiscover();
-  else if(nuid == NO_UID && uid == 0)
-    startEnum();
-  return peers > 0 && nuid != NO_UID;
 }
 
 void DigitalBusHandler::startEnum(){
@@ -98,7 +110,7 @@ void DigitalBusHandler::handleEnum(uint8_t id, uint8_t version, uint8_t product,
   }
   if(nuid == NO_UID){
     nuid = uid+1;
-    if(nuid >= peers)
+    if(nuid > peers)
       nuid = 0;
   }
   // }else if(uid == id){
