@@ -71,6 +71,7 @@ void Bus2::serial_write(uint8_t* data, uint16_t size){
 int16_t parameters[256] = { 0 };
 uint16_t buttons[256] = { 0 };
 uint16_t commands[256] = { 0 };
+char* message = NULL;
 void bus_rx_parameter(uint8_t pid, int16_t value){
   debug << "rx parameter [" << pid << "][" << value << "]\r\n";
   parameters[pid] = value;
@@ -85,6 +86,7 @@ void bus_rx_command(uint8_t cmd, int16_t data){
 }
 void bus_rx_message(const char* msg){
   debug << "rx msg [" << msg << "]\r\n" ;
+  message = msg;
 }
 void bus_rx_data(uint8_t* data, uint16_t size){
   debug << "rx data [" << size << "]\r\n" ;
@@ -194,4 +196,15 @@ BOOST_AUTO_TEST_CASE(testCommands){
   BOOST_CHECK_EQUAL(commands[0x1], 0x1212);
   Bus2::bus.sendCommand(0x2, 0x3232);
   BOOST_CHECK_EQUAL(commands[0x2], 0x3232);
+}
+
+BOOST_AUTO_TEST_CASE(testMessage){
+  bus_setup();
+  Bus2::bus_status();
+  Bus1::bus_status();
+  BOOST_CHECK_EQUAL(message, NULL);
+  BOOST_CHECK_EQUAL(message, NULL);
+  const char msg[] = "Here's a message";
+  Bus1::bus.sendMessage(msg);
+  BOOST_CHECK(strcmp(message, msg) == 0);
 }
