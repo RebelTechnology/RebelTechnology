@@ -1,5 +1,5 @@
-#ifndef _MidiHandler_HPP_
-#define _MidiHandler_HPP_
+#ifndef _MidiHandler_h_
+#define _MidiHandler_h_
 
 #include <stdint.h>
 
@@ -32,4 +32,4 @@ private:
 
 };
 
-#endif /* _MidiHandler_HPP_ */
+#endif /* _MidiHandler_h_ */

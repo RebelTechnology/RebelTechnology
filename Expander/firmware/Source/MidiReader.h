@@ -1,5 +1,5 @@
-#ifndef _MIDIREADER_H_
-#define _MIDIREADER_H_
+#ifndef _MidiReader_h_
+#define _MidiReader_h_
 
 #include <inttypes.h>
 #include "MidiStatus.h"
@@ -19,4 +19,4 @@ public:
 };
 
 
-#endif /* _MIDIREADER_H_ */
+#endif /* _MidiReader_h_ */

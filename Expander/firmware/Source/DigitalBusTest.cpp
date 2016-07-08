@@ -6,10 +6,18 @@
 #include <boost/test/unit_test.hpp>
 #include <inttypes.h>
 
-#include "DigitalBusHandler.cpp"
-#include "DigitalBusReader.cpp"
-#include "MidiHandler.cpp"
-#include "MidiReader.cpp"
+#include "message.h"
+#include "bus.h"
+#include "serial.h"
+#include "MidiStatus.h"
+
+namespace Bus1 {
+#include "DigitalBusTestInstance.cpp"
+};
+
+namespace Bus2 {
+#include "DigitalBusTestInstance.cpp"
+};
 
 void Debug::print(char arg){
   std::cout << arg;
@@ -29,7 +37,6 @@ void Debug::print(int arg){
 
 Debug debug;
 
-DigitalBusHandler bushandler;
 
 uint8_t* bus_deviceid(){
   static uint32_t uuid[3] = { 0x12341234, 0x12341234, 0x12341234 };
@@ -41,33 +48,30 @@ void bus_setup(){
   serial_setup(115200);
 }
 
-int bus_status(){
-  static uint32_t lastpolled = 0;
-  if(lastpolled++ > 100){
-    bushandler.connected();
-    lastpolled = 0;
-  }
-  return bushandler.getStatus();
+void serial_read(uint8_t* data, uint16_t size){
+  debug << "serial read [" << size << "]\r\n" ;
+}
+void serial_write(uint8_t* data, uint16_t size){
+  debug << "serial write [" << size << "]\r\n" ;
+}
+void serial_setup(uint32_t baudRate){
 }
 
-void serial_read(uint8_t* data, uint16_t size){}
-void serial_write(uint8_t* data, uint16_t size){}
-void serial_setup(uint32_t baudRate){}
-
-void bus_tx_parameter(uint8_t pid, int16_t value){}
-void bus_tx_button(uint8_t bid, int16_t value){}
-void bus_tx_command(uint8_t cmd, int16_t data){}
-void bus_tx_message(const char* msg){}
-void bus_tx_data(uint8_t* data, uint16_t size){}
-void bus_tx_error(const char* reason){
-  debug << "Digital bus send error: " << reason << ".";
+void bus_rx_parameter(uint8_t pid, int16_t value){
+  debug << "rx parameter [" << pid << "][" << value << "]\r\n" ;
 }
-
-void bus_rx_parameter(uint8_t pid, int16_t value){}
-void bus_rx_button(uint8_t bid, int16_t value){}
-void bus_rx_command(uint8_t cmd, int16_t data){}
-void bus_rx_message(const char* msg){}
-void bus_rx_data(uint8_t* data, uint16_t size){}
+void bus_rx_button(uint8_t bid, int16_t value){
+  debug << "rx button [" << bid << "][" << value << "]\r\n" ;
+}
+void bus_rx_command(uint8_t cmd, int16_t data){
+  debug << "rx command [" << cmd << "][" << data << "]\r\n" ;
+}
+void bus_rx_message(const char* msg){
+  debug << "rx msg [" << msg << "]\r\n" ;
+}
+void bus_rx_data(uint8_t* data, uint16_t size){
+  debug << "rx data [" << size << "]\r\n" ;
+}
 void bus_rx_error(const char* reason){
   debug << "Digital bus receive error: " << reason << ".";
 }
@@ -80,4 +84,10 @@ BOOST_AUTO_TEST_CASE(universeInOrder){
 
 BOOST_AUTO_TEST_CASE(testSetup){
   bus_setup();
+}
+
+BOOST_AUTO_TEST_CASE(testStatus){
+  bus_setup();
+  Bus1::bus_status();
+  Bus2::bus_status();
 }
