@@ -8,7 +8,6 @@
 
 #include "message.h"
 #include "bus.h"
-#include "serial.h"
 #include "MidiStatus.h"
 
 namespace Bus1 {
@@ -37,7 +36,6 @@ void Debug::print(int arg){
 
 Debug debug;
 
-
 uint8_t* bus_deviceid(){
   static uint32_t uuid[3] = { 0x12341234, 0x12341234, 0x12341234 };
   return (uint8_t*)uuid;
@@ -45,17 +43,28 @@ uint8_t* bus_deviceid(){
 
 void bus_setup(){
   debug << "bus_setup\r\n";
-  serial_setup(115200);
+  // Bus1::serial_setup(115200);
+  // Bus2::serial_setup(115200);
 }
 
-void serial_read(uint8_t* data, uint16_t size){
-  debug << "serial read [" << size << "]\r\n" ;
+// void Bus1::serial_read(uint8_t* data, uint16_t size){
+//   debug << "Bus1 read [" << size << "]\r\n" ;
+// }
+
+void Bus1::serial_write(uint8_t* data, uint16_t size){
+  debug << "bus1 [" << size << "]\r\n" ;
+  BOOST_CHECK_EQUAL(size, 4);
+  Bus2::bus.readBusFrame(data);
 }
-void serial_write(uint8_t* data, uint16_t size){
-  debug << "serial write [" << size << "]\r\n" ;
+
+void Bus2::serial_write(uint8_t* data, uint16_t size){
+  debug << "bus2 [" << size << "]\r\n" ;
+  BOOST_CHECK_EQUAL(size, 4);
+  Bus1::bus.readBusFrame(data);
 }
-void serial_setup(uint32_t baudRate){
-}
+
+// void Bus1::serial_setup(uint32_t baudRate){
+// }
 
 void bus_rx_parameter(uint8_t pid, int16_t value){
   debug << "rx parameter [" << pid << "][" << value << "]\r\n" ;

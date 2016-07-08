@@ -5,7 +5,7 @@
 #include "clock.h"
 #include "DigitalBusReader.h"
 
-static DigitalBusReader bushandler;
+static DigitalBusReader bus;
 
 #define USART_BAUDRATE               115200
 #define USART_PERIPH                 USART1
@@ -25,10 +25,10 @@ void bus_setup(){
 int bus_status(){
   static uint32_t lastpolled = 0;
   if(getSysTicks() > lastpolled + BUS_IDLE_INTERVAL){
-    bushandler.connected();
+    bus.connected();
     lastpolled = getSysTicks();
   }
-  return bushandler.getStatus();
+  return bus.getStatus();
 }
 
 extern "C" {
@@ -45,7 +45,7 @@ extern "C" {
       frame[bus_rx_index++] = c;
       if(bus_rx_index == 4){
 	bus_rx_index = 0;
-	bushandler.readBusFrame(frame);
+	bus.readBusFrame(frame);
       }
     }
   }
@@ -65,22 +65,22 @@ extern "C" {
 
 void bus_tx_parameter(uint8_t pid, int16_t value){
   debug << "tx parameter [" << pid << "][" << value << "]" ;
-  bushandler.sendParameterChange(pid, value);
+  bus.sendParameterChange(pid, value);
 }
 
 void bus_tx_button(uint8_t bid, int16_t value){
   debug << "tx button [" << bid << "][" << value << "]" ;
-  bushandler.sendButtonChange(bid, value);
+  bus.sendButtonChange(bid, value);
 }
 
 void bus_tx_command(uint8_t cmd, int16_t data){
   debug << "tx command [" << cmd << "][" << data << "]" ;
-  bushandler.sendCommand(cmd, data);
+  bus.sendCommand(cmd, data);
 }
 
 void bus_tx_message(const char* msg){
   debug << "tx msg [" << msg << "]" ;
-  bushandler.sendMessage(msg);
+  bus.sendMessage(msg);
 }
 
 void bus_tx_error(const char* reason){
@@ -90,5 +90,5 @@ void bus_tx_error(const char* reason){
 void bus_rx_error(const char* reason){
   debug << "Digital bus receive error: " << reason << ".";
   bus_rx_index = 0;
-  bushandler.reset();
+  bus.reset();
 }

@@ -6,7 +6,6 @@
 #ifdef __cplusplus
  extern "C" {
 #endif
-   void setupSerialPort(uint32_t baudrate);
    void serialputchar(uint8_t c);
    void printString(const char* s);
    void printByte(char c);
