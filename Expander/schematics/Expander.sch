@@ -14417,14 +14417,14 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <wire x1="396.24" y1="91.44" x2="396.24" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$9" class="0">
+<net name="D0P" class="0">
 <segment>
 <pinref part="U1" gate="-TEMP" pin="D0P"/>
 <pinref part="X3" gate="-1" pin="S"/>
 <wire x1="91.44" y1="-78.74" x2="93.98" y2="-78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$10" class="0">
+<net name="D0N" class="0">
 <segment>
 <pinref part="U1" gate="-TEMP" pin="D0N"/>
 <pinref part="X3" gate="-2" pin="S"/>
