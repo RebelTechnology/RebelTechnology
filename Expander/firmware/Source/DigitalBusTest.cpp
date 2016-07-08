@@ -86,7 +86,7 @@ void bus_rx_command(uint8_t cmd, int16_t data){
 }
 void bus_rx_message(const char* msg){
   debug << "rx msg [" << msg << "]\r\n" ;
-  message = msg;
+  message = (char*)msg;
 }
 void bus_rx_data(uint8_t* data, uint16_t size){
   debug << "rx data [" << size << "]\r\n" ;
@@ -202,9 +202,11 @@ BOOST_AUTO_TEST_CASE(testMessage){
   bus_setup();
   Bus2::bus_status();
   Bus1::bus_status();
-  BOOST_CHECK_EQUAL(message, NULL);
-  BOOST_CHECK_EQUAL(message, NULL);
-  const char msg[] = "Here's a message";
-  Bus1::bus.sendMessage(msg);
-  BOOST_CHECK(strcmp(message, msg) == 0);
+  BOOST_CHECK_EQUAL(message, (char*)0);
+  const char msg1[] = "Here's a message";
+  Bus1::bus.sendMessage(msg1);
+  BOOST_CHECK(strcmp(message, msg1) == 0);
+  const char msg2[] = "Here is another, longer message, that may fill a buffer or two.";
+  Bus1::bus.sendMessage(msg2);
+  BOOST_CHECK(strcmp(message, msg2) == 0);
 }
