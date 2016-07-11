@@ -179,8 +179,7 @@
 <library name="resistor">
 <packages>
 <package name="R0603">
-<description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
-chip</description>
+<description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
 <wire x1="-0.432" y1="-0.356" x2="0.432" y2="-0.356" width="0.1524" layer="51"/>
 <wire x1="0.432" y1="0.356" x2="-0.432" y2="0.356" width="0.1524" layer="51"/>
 <wire x1="-1.473" y1="0.983" x2="1.473" y2="0.983" width="0.0508" layer="39"/>
@@ -189,29 +188,27 @@ chip</description>
 <wire x1="-1.473" y1="-0.983" x2="-1.473" y2="0.983" width="0.0508" layer="39"/>
 <smd name="1" x="-0.85" y="0" dx="1" dy="1.1" layer="1"/>
 <smd name="2" x="0.85" y="0" dx="1" dy="1.1" layer="1"/>
-<text x="-0.889" y="0.889" size="1.27" layer="25">&gt;NAME</text>
-<text x="-0.889" y="-2.032" size="1.27" layer="27">&gt;VALUE</text>
+<text x="-0.635" y="0.635" size="1.27" layer="25">&gt;NAME</text>
+<text x="-0.635" y="-1.905" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="0.4318" y1="-0.4318" x2="0.8382" y2="0.4318" layer="51"/>
 <rectangle x1="-0.8382" y1="-0.4318" x2="-0.4318" y2="0.4318" layer="51"/>
 <rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
 </package>
 <package name="C0603">
-<description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
-chip</description>
+<description>&lt;b&gt;CAPACITOR&lt;/b&gt;</description>
 <wire x1="-1.473" y1="0.983" x2="1.473" y2="0.983" width="0.0508" layer="39"/>
 <wire x1="1.473" y1="0.983" x2="1.473" y2="-0.983" width="0.0508" layer="39"/>
 <wire x1="1.473" y1="-0.983" x2="-1.473" y2="-0.983" width="0.0508" layer="39"/>
 <wire x1="-1.473" y1="-0.983" x2="-1.473" y2="0.983" width="0.0508" layer="39"/>
 <wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
 <wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
+<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
+<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
+<text x="-0.635" y="0.635" size="1.27" layer="25">&gt;NAME</text>
+<text x="-0.635" y="-1.905" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
 <rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
 <rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
-<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<text x="0" y="0.762" size="1.27" layer="25" font="vector" align="bottom-center">&gt;NAME</text>
-<wire x1="0.635" y1="-0.635" x2="-0.635" y2="-0.635" width="0.127" layer="21"/>
-<wire x1="-0.635" y1="0.635" x2="0.635" y2="0.635" width="0.127" layer="21"/>
 </package>
 </packages>
 </library>
@@ -1499,13 +1496,11 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <package name="SO08">
 <description>&lt;b&gt;Small Outline Package 8&lt;/b&gt;&lt;br&gt;
 NS Package M08A</description>
-<wire x1="2.4" y1="1.9" x2="2.4" y2="-1.4" width="0.2032" layer="51"/>
-<wire x1="2.4" y1="-1.4" x2="2.4" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="2.4" y1="1.9" x2="2.4" y2="-1.9" width="0.2032" layer="21"/>
 <wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.2032" layer="51"/>
-<wire x1="-2.4" y1="-1.9" x2="-2.4" y2="-1.4" width="0.2032" layer="51"/>
-<wire x1="-2.4" y1="-1.4" x2="-2.4" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="-2.4" y1="-1.9" x2="-2.4" y2="1.9" width="0.2032" layer="21"/>
 <wire x1="-2.4" y1="1.9" x2="2.4" y2="1.9" width="0.2032" layer="51"/>
-<wire x1="2.4" y1="-1.4" x2="-2.4" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="2.4" y1="-1.3843" x2="-2.4" y2="-1.3843" width="0.2032" layer="21"/>
 <smd name="2" x="-0.635" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
 <smd name="7" x="-0.635" y="2.6" dx="0.6" dy="2.2" layer="1"/>
 <smd name="1" x="-1.905" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
@@ -1812,28 +1807,28 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="R108" library="resistor" package="R0603" value="100k" x="24" y="44" smashed="yes">
+<element name="R108" library="resistor" package="R0603" value="10k" x="24" y="44" smashed="yes">
 <attribute name="NAME" x="24" y="44.762" size="0.9" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R208" library="resistor" package="R0603" value="100k" x="29.5" y="44" smashed="yes" rot="R180">
+<element name="R208" library="resistor" package="R0603" value="10k" x="29.5" y="44" smashed="yes" rot="R180">
 <attribute name="NAME" x="29.5" y="44.8" size="0.9" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R106" library="resistor" package="R0603" value="100k" x="24" y="56.5" smashed="yes">
+<element name="R106" library="resistor" package="R0603" value="10k" x="24" y="56.5" smashed="yes">
 <attribute name="NAME" x="23.27225" y="55.86975" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="R206" library="resistor" package="R0603" value="100k" x="29.5" y="56.5" smashed="yes" rot="R180">
+<element name="R206" library="resistor" package="R0603" value="10k" x="29.5" y="56.5" smashed="yes" rot="R180">
 <attribute name="NAME" x="30.97875" y="55.728" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="R107" library="resistor" package="R0603" value="51k" x="24" y="58" smashed="yes" rot="R180">
+<element name="R107" library="resistor" package="R0603" value="5k1" x="24" y="58" smashed="yes" rot="R180">
 <attribute name="NAME" x="24" y="58.73025" size="0.9" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R207" library="resistor" package="R0603" value="51k" x="29.5" y="58" smashed="yes">
+<element name="R207" library="resistor" package="R0603" value="5k1" x="29.5" y="58" smashed="yes">
 <attribute name="NAME" x="29.5" y="58.562" size="0.9" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R110" library="resistor" package="R0603" value="100R" x="24" y="42.5" smashed="yes" rot="R180">
+<element name="R110" library="resistor" package="R0603" value="1k" x="24" y="42.5" smashed="yes" rot="R180">
 <attribute name="NAME" x="24.01775" y="41.788" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="R210" library="resistor" package="R0603" value="100R" x="29.5" y="42.5" smashed="yes">
+<element name="R210" library="resistor" package="R0603" value="1k" x="29.5" y="42.5" smashed="yes">
 <attribute name="NAME" x="29.5" y="41.76975" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="C101" library="resistor" package="C0603" value="100n" x="24" y="61.5" smashed="yes">
@@ -1869,25 +1864,25 @@ design rules under a new name.</description>
 <element name="IC2" library="adafruit" package="SO14" value="QUAD_OPAMPD" x="26.67" y="67.31" smashed="yes" rot="R270">
 <attribute name="NAME" x="26.71" y="62.838" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="R102" library="resistor" package="R0603" value="100k" x="15" y="68" smashed="yes" rot="R180">
+<element name="R102" library="resistor" package="R0603" value="10k" x="15" y="68" smashed="yes" rot="R180">
 <attribute name="NAME" x="15" y="67.45625" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="POT2A" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="13.97" y="77.47" smashed="yes">
 <attribute name="NAME" x="13.97" y="81.09" size="0.9" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R202" library="resistor" package="R0603" value="100k" x="40.5" y="68" smashed="yes" rot="R180">
+<element name="R202" library="resistor" package="R0603" value="10k" x="40.5" y="68" smashed="yes" rot="R180">
 <attribute name="NAME" x="40.55" y="67.211" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="POT2B" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="39.37" y="77.47" smashed="yes">
 <attribute name="NAME" x="39.37" y="81.09" size="0.9" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R103" library="resistor" package="R0603" value="100k" x="15" y="49" smashed="yes" rot="R180">
+<element name="R103" library="resistor" package="R0603" value="10k" x="15" y="49" smashed="yes" rot="R180">
 <attribute name="NAME" x="18.25" y="49.41975" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="POT3A" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="13.97" y="58.42" smashed="yes">
 <attribute name="NAME" x="13.97" y="62.04" size="1.016" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R203" library="resistor" package="R0603" value="100k" x="40.5" y="49" smashed="yes" rot="R180">
+<element name="R203" library="resistor" package="R0603" value="10k" x="40.5" y="49" smashed="yes" rot="R180">
 <attribute name="NAME" x="40.55" y="48.238" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="POT3B" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="39.37" y="58.42" smashed="yes">
@@ -1896,28 +1891,28 @@ design rules under a new name.</description>
 <element name="POT4A" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="13.97" y="39.37" smashed="yes">
 <attribute name="NAME" x="13.97" y="42.99" size="0.9" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R204" library="resistor" package="R0603" value="100k" x="40.5" y="30" smashed="yes" rot="R180">
+<element name="R204" library="resistor" package="R0603" value="10k" x="40.5" y="30" smashed="yes" rot="R180">
 <attribute name="NAME" x="40.865" y="29.211" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="POT4B" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="39.37" y="39.37" smashed="yes">
 <attribute name="NAME" x="39.37" y="42.99" size="0.9" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R101" library="resistor" package="R0603" value="100k" x="15" y="87" smashed="yes" rot="R180">
+<element name="R101" library="resistor" package="R0603" value="10k" x="15" y="87" smashed="yes" rot="R180">
 <attribute name="NAME" x="15" y="86.111" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="POT1A" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="13.97" y="96.52" smashed="yes">
 <attribute name="NAME" x="13.97" y="93.155" size="1.016" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R201" library="resistor" package="R0603" value="100k" x="40.5" y="87" smashed="yes" rot="R180">
+<element name="R201" library="resistor" package="R0603" value="10k" x="40.5" y="87" smashed="yes" rot="R180">
 <attribute name="NAME" x="40.5" y="86.111" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="POT1B" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="39.37" y="96.52" smashed="yes">
 <attribute name="NAME" x="39.37" y="93.155" size="1.016" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R105" library="resistor" package="R0603" value="200k" x="11.93" y="47.26" smashed="yes" rot="R180">
+<element name="R105" library="resistor" package="R0603" value="20k" x="11.93" y="47.26" smashed="yes" rot="R180">
 <attribute name="NAME" x="15.13" y="47.67975" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="R205" library="resistor" package="R0603" value="200k" x="11.93" y="45.72" smashed="yes" rot="R180">
+<element name="R205" library="resistor" package="R0603" value="20k" x="11.93" y="45.72" smashed="yes" rot="R180">
 <attribute name="NAME" x="15.2345" y="46.1875" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="OUT_A+" library="Rebel" package="THONKICONN" value="THONKICONN" x="13.97" y="7.62" smashed="yes" rot="R180">
@@ -1926,7 +1921,7 @@ design rules under a new name.</description>
 <element name="OUT_B+" library="Rebel" package="THONKICONN" value="THONKICONN" x="39.37" y="7.62" smashed="yes" rot="R180">
 <attribute name="NAME" x="41.91" y="5.08" size="0.9" layer="25" rot="R180"/>
 </element>
-<element name="R104" library="resistor" package="R0603" value="100k" x="15" y="30" smashed="yes" rot="R180">
+<element name="R104" library="resistor" package="R0603" value="10k" x="15" y="30" smashed="yes" rot="R180">
 <attribute name="NAME" x="15" y="29.111" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="IC1" library="adafruit" package="SO14" value="QUAD_OPAMPD" x="26.67" y="50.255" smashed="yes" rot="R270">
@@ -1956,21 +1951,21 @@ design rules under a new name.</description>
 <attribute name="NAME" x="25.875" y="34.067" size="0.9" layer="25"/>
 <attribute name="VALUE" x="28.575" y="35.437" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="C8" library="Rebel" package="C0603" value="47nF" x="32.5" y="10" smashed="yes">
+<element name="C8" library="Rebel" package="C0603" value="47n" x="32.5" y="10" smashed="yes">
 <attribute name="NAME" x="34.9" y="9.612" size="0.9" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="C9" library="Rebel" package="C0603" value="47nF" x="20" y="10" smashed="yes">
+<element name="C9" library="Rebel" package="C0603" value="47n" x="20" y="10" smashed="yes">
 <attribute name="NAME" x="17.65" y="9.562" size="0.9" layer="25" font="vector" align="bottom-center"/>
 </element>
 <element name="R5" library="resistor" package="R0603" value="100k" x="24" y="35" smashed="yes" rot="R180">
 <attribute name="NAME" x="22.489" y="35.511" size="0.9" layer="25" rot="R180"/>
 <attribute name="VALUE" x="24.889" y="37.032" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R6" library="resistor" package="R0603" value="47k" x="24" y="36.5" smashed="yes" rot="R180">
+<element name="R6" library="resistor" package="R0603" value="22k" x="24" y="36.5" smashed="yes" rot="R180">
 <attribute name="NAME" x="22.539" y="36.911" size="0.9" layer="25" rot="R180"/>
 <attribute name="VALUE" x="24.889" y="38.532" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R15" library="resistor" package="R0603" value="47k" x="29.5" y="36.5" smashed="yes">
+<element name="R15" library="resistor" package="R0603" value="22k" x="29.5" y="36.5" smashed="yes">
 <attribute name="NAME" x="31.061" y="36.089" size="0.9" layer="25"/>
 <attribute name="VALUE" x="28.611" y="34.468" size="1.27" layer="27"/>
 </element>
@@ -1981,10 +1976,10 @@ design rules under a new name.</description>
 <element name="U1" library="Rebel" package="CON-PROSIGNAL_MJ-355W" value="CON-PROSIGNAL_MJ-355W" x="26.67" y="7.62" smashed="yes">
 <attribute name="NAME" x="26.22" y="7.32" size="0.9" layer="25" font="vector"/>
 </element>
-<element name="C27" library="Rebel" package="C0603" value="0.1uF" x="24" y="28" smashed="yes">
+<element name="C27" library="Rebel" package="C0603" value="100n" x="24" y="28" smashed="yes">
 <attribute name="NAME" x="24.05" y="27.288" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="C28" library="Rebel" package="C0603" value="0.1uF" x="29.5" y="28" smashed="yes" rot="R180">
+<element name="C28" library="Rebel" package="C0603" value="100n" x="29.5" y="28" smashed="yes" rot="R180">
 <attribute name="NAME" x="29.5" y="27.238" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="J1" library="Rebel" package="CON-JST_PH_3W" value="CON-JST_PH_3W" x="6.5" y="43" smashed="yes" rot="MR270">
@@ -1999,11 +1994,11 @@ design rules under a new name.</description>
 <element name="U3" library="Rebel" package="CON-JST_PH_5W" value="CON-JST_PH_5W" x="47" y="37" smashed="yes" rot="MR90">
 <attribute name="NAME" x="51.55" y="37.5" size="1.27" layer="22" rot="MR0"/>
 </element>
-<element name="C3" library="Rebel" package="C1210" value="1uF" x="24.3" y="39" smashed="yes" rot="R180">
+<element name="C3" library="Rebel" package="C1210" value="1u Polyester" x="24.3" y="39" smashed="yes" rot="R180">
 <attribute name="NAME" x="22.255" y="39.395" size="0.9" layer="25" rot="R180"/>
 <attribute name="VALUE" x="26.205" y="42.175" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="C4" library="Rebel" package="C1210" value="1uF" x="29.2" y="39" smashed="yes">
+<element name="C4" library="Rebel" package="C1210" value="1u Polyester" x="29.2" y="39" smashed="yes">
 <attribute name="NAME" x="31.495" y="38.605" size="0.9" layer="25"/>
 <attribute name="VALUE" x="27.295" y="35.825" size="1.27" layer="27"/>
 </element>
@@ -2023,35 +2018,35 @@ design rules under a new name.</description>
 <attribute name="NAME" x="49.66" y="74.131" size="0.9" layer="26" ratio="10" rot="MR0"/>
 <attribute name="VALUE" x="44.269" y="67.49" size="1.27" layer="28" ratio="10" rot="MR90"/>
 </element>
-<element name="R1" library="resistor" package="R0603" value="22k" x="12" y="87" smashed="yes" rot="R180">
+<element name="R1" library="resistor" package="R0603" value="2k7" x="12" y="87" smashed="yes" rot="R180">
 <attribute name="NAME" x="12.889" y="86.111" size="0.9" layer="25" font="vector" rot="R180"/>
 <attribute name="VALUE" x="12.889" y="89.032" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R2" library="resistor" package="R0603" value="22k" x="12" y="68" smashed="yes" rot="R180">
+<element name="R2" library="resistor" package="R0603" value="2k7" x="12" y="68" smashed="yes" rot="R180">
 <attribute name="NAME" x="12.739" y="67.361" size="0.9" layer="25" rot="R180"/>
 <attribute name="VALUE" x="12.889" y="70.032" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R4" library="resistor" package="R0603" value="22k" x="12" y="49" smashed="yes" rot="R180">
+<element name="R4" library="resistor" package="R0603" value="2k7" x="12" y="49" smashed="yes" rot="R180">
 <attribute name="NAME" x="10.539" y="49.361" size="0.9" layer="25" rot="R180"/>
 <attribute name="VALUE" x="12.889" y="51.032" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R7" library="resistor" package="R0603" value="22k" x="12" y="30" smashed="yes" rot="R180">
+<element name="R7" library="resistor" package="R0603" value="2k7" x="12" y="30" smashed="yes" rot="R180">
 <attribute name="NAME" x="12.739" y="29.111" size="0.9" layer="25" rot="R180"/>
 <attribute name="VALUE" x="12.889" y="32.032" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R8" library="resistor" package="R0603" value="22k" x="37.5" y="68" smashed="yes" rot="R180">
+<element name="R8" library="resistor" package="R0603" value="2k7" x="37.5" y="68" smashed="yes" rot="R180">
 <attribute name="NAME" x="38.339" y="67.261" size="0.9" layer="25" rot="R180"/>
 <attribute name="VALUE" x="38.389" y="70.032" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R9" library="resistor" package="R0603" value="22k" x="37.5" y="49" smashed="yes" rot="R180">
+<element name="R9" library="resistor" package="R0603" value="2k7" x="37.5" y="49" smashed="yes" rot="R180">
 <attribute name="NAME" x="38.289" y="48.261" size="0.9" layer="25" font="vector" rot="R180"/>
 <attribute name="VALUE" x="38.389" y="51.032" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R10" library="resistor" package="R0603" value="22k" x="37.5" y="30" smashed="yes" rot="R180">
+<element name="R10" library="resistor" package="R0603" value="2k7" x="37.5" y="30" smashed="yes" rot="R180">
 <attribute name="NAME" x="38.589" y="29.261" size="0.9" layer="25" font="vector" rot="R180"/>
 <attribute name="VALUE" x="38.389" y="32.032" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R11" library="resistor" package="R0603" value="22k" x="37.5" y="87" smashed="yes" rot="R180">
+<element name="R11" library="resistor" package="R0603" value="2k7" x="37.5" y="87" smashed="yes" rot="R180">
 <attribute name="NAME" x="38.389" y="86.111" size="0.9" layer="25" font="vector" rot="R180"/>
 <attribute name="VALUE" x="38.389" y="89.032" size="1.27" layer="27" rot="R180"/>
 </element>

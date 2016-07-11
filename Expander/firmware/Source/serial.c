@@ -13,7 +13,7 @@ void serialputchar(uint8_t c){
     USART_putc(usart, c);
 }  
 
-void setupSerialPort(uint32_t baudrate){
+void serial_setup(uint32_t baudrate) {
   usart = USART1;
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO, ENABLE); 
 
@@ -152,5 +152,12 @@ void printDouble(double val, uint8_t precision){
     while(padding--)
       printByte('0');
     printInteger(frac);
+  }
+}
+
+void serial_write(uint8_t* data, uint16_t size){
+  if(usart){
+    for(int i=0; i<size; ++i)
+      USART_putc(usart, data[i]);
   }
 }

@@ -2,7 +2,7 @@
 
 #include "mxconstants.h"
 
-#define FIRMWARE_VERSION             "001"
+#define FIRMWARE_VERSION             "002"
 #define HARDWARE_VERSION             "Expander Rev01"
 
 #define SERIAL_PORT_PRIORITY         3

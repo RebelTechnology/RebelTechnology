@@ -436,12 +436,9 @@ float Pixi::readTemperature(int temp_channel)
 											// One LSB is 0.125 deg C
   result = result + ( ( rawresult >> 3) & 0x01FF ) ;
   
-  if (sign == 1){
-	result = result * -1;	// fix sign
-  }
-    
+  if (sign == 1)
+    result = result * -1;	// fix sign
   return (result);
-
 }  
 
 uint16_t Pixi::readAnalog(int ch){
@@ -449,22 +446,20 @@ uint16_t Pixi::readAnalog(int ch){
 }
 
 /*
-output analog value when channel is configured in mode 5
-*/
-uint16_t Pixi::writeAnalog(int channel, uint16_t value)
-{
-uint16_t result = 0;
-uint16_t channel_func = 0;
+ * output analog value when channel is configured in mode 5
+ */
+uint16_t Pixi::writeAnalog(int channel, uint16_t value){
+  uint16_t result = 0;
+  uint16_t channel_func = 0;
+ channel += CHANNEL_0;
 
-  channel_func = ReadRegister (  PIXI_PORT_CONFIG + channel, false ); 
-  channel_func = ( channel_func & FUNCID ) >> 12 ;
+ channel_func = ReadRegister (  PIXI_PORT_CONFIG + channel, false ); 
+ channel_func = ( channel_func & FUNCID ) >> 12 ;
 
-  if (channel_func == 5)
-  {
-    WriteRegister ( PIXI_DAC_DATA + channel, value );
-    result = ReadRegister ( PIXI_DAC_DATA + channel, false );
-  }
-
-  return (result);
-};
+ if(channel_func == 5){
+   WriteRegister ( PIXI_DAC_DATA + channel, value );
+   result = ReadRegister ( PIXI_DAC_DATA + channel, false );
+ }
+ return result;
+}
 
