@@ -109,3 +109,12 @@ void DigitalBusReader::readBusFrame(uint8_t* frame){
     break;
   }
 }
+
+void DigitalBusReader::reset(){
+  uid = NO_UID;
+  nuid = NO_UID;
+  // token = NO_TOKEN;
+  peers = 0;
+  parameterOffset = 0;
+  txuid = NO_UID;
+}

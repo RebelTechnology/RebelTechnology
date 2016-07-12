@@ -10,14 +10,6 @@ DigitalBusHandler::DigitalBusHandler()
   UUID = (uint8_t*)bus_deviceid();
 }
 
-void DigitalBusHandler::reset(){
-  uid = NO_UID;
-  nuid = NO_UID;
-  // token = NO_TOKEN;
-  peers = 0;
-  parameterOffset = 0;
-}
-
 void DigitalBusHandler::sendFrame(uint8_t d1, uint8_t d2, uint8_t d3, uint8_t d4){
   uint8_t buf[4] = {d1, d2, d3, d4};
   sendFrame(buf);
@@ -211,7 +203,7 @@ void DigitalBusHandler::sendMessage(const char* msg){
 /* Received 3 bytes of string message */
 void DigitalBusHandler::handleMessage(const char* str){
   status = CONNECTED;
-  debug << "rx msg [" << str << "]\r\n";
+  debug << "rx message [" << str << "]\r\n";
   bus_rx_message(str);
 }
 

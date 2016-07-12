@@ -198,7 +198,7 @@ BOOST_AUTO_TEST_CASE(testCommands){
   BOOST_CHECK_EQUAL(commands[0x2], 0x3232);
 }
 
-BOOST_AUTO_TEST_CASE(testMessage){
+BOOST_AUTO_TEST_CASE(testMessage1){
   bus_setup();
   Bus2::bus_status();
   Bus1::bus_status();
@@ -207,6 +207,18 @@ BOOST_AUTO_TEST_CASE(testMessage){
   Bus1::bus.sendMessage(msg1);
   BOOST_CHECK(strcmp(message, msg1) == 0);
   const char msg2[] = "Here is another, longer message, that may fill a buffer or two.";
-  Bus1::bus.sendMessage(msg2);
-  BOOST_CHECK(strcmp(message, msg2) == 0);
+  for(int i=0; i<20; ++i){
+    Bus1::bus.sendMessage(msg2);
+    BOOST_CHECK(strcmp(message, msg2) == 0);
+  }
+}
+
+BOOST_AUTO_TEST_CASE(testMessage2){
+  bus_setup();
+  Bus1::bus_status();
+  Bus2::bus_status();
+  Bus1::bus_status();
+  const char msg[] = "Yo! message";
+  Bus2::bus.sendMessage(msg);
+  BOOST_CHECK(strcmp(message, msg) == 0);
 }

@@ -28,7 +28,6 @@ protected:
   static const uint32_t NO_TOKEN = 0xffffffff;
 public:
   DigitalBusHandler();
-  void reset();
   bool connected();
   DigitalBusStatus getStatus(){
     return status;
