@@ -11,19 +11,19 @@ ScreenBuffer::ScreenBuffer(int w, int h) : width(w), height(h), pixels(NULL){
   textcolor = textbgcolor = 0xFFFF;
 }
 
-Colour ScreenBuffer::getPixel(int x, int y){
+Colour ScreenBuffer::getPixel(unsigned int x, unsigned int y){
   if(x >= width || y >= height)
     return 0;
   return pixels[y*width+x];
 }
 
-void ScreenBuffer::setPixel(int x, int y, Colour c){
+void ScreenBuffer::setPixel(unsigned int x, unsigned int y, Colour c){
   if(x < width && y < height)
     pixels[y*width+x] = c;
 }
 
 void ScreenBuffer::fade(uint16_t steps){
-  for(int i=0; i<height*width; ++i)
+  for(unsigned int i=0; i<height*width; ++i)
     pixels[i] = 
       (((pixels[i] & RED) >> steps) & RED) | 
       (((pixels[i] & GREEN) >> steps) & GREEN) |
@@ -31,7 +31,7 @@ void ScreenBuffer::fade(uint16_t steps){
 }
 
 void ScreenBuffer::fill(uint16_t c) {
-  for(int i=0; i<height*width; ++i)
+  for(unsigned int i=0; i<height*width; ++i)
     pixels[i] = c;
 }
 
@@ -53,8 +53,8 @@ size_t ScreenBuffer::write(uint8_t c) {
 }
 
 void ScreenBuffer::print(const char* str) {
-  int len = strnlen(str, 256);
-  for(int i=0; i<len; ++i)
+  unsigned int len = strnlen(str, 256);
+  for(unsigned int i=0; i<len; ++i)
     write(str[i]);
 }
 

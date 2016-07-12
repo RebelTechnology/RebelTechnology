@@ -25,8 +25,8 @@ typedef uint16_t Colour;
 
 class ScreenBuffer {
 private:
-  const int width;
-  const int height;
+  const unsigned int width;
+  const unsigned int height;
   Colour* pixels;
 
   uint16_t textcolor, textbgcolor;
@@ -39,8 +39,8 @@ public:
   void setBuffer(uint16_t* buffer){
     pixels = buffer;
   }
-  Colour getPixel(int x, int y);
-  void setPixel(int x, int y, Colour c);
+  Colour getPixel(unsigned int x, unsigned int y);
+  void setPixel(unsigned int x, unsigned int y, Colour c);
   void drawLine(int fromX, int fromY, int toX, int toY, Colour c);
   void drawVerticalLine(int x, int y, int length, Colour c);
   void drawHorizontalLine(int x, int y, int length, Colour c);

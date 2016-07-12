@@ -15,19 +15,22 @@ public:
     screen.setTextSize(2);
     screen.print(x, y, "PRISM");
     screen.setTextSize(1);
-    screen.print(0, 56, "Rebel Technology");
+    screen.print(0, screen.getHeight()-8, "Rebel Technology");
     // animate
-    // if(x < 24 && ratex > 0)
-    //   x += ratex;
-    // else if(x > 10 && ratex < 0)
-    //   x += ratex;
-    // else
-    //   ratex *= -1;
-    // if(y < 40 && ratey > 0)
-    //   y += ratey;
-    // else if(y > 10 && ratey < 0)
-    //   y += ratey;
-    // else
-    //   ratey *= -1;
+    x += ratex;
+    if(x < 10){
+      x = 10;
+    }else if(x > 24){
+      x = 24;
+      ratex = -0.2;      
+    }
+    y += ratey;
+    if(y < 10){
+      y = 10;
+      ratey = 0.2;
+    }else if(y > 40){
+      y = 40;
+      ratey = -0.3;
+    }
   }
 };

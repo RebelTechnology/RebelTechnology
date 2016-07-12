@@ -69,7 +69,7 @@ public:
     screen.fill(bg);
     screen.setCursor(35, 0);
     screen.print("Scope");
-    screen.setCursor(0, 56);
+    screen.setCursor(0, screen.getHeight()-8);
     screen.print(div);
     int ly = buffer[0][0];
     int ry = buffer[1][0];

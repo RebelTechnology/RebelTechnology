@@ -21,20 +21,20 @@ ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
 
 #include "ScopePatch.hpp"
 #include "LissajouPatch.hpp"
-#include "DemoPatch.hpp"
+// #include "DemoPatch.hpp"
 #include "SplashPatch.hpp"
 // #include "PresetDisplayPatch.hpp"
 
 SampleBuffer samples;
 ScopePatch scope;
 LissajouPatch lissajou;
-DemoPatch demo;
+// DemoPatch demo;
 SplashPatch splash;
 // PresetDisplayPatch preset;
 // why is last patch not enabling?
 // add polar coordinates plotting
 // Patch* patches[] = {&preset};
-Patch* patches[] = {&scope, &lissajou, &demo, &splash};
+Patch* patches[] = {&scope, &lissajou, &splash};
 
 extern uint16_t adc_values[4];
 
@@ -42,7 +42,7 @@ uint8_t currentPatch = 0;
 void changePatch(uint8_t pid){
   if(pid < 3 && pid != currentPatch){
     currentPatch = pid;
-    screen.fill(WHITE);
+    screen.fill(BLACK);
     patches[currentPatch]->reset();
   }
 }
@@ -58,13 +58,13 @@ void encoderChanged(uint8_t encoder, int32_t value){
   }
   if(encoder == 0){
     if(value > encoders[encoder]){
-      if(currentPatch == 3)
+      if(currentPatch == 2)
   	changePatch(0);
       else
   	changePatch(currentPatch+1);
     }else if(value < encoders[encoder]){
       if(currentPatch == 0)
-  	changePatch(3);
+  	changePatch(2);
       else
   	changePatch(currentPatch-1);
     }

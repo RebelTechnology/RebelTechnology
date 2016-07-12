@@ -27,11 +27,11 @@ extern "C" void delay(uint32_t millisec);
 
 void Graphics::begin(SPI_HandleTypeDef *spi) {
   hspi = spi;
-  // off();
+  off();
   commonInit();
   chipInit();
   delay(10);
-  // on();
+  on();
   zero();
 }
 
@@ -42,11 +42,6 @@ void Graphics::display(uint16_t* pixels, uint16_t size){
   setDC();
   spiwrite((uint8_t*)pixels, size*sizeof(uint16_t));
 }
-
-// void Graphics::setRegister(const uint8_t reg,uint8_t val){
-//   uint8_t cmd[2] = {reg,val};
-//   writeCommands(cmd,2);
-// }
 
 #define OLED_TIMEOUT 1000
 void Graphics::spiwritesync(const uint8_t* data, size_t size){
@@ -132,17 +127,17 @@ extern "C" {
 //   spiwrite(&c, 1);
 // }
 	
-// void Graphics::writeCommand(uint8_t c){
-//   clearDC();
-//   spiwrite(c);
-// }
+void Graphics::writeCommand(uint8_t c){
+  clearDC();
+  spiwritesync(&c, 1);
+}
 
-// void Graphics::writeCommand(uint8_t reg, uint8_t value){
-//   clearDC();
-//   spiwrite(reg);
-//   setDC();
-//   spiwrite(value);
-// }
+void Graphics::writeCommand(uint8_t reg, uint8_t value){
+  clearDC();
+  spiwritesync(&reg, 1);
+  setDC();
+  spiwritesync(&value, 1);
+}
 
 void Graphics::writeCommands(const uint8_t *cmd, uint8_t length){
   clearDC();
@@ -150,7 +145,6 @@ void Graphics::writeCommands(const uint8_t *cmd, uint8_t length){
   spiwritesync(cmd, length);
 }
 
-/* Initialize PIN, direction and stuff related to hardware on CPU */
 void Graphics::commonInit(){
   // with clock speed 8MHz a screen update takes 25mS
   // 30MHz: 16mS
