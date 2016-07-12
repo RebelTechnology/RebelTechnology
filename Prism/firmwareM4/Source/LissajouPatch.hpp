@@ -16,12 +16,12 @@ public:
     float* right = samples.getSamples(1);
     int width = screen.getWidth()/2;
     int height = screen.getHeight()/2;
-    int x = width;// * (getParameterValue(PARAMETER_A) + 0.5);
-    int y = height;// * (getParameterValue(PARAMETER_B) + 0.5);
+    int x = width; // * (getParameterValue(PARAMETER_A) + 0.5);
+    int y = height; // * (getParameterValue(PARAMETER_B) + 0.5);
     screen.fade(fadesteps);
     screen.setCursor(26, 0);
     screen.print("Lissajou");
-    screen.setCursor(0, 56);
+    screen.setCursor(0, screen.getHeight()-8);
     screen.print(scale);
     for(int i=0; i<samples.getSize(); ++i)
       screen.setPixel(x+width*scale*left[i], y-height*scale*right[i], colour);
