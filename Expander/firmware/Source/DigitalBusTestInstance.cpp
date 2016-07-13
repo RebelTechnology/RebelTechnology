@@ -45,6 +45,11 @@ void bus_tx_message(const char* msg){
   bus.sendMessage(msg);
 }
 
+void bus_tx_data(const uint8_t* data, uint16_t size){
+  debug << "tx data [" << size << "]" ;
+  bus.sendData(data, size);
+}
+
 void bus_tx_error(const char* reason){
   debug << "Digital bus send error: " << reason << ".";
 }

@@ -11,6 +11,7 @@ public:
 private:
   void appendFrame(uint8_t* frame);
   uint8_t txuid = NO_UID;
+  uint32_t datalen = 0;
 };
 
 

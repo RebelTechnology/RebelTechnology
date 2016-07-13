@@ -54,8 +54,8 @@ public:
   void handleCommand(uint8_t cmd, int16_t data);
   void sendMessage(const char* msg);
   void handleMessage(const char* msg);
-  void sendData(uint8_t* data, uint16_t len);
-  void handleData(uint8_t* data, uint16_t len);
+  void sendData(const uint8_t* data, uint32_t len);
+  void handleData(const uint8_t* data, uint32_t len);
   void rxError(const char* reason);
   void txError(const char* reason);
 protected:

@@ -39,6 +39,7 @@ int16_t parameters[256] = { 0 };
 uint16_t buttons[256] = { 0 };
 uint16_t commands[256] = { 0 };
 char* message = NULL;
+uint8_t *data = NULL;
 
 uint8_t* bus_deviceid(){
   static uint32_t id = 0;
@@ -51,7 +52,6 @@ uint8_t* bus_deviceid(){
 }
 
 void bus_setup(){
-  debug << "bus_setup\r\n";
   Bus1::bus.reset();
   Bus2::bus.reset();
   for(int i=0; i<256; ++i){
@@ -64,34 +64,30 @@ void bus_setup(){
 
 void Bus1::serial_write(uint8_t* data, uint16_t size){
   BOOST_CHECK_EQUAL(size, 4);
-  debug << "bus1 [" << (int)data[0] << "][" << (int)data[1] << "][" << (int)data[2] << "]["  << (int)data[3] << "]\r\n" ;
+  // debug << "bus1 [" << (int)data[0] << "][" << (int)data[1] << "][" << (int)data[2] << "]["  << (int)data[3] << "]\r\n" ;
   Bus2::bus.readBusFrame(data);
 }
 
 void Bus2::serial_write(uint8_t* data, uint16_t size){
-  debug << "bus2 [" << (int)data[0] << "][" << (int)data[1] << "][" << (int)data[2] << "]["  << (int)data[3] << "]\r\n" ;
+  // debug << "bus2 [" << (int)data[0] << "][" << (int)data[1] << "][" << (int)data[2] << "]["  << (int)data[3] << "]\r\n" ;
   BOOST_CHECK_EQUAL(size, 4);
   Bus1::bus.readBusFrame(data);
 }
 
 void bus_rx_parameter(uint8_t pid, int16_t value){
-  debug << "rx parameter [" << pid << "][" << value << "]\r\n";
   parameters[pid] = value;
 }
 void bus_rx_button(uint8_t bid, int16_t value){
-  debug << "rx button [" << bid << "][" << value << "]\r\n" ;
   buttons[bid] = value;
 }
 void bus_rx_command(uint8_t cmd, int16_t data){
-  debug << "rx command [" << cmd << "][" << data << "]\r\n" ;
   commands[cmd] = data;
 }
 void bus_rx_message(const char* msg){
-  debug << "rx msg [" << msg << "]\r\n" ;
   message = (char*)msg;
 }
-void bus_rx_data(uint8_t* data, uint16_t size){
-  debug << "rx data [" << size << "]\r\n" ;
+void bus_rx_data(const uint8_t* ptr, uint16_t size){
+  data = (uint8_t*)ptr;
 }
 void bus_rx_error(const char* reason){
   debug << "Digital bus receive error: " << reason << ".\r\n";
@@ -246,6 +242,22 @@ BOOST_AUTO_TEST_CASE(testMessage2){
   BOOST_CHECK(strcmp(message, msg) == 0);
 }
 
+BOOST_AUTO_TEST_CASE(testData){
+  bus_setup();
+  Bus2::bus_status();
+  Bus1::bus_status();
+  BOOST_CHECK_EQUAL(data, (uint8_t*)0);
+  const uint8_t stuff[] = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a,
+			    0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1a, };
+  Bus1::bus.sendData(stuff, sizeof(stuff));
+  BOOST_REQUIRE(data != NULL);
+  BOOST_CHECK(memcmp(data, stuff, sizeof(stuff)) == 0);
+  for(int i=0; i<20; ++i){
+    Bus1::bus.sendData(stuff, sizeof(stuff));
+    BOOST_CHECK(memcmp(data, stuff, sizeof(stuff)) == 0);
+  }
+}
+
 BOOST_AUTO_TEST_CASE(testTxError){
   bus_setup();
   Bus2::bus_status();
@@ -283,8 +295,6 @@ BOOST_AUTO_TEST_CASE(testResetRecovery){
   Bus2::bus_status();
   Bus1::bus_status();
   Bus2::bus_status();
-  std::cout << "bus1 " << (int)Bus1::bus.getUid() << "\r\n";
-  std::cout << "bus2 " << (int)Bus2::bus.getUid() << "\r\n";
   BOOST_CHECK_EQUAL(Bus1::bus.getUid(), Bus2::bus.getNuid());
   BOOST_CHECK_EQUAL(Bus2::bus.getUid(), Bus1::bus.getNuid());
   BOOST_CHECK_EQUAL(Bus1::bus.getUid(), 0);
@@ -292,8 +302,6 @@ BOOST_AUTO_TEST_CASE(testResetRecovery){
   Bus1::bus.sendParameterChange(0x15, 0x1429);
   BOOST_CHECK_EQUAL(parameters[0x15], 0x1429);
   Bus2::bus.reset();
-  std::cout << "bus1 " << (int)Bus1::bus.getUid() << "\r\n";
-  std::cout << "bus2 " << (int)Bus2::bus.getUid() << "\r\n";
   Bus2::bus_status();
   Bus1::bus_status();
   Bus2::bus_status();

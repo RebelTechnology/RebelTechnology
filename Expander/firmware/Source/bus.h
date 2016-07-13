@@ -27,8 +27,8 @@
    void bus_rx_command(uint8_t cmd, int16_t data);
    void bus_tx_message(const char* msg);
    void bus_rx_message(const char* msg); 
-   void bus_tx_data(uint8_t* data, uint16_t size);
-   void bus_rx_data(uint8_t* data, uint16_t size); 
+   void bus_tx_data(const uint8_t* data, uint16_t size);
+   void bus_rx_data(const uint8_t* data, uint16_t size); 
    void bus_tx_error(const char* reason);
    void bus_rx_error(const char* reason);
 
