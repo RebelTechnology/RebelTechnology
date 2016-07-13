@@ -18,6 +18,10 @@ namespace Bus2 {
 #include "DigitalBusTestInstance.cpp"
 };
 
+namespace Bus3 {
+#include "DigitalBusTestInstance.cpp"
+};
+
 void Debug::print(char arg){
   std::cout << arg;
 }
@@ -40,36 +44,53 @@ uint16_t buttons[256] = { 0 };
 uint16_t commands[256] = { 0 };
 char* message = NULL;
 uint8_t *data = NULL;
+uint8_t buscount = 2;
 
 uint8_t* bus_deviceid(){
-  static uint32_t id = 0;
-  static uint32_t uuid[2][3] = {
+  static uint32_t id = 2;
+  static uint32_t uuid[3][3] = {
     { 0x12341234, 0x23412341, 0x13412324 },
-    { 0x13214327, 0x21432183, 0x21312493 }
+    { 0x13214327, 0x21432183, 0x21312493 },
+    { 0x12133247, 0x14221338, 0x12321943 }
   };
   // give out two different uuids
-  return (uint8_t*)uuid[(id++)&0x1];
+  if(++id > 2)
+    id = 0;
+  return (uint8_t*)uuid[id];
 }
 
 void bus_setup(){
   Bus1::bus.reset();
   Bus2::bus.reset();
+  Bus3::bus.reset();
   for(int i=0; i<256; ++i){
     parameters[i] = 0;
     buttons[i] = 0;
     commands[i] = 0;
   }
   message = NULL;
+  data = NULL;
 }
 
 void Bus1::serial_write(uint8_t* data, uint16_t size){
   BOOST_CHECK_EQUAL(size, 4);
   // debug << "bus1 [" << (int)data[0] << "][" << (int)data[1] << "][" << (int)data[2] << "]["  << (int)data[3] << "]\r\n" ;
-  Bus2::bus.readBusFrame(data);
+  if(buscount == 0)
+    Bus1::bus.readBusFrame(data);
+  else
+    Bus2::bus.readBusFrame(data);
 }
 
 void Bus2::serial_write(uint8_t* data, uint16_t size){
   // debug << "bus2 [" << (int)data[0] << "][" << (int)data[1] << "][" << (int)data[2] << "]["  << (int)data[3] << "]\r\n" ;
+  BOOST_CHECK_EQUAL(size, 4);
+  if(buscount == 2)
+    Bus1::bus.readBusFrame(data);
+  else
+    Bus3::bus.readBusFrame(data);
+}
+
+void Bus3::serial_write(uint8_t* data, uint16_t size){
   BOOST_CHECK_EQUAL(size, 4);
   Bus1::bus.readBusFrame(data);
 }
@@ -223,10 +244,13 @@ BOOST_AUTO_TEST_CASE(testMessage1){
   BOOST_CHECK_EQUAL(message, (char*)0);
   const char msg1[] = "Here's a message";
   Bus1::bus.sendMessage(msg1);
+  BOOST_REQUIRE(message != NULL);
   BOOST_CHECK(strcmp(message, msg1) == 0);
   const char msg2[] = "Here is another, longer message, that may fill a buffer or two.";
   for(int i=0; i<20; ++i){
+    message = NULL;
     Bus1::bus.sendMessage(msg2);
+    BOOST_REQUIRE(message != NULL);
     BOOST_CHECK(strcmp(message, msg2) == 0);
   }
 }
@@ -239,6 +263,7 @@ BOOST_AUTO_TEST_CASE(testMessage2){
   Bus2::bus_status();
   const char msg[] = "Yo! message";
   Bus2::bus.sendMessage(msg);
+  BOOST_REQUIRE(message != NULL);
   BOOST_CHECK(strcmp(message, msg) == 0);
 }
 
@@ -312,4 +337,63 @@ BOOST_AUTO_TEST_CASE(testResetRecovery){
   BOOST_CHECK_EQUAL(Bus2::bus.getUid(), Bus1::bus.getNuid());
   Bus1::bus.sendParameterChange(0x51, 0x1492);
   BOOST_CHECK_EQUAL(parameters[0x51], 0x1492);
+}
+
+BOOST_AUTO_TEST_CASE(test3setup){
+  buscount = 3;
+  bus_setup();
+  BOOST_CHECK_EQUAL(Bus1::bus.getPeers(), 0);
+  BOOST_CHECK_EQUAL(Bus2::bus.getPeers(), 0);
+  BOOST_CHECK_EQUAL(Bus3::bus.getPeers(), 0);
+  BOOST_CHECK_EQUAL(Bus1::bus.getUid(), 0);
+  BOOST_CHECK_EQUAL(Bus2::bus.getUid(), 0);
+  BOOST_CHECK_EQUAL(Bus3::bus.getUid(), 0);
+  Bus1::bus_status();
+  Bus2::bus_status();
+  Bus3::bus_status();
+  BOOST_CHECK_EQUAL(Bus1::bus.getPeers(), 2);
+  BOOST_CHECK_EQUAL(Bus2::bus.getPeers(), 2);
+  BOOST_CHECK_EQUAL(Bus3::bus.getPeers(), 2);
+  BOOST_CHECK_EQUAL(Bus3::bus.getUid(), 0);
+  BOOST_CHECK_EQUAL(Bus1::bus.getNuid(), Bus2::bus.getUid());
+  BOOST_CHECK_EQUAL(Bus2::bus.getNuid(), Bus3::bus.getUid());
+  BOOST_CHECK_EQUAL(Bus3::bus.getNuid(), Bus1::bus.getUid());
+}
+
+BOOST_AUTO_TEST_CASE(test3parameters){
+  buscount = 3;
+  bus_setup();
+  Bus1::bus_status();
+  Bus2::bus_status();
+  Bus3::bus_status();
+  BOOST_CHECK_EQUAL(Bus1::bus.getNuid(), Bus2::bus.getUid());
+  BOOST_CHECK_EQUAL(Bus2::bus.getNuid(), Bus3::bus.getUid());
+  BOOST_CHECK_EQUAL(Bus3::bus.getNuid(), Bus1::bus.getUid());
+  BOOST_CHECK_EQUAL(parameters[0x10], 0);
+  BOOST_CHECK_EQUAL(parameters[0x20], 0);
+  Bus1::bus.sendParameterChange(0x10, 0x1234);
+  BOOST_CHECK_EQUAL(parameters[0x10], 0x1234);
+  Bus2::bus.sendParameterChange(0x20, 0x1342);
+  BOOST_CHECK_EQUAL(parameters[0x20], 0x1342);
+  Bus3::bus.sendParameterChange(0x30, 0x3412);
+  BOOST_CHECK_EQUAL(parameters[0x30], 0x3412);
+}
+
+BOOST_AUTO_TEST_CASE(testMessage3){
+  buscount = 3;
+  bus_setup();
+  Bus1::bus_status();
+  Bus2::bus_status();
+  Bus3::bus_status();
+  BOOST_CHECK_EQUAL(message, (char*)0);
+  const char msg[] = "We say hello";
+  Bus2::bus.sendMessage(msg);
+  BOOST_REQUIRE(message != NULL);
+  BOOST_CHECK(strcmp(message, msg) == 0);
+  for(int i=0; i<20; ++i){
+    message = NULL;
+    Bus3::bus.sendMessage(msg);
+    BOOST_REQUIRE(message != NULL);
+    BOOST_CHECK(strcmp(message, msg) == 0);
+  }
 }
