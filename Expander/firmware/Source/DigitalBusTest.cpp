@@ -35,6 +35,10 @@ void Debug::print(int arg){
 }
 
 Debug debug;
+int16_t parameters[256] = { 0 };
+uint16_t buttons[256] = { 0 };
+uint16_t commands[256] = { 0 };
+char* message = NULL;
 
 uint8_t* bus_deviceid(){
   static uint32_t id = 0;
@@ -50,11 +54,13 @@ void bus_setup(){
   debug << "bus_setup\r\n";
   Bus1::bus.reset();
   Bus2::bus.reset();
+  for(int i=0; i<256; ++i){
+    parameters[i] = 0;
+    buttons[i] = 0;
+    commands[i] = 0;
+  }
+  message = NULL;
 }
-
-// void Bus1::serial_read(uint8_t* data, uint16_t size){
-//   debug << "Bus1 read [" << size << "]\r\n" ;
-// }
 
 void Bus1::serial_write(uint8_t* data, uint16_t size){
   BOOST_CHECK_EQUAL(size, 4);
@@ -68,10 +74,6 @@ void Bus2::serial_write(uint8_t* data, uint16_t size){
   Bus1::bus.readBusFrame(data);
 }
 
-int16_t parameters[256] = { 0 };
-uint16_t buttons[256] = { 0 };
-uint16_t commands[256] = { 0 };
-char* message = NULL;
 void bus_rx_parameter(uint8_t pid, int16_t value){
   debug << "rx parameter [" << pid << "][" << value << "]\r\n";
   parameters[pid] = value;
@@ -109,16 +111,30 @@ BOOST_AUTO_TEST_CASE(testStatus){
   bus_setup();
   BOOST_CHECK_EQUAL(Bus1::bus.getPeers(), 0);
   BOOST_CHECK_EQUAL(Bus2::bus.getPeers(), 0);
-  BOOST_CHECK_EQUAL(Bus1::bus.getUid(), 255);
-  BOOST_CHECK_EQUAL(Bus2::bus.getUid(), 255);
+  BOOST_CHECK_EQUAL(Bus1::bus.getUid(), 0);
+  BOOST_CHECK_EQUAL(Bus2::bus.getUid(), 0);
   Bus1::bus_status();
   BOOST_CHECK_EQUAL(Bus1::bus.getPeers(), 1);
   BOOST_CHECK_EQUAL(Bus2::bus.getPeers(), 1);
   Bus2::bus_status();
   Bus1::bus_status();
+  BOOST_CHECK_EQUAL(Bus1::bus.getPeers(), 1);
+  BOOST_CHECK_EQUAL(Bus2::bus.getPeers(), 1);
+  BOOST_CHECK_EQUAL(Bus1::bus.getUid(), 0);
+  BOOST_CHECK_EQUAL(Bus2::bus.getUid(), 1);
+  BOOST_CHECK_EQUAL(Bus1::bus.getNuid(), 1);
+  BOOST_CHECK_EQUAL(Bus2::bus.getNuid(), 0);
+  bus_setup();
+  Bus2::bus_status();
+  BOOST_CHECK_EQUAL(Bus1::bus.getPeers(), 1);
+  BOOST_CHECK_EQUAL(Bus2::bus.getPeers(), 1);
+  Bus1::bus_status();
   Bus2::bus_status();
   Bus1::bus_status();
   Bus2::bus_status();
+  Bus1::bus_status();
+  Bus2::bus_status();
+  Bus1::bus_status();
   BOOST_CHECK_EQUAL(Bus1::bus.getPeers(), 1);
   BOOST_CHECK_EQUAL(Bus2::bus.getPeers(), 1);
   BOOST_CHECK_EQUAL(Bus1::bus.getUid(), 0);
@@ -131,8 +147,6 @@ BOOST_AUTO_TEST_CASE(testOneSidedStatus){
   bus_setup();
   BOOST_CHECK_EQUAL(Bus1::bus.getPeers(), 0);
   BOOST_CHECK_EQUAL(Bus2::bus.getPeers(), 0);
-  BOOST_CHECK_EQUAL(Bus1::bus.getUid(), 255);
-  BOOST_CHECK_EQUAL(Bus2::bus.getUid(), 255);
   Bus1::bus_status();
   BOOST_CHECK_EQUAL(Bus1::bus.getPeers(), 1);
   BOOST_CHECK_EQUAL(Bus2::bus.getPeers(), 1);
@@ -156,9 +170,10 @@ BOOST_AUTO_TEST_CASE(testOneSidedStatus){
   // Bus2 is waiting for uid 0 to start enum
   // by design, uid 0 must initiate enumeration
   Bus1::bus_status();
-  BOOST_CHECK_EQUAL(Bus1::bus.getNuid(), 1);
+  BOOST_CHECK_EQUAL(Bus1::bus.getNuid(), Bus2::bus.getUid());
+  BOOST_CHECK_EQUAL(Bus2::bus.getNuid(), Bus1::bus.getUid());
+  BOOST_CHECK_EQUAL(Bus1::bus.getUid(), 0);
   BOOST_CHECK_EQUAL(Bus2::bus.getUid(), 1);
-  BOOST_CHECK_EQUAL(Bus2::bus.getNuid(), 0);
 }
 
 BOOST_AUTO_TEST_CASE(testParameters){
@@ -221,4 +236,62 @@ BOOST_AUTO_TEST_CASE(testMessage2){
   const char msg[] = "Yo! message";
   Bus2::bus.sendMessage(msg);
   BOOST_CHECK(strcmp(message, msg) == 0);
+}
+
+BOOST_AUTO_TEST_CASE(testTxError){
+  bus_setup();
+  Bus1::bus_status();
+  Bus2::bus_status();
+  Bus1::bus_status();
+  Bus2::bus_status();
+  BOOST_CHECK_EQUAL(Bus1::bus.getUid(), Bus2::bus.getNuid());
+  BOOST_CHECK_EQUAL(Bus2::bus.getUid(), Bus1::bus.getNuid());
+  uint8_t buf1[4] = { 0xff, 0xff, 0xff, 0xff };  
+  Bus1::serial_write(buf1, 4);
+  Bus1::bus.sendParameterChange(0x10, 0x1234);
+  BOOST_CHECK_EQUAL(parameters[0x10], 0x1234);
+  uint8_t buf2[4] = { 0x0, 0x0, 0x0, 0x0 };
+  Bus1::serial_write(buf2, 4);
+  Bus1::bus.sendParameterChange(0x10, 0x123);
+  BOOST_CHECK_EQUAL(parameters[0x10], 0x123);
+}
+
+BOOST_AUTO_TEST_CASE(testReset){
+  bus_setup();
+  Bus1::bus_status();
+  Bus2::bus_status();
+  Bus1::bus_status();
+  Bus2::bus_status();
+  BOOST_CHECK_EQUAL(Bus1::bus.getUid(), Bus2::bus.getNuid());
+  BOOST_CHECK_EQUAL(Bus2::bus.getUid(), Bus1::bus.getNuid());
+  BOOST_CHECK_EQUAL(Bus1::bus.getUid(), 0);
+  BOOST_CHECK_EQUAL(Bus2::bus.getUid(), 1);
+  Bus1::bus.sendParameterChange(0x15, 0x214);
+  BOOST_CHECK_EQUAL(parameters[0x15], 0x214);
+  Bus1::bus.reset();
+  Bus1::bus_status();
+  Bus2::bus_status();
+  Bus1::bus_status();
+  Bus2::bus_status();
+  std::cout << "bus1 " << (int)Bus1::bus.getUid() << "\r\n";
+  std::cout << "bus2 " << (int)Bus2::bus.getUid() << "\r\n";
+  BOOST_CHECK_EQUAL(Bus1::bus.getUid(), Bus2::bus.getNuid());
+  BOOST_CHECK_EQUAL(Bus2::bus.getUid(), Bus1::bus.getNuid());
+  BOOST_CHECK_EQUAL(Bus1::bus.getUid(), 0);
+  BOOST_CHECK_EQUAL(Bus2::bus.getUid(), 1);
+  Bus1::bus.sendParameterChange(0x15, 0x1429);
+  BOOST_CHECK_EQUAL(parameters[0x15], 0x1429);
+  Bus2::bus.reset();
+  std::cout << "bus1 " << (int)Bus1::bus.getUid() << "\r\n";
+  std::cout << "bus2 " << (int)Bus2::bus.getUid() << "\r\n";
+  Bus2::bus_status();
+  Bus1::bus_status();
+  Bus2::bus_status();
+  Bus1::bus_status();
+  BOOST_CHECK_EQUAL(Bus1::bus.getUid(), 0);
+  BOOST_CHECK_EQUAL(Bus2::bus.getUid(), 1);
+  BOOST_CHECK_EQUAL(Bus1::bus.getUid(), Bus2::bus.getNuid());
+  BOOST_CHECK_EQUAL(Bus2::bus.getUid(), Bus1::bus.getNuid());
+  Bus1::bus.sendParameterChange(0x51, 0x1492);
+  BOOST_CHECK_EQUAL(parameters[0x51], 0x1492);
 }

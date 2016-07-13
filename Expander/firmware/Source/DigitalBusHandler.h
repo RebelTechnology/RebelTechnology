@@ -5,6 +5,7 @@
 #include "bus.h"
 
 class DigitalBusHandler : public MidiReader {
+public:
   enum DigitalBusStatus {
     IDLE = BUS_STATUS_IDLE,
     DISCOVERING = BUS_STATUS_DISCO,
@@ -19,8 +20,8 @@ protected:
   uint32_t token;
   uint8_t peers;
   uint16_t parameterOffset;
+  DigitalBusStatus status;  
   uint8_t* UUID;
-  DigitalBusStatus status = IDLE;  
   static const uint8_t VERSION = 0x01; // protocol version
   static const uint8_t PRODUCT = 0x01;  // product id
   static const uint8_t PARAMETERS = 5; // number of parameters defined by this product
