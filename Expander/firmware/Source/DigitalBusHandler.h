@@ -8,9 +8,9 @@ class DigitalBusHandler : public MidiReader {
 public:
   enum DigitalBusStatus {
     IDLE = BUS_STATUS_IDLE,
-    DISCOVERING = BUS_STATUS_DISCO,
-    ENUMERATING = BUS_STATUS_ENUM,
-    IDENTIFYING = BUS_STATUS_IDENT,
+    DISCOVER = BUS_STATUS_DISCO,
+    ENUMERATE = BUS_STATUS_ENUM,
+    IDENTIFY = BUS_STATUS_IDENT,
     CONNECTED = BUS_STATUS_CONNECTED,
     ERROR = BUS_STATUS_ERROR
   };
@@ -56,6 +56,8 @@ public:
   void handleMessage(const char* msg);
   void sendData(uint8_t* data, uint16_t len);
   void handleData(uint8_t* data, uint16_t len);
+  void rxError(const char* reason);
+  void txError(const char* reason);
 protected:
   // send a 4-byte message
   void sendFrame(uint8_t d1, uint8_t d2, uint8_t d3, uint8_t d4);

@@ -95,6 +95,13 @@ void bus_rx_data(uint8_t* data, uint16_t size){
 }
 void bus_rx_error(const char* reason){
   debug << "Digital bus receive error: " << reason << ".\r\n";
+  Bus1::bus.reset();
+  Bus2::bus.reset();
+}
+void bus_tx_error(const char* reason){
+  debug << "Digital bus send error: " << reason << ".\r\n";
+  Bus1::bus.reset();
+  Bus2::bus.reset();
 }
 
 #define FLOAT_TEST_TOLERANCE 0.00001 // percent tolerance when comparing floats
@@ -233,6 +240,7 @@ BOOST_AUTO_TEST_CASE(testMessage2){
   Bus1::bus_status();
   Bus2::bus_status();
   Bus1::bus_status();
+  Bus2::bus_status();
   const char msg[] = "Yo! message";
   Bus2::bus.sendMessage(msg);
   BOOST_CHECK(strcmp(message, msg) == 0);
@@ -240,23 +248,25 @@ BOOST_AUTO_TEST_CASE(testMessage2){
 
 BOOST_AUTO_TEST_CASE(testTxError){
   bus_setup();
-  Bus1::bus_status();
   Bus2::bus_status();
   Bus1::bus_status();
-  Bus2::bus_status();
   BOOST_CHECK_EQUAL(Bus1::bus.getUid(), Bus2::bus.getNuid());
   BOOST_CHECK_EQUAL(Bus2::bus.getUid(), Bus1::bus.getNuid());
   uint8_t buf1[4] = { 0xff, 0xff, 0xff, 0xff };  
   Bus1::serial_write(buf1, 4);
+  Bus2::bus_status();
+  Bus1::bus_status();
   Bus1::bus.sendParameterChange(0x10, 0x1234);
   BOOST_CHECK_EQUAL(parameters[0x10], 0x1234);
   uint8_t buf2[4] = { 0x0, 0x0, 0x0, 0x0 };
   Bus1::serial_write(buf2, 4);
+  Bus2::bus_status();
+  Bus1::bus_status();
   Bus1::bus.sendParameterChange(0x10, 0x123);
   BOOST_CHECK_EQUAL(parameters[0x10], 0x123);
 }
 
-BOOST_AUTO_TEST_CASE(testReset){
+BOOST_AUTO_TEST_CASE(testResetRecovery){
   bus_setup();
   Bus1::bus_status();
   Bus2::bus_status();

@@ -33,24 +33,37 @@ uint32_t DigitalBusHandler::generateToken(){
 }
 
 bool DigitalBusHandler::connected(){
-  if(status == CONNECTED)
-    return true;
-  if(status <= DISCOVERING)
+  switch(status){
+  case IDLE:
+  case ERROR:
+  case DISCOVER:
     startDiscover();
-  else if(status == ENUMERATING)
-    if(uid == 0)
-      startEnum();
-  else if(status == IDENTIFYING)
+    break;
+  case ENUMERATE:
+    startEnum();
+    break;
+  case IDENTIFY:
     startIdent();
-  // if(peers > 0 && uid != NO_UID && nuid != NO_UID)
-  //   status = CONNECTED;
-  return peers > 0 && nuid != NO_UID;
-  // return status == CONNECTED;
+    break;
+  case CONNECTED:
+    break;
+  }
+  return status == CONNECTED;
+}
+
+void DigitalBusHandler::rxError(const char* reason){
+  status = ERROR;
+  bus_rx_error(reason);
+}
+
+void DigitalBusHandler::txError(const char* reason){
+  status = ERROR;
+  bus_tx_error(reason);
 }
 
 void DigitalBusHandler::startDiscover(){
   debug << "startDiscover [" << uid << "][" << (int)token << "]\r\n";
-  status = DISCOVERING;
+  status = DISCOVER;
   sendDiscover(0, token);
 }
 
@@ -68,15 +81,15 @@ void DigitalBusHandler::handleDiscover(uint8_t seq, uint32_t other){
     // that's our token.
     peers = seq;
     debug << (int)uid << " discovered " << (int)peers << " peers\r\n";
-    status = ENUMERATING;
+    status = ENUMERATE;
   }else{
     if(seq < 0x0f)
       // increment seq and pass it on
       sendDiscover(seq+1, other);
     if(other < token)
       uid = NO_UID; // we will not be UID 0
-    if(status != ENUMERATING)
-      status = DISCOVERING;
+    if(status != ENUMERATE)
+      status = DISCOVER;
     if(peers == 0)
       startDiscover();
     // if(peers != 0 && seq == peers-1 && uid == 0)
@@ -87,8 +100,10 @@ void DigitalBusHandler::handleDiscover(uint8_t seq, uint32_t other){
 
 void DigitalBusHandler::startEnum(){
   debug << "startEnum [" << uid << "][" << peers << "]\r\n";
-  parameterOffset = 0;
-  sendEnum(uid, VERSION, PRODUCT, parameterOffset+PARAMETERS);
+  if(uid == 0){
+    parameterOffset = 0;
+    sendEnum(uid, VERSION, PRODUCT, parameterOffset+PARAMETERS);
+  }
 }
 
 void DigitalBusHandler::sendEnum(uint8_t id, uint8_t version, uint8_t product, uint8_t params){
@@ -112,7 +127,7 @@ void DigitalBusHandler::handleEnum(uint8_t id, uint8_t version, uint8_t product,
     if(nuid > peers)
       nuid = 0;
   }
-  status = IDENTIFYING;
+  status = IDENTIFY;
   debug << "enumerated [" << uid << "][" << nuid << "][" << peers << "][" << parameterOffset << "]\r\n";
 }
 
