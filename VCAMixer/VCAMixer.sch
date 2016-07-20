@@ -12786,7 +12786,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <part name="P-5" library="supply1" deviceset="-12V" device=""/>
 <part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R34" library="Rebel" deviceset="R-EU_" device="0603" value="140k"/>
-<part name="R37" library="Rebel" deviceset="R-EU_" device="0603" value="140k"/>
+<part name="R37" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R38" library="Rebel" deviceset="R-EU_" device="0603" value="140k"/>
 <part name="GND26" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="P-6" library="supply1" deviceset="-12V" device=""/>
