@@ -7059,8 +7059,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <parts>
 <part name="IC2" library="Rebel" deviceset="LTC3265" device=""/>
 <part name="IC1" library="v-reg" deviceset="LM317?*" device="" technology="MDT" value="LM317MDT"/>
-<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="720R"/>
-<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="240R"/>
+<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="330R"/>
 <part name="C1" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="P+12" library="supply1" deviceset="+5V" device=""/>
 <part name="P+13" library="supply1" deviceset="+12V" device=""/>
@@ -7088,7 +7088,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="C10" library="Rebel" deviceset="C-EU" device="C1206K" value="10u"/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
-<part name="C9" library="rcl" deviceset="C-EU" device="C0603" value="1u"/>
+<part name="C9" library="Rebel" deviceset="C-EU" device="C1206" value="1u"/>
 <part name="C7" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C8" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C11" library="Rebel" deviceset="C-EU" device="C1206K" value="10u"/>
