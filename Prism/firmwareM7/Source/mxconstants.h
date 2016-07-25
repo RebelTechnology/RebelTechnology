@@ -1,5 +1,5 @@
-/* #define SSD1331 */
-#define SEPS114A
+#define SSD1331
+/* #define SEPS114A */
 
 /* #define USE_CACHE */
 /* #define USE_ADC */
@@ -11,7 +11,7 @@
 /* #define OLED_DMA */
 /* #define OLED_IT */
 /* #define OLED_BITBANG */
-#define USE_CODEC
+/* #define USE_CODEC */
 #define CODEC_SOFT_CS
 /* #define CODEC_BLOCKSIZE 1024 */
 #define CODEC_BLOCKSIZE 2048 // 23.4 FPS
@@ -22,7 +22,10 @@
 /* #define USE_RNG */
 #define MCU_CLOCK_168MHZ
 #define USE_UART
+#define USART_BAUDRATE               115200
+#define USART_PERIPH                 USART1
 /* #define USE_USB */
+#define MIDI_MAX_MESSAGE_SIZE        260
 
 // MCOT096064 max recommended SPI speed 6.6MHz
 // MCOT096096AY-RGBM max 5MHz

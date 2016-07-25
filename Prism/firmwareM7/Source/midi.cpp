@@ -1,5 +1,6 @@
+#if 0
 #include "midi.h"
-#include "uart.h"
+#include "serial.h"
 #include "MidiReader.hpp"
 #include "MidiWriter.hpp"
 #include "stm32f7xx_hal.h"
@@ -69,5 +70,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 //     }
 //   }
 // }
+
+#endif
 
 #endif

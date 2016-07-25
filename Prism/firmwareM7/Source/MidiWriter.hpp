@@ -2,11 +2,8 @@
 #define _MIDIWRITER_H_
 
 #include <inttypes.h>
-// #include <stdio.h>
-// #include "usart.h"
 #include "MidiStatus.h"
-// #include <stdio.h>
-#include "uart.h"
+#include "serial.h"
 
 class MidiWriter { // : public MidiInterface {
 public:

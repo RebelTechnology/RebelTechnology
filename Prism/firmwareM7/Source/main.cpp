@@ -9,6 +9,7 @@
 #include "errorhandlers.h"
 #include "Prism.h"
 #include "ProgramVector.h"
+#include "bus.h"
 #include "midi.h"
 
 #ifndef min
@@ -691,7 +692,7 @@ void StartScreenTask(void const * argument)
 #endif
 
 #ifdef USE_UART
-  midiSetup();
+  bus_setup();
 #endif
 
 #ifdef USE_CODEC
