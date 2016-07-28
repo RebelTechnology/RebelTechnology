@@ -13668,7 +13668,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="+3V29" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V30" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V31" library="supply1" deviceset="+3V3" device=""/>
-<part name="JP3" library="Rebel" deviceset="CON-JST-1X03" device="PH-TH"/>
+<part name="BUS" library="Rebel" deviceset="CON-JST-1X03" device="PH-TH"/>
 <part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R20" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 </parts>
@@ -14029,7 +14029,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <instance part="+3V29" gate="G$1" x="106.68" y="-40.64" rot="R180"/>
 <instance part="+3V30" gate="G$1" x="99.06" y="-40.64" rot="R180"/>
 <instance part="+3V31" gate="G$1" x="91.44" y="-40.64" rot="R180"/>
-<instance part="JP3" gate="G$1" x="353.06" y="-22.86" rot="R180"/>
+<instance part="BUS" gate="G$1" x="353.06" y="-22.86" rot="R180"/>
 <instance part="R19" gate="G$1" x="449.58" y="210.82"/>
 <instance part="R20" gate="G$1" x="449.58" y="256.54"/>
 </instances>
@@ -14081,7 +14081,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <pinref part="GND84" gate="1" pin="GND"/>
 <wire x1="355.6" y1="-22.86" x2="365.76" y2="-22.86" width="0.1524" layer="91"/>
 <wire x1="365.76" y1="-22.86" x2="365.76" y2="-27.94" width="0.1524" layer="91"/>
-<pinref part="JP3" gate="G$1" pin="2"/>
+<pinref part="BUS" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <wire x1="330.2" y1="-22.86" x2="327.66" y2="-22.86" width="0.1524" layer="91"/>
@@ -15976,7 +15976,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <segment>
 <wire x1="355.6" y1="-20.32" x2="386.08" y2="-20.32" width="0.1524" layer="91"/>
 <label x="368.3" y="-20.32" size="1.778" layer="95"/>
-<pinref part="JP3" gate="G$1" pin="3"/>
+<pinref part="BUS" gate="G$1" pin="3"/>
 </segment>
 </net>
 <net name="UART_MCU_RX" class="0">
@@ -15988,7 +15988,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <segment>
 <wire x1="355.6" y1="-25.4" x2="386.08" y2="-25.4" width="0.1524" layer="91"/>
 <label x="368.3" y="-25.4" size="1.778" layer="95"/>
-<pinref part="JP3" gate="G$1" pin="1"/>
+<pinref part="BUS" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="DRAM_DQ0" class="0">
@@ -17025,6 +17025,37 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <errors>
 <approved hash="101,1,170.18,30.48,X4-4,1,,,,"/>
 <approved hash="101,1,170.18,2.54,X4-15,1,,,,"/>
+<approved hash="102,1,248.92,40.64,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,294.64,20.32,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,30.48,180.34,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,40.64,180.34,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,50.8,180.34,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,60.96,180.34,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,71.12,180.34,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,81.28,180.34,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,327.66,-12.7,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,299.72,78.74,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,58.42,251.46,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,345.44,165.1,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,40.64,45.72,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,12.7,147.32,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,35.56,137.16,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,137.16,147.32,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,236.22,149.86,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,529.59,207.01,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,529.59,255.27,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,363.22,210.82,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,363.22,251.46,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,132.08,30.48,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,398.78,-5.08,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,83.82,-12.7,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,91.44,-12.7,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,99.06,-12.7,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,106.68,-12.7,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,114.3,-12.7,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,106.68,-38.1,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,99.06,-38.1,+3V3,+3.3V,,,,"/>
+<approved hash="102,1,91.44,-38.1,+3V3,+3.3V,,,,"/>
 <approved hash="104,1,480.06,55.88,IC6P,V+,+12V,,,"/>
 <approved hash="104,1,480.06,40.64,IC6P,V-,-12V,,,"/>
 <approved hash="104,1,231.14,241.3,IC5P,V+,+12V,,,"/>
@@ -17065,6 +17096,11 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <approved hash="208,1,91.44,-38.1,+3.3V,sup,,,,"/>
 <approved hash="208,1,99.06,-38.1,+3.3V,sup,,,,"/>
 <approved hash="208,1,106.68,-38.1,+3.3V,sup,,,,"/>
+<approved hash="113,1,399.457,29.4047,JP2,,,,,"/>
+<approved hash="113,1,351.197,27.7453,JP9,,,,,"/>
+<approved hash="113,1,435.017,-20.5147,JP6,,,,,"/>
+<approved hash="113,1,437.557,29.4047,JP5,,,,,"/>
+<approved hash="113,1,355.363,-24.2612,BUS,,,,,"/>
 </errors>
 </schematic>
 </drawing>
