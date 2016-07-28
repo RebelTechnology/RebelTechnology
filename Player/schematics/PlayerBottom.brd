@@ -4934,10 +4934,10 @@ design rules under a new name.
 <contactref element="R10" pad="1"/>
 <contactref element="JP2" pad="6"/>
 <wire x1="70" y1="32.7" x2="68.75" y2="32.7" width="0.2048" layer="1"/>
-<wire x1="68.75" y1="32.7" x2="68.25" y2="32.2" width="0.2048" layer="1"/>
-<wire x1="68.25" y1="32.2" x2="68.25" y2="23.7" width="0.2048" layer="1"/>
-<wire x1="68.25" y1="23.7" x2="67.9" y2="23.35" width="0.2048" layer="1"/>
-<wire x1="67.9" y1="23.35" x2="66.5" y2="23.35" width="0.2048" layer="1"/>
+<wire x1="68.75" y1="32.7" x2="68.2" y2="32.15" width="0.2048" layer="1"/>
+<wire x1="68.2" y1="32.15" x2="68.2" y2="23.7" width="0.2048" layer="1"/>
+<wire x1="68.2" y1="23.7" x2="67.85" y2="23.35" width="0.2048" layer="1"/>
+<wire x1="67.85" y1="23.35" x2="66.5" y2="23.35" width="0.2048" layer="1"/>
 </signal>
 <signal name="TROUTB">
 <contactref element="R704" pad="2"/>
