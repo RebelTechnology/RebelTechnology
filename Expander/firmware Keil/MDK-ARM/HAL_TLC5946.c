@@ -85,7 +85,7 @@ void TLC5946_Refresh(void)
 	pBLANK(1);
 	
 	pXLAT(1);
-	__nop(); __nop(); __nop();
+	__NOP(); __NOP(); __NOP();
 	pXLAT(0);
 	
 	// Update Dot Correction
@@ -93,7 +93,7 @@ void TLC5946_Refresh(void)
 	HAL_SPI_Transmit(TLC5946_SPIConfig, rgDCbuf, sizeof rgDCbuf, 100);
 	
 	pXLAT(1);
-	__nop(); __nop(); __nop();
+	__NOP(); __NOP(); __NOP();
 	pXLAT(0);
 }
 
