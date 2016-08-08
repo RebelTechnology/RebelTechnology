@@ -10,7 +10,12 @@
 #include "gpio.h"
 
 #define MAX_SOFT_CS
-#define MAX_BITBANG
+// #define MAX_BITBANG
+// #define MAX_HAL
+#define MAX_TIMEOUT 100
+extern "C"{
+  extern SPI_HandleTypeDef hspi1;
+}
 
 #ifdef MAX_SOFT_CS
 #define setCS()    setPin(MAX_CS_GPIO_Port, MAX_CS_Pin)
@@ -33,61 +38,12 @@ void delay(uint32_t ms){
   // DWT_Delay(ms*1000);
 }
 
-uint16_t SPI_Write(uint16_t Data){
-#ifdef MAX_BITBANG
-  clearPin(MAX_SCLK_GPIO_Port, MAX_SCLK_Pin);
-  uint16_t result = 0;
-  for(uint8_t bit = 0x80; bit; bit >>= 1){
-    if(Data & bit)
-      setPin(MAX_DIN_GPIO_Port, MAX_DIN_Pin);
-    else
-      clearPin(MAX_DIN_GPIO_Port, MAX_DIN_Pin);
-    if(getPin(MAX_DOUT_GPIO_Port,  MAX_DOUT_Pin))
-      result |= bit;
-    setPin(MAX_SCLK_GPIO_Port, MAX_SCLK_Pin);
-    clearPin(MAX_SCLK_GPIO_Port, MAX_SCLK_Pin);
-  }
-  return result;
-#else
-  /*!< Wait until the transmit buffer is empty */
-  while(SPI_I2S_GetFlagStatus(MAX_SPI, SPI_I2S_FLAG_TXE) == RESET);
-   
-  /*!< Send the byte */
-  SPI_I2S_SendData(MAX_SPI, Data);
-   
-  /*!< Wait to receive a byte*/
-  while(SPI_I2S_GetFlagStatus(MAX_SPI, SPI_I2S_FLAG_RXNE) == RESET);
-   
-  /*!< Return the byte read from the SPI bus */
-  return SPI_I2S_ReceiveData(MAX_SPI);
-#endif
+void spiwrite(uint8_t* data, size_t size){
+  HAL_SPI_Transmit(&hspi1, data, size, MAX_TIMEOUT);
 }
- 
-uint16_t SPI_Read(){
-#ifdef MAX_BITBANG
-  clearPin(MAX_SCLK_GPIO_Port, MAX_SCLK_Pin);
-  clearPin(MAX_DIN_GPIO_Port, MAX_DIN_Pin);
-  uint16_t result = 0;
-  for(uint8_t bit = 0x80; bit; bit >>= 1){
-    if(getPin(MAX_DOUT_GPIO_Port,  MAX_DOUT_Pin))
-      result |= bit;
-    setPin(MAX_SCLK_GPIO_Port, MAX_SCLK_Pin);
-    clearPin(MAX_SCLK_GPIO_Port, MAX_SCLK_Pin);
-  }
-  return result;
-#else
-  /*!< Wait until the transmit buffer is empty */
-  while(SPI_I2S_GetFlagStatus(MAX_SPI, SPI_I2S_FLAG_TXE) == RESET);
- 
-  /*!< Send the byte */
-  SPI_I2S_SendData(MAX_SPI, MAX_DUMMY_BYTE);
- 
-  /*!< Wait until a data is received */
-  while(SPI_I2S_GetFlagStatus(MAX_SPI, SPI_I2S_FLAG_RXNE) == RESET);
- 
-  /*!< Return the byte read from the SPI bus */
-  return SPI_I2S_ReceiveData(MAX_SPI);
-#endif
+
+void spiread(uint8_t* data, size_t size){
+  HAL_SPI_Receive(&hspi1, data, size, MAX_TIMEOUT);
 }
 
 // void spiwrite(const uint8_t* data, size_t size){
@@ -102,6 +58,7 @@ uint16_t SPI_Read(){
 // Config SPI for communication witht the PIXI
 Pixi::Pixi(){}
 
+#ifndef MAX_BITBANG
 #define __HAL_RCC_SPI1_CLK_ENABLE()   do { \
                                         __IO uint32_t tmpreg; \
                                         SET_BIT(RCC->APB2ENR, RCC_APB2ENR_SPI1EN);\
@@ -109,10 +66,24 @@ Pixi::Pixi(){}
                                         tmpreg = READ_BIT(RCC->APB2ENR, RCC_APB2ENR_SPI1EN);\
                                         /* UNUSED(tmpreg); */  \
                                       } while(0)
+#endif
 
 void Pixi::begin(){
+#ifdef MAX_SOFT_CS
+  /*Configure GPIO pin : MAX_CS_Pin */
+  GPIO_InitTypeDef GPIO_InitStruct;
+  GPIO_InitStruct.Pin = MAX_CS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+  HAL_GPIO_Init(MAX_CS_GPIO_Port, &GPIO_InitStruct);
+#endif
+
+#if 0
+#ifndef MAX_BITBANG
   __HAL_RCC_SPI1_CLK_ENABLE();
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1, ENABLE);
+#endif
 
 #ifdef MAX_SOFT_CS
   configureDigitalOutput(MAX_CS_GPIO_Port, MAX_CS_Pin);
@@ -155,7 +126,7 @@ void Pixi::begin(){
 
   SPI_Cmd(MAX_SPI, ENABLE);
 #endif
-
+#endif /* 0 */
 }
 
 /*
@@ -166,9 +137,9 @@ SPI read result 0x424
 */
 uint16_t Pixi::ReadRegister(uint8_t address, bool debug = false)
 {
-    uint16_t result = 0;
-    uint8_t read1 = 0;
-    uint8_t read2 = 0;
+    uint16_t result;
+    // uint8_t read1 = 0;
+    // uint8_t read2 = 0;
     
 // if (debug) {
 // 		Serial.print("SPI read adress: 0x");
@@ -181,18 +152,23 @@ uint16_t Pixi::ReadRegister(uint8_t address, bool debug = false)
   clearCS();
   //  send in the address and return value via SPI:
 
-  SPI_Write( (address << 0x01) | PIXI_READ );
-  read1 = SPI_Read();
+  uint8_t data[2] = { (address << 1) | PIXI_READ };
+  spiwrite(data, 1); // write 8-bit register id
+  spiread(data, 2); // read 16-bit value
+  result = (data[0]<<8) | data[1];
+  // SPI_Write( (address << 0x01) | PIXI_READ );
+  // result = SPI_Read();
+  // read1 = SPI_Read();
   // if (debug) {
   //   Serial.print(read1,HEX);
   // };
-  read2 = SPI_Read();
+  // read2 = SPI_Read();
   // if (debug) {
   //		Serial.print(" : l 0x");
   //		Serial.println(read2,HEX);
   // };
 
-  result = (read1 << 8) | read2;
+  // result = (read1 << 8) | read2;
   // take the SS pin high to de-select the chip:
   // digitalWrite(slaveSelectPin,HIGH); 
   setCS();
@@ -201,7 +177,7 @@ uint16_t Pixi::ReadRegister(uint8_t address, bool debug = false)
 // 		Serial.print("SPI read result 0x");
 // 		Serial.println(result,HEX);
 // }
-  return (result);
+  return result;
 }
 
 
@@ -219,14 +195,14 @@ void Pixi::WriteRegister(uint8_t address, uint16_t value)
   // digitalWrite(slaveSelectPin,LOW);
   clearCS();
   //  send in the address and value via SPI:
-  // uint8_t data[3];
-  // data[0] = address << 0x01) | PIXI_WRITE;
-  // data[1] = value >> 8;
-  // data[2] = value & 0xFF;
-  // spiwrite(data, 3);
-  SPI_Write( (address << 0x01) | PIXI_WRITE );
-  SPI_Write( uint8_t( value >> 8));
-  SPI_Write( uint8_t( value & 0xFF));
+  uint8_t data[3];
+  data[0] = (address << 0x01) | PIXI_WRITE;
+  data[1] = value >> 8;
+  data[2] = value & 0xFF;
+  spiwrite(data, 3);
+  // SPI_Write( (address << 0x01) | PIXI_WRITE );
+  // SPI_Write( uint8_t( value >> 8));
+  // SPI_Write( uint8_t( value & 0xFF));
 
   // take the SS pin high to de-select the chip:
   setCS();

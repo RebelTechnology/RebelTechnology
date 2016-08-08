@@ -68,8 +68,8 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
 
-void setup();
-void run();
+void setup(void);
+void run(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -92,7 +92,7 @@ int main(void)
   SystemClock_Config();
 
   /* Initialize all configured peripherals */
-	MX_GPIO_Init();
+  MX_GPIO_Init();
   MX_DMA_Init();
   MX_SPI1_Init();
   MX_SPI2_Init();

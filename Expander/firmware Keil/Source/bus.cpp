@@ -7,6 +7,7 @@
 #include "mxconstants.h"
 
 static DigitalBusReader bus;
+static uint8_t busframe[4];
 
 uint8_t* bus_deviceid(){
   return ((uint8_t*)0x1ffff7e8); /* STM32F1 */
@@ -15,7 +16,8 @@ uint8_t* bus_deviceid(){
 
 void bus_setup(){
   debug << "bus_setup\r\n";
-  serial_setup(USART_BAUDRATE);
+  // serial_setup(USART_BAUDRATE);
+  serial_read(busframe, 4);
 }
 
 #define BUS_IDLE_INTERVAL 2300
@@ -29,25 +31,40 @@ int bus_status(){
   return bus.getStatus();
 }
 
+
 extern "C" {
-  static uint8_t bus_rx_index = 0;
-  void USART1_IRQHandler(void){
-    static uint8_t frame[4];
-    /* If overrun condition occurs, clear the ORE flag and recover communication */
-    if(USART_GetFlagStatus(USART_PERIPH, USART_FLAG_ORE) != RESET){
-      USART_ReceiveData(USART_PERIPH);
-      bus_rx_index = 0;
-    }else if(USART_GetITStatus(USART_PERIPH, USART_IT_RXNE) != RESET){    
-      // Reading the receive data register clears the RXNE flag implicitly
-      char c = USART_ReceiveData(USART_PERIPH);
-      frame[bus_rx_index++] = c;
-      if(bus_rx_index == 4){
-	bus_rx_index = 0;
-	bus.readBusFrame(frame);
-      }
-    }
+  void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart){
+    bus.reset();
   }
+
+  void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+    bus.readBusFrame(busframe);
+  }
+
+  void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
+  }
+
 }
+
+// extern "C" {
+//   static uint8_t bus_rx_index = 0;
+//   void USART1_IRQHandler(void){
+//     static uint8_t frame[4];
+//     /* If overrun condition occurs, clear the ORE flag and recover communication */
+//     if(USART_GetFlagStatus(USART_PERIPH, USART_FLAG_ORE) != RESET){
+//       USART_ReceiveData(USART_PERIPH);
+//       bus_rx_index = 0;
+//     }else if(USART_GetITStatus(USART_PERIPH, USART_IT_RXNE) != RESET){    
+//       // Reading the receive data register clears the RXNE flag implicitly
+//       char c = USART_ReceiveData(USART_PERIPH);
+//       frame[bus_rx_index++] = c;
+//       if(bus_rx_index == 4){
+// 	bus_rx_index = 0;
+// 	bus.readBusFrame(frame);
+//       }
+//     }
+//   }
+// }
 
 // extern "C" {
 //   static uint8_t bus_rx_index = 0;
@@ -87,6 +104,6 @@ void bus_tx_error(const char* reason){
 
 void bus_rx_error(const char* reason){
   debug << "Digital bus receive error: " << reason << ".";
-  bus_rx_index = 0;
+  // bus_rx_index = 0;
   bus.reset();
 }

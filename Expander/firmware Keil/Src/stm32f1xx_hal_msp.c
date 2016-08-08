@@ -88,7 +88,8 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
     PA6     ------> SPI1_MISO
     PA7     ------> SPI1_MOSI 
     */
-    GPIO_InitStruct.Pin = MAX_CS_Pin|MAX_SCLK_Pin|MAX_DIN_Pin;
+    /* GPIO_InitStruct.Pin = MAX_CS_Pin|MAX_SCLK_Pin|MAX_DIN_Pin; */
+    GPIO_InitStruct.Pin = MAX_SCLK_Pin|MAX_DIN_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -190,7 +191,7 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* hspi)
     PA6     ------> SPI1_MISO
     PA7     ------> SPI1_MOSI 
     */
-    HAL_GPIO_DeInit(GPIOA, MAX_CS_Pin|MAX_SCLK_Pin|MAX_DOUT_Pin|MAX_DIN_Pin);
+    HAL_GPIO_DeInit(GPIOA, MAX_SCLK_Pin|MAX_DOUT_Pin|MAX_DIN_Pin);
 
     /* Peripheral DMA DeInit*/
     HAL_DMA_DeInit(hspi->hdmarx);

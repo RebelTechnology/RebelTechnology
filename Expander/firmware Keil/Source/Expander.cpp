@@ -1,17 +1,36 @@
 #include <stdlib.h>
-#include "periph.h"
+#include "stm32f1xx_hal.h"
 #include "Pixi.h"
 #include "bus.h"
+#include "gpio.h"
 #include "clock.h"
 #include "message.h"
 #include "OpenWareMidiControl.h"
+#include "device.h"
+#ifndef min
+#define min(a,b) ((a)<(b)?(a):(b))
+#endif
+#ifndef max
+#define max(a,b) ((a)>(b)?(a):(b))
+#endif
+#ifndef abs
+#define abs(x) ((x)>0?(x):-(x))
+#endif
+
+extern "C" {
+#include "HAL_TLC5946.h"
+  void setup(void);
+  void run(void);
+extern SPI_HandleTypeDef hspi2;
+}
 
 #define HYSTERESIS_DELTA 3
+#define USE_TLC
 
 Pixi pixi;
 void setup(){
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
+  // RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+  // RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
   // configureDigitalInput(TOGGLE_L_PORT, TOGGLE_R_PIN_A, true);
   // configureDigitalInput(TOGGLE_L_PORT, TOGGLE_R_PIN_B, true);
   // RCC_APB2PeriphClockCmd(TOGGLE_R_CLOCK, ENABLE);
@@ -22,10 +41,12 @@ void setup(){
 //   configureDigitalOutput(GPIOB, GPIO_Pin_10); // debug
 // #endif
 
-  configureDigitalOutput(TLC_BLANK_GPIO_Port, TLC_BLANK_Pin);
+  TLC5946_init(&hspi2);
+
+  // configureDigitalOutput(TLC_BLANK_GPIO_Port, TLC_BLANK_Pin);
   setPin(TLC_BLANK_GPIO_Port, TLC_BLANK_Pin); // bring BLANK high to turn LEDs off
 
-  clock_setup();
+  // clock_setup();
   pixi.begin();
   bus_setup();
 }
@@ -73,6 +94,44 @@ void configureChannel(uint8_t ch, ChannelMode mode){
   cfg[ch] = mode;
 }
 
+void setLed(uint8_t ch, int16_t value){
+#ifdef USE_TLC
+  ch = 15-ch;
+    // if(ch < 8)
+    //   ch = 15-ch;
+    // else
+    //   ch = 15-ch;
+    if(cfg[ch] == DAC_5TO5 || cfg[ch] == ADC_5TO5)
+      TLC5946_SetOutput_GS(ch, max(0, min(4095, abs(value-2048)*2)));
+    else
+      TLC5946_SetOutput_GS(ch, max(0, min(4095, value)));
+#endif
+}
+
+void setDAC(uint8_t ch, int16_t value){
+  if(cfg[ch] < DAC_MODE){
+    // auto configure to output
+    if(value < 0){
+      configureChannel(ch, DAC_5TO5);
+    }else{
+      configureChannel(ch, DAC_0TO10);
+    }
+  }
+  if(cfg[ch] == DAC_5TO5)
+    value += 2048;
+  if(dac[ch] != value){
+    dac[ch] = value;
+    setLed(ch, value);
+  }
+}
+
+void setADC(uint8_t ch, int16_t value){
+  if(adc[ch] != value){
+    adc[ch] = value;
+    setLed(ch, value);
+  }
+}
+
 void run(){
   int pixi_id = pixi.config();
   for(int ch=0; ch<16; ++ch){
@@ -82,7 +141,6 @@ void run(){
   }
   for(int ch=0; ch<16; ++ch)
     configureChannel(ch, cfg[ch]);
-  uint16_t i = 0;
   for(;;){
     bus_status();
 #ifdef USE_TEMP
@@ -92,7 +150,7 @@ void run(){
 #endif
     for(int ch=0; ch<16; ++ch){
       if(cfg[ch] < DAC_MODE){
-	adc[ch] = pixi.readAnalog(ch);
+	setADC(ch, pixi.readAnalog(ch));
 	uint8_t cc = adc[ch] >> 5;
 	if(abs(cc - cc_values[ch]) > HYSTERESIS_DELTA){
 	  bus_tx_parameter(PARAMETER_AA+ch, adc[ch]);
@@ -102,6 +160,9 @@ void run(){
 	pixi.writeAnalog(ch, dac[ch]);
       }
     }
+#ifdef USE_TLC
+    TLC5946_Refresh();
+#endif
   }
 }
 
@@ -109,14 +170,7 @@ void bus_rx_parameter(uint8_t pid, int16_t value){
   debug << "rx parameter [" << pid << "][" << value << "]\r\n" ;
   if(pid >= PARAMETER_AA && pid <= PARAMETER_BH){
     uint8_t ch = pid-PARAMETER_AA;
-    if(cfg[ch] < DAC_MODE){
-      if(value < 0){ // auto configure to output
-	configureChannel(ch, DAC_5TO5);
-      }else{
-	configureChannel(ch, DAC_0TO10);
-      }
-    }
-    dac[ch] = value;
+    setDAC(ch, value);
   }
 }
 

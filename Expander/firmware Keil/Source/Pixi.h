@@ -115,7 +115,7 @@
 
 // Detailed register content map
 // reg 0x00 Device ID
-#define DEVID           0xFFFF
+/* #define DEVID           0xFFFF */
 // reg00x10 Device control
 #define ADCCTL          0x0003
 #define DACCTL		0x000C

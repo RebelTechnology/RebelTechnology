@@ -17,12 +17,10 @@ ifeq ($(CONFIG),Release)
 endif
 
 LDFLAGS += -Wl,--gc-sections
-LDSCRIPT ?= $(LIBROOT)/Source/stm32_flash.ld
-
-CPPFLAGS += -ILibSource
+LDSCRIPT ?= $(TEMPLATEROOT)/Source/stm32_flash.ld
 
 CPPFLAGS += --specs=nano.specs
-CPPFLAGS += -DEXTERNAL_SRAM -DARM_CORTEX
+# CPPFLAGS += -DEXTERNAL_SRAM -DARM_CORTEX
 # CPPFLAGS += -fpic -fpie
 CPPFLAGS += -fdata-sections
 CPPFLAGS += -ffunction-sections

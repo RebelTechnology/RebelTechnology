@@ -4,7 +4,6 @@
 #include "stm32f1xx_hal.h"
 #include <stdint.h>
 #include <stdbool.h>
-#include "stm32f10x_gpio.h"
 
 #ifdef __cplusplus
  extern "C" {
