@@ -32,7 +32,6 @@
   */
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
-#include "..\HAL_TLC5946.h"
 
 /* USER CODE BEGIN Includes */
 unsigned short LED_Cycle = 0; 
@@ -69,6 +68,8 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
 
+void setup();
+void run();
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -98,26 +99,9 @@ int main(void)
   MX_TIM1_Init();
   MX_USART1_UART_Init();
 	
-	TLC5946_init(&hspi2);
-
-  while (1)
-  {
-		uint32_t x = 0;
-		
-		TLC5946_SetOutput_GS(LED_5, 4000);
-		
-		TLC5946_SetOutput_GS(LED_10, 500);
-		
-//		TLC5946_SetOutput_DC(LED_11, 0x00);
-//		TLC5946_SetOutput_DC(LED_10, 0x00);
-		
-		TLC5946_Refresh();
-		
-		for (x=0; x<50000; x++){}
-			
-		if (LED_Cycle < 160) {LED_Cycle++;}
-		else								 {LED_Cycle = 0;}
-  }
+  setup();
+  for(;;)
+    run();
 }
 
 /** System Clock Configuration
