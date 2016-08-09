@@ -73,12 +73,12 @@ void TLC5946_SetOutput_DC (unsigned char LED_ID, unsigned char value)
 	}		
 }
 
-/* void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){ */
-/*   if(hspi == TLC5946_SPIConfig){ */
-/*     pBLANK(1);	 */
-/*     pXLAT(1);     */
-/*   } */
-/* } */
+void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
+  if(hspi == TLC5946_SPIConfig){
+    pBLANK(1);
+    pXLAT(1);
+  }
+}
 
 void TLC5946_Refresh_GS(void)
 {
@@ -86,10 +86,10 @@ void TLC5946_Refresh_GS(void)
 	// Update Grayscale
 	pMODE(Mode_GS);
 	pBLANK(0);
-	HAL_SPI_Transmit(TLC5946_SPIConfig, rgGSbuf, sizeof rgGSbuf, 100);
-	/* HAL_SPI_Transmit_IT(TLC5946_SPIConfig, rgGSbuf, sizeof rgGSbuf); */
-	pBLANK(1);	
-	pXLAT(1);    
+	/* HAL_SPI_Transmit(TLC5946_SPIConfig, rgGSbuf, sizeof rgGSbuf, 100); */
+	/* pBLANK(1);	 */
+	/* pXLAT(1);     */
+	HAL_SPI_Transmit_IT(TLC5946_SPIConfig, rgGSbuf, sizeof rgGSbuf);
 }
 
 void TLC5946_Refresh_DC(void)
