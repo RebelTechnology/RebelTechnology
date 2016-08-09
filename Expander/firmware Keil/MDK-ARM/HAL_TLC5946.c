@@ -2,9 +2,7 @@
 #include "stm32f1xx_hal.h"
 #include "HAL_TLC5946.h"
 
-uint8_t rgGSbuf[24] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-//uint8_t rgGSbuf[24] = {255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255};
-//uint8_t rgDCbuf[12] = {0,0,0,0,0,0,0,0,0,0,0,0,};
+uint8_t rgGSbuf[24] = {0};
 uint8_t rgDCbuf[12] = {255,255,255,255,255,255,255,255,255,255,255,255};
 SPI_HandleTypeDef* TLC5946_SPIConfig;
 	
@@ -16,20 +14,20 @@ void TLC5946_SetOutput_GS (unsigned char LED_ID, unsigned short value)
 	
 	if (value < 4095)
 	{
-		if (LED_ID==0 || LED_ID==2 || LED_ID==4 || LED_ID==6 || LED_ID==8 || LED_ID==10 || LED_ID==12 || LED_ID==14 || LED_ID==16)
-		{
-			rgGSbuf[ucBuffLoc] 		= (value&0xFF0)>>4; 
-			temp 									= rgGSbuf[ucBuffLoc+1]; 
-			rgGSbuf[ucBuffLoc+1] 	= (value&0x00F)<<4; 
-			rgGSbuf[ucBuffLoc+1] |= (temp&0x0F);
-		}			
-		else
-		{
-			temp 									= rgGSbuf[ucBuffLoc]; 
-			rgGSbuf[ucBuffLoc] 		= (value&0xF00)>>8; 
-			rgGSbuf[ucBuffLoc] 	 |= (temp&0xF0); 
+	  if(LED_ID & 0x01) // bbbbaaaa aaaaaaaa
+		{ 
+			temp			= rgGSbuf[ucBuffLoc]; 
+			rgGSbuf[ucBuffLoc] 	= (value&0xF00)>>8; 
+			rgGSbuf[ucBuffLoc]     |= (temp&0xF0); 
 			rgGSbuf[ucBuffLoc+1] 	= (value&0x0FF); 	
 		}
+	  else              // aaaaaaaa aaaabbbb
+		{
+			rgGSbuf[ucBuffLoc] 	= (value&0xFF0)>>4; 
+			temp 			= rgGSbuf[ucBuffLoc+1]; 
+			rgGSbuf[ucBuffLoc+1] 	= (value&0x00F)<<4; 
+			rgGSbuf[ucBuffLoc+1]   |= (temp&0x0F);
+		}			
 	}
 }
 
@@ -75,26 +73,32 @@ void TLC5946_SetOutput_DC (unsigned char LED_ID, unsigned char value)
 	}		
 }
 
-	
-void TLC5946_Refresh(void)
+/* void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){ */
+/*   if(hspi == TLC5946_SPIConfig){ */
+/*     pBLANK(1);	 */
+/*     pXLAT(1);     */
+/*   } */
+/* } */
+
+void TLC5946_Refresh_GS(void)
 {
+	pXLAT(0);
 	// Update Grayscale
 	pMODE(Mode_GS);
 	pBLANK(0);
 	HAL_SPI_Transmit(TLC5946_SPIConfig, rgGSbuf, sizeof rgGSbuf, 100);
-	pBLANK(1);
-	
-	pXLAT(1);
-	__NOP(); __NOP(); __NOP();
+	/* HAL_SPI_Transmit_IT(TLC5946_SPIConfig, rgGSbuf, sizeof rgGSbuf); */
+	pBLANK(1);	
+	pXLAT(1);    
+}
+
+void TLC5946_Refresh_DC(void)
+{
 	pXLAT(0);
-	
 	// Update Dot Correction
 	pMODE(Mode_DC);
-	HAL_SPI_Transmit(TLC5946_SPIConfig, rgDCbuf, sizeof rgDCbuf, 100);
-	
+	HAL_SPI_Transmit(TLC5946_SPIConfig, rgDCbuf, sizeof rgDCbuf, 100);	
 	pXLAT(1);
-	__NOP(); __NOP(); __NOP();
-	pXLAT(0);
 }
 
 //_____ Initialisaion _________________________________________________________________________________________________

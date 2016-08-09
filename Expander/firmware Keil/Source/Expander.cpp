@@ -42,6 +42,7 @@ void setup(){
 // #endif
 
   TLC5946_init(&hspi2);
+  TLC5946_Refresh_DC();
 
   // configureDigitalOutput(TLC_BLANK_GPIO_Port, TLC_BLANK_Pin);
   setPin(TLC_BLANK_GPIO_Port, TLC_BLANK_Pin); // bring BLANK high to turn LEDs off
@@ -97,14 +98,10 @@ void configureChannel(uint8_t ch, ChannelMode mode){
 void setLed(uint8_t ch, int16_t value){
 #ifdef USE_TLC
   ch = 15-ch;
-    // if(ch < 8)
-    //   ch = 15-ch;
-    // else
-    //   ch = 15-ch;
-    if(cfg[ch] == DAC_5TO5 || cfg[ch] == ADC_5TO5)
-      TLC5946_SetOutput_GS(ch, max(0, min(4095, abs(value-2048)*2)));
-    else
-      TLC5946_SetOutput_GS(ch, max(0, min(4095, value)));
+  if(cfg[ch] == DAC_5TO5 || cfg[ch] == ADC_5TO5)
+    TLC5946_SetOutput_GS(ch, max(0, min(4095, abs(value-2048)*2)));
+  else
+    TLC5946_SetOutput_GS(ch, max(0, min(4095, value)));
 #endif
 }
 
@@ -136,8 +133,8 @@ void run(){
   int pixi_id = pixi.config();
   for(int ch=0; ch<16; ++ch){
     adc[ch] = 0;
-    dac[ch] = 2048;
-    cfg[ch] = ADC_5TO5;
+    dac[ch] = 0;
+    cfg[ch] = ADC_0TO10; // ADC_5TO5;
   }
   for(int ch=0; ch<16; ++ch)
     configureChannel(ch, cfg[ch]);
@@ -161,7 +158,7 @@ void run(){
       }
     }
 #ifdef USE_TLC
-    TLC5946_Refresh();
+    TLC5946_Refresh_GS();
 #endif
   }
 }
