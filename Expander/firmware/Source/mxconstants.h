@@ -1,6 +1,11 @@
+/**
+ * MAX11300 on SPI1
+ * TLC5946 on SPI2
+ * Digital Bus on USART1
+ */
+#define USART_BAUDRATE               115200
+#define USART_PERIPH                 USART1
 
-// MAX11300 on SPI1
-// TLC5946 on SPI2
 #define MAX_CS_Pin GPIO_Pin_4
 #define MAX_CS_GPIO_Port GPIOA
 #define MAX_SCLK_Pin GPIO_Pin_5
