@@ -1,0 +1,67 @@
+<module type="20hp">
+
+  <!-- oled screen -->
+  <!-- MCOT128064BY 128x64 -->
+  <!-- active area -->
+  <rect x="0.0" y="0.95" width="35.052" height="17.516"/>
+  <!-- viewing area -->
+  <rect x="0.0" y="0.95" width="37.052" height="19.516"/>
+  <!-- outline dimensions -->
+  <!-- <rect x="0.0" y="1.5" width="42.04" height="27.22"/> -->
+
+  <pot x="-1.5" y="0.95"/>
+  <pot x="1.5" y="0.95"/>
+
+  <pot x="-1.5" y="-0.05"/>
+  <pot x="-0.5" y="-0.05"/>
+  <pot x="0.5" y="-0.05"/>
+  <pot x="1.5" y="-0.05"/>
+
+  <!-- leds -->
+  <hole x="-1.75" y="-0.75" radius="1.5"/>
+  <hole x="-1.25" y="-0.75" radius="1.5"/>
+  <hole x="-0.75" y="-0.75" radius="1.5"/>
+  <hole x="-0.25" y="-0.75" radius="1.5"/>
+  <hole x="0.25" y="-0.75" radius="1.5"/>
+  <hole x="0.75" y="-0.75" radius="1.5"/>
+  <hole x="1.25" y="-0.75" radius="1.5"/>
+  <hole x="1.75" y="-0.75" radius="1.5"/>
+
+  <hole x="-1.75" y="-1.95" radius="1.5"/>
+  <hole x="-1.25" y="-1.95" radius="1.5"/>
+  <hole x="-0.75" y="-1.95" radius="1.5"/>
+  <hole x="-0.25" y="-1.95" radius="1.5"/>
+  <hole x="0.25" y="-1.95" radius="1.5"/>
+  <hole x="0.75" y="-1.95" radius="1.5"/>
+  <hole x="1.25" y="-1.95" radius="1.5"/>
+  <hole x="1.75" y="-1.95" radius="1.5"/>
+
+  <!-- jacks -->
+  <hole x="-1.75" y="1.75" radius="3.25"/>
+  <hole x="-1.25" y="1.75" radius="3.25"/>
+  <hole x="-0.75" y="1.75" radius="3.25"/>
+  <hole x="-0.25" y="1.75" radius="3.25"/>
+  <hole x="0.25" y="1.75" radius="3.25"/>
+  <hole x="0.75" y="1.75" radius="3.25"/>
+  <hole x="1.25" y="1.75" radius="3.25"/>
+  <hole x="1.75" y="1.75" radius="3.25"/>
+
+  <hole x="-1.75" y="-1.10" radius="3.25"/>
+  <hole x="-1.25" y="-1.10" radius="3.25"/>
+  <hole x="-0.75" y="-1.10" radius="3.25"/>
+  <hole x="-0.25" y="-1.10" radius="3.25"/>
+  <hole x="0.25" y="-1.10" radius="3.25"/>
+  <hole x="0.75" y="-1.10" radius="3.25"/>
+  <hole x="1.25" y="-1.10" radius="3.25"/>
+  <hole x="1.75" y="-1.10" radius="3.25"/>
+
+  <hole x="-1.75" y="-1.60" radius="3.25"/>
+  <hole x="-1.25" y="-1.60" radius="3.25"/>
+  <hole x="-0.75" y="-1.60" radius="3.25"/>
+  <hole x="-0.25" y="-1.60" radius="3.25"/>
+  <hole x="0.25" y="-1.60" radius="3.25"/>
+  <hole x="0.75" y="-1.60" radius="3.25"/>
+  <hole x="1.25" y="-1.60" radius="3.25"/>
+  <hole x="1.75" y="-1.60" radius="3.25"/>
+
+</module>
