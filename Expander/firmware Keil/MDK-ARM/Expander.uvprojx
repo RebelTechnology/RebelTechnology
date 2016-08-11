@@ -395,7 +395,7 @@
             <File>
               <FileName>HAL_TLC5946.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\HAL_TLC5946.c</FilePath>
+              <FilePath>..\Src\HAL_TLC5946.c</FilePath>
             </File>
           </Files>
         </Group>

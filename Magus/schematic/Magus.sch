@@ -17931,6 +17931,46 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <part name="JP16" library="SparkFun" deviceset="M08" device="1X08"/>
 <part name="JP17" library="SparkFun" deviceset="M07" device=""/>
 <part name="JP18" library="SparkFun" deviceset="M07" device=""/>
+<part name="R21" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="C75" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="GND184" library="supply1" deviceset="GND" device=""/>
+<part name="R41" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="C76" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="GND185" library="supply1" deviceset="GND" device=""/>
+<part name="R42" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="C77" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="GND186" library="supply1" deviceset="GND" device=""/>
+<part name="R45" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="C78" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="GND187" library="supply1" deviceset="GND" device=""/>
+<part name="P17" library="Rebel" deviceset="THONKICONN" device=""/>
+<part name="GND188" library="supply1" deviceset="GND" device=""/>
+<part name="P18" library="Rebel" deviceset="THONKICONN" device=""/>
+<part name="GND189" library="supply1" deviceset="GND" device=""/>
+<part name="P19" library="Rebel" deviceset="THONKICONN" device=""/>
+<part name="GND190" library="supply1" deviceset="GND" device=""/>
+<part name="P20" library="Rebel" deviceset="THONKICONN" device=""/>
+<part name="GND191" library="supply1" deviceset="GND" device=""/>
+<part name="R46" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R47" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R48" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R49" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R50" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R51" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R52" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R53" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R54" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R55" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R56" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R57" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R58" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R59" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R60" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R61" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R62" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R63" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R64" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R65" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 </parts>
 <sheets>
 <sheet>
@@ -21488,7 +21528,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <text x="-66.04" y="198.12" size="1.778" layer="97">RC Filter fc=3315Hz</text>
 <text x="-297.18" y="193.04" size="3.048" layer="97" font="vector">Rebel Technology Magus Rev01</text>
 <text x="-297.18" y="185.42" size="3.048" layer="97" font="vector">published 2016 under the GNU GPL v2</text>
-<text x="-243.84" y="111.76" size="1.778" layer="97">1.2V drop-out Max 15Vin</text>
+<text x="-297.18" y="175.26" size="1.778" layer="97">1.2V drop-out Max 15Vin</text>
 </plain>
 <instances>
 <instance part="U1" gate="-PORTS" x="-124.46" y="142.24"/>
@@ -21578,37 +21618,37 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <instance part="X3" gate="-1" x="-116.84" y="58.42"/>
 <instance part="X3" gate="-2" x="-116.84" y="55.88"/>
 <instance part="P1" gate="G$1" x="-27.94" y="190.5"/>
-<instance part="GND136" gate="1" x="-35.56" y="180.34"/>
+<instance part="GND136" gate="1" x="-35.56" y="177.8"/>
 <instance part="P2" gate="G$1" x="-27.94" y="170.18"/>
-<instance part="GND137" gate="1" x="-35.56" y="160.02"/>
+<instance part="GND137" gate="1" x="-35.56" y="157.48"/>
 <instance part="P3" gate="G$1" x="-27.94" y="149.86"/>
-<instance part="GND138" gate="1" x="-35.56" y="139.7"/>
+<instance part="GND138" gate="1" x="-35.56" y="137.16"/>
 <instance part="P4" gate="G$1" x="-27.94" y="129.54"/>
-<instance part="GND139" gate="1" x="-35.56" y="119.38"/>
+<instance part="GND139" gate="1" x="-35.56" y="116.84"/>
 <instance part="P5" gate="G$1" x="-27.94" y="109.22"/>
-<instance part="GND140" gate="1" x="-35.56" y="99.06"/>
+<instance part="GND140" gate="1" x="-35.56" y="96.52"/>
 <instance part="P6" gate="G$1" x="-27.94" y="88.9"/>
-<instance part="GND141" gate="1" x="-35.56" y="78.74"/>
+<instance part="GND141" gate="1" x="-35.56" y="76.2"/>
 <instance part="P7" gate="G$1" x="-27.94" y="68.58"/>
-<instance part="GND142" gate="1" x="-35.56" y="58.42"/>
+<instance part="GND142" gate="1" x="-35.56" y="55.88"/>
 <instance part="P8" gate="G$1" x="-27.94" y="48.26"/>
-<instance part="GND143" gate="1" x="-35.56" y="38.1"/>
+<instance part="GND143" gate="1" x="-35.56" y="35.56"/>
 <instance part="P9" gate="G$1" x="53.34" y="190.5"/>
-<instance part="GND144" gate="1" x="45.72" y="180.34"/>
+<instance part="GND144" gate="1" x="45.72" y="177.8"/>
 <instance part="P10" gate="G$1" x="53.34" y="170.18"/>
-<instance part="GND145" gate="1" x="45.72" y="160.02"/>
+<instance part="GND145" gate="1" x="45.72" y="157.48"/>
 <instance part="P11" gate="G$1" x="53.34" y="149.86"/>
-<instance part="GND146" gate="1" x="45.72" y="139.7"/>
+<instance part="GND146" gate="1" x="45.72" y="137.16"/>
 <instance part="P12" gate="G$1" x="53.34" y="129.54"/>
-<instance part="GND147" gate="1" x="45.72" y="119.38"/>
+<instance part="GND147" gate="1" x="45.72" y="116.84"/>
 <instance part="P13" gate="G$1" x="53.34" y="109.22"/>
-<instance part="GND148" gate="1" x="45.72" y="99.06"/>
+<instance part="GND148" gate="1" x="45.72" y="96.52"/>
 <instance part="P14" gate="G$1" x="53.34" y="88.9"/>
-<instance part="GND149" gate="1" x="45.72" y="78.74"/>
+<instance part="GND149" gate="1" x="45.72" y="76.2"/>
 <instance part="P15" gate="G$1" x="53.34" y="68.58"/>
-<instance part="GND150" gate="1" x="45.72" y="58.42"/>
+<instance part="GND150" gate="1" x="45.72" y="55.88"/>
 <instance part="P16" gate="G$1" x="53.34" y="48.26"/>
-<instance part="GND151" gate="1" x="45.72" y="38.1"/>
+<instance part="GND151" gate="1" x="45.72" y="35.56"/>
 <instance part="U7" gate="TLC5946" x="154.94" y="83.82"/>
 <instance part="+3V45" gate="G$1" x="154.94" y="121.92"/>
 <instance part="C63" gate="G$1" x="132.08" y="111.76"/>
@@ -21716,19 +21756,19 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 </instance>
 <instance part="GND162" gate="1" x="116.84" y="-76.2"/>
 <instance part="GND163" gate="1" x="124.46" y="-76.2"/>
-<instance part="C101" gate="G$1" x="-218.44" y="101.6"/>
-<instance part="C102" gate="G$1" x="-208.28" y="101.6"/>
-<instance part="C100" gate="G$1" x="-246.38" y="101.6"/>
-<instance part="GND58" gate="1" x="-246.38" y="91.44"/>
-<instance part="GND59" gate="1" x="-231.14" y="91.44"/>
-<instance part="GND62" gate="1" x="-218.44" y="91.44"/>
-<instance part="GND63" gate="1" x="-208.28" y="91.44"/>
-<instance part="IC3" gate="1" x="-231.14" y="106.68">
-<attribute name="OC_FARNELL" x="-231.14" y="106.68" size="1.778" layer="96" display="off"/>
+<instance part="C101" gate="G$1" x="-271.78" y="165.1"/>
+<instance part="C102" gate="G$1" x="-261.62" y="165.1"/>
+<instance part="C100" gate="G$1" x="-299.72" y="165.1"/>
+<instance part="GND58" gate="1" x="-299.72" y="154.94"/>
+<instance part="GND59" gate="1" x="-284.48" y="154.94"/>
+<instance part="GND62" gate="1" x="-271.78" y="154.94"/>
+<instance part="GND63" gate="1" x="-261.62" y="154.94"/>
+<instance part="IC3" gate="1" x="-284.48" y="170.18">
+<attribute name="OC_FARNELL" x="-284.48" y="170.18" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="GND160" gate="1" x="-256.54" y="91.44"/>
-<instance part="C23" gate="G$1" x="-256.54" y="101.6"/>
-<instance part="P+9" gate="1" x="-256.54" y="114.3"/>
+<instance part="GND160" gate="1" x="-309.88" y="154.94"/>
+<instance part="C23" gate="G$1" x="-309.88" y="165.1"/>
+<instance part="P+9" gate="1" x="-309.88" y="177.8"/>
 <instance part="U$1" gate="MIC2005" x="238.76" y="-83.82">
 <attribute name="OC_FARNELL" x="238.76" y="-83.82" size="1.778" layer="96" display="off"/>
 </instance>
@@ -21780,6 +21820,46 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <instance part="JP11" gate="G$1" x="-162.56" y="17.78" rot="R180"/>
 <instance part="JP12" gate="G$1" x="-162.56" y="55.88" rot="R180"/>
 <instance part="JP14" gate="G$1" x="-205.74" y="55.88" rot="R180"/>
+<instance part="R21" gate="G$1" x="-195.58" y="160.02" rot="MR0"/>
+<instance part="C75" gate="G$1" x="-203.2" y="154.94"/>
+<instance part="GND184" gate="1" x="-203.2" y="147.32"/>
+<instance part="R41" gate="G$1" x="-195.58" y="139.7" rot="MR0"/>
+<instance part="C76" gate="G$1" x="-203.2" y="134.62"/>
+<instance part="GND185" gate="1" x="-203.2" y="127"/>
+<instance part="R42" gate="G$1" x="-195.58" y="119.38" rot="MR0"/>
+<instance part="C77" gate="G$1" x="-203.2" y="114.3"/>
+<instance part="GND186" gate="1" x="-203.2" y="106.68"/>
+<instance part="R45" gate="G$1" x="-195.58" y="99.06" rot="MR0"/>
+<instance part="C78" gate="G$1" x="-203.2" y="93.98"/>
+<instance part="GND187" gate="1" x="-203.2" y="86.36"/>
+<instance part="P17" gate="G$1" x="-172.72" y="157.48"/>
+<instance part="GND188" gate="1" x="-180.34" y="144.78"/>
+<instance part="P18" gate="G$1" x="-172.72" y="137.16"/>
+<instance part="GND189" gate="1" x="-180.34" y="124.46"/>
+<instance part="P19" gate="G$1" x="-172.72" y="116.84"/>
+<instance part="GND190" gate="1" x="-180.34" y="104.14"/>
+<instance part="P20" gate="G$1" x="-172.72" y="96.52"/>
+<instance part="GND191" gate="1" x="-180.34" y="83.82"/>
+<instance part="R46" gate="G$1" x="-187.96" y="111.76" rot="MR270"/>
+<instance part="R47" gate="G$1" x="-187.96" y="91.44" rot="MR270"/>
+<instance part="R48" gate="G$1" x="-187.96" y="132.08" rot="MR270"/>
+<instance part="R49" gate="G$1" x="-187.96" y="152.4" rot="MR270"/>
+<instance part="R50" gate="G$1" x="-43.18" y="185.42" rot="MR270"/>
+<instance part="R51" gate="G$1" x="-43.18" y="165.1" rot="MR270"/>
+<instance part="R52" gate="G$1" x="-43.18" y="144.78" rot="MR270"/>
+<instance part="R53" gate="G$1" x="-43.18" y="124.46" rot="MR270"/>
+<instance part="R54" gate="G$1" x="-43.18" y="104.14" rot="MR270"/>
+<instance part="R55" gate="G$1" x="-43.18" y="83.82" rot="MR270"/>
+<instance part="R56" gate="G$1" x="-43.18" y="63.5" rot="MR270"/>
+<instance part="R57" gate="G$1" x="-43.18" y="43.18" rot="MR270"/>
+<instance part="R58" gate="G$1" x="40.64" y="43.18" rot="MR270"/>
+<instance part="R59" gate="G$1" x="40.64" y="63.5" rot="MR270"/>
+<instance part="R60" gate="G$1" x="40.64" y="83.82" rot="MR270"/>
+<instance part="R61" gate="G$1" x="40.64" y="104.14" rot="MR270"/>
+<instance part="R62" gate="G$1" x="40.64" y="124.46" rot="MR270"/>
+<instance part="R63" gate="G$1" x="40.64" y="144.78" rot="MR270"/>
+<instance part="R64" gate="G$1" x="40.64" y="165.1" rot="MR270"/>
+<instance part="R65" gate="G$1" x="40.64" y="185.42" rot="MR270"/>
 </instances>
 <busses>
 </busses>
@@ -21802,6 +21882,12 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <label x="-40.64" y="193.04" size="1.778" layer="95"/>
 <pinref part="P1" gate="G$1" pin="3"/>
 </segment>
+<segment>
+<pinref part="R21" gate="G$1" pin="1"/>
+<wire x1="-190.5" y1="160.02" x2="-177.8" y2="160.02" width="0.1524" layer="91"/>
+<label x="-185.42" y="160.02" size="1.778" layer="95"/>
+<pinref part="P17" gate="G$1" pin="3"/>
+</segment>
 </net>
 <net name="PORT1" class="0">
 <segment>
@@ -21822,6 +21908,12 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <wire x1="-45.72" y1="172.72" x2="-33.02" y2="172.72" width="0.1524" layer="91"/>
 <label x="-40.64" y="172.72" size="1.778" layer="95"/>
 <pinref part="P2" gate="G$1" pin="3"/>
+</segment>
+<segment>
+<pinref part="R41" gate="G$1" pin="1"/>
+<wire x1="-190.5" y1="139.7" x2="-177.8" y2="139.7" width="0.1524" layer="91"/>
+<label x="-185.42" y="139.7" size="1.778" layer="95"/>
+<pinref part="P18" gate="G$1" pin="3"/>
 </segment>
 </net>
 <net name="PORT2" class="0">
@@ -21844,6 +21936,12 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <label x="-40.64" y="152.4" size="1.778" layer="95"/>
 <pinref part="P3" gate="G$1" pin="3"/>
 </segment>
+<segment>
+<pinref part="R42" gate="G$1" pin="1"/>
+<wire x1="-190.5" y1="119.38" x2="-177.8" y2="119.38" width="0.1524" layer="91"/>
+<label x="-185.42" y="119.38" size="1.778" layer="95"/>
+<pinref part="P19" gate="G$1" pin="3"/>
+</segment>
 </net>
 <net name="PORT3" class="0">
 <segment>
@@ -21864,6 +21962,12 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <wire x1="-45.72" y1="132.08" x2="-33.02" y2="132.08" width="0.1524" layer="91"/>
 <label x="-40.64" y="132.08" size="1.778" layer="95"/>
 <pinref part="P4" gate="G$1" pin="3"/>
+</segment>
+<segment>
+<pinref part="R45" gate="G$1" pin="1"/>
+<wire x1="-190.5" y1="99.06" x2="-177.8" y2="99.06" width="0.1524" layer="91"/>
+<label x="-185.42" y="99.06" size="1.778" layer="95"/>
+<pinref part="P20" gate="G$1" pin="3"/>
 </segment>
 </net>
 <net name="PORT4" class="0">
@@ -22084,12 +22188,29 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <wire x1="-121.92" y1="152.4" x2="-86.36" y2="152.4" width="0.1524" layer="91"/>
 <label x="-96.52" y="152.4" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="R21" gate="G$1" pin="2"/>
+<wire x1="-200.66" y1="160.02" x2="-203.2" y2="160.02" width="0.1524" layer="91"/>
+<pinref part="C75" gate="G$1" pin="1"/>
+<wire x1="-203.2" y1="157.48" x2="-203.2" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="-203.2" y1="160.02" x2="-220.98" y2="160.02" width="0.1524" layer="91"/>
+<label x="-220.98" y="160.02" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="PORT17" class="0">
 <segment>
 <pinref part="U1" gate="-PORTS" pin="PORT17"/>
 <wire x1="-121.92" y1="149.86" x2="-86.36" y2="149.86" width="0.1524" layer="91"/>
 <label x="-96.52" y="149.86" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R41" gate="G$1" pin="2"/>
+<wire x1="-200.66" y1="139.7" x2="-203.2" y2="139.7" width="0.1524" layer="91"/>
+<pinref part="C76" gate="G$1" pin="1"/>
+<wire x1="-203.2" y1="137.16" x2="-203.2" y2="139.7" width="0.1524" layer="91"/>
+<junction x="-203.2" y="139.7"/>
+<wire x1="-203.2" y1="139.7" x2="-220.98" y2="139.7" width="0.1524" layer="91"/>
+<label x="-220.98" y="139.7" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PORT18" class="0">
@@ -22098,12 +22219,30 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <wire x1="-121.92" y1="147.32" x2="-86.36" y2="147.32" width="0.1524" layer="91"/>
 <label x="-96.52" y="147.32" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="R42" gate="G$1" pin="2"/>
+<wire x1="-200.66" y1="119.38" x2="-203.2" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="-203.2" y1="119.38" x2="-220.98" y2="119.38" width="0.1524" layer="91"/>
+<pinref part="C77" gate="G$1" pin="1"/>
+<wire x1="-203.2" y1="116.84" x2="-203.2" y2="119.38" width="0.1524" layer="91"/>
+<junction x="-203.2" y="119.38"/>
+<label x="-220.98" y="119.38" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="PORT19" class="0">
 <segment>
 <pinref part="U1" gate="-PORTS" pin="PORT19"/>
 <wire x1="-121.92" y1="144.78" x2="-86.36" y2="144.78" width="0.1524" layer="91"/>
 <label x="-96.52" y="144.78" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R45" gate="G$1" pin="2"/>
+<wire x1="-200.66" y1="99.06" x2="-203.2" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="-203.2" y1="99.06" x2="-220.98" y2="99.06" width="0.1524" layer="91"/>
+<pinref part="C78" gate="G$1" pin="1"/>
+<wire x1="-203.2" y1="96.52" x2="-203.2" y2="99.06" width="0.1524" layer="91"/>
+<junction x="-203.2" y="99.06"/>
+<label x="-220.98" y="99.06" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="P9" class="0">
@@ -22260,16 +22399,16 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 </segment>
 <segment>
 <pinref part="C100" gate="G$1" pin="1"/>
-<wire x1="-246.38" y1="106.68" x2="-246.38" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="-238.76" y1="106.68" x2="-246.38" y2="106.68" width="0.1524" layer="91"/>
-<junction x="-246.38" y="106.68"/>
+<wire x1="-299.72" y1="170.18" x2="-299.72" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="-292.1" y1="170.18" x2="-299.72" y2="170.18" width="0.1524" layer="91"/>
+<junction x="-299.72" y="170.18"/>
 <pinref part="IC3" gate="1" pin="IN"/>
-<wire x1="-256.54" y1="104.14" x2="-256.54" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="-256.54" y1="106.68" x2="-246.38" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="-309.88" y1="167.64" x2="-309.88" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="-309.88" y1="170.18" x2="-299.72" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="C23" gate="G$1" pin="+"/>
 <pinref part="P+9" gate="1" pin="+12V"/>
-<wire x1="-256.54" y1="106.68" x2="-256.54" y2="111.76" width="0.1524" layer="91"/>
-<junction x="-256.54" y="106.68"/>
+<wire x1="-309.88" y1="170.18" x2="-309.88" y2="175.26" width="0.1524" layer="91"/>
+<junction x="-309.88" y="170.18"/>
 </segment>
 <segment>
 <wire x1="-167.64" y1="10.16" x2="-190.5" y2="10.16" width="0.1524" layer="91"/>
@@ -22291,16 +22430,16 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 </segment>
 <segment>
 <pinref part="C102" gate="G$1" pin="1"/>
-<wire x1="-208.28" y1="104.14" x2="-208.28" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="-261.62" y1="167.64" x2="-261.62" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="C101" gate="G$1" pin="+"/>
-<wire x1="-223.52" y1="106.68" x2="-218.44" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="-218.44" y1="106.68" x2="-218.44" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="-218.44" y1="106.68" x2="-208.28" y2="106.68" width="0.1524" layer="91"/>
-<junction x="-218.44" y="106.68"/>
+<wire x1="-276.86" y1="170.18" x2="-271.78" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="-271.78" y1="170.18" x2="-271.78" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="-271.78" y1="170.18" x2="-261.62" y2="170.18" width="0.1524" layer="91"/>
+<junction x="-271.78" y="170.18"/>
 <pinref part="IC3" gate="1" pin="OUT"/>
-<label x="-205.74" y="106.68" size="1.778" layer="95"/>
-<wire x1="-208.28" y1="106.68" x2="-195.58" y2="106.68" width="0.1524" layer="91"/>
-<junction x="-208.28" y="106.68"/>
+<label x="-259.08" y="170.18" size="1.778" layer="95"/>
+<wire x1="-261.62" y1="170.18" x2="-248.92" y2="170.18" width="0.1524" layer="91"/>
+<junction x="-261.62" y="170.18"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="MIC2005" pin="VIN"/>
@@ -22398,98 +22537,146 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <segment>
 <pinref part="GND136" gate="1" pin="GND"/>
 <pinref part="P1" gate="G$1" pin="5"/>
-<wire x1="-35.56" y1="187.96" x2="-35.56" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="187.96" x2="-35.56" y2="180.34" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="187.96" x2="-35.56" y2="187.96" width="0.1524" layer="91"/>
+<pinref part="R50" gate="G$1" pin="2"/>
+<wire x1="-43.18" y1="180.34" x2="-35.56" y2="180.34" width="0.1524" layer="91"/>
+<junction x="-35.56" y="180.34"/>
 </segment>
 <segment>
 <pinref part="GND137" gate="1" pin="GND"/>
 <pinref part="P2" gate="G$1" pin="5"/>
-<wire x1="-35.56" y1="167.64" x2="-35.56" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="167.64" x2="-35.56" y2="160.02" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="167.64" x2="-35.56" y2="167.64" width="0.1524" layer="91"/>
+<pinref part="R51" gate="G$1" pin="2"/>
+<wire x1="-43.18" y1="160.02" x2="-35.56" y2="160.02" width="0.1524" layer="91"/>
+<junction x="-35.56" y="160.02"/>
 </segment>
 <segment>
 <pinref part="GND138" gate="1" pin="GND"/>
 <pinref part="P3" gate="G$1" pin="5"/>
-<wire x1="-35.56" y1="147.32" x2="-35.56" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="147.32" x2="-35.56" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="147.32" x2="-35.56" y2="147.32" width="0.1524" layer="91"/>
+<pinref part="R52" gate="G$1" pin="2"/>
+<wire x1="-43.18" y1="139.7" x2="-35.56" y2="139.7" width="0.1524" layer="91"/>
+<junction x="-35.56" y="139.7"/>
 </segment>
 <segment>
 <pinref part="GND139" gate="1" pin="GND"/>
 <pinref part="P4" gate="G$1" pin="5"/>
-<wire x1="-35.56" y1="127" x2="-35.56" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="127" x2="-35.56" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="127" x2="-35.56" y2="127" width="0.1524" layer="91"/>
+<pinref part="R53" gate="G$1" pin="2"/>
+<wire x1="-43.18" y1="119.38" x2="-35.56" y2="119.38" width="0.1524" layer="91"/>
+<junction x="-35.56" y="119.38"/>
 </segment>
 <segment>
 <pinref part="GND140" gate="1" pin="GND"/>
 <pinref part="P5" gate="G$1" pin="5"/>
-<wire x1="-35.56" y1="106.68" x2="-35.56" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="106.68" x2="-35.56" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="106.68" x2="-35.56" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="R54" gate="G$1" pin="2"/>
+<wire x1="-43.18" y1="99.06" x2="-35.56" y2="99.06" width="0.1524" layer="91"/>
+<junction x="-35.56" y="99.06"/>
 </segment>
 <segment>
 <pinref part="GND141" gate="1" pin="GND"/>
 <pinref part="P6" gate="G$1" pin="5"/>
-<wire x1="-35.56" y1="86.36" x2="-35.56" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="86.36" x2="-35.56" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="86.36" x2="-35.56" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="R55" gate="G$1" pin="2"/>
+<wire x1="-43.18" y1="78.74" x2="-35.56" y2="78.74" width="0.1524" layer="91"/>
+<junction x="-35.56" y="78.74"/>
 </segment>
 <segment>
 <pinref part="GND142" gate="1" pin="GND"/>
 <pinref part="P7" gate="G$1" pin="5"/>
-<wire x1="-35.56" y1="66.04" x2="-35.56" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="66.04" x2="-35.56" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="66.04" x2="-35.56" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="R56" gate="G$1" pin="2"/>
+<wire x1="-43.18" y1="58.42" x2="-35.56" y2="58.42" width="0.1524" layer="91"/>
+<junction x="-35.56" y="58.42"/>
 </segment>
 <segment>
 <pinref part="GND143" gate="1" pin="GND"/>
 <pinref part="P8" gate="G$1" pin="5"/>
-<wire x1="-35.56" y1="45.72" x2="-35.56" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="45.72" x2="-35.56" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="45.72" x2="-35.56" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="R57" gate="G$1" pin="2"/>
+<wire x1="-43.18" y1="38.1" x2="-35.56" y2="38.1" width="0.1524" layer="91"/>
+<junction x="-35.56" y="38.1"/>
 </segment>
 <segment>
 <pinref part="GND144" gate="1" pin="GND"/>
 <pinref part="P9" gate="G$1" pin="5"/>
-<wire x1="45.72" y1="187.96" x2="45.72" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="187.96" x2="45.72" y2="180.34" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="187.96" x2="45.72" y2="187.96" width="0.1524" layer="91"/>
+<pinref part="R65" gate="G$1" pin="2"/>
+<wire x1="45.72" y1="180.34" x2="40.64" y2="180.34" width="0.1524" layer="91"/>
+<junction x="45.72" y="180.34"/>
 </segment>
 <segment>
 <pinref part="GND145" gate="1" pin="GND"/>
 <pinref part="P10" gate="G$1" pin="5"/>
-<wire x1="45.72" y1="167.64" x2="45.72" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="167.64" x2="45.72" y2="160.02" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="167.64" x2="45.72" y2="167.64" width="0.1524" layer="91"/>
+<pinref part="R64" gate="G$1" pin="2"/>
+<wire x1="40.64" y1="160.02" x2="45.72" y2="160.02" width="0.1524" layer="91"/>
+<junction x="45.72" y="160.02"/>
 </segment>
 <segment>
 <pinref part="GND146" gate="1" pin="GND"/>
 <pinref part="P11" gate="G$1" pin="5"/>
-<wire x1="45.72" y1="147.32" x2="45.72" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="147.32" x2="45.72" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="147.32" x2="45.72" y2="147.32" width="0.1524" layer="91"/>
+<pinref part="R63" gate="G$1" pin="2"/>
+<wire x1="40.64" y1="139.7" x2="45.72" y2="139.7" width="0.1524" layer="91"/>
+<junction x="45.72" y="139.7"/>
 </segment>
 <segment>
 <pinref part="GND147" gate="1" pin="GND"/>
 <pinref part="P12" gate="G$1" pin="5"/>
-<wire x1="45.72" y1="127" x2="45.72" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="127" x2="45.72" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="127" x2="45.72" y2="127" width="0.1524" layer="91"/>
+<pinref part="R62" gate="G$1" pin="2"/>
+<wire x1="40.64" y1="119.38" x2="45.72" y2="119.38" width="0.1524" layer="91"/>
+<junction x="45.72" y="119.38"/>
 </segment>
 <segment>
 <pinref part="GND148" gate="1" pin="GND"/>
 <pinref part="P13" gate="G$1" pin="5"/>
-<wire x1="45.72" y1="106.68" x2="45.72" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="106.68" x2="45.72" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="106.68" x2="45.72" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="R61" gate="G$1" pin="2"/>
+<wire x1="40.64" y1="99.06" x2="45.72" y2="99.06" width="0.1524" layer="91"/>
+<junction x="45.72" y="99.06"/>
 </segment>
 <segment>
 <pinref part="GND149" gate="1" pin="GND"/>
 <pinref part="P14" gate="G$1" pin="5"/>
-<wire x1="45.72" y1="86.36" x2="45.72" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="86.36" x2="45.72" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="86.36" x2="45.72" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="R60" gate="G$1" pin="2"/>
+<wire x1="40.64" y1="78.74" x2="45.72" y2="78.74" width="0.1524" layer="91"/>
+<junction x="45.72" y="78.74"/>
 </segment>
 <segment>
 <pinref part="GND150" gate="1" pin="GND"/>
 <pinref part="P15" gate="G$1" pin="5"/>
-<wire x1="45.72" y1="66.04" x2="45.72" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="66.04" x2="45.72" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="66.04" x2="45.72" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="R59" gate="G$1" pin="2"/>
+<wire x1="40.64" y1="58.42" x2="45.72" y2="58.42" width="0.1524" layer="91"/>
+<junction x="45.72" y="58.42"/>
 </segment>
 <segment>
 <pinref part="GND151" gate="1" pin="GND"/>
 <pinref part="P16" gate="G$1" pin="5"/>
-<wire x1="45.72" y1="45.72" x2="45.72" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="45.72" x2="45.72" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="45.72" x2="45.72" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="R58" gate="G$1" pin="2"/>
+<wire x1="40.64" y1="38.1" x2="45.72" y2="38.1" width="0.1524" layer="91"/>
+<junction x="45.72" y="38.1"/>
 </segment>
 <segment>
 <pinref part="C47" gate="G$1" pin="2"/>
@@ -22829,26 +23016,26 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <segment>
 <pinref part="C100" gate="G$1" pin="2"/>
 <pinref part="GND58" gate="1" pin="GND"/>
-<wire x1="-246.38" y1="93.98" x2="-246.38" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="-299.72" y1="157.48" x2="-299.72" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND59" gate="1" pin="GND"/>
-<wire x1="-231.14" y1="93.98" x2="-231.14" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="-284.48" y1="157.48" x2="-284.48" y2="162.56" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="C101" gate="G$1" pin="-"/>
 <pinref part="GND62" gate="1" pin="GND"/>
-<wire x1="-218.44" y1="93.98" x2="-218.44" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="-271.78" y1="157.48" x2="-271.78" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C102" gate="G$1" pin="2"/>
 <pinref part="GND63" gate="1" pin="GND"/>
-<wire x1="-208.28" y1="93.98" x2="-208.28" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="-261.62" y1="157.48" x2="-261.62" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND160" gate="1" pin="GND"/>
-<wire x1="-256.54" y1="93.98" x2="-256.54" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="-309.88" y1="157.48" x2="-309.88" y2="160.02" width="0.1524" layer="91"/>
 <pinref part="C23" gate="G$1" pin="-"/>
 </segment>
 <segment>
@@ -22983,6 +23170,58 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <pinref part="JP12" gate="G$1" pin="4"/>
 <wire x1="-193.04" y1="53.34" x2="-167.64" y2="53.34" width="0.1524" layer="91"/>
 <label x="-193.04" y="53.34" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="GND188" gate="1" pin="GND"/>
+<pinref part="P17" gate="G$1" pin="5"/>
+<wire x1="-180.34" y1="154.94" x2="-180.34" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="-177.8" y1="154.94" x2="-180.34" y2="154.94" width="0.1524" layer="91"/>
+<pinref part="R49" gate="G$1" pin="2"/>
+<wire x1="-187.96" y1="147.32" x2="-180.34" y2="147.32" width="0.1524" layer="91"/>
+<junction x="-180.34" y="147.32"/>
+</segment>
+<segment>
+<pinref part="GND189" gate="1" pin="GND"/>
+<pinref part="P18" gate="G$1" pin="5"/>
+<wire x1="-180.34" y1="134.62" x2="-180.34" y2="127" width="0.1524" layer="91"/>
+<wire x1="-177.8" y1="134.62" x2="-180.34" y2="134.62" width="0.1524" layer="91"/>
+<pinref part="R48" gate="G$1" pin="2"/>
+<wire x1="-187.96" y1="127" x2="-180.34" y2="127" width="0.1524" layer="91"/>
+<junction x="-180.34" y="127"/>
+</segment>
+<segment>
+<pinref part="GND190" gate="1" pin="GND"/>
+<pinref part="P19" gate="G$1" pin="5"/>
+<wire x1="-180.34" y1="114.3" x2="-180.34" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="-177.8" y1="114.3" x2="-180.34" y2="114.3" width="0.1524" layer="91"/>
+<pinref part="R46" gate="G$1" pin="2"/>
+<wire x1="-187.96" y1="106.68" x2="-180.34" y2="106.68" width="0.1524" layer="91"/>
+<junction x="-180.34" y="106.68"/>
+</segment>
+<segment>
+<pinref part="GND191" gate="1" pin="GND"/>
+<pinref part="P20" gate="G$1" pin="5"/>
+<wire x1="-180.34" y1="93.98" x2="-180.34" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="-177.8" y1="93.98" x2="-180.34" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="R47" gate="G$1" pin="2"/>
+<wire x1="-187.96" y1="86.36" x2="-180.34" y2="86.36" width="0.1524" layer="91"/>
+<junction x="-180.34" y="86.36"/>
+</segment>
+<segment>
+<pinref part="C75" gate="G$1" pin="2"/>
+<pinref part="GND184" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C76" gate="G$1" pin="2"/>
+<pinref part="GND185" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C77" gate="G$1" pin="2"/>
+<pinref part="GND186" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C78" gate="G$1" pin="2"/>
+<pinref part="GND187" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="N$48" class="0">
@@ -24311,13 +24550,6 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <label x="-193.04" y="58.42" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="134.62" y1="86.36" x2="124.46" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="U7" gate="TLC5946" pin="SOUT"/>
-<pinref part="U8" gate="TLC5946" pin="SIN"/>
-<wire x1="134.62" y1="2.54" x2="124.46" y2="2.54" width="0.1524" layer="91"/>
-<wire x1="124.46" y1="2.54" x2="124.46" y2="86.36" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <wire x1="134.62" y1="5.08" x2="101.6" y2="5.08" width="0.1524" layer="91"/>
 <label x="101.6" y="5.08" size="1.778" layer="95"/>
 <pinref part="U8" gate="TLC5946" pin="SOUT"/>
@@ -24338,6 +24570,155 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <wire x1="134.62" y1="-5.08" x2="101.6" y2="-5.08" width="0.1524" layer="91"/>
 <label x="101.6" y="-5.08" size="1.778" layer="95"/>
 <pinref part="U8" gate="TLC5946" pin="BLANK"/>
+</segment>
+</net>
+<net name="N$53" class="0">
+<segment>
+<pinref part="U7" gate="TLC5946" pin="SOUT"/>
+<wire x1="134.62" y1="86.36" x2="129.54" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="86.36" x2="129.54" y2="2.54" width="0.1524" layer="91"/>
+<pinref part="U8" gate="TLC5946" pin="SIN"/>
+<wire x1="129.54" y1="2.54" x2="134.62" y2="2.54" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$55" class="0">
+<segment>
+<pinref part="R65" gate="G$1" pin="1"/>
+<pinref part="P9" gate="G$1" pin="4"/>
+<wire x1="40.64" y1="190.5" x2="48.26" y2="190.5" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$56" class="0">
+<segment>
+<pinref part="R64" gate="G$1" pin="1"/>
+<pinref part="P10" gate="G$1" pin="4"/>
+<wire x1="40.64" y1="170.18" x2="48.26" y2="170.18" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$58" class="0">
+<segment>
+<pinref part="R63" gate="G$1" pin="1"/>
+<pinref part="P11" gate="G$1" pin="4"/>
+<wire x1="40.64" y1="149.86" x2="48.26" y2="149.86" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$59" class="0">
+<segment>
+<pinref part="R62" gate="G$1" pin="1"/>
+<pinref part="P12" gate="G$1" pin="4"/>
+<wire x1="40.64" y1="129.54" x2="48.26" y2="129.54" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$60" class="0">
+<segment>
+<pinref part="R61" gate="G$1" pin="1"/>
+<pinref part="P13" gate="G$1" pin="4"/>
+<wire x1="40.64" y1="109.22" x2="48.26" y2="109.22" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$61" class="0">
+<segment>
+<pinref part="R60" gate="G$1" pin="1"/>
+<pinref part="P14" gate="G$1" pin="4"/>
+<wire x1="40.64" y1="88.9" x2="48.26" y2="88.9" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$62" class="0">
+<segment>
+<pinref part="R59" gate="G$1" pin="1"/>
+<pinref part="P15" gate="G$1" pin="4"/>
+<wire x1="40.64" y1="68.58" x2="48.26" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$63" class="0">
+<segment>
+<pinref part="R58" gate="G$1" pin="1"/>
+<pinref part="P16" gate="G$1" pin="4"/>
+<wire x1="40.64" y1="48.26" x2="48.26" y2="48.26" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$64" class="0">
+<segment>
+<pinref part="R57" gate="G$1" pin="1"/>
+<pinref part="P8" gate="G$1" pin="4"/>
+<wire x1="-43.18" y1="48.26" x2="-33.02" y2="48.26" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$65" class="0">
+<segment>
+<pinref part="R56" gate="G$1" pin="1"/>
+<pinref part="P7" gate="G$1" pin="4"/>
+<wire x1="-43.18" y1="68.58" x2="-33.02" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$66" class="0">
+<segment>
+<pinref part="R55" gate="G$1" pin="1"/>
+<pinref part="P6" gate="G$1" pin="4"/>
+<wire x1="-43.18" y1="88.9" x2="-33.02" y2="88.9" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$67" class="0">
+<segment>
+<pinref part="R54" gate="G$1" pin="1"/>
+<pinref part="P5" gate="G$1" pin="4"/>
+<wire x1="-43.18" y1="109.22" x2="-33.02" y2="109.22" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$68" class="0">
+<segment>
+<pinref part="R53" gate="G$1" pin="1"/>
+<pinref part="P4" gate="G$1" pin="4"/>
+<wire x1="-43.18" y1="129.54" x2="-33.02" y2="129.54" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$69" class="0">
+<segment>
+<pinref part="R52" gate="G$1" pin="1"/>
+<pinref part="P3" gate="G$1" pin="4"/>
+<wire x1="-43.18" y1="149.86" x2="-33.02" y2="149.86" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$70" class="0">
+<segment>
+<pinref part="R51" gate="G$1" pin="1"/>
+<pinref part="P2" gate="G$1" pin="4"/>
+<wire x1="-43.18" y1="170.18" x2="-33.02" y2="170.18" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$71" class="0">
+<segment>
+<pinref part="R50" gate="G$1" pin="1"/>
+<pinref part="P1" gate="G$1" pin="4"/>
+<wire x1="-43.18" y1="190.5" x2="-33.02" y2="190.5" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$72" class="0">
+<segment>
+<pinref part="R49" gate="G$1" pin="1"/>
+<pinref part="P17" gate="G$1" pin="4"/>
+<wire x1="-187.96" y1="157.48" x2="-177.8" y2="157.48" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$73" class="0">
+<segment>
+<pinref part="R48" gate="G$1" pin="1"/>
+<pinref part="P18" gate="G$1" pin="4"/>
+<wire x1="-187.96" y1="137.16" x2="-177.8" y2="137.16" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$74" class="0">
+<segment>
+<pinref part="R46" gate="G$1" pin="1"/>
+<pinref part="P19" gate="G$1" pin="4"/>
+<wire x1="-187.96" y1="116.84" x2="-177.8" y2="116.84" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$75" class="0">
+<segment>
+<pinref part="R47" gate="G$1" pin="1"/>
+<pinref part="P20" gate="G$1" pin="4"/>
+<wire x1="-187.96" y1="96.52" x2="-177.8" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
