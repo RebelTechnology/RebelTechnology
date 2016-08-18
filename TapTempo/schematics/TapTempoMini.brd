@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -3116,6 +3116,9 @@ Source: e_os_all.pdf</description>
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="8mil"/>
+<param name="AutoGrid" value="1"/>
+<param name="Efforts" value="0"/>
+<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>
@@ -4178,9 +4181,6 @@ Source: e_os_all.pdf</description>
 <wire x1="12.2936" y1="32.512" x2="6.223" y2="32.512" width="0.254" layer="1"/>
 <wire x1="6.223" y1="32.512" x2="3.81" y2="34.925" width="0.254" layer="1"/>
 <wire x1="3.81" y1="37.846" x2="3.81" y2="34.925" width="0.254" layer="1"/>
-</signal>
-<signal name="N$12">
-<contactref element="U1" pad="28"/>
 </signal>
 <signal name="N$2">
 <contactref element="U$1" pad="-2"/>
