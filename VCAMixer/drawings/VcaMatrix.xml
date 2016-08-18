@@ -1,0 +1,54 @@
+<module type="10hp">
+
+  <!-- jacks -->
+
+  <!-- VCA -->
+  <hole x="-0.25" y="1.75" radius="3.25"/>
+  <hole x="0.25" y="1.75" radius="3.25"/>
+  <hole x="-0.75" y="1.75" radius="3.25"/>
+  <hole x="0.75" y="1.75" radius="3.25"/>
+
+  <hole x="-0.25" y="1.25" radius="3.25"/>
+  <hole x="0.25" y="1.25" radius="3.25"/>
+  <hole x="-0.75" y="1.25" radius="3.25"/>
+  <hole x="0.75" y="1.25" radius="3.25"/>
+
+  <hole x="-0.25" y="0.75" radius="3.25"/>
+  <hole x="0.25" y="0.75" radius="3.25"/>
+  <hole x="-0.75" y="0.75" radius="3.25"/>
+  <hole x="0.75" y="0.75" radius="3.25"/>
+
+  <hole x="-0.25" y="0.25" radius="3.25"/>
+  <hole x="0.25" y="0.25" radius="3.25"/>
+  <hole x="-0.75" y="0.25" radius="3.25"/>
+  <hole x="0.75" y="0.25" radius="3.25"/>
+
+  <!-- leds -->
+  <hole x="-0.25" y="-0.25" radius="1.5"/>
+  <hole x="0.25" y="-0.25" radius="1.5"/>
+  <hole x="-0.75" y="-0.25" radius="1.5"/>
+  <hole x="0.75" y="-0.25" radius="1.5"/>
+
+  <hole x="-0.25" y="-0.75" radius="1.5"/>
+  <hole x="0.25" y="-0.75" radius="1.5"/>
+  <hole x="-0.75" y="-0.75" radius="1.5"/>
+  <hole x="0.75" y="-0.75" radius="1.5"/>
+
+  <!-- inputs -->
+  <hole x="-0.25" y="-1.25" radius="3.25"/>
+  <hole x="0.25" y="-1.25" radius="3.25"/>
+  <hole x="-0.75" y="-1.25" radius="3.25"/>
+  <hole x="0.75" y="-1.25" radius="3.25"/>
+
+  <!-- outputs -->
+  <hole x="-0.25" y="-1.75" radius="3.25"/>
+  <hole x="0.25" y="-1.75" radius="3.25"/>
+  <hole x="-0.75" y="-1.75" radius="3.25"/>
+  <hole x="0.75" y="-1.75" radius="3.25"/>
+
+
+  <!-- <hole x="-0.5" y="-1.75" radius="3.25"/> -->
+  <!-- <hole x="0.00" y="-1.75" radius="3.25"/> -->
+  <!-- <hole x="0.50" y="-1.75" radius="3.25"/> -->
+
+</module>
