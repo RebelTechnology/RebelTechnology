@@ -1,0 +1,52 @@
+<module type="8hp">
+  <!-- pcb vertical offset: 1.95 horizontal offset: 0.65 -->
+
+  <!-- WIFI antenna -->
+  <hole x="-0.50" y="1.90" radius="3.25"/>
+
+  <!-- buttons -->
+  <hole x="-0.50" y="0.525" radius="3.5"/>
+
+  <!-- jacks -->
+  <hole x="-0.50" y="-0.25" radius="3.25"/>
+  <hole x="-0.50" y="-0.75" radius="3.25"/>
+  <hole x="-0.50" y="-1.25" radius="3.25"/>
+  <hole x="-0.50" y="-1.75" radius="3.25"/>
+
+  <hole x="0.00" y="1.75" radius="3.25"/>
+  <hole x="0.00" y="1.25" radius="3.25"/>
+  <hole x="0.00" y="0.75" radius="3.25"/>
+  <hole x="0.00" y="0.25" radius="3.25"/>
+  <hole x="0.00" y="-0.25" radius="3.25"/>
+  <hole x="0.00" y="-0.75" radius="3.25"/>
+  <hole x="0.00" y="-1.25" radius="3.25"/>
+  <hole x="0.00" y="-1.75" radius="3.25"/>
+
+  <hole x="0.50" y="1.75" radius="3.25"/>
+  <hole x="0.50" y="1.25" radius="3.25"/>
+  <hole x="0.50" y="0.75" radius="3.25"/>
+  <hole x="0.50" y="0.25" radius="3.25"/>
+  <hole x="0.50" y="-0.25" radius="3.25"/>
+  <hole x="0.50" y="-0.75" radius="3.25"/>
+  <hole x="0.50" y="-1.25" radius="3.25"/>
+  <hole x="0.50" y="-1.75" radius="3.25"/>
+
+  <!-- <hole x="0.00" y="1.50" radius="1.5"/> -->
+  <!-- <hole x="0.00" y="1.00" radius="1.5"/> -->
+  <!-- <hole x="0.00" y="0.50" radius="1.5"/> -->
+  <!-- <hole x="0.00" y="-0.0" radius="1.5"/> -->
+  <!-- <hole x="0.00" y="-0.50" radius="1.5"/> -->
+  <!-- <hole x="0.00" y="-1.00" radius="1.5"/> -->
+  <!-- <hole x="0.00" y="-1.50" radius="1.5"/> -->
+  <!-- <hole x="0.00" y="-2.00" radius="1.5"/> -->
+
+  <!-- <hole x="0.50" y="1.50" radius="1.5"/> -->
+  <!-- <hole x="0.50" y="1.00" radius="1.5"/> -->
+  <!-- <hole x="0.50" y="0.50" radius="1.5"/> -->
+  <!-- <hole x="0.50" y="-0.0" radius="1.5"/> -->
+  <!-- <hole x="0.50" y="-0.50" radius="1.5"/> -->
+  <!-- <hole x="0.50" y="-1.00" radius="1.5"/> -->
+  <!-- <hole x="0.50" y="-1.50" radius="1.5"/> -->
+  <!-- <hole x="0.50" y="-2.00" radius="1.5"/> -->
+
+</module>
