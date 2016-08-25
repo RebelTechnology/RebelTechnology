@@ -7,6 +7,8 @@ extern "C" uint32_t HAL_GetTick();
 
 class PresetDisplayPatch : public Patch {
 private:
+  int counter;
+  const int SEND_RATE = 1024;
   int preset0, preset1;
   const int maxPreset = 11;
   int debounceDelay = 0;
@@ -29,9 +31,9 @@ public:
     // send parameter E value 0 to select first preset: CC24/0
     midiSendCC(0, PATCH_PARAMETER_E, preset0);
 
-    midiSendPC(0, 40);
-    midiSendCC(0, PATCH_CONTROL, 127);
-    midiSendCC(0, PATCH_PARAMETER_E, preset1);
+    midiSendPC(1, 40);
+    midiSendCC(1, PATCH_CONTROL, 127);
+    midiSendCC(1, PATCH_PARAMETER_E, preset1);
   }
   void encoderChanged(uint8_t encoder, int32_t dir){
     if(abs(dir) < 3)
@@ -46,12 +48,14 @@ public:
 	preset0 = min(maxPreset, preset0+1);
       else if(dir < 0)
 	preset0 = max(1, preset0-1);
+      // midiSendCC(0, PATCH_CONTROL, 127);
       midiSendCC(0, PATCH_PARAMETER_E, preset0*127/maxPreset);
     }else if(encoder == 1){
       if(dir > 0)
 	preset1 = min(maxPreset, preset1+1);
       else if(dir < 0)
 	preset1 = max(1, preset1-1);
+      // midiSendCC(1, PATCH_CONTROL, 127);
       midiSendCC(1, PATCH_PARAMETER_E, preset1*127/maxPreset);
     }
   }
@@ -72,5 +76,11 @@ public:
       screen.fill(BLUE);
     draw(x, y, preset1);
     draw(x+hspace, y+vspace, preset0);
+    if(counter++ == 1000){
+      midiSendCC(0, PATCH_PARAMETER_E, preset0*127/maxPreset);
+    }else if(counter >= 2000){
+      midiSendCC(1, PATCH_PARAMETER_E, preset1*127/maxPreset);
+      counter = 0;
+    }
   }
 };
