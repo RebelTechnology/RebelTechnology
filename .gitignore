@@ -7,3 +7,8 @@ Expander/firmware Keil/MDK-ARM/Expander/Expander_Expander.dep
 Magus/schematic/Magus.s#1
 *.s#2
 Magus/schematic/Magus.s#2
+Magus/schematic/Magus.b#5
+*.b#4
+Magus/schematic/Magus.s#3
+*.b#6
+*.b#3
