@@ -56,16 +56,19 @@
 /** @defgroup USBD_DESC_Private_Defines
   * @{
   */ 
-#define USBD_VID     1155
-#define USBD_LANGID_STRING     1033
-#define USBD_MANUFACTURER_STRING     "STMicroelectronics"
-#define USBD_PID_HS     22336
-#define USBD_PRODUCT_STRING_HS     "STM32 Audio Class"
-/* USER CODE BEGIN SERIALNUMBER_STRING_HS */
-#define USBD_SERIALNUMBER_STRING_HS     "00000000001A"
-/* USER CODE END SERIALNUMBER_STRING_HS */
-#define USBD_CONFIGURATION_STRING_HS     "AUDIO Config"
-#define USBD_INTERFACE_STRING_HS     "AUDIO Interface"
+
+#define USBD_VID                        0x1209 /* pid.codes */
+#define USBD_PID_HS                     0xDADA /* OWL */
+#define USBD_LANGID_STRING              0x409
+#define USBD_MANUFACTURER_STRING        (uint8_t*)"Rebel Tech"
+#define USBD_PRODUCT_STRING_HS          (uint8_t*)"PRISM-MIDI"
+#define USBD_SERIALNUMBER_STRING_HS     (uint8_t*)"00000000010C"
+#define USBD_PRODUCT_STRING_FS          (uint8_t*)"PRISM-MIDI"
+#define USBD_SERIALNUMBER_STRING_FS     (uint8_t*)"00000000010C"
+#define USBD_CONFIGURATION_STRING_FS    (uint8_t*)"AUDIO Config"
+#define USBD_INTERFACE_STRING_FS        (uint8_t*)"AUDIO Interface"
+#define USBD_CONFIGURATION_STRING_HS    (uint8_t*)"AUDIO Config"
+#define USBD_INTERFACE_STRING_HS        (uint8_t*)"AUDIO Interface"
 
 #define USB_SIZ_BOS_DESC            0x0C
 

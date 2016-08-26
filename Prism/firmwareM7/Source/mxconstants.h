@@ -24,7 +24,7 @@
 #define USE_UART
 #define USART_BAUDRATE               115200
 #define USART_PERIPH                 USART1
-/* #define USE_USB */
+#define USE_USB
 #define MIDI_MAX_MESSAGE_SIZE        260
 
 // MCOT096064 max recommended SPI speed 6.6MHz
