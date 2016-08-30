@@ -11,6 +11,9 @@
 #include "ProgramVector.h"
 #include "bus.h"
 #include "midi.h"
+#ifdef USE_USB
+#include "usb_device.h"
+#endif
 
 #ifndef min
 #define min(a,b) ((a)<(b)?(a):(b))
@@ -475,7 +478,9 @@ void MX_USART1_UART_Init(void)
 /* USB_OTG_HS init function */
 void MX_USB_OTG_HS_USB_Init(void)
 {
-
+#ifdef USE_USB
+  MX_USB_DEVICE_Init();
+#endif
 }
 
 /** 

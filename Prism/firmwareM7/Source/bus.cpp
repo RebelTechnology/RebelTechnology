@@ -12,7 +12,7 @@
 #ifdef USE_UART
 
 static uint8_t busframe[4];
-MidiWriter writer(0);
+MidiWriter writer;
 static DigitalBusReader bus;
 
 void midiSendCC(uint8_t ch, uint8_t cc, uint8_t value){
@@ -31,6 +31,8 @@ extern "C" {
 
   void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
     bus.readBusFrame(busframe);
+    if((busframe[0]&0xf0) == 0) // midi frame
+      midi_tx_usb_buffer(busframe, 4); // forward serial bus to USB MIDI
   }
 
   void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
@@ -108,9 +110,14 @@ void bus_tx_error(const char* reason){
 void bus_rx_error(const char* reason){
   debug << "Digital bus receive error: " << reason << ".";
   // bus_rx_index = 0;
-
   bus.reset();
 }
 
+extern "C" {
+  void midi_rx_usb_buffer(uint8_t *buffer, uint32_t length){
+    bus.sendFrame(buffer); // forward USB MIDI to serial bus
+    // bus.readMidiFrame(buffer);
+  }
+}
 
 #endif /* USE_UART */

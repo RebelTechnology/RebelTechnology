@@ -23,10 +23,13 @@ OBJS += $(DRIVERS)/Src/stm32f7xx_hal_uart.o
 OBJS += $(DRIVERS)/Src/stm32f7xx_hal_spi.o
 OBJS += $(DRIVERS)/Src/stm32f7xx_hal_dma2d.o
 OBJS += $(DRIVERS)/Src/stm32f7xx_hal_pcd.o # USB Device
+OBJS += $(DRIVERS)/Src/stm32f7xx_hal_pcd_ex.o # USB Device
 OBJS += $(DRIVERS)/Src/stm32f7xx_ll_usb.o
 OBJS += $(USB_DEVICE_FILE)/Core/Src/usbd_core.o
 OBJS += $(USB_DEVICE_FILE)/Core/Src/usbd_ioreq.o
 OBJS += $(USB_DEVICE_FILE)/Core/Src/usbd_ctlreq.o
+
+# OBJS += $(USB_DEVICE_FILE)/Class/AUDIO/Src/usbd_audio.o
 
 OBJS += $(TEMPLATEROOT)/LibSource/FloatArray.o
 OBJS += $(TEMPLATEROOT)/LibSource/StompBox.o

@@ -2,6 +2,7 @@
 #define _MidiReader_h_
 
 #include <inttypes.h>
+#include "mxconstants.h"
 #include "MidiStatus.h"
 #include "MidiHandler.h"
 

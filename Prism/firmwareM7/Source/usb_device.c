@@ -37,8 +37,8 @@
 #include "usb_device.h"
 #include "usbd_core.h"
 #include "usbd_desc.h"
-#include "usbd_audio.h"
-#include "usbd_audio_if.h"
+#include "usbd_midi.h"
+#include "usbd_midi_if.h"
 
 /* USB Device Core handle declaration */
 USBD_HandleTypeDef hUsbDeviceHS;
@@ -47,11 +47,11 @@ USBD_HandleTypeDef hUsbDeviceHS;
 void MX_USB_DEVICE_Init(void)
 {
   /* Init Device Library,Add Supported Class and Start the library*/
-  USBD_Init(&hUsbDeviceHS, &HS_Desc, DEVICE_HS);
+  USBD_Init(&hUsbDeviceHS, &AUDIO_Desc, DEVICE_HS);
 
-  USBD_RegisterClass(&hUsbDeviceHS, &USBD_AUDIO);
+  USBD_RegisterClass(&hUsbDeviceHS, &USBD_Midi_ClassDriver);
 
-  USBD_AUDIO_RegisterInterface(&hUsbDeviceHS, &USBD_AUDIO_fops_HS);
+  USBD_Midi_RegisterInterface(&hUsbDeviceHS, &USBD_Midi_fops);
 
   USBD_Start(&hUsbDeviceHS);
 
