@@ -33,6 +33,8 @@ extern "C" {
     bus.readBusFrame(busframe);
     if((busframe[0]&0xf0) == 0) // midi frame
       midi_tx_usb_buffer(busframe, 4); // forward serial bus to USB MIDI
+    __HAL_UART_FLUSH_DRREGISTER(huart);
+    serial_read(busframe, 4);
   }
 
   void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
@@ -106,6 +108,12 @@ void bus_tx_message(const char* msg){
 void bus_tx_error(const char* reason){
   debug << "Digital bus send error: " << reason << ".";
 }
+
+void bus_rx_parameter(uint8_t pid, int16_t value){}
+void bus_rx_button(uint8_t bid, int16_t value){}
+void bus_rx_command(uint8_t cmd, int16_t data){}
+void bus_rx_message(const char* msg){}
+void bus_rx_data(const uint8_t* data, uint16_t size){}
 
 void bus_rx_error(const char* reason){
   debug << "Digital bus receive error: " << reason << ".";
