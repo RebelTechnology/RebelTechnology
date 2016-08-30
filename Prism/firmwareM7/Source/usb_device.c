@@ -47,7 +47,7 @@ USBD_HandleTypeDef hUsbDeviceHS;
 void MX_USB_DEVICE_Init(void)
 {
   /* Init Device Library,Add Supported Class and Start the library*/
-  USBD_Init(&hUsbDeviceHS, &AUDIO_Desc, DEVICE_HS);
+  USBD_Init(&hUsbDeviceHS, &HS_Desc, DEVICE_HS);
 
   USBD_RegisterClass(&hUsbDeviceHS, &USBD_Midi_ClassDriver);
 
