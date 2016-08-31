@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -13510,7 +13510,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="BOOT" library="SparkFun" deviceset="SOLDERJUMPER" device="NO"/>
 <part name="+3V19" library="supply1" deviceset="+3V3" device=""/>
 <part name="JP9" library="SparkFun" deviceset="M08" device="1X08"/>
-<part name="Q1" library="transistor-small-signal" deviceset="BSS84" device="">
+<part name="Q1" library="transistor-small-signal" deviceset="BSS84" device="" value="SI2309CDS">
 <attribute name="OC_FARNELL" value="1779264"/>
 </part>
 <part name="Q2" library="transistor-small-signal" deviceset="BSS123" device="">
@@ -13653,7 +13653,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="U$3" library="Rebel" deviceset="INDUCTOR" device="" value="1uH">
 <attribute name="OC_FARNELL" value="2288736"/>
 </part>
-<part name="C38" library="Rebel" deviceset="C-EU" device="C0603" value="10u"/>
+<part name="C38" library="Rebel" deviceset="C-EU" device="C1206" value="10u"/>
 <part name="GND61" library="supply1" deviceset="GND" device=""/>
 <part name="U4" library="James" deviceset="V_REG_LM3940IMP" device="">
 <attribute name="OC_FARNELL" value="1469104"/>
