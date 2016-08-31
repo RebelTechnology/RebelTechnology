@@ -3,7 +3,7 @@ ELF=$(BUILD)/Prism.elf
 BIN=$(BUILD)/Prism.bin
 
 # Tool path
-TOOLROOT ?= ~/devel/OwlWare/Tools/gcc-arm-none-eabi-5_2-2015q4/bin
+TOOLROOT ?= ~/devel/OwlWare/Tools/gcc-arm-none-eabi-5_4-2016q2/bin
 
 # Tools
 CC=$(TOOLROOT)/arm-none-eabi-gcc

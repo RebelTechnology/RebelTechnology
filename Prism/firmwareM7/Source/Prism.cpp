@@ -5,6 +5,7 @@
 #include "StompBox.h"
 #include "stm32f7xx_hal.h"
 #include "gpio.h"
+#include "BitState.hpp"
 
 bool sw1(){
   // return !getPin(SW1_GPIO_Port, SW1_Pin);
@@ -48,8 +49,9 @@ void changePatch(uint8_t pid){
   }
 }
 
+static int16_t encoders[2] = {INT16_MAX/2, INT16_MAX/2};
+static int16_t deltas[2] = {0, 0};
 void encoderChanged(uint8_t encoder, int32_t value){
-  static int16_t encoders[2] = {INT16_MAX/2, INT16_MAX/2};
   // // todo: debounce
   // // pass encoder change event to patch
   int32_t delta = value - encoders[encoder];
@@ -68,8 +70,8 @@ void encoderChanged(uint8_t encoder, int32_t value){
   //   }
   // }else if(encoder == 1){
   //   patches[currentPatch]->encoderChanged(encoder, delta);
-  // }  
-  patches[currentPatch]->encoderChanged(encoder, delta);
+  // }
+  deltas[encoder] = delta;
 }
 
 void setup(ProgramVector* pv){
@@ -92,6 +94,15 @@ void setup(ProgramVector* pv){
 void processBlock(ProgramVector* pv){
   samples.split(pv->audio_input, pv->audio_blocksize);
   screen.setBuffer(pv->pixels);
+  if(deltas[0]){
+    patches[currentPatch]->encoderChanged(0, deltas[0]);
+    deltas[0] = 0;
+  }
+  if(deltas[1]){
+    patches[currentPatch]->encoderChanged(1, deltas[1]);
+    deltas[1] = 0;
+  }
+  
   patches[currentPatch]->processAudio(samples);
   // processor.setParameterValues(pv->parameters);
   // processor.patch->processAudio(*buffer);

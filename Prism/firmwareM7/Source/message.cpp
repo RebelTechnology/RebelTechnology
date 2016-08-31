@@ -8,11 +8,7 @@ static const char hexnumerals[] = "0123456789abcdef";
 #define abs(x) ((x)>0?(x):-(x))
 #endif /* abs */
 
-char* itoa(int val, int base){
-  return itoa(val, base, 0);
-}
-
-char* itoa(int val, int base, int pad){
+static char* itoa(int val, int base, int pad){
   static char buf[13] = {0};
   int i = 11;
   unsigned int part = abs(val);
@@ -25,7 +21,11 @@ char* itoa(int val, int base, int pad){
   return &buf[i+1];
 }
 
-char* ftoa(float val, int base){
+static char* itoa(int val, int base){
+  return itoa(val, base, 0);
+}
+
+static char* ftoa(float val, int base){
   static char buf[16] = {0};
   int i = 14;
   // print 4 decimal points

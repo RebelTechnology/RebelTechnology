@@ -5,6 +5,7 @@
 #include "MidiStatus.h"
 #include "serial.h"
 #include "midi.h"
+#include "mxconstants.h"
 
 class MidiWriter { // : public MidiInterface {
 public:
@@ -70,22 +71,6 @@ public:
   }
 
 #if 0
-  void write(uint8_t *data, uint8_t length){
-    // Serial1.write(data, length);
-    // for(int i=0; i<length; ++i)
-    //   write(data[i]);
-    // uart_transmit_bytes(data, length );
-    serial_write(data, length);
-  }
-
-  void write(uint8_t data){
-    /* Wait until end of previous transmit */
-    // while(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
-    // /* send data */
-    // USART_SendData(USART_PERIPH, data);
-    // serialputchar(data);
-    write(&data, 1);
-  }
 
   void channelPressure(uint8_t channel, uint8_t value){
     write(0xd0 | channel);
