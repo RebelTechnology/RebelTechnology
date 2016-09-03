@@ -8,7 +8,7 @@ extern "C" uint32_t HAL_GetTick();
 class PresetDisplayPatch : public Patch {
 private:
   int counter;
-  const int SEND_RATE = 1024;
+  const int SEND_RATE = 512;
   int preset0, preset1;
   const int maxPreset = 11;
   int debounceDelay = 0;
@@ -24,16 +24,20 @@ public:
   }
   void reset(){
     preset0 = preset1 = 1;
-    // send PC to change to last program, E8: PC40
-    midiSendPC(0, 40);
+    // // send PC to change to last program, E8: PC40
+    // midiSendPC(0, 40);
     // send CC 26 value 127 to turn remote control on: CC26/127
     midiSendCC(0, PATCH_CONTROL, 127);
     // send parameter E value 0 to select first preset: CC24/0
     midiSendCC(0, PATCH_PARAMETER_E, preset0);
 
-    midiSendPC(1, 40);
     midiSendCC(1, PATCH_CONTROL, 127);
-    midiSendCC(1, PATCH_PARAMETER_E, preset1);
+    midiSendCC(1, PATCH_PARAMETER_E, preset0);
+
+    midiSendCC(2, PATCH_CONTROL, 127);
+    midiSendCC(2, PATCH_PARAMETER_E, preset1);
+    midiSendCC(3, PATCH_CONTROL, 127);
+    midiSendCC(3, PATCH_PARAMETER_E, preset1);
   }
   void encoderChanged(uint8_t encoder, int32_t dir){
     if(abs(dir) < 3)
@@ -48,15 +52,15 @@ public:
 	preset0 = min(maxPreset, preset0+1);
       else if(dir < 0)
 	preset0 = max(1, preset0-1);
-      // midiSendCC(0, PATCH_CONTROL, 127);
       midiSendCC(0, PATCH_PARAMETER_E, preset0*127/maxPreset);
+      midiSendCC(1, PATCH_PARAMETER_E, preset0*127/maxPreset);
     }else if(encoder == 1){
       if(dir > 0)
 	preset1 = min(maxPreset, preset1+1);
       else if(dir < 0)
 	preset1 = max(1, preset1-1);
-      // midiSendCC(1, PATCH_CONTROL, 127);
-      midiSendCC(1, PATCH_PARAMETER_E, preset1*127/maxPreset);
+      midiSendCC(2, PATCH_PARAMETER_E, preset1*127/maxPreset);
+      midiSendCC(3, PATCH_PARAMETER_E, preset1*127/maxPreset);
     }
   }
   void draw(uint8_t x, uint8_t y, uint8_t preset){
@@ -78,8 +82,10 @@ public:
     draw(x+hspace, y+vspace, preset0);
     if(counter++ == 1000){
       midiSendCC(0, PATCH_PARAMETER_E, preset0*127/maxPreset);
+      midiSendCC(1, PATCH_PARAMETER_E, preset0*127/maxPreset);
     }else if(counter >= 2000){
-      midiSendCC(1, PATCH_PARAMETER_E, preset1*127/maxPreset);
+      midiSendCC(2, PATCH_PARAMETER_E, preset1*127/maxPreset);
+      midiSendCC(3, PATCH_PARAMETER_E, preset1*127/maxPreset);
       counter = 0;
     }
   }
