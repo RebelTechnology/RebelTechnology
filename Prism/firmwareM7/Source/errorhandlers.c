@@ -6,7 +6,12 @@ const char* errormsg = 0;
 
 void error(int8_t code, const char* reason){
   errorcode = code;
-  assert_param(0);
+  errormsg = reason;
+#ifdef DEBUG
+  __asm__("BKPT");
+#else
+  NVIC_SystemReset();
+#endif
 }
 
 int8_t getErrorStatus(){

@@ -62,9 +62,9 @@ public:
   }
 
   void write(uint8_t *data, uint8_t length){
-#ifdef USE_USB
-    midi_tx_usb_buffer(data, length);
-#endif
+// #ifdef USE_USB
+//     midi_tx_usb_buffer(data, length);
+// #endif
 #ifdef USE_UART
     serial_write(data, length);
 #endif

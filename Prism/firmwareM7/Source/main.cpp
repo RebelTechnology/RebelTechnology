@@ -752,6 +752,9 @@ void StartScreenTask(void const * argument)
     swappb = !swappb;
     // this is only used for rack mount so we'll skip adc
 #endif
+#ifdef USE_UART
+  bus_status();
+#endif
   }
 }
 

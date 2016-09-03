@@ -5,7 +5,6 @@
 #include "StompBox.h"
 #include "stm32f7xx_hal.h"
 #include "gpio.h"
-#include "BitState.hpp"
 
 bool sw1(){
   // return !getPin(SW1_GPIO_Port, SW1_Pin);

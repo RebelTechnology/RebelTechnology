@@ -37,6 +37,7 @@
 #include "cmsis_os.h"
 #include "mxconstants.h"
 #include "gpio.h"
+#include "errorhandlers.h"
 
 /* USER CODE BEGIN 0 */
 
@@ -75,15 +76,62 @@ void SysTick_Handler(void)
 /* please refer to the startup file (startup_stm32f7xx.s).                    */
 /******************************************************************************/
 
+void serial_rx_callback(uint8_t c);
+
 /**
 * @brief This function handles USART1 global interrupt.
 */
 void USART1_IRQHandler(void)
 {
   /* USER CODE BEGIN USART1_IRQn 0 */
-
+  UART_HandleTypeDef *huart = &huart1;
+  uint32_t isrflags   = READ_REG(huart->Instance->ISR);
+  /* uint32_t cr1its     = READ_REG(huart->Instance->CR1); */
+  /* uint32_t cr3its     = READ_REG(huart->Instance->CR3); */
+  uint32_t errorflags = (isrflags & (uint32_t)(USART_ISR_PE | USART_ISR_FE | USART_ISR_ORE | USART_ISR_NE));
+  /* uint16_t uhMask = huart->Mask; */
+  /* If no error occurs */
+  if(errorflags == RESET){
+    /* UART in mode Receiver ---------------------------------------------------*/
+    if(((isrflags & USART_ISR_RXNE) != RESET)) // && ((cr1its & USART_CR1_RXNEIE) != RESET))
+      /* serial_rx_callback((uint8_t)(huart->Instance->RDR & (uint8_t)uhMask)); */
+      serial_rx_callback((uint8_t)(huart->Instance->RDR));
+  }else{
+    /* If some errors occur */
+    /* if((errorflags != RESET) && ((cr3its & (USART_CR3_EIE | USART_CR1_PEIE)) != RESET)){ */
+      /* UART parity error interrupt occurred -------------------------------------*/
+    if(((isrflags & USART_ISR_PE) != RESET)) //  && ((cr1its & USART_CR1_PEIE) != RESET))
+      {
+	__HAL_UART_CLEAR_IT(huart, UART_CLEAR_PEF);
+	setErrorMessage(UART_ERROR, "uart parity error");
+	huart->ErrorCode |= HAL_UART_ERROR_PE;
+      }
+    /* UART frame error interrupt occurred --------------------------------------*/
+    if(((isrflags & USART_ISR_FE) != RESET)) // && ((cr3its & USART_CR3_EIE) != RESET))
+      {
+	__HAL_UART_CLEAR_IT(huart, UART_CLEAR_FEF);
+	setErrorMessage(UART_ERROR, "uart frame error");
+	huart->ErrorCode |= HAL_UART_ERROR_FE;
+      }
+    /* UART noise error interrupt occurred --------------------------------------*/
+    if(((isrflags & USART_ISR_NE) != RESET)) // && ((cr3its & USART_CR3_EIE) != RESET))
+      {
+	__HAL_UART_CLEAR_IT(huart, UART_CLEAR_NEF);
+	setErrorMessage(UART_ERROR, "uart noise error");
+	huart->ErrorCode |= HAL_UART_ERROR_NE;
+      }    
+    /* UART Over-Run interrupt occurred -----------------------------------------*/
+    if(((isrflags & USART_ISR_ORE) != RESET)) //  &&
+      // (((cr1its & USART_CR1_RXNEIE) != RESET) || ((cr3its & USART_CR3_EIE) != RESET)))
+      {
+	__HAL_UART_CLEAR_IT(huart, UART_CLEAR_OREF);
+	__HAL_UART_FLUSH_DRREGISTER(huart);
+	setErrorMessage(UART_ERROR, "uart overrun");
+	huart->ErrorCode |= HAL_UART_ERROR_ORE;
+      }
+  }
   /* USER CODE END USART1_IRQn 0 */
-  HAL_UART_IRQHandler(&huart1);
+  /* HAL_UART_IRQHandler(&huart1); */
   /* USER CODE BEGIN USART1_IRQn 1 */
 
   /* USER CODE END USART1_IRQn 1 */

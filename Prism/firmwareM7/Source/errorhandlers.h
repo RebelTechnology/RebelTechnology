@@ -1,6 +1,6 @@
 #include <stdint.h>
 
-#define ASSERT(cond, msg) do{if(!(cond))setErrorMessage(PROGRAM_ERROR, msg);}while(0)
+#define ASSERT(cond, msg) do{if(!(cond))error(PROGRAM_ERROR, msg);}while(0)
 
 #ifdef __cplusplus
  extern "C" {
@@ -20,6 +20,7 @@
 #define USAGE_ERROR         0x50
 #define PROGRAM_ERROR       0x60
 #define CONFIG_ERROR        0x70
+#define UART_ERROR          0x80
 
 #ifdef __cplusplus
 }

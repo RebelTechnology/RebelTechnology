@@ -5,8 +5,8 @@
 
 #define CODEC_BUFFER_HALFSIZE (CODEC_BUFFER_SIZE/2)
 #define CODEC_BUFFER_QUARTSIZE (CODEC_BUFFER_SIZE/4)
-uint32_t txbuf[CODEC_BUFFER_SIZE];
-uint32_t rxbuf[CODEC_BUFFER_SIZE];
+static uint32_t txbuf[CODEC_BUFFER_SIZE];
+static uint32_t rxbuf[CODEC_BUFFER_SIZE];
 
 extern "C" {
   void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai);

@@ -47,118 +47,147 @@ USBD_ClassTypeDef  USBD_Midi_ClassDriver =
 
 static uint8_t USBD_Midi_CfgDesc[USB_MIDI_CONFIG_DESC_SIZ] =
 {
-// configuration descriptor
-            0x09, 
-            USB_DESC_TYPE_OTHER_SPEED_CONFIGURATION, 
-            LOBYTE(USB_MIDI_CONFIG_DESC_SIZ), 
-            HIBYTE(USB_MIDI_CONFIG_DESC_SIZ), 
-            0x02, 
-            0x01, 
-            0x00, 
-            0xc0, 
-            0x50,
+  /* Configuration 1 */
+  0x09,                                 /* bLength */
+  0x02,                                 /* bDescriptorType */
+  LOBYTE(USB_MIDI_CONFIG_DESC_SIZ),       /* wTotalLength */
+  HIBYTE(USB_MIDI_CONFIG_DESC_SIZ),       /* wTotalLength */
+  0x02,                                 /* bNumInterfaces */
+  0x01,                                 /* bConfigurationValue */
+  0x00,                                 /* iConfiguration */
+  0x80,                                 /* bmAttributes: BUS Powered */
+  0x32,                                 /* bMaxPower = 100 mA*/
+  /* 09 bytes */
+  
+  /* Standard AC Interface Descriptor */
+  0x09,                                 /* bLength */
+  0x04,                                 /* bDescriptorType */
+  0x00,                                 /* bInterfaceNumber */
+  0x00,                                 /* bAlternateSetting */
+  0x00,                                 /* bNumEndpoints */
+  0x01,                                 /* bInterfaceClass */
+  0x01,                                 /* bInterfaceSubClass */
+  0x00,                                 /* bInterfaceProtocol */
+  0x00,                                 /* iInterface */
+  /* 09 bytes */
+  
+  /* Class-specific AC Interface Descriptor */
+  0x09,                                 /* bLength */
+  0x24,                                 /* bDescriptorType */
+  0x01,                                 /* bDescriptorSubtype */
+  0x00,                                 /* bcdADC */
+  0x01,                                 /* bcdADC */
+  0x09,                                 /* wTotalLength */
+  0x00,					/* wTotalLength */
+  0x01,                                 /* bInCollection */
+  0x01,                                 /* baInterfaceNr */
+  /* 09 bytes */
+  
+  /* Standard MS Interface Descriptor */
+  /* MIDI Adapter Standard MS Interface Descriptor */
+  0x09,                                 /* bLength */
+  0x04,                                 /* bDescriptorType */
+  0x01,                                 /* bInterfaceNumber */
+  0x00,                                 /* bAlternateSetting */
+  0x02,                                 /* bNumEndpoints */
+  0x01,                                 /* bInterfaceClass */
+  0x03,                                 /* bInterfaceSubClass */
+  0x00,                                 /* bInterfaceProtocol */
+  0x00,                                 /* iInterface */
+  /* 09 bytes */
+  
+  /* Class-specific MS Interface Descriptor */
+  /* MIDI Adapter Class-specific MS Interface Descriptor */
+  0x07,                                 /* bLength */
+  0x24,                                 /* bDescriptorType */
+  0x01,                                 /* bDescriptorSubtype */
+  0x00,                                 /* bcdADC */
+  0x01,                                 /* bcdADC */
+  0x41,                                 /* wTotalLength */
+  0x00,                                 /* wTotalLength */
+  /* 07 bytes */
+  
+  /* MIDI Adapter MIDI IN Jack Descriptor (Embedded) */
+  0x06,                                 /* bLength */
+  0x24,                                 /* bDescriptorType */
+  0x02,                                 /* bDescriptorSubtype */
+  0x01,                                 /* bJackType */
+  0x01,					/* bJackID */
+  0x00,                                 /* iJack */
+  /* 06 bytes */
+  
+  /* MIDI Adapter MIDI IN Jack Descriptor (External) */
+  0x06,                                 /* bLength */
+  0x24,                                 /* bDescriptorType */
+  0x02,                                 /* bDescriptorSubtype */
+  0x02,                                 /* bJackType */
+  0x02,					/* bJackID */
+  0x00,                                 /* iJack */
+  /* 06 bytes */
 
-            // The Audio Interface Collection
-            0x09, 
-            0x04, 
-            0x00, 
-            0x00, 
-            0x00, 
-            0x01, 
-            0x01, 
-            0x00, 
-            0x00, // Standard AC Interface Descriptor
-            0x09, 
-            0x24, 
-            0x01, 
-            0x00, 
-            0x01, 
-            0x09, 
-            0x00, 
-            0x01, 
-            0x01, // Class-specific AC Interface Descriptor
-            0x09, 
-            0x04, 
-            0x01, 
-            0x00, 
-            0x02, 
-            0x01, 
-            0x03, 
-            0x00, 
-            0x00, // MIDIStreaming Interface Descriptors
-            0x07, 
-            0x24, 
-            0x01, 
-            0x00, 
-            0x01, 
-            0x41, 
-            0x00,             // Class-Specific MS Interface Header Descriptor
+  /* MIDI Adapter MIDI OUT Jack Descriptor (Embedded) */
+  0x09,                                 /* bLength */
+  0x24,                                 /* bDescriptorType */
+  0x03,                                 /* bDescriptorSubtype */
+  0x01,                                 /* bJackType */
+  0x03,					/* bJackID */
+  0x01,                                 /* bNrInputPins */
+  0x02,                                 /* BaSourceID */
+  0x01,                                 /* BaSourcePin */
+  0x00,                                 /* iJack */
+  /* 09 bytes */
 
-            // MIDI IN JACKS
-            0x06, 
-            0x24, 
-            0x02, 
-            0x01, 
-            0x01, 
-            0x00,
-            0x06, 
-            0x24, 
-            0x02, 
-            0x02, 
-            0x02, 
-            0x00,
+  /* MIDI Adapter MIDI OUT Jack Descriptor (External) */
+  0x09,                                 /* bLength */
+  0x24,                                 /* bDescriptorType */
+  0x03,                                 /* bDescriptorSubtype */
+  0x02,                                 /* bJackType */
+  0x04,					/* bJackID */
+  0x01,                                 /* bNrInputPins */
+  0x01,                                 /* BaSourceID */
+  0x01,                                 /* BaSourcePin */
+  0x00,                                 /* iJack */
+  /* 09 bytes */
 
-            // MIDI OUT JACKS
-            0x09, 
-            0x24, 
-            0x03, 
-            0x01, 
-            0x03, 
-            0x01, 
-            0x02, 
-            0x01, 
-            0x00,
-            0x09, 
-            0x24, 
-            0x03, 
-            0x02, 
-            0x06, 
-            0x01,
-            0x01, 
-            0x01, 
-            0x00,
+  /* MIDI Adapter Standard Bulk OUT Endpoint Descriptor */
+  0x09,                                 /* bLength */
+  0x05,                                 /* bDescriptorType */
+  MIDI_OUT_EP,                          /* bEndpointAddress */
+  0x02,                                 /* bmAttributes */
+  0x40,					/* wMaxPacketSize */
+  0x00,                                 /* wMaxPacketSize */
+  0x00,                                 /* bInterval */
+  0x00,                                 /* bRefresh */
+  0x00,                                 /* bSynchAddress */
+  /* 09 bytes */
 
-            // OUT endpoint descriptor
-            0x09, 
-            0x05, 
-            MIDI_OUT_EP, 
-            0x02, 
-            0x40, 
-            0x00, 
-            0x00, 
-            0x00, 
-            0x00,
-            0x05, 
-            0x25, 
-            0x01, 
-            0x01, 
-            0x01,
+  /* MIDI Adapter Class-specific Bulk OUT Endpoint Descriptor */
+  0x05,                                 /* bLength */
+  0x25,                                 /* bDescriptorType */
+  0x01,                                 /* bDescriptorSubtype */
+  0x01,                                 /* bNumEmbMIDIJack */
+  0x01,					/* BaAssocJackID */
+  /* 05 bytes */
 
-            // IN endpoint descriptor
-            0x09, 
-            0x05, 
-            MIDI_IN_EP, 
-            0x02, 
-            0x40, 
-            0x00, 
-            0x00, 
-            0x00, 
-            0x00,
-            0x05, 
-            0x25, 
-            0x01, 
-            0x01, 
-            0x03,
+  /* MIDI Adapter Standard Bulk IN Endpoint Descriptor */
+  0x09,                                 /* bLength */
+  0x05,                                 /* bDescriptorType */
+  MIDI_IN_EP,                           /* bEndpointAddress */
+  0x02,                                 /* bmAttributes */
+  0x40,					/* wMaxPacketSize */
+  0x00,                                 /* wMaxPacketSize */
+  0x00,                                 /* bInterval */
+  0x00,                                 /* bRefresh */
+  0x00,                                 /* bSynchAddress */
+  /* 09 bytes */
+
+  /* MIDI Adapter Class-specific Bulk IN Endpoint Descriptor */
+  0x05,                                 /* bLength */
+  0x25,                                 /* bDescriptorType */
+  0x01,                                 /* bDescriptorSubtype */
+  0x01,                                 /* bNumEmbMIDIJack */
+  0x03					/* BaAssocJackID */
+  /* 05 bytes */
   };
 
 #if defined ( __ICCARM__ ) /*!< IAR Compiler */
