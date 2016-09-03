@@ -131,6 +131,7 @@ uint8_t* bus_deviceid(){
 void bus_setup(){
   // debug << "bus_setup\r\n";
   // serial_setup(USART_BAUDRATE);
+  bus.sendReset();
 
   extern UART_HandleTypeDef huart1;
   UART_HandleTypeDef *huart = &huart1;

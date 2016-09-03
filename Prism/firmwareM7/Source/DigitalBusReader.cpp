@@ -120,6 +120,13 @@ void DigitalBusReader::readBusFrame(uint8_t* frame){
     // 0xc0 until 0xff at end of frame
     // use ASCII SYN instead?
     break;
+  case OWL_COMMAND_RESET:
+    if(id == 0){
+      if(nuid != NO_UID) // propagate
+      sendFrame(frame);
+      reset();
+    }
+    break;
   default:
     rxError("Invalid message");
     break;
