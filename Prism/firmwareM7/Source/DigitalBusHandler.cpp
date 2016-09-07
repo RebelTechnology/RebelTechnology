@@ -152,7 +152,7 @@ void DigitalBusHandler::sendParameterChange(uint8_t pid, int16_t value){
 void DigitalBusHandler::handleParameterChange(uint8_t pid, int16_t value){
   bus_rx_parameter(pid, value);
   // todo
-  // setParameter(pid, value);  
+  // setParameterValue(pid, value);  
 }
 
 void DigitalBusHandler::sendButtonChange(uint8_t bid, int16_t value){
@@ -221,5 +221,6 @@ void DigitalBusHandler::handleData(const uint8_t* data, uint32_t len){
 }
 
 void DigitalBusHandler::sendReset(){
-  sendFrame(OWL_COMMAND_RESET, 0, 0, 0);
+  sendFrame(OWL_COMMAND_RESET, OWL_COMMAND_RESET, 
+	    OWL_COMMAND_RESET, OWL_COMMAND_RESET);
 }

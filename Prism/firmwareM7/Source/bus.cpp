@@ -148,49 +148,20 @@ void bus_setup(){
 #define BUS_IDLE_INTERVAL 2197
 
 int bus_status(){
-
-  if(rxbuf.notEmpty()){
+  while(rxbuf.notEmpty()){
     uint8_t* frame = rxbuf.getReadHead();
     rxbuf.incrementReadHead(4);
     bus.readBusFrame(frame);
     if((frame[0]&0xf0) == 0) // midi frame
       midi_tx_usb_buffer(frame, 4); // forward serial bus to USB MIDI
   }
-  // extern UART_HandleTypeDef huart1;
-  // static int waitms = 1;
-  // if(HAL_UART_Receive(&huart1, busframe, 4, waitms) == HAL_OK){
-  //   bus.readBusFrame(busframe);
-  //   if((busframe[0]&0xf0) == 0) // midi frame
-  //     midi_tx_usb_buffer(busframe, 4); // forward serial bus to USB MIDI
+  // static uint32_t lastpolled = 0;
+  // if(osKernelSysTick() > lastpolled + BUS_IDLE_INTERVAL){
+  //   bus.connected();
+  //   lastpolled = osKernelSysTick();
   // }
-  static uint32_t lastpolled = 0;
-  if(osKernelSysTick() > lastpolled + BUS_IDLE_INTERVAL){
-    bus.connected();
-    lastpolled = osKernelSysTick();
-  }
   return bus.getStatus();
 }
-
-// extern "C" {
-//   static uint8_t bus_rx_index = 0;
-//   void USARTx_IRQHandler(void){
-//   // void USART1_IRQHandler(void){
-//     static uint8_t frame[4];
-//     /* If overrun condition occurs, clear the ORE flag and recover communication */
-//     if(USART_GetFlagStatus(USART_PERIPH, USART_FLAG_ORE) != RESET){
-//       USART_ReceiveData(USART_PERIPH);
-//       bus_rx_index = 0;
-//     }else if(USART_GetITStatus(USART_PERIPH, USART_IT_RXNE) != RESET){    
-//       // Reading the receive data register clears the RXNE flag implicitly
-//       char c = USART_ReceiveData(USART_PERIPH);
-//       frame[bus_rx_index++] = c;
-//       if(bus_rx_index == 4){
-// 	bus_rx_index = 0;
-// 	bus.readBusFrame(frame);
-//       }
-//     }
-//   }
-// }
 
 void bus_tx_parameter(uint8_t pid, int16_t value){
   debug << "tx parameter [" << pid << "][" << value << "]" ;
@@ -224,12 +195,9 @@ void bus_rx_data(const uint8_t* data, uint16_t size){}
 
 void bus_rx_error(const char* reason){
   debug << "Digital bus receive error: " << reason << ".";
-  // bus_rx_index = 0;
-  extern UART_HandleTypeDef huart1;
-  __HAL_UART_DISABLE_IT(&huart1, UART_IT_RXNE);
   bus.reset();
   rxbuf.reset();
-  // bus_setup();
+  bus.sendReset();
 }
 
 extern "C" {

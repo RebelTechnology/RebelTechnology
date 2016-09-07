@@ -14,5 +14,4 @@ private:
   uint32_t datalen = 0;
 };
 
-
 #endif /* _DigitalBusReader_h_ */
