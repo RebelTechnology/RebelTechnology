@@ -7,5 +7,6 @@ USBD_Midi_ItfTypeDef USBD_Midi_fops = {
 };
 
 void midi_tx_usb_buffer(uint8_t* buf, uint32_t len) {
-  USBD_LL_Transmit(&hUsbDeviceHS, MIDI_IN_EP, buf, len);
+  if(hUsbDeviceHS.dev_state == USBD_STATE_CONFIGURED)
+    USBD_LL_Transmit(&hUsbDeviceHS, MIDI_IN_EP, buf, len);
 }

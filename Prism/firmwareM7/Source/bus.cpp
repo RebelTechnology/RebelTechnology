@@ -27,7 +27,8 @@ void midiSendPC(uint8_t ch, uint8_t pc){
 template<uint16_t size>
 class SerialBuffer {
 private:
-  volatile uint16_t writepos = 0, readpos = 0;
+  volatile uint16_t writepos = 0;
+  volatile uint16_t readpos = 0;
   uint8_t buffer[size];
 public:
   // uint8_t* enqueue(uint16_t len){
@@ -51,10 +52,6 @@ public:
       writepos = 0;
   }
 
-  uint8_t* getReadHead(){
-    return buffer+readpos;
-  }
-
   uint8_t* getWriteHead(){
     return buffer+writepos;
   }
@@ -65,6 +62,10 @@ public:
     writepos += len;
     if(writepos >= size)
       writepos = 0;
+  }
+
+  uint8_t* getReadHead(){
+    return buffer+readpos;
   }
 
   void incrementReadHead(uint16_t len){
@@ -93,6 +94,9 @@ public:
   // }
   bool notEmpty(){
     return writepos != readpos;
+  }
+  uint16_t available(){
+    return (writepos + size - readpos) % size;
   }
   void reset(){
     readpos = writepos = 0;
@@ -148,7 +152,7 @@ void bus_setup(){
 #define BUS_IDLE_INTERVAL 2197
 
 int bus_status(){
-  while(rxbuf.notEmpty()){
+  while(rxbuf.notEmpty() && rxbuf.available() >= 4){
     uint8_t* frame = rxbuf.getReadHead();
     rxbuf.incrementReadHead(4);
     bus.readBusFrame(frame);
