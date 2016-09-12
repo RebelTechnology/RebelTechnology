@@ -5,8 +5,13 @@
 #define FIRMWARE_VERSION             "002"
 #define HARDWARE_VERSION             "Expander Rev01"
 
-#define SERIAL_PORT_PRIORITY         3
-#define SERIAL_PORT_SUBPRIORITY      0
+/**
+ * MAX11300 on SPI1
+ * TLC5946 on SPI2
+ * Digital Bus on USART1
+ */
+/* #define USART_BAUDRATE               115200 */
+/* #define USART_PERIPH                 USART1 */
 
 #ifdef  USE_FULL_ASSERT
 #ifdef __cplusplus

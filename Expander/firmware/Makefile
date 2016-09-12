@@ -1,28 +1,44 @@
 TEMPLATEROOT = .
 
-CFLAGS = -g -Wall -Wcpp -DUSE_FULL_ASSERT
-# CFLAGS   = -O2 -Wall -Wcpp -DUSE_FULL_ASSERT
-CXXFLAGS = -fno-rtti -fno-exceptions -std=c++11 $(CFLAGS) 
+ifndef CONFIG
+  CONFIG = Debug
+endif
 
-C_SRC  = gpio.c periph.c serial.c
-C_SRC  += clock.c
+ifeq ($(CONFIG),Debug)
+  CPPFLAGS = -g -Wall -Wcpp -Wunused-function -DDEBUG -DUSE_FULL_ASSERT
+  ASFLAGS  = -g
+  CFLAGS   = -g
+endif
 
-CPP_SRC = main.cpp Expander.cpp Pixi.cpp 
-CPP_SRC += MidiHandler.cpp MidiReader.cpp
-CPP_SRC += bus.cpp DigitalBusHandler.cpp DigitalBusReader.cpp
-CPP_SRC += message.cpp
+ifeq ($(CONFIG),Release)
+  CPPFLAGS = -O2
+  ASFLAGS  = -O2
+  CFLAGS   = -O2
+endif
+
+LDFLAGS += -Wl,--gc-sections
+LDSCRIPT ?= $(TEMPLATEROOT)/Source/stm32_flash.ld
+
+CPPFLAGS += --specs=nano.specs
+# CPPFLAGS += -DEXTERNAL_SRAM -DARM_CORTEX
+# CPPFLAGS += -fpic -fpie
+CPPFLAGS += -fdata-sections
+CPPFLAGS += -ffunction-sections
+#CPPFLAGS +=  -mno-unaligned-access
+#CPPFLAGS  += -fno-omit-frame-pointer
+CPPFLAGS += -nostdlib -nostartfiles -fno-builtin -ffreestanding
+CPPFLAGS += -mtune=cortex-m7
+CXXFLAGS = -fno-rtti -fno-exceptions -std=c++11
+CFLAGS  += -std=gnu99
+
+C_SRC = $(notdir $(wildcard Src/*.c)) $(notdir $(wildcard MDK-ARM/*.c)) $(notdir $(wildcard Source/*.c))
+# Libraries/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c
+
+CPP_SRC = $(notdir $(wildcard Src/*.cpp)) $(notdir $(wildcard MDK-ARM/*.cpp)) $(notdir $(wildcard Source/*.cpp))
 
 OBJS = $(C_SRC:%.c=Build/%.o) $(CPP_SRC:%.cpp=Build/%.o)
-
-# object files
-OBJS += $(SYSCALLS)
-OBJS += $(PERIPH)
-# OBJS += $(STARTUP)
-# OBJS += $(SYSTEM)
-OBJS += $(BUILD)/system_stm32f10x.o
+# OBJS += $(BUILD)/startup_stm32f756xx.o
 OBJS += $(BUILD)/startup_stm32f10x_md_vl.o # medium density value line
 
-LDSCRIPT = $(TEMPLATEROOT)/Source/stm32_flash.ld
-
-# include common make file
+include $(TEMPLATEROOT)/libs.mk
 include $(TEMPLATEROOT)/f1.mk

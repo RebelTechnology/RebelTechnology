@@ -7,14 +7,22 @@
  extern "C" {
 #endif
 
-   volatile extern uint32_t systicks;
-   void clock_setup();
-   void delay(uint32_t ms);
+   /* void clock_setup(); */
+   /* void delay(uint32_t ms); */
+
+   /* volatile extern uint32_t systicks; */
+   #define getSysTicks() HAL_GetTick()
+   /* uint32_t getSysTicks(){ */
+   /*   return osKernelSysTick(); */
+   /* } */
+/* #define getSysTicks() (systicks) */
+
+/* uint32_t osKernelSysTick(void) */
 
 /* uint32_t getSysTicks(){ */
 /*   return systicks; */
 /* } */
-#define getSysTicks() (systicks)
+/* #define getSysTicks() (systicks) */
 
 #ifdef __cplusplus
 }

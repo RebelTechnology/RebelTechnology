@@ -3,8 +3,7 @@ ELF=$(BUILD)/Expander.elf
 BIN=$(BUILD)/Expander.bin
 
 # Tool path
-TOOLROOT=~/devel/OwlWare/Tools/gcc-arm-none-eabi-5_2-2015q4/bin
-STLINK=~/devel/stlink/
+TOOLROOT ?= ~/devel/OwlWare/Tools/gcc-arm-none-eabi-5_2-2015q4/bin
 
 # Tools
 CC=$(TOOLROOT)/arm-none-eabi-gcc
@@ -12,55 +11,58 @@ CXX=$(TOOLROOT)/arm-none-eabi-g++
 LD=$(TOOLROOT)/arm-none-eabi-gcc
 AR=$(TOOLROOT)/arm-none-eabi-ar
 AS=$(TOOLROOT)/arm-none-eabi-as
+RANLIB=$(TOOLROOT)/arm-none-eabi-ranlib
 GDB=$(TOOLROOT)/arm-none-eabi-gdb
 OBJCOPY=$(TOOLROOT)/arm-none-eabi-objcopy
 OBJDUMP=$(TOOLROOT)/arm-none-eabi-objdump
-STFLASH=$(STLINK)/st-flash
-STUTIL=$(STLINK)/st-util
-DFUUTIL=dfu-util
+SIZE=$(TOOLROOT)/arm-none-eabi-size
 
 # Set up search path
 vpath %.cpp $(TEMPLATEROOT)/Source
 vpath %.c $(TEMPLATEROOT)/Source
 vpath %.s $(TEMPLATEROOT)/Source
+vpath %.cpp $(TEMPLATEROOT)/MDK-ARM
+vpath %.c $(TEMPLATEROOT)/MDK-ARM
+vpath %.s $(TEMPLATEROOT)/MDK-ARM
+vpath %.cpp $(TEMPLATEROOT)/Src
+vpath %.c $(TEMPLATEROOT)/Src
+vpath %.s $(TEMPLATEROOT)/Src
 vpath %.c $(TEMPLATEROOT)/Libraries/syscalls
-vpath %.c $(CORE)
 vpath %.c $(PERIPH_FILE)/src
 vpath %.c $(PERIPH_FILE)/inc
 vpath %.c $(DEVICE)
-vpath %.c $(SYSTEM_FILE)
-vpath %.s $(STARTUP_FILE)
+vpath %.c $(USB_DEVICE_FILE)/Core/src
+vpath %.c $(USB_OTG_FILE)/src/
 
 all: bin
 
 # Build executable 
 $(ELF) : $(OBJS) $(LDSCRIPT)
-	$(LD) $(LDFLAGS) -o $@ $(OBJS) $(LDLIBS)
+	@$(LD) $(LDFLAGS) -o $@ $(OBJS) $(LDLIBS)
 
 # compile and generate dependency info
 $(BUILD)/%.o: %.c
-	$(CC) -c $(CFLAGS) $< -o $@
-	$(CC) -MM -MT"$@" $(CFLAGS) $< > $(@:.o=.d)
+	$(CC) -c $(CPPFLAGS) $(CFLAGS) $< -o $@
+	@$(CC) -MM -MT"$@" $(CPPFLAGS) $(CFLAGS) $< > $(@:.o=.d)
 
 $(BUILD)/%.o: %.cpp
-	$(CXX) -c $(CXXFLAGS) $< -o $@
-	$(CXX) -MM -MT"$@" $(CXXFLAGS) $< > $(@:.o=.d)
+	@$(CXX) -c $(CPPFLAGS) $(CXXFLAGS) $< -o $@
+	@$(CXX) -MM -MT"$@" $(CPPFLAGS) $(CXXFLAGS) $< > $(@:.o=.d)
 
 $(BUILD)/%.o: %.s
-	$(CC) -c $(CFLAGS) $< -o $@
+	@$(CC) -c $(CPPFLAGS) $(CFLAGS) $< -o $@
 
 $(BUILD)/%.s: %.c
-	$(CC) -S $(CFLAGS) $< -o $@
+	@$(CC) -S $(CPPFLAGS) $(CFLAGS) $< -o $@
 
 $(BUILD)/%.s: %.cpp
-	$(CXX) -S $(CXXFLAGS) $< -o $@
+	@$(CXX) -S $(CPPFLAGS) $(CXXFLAGS) $< -o $@
 
 $(BUILD)/%.bin: $(BUILD)/%.elf
-	$(OBJCOPY) -O binary $< $@
-	@echo Successfully built OWL firmware $@
+	@$(OBJCOPY) -O binary $< $@
 
 clean:
-	rm -f $(OBJS) $(OBJS:.o=.d) $(ELF) $(CLEANOTHER) $(BIN) gdbscript
+	@rm -f $(OBJS) $(BUILD)/*.d $(ELF) $(CLEANOTHER) $(BIN) $(ELF:.elf=.s) $(OBJS:.o=.s) gdbscript
 
 debug: $(ELF)
 	echo "target extended localhost:4242" > gdbscript
@@ -68,7 +70,7 @@ debug: $(ELF)
 	$(GDB) -x gdbscript $(ELF)
 # 	bash -c "$(GDB) -x <(echo target extended localhost:4242) $(ELF)"
 
-flash: $(BIN)
+flash:
 	$(STFLASH) write $(BIN) 0x8000000
 
 stlink:
@@ -83,13 +85,17 @@ etags:
 	find . -type f -iname "*.[ch]" | xargs etags --append
 
 bin: $(BIN)
+	@echo Successfully built $(CONFIG) firmware in $(BIN)
+
+map : $(OBJS) $(LDSCRIPT)
+	$(LD) $(LDFLAGS) -Wl,-Map=$(ELF:.elf=.map) $(OBJS) $(LDLIBS)
 
 as: $(ELF)
 	$(OBJDUMP) -S $(ELF) > $(ELF:.elf=.s)
 
 dfu: $(BIN)
 	$(DFUUTIL) -d 0483:df11 -c 1 -i 0 -a 0 -s 0x8000000:leave -D $(BIN)
-	@echo Uploaded $(BIN) to OWL
+	@echo Uploaded $(BIN) to firmware
 
 # pull in dependencies
 -include $(OBJS:.o=.d)
