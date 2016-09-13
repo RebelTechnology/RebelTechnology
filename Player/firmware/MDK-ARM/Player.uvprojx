@@ -390,7 +390,7 @@
             <File>
               <FileName>system_stm32f7xx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../Drivers/CMSIS/Device/ST/STM32F7xx/Source/Templates/system_stm32f7xx.c</FilePath>
+              <FilePath>E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\Player\firmware\Source\system_stm32f7xx.c</FilePath>
             </File>
           </Files>
         </Group>
