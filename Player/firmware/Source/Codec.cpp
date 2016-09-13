@@ -1,17 +1,26 @@
 #include "Codec.h"
 #include "cs4272.h"
 #include "errorhandlers.h"
-#include "mxconstants.h"
+#include "device.h"
 
 #define CODEC_BUFFER_HALFSIZE (CODEC_BUFFER_SIZE/2)
 #define CODEC_BUFFER_QUARTSIZE (CODEC_BUFFER_SIZE/4)
-uint32_t txbuf[CODEC_BUFFER_SIZE];
-uint32_t rxbuf[CODEC_BUFFER_SIZE];
+static uint32_t txbuf[CODEC_BUFFER_SIZE];
+static uint32_t rxbuf[CODEC_BUFFER_SIZE];
 
+extern SPI_HandleTypeDef hspi4;
+
+SAI_HandleTypeDef hsai_BlockA1;
+SAI_HandleTypeDef hsai_BlockB1;
+
+#define hsai_BlockRx hsai_BlockA1
+#define hsai_BlockTx hsai_BlockB1
+
+#if 0
 extern "C" {
-  // void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai);
-  // static void MX_SPI2_Init();
-  // static void MX_SAI1_Init();
+  void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai);
+  static void MX_SPI2_Init();
+  static void MX_SAI1_Init();
   SPI_HandleTypeDef hspi2;
   SAI_HandleTypeDef hsai_BlockRx;
   SAI_HandleTypeDef hsai_BlockTx;
@@ -254,6 +263,7 @@ void HAL_SAI_MspDeInit(SAI_HandleTypeDef* hsai)
     HAL_DMA_DeInit(hsai->hdmatx);
     }
 }
+#endif
 
 void Codec::ramp(uint32_t max){
   uint32_t incr = max/CODEC_BUFFER_SIZE;
@@ -262,12 +272,12 @@ void Codec::ramp(uint32_t max){
 }
 
 void Codec::reset(){
-  MX_SAI1_Init();
-  MX_SPI2_Init();
+  // MX_SAI1_Init();
+  // MX_SPI2_Init();
 
   __HAL_SAI_ENABLE(&hsai_BlockRx);
   __HAL_SAI_ENABLE(&hsai_BlockTx);
-  codec_init(&hspi2);
+  codec_init(&hspi4);
 
   // configure i2s mode for DAC and ADC, hp filters off
   codec_write(0x01, (1<<3) | (1<<5) | 1);

@@ -1,6 +1,6 @@
 #include "cs4272.h"
 #include "gpio.h"
-#include "mxconstants.h"
+#include "device.h"
 #include "stm32f7xx_hal.h"
 
 extern void delay(uint32_t millisec);
