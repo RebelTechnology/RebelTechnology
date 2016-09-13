@@ -331,7 +331,7 @@
 
   <Group>
     <GroupName>Application/User</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -450,8 +450,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\HAL_Triggers.c</PathWithFileName>
-      <FilenameWithoutPath>HAL_Triggers.c</FilenameWithoutPath>
+      <PathWithFileName>..\Source\HAL_CV_IO.c</PathWithFileName>
+      <FilenameWithoutPath>HAL_CV_IO.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -462,7 +462,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\HAL_Encoders.c</PathWithFileName>
+      <PathWithFileName>..\Source\HAL_Encoders.c</PathWithFileName>
       <FilenameWithoutPath>HAL_Encoders.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -474,8 +474,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\HAL_CV_IO.c</PathWithFileName>
-      <FilenameWithoutPath>HAL_CV_IO.c</FilenameWithoutPath>
+      <PathWithFileName>..\Source\HAL_Triggers.c</PathWithFileName>
+      <FilenameWithoutPath>HAL_Triggers.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
