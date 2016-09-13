@@ -11,6 +11,7 @@ extern "C" {
 #include "Graphics.h"
 #include "Codec.h"
 #include "ProgramVector.h"
+#include "ScreenBuffer.h"
 
 extern "C" {
   void setup(void);
@@ -28,6 +29,7 @@ static uint16_t pixelbuffer[OLED_DATA_LENGTH];
 static bool dodisplay = true;
 Codec codec;
 ProgramVector programVector;
+ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
 
 volatile bool doProcessAudio = false;
 uint32_t dropouts = 0;

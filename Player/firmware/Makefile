@@ -42,7 +42,7 @@ C_SRC += cs4272.c
 C_SRC += errorhandlers.c
 
 CPP_SRC = $(notdir $(wildcard Src/*.cpp)) $(notdir $(wildcard MDK-ARM/*.cpp)) #$(notdir $(wildcard Source/*.cpp))
-CPP_SRC += Graphics.cpp Player.cpp Codec.cpp
+CPP_SRC += Graphics.cpp Player.cpp Codec.cpp ScreenBuffer.cpp
 
 OBJS = $(C_SRC:%.c=Build/%.o) $(CPP_SRC:%.cpp=Build/%.o)
 OBJS += $(BUILD)/startup_stm32f756xx.o
