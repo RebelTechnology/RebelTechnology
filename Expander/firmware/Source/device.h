@@ -5,6 +5,8 @@
 #define FIRMWARE_VERSION             "002"
 #define HARDWARE_VERSION             "Expander Rev01"
 
+#define MIDI_MAX_MESSAGE_SIZE        256
+
 /**
  * MAX11300 on SPI1
  * TLC5946 on SPI2

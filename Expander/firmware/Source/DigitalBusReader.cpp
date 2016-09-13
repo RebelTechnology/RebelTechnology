@@ -1,6 +1,7 @@
 #include "DigitalBusReader.h"
 #include "bus.h"
 #include <string.h>
+#include "device.h"
 
 void DigitalBusReader::appendFrame(uint8_t* frame){
 
@@ -12,21 +13,22 @@ void DigitalBusReader::readBusFrame(uint8_t* frame){
   uint8_t id = frame[0]&0x0f;
   switch(frame[0]&0xf0){
   case 0:
-    if(nuid == NO_UID)
-      return rxError("Out of sequence message");
     readMidiFrame(frame);
+#ifdef DIGITAL_BUS_PROPAGATE_MIDI
+    sendFrame(frame); // warning: circular propagation!
+#endif
     break;
   case OWL_COMMAND_DISCOVER:
     handleDiscover(id, (frame[1] << 16) | (frame[2]<<8) | frame[3]);
     break;
   case OWL_COMMAND_ENUM:
     if(peers == 0)
-      return rxError("Out of sequence message");
+      return rxError("Out of sequence enum message");
     handleEnum(id, frame[1], frame[2], frame[3]);
     break;
   case OWL_COMMAND_IDENT:
     if(nuid == NO_UID)
-      return rxError("Out of sequence message");
+      return rxError("Out of sequence ident message");
     if(id != uid){
       handleIdent(id, frame[1], frame[2], frame[3]);
       if(id != nuid) // propagate
@@ -35,30 +37,36 @@ void DigitalBusReader::readBusFrame(uint8_t* frame){
     break;
   case OWL_COMMAND_PARAMETER:
     if(nuid == NO_UID)
-      return rxError("Out of sequence message");
+      return rxError("Out of sequence parameter message");
     if(id != uid){
       // it's not from us: process
       handleParameterChange(frame[1], (frame[2]<<8) | frame[3]);
+#ifdef DIGITAL_BUS_OUTPUT
       if(id != nuid) // propagate
 	sendFrame(frame);
+#endif
     }
     break;
   case OWL_COMMAND_BUTTON:
     if(nuid == NO_UID)
-      return rxError("Out of sequence message");
+      return rxError("Out of sequence button message");
     if(id != uid){
       handleButtonChange(frame[1], (frame[2]<<8) | frame[3]);
+#ifdef DIGITAL_BUS_OUTPUT
       if(id != nuid) // propagate
 	sendFrame(frame);
+#endif
     }
     break;
   case OWL_COMMAND_COMMAND:
     if(nuid == NO_UID)
-      return rxError("Out of sequence message");
+      return rxError("Out of sequence command message");
     if(id != uid){
       handleCommand(frame[1], (frame[2]<<8) | frame[3]);
+#ifdef DIGITAL_BUS_OUTPUT
       if(id != nuid) // propagate
 	sendFrame(frame);
+#endif
     }
     break;
   case OWL_COMMAND_MESSAGE:
@@ -82,13 +90,15 @@ void DigitalBusReader::readBusFrame(uint8_t* frame){
 	  handleMessage((const char*)buffer);
 	}
       }
+#ifdef DIGITAL_BUS_OUTPUT
       if(id != nuid) // propagate
 	sendFrame(frame);
+#endif
     }
     break;
   case OWL_COMMAND_DATA:
     if(nuid == NO_UID)
-      return rxError("Out of sequence message");
+      return rxError("Out of sequence data message");
     if(id != uid){
       if(txuid == NO_UID)
 	txuid = id;
@@ -110,15 +120,24 @@ void DigitalBusReader::readBusFrame(uint8_t* frame){
 	  pos = 0;
 	}
       }
+#ifdef DIGITAL_BUS_OUTPUT
       if(id != nuid) // propagate
 	sendFrame(frame);
+#endif
     }
     break;
   case OWL_COMMAND_SYNC:
     if(nuid == NO_UID)
-      return rxError("Out of sequence message");
+      return rxError("Out of sequence sync message");
     // 0xc0 until 0xff at end of frame
     // use ASCII SYN instead?
+    break;
+  case OWL_COMMAND_RESET:
+    if(id == 0){
+      if(nuid != NO_UID) // propagate
+	sendFrame(frame);
+      reset();
+    }
     break;
   default:
     rxError("Invalid message");

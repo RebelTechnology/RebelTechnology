@@ -26,7 +26,7 @@ extern "C" {
 #include "HAL_TLC5946.h"
   void setup(void);
   void run(void);
-extern SPI_HandleTypeDef hspi2;
+  extern SPI_HandleTypeDef hspi2;
 }
 
 #define HYSTERESIS_DELTA 3

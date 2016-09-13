@@ -28,12 +28,10 @@ extern "C"{
 #define MAX_SPI        SPI1
 #define MAX_DUMMY_BYTE 0x00
 
-// #include "delay.h"
-
 void delay(uint32_t ms){
   // spin
-  for(uint32_t i=0; i<ms*100000; ++i)
-    asm("NOP");
+  // for(uint32_t i=0; i<ms*100000; ++i)
+  //   asm("NOP");
 
   // DWT_Delay(ms*1000);
 }

@@ -17,6 +17,7 @@ void DigitalBusHandler::sendFrame(uint8_t d1, uint8_t d2, uint8_t d3, uint8_t d4
 }
 
 void DigitalBusHandler::sendFrame(uint8_t* frame){
+  // if(isMidiFrame(frame))
   serial_write(frame, 4);
 }
 
@@ -152,7 +153,7 @@ void DigitalBusHandler::sendParameterChange(uint8_t pid, int16_t value){
 void DigitalBusHandler::handleParameterChange(uint8_t pid, int16_t value){
   bus_rx_parameter(pid, value);
   // todo
-  // setParameter(pid, value);  
+  // setParameterValue(pid, value);  
 }
 
 void DigitalBusHandler::sendButtonChange(uint8_t bid, int16_t value){
@@ -218,4 +219,14 @@ void DigitalBusHandler::sendData(const uint8_t* data, uint32_t len){
 
 void DigitalBusHandler::handleData(const uint8_t* data, uint32_t len){
   bus_rx_data(data, len);
+}
+
+void DigitalBusHandler::sendReset(){
+  sendFrame(OWL_COMMAND_RESET, OWL_COMMAND_RESET, 
+	    OWL_COMMAND_RESET, OWL_COMMAND_RESET);
+}
+
+bool DigitalBusHandler::isMidiFrame(uint8_t* frame){
+  return frame[0] < USB_COMMAND_SINGLE_BYTE && frame[0] & 0x0f >= USB_COMMAND_2BYTE_SYSTEM_COMMON;
+  // return frame[0] & 0xf0 == 0 && frame[0] & 0x0f >= USB_COMMAND_2BYTE_SYSTEM_COMMON;
 }

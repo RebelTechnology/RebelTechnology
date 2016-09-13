@@ -3,6 +3,9 @@
 
 #include "DigitalBusHandler.h"
 
+/* #define DIGITAL_BUS_PROPAGATE_MIDI */
+#define DIGITAL_BUS_OUTPUT
+
 class DigitalBusReader : public DigitalBusHandler {
 public:
   // read a 4-byte data frame
@@ -13,6 +16,5 @@ private:
   uint8_t txuid = NO_UID;
   uint32_t datalen = 0;
 };
-
 
 #endif /* _DigitalBusReader_h_ */
