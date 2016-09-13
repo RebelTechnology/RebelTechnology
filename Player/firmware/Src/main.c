@@ -37,12 +37,11 @@
 #include "HAL_Encoders.h"
 #include "HAL_CV_IO.h"
 
+void setup(void);
+void run(void);
+
 int main(void)
 {
-	uint16_t SDRAM_In_Buffer[100], SDRAM_Out_Buffer[100]; 
-	uint32_t* SDRAM_Address;
-	uint8_t	SDRAM_Status, x;
-
   // Reset of all peripherals, Initializes the Flash interface and the Systick.
   HAL_Init();
 
@@ -66,34 +65,8 @@ int main(void)
   MX_USB_DEVICE_Init();
   MX_USB_HOST_Init();
 
-	// Product Specific Initialisation
-	Triggers_Config();
-	Encoders_Config();
-	CV_IO_Config();
-	
-	CV_Out_A(&hdac, 2048);
-	CV_Out_B(&hdac, 1024);
-		
-  // Main Loop
-  while (1)
-  {
-		// USB Host Processes
-    MX_USB_HOST_Process();
-
-		
-		SDRAM_Address = (uint32_t*)1;
-		
-		for (x=0; x<100; x++)
-		{
-			SDRAM_In_Buffer[x] = rand();
-		}
-		
-		SDRAM_Status = HAL_SDRAM_Write_16b(&hsdram1, SDRAM_Address, SDRAM_In_Buffer, sizeof SDRAM_In_Buffer);
-		SDRAM_Status = HAL_SDRAM_Read_16b(&hsdram1, SDRAM_Address, SDRAM_Out_Buffer, sizeof SDRAM_Out_Buffer);
-		
-		Trigger_OUT_A(LOW);
-	  Trigger_OUT_B(LOW);
-  }
+  setup();
+  run();
 }
 
 // _____ Interrupt Service Routines __________________________________________________________________________
@@ -500,6 +473,11 @@ void assert_failed(uint8_t* file, uint32_t line)
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line number,
     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+#ifdef DEBUG
+  __asm__("BKPT");
+#else
+  NVIC_SystemReset();
+#endif
   /* USER CODE END 6 */
 
 }

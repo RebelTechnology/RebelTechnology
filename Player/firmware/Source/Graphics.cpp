@@ -110,7 +110,7 @@ void Graphics::spiwrite(const uint8_t* data, size_t size){
 }
 
 #if defined OLED_IT || defined OLED_DMA
-extern DMA_HandleTypeDef hdma_spi1_tx;
+extern DMA_HandleTypeDef hdma_spi2_tx;
 extern "C" {
   void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi){
     ASSERT(0, "SPI Error");
@@ -155,8 +155,6 @@ void Graphics::writeCommands(const uint8_t *cmd, uint8_t length){
 
 /* Initialize PIN, direction and stuff related to hardware on CPU */
 void Graphics::commonInit(){
-  // with clock speed 8MHz a screen update takes 25mS
-  // 30MHz: 16mS
   setCS();
   clearPin(OLED_RST_GPIO_Port, OLED_RST_Pin);
   delay(10);

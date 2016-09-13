@@ -1,5 +1,8 @@
 #define SSD1309
-#define OLED_DMA
+/* #define OLED_DMA */
+/* #define OLED_IT */
+/* #define OLED_BITBANG */
+#define OLED_SOFT_CS
 
 #ifdef SSD1331
 #define OLED_WIDTH			96

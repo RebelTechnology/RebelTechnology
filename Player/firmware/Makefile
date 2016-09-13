@@ -35,11 +35,12 @@ CPPFLAGS += -mtune=cortex-m7
 CXXFLAGS = -fno-rtti -fno-exceptions -std=c++11
 CFLAGS  += -std=gnu99
 
-C_SRC = $(notdir $(wildcard Src/*.c)) $(notdir $(wildcard MDK-ARM/*.c)) # $(notdir $(wildcard Source/*.c))
+C_SRC = $(notdir $(wildcard Src/*.c)) # $(notdir $(wildcard MDK-ARM/*.c)) # $(notdir $(wildcard Source/*.c))
+C_SRC += HAL_CV_IO.c HAL_Triggers.c HAL_Encoders.c
 C_SRC += system_stm32f7xx.c
 
 CPP_SRC = $(notdir $(wildcard Src/*.cpp)) $(notdir $(wildcard MDK-ARM/*.cpp)) #$(notdir $(wildcard Source/*.cpp))
-CPP_SRC += Graphics.cpp
+CPP_SRC += Graphics.cpp Player.cpp
 
 OBJS = $(C_SRC:%.c=Build/%.o) $(CPP_SRC:%.cpp=Build/%.o)
 OBJS += $(BUILD)/startup_stm32f756xx.o
