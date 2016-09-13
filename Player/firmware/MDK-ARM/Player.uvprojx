@@ -468,19 +468,19 @@
               <FilePath>../Src/usbd_desc.c</FilePath>
             </File>
             <File>
-              <FileName>HAL_Triggers.c</FileName>
+              <FileName>HAL_CV_IO.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\HAL_Triggers.c</FilePath>
+              <FilePath>..\Source\HAL_CV_IO.c</FilePath>
             </File>
             <File>
               <FileName>HAL_Encoders.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\HAL_Encoders.c</FilePath>
+              <FilePath>..\Source\HAL_Encoders.c</FilePath>
             </File>
             <File>
-              <FileName>HAL_CV_IO.c</FileName>
+              <FileName>HAL_Triggers.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\HAL_CV_IO.c</FilePath>
+              <FilePath>..\Source\HAL_Triggers.c</FilePath>
             </File>
           </Files>
         </Group>
