@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -13254,11 +13254,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <pinref part="TROUTA" gate="G$1" pin="5"/>
 <pinref part="GND96" gate="1" pin="GND"/>
 <wire x1="45.72" y1="137.16" x2="50.8" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="137.16" x2="50.8" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="TROUTA" gate="G$1" pin="4"/>
-<wire x1="50.8" y1="134.62" x2="50.8" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="134.62" x2="50.8" y2="134.62" width="0.1524" layer="91"/>
-<junction x="50.8" y="134.62"/>
+<wire x1="50.8" y1="137.16" x2="50.8" y2="129.54" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="TROUTB" gate="G$1" pin="5"/>
@@ -13354,13 +13350,9 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 </segment>
 <segment>
 <pinref part="GND38" gate="1" pin="GND"/>
-<wire x1="-5.08" y1="182.88" x2="-5.08" y2="190.5" width="0.1524" layer="91"/>
+<wire x1="-5.08" y1="182.88" x2="-5.08" y2="193.04" width="0.1524" layer="91"/>
 <pinref part="CVOUTB" gate="G$1" pin="5"/>
 <wire x1="-10.16" y1="193.04" x2="-5.08" y2="193.04" width="0.1524" layer="91"/>
-<wire x1="-5.08" y1="193.04" x2="-5.08" y2="190.5" width="0.1524" layer="91"/>
-<pinref part="CVOUTB" gate="G$1" pin="4"/>
-<wire x1="-10.16" y1="190.5" x2="-5.08" y2="190.5" width="0.1524" layer="91"/>
-<junction x="-5.08" y="190.5"/>
 </segment>
 <segment>
 <pinref part="CVINA" gate="G$1" pin="5"/>
