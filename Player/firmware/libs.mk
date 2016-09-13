@@ -76,3 +76,12 @@ OBJS += $(BUILD)/libnosys_gnu.o
 # OBJS += $(DSPLIB)/SupportFunctions/arm_q31_to_float.o
 # OBJS += $(DSPLIB)/SupportFunctions/arm_float_to_q15.o
 # OBJS += $(DSPLIB)/SupportFunctions/arm_q15_to_float.o
+
+OBJS += $(FREERTOS_DIR)/CMSIS_RTOS/cmsis_os.o
+# OBJS += $(FREERTOS_DIR)/portable/GCC/ARM_CM3_MPU/port.o
+OBJS += $(FREERTOS_DIR)/portable/GCC/ARM_CM7/r0p1/port.o
+OBJS += $(FREERTOS_DIR)/tasks.o
+OBJS += $(FREERTOS_DIR)/timers.o
+OBJS += $(FREERTOS_DIR)/queue.o
+OBJS += $(FREERTOS_DIR)/list.o
+OBJS += $(FREERTOS_DIR)/croutine.o

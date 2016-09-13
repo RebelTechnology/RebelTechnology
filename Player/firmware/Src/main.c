@@ -66,7 +66,9 @@ int main(void)
   MX_USB_HOST_Init();
 
   setup();
-  run();
+  for(;;)
+    run();
+  return 0;
 }
 
 // _____ Interrupt Service Routines __________________________________________________________________________

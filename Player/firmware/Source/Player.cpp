@@ -1,5 +1,6 @@
 extern "C" {
 #include "stm32f7xx_hal.h"
+#include "cmsis_os.h"
 #include "HAL_Triggers.h"
 #include "HAL_Encoders.h"
 #include "HAL_CV_IO.h"
@@ -17,11 +18,18 @@ extern DAC_HandleTypeDef hdac;
 extern SDRAM_HandleTypeDef hsdram1;
 extern SPI_HandleTypeDef hspi2;
 
+extern "C" {
+  void delay(uint32_t ms){
+    osDelay(ms);
+  }
+}
+
 #define OLED_HEIGHT 64
 #define OLED_WIDTH 128
 #define OLED_DATA_LENGTH (OLED_WIDTH*OLED_HEIGHT/8)
 Graphics graphics;
 static uint16_t pixelbuffer[OLED_DATA_LENGTH];
+static bool dodisplay = true;
 
 void setup(void){
 // Product Specific Initialisation
