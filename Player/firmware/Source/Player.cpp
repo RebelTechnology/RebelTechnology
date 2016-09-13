@@ -44,6 +44,27 @@ extern "C" {
   }
 }
 
+void updateProgramVector(ProgramVector* pv){
+  pv->checksum = PROGRAM_VECTOR_CHECKSUM_V13;
+  pv->hardware_version = PLAYER_HARDWARE;
+  pv->parameters_size = 2;
+  pv->parameters = NULL; // adc_values;
+  pv->audio_bitdepth = 24;
+  pv->audio_samplingrate = 48000;
+  pv->buttons = 0;
+  pv->registerPatch = NULL;
+  pv->registerPatchParameter = NULL;
+  pv->cycles_per_block = 0;
+  pv->heap_bytes_used = 0;
+  pv->programReady = NULL;
+  pv->programStatus = NULL;
+  pv->serviceCall = NULL;
+  pv->message = NULL;
+  pv->pixels = pixelbuffer;
+  pv->screen_width = OLED_WIDTH;
+  pv->screen_height = OLED_HEIGHT;
+}
+
 void setup(void){
 // Product Specific Initialisation
   Triggers_Config();
@@ -51,9 +72,11 @@ void setup(void){
   CV_IO_Config();
   CV_Out_A(&hdac, 0);
   CV_Out_B(&hdac, 0);
+  updateProgramVector(&programVector);
   codec.reset();
   graphics.begin(&hspi2);
   codec.start();
+  codec.ramp(1<<23);
 }
 
 void run(void){
