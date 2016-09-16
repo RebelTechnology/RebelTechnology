@@ -4,6 +4,8 @@
 #include "stm32f7xx_hal.h"
 #include "usb_device.h"
 #include "usb_host.h"
+#include "HAL_OLED.h"
+
 
 void setup(void);
 void run(void);
@@ -16,22 +18,27 @@ uint32_t* SDRAM_Address;
 uint8_t	SDRAM_Status, x;
 
 void setup(void){
-// Product Specific Initialisation
+	// Product Specific Initialisation
   Triggers_Config();
   Encoders_Config();
   CV_IO_Config();
+	OLED_Config();
 	
-  CV_Out_A(&hdac, 2048);
-  CV_Out_B(&hdac, 1024);
+  CV_Out_A(&hdac, 0);
+  CV_Out_B(&hdac, 0);
 }
 
 void run(void){
-  // Main Loop
+  
+	memset(OLED_Buffer, 0xAA, sizeof OLED_Buffer);
+	
+	// Main Loop
   while (1)
   {
 		// USB Host Processes
     MX_USB_HOST_Process();
 
+		OLED_Refresh();
 		
 		SDRAM_Address = (uint32_t*)1;
 		
