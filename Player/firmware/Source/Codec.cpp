@@ -277,7 +277,7 @@ void Codec::reset(){
 
   __HAL_SAI_ENABLE(&hsai_BlockRx);
   __HAL_SAI_ENABLE(&hsai_BlockTx);
-  codec_init(&hspi4);
+  // codec_init(&hspi4);
 
   // configure i2s mode for DAC and ADC, hp filters off
   codec_write(0x01, (1<<3) | (1<<5) | 1);

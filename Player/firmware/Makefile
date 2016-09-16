@@ -36,7 +36,7 @@ CXXFLAGS = -fno-rtti -fno-exceptions -std=c++11
 CFLAGS  += -std=gnu99
 
 C_SRC = $(notdir $(wildcard Src/*.c)) # $(notdir $(wildcard MDK-ARM/*.c)) # $(notdir $(wildcard Source/*.c))
-C_SRC += HAL_CV_IO.c HAL_Triggers.c HAL_Encoders.c
+C_SRC += HAL_CV_IO.c HAL_Triggers.c HAL_Encoders.c HAL_OLED.c
 C_SRC += system_stm32f7xx.c
 C_SRC += cs4272.c
 C_SRC += errorhandlers.c

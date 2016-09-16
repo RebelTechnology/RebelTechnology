@@ -4,6 +4,7 @@ extern "C" {
 #include "HAL_Triggers.h"
 #include "HAL_Encoders.h"
 #include "HAL_CV_IO.h"
+#include "HAL_OLED.h"
 #include "usb_device.h"
 #include "usb_host.h"
 }
@@ -68,26 +69,31 @@ void updateProgramVector(ProgramVector* pv){
 }
 
 void setup(void){
+  memset(OLED_Buffer, 0xAA, sizeof OLED_Buffer);
+
 // Product Specific Initialisation
   Triggers_Config();
   Encoders_Config();
   CV_IO_Config();
   CV_Out_A(&hdac, 0);
   CV_Out_B(&hdac, 0);
+  OLED_Config();
   updateProgramVector(&programVector);
-  codec.reset();
-  graphics.begin(&hspi2);
-  codec.start();
-  codec.ramp(1<<23);
+  // codec.reset();
+  // graphics.begin(&hspi2);
+  // codec.start();
+  // codec.ramp(1<<23);
 }
 
 void run(void){
   for(;;){
     MX_USB_HOST_Process();
-    if(dodisplay){
-      // if(dodisplay && graphics.isReady()){
-      graphics.display(pixelbuffer, OLED_DATA_LENGTH);
-    }
+    OLED_Refresh();
+
+    // if(dodisplay){
+    //   // if(dodisplay && graphics.isReady()){
+    //   graphics.display(pixelbuffer, OLED_DATA_LENGTH);
+    // }
   }
 }
 
