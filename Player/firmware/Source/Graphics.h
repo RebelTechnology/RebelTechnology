@@ -7,7 +7,7 @@ class Graphics {
 public:
   Graphics() : hspi(NULL) {}
   void begin(SPI_HandleTypeDef *spi);
-  void display(uint16_t* pixels, uint16_t size);
+  void display(uint8_t* pixels, uint16_t size);
   void on();
   void off();
   bool isReady();

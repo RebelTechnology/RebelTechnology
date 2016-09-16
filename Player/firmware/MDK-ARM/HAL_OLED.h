@@ -12,10 +12,9 @@
 #define OLED_CMD	0
 
 void OLED_writeData(uint16_t type, const uint8_t* data, uint16_t length);
-unsigned char OLED_readByte(uint8_t address);
 void OLED_Refresh(void);
 void OLED_ClearScreen(void);
-void OLED_Config(void);
+void OLED_Config(SPI_HandleTypeDef* spi);
 void NopDelay(uint32_t nops);
 
 extern unsigned char OLED_Buffer[1024];

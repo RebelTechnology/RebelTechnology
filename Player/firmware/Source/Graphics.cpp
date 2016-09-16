@@ -6,6 +6,9 @@
 // #include "FreeRTOS.h"
 #include "errorhandlers.h"
 #include "device.h"
+extern "C" {
+#include "HAL_OLED.h"
+}
 
 extern "C" void delay(uint32_t millisec);
 
@@ -30,26 +33,23 @@ extern "C" void delay(uint32_t millisec);
 
 void Graphics::begin(SPI_HandleTypeDef *spi) {
   hspi = spi;
+  OLED_Config(spi);
   // off();
-  commonInit();
-  chipInit();
-  delay(10);
-  // on();
-  zero();
+  // commonInit();
+  // chipInit();
+  // delay(10);
+  // // on();
+  // zero();
 }
 
 bool dozero = false;
-void Graphics::display(uint16_t* pixels, uint16_t size){
-  if(dozero)
-    zero();
-  setDC();
-  spiwrite((uint8_t*)pixels, size*sizeof(uint16_t));
+void Graphics::display(uint8_t* pixels, uint16_t size){
+  OLED_writeData(OLED_DAT, pixels, size);
+  // if(dozero)
+  //   zero();
+  // setDC();
+  // spiwrite((uint8_t*)pixels, size*sizeof(uint16_t));
 }
-
-// void Graphics::setRegister(const uint8_t reg,uint8_t val){
-//   uint8_t cmd[2] = {reg,val};
-//   writeCommands(cmd,2);
-// }
 
 #define OLED_TIMEOUT 1000
 void Graphics::spiwritesync(const uint8_t* data, size_t size){
