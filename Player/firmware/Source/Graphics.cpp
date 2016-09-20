@@ -33,7 +33,7 @@ extern "C" void delay(uint32_t millisec);
 
 void Graphics::begin(SPI_HandleTypeDef *spi) {
   hspi = spi;
-  OLED_Config(spi);
+  OLED_Config(spi, NULL);
   // off();
   // commonInit();
   // chipInit();
@@ -44,7 +44,7 @@ void Graphics::begin(SPI_HandleTypeDef *spi) {
 
 bool dozero = false;
 void Graphics::display(uint8_t* pixels, uint16_t size){
-  OLED_writeData(OLED_DAT, pixels, size);
+  OLED_writeDAT(pixels, size);
   // if(dozero)
   //   zero();
   // setDC();

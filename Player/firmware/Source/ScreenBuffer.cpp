@@ -24,12 +24,29 @@ ScreenBuffer::ScreenBuffer(int w, int h) : width(w), height(h), pixels(NULL){
 Colour ScreenBuffer::getPixel(unsigned int x, unsigned int y){
   if(x >= width || y >= height)
     return 0;
-  return pixels[y*width+x];
+  uint8_t  ucByteOffset = 0;
+  uint16_t usiArrayLoc = 0;
+  // Determine array location
+  usiArrayLoc = (y/8)+(x*8);
+  // Determine byte offset
+  ucByteOffset = y-((uint8_t)(y/8)*8);
+  // Return bit state from buffer
+  return pixels[usiArrayLoc] & (1 << ucByteOffset);
+  // return pixels[y*width+x];
 }
 
 void ScreenBuffer::setPixel(unsigned int x, unsigned int y, Colour c){
-  if(x < width && y < height)
-    pixels[y*width+x] = c;
+  if(x < width && y < height){
+    uint8_t  ucByteOffset = 0;
+    uint16_t usiArrayLoc = 0;
+    // Determine array location
+    usiArrayLoc = (y/8)+(x*8);
+    // Determine byte offset
+    ucByteOffset = y-((uint8_t)(y/8)*8);		
+    // Set pixel in buffer
+    pixels[usiArrayLoc] |= (1 << ucByteOffset);
+    // pixels[y*width+x] = c;
+  }
 }
 
 void ScreenBuffer::fade(uint16_t steps){
