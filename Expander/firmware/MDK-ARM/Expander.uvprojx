@@ -397,6 +397,11 @@
               <FileType>1</FileType>
               <FilePath>..\Src\HAL_TLC5946.c</FilePath>
             </File>
+            <File>
+              <FileName>HAL_MAX11300.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\HAL_MAX11300.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

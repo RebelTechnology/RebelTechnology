@@ -500,11 +500,11 @@ ARM Macro Assembler    Page 8
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=expander\startup_stm32f100xb.d -oexpander\startup_stm32f100xb.o -I
 "E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnol
-ogy\Expander\firmware Keil\MDK-ARM\RTE" -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\C
-MSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include --pr
-edefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 520" --predefin
-e="_RTE_ SETA 1" --predefine="STM32F10X_MD_VL SETA 1" --list=startup_stm32f100x
-b.lst startup_stm32f100xb.s
+ogy\Expander\firmware\MDK-ARM\RTE" -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\
+Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include --predefi
+ne="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 520" --predefine="_R
+TE_ SETA 1" --predefine="STM32F10X_MD_VL SETA 1" --list=startup_stm32f100xb.lst
+ startup_stm32f100xb.s
 
 
 
