@@ -16,13 +16,14 @@ extern SDRAM_HandleTypeDef hsdram1;
 uint16_t SDRAM_In_Buffer[100], SDRAM_Out_Buffer[100]; 
 uint32_t* SDRAM_Address;
 uint8_t	SDRAM_Status, x;
+unsigned char pixelbuffer[1024];
 
 void setup(void){
 	// Product Specific Initialisation
   Triggers_Config();
   Encoders_Config();
   CV_IO_Config();
-	OLED_Config();
+  OLED_Config(&hspi2, pixelbuffer);
 	
   CV_Out_A(&hdac, 0);
   CV_Out_B(&hdac, 0);
@@ -32,7 +33,7 @@ void run(void){
   
 	uint8_t ucPixelTest = 0, Test = 0;;
 	
-	memset(OLED_Buffer, 0x00, sizeof OLED_Buffer);
+	memset(pixelbuffer, 0x00, sizeof pixelbuffer);
 
 	OLED_setPixel(127, 63);
 	
