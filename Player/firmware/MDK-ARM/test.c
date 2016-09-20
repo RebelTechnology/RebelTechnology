@@ -30,14 +30,20 @@ void setup(void){
 
 void run(void){
   
-	memset(OLED_Buffer, 0xAA, sizeof OLED_Buffer);
+	uint8_t ucPixelTest = 0, Test = 0;;
+	
+	memset(OLED_Buffer, 0x00, sizeof OLED_Buffer);
+
+	OLED_setPixel(127, 63);
 	
 	// Main Loop
   while (1)
   {
 		// USB Host Processes
     MX_USB_HOST_Process();
-
+		
+		OLED_togglePixel(127, 63);
+		
 		OLED_Refresh();
 		
 		SDRAM_Address = (uint32_t*)1;
