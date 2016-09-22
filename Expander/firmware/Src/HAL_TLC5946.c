@@ -129,4 +129,3 @@ void TLC5946_init (SPI_HandleTypeDef *spiconfig)
 	
 	TLC5946_SPIConfig = spiconfig;
 }
-
