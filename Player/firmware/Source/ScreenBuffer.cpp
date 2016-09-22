@@ -50,16 +50,18 @@ void ScreenBuffer::setPixel(unsigned int x, unsigned int y, Colour c){
 }
 
 void ScreenBuffer::fade(uint16_t steps){
-  for(unsigned int i=0; i<height*width; ++i)
-    pixels[i] = 
-      (((pixels[i] & RED) >> steps) & RED) | 
-      (((pixels[i] & GREEN) >> steps) & GREEN) |
-      (((pixels[i] & BLUE) >> steps) & BLUE);
+  // for(unsigned int i=0; i<height*width; ++i)
+  //   pixels[i] = 
+  //     (((pixels[i] & RED) >> steps) & RED) | 
+  //     (((pixels[i] & GREEN) >> steps) & GREEN) |
+  //     (((pixels[i] & BLUE) >> steps) & BLUE);
+  // todo!
 }
 
 void ScreenBuffer::fill(Colour c) {
-  for(unsigned int i=0; i<height*width; ++i)
-    pixels[i] = c;
+  memset(pixels, c, 1024); // todo: height*width/8
+  // for(unsigned int i=0; i<height*width; ++i)
+  //   pixels[i] = c;
 }
 
 void ScreenBuffer::write(uint8_t c) {

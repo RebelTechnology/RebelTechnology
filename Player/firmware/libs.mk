@@ -42,8 +42,8 @@ OBJS += $(USB_HOST_FILE)/Core/Src/usbh_ioreq.o
 OBJS += $(USB_HOST_FILE)/Core/Src/usbh_ctlreq.o
 OBJS += $(USB_HOST_FILE)/Class/AUDIO/Src/usbh_audio.o
 
-# OBJS += $(TEMPLATEROOT)/LibSource/FloatArray.o
-# OBJS += $(TEMPLATEROOT)/LibSource/StompBox.o
+OBJS += $(TEMPLATEROOT)/LibSource/FloatArray.o
+OBJS += $(TEMPLATEROOT)/LibSource/StompBox.o
 
 # OBJS += $(BUILD)/startup.o
 OBJS += $(BUILD)/libnosys_gnu.o
@@ -85,3 +85,4 @@ OBJS += $(FREERTOS_DIR)/timers.o
 OBJS += $(FREERTOS_DIR)/queue.o
 OBJS += $(FREERTOS_DIR)/list.o
 OBJS += $(FREERTOS_DIR)/croutine.o
+OBJS += $(FREERTOS_DIR)/portable/MemMang/heap_4.o

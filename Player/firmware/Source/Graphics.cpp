@@ -10,26 +10,26 @@ extern "C" {
 #include "HAL_OLED.h"
 }
 
-extern "C" void delay(uint32_t millisec);
+// extern "C" void delay(uint32_t millisec);
 
-#ifdef OLED_SOFT_CS
-#define setCS()    setPin(OLED_CS_GPIO_Port, OLED_CS_Pin)
-#define clearCS()  clearPin(OLED_CS_GPIO_Port, OLED_CS_Pin)
-#else
-#define setCS()    
-#define clearCS()
-#endif
+// #ifdef OLED_SOFT_CS
+// #define setCS()    setPin(OLED_CS_GPIO_Port, OLED_CS_Pin)
+// #define clearCS()  clearPin(OLED_CS_GPIO_Port, OLED_CS_Pin)
+// #else
+// #define setCS()    
+// #define clearCS()
+// #endif
 
-#define setDC()   setPin(OLED_DC_GPIO_Port, OLED_DC_Pin)
-#define clearDC() clearPin(OLED_DC_GPIO_Port, OLED_DC_Pin)
+// #define setDC()   setPin(OLED_DC_GPIO_Port, OLED_DC_Pin)
+// #define clearDC() clearPin(OLED_DC_GPIO_Port, OLED_DC_Pin)
 
-#if defined SEPS114A
-#include "seps114a.h"
-#elif defined SSD1331
-#include "ssd1331.h"
-#elif defined SSD1309
-#include "ssd1309.h"
-#endif
+// #if defined SEPS114A
+// #include "seps114a.h"
+// #elif defined SSD1331
+// #include "ssd1331.h"
+// #elif defined SSD1309
+// #include "ssd1309.h"
+// #endif
 
 void Graphics::begin(SPI_HandleTypeDef *spi) {
   hspi = spi;
@@ -44,13 +44,14 @@ void Graphics::begin(SPI_HandleTypeDef *spi) {
 
 bool dozero = false;
 void Graphics::display(uint8_t* pixels, uint16_t size){
-  OLED_writeDAT(pixels, size);
+  OLED_writeDAT(pixels, size/8);
   // if(dozero)
   //   zero();
   // setDC();
   // spiwrite((uint8_t*)pixels, size*sizeof(uint16_t));
 }
 
+#if 0
 #define OLED_TIMEOUT 1000
 void Graphics::spiwritesync(const uint8_t* data, size_t size){
   while(hspi->State != HAL_SPI_STATE_READY);
@@ -166,3 +167,5 @@ void Graphics::commonInit(){
 //   uint8_t cmd[] = {0x25, 0x00, 0x00, OLED_MW, OLED_MH};
 //   writeCommands(cmd, 5);
 // }
+
+#endif // 0

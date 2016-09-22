@@ -12,6 +12,7 @@ extern "C" {
 #include "Codec.h"
 #include "ProgramVector.h"
 #include "ScreenBuffer.h"
+#include "SampleBuffer.hpp"
 
 extern "C" {
   void setup(void);
@@ -30,6 +31,12 @@ static bool dodisplay = true;
 Codec codec;
 ProgramVector programVector;
 ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
+SampleBuffer samples;
+
+#include "SplashPatch.hpp"
+SplashPatch splash;
+Patch* patches[] = {&splash};
+uint8_t currentPatch = 0;
 
 volatile bool doProcessAudio = false;
 uint32_t dropouts = 0;
@@ -68,7 +75,7 @@ void updateProgramVector(ProgramVector* pv){
 }
 
 void setup(void){
-  memset(pixelbuffer, 0xAA, 1024);
+  // memset(pixelbuffer, 0xAA, 1024);
 
 // Product Specific Initialisation
   Triggers_Config();
@@ -81,13 +88,34 @@ void setup(void){
   graphics.begin(&hspi2);
   // codec.start();
   // codec.ramp(1<<23);
+
+  patches[currentPatch]->reset();
+
+  doProcessAudio = true;
+}
+
+void processBlock(ProgramVector* pv){
+  // samples.split(pv->audio_input, pv->audio_blocksize);
+  screen.setBuffer(pv->pixels);
+  patches[currentPatch]->processAudio(samples);
+  // screen.setTextSize(1);
+  // screen.print(0, screen.getHeight()-8, "Rebel Technology");
+  // samples.comb(pv->audio_output);
 }
 
 void run(void){
   for(;;){
     MX_USB_HOST_Process();
-    if(dodisplay){
-      graphics.display(pixelbuffer, OLED_DATA_LENGTH);
+    if(doProcessAudio){
+      processBlock(&programVector);
+      if(dodisplay){
+      // if(dodisplay && graphics.isReady()){
+	graphics.display(programVector.pixels, OLED_WIDTH*OLED_HEIGHT);
+	// swap pixelbuffer
+	// programVector.pixels = pixelbuffer[swappb];
+	// swappb = !swappb;
+      }
+      // doProcessAudio = false;
     }
   }
 }
