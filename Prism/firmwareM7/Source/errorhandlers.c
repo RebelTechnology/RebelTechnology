@@ -10,7 +10,7 @@ void error(int8_t code, const char* reason){
 #ifdef DEBUG
   __asm__("BKPT");
 #else
-  NVIC_SystemReset();
+  /* NVIC_SystemReset(); */
 #endif
 }
 
@@ -46,7 +46,7 @@ void assert_failed(uint8_t* file, uint32_t line){
   /* __builtin_trap(); */
   __asm__("BKPT");
 #else
-  NVIC_SystemReset();
+  /* NVIC_SystemReset(); */
   /* exitProgram(true); */
 #endif
 }

@@ -30,12 +30,15 @@ void MidiHandler::handleNoteOff(uint8_t status, uint8_t note, uint8_t velocity){
 void MidiHandler::handleProgramChange(uint8_t status, uint8_t pid){
 }
 
+
 void MidiHandler::handleControlChange(uint8_t status, uint8_t cc, uint8_t value){
   // switch(cc){
   //   if(cc >= PATCH_PARAMETER_AA && cc <= PATCH_PARAMETER_BH)
   //     setParameter(PARAMETER_AA+(cc-PATCH_PARAMETER_AA), value<<5);
   //   break;
   // }
+  // switch(cc){
+  // case PATCH_PARAMETER_E:    
 }
 
 void MidiHandler::handleSysEx(uint8_t* data, uint16_t size){}

@@ -22,7 +22,7 @@
 /* #define USE_RNG */
 #define MCU_CLOCK_168MHZ
 #define USE_UART
-#define USART_BAUDRATE               115200
+#define USART_BAUDRATE               460800
 #define USART_PERIPH                 USART1
 #define USE_USB
 #define MIDI_MAX_MESSAGE_SIZE        260

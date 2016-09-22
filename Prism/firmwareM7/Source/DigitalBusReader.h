@@ -2,6 +2,7 @@
 #define _DigitalBusReader_h_
 
 #include "DigitalBusHandler.h"
+/* #define DIGITAL_BUS_PROPAGATE_MIDI */
 
 class DigitalBusReader : public DigitalBusHandler {
 public:

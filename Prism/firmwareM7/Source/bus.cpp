@@ -51,11 +51,16 @@ public:
     if(writepos >= size)
       writepos = 0;
   }
+  uint8_t pop(){
+    uint8_t c = buffer[readpos++];
+    if(readpos >= size)
+      readpos = 0;
+    return c;
+  }
 
   uint8_t* getWriteHead(){
     return buffer+writepos;
   }
-
   void incrementWriteHead(uint16_t len){
     // ASSERT((writepos >= readpos && writepos+len <= size) ||
     // 	   (writepos < readpos && writepos+len <= readpos), "uart rx overflow");
@@ -67,7 +72,6 @@ public:
   uint8_t* getReadHead(){
     return buffer+readpos;
   }
-
   void incrementReadHead(uint16_t len){
     // ASSERT((readpos >= writepos && readpos+len <= size) ||
     // 	   (readpos < writepos && readpos+len <= writepos), "uart rx underflow");
@@ -135,7 +139,7 @@ uint8_t* bus_deviceid(){
 void bus_setup(){
   // debug << "bus_setup\r\n";
   // serial_setup(USART_BAUDRATE);
-  bus.sendReset();
+  // bus.sendReset();
 
   extern UART_HandleTypeDef huart1;
   UART_HandleTypeDef *huart = &huart1;

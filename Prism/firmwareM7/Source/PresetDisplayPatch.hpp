@@ -40,17 +40,17 @@ public:
     midiSendCC(3, PATCH_PARAMETER_E, preset1);
   }
   void encoderChanged(uint8_t encoder, int32_t dir){
-    if(abs(dir) < 3)
-      return;
+    // if(abs(dir) < 3)
+    //   return;
     static int last = 0;
     int now = HAL_GetTick();
     if(now - last < debounceDelay)
       return;
     last = now;
     if(encoder == 0){
-      if(dir > 0)
+      if(dir > 2)
 	preset0 = min(maxPreset, preset0+1);
-      else if(dir < 0)
+      else if(dir < 2)
 	preset0 = max(1, preset0-1);
       midiSendCC(0, PATCH_PARAMETER_E, preset0*127/maxPreset);
       midiSendCC(1, PATCH_PARAMETER_E, preset0*127/maxPreset);

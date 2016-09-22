@@ -37,10 +37,10 @@
 #include "cmsis_os.h"
 #include "mxconstants.h"
 #include "gpio.h"
-#include "errorhandlers.h"
 
 /* USER CODE BEGIN 0 */
-
+#include "errorhandlers.h"
+void serial_rx_callback(uint8_t c);
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -75,8 +75,6 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f7xx.s).                    */
 /******************************************************************************/
-
-void serial_rx_callback(uint8_t c);
 
 /**
 * @brief This function handles USART1 global interrupt.

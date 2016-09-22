@@ -79,8 +79,9 @@ void DigitalBusHandler::handleDiscover(uint8_t seq, uint32_t other){
     if(seq < 0x0f)
       // increment seq and pass it on
       sendDiscover(seq+1, other);
-    if(other < token)
-      uid = NO_UID; // we will not be UID 0
+    // if(other < token)
+    //   uid = NO_UID; // we will not be UID 0
+    // todo: fixme: for OWL Rack, Prism is always UID 0
     if(status != ENUMERATE)
       status = DISCOVER;
     if(peers == 0)
