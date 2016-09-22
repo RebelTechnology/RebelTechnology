@@ -1,132 +1,129 @@
-
 #include "stm32f1xx_hal.h"
-#include "HAL_TLC5946.h"
-
-uint8_t rgGSbuf[24] = {0};
-uint8_t rgDCbuf[12] = {255,255,255,255,255,255,255,255,255,255,255,255};
-SPI_HandleTypeDef* TLC5946_SPIConfig;
-	
+#include "HAL_MAX11300.h"
+ 
+SPI_HandleTypeDef* MAX11300_SPIConfig;
+ 
 //_____ Functions _____________________________________________________________________________________________________
-void TLC5946_SetOutput_GS (unsigned char LED_ID, unsigned short value)
+// Port and Chip Setup
+void MAX11300_setPortMode(uint8_t port, uint16_t config)
 {
-	unsigned char temp;
-	unsigned char ucBuffLoc = (unsigned char)(LED_ID*1.5);
+	uint8_t rgData[3] = "";
+     
+	// separate config into two bytes
+	rgData[0] = (ADDR_CFGbase+port)<<1 | SPI_Write;
+	rgData[1] = (config&0xFF00)>>8;
+	rgData[2] = (config&0x00FF);
+     
+	pbarCS(0);
+	HAL_SPI_Transmit(MAX11300_SPIConfig, rgData, sizeof rgData, 100);
+	pbarCS(1);
 	
-	if (value < 4095)
-	{
-	  if(LED_ID & 0x01) // bbbbaaaa aaaaaaaa
-		{ 
-			temp			= rgGSbuf[ucBuffLoc]; 
-			rgGSbuf[ucBuffLoc] 	= (value&0xF00)>>8; 
-			rgGSbuf[ucBuffLoc]     |= (temp&0xF0); 
-			rgGSbuf[ucBuffLoc+1] 	= (value&0x0FF); 	
-		}
-	  else              // aaaaaaaa aaaabbbb
-		{
-			rgGSbuf[ucBuffLoc] 	= (value&0xFF0)>>4; 
-			temp 			= rgGSbuf[ucBuffLoc+1]; 
-			rgGSbuf[ucBuffLoc+1] 	= (value&0x00F)<<4; 
-			rgGSbuf[ucBuffLoc+1]   |= (temp&0x0F);
-		}			
-	}
+	Nop_delay(1000);
 }
 
-void TLC5946_SetOutput_DC (unsigned char LED_ID, unsigned char value)
+uint16_t MAX11300_readPortMode(uint8_t port)
 {
-	unsigned char temp;
-	unsigned char ucBuffLoc = (unsigned char)(LED_ID*0.75);
+	uint8_t ucAddress, rgRtnData[2] = "";
+	uint16_t usiRtnValue = 0;
+	 
+	ucAddress = (ADDR_CFGbase+port)<<1 | SPI_Read;
 	
-	if (value < 64)
-	{
-		if (LED_ID==0 || LED_ID==4 || LED_ID==8 || LED_ID==12)
-		{
-			temp 									= rgDCbuf[ucBuffLoc];
-			rgDCbuf[ucBuffLoc] 		= (value&0x3F);
-			rgDCbuf[ucBuffLoc] 	 |= (temp&0xC0);
-		}
-		else if (LED_ID==1 || LED_ID==5 ||LED_ID==9 || LED_ID==13)
-		{
-			temp 									= rgDCbuf[ucBuffLoc];
-			rgDCbuf[ucBuffLoc] 	= (value&0x03)<<6;
-			rgDCbuf[ucBuffLoc] |= (temp&0x3F);
-			
-			temp 									= rgDCbuf[ucBuffLoc+1];
-			rgDCbuf[ucBuffLoc+1] 	 	= (value&0x0F);
-			rgDCbuf[ucBuffLoc+1] 	 |= (temp&0xF0);
-		}
-		else if (LED_ID==2 || LED_ID==6 || LED_ID==10 || LED_ID==14)
-		{
-			temp 									= rgDCbuf[ucBuffLoc];
-			rgDCbuf[ucBuffLoc] 		= (value&0x0F)<<4;
-			rgDCbuf[ucBuffLoc] 	 |= (temp&0x0F);
-			
-			temp 									= rgDCbuf[ucBuffLoc+1];
-			rgDCbuf[ucBuffLoc+1]	= (value&0xC0)>>6;
-			rgDCbuf[ucBuffLoc+1] |= (temp&0xFC);
-		}
-		else if (LED_ID==3 || LED_ID==7 || LED_ID==11 || LED_ID==15)
-		{
-			temp 								= rgDCbuf[ucBuffLoc];
-			rgDCbuf[ucBuffLoc] 	= value<<2;
-			rgDCbuf[ucBuffLoc] |= (temp&0x03);
-		}
-	}		
+	pbarCS(0);
+	HAL_SPI_Transmit(MAX11300_SPIConfig, &ucAddress, 1, 100);
+	HAL_SPI_Receive(MAX11300_SPIConfig, rgRtnData, 2, 100);
+	pbarCS(1);
+	
+	usiRtnValue  = rgRtnData[0]<<8;
+	usiRtnValue += rgRtnData[1];
+	
+	return usiRtnValue;
 }
 
-void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
-  if(hspi == TLC5946_SPIConfig){
-    pBLANK(1);
-    pXLAT(1);
-  }
-}
-
-void TLC5946_Refresh_GS(void)
+void MAX11300_setDeviceControl(uint16_t config)
 {
-	pXLAT(0);
-	// Update Grayscale
-	pMODE(Mode_GS);
-	pBLANK(0);
-	/* HAL_SPI_Transmit(TLC5946_SPIConfig, rgGSbuf, sizeof rgGSbuf, 100); */
-	/* pBLANK(1);	 */
-	/* pXLAT(1);     */
-	HAL_SPI_Transmit_IT(TLC5946_SPIConfig, rgGSbuf, sizeof rgGSbuf);
+	uint8_t rgData[3] = "";
+	
+	rgData[0] = (ADDR_DevCont)<<1 | SPI_Write;
+	rgData[1] = (config&0xFF00)>>8;
+	rgData[2] = (config&0x00FF);
+	
+	pbarCS(0);
+	HAL_SPI_Transmit(MAX11300_SPIConfig, rgData, sizeof rgData, 100);
+	pbarCS(1);
+	
+	Nop_delay(10000);
 }
 
-void TLC5946_Refresh_DC(void)
+// ADC Functions
+uint16_t MAX11300_readADC(uint8_t port)
 {
-	pXLAT(0);
-	// Update Dot Correction
-	pMODE(Mode_DC);
-	HAL_SPI_Transmit(TLC5946_SPIConfig, rgDCbuf, sizeof rgDCbuf, 100);	
-	pXLAT(1);
+	uint8_t ucAddress=0, rgRtnData[2] = "";
+	uint16_t usiRtnValue = 0;
+	 
+	ucAddress = (ADDR_ADCbase+port)<<1 | SPI_Read;
+	
+	pbarCS(0);
+	HAL_SPI_Transmit(MAX11300_SPIConfig, &ucAddress, 1, 100);
+	HAL_SPI_Receive(MAX11300_SPIConfig, rgRtnData, 2, 100);
+	pbarCS(1);
+	
+	usiRtnValue  = rgRtnData[0]<<8;
+	usiRtnValue += rgRtnData[1];
+	
+	return usiRtnValue & 0xFFF;
+}
+ 
+// DAC Functions
+void MAX11300_setDAC(uint8_t port, uint16_t value)
+{
+	uint8_t rgData[3] = "";
+	 
+	rgData[0] = (ADDR_DACbase+port)<<1 | SPI_Write;
+	rgData[1] = (value&0xFF00)>>8;
+	rgData[2] = (value&0x00FF);
+	 
+	pbarCS(0);
+	HAL_SPI_Transmit(MAX11300_SPIConfig, rgData, sizeof rgData, 100);
+	pbarCS(1);
 }
 
+uint16_t MAX11300_readDAC(uint8_t port)
+{
+	uint8_t ucAddress, rgRtnData[2] = "";
+	uint16_t usiRtnValue = 0;
+	 
+	ucAddress = (ADDR_DACbase+port)<<1 | SPI_Read;
+	
+	pbarCS(0);
+	HAL_SPI_Transmit(MAX11300_SPIConfig, &ucAddress, 1, 100);
+	HAL_SPI_Receive(MAX11300_SPIConfig, rgRtnData, 2, 100);
+	pbarCS(1);
+	
+	usiRtnValue  = rgRtnData[0]<<8;
+	usiRtnValue += rgRtnData[1];
+	
+	return usiRtnValue & 0xFFF;
+}
+ 
 //_____ Initialisaion _________________________________________________________________________________________________
-void TLC5946_init (SPI_HandleTypeDef *spiconfig)
+void MAX11300_init (SPI_HandleTypeDef *spiconfig)
 {
 	GPIO_InitTypeDef GPIO_InitStruct;
-	
+	 
 	/*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, TLC_MODE_Pin|TLC_XLAT_Pin, GPIO_PIN_RESET);
-	
-  /*Configure GPIO pins : TLC_MODE_Pin TLC_XLAT_Pin */
-  GPIO_InitStruct.Pin = TLC_MODE_Pin|TLC_XLAT_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+	HAL_GPIO_WritePin(GPIOA, MAX_CS_Pin, GPIO_PIN_SET);
 
-  /*Configure GPIO pin : TLC_XERR_Pin */
-  GPIO_InitStruct.Pin = TLC_XERR_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(TLC_XERR_GPIO_Port, &GPIO_InitStruct);
-
-	/*Configure GPIO pin : TLC_BLANK_Pin */
-  GPIO_InitStruct.Pin = TLC_BLANK_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	/*Configure GPIO pin : MAX_CS_Pin */
+	GPIO_InitStruct.Pin = MAX_CS_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
 	GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
-  HAL_GPIO_Init(TLC_BLANK_GPIO_Port, &GPIO_InitStruct);
-	
-	TLC5946_SPIConfig = spiconfig;
+	HAL_GPIO_Init(MAX_CS_GPIO_Port, &GPIO_InitStruct);
+	 
+	MAX11300_SPIConfig = spiconfig;
+}
+
+void Nop_delay(uint32_t nops)
+{
+	while (nops--){}
 }
 

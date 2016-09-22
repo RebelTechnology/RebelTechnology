@@ -34,5 +34,3 @@ void TLC5946_SetOutput_GS (unsigned char LED_ID, unsigned short value);
 void TLC5946_SetOutput_DC (unsigned char LED_ID, unsigned char value);
 void TLC5946_Refresh_GS(void);
 void TLC5946_Refresh_DC(void);
-
-

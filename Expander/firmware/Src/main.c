@@ -32,6 +32,8 @@
   */
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
+#include "HAL_MAX11300.h"
+
 
 /* USER CODE BEGIN Includes */
 
@@ -65,6 +67,7 @@ static void MX_USART1_UART_Init(void);
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
                 
+uint16_t usiADCTest = 0;
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -79,7 +82,6 @@ void run(void);
 
 int main(void)
 {
-
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -99,9 +101,15 @@ int main(void)
   MX_SPI2_Init();
   MX_TIM1_Init();
   MX_USART1_UART_Init();
-
+	
+	MAX11300_init(&hspi1);
+	MAX11300_setDeviceControl(DCR_DACCTL_ImmUpdate|DCR_DACREF_Int|DCR_ADCCTL_ContSweep);
+	
+	MAX11300_setPortMode(PORT_1, PCR_Range_ADC_0_P10|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
+	MAX11300_setPortMode(PORT_9, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
+	
   /* USER CODE BEGIN 2 */
-  setup();
+//  setup();
 
   /* USER CODE END 2 */
 
@@ -109,10 +117,13 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-  /* USER CODE END WHILE */
+		Nop_delay(100000);
+		MAX11300_setDAC(PORT_9, 2048);
+			
+		Nop_delay(100000);	
+		usiADCTest = MAX11300_readADC(PORT_1);
 
-  /* USER CODE BEGIN 3 */
-    run();
+  //  run();
   }
   /* USER CODE END 3 */
 
@@ -172,6 +183,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
   hspi1.Init.CRCPolynomial = 10;
+	
   if (HAL_SPI_Init(&hspi1) != HAL_OK)
   {
     Error_Handler();
@@ -195,6 +207,7 @@ static void MX_SPI2_Init(void)
   hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
   hspi2.Init.CRCPolynomial = 10;
+	
   if (HAL_SPI_Init(&hspi2) != HAL_OK)
   {
     Error_Handler();
@@ -217,6 +230,7 @@ static void MX_TIM1_Init(void)
   htim1.Init.Period = 2;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
+	
   if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
   {
     Error_Handler();
