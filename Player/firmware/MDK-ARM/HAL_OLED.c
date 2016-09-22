@@ -33,7 +33,7 @@ void OLED_writeCMD(const uint8_t* data, uint16_t length)
 	pDC_Clr();	// DC low		
 	
 	// Send Data	
-	HAL_SPI_Transmit(&OLED_SPIInst, (uint8_t*)data, length, 1000);
+	HAL_SPI_Transmit(OLED_SPIInst, (uint8_t*)data, length, 1000);
 	
 	pCS_Set();	// CS high
 }
@@ -44,7 +44,7 @@ void OLED_writeDAT(const uint8_t* data, uint16_t length)
 	pDC_Set();	// DC high
 	
 	// Send Data
-	HAL_SPI_Transmit(&OLED_SPIInst, (uint8_t*)data, length, 1000);
+	HAL_SPI_Transmit(OLED_SPIInst, (uint8_t*)data, length, 1000);
 	
 	pCS_Set();	// CS high
 }
@@ -64,6 +64,8 @@ void OLED_ClearScreen(void)
 // Configuration
 void OLED_Config(SPI_HandleTypeDef* spi, unsigned char* buffer){
 	GPIO_InitTypeDef GPIO_InitStruct;
+	OLED_SPIInst = spi;
+	OLED_Buffer = buffer;
 		
 	// Configure RST and DC Pins
 	GPIO_InitStruct.Pin   = OLED_RST_Pin | OLED_DC_Pin;					
