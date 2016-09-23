@@ -1,5 +1,6 @@
 #include "serial.h"
 
+#if 0 // see bus.cpp
 #include "stm32f7xx_hal.h"
 #include "errorhandlers.h"
 #include "mxconstants.h"
@@ -21,3 +22,4 @@ void serial_write(uint8_t* data, uint16_t size){
   if(HAL_UART_Transmit(&huart1, data, size, timeout) != HAL_OK)
     ASSERT(0, "UART tx failed");
 }
+#endif

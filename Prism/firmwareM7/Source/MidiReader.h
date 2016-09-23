@@ -17,7 +17,7 @@ protected:
   unsigned int pos;
 public:
   MidiReader() : pos(0) {}  
-  void readMidiFrame(uint8_t* frame);
+  bool readMidiFrame(uint8_t* frame);
   void reset();
 };
 

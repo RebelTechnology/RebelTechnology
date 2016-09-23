@@ -39,8 +39,10 @@
 #include "gpio.h"
 
 /* USER CODE BEGIN 0 */
+#if 0 // see bus.cpp
 #include "errorhandlers.h"
 void serial_rx_callback(uint8_t c);
+#endif
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -76,6 +78,7 @@ void SysTick_Handler(void)
 /* please refer to the startup file (startup_stm32f7xx.s).                    */
 /******************************************************************************/
 
+#if 0 // see bus.cpp
 /**
 * @brief This function handles USART1 global interrupt.
 */
@@ -131,9 +134,9 @@ void USART1_IRQHandler(void)
   /* USER CODE END USART1_IRQn 0 */
   /* HAL_UART_IRQHandler(&huart1); */
   /* USER CODE BEGIN USART1_IRQn 1 */
-
   /* USER CODE END USART1_IRQn 1 */
 }
+#endif
 
 /**
 * @brief This function handles DMA2 stream0 global interrupt.

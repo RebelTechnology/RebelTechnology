@@ -86,7 +86,7 @@ MidiReaderStatus MidiStreamReader::read(unsigned char data){
     case SYSTEM_RESET:
       // one byte messages
       status = READY_STATUS;
-      handleSystemCommon(buffer[0]);
+      handleSystemRealTime(buffer[0]);
       break;
     case SYSEX:
       if(data == SYSEX_EOX){

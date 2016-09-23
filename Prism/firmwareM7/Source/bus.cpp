@@ -2,7 +2,7 @@
 #include "midi.h"
 #include "serial.h"
 #include "message.h"
-#include "DigitalBusReader.h"
+#include "DigitalBusStreamReader.h"
 #include "cmsis_os.h"
 #include "stm32f7xx_hal.h"
 #include "stm32f7xx.h"
@@ -14,7 +14,8 @@
 
 // static uint8_t busframe[4];
 MidiWriter writer;
-static DigitalBusReader bus;
+static DigitalBusStreamReader bus;
+static SerialBuffer<256> bus_tx_buf;
 
 void midiSendCC(uint8_t ch, uint8_t cc, uint8_t value){
   writer.controlChange(ch, cc, value);
@@ -24,95 +25,75 @@ void midiSendPC(uint8_t ch, uint8_t pc){
   writer.programChange(ch, pc);
 }
 
-template<uint16_t size>
-class SerialBuffer {
-private:
-  volatile uint16_t writepos = 0;
-  volatile uint16_t readpos = 0;
-  uint8_t buffer[size];
-public:
-  // uint8_t* enqueue(uint16_t len){
-  //   if(writepos+len > size)
-  //     writepos = 0;
-  //   uint8_t* ptr = buffer+writepos;
-  //   writepos += len;
-  //   return ptr;
-  // }
-  // uint8_t* dequeue(uint16_t len){
-  //   if(readpos+len > size)
-  //     readpos = 0;
-  //   uint8_t* ptr = buffer+readpos;
-  //   readpos += len;
-  //   return ptr;
-  // }
-
-  void push(uint8_t c){
-    buffer[writepos++] = c;
-    if(writepos >= size)
-      writepos = 0;
-  }
-  uint8_t pop(){
-    uint8_t c = buffer[readpos++];
-    if(readpos >= size)
-      readpos = 0;
-    return c;
-  }
-
-  uint8_t* getWriteHead(){
-    return buffer+writepos;
-  }
-  void incrementWriteHead(uint16_t len){
-    // ASSERT((writepos >= readpos && writepos+len <= size) ||
-    // 	   (writepos < readpos && writepos+len <= readpos), "uart rx overflow");
-    writepos += len;
-    if(writepos >= size)
-      writepos = 0;
-  }
-
-  uint8_t* getReadHead(){
-    return buffer+readpos;
-  }
-  void incrementReadHead(uint16_t len){
-    // ASSERT((readpos >= writepos && readpos+len <= size) ||
-    // 	   (readpos < writepos && readpos+len <= writepos), "uart rx underflow");
-    readpos += len;
-    if(readpos >= size)
-      readpos = 0;
-  }
-
-  // void enqueue(uint8_t* frame){
-  //   buffer[writepos++] = frame[0];
-  //   buffer[writepos++] = frame[1];
-  //   buffer[writepos++] = frame[2];
-  //   buffer[writepos++] = frame[3];
-  //   if(writepos == size)
-  //     writepos = 0;
-  // }
-  // void dequeue(uint8_t* dest){
-  //   dest[0] = buffer[readpos++];
-  //   dest[1] = buffer[readpos++];
-  //   dest[2] = buffer[readpos++];
-  //   dest[3] = buffer[readpos++];
-  //   if(readpos == size)
-  //     readpos = 0;
-  // }
-  bool notEmpty(){
-    return writepos != readpos;
-  }
-  uint16_t available(){
-    return (writepos + size - readpos) % size;
-  }
-  void reset(){
-    readpos = writepos = 0;
-  }
-};
-
-static SerialBuffer<128> rxbuf;
-
 extern "C" {
 
-  void serial_rx_callback(uint8_t c){
-    rxbuf.push(c);
+void USART1_IRQHandler(void){
+  extern UART_HandleTypeDef huart1;
+  UART_HandleTypeDef *huart = &huart1;
+  uint32_t isrflags   = READ_REG(huart->Instance->ISR);
+  uint32_t errorflags = (isrflags & (uint32_t)(USART_ISR_PE | USART_ISR_FE | USART_ISR_ORE | USART_ISR_NE));
+  /* uint16_t uhMask = huart->Mask; */
+  /* If no error occurs */
+  if(errorflags == RESET){
+    /* UART in mode Receiver ---------------------------------------------------*/
+    if(((isrflags & USART_ISR_RXNE) != RESET)){ // && ((cr1its & USART_CR1_RXNEIE) != RESET))
+      // serial_rx_callback((uint8_t)(huart->Instance->RDR & (uint8_t)uhMask));
+      // serial_rx_callback((uint8_t)(huart->Instance->RDR));
+      bus.read((uint8_t)(huart->Instance->RDR));
+    }
+    /* UART in mode Transmitter ------------------------------------------------*/
+    if(((isrflags & USART_ISR_TXE) != RESET)){  // && ((cr1its & USART_CR1_TXEIE) != RESET)){
+      if(bus_tx_buf.notEmpty()){
+        huart->Instance->TDR = bus_tx_buf.pull(); // (uint8_t)(*huart->pTxBuffPtr++ & (uint8_t)0xFFU);
+	// USART_SendData(USART_PERIPH, bus_tx_buf.pull());
+      }else{
+	/* Disable the UART Transmit Data Register Empty Interrupt */
+	CLEAR_BIT(huart->Instance->CR1, USART_CR1_TXEIE);
+	// USART_ITConfig(USART_PERIPH, USART_IT_TXE, DISABLE);
+      }
+    }
+  }else{
+    /* If some errors occur */
+    /* if((errorflags != RESET) && ((cr3its & (USART_CR3_EIE | USART_CR1_PEIE)) != RESET)){ */
+      /* UART parity error interrupt occurred -------------------------------------*/
+    if(((isrflags & USART_ISR_PE) != RESET)) //  && ((cr1its & USART_CR1_PEIE) != RESET))
+      {
+	__HAL_UART_CLEAR_IT(huart, UART_CLEAR_PEF);
+	setErrorMessage(UART_ERROR, "uart parity error");
+	huart->ErrorCode |= HAL_UART_ERROR_PE;
+      }
+    /* UART frame error interrupt occurred --------------------------------------*/
+    if(((isrflags & USART_ISR_FE) != RESET)) // && ((cr3its & USART_CR3_EIE) != RESET))
+      {
+	__HAL_UART_CLEAR_IT(huart, UART_CLEAR_FEF);
+	setErrorMessage(UART_ERROR, "uart frame error");
+	huart->ErrorCode |= HAL_UART_ERROR_FE;
+      }
+    /* UART noise error interrupt occurred --------------------------------------*/
+    if(((isrflags & USART_ISR_NE) != RESET)) // && ((cr3its & USART_CR3_EIE) != RESET))
+      {
+	__HAL_UART_CLEAR_IT(huart, UART_CLEAR_NEF);
+	setErrorMessage(UART_ERROR, "uart noise error");
+	huart->ErrorCode |= HAL_UART_ERROR_NE;
+      }    
+    /* UART Over-Run interrupt occurred -----------------------------------------*/
+    if(((isrflags & USART_ISR_ORE) != RESET)) //  &&
+      // (((cr1its & USART_CR1_RXNEIE) != RESET) || ((cr3its & USART_CR3_EIE) != RESET)))
+      {
+	__HAL_UART_CLEAR_IT(huart, UART_CLEAR_OREF);
+	__HAL_UART_FLUSH_DRREGISTER(huart);
+	setErrorMessage(UART_ERROR, "uart overrun");
+	huart->ErrorCode |= HAL_UART_ERROR_ORE;
+      }
+  }
+}
+
+  void serial_write(uint8_t* data, uint16_t size){
+    bus_tx_buf.push(data, size);
+    /* Enable the UART Transmit Data Register Empty Interrupt */
+    extern UART_HandleTypeDef huart1;
+    SET_BIT(huart1.Instance->CR1, USART_CR1_TXEIE);
+    // USART_ITConfig(USART_PERIPH, USART_IT_TXE, ENABLE);
   }
 
   // void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart){
@@ -156,29 +137,18 @@ void bus_setup(){
 #define BUS_IDLE_INTERVAL 2197
 
 int bus_status(){
-  while(rxbuf.notEmpty() && rxbuf.available() >= 4){
-    uint8_t* frame = rxbuf.getReadHead();
-    rxbuf.incrementReadHead(4);
-    bus.readBusFrame(frame);
-    if((frame[0]&0xf0) == 0) // midi frame
-      midi_tx_usb_buffer(frame, 4); // forward serial bus to USB MIDI
+  bus.process();
+  static uint32_t lastpolled = 0;
+  if(osKernelSysTick() > lastpolled + BUS_IDLE_INTERVAL){
+    bus.connected();
+    lastpolled = osKernelSysTick();
   }
-  // static uint32_t lastpolled = 0;
-  // if(osKernelSysTick() > lastpolled + BUS_IDLE_INTERVAL){
-  //   bus.connected();
-  //   lastpolled = osKernelSysTick();
-  // }
   return bus.getStatus();
 }
 
 void bus_tx_parameter(uint8_t pid, int16_t value){
   debug << "tx parameter [" << pid << "][" << value << "]" ;
   bus.sendParameterChange(pid, value);
-}
-
-void bus_tx_button(uint8_t bid, int16_t value){
-  debug << "tx button [" << bid << "][" << value << "]" ;
-  bus.sendButtonChange(bid, value);
 }
 
 void bus_tx_command(uint8_t cmd, int16_t data){
@@ -196,7 +166,6 @@ void bus_tx_error(const char* reason){
 }
 
 void bus_rx_parameter(uint8_t pid, int16_t value){}
-void bus_rx_button(uint8_t bid, int16_t value){}
 void bus_rx_command(uint8_t cmd, int16_t data){}
 void bus_rx_message(const char* msg){}
 void bus_rx_data(const uint8_t* data, uint16_t size){}
@@ -204,7 +173,6 @@ void bus_rx_data(const uint8_t* data, uint16_t size){}
 void bus_rx_error(const char* reason){
   debug << "Digital bus receive error: " << reason << ".";
   bus.reset();
-  rxbuf.reset();
   bus.sendReset();
 }
 
