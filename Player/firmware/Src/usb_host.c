@@ -35,7 +35,7 @@
 
 #include "usb_host.h"
 #include "usbh_core.h"
-#include "usbh_audio.h"
+#include "usbh_MIDI.h"
 
 /* USB Host Core handle declaration */
 USBH_HandleTypeDef hUsbHostFS;
@@ -66,7 +66,7 @@ void MX_USB_HOST_Init(void)
   /* Init Host Library,Add Supported Class and Start the library*/
   USBH_Init(&hUsbHostFS, USBH_UserProcess, HOST_FS);
 
-  USBH_RegisterClass(&hUsbHostFS, USBH_AUDIO_CLASS);
+  USBH_RegisterClass(&hUsbHostFS, USBH_MIDI_CLASS);
 
   USBH_Start(&hUsbHostFS);
 }

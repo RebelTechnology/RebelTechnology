@@ -22,6 +22,12 @@ extern DAC_HandleTypeDef hdac;
 extern SDRAM_HandleTypeDef hsdram1;
 extern SPI_HandleTypeDef hspi2;
 
+#include "usbh_MIDI.h"
+extern USBH_HandleTypeDef hUsbHostFS;
+
+#define RX_BUFF_SIZE   64  /* Max Received data 64 bytes */
+static uint8_t USBHOST_RX_Buffer[RX_BUFF_SIZE]; // MIDI reception buffer
+
 // #define OLED_HEIGHT 64
 // #define OLED_WIDTH 128
 #define OLED_DATA_LENGTH (OLED_WIDTH*OLED_HEIGHT/8)
@@ -92,6 +98,8 @@ void setup(void){
   patches[currentPatch]->reset();
 
   doProcessAudio = true;
+
+  // USBH_MIDI_Receive(&hUSBHostFS, USBHOST_RX_Buffer, RX_BUFF_SIZE); // just once at the beginning, start the first reception
 }
 
 void processBlock(ProgramVector* pv){
@@ -120,8 +128,21 @@ void run(void){
   }
 }
 
+  void USBH_MIDI_ReceiveCallback(USBH_HandleTypeDef *phost){
+    uint16_t numberOfPackets;
+    uint8_t *ptr = USBHOST_RX_Buffer;
+    // midi_package_t pack;
+    numberOfPackets = USBH_MIDI_GetLastReceivedDataSize(phost) / 4; //each USB midi package is 4 bytes long
+
+    USBH_MIDI_Receive(phost, USBHOST_RX_Buffer, RX_BUFF_SIZE); // start a new reception
+  }
+
+  void USBH_MIDI_TransmitCallback(USBH_HandleTypeDef *phost){
+  }
+
 extern "C" {
   void delay(uint32_t ms){
     osDelay(ms);
   }
 }
+
