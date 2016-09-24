@@ -13,8 +13,8 @@
 /* #define OLED_BITBANG */
 /* #define USE_CODEC */
 #define CODEC_SOFT_CS
-/* #define CODEC_BLOCKSIZE 1024 */
-#define CODEC_BLOCKSIZE 2048 // 23.4 FPS
+#define CODEC_BLOCKSIZE 1024
+/* #define CODEC_BLOCKSIZE 2048 // 23.4 FPS */
 /* #define USE_OVERDRIVE // 216MHz */
 /* #define QSPI_FLASH_SIZE (128*1024) */
 /* #define USE_QSPI_FLASH */

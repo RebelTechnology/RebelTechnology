@@ -290,77 +290,70 @@ static uint8_t  USBD_Midi_DeInit (USBD_HandleTypeDef *pdev,
 static uint8_t  USBD_Midi_Setup (USBD_HandleTypeDef *pdev, 
                                 USBD_SetupReqTypedef *req)
 {
-#if 0 
-  uint16_t len=USB_MIDI_CONFIG_DESC_SIZ;
-  uint8_t  *pbuf=USBD_Midi_CfgDesc + 18;
-  switch (req->bmRequest & USB_REQ_TYPE_MASK)
-  {
+#if 1
+  uint16_t len = USB_MIDI_CONFIG_DESC_SIZ;
+  uint8_t ret = USBD_OK;
+  USBD_Midi_HandleTypeDef* hmidi = (USBD_Midi_HandleTypeDef*)pdev->pClassData;
+  switch (req->bmRequest & USB_REQ_TYPE_MASK){
     /* AUDIO Class Requests -------------------------------*/
   case USB_REQ_TYPE_CLASS :    
-    switch (req->bRequest)
-    {
-    case AUDIO_REQ_GET_CUR:
-      //AUDIO_Req_GetCurrent(pdev, req); // Left over from USB-audio. Delete me if not needed
-      break;
-          case AUDIO_REQ_SET_CUR:
-      //AUDIO_Req_SetCurrent(pdev, req); // Left over from USB-audio. Delete me if not needed
-      break;
+    switch (req->bRequest){
+    /* case AUDIO_REQ_GET_CUR: */
+    /*   AUDIO_Req_GetCurrent(pdev, req); // Left over from USB-audio. Delete me if not needed */
+    /*   break; */
+    /* case AUDIO_REQ_SET_CUR: */
+    /*   AUDIO_Req_SetCurrent(pdev, req); // Left over from USB-audio. Delete me if not needed */
+    /*   break; */
     default:
-      USBD_CtlError (pdev, req);
-      return USBD_FAIL;
+      USBD_CtlError(pdev, req);
+      ret = USBD_FAIL;
     }
     break;
     /* Standard Requests -------------------------------*/
   case USB_REQ_TYPE_STANDARD:
-    switch (req->bRequest)
-    {
+    switch (req->bRequest){
     case USB_REQ_GET_DESCRIPTOR: 
-      /* if( (req->wValue >> 8) == AUDIO_DESCRIPTOR_TYPE) */
-      /* { */
-      /*   len = MIN(USB_MIDI_CONFIG_DESC_SIZ , req->wLength); */
-      /* } */      
-      USBD_CtlSendData (pdev, 
-                        pbuf,
-                        len);
+      if( (req->wValue >> 8) == AUDIO_DESCRIPTOR_TYPE){
+	uint8_t  *pbuf = USBD_Midi_CfgDesc + 18;
+	len = MIN(USB_MIDI_CONFIG_DESC_SIZ , req->wLength);
+	USBD_CtlSendData (pdev, pbuf, len);
+      }
       break;
     case USB_REQ_GET_INTERFACE :
       USBD_CtlSendData (pdev,
-                        (uint8_t *)&usbd_audio_AltSet,
+                        (uint8_t *)&(hmidi->alt_setting),
+                        /* (uint8_t *)&usbd_audio_AltSet, */
                         1);
       break;
     case USB_REQ_SET_INTERFACE :
-      if ((uint8_t)(req->wValue) < AUDIO_TOTAL_IF_NUM)
-      {
-        usbd_audio_AltSet = (uint8_t)(req->wValue);
-      }
-      else
-      {
+      if((uint8_t)(req->wValue) <= USBD_MAX_NUM_INTERFACES){
+        hmidi->alt_setting = (uint8_t)(req->wValue);
+      }else{
         /* Call the error management function (command will be nacked */
-        USBD_CtlError (pdev, req);
+        USBD_CtlError(pdev, req);
       }
-      break;
+      break;      
+    default :
+      USBD_CtlError(pdev, req);
+      ret = USBD_FAIL;     
     }
   }
-  return USBD_OK;
+  return ret;
 
 #else
-
   switch (req->bmRequest & USB_REQ_TYPE_MASK)
   {
   case USB_REQ_TYPE_CLASS :  
     switch (req->bRequest)
     {
-      
     default:
       USBD_CtlError (pdev, req);
       return USBD_FAIL; 
     }
     break;
-    
   case USB_REQ_TYPE_STANDARD:
     switch (req->bRequest)
     {
-    
     default:
       USBD_CtlError (pdev, req);
       return USBD_FAIL;     
@@ -395,6 +388,15 @@ uint8_t  *USBD_Midi_DeviceQualifierDescriptor (uint16_t *length)
   return USBD_Midi_DeviceQualifierDesc;
 }
 
+extern USBD_HandleTypeDef hUsbDeviceHS;
+static volatile int midi_tx_lock = 0;
+void midi_tx_usb_buffer(uint8_t* buf, uint32_t len) {
+  if(hUsbDeviceHS.dev_state == USBD_STATE_CONFIGURED){
+    while(midi_tx_lock);
+    midi_tx_lock = 1;
+    USBD_LL_Transmit(&hUsbDeviceHS, MIDI_IN_EP, buf, len);
+  }
+}
 
 /**
   * @brief  USBD_Midi_DataIn
@@ -406,6 +408,7 @@ uint8_t  *USBD_Midi_DeviceQualifierDescriptor (uint16_t *length)
 static uint8_t  USBD_Midi_DataIn (USBD_HandleTypeDef *pdev, 
 				  uint8_t epnum)
 {
+    midi_tx_lock = 0;
 
   /* USBD_LL_Transmit(pdev, MIDI_IN_EP, buf, size); */
 
@@ -490,24 +493,11 @@ static uint8_t  USBD_Midi_DataOut (USBD_HandleTypeDef *pdev,
 //  ((MIDI_IF_Prop_TypeDef *)pdev->pUserData)->pIf_MidiRx((uint8_t*)&USB_Rx_Buffer, USB_Rx_Cnt);
 //  APP_fops->pIf_MidiRx((uint8_t*)&USB_Rx_Buffer, USB_Rx_Cnt);
 
-/*  switch(hmidi->rxBuffer[0])
-  {
-    case 0x2:
-    case 0x4:
-    case 0x5:    
-    case 0x6:
-    case 0xf:
-      break;
-    default:
-      ((USBD_Midi_ItfTypeDef *)pdev->pUserData)->Receive(hmidi->rxBuffer, hmidi->rxLen);
-      break;
-  }
-  */
-
 uint8_t *buf = hmidi->rxBuffer;
 
 for (uint32_t i=0; i<hmidi->rxLen; i+=4) {
   ((USBD_Midi_ItfTypeDef *)pdev->pUserData)->Receive(buf+i, 4);
+  // send blocks of 4 bytes to midi_rx_usb_buffer
 }
 
 //  ((USBD_Midi_ItfTypeDef *)pdev->pUserData)->Receive(hmidi->rxBuffer,hmidi->rxLen);
