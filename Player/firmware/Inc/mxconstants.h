@@ -81,6 +81,9 @@
 #define CS_nRST_GPIO_Port GPIOG
 /* USER CODE BEGIN Private defines */
 
+#define USB_DM_Pin GPIO_PIN_14
+#define USB_DP_Pin GPIO_PIN_15
+
 /* USER CODE END Private defines */
 
 /**

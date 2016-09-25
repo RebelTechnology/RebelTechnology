@@ -13,6 +13,8 @@ extern "C" {
 #include "ProgramVector.h"
 #include "ScreenBuffer.h"
 #include "SampleBuffer.hpp"
+#include "midi.h"
+#include "usbh_MIDI.h"
 
 extern "C" {
   void setup(void);
@@ -21,9 +23,6 @@ extern "C" {
 extern DAC_HandleTypeDef hdac;
 extern SDRAM_HandleTypeDef hsdram1;
 extern SPI_HandleTypeDef hspi2;
-
-#include "usbh_MIDI.h"
-extern USBH_HandleTypeDef hUsbHostFS;
 
 #define RX_BUFF_SIZE   64  /* Max Received data 64 bytes */
 static uint8_t USBHOST_RX_Buffer[RX_BUFF_SIZE]; // MIDI reception buffer
@@ -98,8 +97,9 @@ void setup(void){
   patches[currentPatch]->reset();
 
   doProcessAudio = true;
-
-  // USBH_MIDI_Receive(&hUSBHostFS, USBHOST_RX_Buffer, RX_BUFF_SIZE); // just once at the beginning, start the first reception
+ 
+  extern USBH_HandleTypeDef hUsbHostFS;
+  USBH_MIDI_Receive(&hUsbHostFS, USBHOST_RX_Buffer, RX_BUFF_SIZE); // just once at the beginning, start the first reception
 }
 
 void processBlock(ProgramVector* pv){
@@ -138,11 +138,21 @@ void run(void){
   }
 
   void USBH_MIDI_TransmitCallback(USBH_HandleTypeDef *phost){
+    // get ready to send some more
   }
+
+// called from USB device interface
+void midi_rx_usb_buffer(uint8_t *buffer, uint32_t length){
+
+}
+   // void midi_tx_usb_buffer(uint8_t* buffer, uint32_t length);
 
 extern "C" {
   void delay(uint32_t ms){
     osDelay(ms);
+  }
+  void Error_Handler(void){
+    assert_param(0);
   }
 }
 

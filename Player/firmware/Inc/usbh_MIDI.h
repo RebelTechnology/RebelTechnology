@@ -32,6 +32,10 @@
 #include "usbh_core.h"
 #include "stm32f7xx_hal.h"
 
+#ifdef __cplusplus
+ extern "C" {
+#endif
+
 
 /*-------------------------------------------------------------------------------*/
 // buffer size (should be at least >= MIOS32_USB_MIDI_DESC_DATA_*_SIZE/4)
@@ -198,6 +202,10 @@ USBH_StatusTypeDef  USBH_MIDI_Stop(USBH_HandleTypeDef *phost);
 void USBH_MIDI_TransmitCallback(USBH_HandleTypeDef *phost);
 
 void USBH_MIDI_ReceiveCallback(USBH_HandleTypeDef *phost);
+
+#ifdef __cplusplus
+}
+#endif
 
 /*-------------------------------------------------------------------------------------------*/
 #endif /* __USBH_MIDI_CORE_H */
