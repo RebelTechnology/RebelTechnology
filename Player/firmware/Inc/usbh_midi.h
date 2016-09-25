@@ -1,10 +1,10 @@
 /**
  ******************************************************************************
- * @file    usbh_MIDI.h
+ * @file    usbh_midi.h
  * @author  Xavier Halgand
  * @version 
  * @date    
- * @brief   This file contains all the prototypes for the usbh_MIDI.c
+ * @brief   This file contains all the prototypes for the usbh_midi.c
  ******************************************************************************
  */
 /*

@@ -14,7 +14,7 @@ extern "C" {
 #include "ScreenBuffer.h"
 #include "SampleBuffer.hpp"
 #include "midi.h"
-#include "usbh_MIDI.h"
+#include "usbh_midi.h"
 
 extern "C" {
   void setup(void);
