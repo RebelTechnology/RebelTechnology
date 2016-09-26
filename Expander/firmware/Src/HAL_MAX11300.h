@@ -1,4 +1,6 @@
 #include "stm32f1xx_hal.h"
+
+#define Pixi_DMATransfer
  
 // Port Mapping
 #define PORT_1    0
@@ -22,18 +24,32 @@
 //#define PORT_19   5
 //#define PORT_20		4
  
-// Base Addresses
-#define ADDR_GPIO15_0			0x0D
-#define ADDR_GPIO19_16		0x0E
-#define ADDR_DevCont			0x10
-#define ADDR_IntMask			0x11
-#define ADDR_CFGbase    	0x20
-#define ADDR_ADCbase    	0x40
-#define ADDR_DACbase    	0x60
- 
-#define SPI_Read        	1
-#define SPI_Write       	0
- 
+// RAM addresses
+#define ADDR_Interrupt							0x01
+#define ADC_Stat15_0								0x02
+#define ADC_Stat16_19								0x03
+#define ADDR_GPIO15_0								0x0D
+#define ADDR_GPIO19_16							0x0E
+#define ADDR_DevCont								0x10
+#define ADDR_IntMask								0x11
+
+// Base RAM Addresses
+#define ADDR_CFGbase    						0x20
+#define ADDR_ADCbase    						0x40
+#define ADDR_DACbase    						0x60
+
+// Interrupt Masks
+#define INT_VMON										(1<<15)
+#define INT_TempExt2								(7<<12)
+#define INT_TempExt1								(7<<9)
+#define INT_TempInt									(7<<6)
+#define INT_DAC_OI									(1<<5)
+#define INT_GPI_DM									(1<<4)
+#define INT_GPI_DR									(1<<3)
+#define INT_ADC_DM									(1<<2)
+#define INT_ADC_DR									(1<<1)
+#define INT_ADC_Flag 								(1<<0)
+
 // Device Configuration Values
 #define DCR_ADCCTL_Idle							(0<<0)
 #define DCR_ADCCTL_SingSweep				(1<<0)
@@ -46,9 +62,9 @@
 #define DCR_DACCTL_AllDAT2					(3<<2)
 
 #define DCR_ADCCONV_200ksps					(0<<4)
-#define DCR_ADCCONV_250ksps					(0<<4)
-#define DCR_ADCCONV_333ksps					(0<<4)
-#define DCR_ADCCONV_400ksps					(0<<4)
+#define DCR_ADCCONV_250ksps					(1<<4)
+#define DCR_ADCCONV_333ksps					(2<<4)
+#define DCR_ADCCONV_400ksps					(3<<4)
 
 #define DCR_DACREF_Ext							(0<<6)
 #define DCR_DACREF_Int							(1<<6)
@@ -116,11 +132,17 @@
 #define PCR_Mode_GPISwitch_Term     (11<<12)  	// Mode 11 - Terminal to GPI-controlled analog switch
 #define PCR_Mode_RegSwitch_Term  		(12<<12)  	// Mode 12 - Terminal to register-controlled analog switch
  
+// SPI Read/Write bit
+#define SPI_Read        	1
+#define SPI_Write       	0
+
 // Pin Control
 #define pbarCS(state)		HAL_GPIO_WritePin(MAX_CS_GPIO_Port,  MAX_CS_Pin,  (GPIO_PinState)state)
  
 // Prototypes
-void MAX11300_init(SPI_HandleTypeDef *spiconfig);
+void MAX11300_init (SPI_HandleTypeDef *spiconfig);
+
+
 void MAX11300_setPortMode(uint8_t port, uint16_t config);
 uint16_t MAX11300_readPortMode(uint8_t port);
 void MAX11300_setDeviceControl(uint16_t config);
