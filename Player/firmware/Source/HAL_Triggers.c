@@ -49,20 +49,20 @@ void Triggers_Config(void)
 	GPIO_InitStruct.Pin   = GPIO_PIN_10 | GPIO_PIN_11;		// TR_IN_A & TR_IN_B
 	GPIO_InitStruct.Mode  = GPIO_MODE_IT_RISING_FALLING;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-	GPIO_InitStruct.Pull  = GPIO_NOPULL;
+	GPIO_InitStruct.Pull  = GPIO_PULLUP;
 	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 	
 	HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0x0F, 0x00);
-  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+	HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 	
 	// Configure Output Pins
-	GPIO_InitStruct.Pin   = GPIO_PIN_12;									// TR_OUT_A
+	GPIO_InitStruct.Pin   = GPIO_PIN_12;				// TR_OUT_A
 	GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
 	GPIO_InitStruct.Pull  = GPIO_PULLDOWN;
 	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 	
-	GPIO_InitStruct.Pin   = GPIO_PIN_2;										// TR_OUT_B
+	GPIO_InitStruct.Pin   = GPIO_PIN_2;				// TR_OUT_B
 	GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
 	GPIO_InitStruct.Pull  = GPIO_PULLDOWN;

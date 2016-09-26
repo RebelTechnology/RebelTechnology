@@ -43,6 +43,7 @@ C_SRC += errorhandlers.c
 
 CPP_SRC = $(notdir $(wildcard Src/*.cpp)) $(notdir $(wildcard MDK-ARM/*.cpp)) #$(notdir $(wildcard Source/*.cpp))
 CPP_SRC += Graphics.cpp Player.cpp Codec.cpp ScreenBuffer.cpp operators.cpp
+CPP_SRC += MidiReader.cpp MidiHandler.cpp
 
 OBJS = $(C_SRC:%.c=Build/%.o) $(CPP_SRC:%.cpp=Build/%.o)
 OBJS += $(BUILD)/startup_stm32f756xx.o

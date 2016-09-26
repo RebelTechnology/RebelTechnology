@@ -98,6 +98,16 @@ void OTG_HS_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
+extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim3;
+
+void TIM2_IRQHandler(void){
+  HAL_TIM_IRQHandler(&htim2);
+}
+
+void TIM3_IRQHandler(void){
+  HAL_TIM_IRQHandler(&htim3);
+}
 
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

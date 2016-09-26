@@ -16,6 +16,8 @@ extern "C" {
 #include "midi.h"
 #include "usbh_midi.h"
 
+#include "MidiReader.h"
+
 extern "C" {
   void setup(void);
   void run(void);
@@ -23,6 +25,35 @@ extern "C" {
 extern DAC_HandleTypeDef hdac;
 extern SDRAM_HandleTypeDef hsdram1;
 extern SPI_HandleTypeDef hspi2;
+extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim3;
+
+void encoderChanged(uint8_t encoder, int32_t value);
+
+extern "C" {
+  void delay(uint32_t ms){
+    osDelay(ms);
+  }
+  void Error_Handler(void){
+    assert_param(0);
+  }
+}
+
+bool tr1(){
+  return HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_12) != GPIO_PIN_SET;
+}
+
+bool tr2(){
+  return HAL_GPIO_ReadPin(GPIOD, GPIO_PIN_2) != GPIO_PIN_SET;
+}
+
+bool sw1(){
+  return HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_14) != GPIO_PIN_SET;
+}
+
+bool sw2(){
+  return HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4) != GPIO_PIN_SET;
+}
 
 #define RX_BUFF_SIZE   64  /* Max Received data 64 bytes */
 static uint8_t USBHOST_RX_Buffer[RX_BUFF_SIZE]; // MIDI reception buffer
@@ -37,6 +68,7 @@ Codec codec;
 ProgramVector programVector;
 ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
 SampleBuffer samples;
+MidiReader midireader;
 
 #include "SplashPatch.hpp"
 SplashPatch splash;
@@ -84,7 +116,7 @@ void setup(void){
 
 // Product Specific Initialisation
   Triggers_Config();
-  Encoders_Config();
+  // Encoders_Config();
   CV_IO_Config();
   CV_Out_A(&hdac, 0);
   CV_Out_B(&hdac, 0);
@@ -94,12 +126,18 @@ void setup(void){
   // codec.start();
   // codec.ramp(1<<23);
 
+  __HAL_TIM_SetCounter(&htim2, INT16_MAX/2);
+  __HAL_TIM_SetCounter(&htim3, INT16_MAX/2);
+  HAL_TIM_Encoder_Start_IT(&htim2, 0);
+  HAL_TIM_Encoder_Start_IT(&htim3, TIM_CHANNEL_ALL);
+
   patches[currentPatch]->reset();
 
   doProcessAudio = true;
  
   extern USBH_HandleTypeDef hUsbHostFS;
-  USBH_MIDI_Receive(&hUsbHostFS, USBHOST_RX_Buffer, RX_BUFF_SIZE); // just once at the beginning, start the first reception
+  // just once at the beginning, start the first reception
+  // USBH_MIDI_Receive(&hUsbHostFS, USBHOST_RX_Buffer, RX_BUFF_SIZE);
 }
 
 void processBlock(ProgramVector* pv){
@@ -138,21 +176,39 @@ void run(void){
   }
 
   void USBH_MIDI_TransmitCallback(USBH_HandleTypeDef *phost){
-    // get ready to send some more
+    // get ready to send some called
   }
 
-// called from USB device interface
+// more from USB device interface
 void midi_rx_usb_buffer(uint8_t *buffer, uint32_t length){
-
+  for(uint32_t i=0; i<length; i+=4)
+    midireader.readMidiFrame(buffer+i);
 }
    // void midi_tx_usb_buffer(uint8_t* buffer, uint32_t length);
 
-extern "C" {
-  void delay(uint32_t ms){
-    osDelay(ms);
-  }
-  void Error_Handler(void){
-    assert_param(0);
-  }
+static int16_t encoders[2] = {INT16_MAX/2, INT16_MAX/2};
+static int16_t deltas[2] = {0, 0};
+void encoderChanged(uint8_t encoder, int32_t value){
+  // // todo: debounce
+  // // pass encoder change event to patch
+  int32_t delta = value - encoders[encoder];
+  encoders[encoder] = value;
+  deltas[encoder] = delta;
+  patches[currentPatch]->encoderChanged(encoder, delta);
 }
 
+void encoderReset(uint8_t encoder, int32_t value){
+  if(encoder == 0)
+    __HAL_TIM_SetCounter(&htim2, value);
+  else if(encoder == 1)
+    __HAL_TIM_SetCounter(&htim3, value);
+}
+
+extern "C" {
+  void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim){
+    if(htim == &htim2)
+      encoderChanged(0, __HAL_TIM_GET_COUNTER(&htim2));
+    else if(htim == &htim3)
+      encoderChanged(1, __HAL_TIM_GET_COUNTER(&htim3));
+  }
+}
