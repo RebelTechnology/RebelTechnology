@@ -155,27 +155,32 @@
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>\\Expander\HAL_TLC5946.c\TLC5946_SetOutput_GS\ucBuffLoc</ItemText>
+          <ItemText>rgDCbuf</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>rgDCbuf</ItemText>
+          <ItemText>rgGSbuf</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>1</WinNumber>
-          <ItemText>rgGSbuf</ItemText>
+          <ItemText>rgData</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
           <WinNumber>1</WinNumber>
-          <ItemText>rgData</ItemText>
+          <ItemText>usiRtnValue</ItemText>
         </Ww>
         <Ww>
           <count>5</count>
           <WinNumber>1</WinNumber>
-          <ItemText>usiRtnValue</ItemText>
+          <ItemText>rgDACValues</ItemText>
+        </Ww>
+        <Ww>
+          <count>6</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>rgADCValues</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>
@@ -268,7 +273,7 @@
       <GroupNumber>1</GroupNumber>
       <FileNumber>4</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\Src\HAL_TLC5946.c</PathWithFileName>
@@ -280,7 +285,7 @@
       <GroupNumber>1</GroupNumber>
       <FileNumber>5</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\Src\HAL_MAX11300.c</PathWithFileName>

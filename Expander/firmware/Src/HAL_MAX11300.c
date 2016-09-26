@@ -1,7 +1,12 @@
 #include "stm32f1xx_hal.h"
 #include "HAL_MAX11300.h"
+
+#include <string.h>
  
 SPI_HandleTypeDef* MAX11300_SPIConfig;
+ 
+uint8_t rgADCData_Rx[40];
+uint32_t* pADCResult;
  
 //_____ Functions _____________________________________________________________________________________________________
 // Port and Chip Setup
@@ -9,16 +14,23 @@ void MAX11300_setPortMode(uint8_t port, uint16_t config)
 {
 	uint8_t rgData[3] = "";
      
-	// separate config into two bytes
+	// Split config into two bytes
 	rgData[0] = (ADDR_CFGbase+port)<<1 | SPI_Write;
 	rgData[1] = (config&0xFF00)>>8;
 	rgData[2] = (config&0x00FF);
-     
-	pbarCS(0);
-	HAL_SPI_Transmit(MAX11300_SPIConfig, rgData, sizeof rgData, 100);
-	pbarCS(1);
+   
+	pbarCS(0);  
+//	HAL_SPI_Transmit(MAX11300_SPIConfig, rgData, sizeof rgData, 100);
+//	pbarCS(1);
 	
-	Nop_delay(1000);
+	#ifdef Pixi_SPIDMA
+		HAL_SPI_Transmit_DMA(MAX11300_SPIConfig, rgData, sizeof rgData);
+	#else
+		HAL_SPI_Transmit(MAX11300_SPIConfig, rgData, sizeof rgData, 100);
+		pbarCS(1);
+	#endif
+	
+	Nop_delay(100000);
 }
 
 uint16_t MAX11300_readPortMode(uint8_t port)
@@ -47,11 +59,16 @@ void MAX11300_setDeviceControl(uint16_t config)
 	rgData[1] = (config&0xFF00)>>8;
 	rgData[2] = (config&0x00FF);
 	
-	pbarCS(0);
-	HAL_SPI_Transmit(MAX11300_SPIConfig, rgData, sizeof rgData, 100);
-	pbarCS(1);
+	pbarCS(0);  
 	
-	Nop_delay(10000);
+	#ifdef Pixi_SPIDMA
+		HAL_SPI_Transmit_DMA(MAX11300_SPIConfig, rgData, sizeof rgData);
+	#else
+		HAL_SPI_Transmit(MAX11300_SPIConfig, rgData, sizeof rgData, 100);
+		pbarCS(1);
+	#endif
+	
+	Nop_delay(100000);
 }
 
 // ADC Functions
@@ -72,6 +89,20 @@ uint16_t MAX11300_readADC(uint8_t port)
 	
 	return usiRtnValue & 0xFFF;
 }
+
+void MAX11300_bulkreadADC(uint32_t *pBuffLoc)
+{
+	uint8_t ucAddress=0;
+	
+	// Copy buffer location 	
+	pADCResult = pBuffLoc;
+	
+	ucAddress = (ADDR_ADCbase)<<1 | SPI_Read;
+	
+	pbarCS(0);
+	HAL_SPI_Transmit(MAX11300_SPIConfig, &ucAddress, 1, 100);
+	HAL_SPI_Receive_DMA(MAX11300_SPIConfig, rgADCData_Rx, 40);
+}
  
 // DAC Functions
 void MAX11300_setDAC(uint8_t port, uint16_t value)
@@ -81,10 +112,40 @@ void MAX11300_setDAC(uint8_t port, uint16_t value)
 	rgData[0] = (ADDR_DACbase+port)<<1 | SPI_Write;
 	rgData[1] = (value&0xFF00)>>8;
 	rgData[2] = (value&0x00FF);
-	 
+	 	
 	pbarCS(0);
-	HAL_SPI_Transmit(MAX11300_SPIConfig, rgData, sizeof rgData, 100);
-	pbarCS(1);
+	
+	#ifdef Pixi_SPIDMA
+		HAL_SPI_Transmit_DMA(MAX11300_SPIConfig, rgData, sizeof rgData);
+	#else
+		HAL_SPI_Transmit(MAX11300_SPIConfig, rgData, sizeof rgData, 100);
+		pbarCS(1);
+	#endif
+}
+
+void MAX11300_bulksetDAC(uint32_t *pBuffLoc)
+{
+	uint8_t ucChannel, rgData[41] = "";
+	
+	// Set address
+	rgData[0] = ADDR_DACbase<<1 | SPI_Write;
+	
+	// Convert and add data to buffer
+	for (ucChannel=0; ucChannel<20; ucChannel++)
+	{
+		rgData[(ucChannel*2)+1]	= (pBuffLoc[ucChannel]&0x0F00)>>8;
+		rgData[(ucChannel*2)+2] = (pBuffLoc[ucChannel]&0x00FF);
+	}
+	
+	pbarCS(0);  
+	
+	#ifdef Pixi_SPIDMA
+		HAL_SPI_Transmit_DMA(MAX11300_SPIConfig, rgData, 41);
+	#else
+		HAL_SPI_Transmit(MAX11300_SPIConfig, rgData, sizeof rgData, 100);
+		pbarCS(1);
+	#endif
+
 }
 
 uint16_t MAX11300_readDAC(uint8_t port)
@@ -120,6 +181,25 @@ void MAX11300_init (SPI_HandleTypeDef *spiconfig)
 	HAL_GPIO_Init(MAX_CS_GPIO_Port, &GPIO_InitStruct);
 	 
 	MAX11300_SPIConfig = spiconfig;
+}
+
+
+void MAX11300_TxINTCallback(void)
+{
+	pbarCS(1);
+}
+
+void MAX11300_RxINTCallback(void)
+{
+	uint8_t ucChannel = 0;
+	
+	pbarCS(1);
+	
+	for (ucChannel=0; ucChannel<20; ucChannel++)
+	{
+		pADCResult[ucChannel]  = rgADCData_Rx[(ucChannel*2)]<<8;
+		pADCResult[ucChannel] += rgADCData_Rx[(ucChannel*2)+1];
+	}
 }
 
 void Nop_delay(uint32_t nops)

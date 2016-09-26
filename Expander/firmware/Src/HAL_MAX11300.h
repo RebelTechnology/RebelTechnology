@@ -1,6 +1,14 @@
+#ifndef __HAL_MAX11300_H
+	#define __HAL_MAX11300_H
+#endif
+
+#ifdef __cplusplus
+	extern "C" {
+#endif
+	 
 #include "stm32f1xx_hal.h"
 
-#define Pixi_DMATransfer
+#define Pixi_SPIDMA
  
 // Port Mapping
 #define PORT_1    0
@@ -141,17 +149,25 @@
  
 // Prototypes
 void MAX11300_init (SPI_HandleTypeDef *spiconfig);
-
-
 void MAX11300_setPortMode(uint8_t port, uint16_t config);
 uint16_t MAX11300_readPortMode(uint8_t port);
 void MAX11300_setDeviceControl(uint16_t config);
 void MAX11300_ConfigPort(uint8_t port, uint16_t config);
 
 uint16_t MAX11300_readADC(uint8_t port);
+void MAX11300_bulkreadADC(uint32_t*);
 void MAX11300_setDAC(uint8_t port, uint16_t value);
-uint16_t MAX11300_readDAC(uint8_t port);
+void MAX11300_bulksetDAC(uint32_t*);
+
+void MAX11300_TxINTCallback(void);
+void MAX11300_RxINTCallback(void);
 
 void Nop_delay(uint32_t nops);
 
+// Variables
+extern uint8_t rgADCData_Rx[40];
+extern uint16_t rgADCData[20];
 
+#ifdef __cplusplus
+}
+#endif
