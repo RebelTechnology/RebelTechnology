@@ -8,20 +8,17 @@
 static uint32_t txbuf[CODEC_BUFFER_SIZE];
 static uint32_t rxbuf[CODEC_BUFFER_SIZE];
 
-extern SPI_HandleTypeDef hspi4;
+// SAI_HandleTypeDef hsai_BlockA1;
+// SAI_HandleTypeDef hsai_BlockB1;
 
-SAI_HandleTypeDef hsai_BlockA1;
-SAI_HandleTypeDef hsai_BlockB1;
+// #define hsai_BlockRx hsai_BlockA1
+// #define hsai_BlockTx hsai_BlockB1
 
-#define hsai_BlockRx hsai_BlockA1
-#define hsai_BlockTx hsai_BlockB1
-
-#if 0
 extern "C" {
   void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai);
-  static void MX_SPI2_Init();
-  static void MX_SAI1_Init();
-  SPI_HandleTypeDef hspi2;
+  void MX_SPI4_Init();
+  void MX_SAI1_Init();
+  SPI_HandleTypeDef hspi4;
   SAI_HandleTypeDef hsai_BlockRx;
   SAI_HandleTypeDef hsai_BlockTx;
   DMA_HandleTypeDef hdma_sai1_rx;
@@ -29,33 +26,33 @@ extern "C" {
   static int SAI1_client = 0;
 }
 
-/* SPI2 init function */
+/* SPI4 init function */
 /* CS4271 control interface */
-void MX_SPI2_Init(void)
+void MX_SPI4_Init(void)
 {
-  hspi2.Instance = SPI2;
-  hspi2.Init.Mode = SPI_MODE_MASTER;
-  hspi2.Init.Direction = SPI_DIRECTION_2LINES;
-  // hspi2.Init.DataSize = SPI_DATASIZE_4BIT;
-  hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
+  hspi4.Instance = SPI4;
+  hspi4.Init.Mode = SPI_MODE_MASTER;
+  hspi4.Init.Direction = SPI_DIRECTION_2LINES;
+  // hspi4.Init.DataSize = SPI_DATASIZE_4BIT;
+  hspi4.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi4.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi4.Init.CLKPhase = SPI_PHASE_1EDGE;
 #ifdef CODEC_SOFT_CS
-  hspi2.Init.NSS = SPI_NSS_SOFT;
-  hspi2.Init.NSSPMode = SPI_NSS_PULSE_DISABLED;
+  hspi4.Init.NSS = SPI_NSS_SOFT;
+  hspi4.Init.NSSPMode = SPI_NSS_PULSE_DISABLED;
 #else
-  hspi2.Init.NSS = SPI_NSS_HARD_OUTPUT;
-  hspi2.Init.NSSPMode = SPI_NSS_PULSE_ENABLED;
+  hspi4.Init.NSS = SPI_NSS_HARD_OUTPUT;
+  hspi4.Init.NSSPMode = SPI_NSS_PULSE_ENABLED;
 #endif
-  // hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
+  // hspi4.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
   // CS4271 max SPI baud rate 6MHz
-  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16; // 3.375MHz
-  hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
-  hspi2.Init.TIMode = SPI_TIMODE_DISABLED;
-  hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
-  hspi2.Init.CRCPolynomial = 7;
-  hspi2.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
-  HAL_SPI_Init(&hspi2);
+  hspi4.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16; // 3.375MHz
+  hspi4.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi4.Init.TIMode = SPI_TIMODE_DISABLED;
+  hspi4.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
+  hspi4.Init.CRCPolynomial = 7;
+  hspi4.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+  HAL_SPI_Init(&hspi4);
 
 }
 
@@ -263,7 +260,6 @@ void HAL_SAI_MspDeInit(SAI_HandleTypeDef* hsai)
     HAL_DMA_DeInit(hsai->hdmatx);
     }
 }
-#endif
 
 void Codec::ramp(uint32_t max){
   uint32_t incr = max/CODEC_BUFFER_SIZE;
@@ -272,12 +268,12 @@ void Codec::ramp(uint32_t max){
 }
 
 void Codec::reset(){
-  // MX_SAI1_Init();
-  // MX_SPI2_Init();
+  MX_SAI1_Init();
+  MX_SPI4_Init();
 
   __HAL_SAI_ENABLE(&hsai_BlockRx);
   __HAL_SAI_ENABLE(&hsai_BlockTx);
-  // codec_init(&hspi4);
+  codec_init(&hspi4);
 
   // configure i2s mode for DAC and ADC, hp filters off
   codec_write(0x01, (1<<3) | (1<<5) | 1);

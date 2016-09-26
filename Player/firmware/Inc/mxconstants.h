@@ -41,14 +41,14 @@
 
 /* Private define ------------------------------------------------------------*/
 
-#define CS_SCK_Pin GPIO_PIN_2
-#define CS_SCK_GPIO_Port GPIOE
+#define CS_SCL_Pin GPIO_PIN_2
+#define CS_SCL_GPIO_Port GPIOE
 #define CS_SDOUT_Pin GPIO_PIN_3
 #define CS_SDOUT_GPIO_Port GPIOE
 #define CS_LRCK_Pin GPIO_PIN_4
 #define CS_LRCK_GPIO_Port GPIOE
-#define CS_SCKE5_Pin GPIO_PIN_5
-#define CS_SCKE5_GPIO_Port GPIOE
+#define CS_SCLK_Pin GPIO_PIN_5
+#define CS_SCLK_GPIO_Port GPIOE
 #define CS_SDA_Pin GPIO_PIN_6
 #define CS_SDA_GPIO_Port GPIOE
 #define Flash_CS_Pin GPIO_PIN_6
@@ -75,10 +75,10 @@
 #define OLED_SCK_GPIO_Port GPIOB
 #define OLED_CS_Pin GPIO_PIN_12
 #define OLED_CS_GPIO_Port GPIOB
-#define CS_nCS_Pin GPIO_PIN_9
-#define CS_nCS_GPIO_Port GPIOG
-#define CS_nRST_Pin GPIO_PIN_10
-#define CS_nRST_GPIO_Port GPIOG
+#define CS_CS_Pin GPIO_PIN_9
+#define CS_CS_GPIO_Port GPIOG
+#define CS_RST_Pin GPIO_PIN_10
+#define CS_RST_GPIO_Port GPIOG
 /* USER CODE BEGIN Private defines */
 
 #define USB_DM_Pin GPIO_PIN_14

@@ -262,6 +262,7 @@ void MX_RNG_Init(void)
   HAL_RNG_Init(&hrng);
 }
 
+#if 0
 /* SAI1 init function */
 void MX_SAI1_Init(void)
 {
@@ -300,6 +301,7 @@ void MX_SAI1_Init(void)
   hsai_BlockB1.Init.TriState = SAI_OUTPUT_NOTRELEASED;
   HAL_SAI_InitProtocol(&hsai_BlockB1, SAI_I2S_STANDARD, SAI_PROTOCOL_DATASIZE_16BIT, 2);
 }
+#endif
 
 /* SPI2 init function */
 void MX_SPI2_Init(void)
@@ -436,6 +438,8 @@ void MX_FMC_Init(void)
 // GPIO Clock Init
 void MX_GPIO_Init(void)
 {
+  GPIO_InitTypeDef GPIO_InitStruct;
+
   /* GPIO Ports Clock Enable */
   __GPIOE_CLK_ENABLE();
   __GPIOF_CLK_ENABLE();
@@ -445,4 +449,18 @@ void MX_GPIO_Init(void)
   __GPIOG_CLK_ENABLE();
   __GPIOB_CLK_ENABLE();
   __GPIOD_CLK_ENABLE();
+
+  /*Configure GPIO pin : CS_RST_Pin */
+  GPIO_InitStruct.Pin = CS_RST_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+  HAL_GPIO_Init(CS_RST_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : CS_CS_Pin */
+  GPIO_InitStruct.Pin = CS_CS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+  HAL_GPIO_Init(CS_CS_GPIO_Port, &GPIO_InitStruct);
 }

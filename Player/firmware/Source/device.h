@@ -17,10 +17,10 @@
 #define OLED_HEIGHT			64
 #endif
 
-#define CS_CS_Pin CS_nCS_Pin
-#define CS_CS_GPIO_Port CS_nCS_GPIO_Port
-#define CS_RST_Pin CS_nRST_Pin
-#define CS_RST_GPIO_Port CS_nRST_GPIO_Port
+/* #define CS_CS_Pin CS_nCS_Pin */
+/* #define CS_CS_GPIO_Port CS_nCS_GPIO_Port */
+/* #define CS_RST_Pin CS_nRST_Pin */
+/* #define CS_RST_GPIO_Port CS_nRST_GPIO_Port */
 
 #define CODEC_BLOCKSIZE 2048
 #define CODEC_BUFFER_SIZE (4*CODEC_BLOCKSIZE)

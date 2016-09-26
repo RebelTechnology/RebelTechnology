@@ -9,6 +9,11 @@
  extern "C" {
 #endif
 
+#define setPin(port, pin) HAL_GPIO_WritePin(port, pin, GPIO_PIN_SET)
+#define clearPin(port, pin) HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET)
+#define getPin(port, pin) HAL_GPIO_ReadPin(port, pin)
+
+#if 0
 /* Every GPIO port has an input and */
 /* output data register, ODR and IDR */
 /* respectively, which hold the status of the pin */
@@ -31,6 +36,7 @@
 
    /* void configureAnalogInput(GPIO_TypeDef* port, uint32_t pin); */
    /* void configureAnalogOutput(GPIO_TypeDef* port, uint32_t pin); */
+#endif
 
 #ifdef __cplusplus
 }

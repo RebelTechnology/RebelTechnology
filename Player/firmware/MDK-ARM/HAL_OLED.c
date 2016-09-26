@@ -183,10 +183,6 @@ void OLED_togglePixel(uint8_t x, uint8_t y)
 // Delay 
 void NopDelay(uint32_t nops)
 {
-	uint32_t nopcount = nops, nop = 0;
-	
-	while (nop < nopcount)	
-	{
-		nop++;
-	}
+	while (nops--)	
+	  __asm("NOP");
 }

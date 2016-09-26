@@ -289,7 +289,7 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
     PE2     ------> SPI4_SCK
     PE6     ------> SPI4_MOSI 
     */
-    GPIO_InitStruct.Pin = CS_SCK_Pin|CS_SDA_Pin;
+    GPIO_InitStruct.Pin = CS_SCL_Pin|CS_SDA_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
@@ -362,7 +362,7 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* hspi)
     PE2     ------> SPI4_SCK
     PE6     ------> SPI4_MOSI 
     */
-    HAL_GPIO_DeInit(GPIOE, CS_SCK_Pin|CS_SDA_Pin);
+    HAL_GPIO_DeInit(GPIOE, CS_SCL_Pin|CS_SDA_Pin);
 
   /* USER CODE BEGIN SPI4_MspDeInit 1 */
 
@@ -753,6 +753,7 @@ void HAL_SDRAM_MspDeInit(SDRAM_HandleTypeDef* hsdram){
   /* USER CODE END SDRAM_MspDeInit 1 */
 }
 
+#if 0
 static uint32_t SAI1_client =0;
 
 void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai)
@@ -774,7 +775,7 @@ void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai)
     PE5     ------> SAI1_SCK_A
     PB2     ------> SAI1_SD_A 
     */
-    GPIO_InitStruct.Pin = CS_LRCK_Pin|CS_SCKE5_Pin;
+    GPIO_InitStruct.Pin = CS_LRCK_Pin|CS_SCLK_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -829,7 +830,7 @@ void HAL_SAI_MspDeInit(SAI_HandleTypeDef* hsai)
     PE5     ------> SAI1_SCK_A
     PB2     ------> SAI1_SD_A 
     */
-    HAL_GPIO_DeInit(GPIOE, CS_LRCK_Pin|CS_SCKE5_Pin);
+    HAL_GPIO_DeInit(GPIOE, CS_LRCK_Pin|CS_SCLK_Pin);
 
     HAL_GPIO_DeInit(CS_SDIN_GPIO_Port, CS_SDIN_Pin);
 
@@ -850,6 +851,7 @@ void HAL_SAI_MspDeInit(SAI_HandleTypeDef* hsai)
 
     }
 }
+#endif // 0 : see Codec.cpp
 
 /* USER CODE BEGIN 1 */
 

@@ -8,8 +8,8 @@ DAC_HandleTypeDef hdac;
 DMA2D_HandleTypeDef hdma2d;
 I2C_HandleTypeDef hi2c1;
 RNG_HandleTypeDef hrng;
-SAI_HandleTypeDef hsai_BlockA1;
-SAI_HandleTypeDef hsai_BlockB1;
+/* SAI_HandleTypeDef hsai_BlockA1; */
+/* SAI_HandleTypeDef hsai_BlockB1; */
 SPI_HandleTypeDef hspi2;
 SPI_HandleTypeDef hspi5;
 TIM_HandleTypeDef htim2;

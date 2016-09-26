@@ -3,7 +3,9 @@
 #include "device.h"
 #include "stm32f7xx_hal.h"
 
-extern void delay(uint32_t millisec);
+extern void NopDelay(uint32_t usec);
+#define delay(x) NopDelay(x*1000)
+
 #define CS_TIMEOUT       1000
 
 SPI_HandleTypeDef* hspi;
