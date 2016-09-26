@@ -29,7 +29,8 @@ extern "C" {
   extern SPI_HandleTypeDef hspi2;
 }
 
-#define HYSTERESIS_DELTA 3
+// #define HYSTERESIS_DELTA 3
+static uint16_t HYSTERESIS_DELTA = 7;
 #define USE_TLC
 
 enum ChannelMode {
@@ -85,11 +86,11 @@ void setup(){
   for(int ch=0; ch<16; ++ch){
     adc[ch] = 0;
     dac[ch] = 0;
-    cfg[ch] = ADC_0TO10; // ADC_5TO5;
+    cfg[ch] = ADC_5TO5;
+    // cfg[ch] = ch < 8 ? ADC_0TO10 : ADC_5TO5;
   }
   for(int ch=0; ch<16; ++ch)
     configureChannel(ch, cfg[ch]);
-
   bus_setup();
 }
 
@@ -136,6 +137,7 @@ void setDAC(uint8_t ch, int16_t value){
   }
   if(cfg[ch] == DAC_5TO5)
     value += 2048;
+  value = max(0, min(4095, value));
   if(dac[ch] != value){
     dac[ch] = value;
     setLed(ch, value);
@@ -173,6 +175,7 @@ void run(){
 	}
       }else if(cfg[ch] > DAC_MODE){
 	pixi.writeAnalog(ch, dac[ch]);
+	setLed(ch, dac[ch]);
       }
     }
 #ifdef USE_TLC

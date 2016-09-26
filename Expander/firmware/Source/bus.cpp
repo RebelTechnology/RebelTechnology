@@ -5,9 +5,28 @@
 #include "clock.h"
 #include "DigitalBusReader.h"
 #include "mxconstants.h"
+#include "SerialBuffer.hpp"
 
 static DigitalBusReader bus;
-static uint8_t busframe[4];
+// static uint8_t busframe[4];
+static SerialBuffer<128> rxbuf;
+
+extern "C" {
+  void serial_rx_callback(uint8_t c);
+#define NO_ERROR            0x00
+#define HARDFAULT_ERROR     0x10
+#define BUS_ERROR           0x20
+#define MEM_ERROR           0x30
+#define NMI_ERROR           0x40
+#define USAGE_ERROR         0x50
+#define PROGRAM_ERROR       0x60
+#define CONFIG_ERROR        0x70
+#define UART_ERROR          0x80
+
+  void setErrorMessage(int8_t err, const char* msg){
+    debug << "Error " << (int)err << ": " << msg << ".";
+  }
+}
 
 uint8_t* bus_deviceid(){
   return ((uint8_t*)0x1ffff7e8); /* STM32F1 */
@@ -16,13 +35,24 @@ uint8_t* bus_deviceid(){
 
 void bus_setup(){
   debug << "bus_setup\r\n";
-  // serial_setup(USART_BAUDRATE);
-  serial_read(busframe, 4);
+  extern UART_HandleTypeDef huart1;
+  UART_HandleTypeDef *huart = &huart1;
+  /* Enable the UART Parity Error Interrupt */
+  __HAL_UART_ENABLE_IT(huart, UART_IT_PE);
+  /* Enable the UART Error Interrupt: (Frame error, noise error, overrun error) */
+  __HAL_UART_ENABLE_IT(huart, UART_IT_ERR);
+  /* Enable the UART Data Register not empty Interrupt */
+  __HAL_UART_ENABLE_IT(huart, UART_IT_RXNE);
 }
 
 #define BUS_IDLE_INTERVAL 2300
 
 int bus_status(){
+  while(rxbuf.notEmpty() && rxbuf.available() >= 4){
+    uint8_t* frame = rxbuf.getReadHead();
+    rxbuf.incrementReadHead(4);
+    bus.readBusFrame(frame);
+  }
   static uint32_t lastpolled = 0;
   if(getSysTicks() > lastpolled + BUS_IDLE_INTERVAL){
     bus.connected();
@@ -31,52 +61,24 @@ int bus_status(){
   return bus.getStatus();
 }
 
-
 extern "C" {
-  void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart){
-    bus.reset();
+
+  void serial_rx_callback(uint8_t c){
+    rxbuf.push(c);
   }
 
-  void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
-    bus.readBusFrame(busframe);
-  }
+  // void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart){
+  //   bus.reset();
+  // }
 
-  void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
-  }
+  // void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+  //   bus.readBusFrame(busframe);
+  // }
+
+  // void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
+  // }
 
 }
-
-// extern "C" {
-//   static uint8_t bus_rx_index = 0;
-//   void USART1_IRQHandler(void){
-//     static uint8_t frame[4];
-//     /* If overrun condition occurs, clear the ORE flag and recover communication */
-//     if(USART_GetFlagStatus(USART_PERIPH, USART_FLAG_ORE) != RESET){
-//       USART_ReceiveData(USART_PERIPH);
-//       bus_rx_index = 0;
-//     }else if(USART_GetITStatus(USART_PERIPH, USART_IT_RXNE) != RESET){    
-//       // Reading the receive data register clears the RXNE flag implicitly
-//       char c = USART_ReceiveData(USART_PERIPH);
-//       frame[bus_rx_index++] = c;
-//       if(bus_rx_index == 4){
-// 	bus_rx_index = 0;
-// 	bus.readBusFrame(frame);
-//       }
-//     }
-//   }
-// }
-
-// extern "C" {
-//   static uint8_t bus_rx_index = 0;
-//   void USART1_IRQHandler(void){
-//     static uint8_t frame[4];
-//     /* RXNE handler */
-//     if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET){
-//       char c = USART_ReceiveData(USART1);
-//       reader.read(c);
-//     }
-//   }
-// }
 
 void bus_tx_parameter(uint8_t pid, int16_t value){
   debug << "tx parameter [" << pid << "][" << value << "]" ;
@@ -104,6 +106,6 @@ void bus_tx_error(const char* reason){
 
 void bus_rx_error(const char* reason){
   debug << "Digital bus receive error: " << reason << ".";
-  // bus_rx_index = 0;
   bus.reset();
+  rxbuf.reset();
 }

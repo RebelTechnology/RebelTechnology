@@ -36,13 +36,13 @@ void DigitalBusReader::readBusFrame(uint8_t* frame){
     }
     break;
   case OWL_COMMAND_PARAMETER:
-    if(nuid == NO_UID)
-      return rxError("Out of sequence parameter message");
+    // if(nuid == NO_UID)
+    //   return rxError("Out of sequence parameter message");
     if(id != uid){
       // it's not from us: process
       handleParameterChange(frame[1], (frame[2]<<8) | frame[3]);
 #ifdef DIGITAL_BUS_OUTPUT
-      if(id != nuid) // propagate
+      if(nuid != NO_UID && id != nuid) // propagate
 	sendFrame(frame);
 #endif
     }
