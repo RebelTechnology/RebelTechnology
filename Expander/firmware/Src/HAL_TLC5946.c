@@ -16,17 +16,17 @@ void TLC5946_SetOutput_GS (unsigned char LED_ID, unsigned short value)
 	{
 	  if(LED_ID & 0x01) // bbbbaaaa aaaaaaaa
 		{ 
-			temp			= rgGSbuf[ucBuffLoc]; 
-			rgGSbuf[ucBuffLoc] 	= (value&0xF00)>>8; 
-			rgGSbuf[ucBuffLoc]     |= (temp&0xF0); 
-			rgGSbuf[ucBuffLoc+1] 	= (value&0x0FF); 	
+			temp									= rgGSbuf[ucBuffLoc]; 
+			rgGSbuf[ucBuffLoc] 	  = (value&0xF00)>>8; 
+			rgGSbuf[ucBuffLoc]   |= (temp&0xF0); 
+			rgGSbuf[ucBuffLoc+1]  = (value&0x0FF); 	
 		}
 	  else              // aaaaaaaa aaaabbbb
 		{
-			rgGSbuf[ucBuffLoc] 	= (value&0xFF0)>>4; 
-			temp 			= rgGSbuf[ucBuffLoc+1]; 
-			rgGSbuf[ucBuffLoc+1] 	= (value&0x00F)<<4; 
-			rgGSbuf[ucBuffLoc+1]   |= (temp&0x0F);
+			rgGSbuf[ucBuffLoc] 	  = (value&0xFF0)>>4; 
+			temp 								  = rgGSbuf[ucBuffLoc+1]; 
+			rgGSbuf[ucBuffLoc+1]  = (value&0x00F)<<4; 
+			rgGSbuf[ucBuffLoc+1] |= (temp&0x0F);
 		}			
 	}
 }
@@ -47,12 +47,12 @@ void TLC5946_SetOutput_DC (unsigned char LED_ID, unsigned char value)
 		else if (LED_ID==1 || LED_ID==5 ||LED_ID==9 || LED_ID==13)
 		{
 			temp 									= rgDCbuf[ucBuffLoc];
-			rgDCbuf[ucBuffLoc] 	= (value&0x03)<<6;
-			rgDCbuf[ucBuffLoc] |= (temp&0x3F);
+			rgDCbuf[ucBuffLoc] 		= (value&0x03)<<6;
+			rgDCbuf[ucBuffLoc] 	 |= (temp&0x3F);
 			
 			temp 									= rgDCbuf[ucBuffLoc+1];
-			rgDCbuf[ucBuffLoc+1] 	 	= (value&0x0F);
-			rgDCbuf[ucBuffLoc+1] 	 |= (temp&0xF0);
+			rgDCbuf[ucBuffLoc+1] 	= (value&0x0F);
+			rgDCbuf[ucBuffLoc+1] |= (temp&0xF0);
 		}
 		else if (LED_ID==2 || LED_ID==6 || LED_ID==10 || LED_ID==14)
 		{
@@ -66,18 +66,18 @@ void TLC5946_SetOutput_DC (unsigned char LED_ID, unsigned char value)
 		}
 		else if (LED_ID==3 || LED_ID==7 || LED_ID==11 || LED_ID==15)
 		{
-			temp 								= rgDCbuf[ucBuffLoc];
-			rgDCbuf[ucBuffLoc] 	= value<<2;
-			rgDCbuf[ucBuffLoc] |= (temp&0x03);
+			temp 									= rgDCbuf[ucBuffLoc];
+			rgDCbuf[ucBuffLoc] 		= value<<2;
+			rgDCbuf[ucBuffLoc] 	 |= (temp&0x03);
 		}
 	}		
 }
 
-void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
-  if(hspi == TLC5946_SPIConfig){
-    pBLANK(1);
-    pXLAT(1);
-  }
+
+void TLC5946_TxINTCallback(void)
+{
+	pBLANK(1);
+	pXLAT(1);
 }
 
 void TLC5946_Refresh_GS(void)
@@ -110,20 +110,20 @@ void TLC5946_init (SPI_HandleTypeDef *spiconfig)
   HAL_GPIO_WritePin(GPIOA, TLC_MODE_Pin|TLC_XLAT_Pin, GPIO_PIN_RESET);
 	
   /*Configure GPIO pins : TLC_MODE_Pin TLC_XLAT_Pin */
-  GPIO_InitStruct.Pin = TLC_MODE_Pin|TLC_XLAT_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pin   = TLC_MODE_Pin|TLC_XLAT_Pin;
+  GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : TLC_XERR_Pin */
-  GPIO_InitStruct.Pin = TLC_XERR_Pin;
+  GPIO_InitStruct.Pin  = TLC_XERR_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(TLC_XERR_GPIO_Port, &GPIO_InitStruct);
 
 	/*Configure GPIO pin : TLC_BLANK_Pin */
-  GPIO_InitStruct.Pin = TLC_BLANK_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pin   = TLC_BLANK_Pin;
+  GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
 	GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
   HAL_GPIO_Init(TLC_BLANK_GPIO_Port, &GPIO_InitStruct);
 	

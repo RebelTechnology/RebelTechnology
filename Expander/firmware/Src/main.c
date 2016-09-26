@@ -33,9 +33,13 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
 #include "HAL_MAX11300.h"
+#include "HAL_TLC5946.h"
 
 
 /* USER CODE BEGIN Includes */
+
+uint32_t rgADCValues[20];
+uint32_t rgDACValues[20];
 
 /* USER CODE END Includes */
 
@@ -102,14 +106,66 @@ int main(void)
   MX_TIM1_Init();
   MX_USART1_UART_Init();
 	
+	/* USER CODE BEGIN 2 */
+	
 	MAX11300_init(&hspi1);
-	MAX11300_setDeviceControl(DCR_DACCTL_ImmUpdate|DCR_DACREF_Int|DCR_ADCCTL_ContSweep);
-	
+	MAX11300_setDeviceControl(DCR_DACCTL_ImmUpdate|DCR_DACREF_Int|DCR_ADCCTL_ContSweep/*|DCR_BRST_Contextual*/);
+
+/*
 	MAX11300_setPortMode(PORT_1, PCR_Range_ADC_0_P10|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
+	MAX11300_setPortMode(PORT_3, PCR_Range_ADC_0_P10|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
+	MAX11300_setPortMode(PORT_7, PCR_Range_ADC_0_P10|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
+	MAX11300_setPortMode(PORT_9, PCR_Range_ADC_0_P10|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
+	MAX11300_setPortMode(PORT_10, PCR_Range_ADC_0_P10|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
+	MAX11300_setPortMode(PORT_11, PCR_Range_ADC_0_P10|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
+	MAX11300_setPortMode(PORT_12, PCR_Range_ADC_0_P10|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
+	MAX11300_setPortMode(PORT_13, PCR_Range_ADC_0_P10|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
+	MAX11300_setPortMode(PORT_14, PCR_Range_ADC_0_P10|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
+	MAX11300_setPortMode(PORT_15, PCR_Range_ADC_0_P10|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
+*/
+
+	MAX11300_setPortMode(PORT_1, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
+	MAX11300_setPortMode(PORT_3, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
+	MAX11300_setPortMode(PORT_5, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
+	MAX11300_setPortMode(PORT_7, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
 	MAX11300_setPortMode(PORT_9, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
+	MAX11300_setPortMode(PORT_10, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
+	MAX11300_setPortMode(PORT_11, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
+	MAX11300_setPortMode(PORT_12, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
+	MAX11300_setPortMode(PORT_13, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
+	MAX11300_setPortMode(PORT_14, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
+	MAX11300_setPortMode(PORT_15, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
 	
-  /* USER CODE BEGIN 2 */
+  
 //  setup();
+
+	rgDACValues[PORT_1]  = 244;
+	rgDACValues[PORT_3]  = 2048;
+	rgDACValues[PORT_5]  = 1024;
+	rgDACValues[PORT_7]  = 1024;
+	rgDACValues[PORT_9]  = 512;
+	rgDACValues[PORT_10] = 1024;
+	rgDACValues[PORT_11] = 1024;
+	rgDACValues[PORT_12] = 1024;
+	rgDACValues[PORT_13] = 1024;
+	rgDACValues[PORT_14] = 4095;
+	rgDACValues[PORT_15] = 4095;
+	rgDACValues[PORT_16] = 4095;
+
+/*	
+	rgDACValues[PORT_1]  = 0;
+	rgDACValues[PORT_3]  = 0;
+	rgDACValues[PORT_5]  = 0;
+	rgDACValues[PORT_7]  = 0;
+	rgDACValues[PORT_9]  = 0;
+	rgDACValues[PORT_10] = 0;
+	rgDACValues[PORT_11] = 0;
+	rgDACValues[PORT_12] = 0;
+	rgDACValues[PORT_13] = 0;
+	rgDACValues[PORT_14] = 0;
+	rgDACValues[PORT_15] = 0;
+	rgDACValues[PORT_16] = 0;
+*/
 
   /* USER CODE END 2 */
 
@@ -117,16 +173,15 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		Nop_delay(100000);
-		MAX11300_setDAC(PORT_9, 2048);
+		Nop_delay(10000000);
+		MAX11300_bulksetDAC(rgDACValues);
 			
-		Nop_delay(100000);	
-		usiADCTest = MAX11300_readADC(PORT_1);
+		Nop_delay(10000000);	
+		MAX11300_bulkreadADC(rgADCValues);
 
   //  run();
   }
   /* USER CODE END 3 */
-
 }
 
 /** System Clock Configuration
@@ -334,7 +389,6 @@ static void MX_DMA_Init(void)
 */
 static void MX_GPIO_Init(void)
 {
-
   GPIO_InitTypeDef GPIO_InitStruct;
 
   /* GPIO Ports Clock Enable */
@@ -360,6 +414,24 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
+{
+  if(hspi == &hspi2){TLC5946_TxINTCallback();}
+	if(hspi == &hspi1){MAX11300_TxINTCallback();}
+}
+
+void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi)
+{
+  if(hspi == &hspi2){}
+	if(hspi == &hspi1){MAX11300_RxINTCallback();}
+}
+
+void SPI_DMATransmitCplt(SPI_HandleTypeDef *hspi)
+{
+	if(hspi == &hspi2){TLC5946_TxINTCallback();}
+	if(hspi == &hspi1){MAX11300_TxINTCallback();}
+}
 
 /* USER CODE END 4 */
 

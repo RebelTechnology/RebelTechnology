@@ -1,3 +1,11 @@
+#ifndef __HAL_TLC5946_H
+	#define __HAL_TLC5946_H
+#endif
+
+#ifdef __cplusplus
+	extern "C" {
+#endif
+
 #include "stm32f1xx_hal.h"
 
 // LED Mapping
@@ -34,3 +42,8 @@ void TLC5946_SetOutput_GS (unsigned char LED_ID, unsigned short value);
 void TLC5946_SetOutput_DC (unsigned char LED_ID, unsigned char value);
 void TLC5946_Refresh_GS(void);
 void TLC5946_Refresh_DC(void);
+void TLC5946_TxINTCallback(void);
+
+#ifdef __cplusplus
+}
+#endif
