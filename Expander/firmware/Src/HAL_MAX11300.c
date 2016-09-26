@@ -202,8 +202,8 @@ void MAX11300_RxINTCallback(void)
 	}
 }
 
-void Nop_delay(uint32_t nops)
-{
-	while (nops--){}
+void Nop_delay(uint32_t nops){
+  while (nops--)
+    __asm("NOP");
 }
 

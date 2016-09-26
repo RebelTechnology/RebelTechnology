@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "stm32f1xx_hal.h"
-#include "Pixi.h"
+#include "HAL_MAX11300.h"
+// #include "Pixi.h"
 #include "bus.h"
 #include "gpio.h"
 #include "clock.h"
@@ -27,6 +28,10 @@ extern "C" {
   void setup(void);
   void run(void);
   extern SPI_HandleTypeDef hspi2;
+  extern SPI_HandleTypeDef hspi1;
+
+  uint32_t rgADCValues[20];
+  uint32_t rgDACValues[20];
 }
 
 // #define HYSTERESIS_DELTA 3
@@ -49,7 +54,7 @@ volatile ChannelMode cfg[16];
 volatile int dac[16];
 volatile int adc[16];
 
-#define USE_TEMP
+// #define USE_TEMP
 #ifdef USE_TEMP
 volatile float temp[3] = {0};
 #endif
@@ -60,7 +65,7 @@ void setDAC(uint8_t ch, int16_t value);
 void setADC(uint8_t ch, int16_t value);
 uint8_t getChannelIndex(uint8_t ch);
 
-Pixi pixi;
+// Pixi pixi;
 void setup(){
   setPin(TLC_BLANK_GPIO_Port, TLC_BLANK_Pin); // bring BLANK high to turn LEDs off
 
@@ -80,9 +85,10 @@ void setup(){
   }
   // configureDigitalOutput(TLC_BLANK_GPIO_Port, TLC_BLANK_Pin);
 
-  pixi.begin();
+  // pixi.begin();
+  MAX11300_init(&hspi1);
 
-  int pixi_id = pixi.config();
+  // int pixi_id = pixi.config();
   for(int ch=0; ch<16; ++ch){
     adc[ch] = 0;
     dac[ch] = 0;
@@ -97,16 +103,20 @@ void setup(){
 void configureChannel(uint8_t ch, ChannelMode mode){
   switch(mode){
   case ADC_5TO5:
-    pixi.configChannel(CHANNEL_0+ch, CH_MODE_ADC_P, 0, CH_5N_TO_5P, ADC_MODE_CONT);
+    MAX11300_setPortMode(PORT_1+ch, PCR_Range_ADC_M5_P5|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
+    // pixi.configChannel(CHANNEL_0+ch, CH_MODE_ADC_P, 0, CH_5N_TO_5P, ADC_MODE_CONT);
     break;
   case ADC_0TO10:
-    pixi.configChannel(CHANNEL_0+ch, CH_MODE_ADC_P, 0, CH_0_TO_10P, ADC_MODE_CONT);
+    MAX11300_setPortMode(PORT_1+ch, PCR_Range_ADC_0_P10|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
+    // pixi.configChannel(CHANNEL_0+ch, CH_MODE_ADC_P, 0, CH_0_TO_10P, ADC_MODE_CONT);
     break;
   case DAC_5TO5:
-    pixi.configChannel(CHANNEL_0+ch, CH_MODE_DAC, 0, CH_5N_TO_5P, 0);
+    MAX11300_setPortMode(PORT_1, PCR_Range_DAC_M5_P5|PCR_Mode_DAC);
+    // pixi.configChannel(CHANNEL_0+ch, CH_MODE_DAC, 0, CH_5N_TO_5P, 0);
     break;
   case DAC_0TO10:
-    pixi.configChannel(CHANNEL_0+ch, CH_MODE_DAC, 0, CH_0_TO_10P, 0);
+    MAX11300_setPortMode(PORT_1, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
+    // pixi.configChannel(CHANNEL_0+ch, CH_MODE_DAC, 0, CH_0_TO_10P, 0);
     break;
   default:
     debug << "Invalid mode [" << mode << "]\r\n";
@@ -157,6 +167,17 @@ uint8_t getChannelIndex(uint8_t ch){
   return ch;
 }
 
+
+uint16_t getPortValue(uint8_t ch){
+  return rgADCValues[ch];
+  // return pixi.readAnalog(ch));
+}
+
+void setPortValue(uint8_t ch, uint16_t value){
+  rgDACValues[ch] = value;
+  // pixi.writeAnalog(ch, value);
+}
+
 void run(){
   for(;;){
     bus_status();
@@ -167,20 +188,24 @@ void run(){
 #endif
     for(int ch=0; ch<16; ++ch){
       if(cfg[ch] < DAC_MODE){
-	setADC(ch, pixi.readAnalog(ch));
+	setADC(ch, getPortValue(ch));
 	uint8_t cc = adc[ch] >> 5;
 	if(abs(cc - cc_values[ch]) > HYSTERESIS_DELTA){
 	  bus_tx_parameter(getChannelIndex(PARAMETER_AA+ch), adc[ch]);
 	  cc_values[ch] = cc;
 	}
       }else if(cfg[ch] > DAC_MODE){
-	pixi.writeAnalog(ch, dac[ch]);
+	setPortValue(ch, dac[ch]);
 	setLed(ch, dac[ch]);
       }
     }
 #ifdef USE_TLC
     TLC5946_Refresh_GS();
 #endif
+    Nop_delay(100000);
+    MAX11300_bulksetDAC(rgDACValues);
+    Nop_delay(100000);
+    MAX11300_bulkreadADC(rgADCValues);
   }
 }
 

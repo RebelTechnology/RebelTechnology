@@ -1,5 +1,5 @@
 #ifndef __HAL_MAX11300_H
-	#define __HAL_MAX11300_H
+#define __HAL_MAX11300_H
 #endif
 
 #ifdef __cplusplus
