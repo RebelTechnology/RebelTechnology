@@ -40,11 +40,11 @@ extern "C" {
 }
 
 bool tr1(){
-  return HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_12) != GPIO_PIN_SET;
+  return HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_11) != GPIO_PIN_SET;
 }
 
 bool tr2(){
-  return HAL_GPIO_ReadPin(GPIOD, GPIO_PIN_2) != GPIO_PIN_SET;
+  return HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10) != GPIO_PIN_SET;
 }
 
 bool sw1(){

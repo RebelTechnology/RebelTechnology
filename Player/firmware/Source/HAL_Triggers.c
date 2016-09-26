@@ -7,7 +7,7 @@
 
 void _Trigger_IN_A(void)
 {
-	if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_12))		// Rising Edge
+	if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_11))		// Rising Edge
 	{
 	
 	}
@@ -19,7 +19,7 @@ void _Trigger_IN_A(void)
 
 void _Trigger_IN_B(void)
 {
-	if (HAL_GPIO_ReadPin(GPIOD, GPIO_PIN_2))		// Rising Edge
+	if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10))		// Rising Edge
 	{
 	
 	}

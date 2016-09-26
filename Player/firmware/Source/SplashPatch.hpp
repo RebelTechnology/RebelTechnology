@@ -11,15 +11,9 @@ public:
   }
   void encoderChanged(uint8_t encoder, int32_t dir){
     if(encoder == 1){
-      if(dir > 0)
-	ratex *= 1.2;
-      else
-	ratex *= 0.8;
+      ratex += dir/50.0f;
     }else{
-      if(dir > 0)
-	ratey *= 1.2;
-      else
-	ratey *= 0.8;
+      ratey += dir/50.0f;
     }
   }
   void processAudio(AudioBuffer& samples){

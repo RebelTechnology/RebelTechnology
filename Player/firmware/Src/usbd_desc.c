@@ -61,8 +61,8 @@
 #define USBD_LANGID_STRING              0x409
 #define USBD_MANUFACTURER_STRING        (uint8_t*)"Rebel Tech"
 #define USBD_PID_HS                     0xDADA /* OWL */
-#define USBD_PRODUCT_STRING_HS          (uint8_t*)"OWL-MIDI"
-#define USBD_SERIALNUMBER_STRING_HS     (uint8_t*)"00000000010B"
+#define USBD_PRODUCT_STRING_HS          (uint8_t*)"Player"
+#define USBD_SERIALNUMBER_STRING_HS     (uint8_t*)"00000000010C"
 #define USBD_CONFIGURATION_STRING_FS    (uint8_t*)"AUDIO Config"
 #define USBD_CONFIGURATION_STRING_HS    (uint8_t*)"AUDIO Config"
 #define USBD_INTERFACE_STRING_HS        (uint8_t*)"AUDIO Interface"
