@@ -1,4 +1,3 @@
-
 #ifndef __USB_MIDI_CORE_H
 #define __USB_MIDI_CORE_H
 
@@ -47,24 +46,30 @@
 
 extern USBD_ClassTypeDef  USBD_Midi_ClassDriver;
 
-typedef struct _USBD_Midi_Itf
-{
-  void(*Receive)(uint8_t *, uint32_t);  
+   typedef struct _USBD_Midi_Itf {
+     void(*Receive)(uint8_t *, uint32_t);
+   } USBD_Midi_ItfTypeDef;
 
-}USBD_Midi_ItfTypeDef;
-
-
-typedef struct
-{
-  __IO uint32_t alt_setting; 
-  uint8_t rxBuffer[MIDI_BUF_SIZE];
-  uint32_t rxLen;
-}
-USBD_Midi_HandleTypeDef; 
+   typedef struct {
+     __IO uint32_t alt_setting;
+     __IO uint32_t TxState;
+     /* __IO uint32_t RxState; */
+     uint8_t rxBuffer[MIDI_BUF_SIZE];
+     uint32_t rxLen;
+   } USBD_Midi_HandleTypeDef; 
 
 
-uint8_t  USBD_Midi_RegisterInterface  (USBD_HandleTypeDef   *pdev, 
-                                      USBD_Midi_ItfTypeDef *fops);
+   uint8_t  USBD_Midi_RegisterInterface(USBD_HandleTypeDef   *pdev, 
+					USBD_Midi_ItfTypeDef *fops);
+
+   uint8_t  USBD_Midi_Init (USBD_HandleTypeDef *pdev, 
+			    uint8_t cfgidx);
+
+   uint8_t  USBD_Midi_DataIn(USBD_HandleTypeDef *pdev, 
+			     uint8_t epnum);
+
+   uint8_t  USBD_Midi_DataOut(USBD_HandleTypeDef *pdev, 
+			      uint8_t epnum);
 
 #ifdef __cplusplus
 }
