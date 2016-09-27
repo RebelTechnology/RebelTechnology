@@ -16,6 +16,8 @@
 MidiWriter writer;
 static DigitalBusStreamReader bus;
 static SerialBuffer<256> bus_tx_buf;
+bool DIGITAL_BUS_PROPAGATE_MIDI = 0;
+bool DIGITAL_BUS_ENABLE_BUS = 0;
 
 void midiSendCC(uint8_t ch, uint8_t cc, uint8_t value){
   writer.controlChange(ch, cc, value);
