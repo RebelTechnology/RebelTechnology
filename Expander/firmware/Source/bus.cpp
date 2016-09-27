@@ -3,13 +3,14 @@
 #include "message.h"
 #include "serial.h"
 #include "clock.h"
-#include "DigitalBusReader.h"
+#include "DigitalBusStreamReader.h"
 #include "mxconstants.h"
 #include "SerialBuffer.hpp"
 
-static DigitalBusReader bus;
-// static uint8_t busframe[4];
-static SerialBuffer<128> rxbuf;
+static DigitalBusStreamReader bus;
+static SerialBuffer<256> bus_tx_buf;
+bool DIGITAL_BUS_PROPAGATE_MIDI = 1;
+bool DIGITAL_BUS_ENABLE_BUS = 1;
 
 extern "C" {
   void serial_rx_callback(uint8_t c);
@@ -48,11 +49,7 @@ void bus_setup(){
 #define BUS_IDLE_INTERVAL 2300
 
 int bus_status(){
-  while(rxbuf.notEmpty() && rxbuf.available() >= 4){
-    uint8_t* frame = rxbuf.getReadHead();
-    rxbuf.incrementReadHead(4);
-    bus.readBusFrame(frame);
-  }
+  bus.process();
   static uint32_t lastpolled = 0;
   if(getSysTicks() > lastpolled + BUS_IDLE_INTERVAL){
     bus.connected();
@@ -64,7 +61,7 @@ int bus_status(){
 extern "C" {
 
   void serial_rx_callback(uint8_t c){
-    rxbuf.push(c);
+    bus.read(c);
   }
 
   // void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart){
@@ -85,11 +82,6 @@ void bus_tx_parameter(uint8_t pid, int16_t value){
   bus.sendParameterChange(pid, value);
 }
 
-void bus_tx_button(uint8_t bid, int16_t value){
-  debug << "tx button [" << bid << "][" << value << "]" ;
-  bus.sendButtonChange(bid, value);
-}
-
 void bus_tx_command(uint8_t cmd, int16_t data){
   debug << "tx command [" << cmd << "][" << data << "]" ;
   bus.sendCommand(cmd, data);
@@ -107,5 +99,5 @@ void bus_tx_error(const char* reason){
 void bus_rx_error(const char* reason){
   debug << "Digital bus receive error: " << reason << ".";
   bus.reset();
-  rxbuf.reset();
+  bus.sendReset();
 }
