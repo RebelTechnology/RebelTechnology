@@ -32,7 +32,8 @@
   */
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
-
+#include "HAL_MAX11300.h"
+#include "HAL_TLC5946.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -103,6 +104,7 @@ int main(void)
 	
   /* USER CODE BEGIN 2 */
 	  
+	MAX11300_init(&hspi1);
   setup();
 
   /* USER CODE END 2 */
@@ -111,7 +113,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
    run();
   }
   /* USER CODE END 3 */
@@ -358,12 +359,6 @@ void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi)
 {
   if(hspi == &hspi2){}
 	if(hspi == &hspi1){MAX11300_RxINTCallback();}
-}
-
-void SPI_DMATransmitCplt(SPI_HandleTypeDef *hspi)
-{
-	if(hspi == &hspi2){TLC5946_TxINTCallback();}
-	if(hspi == &hspi1){MAX11300_TxINTCallback();}
 }
 
 /* USER CODE END 4 */

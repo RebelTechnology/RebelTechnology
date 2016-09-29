@@ -4,13 +4,11 @@
 void setup(void);
 void run(void);
 
+uint16_t rgADCValues[20];
+uint16_t rgDACValues[20];
 
-uint32_t rgADCValues[20];
-uint32_t rgDACValues[20];
-
-
-void setup(){
-  MAX11300_init(&hspi1);
+void setup()
+{
   MAX11300_setDeviceControl(DCR_DACCTL_ImmUpdate|DCR_DACREF_Int|DCR_ADCCTL_ContSweep/*|DCR_BRST_Contextual*/);
 
 /*
@@ -51,7 +49,7 @@ void setup(){
   rgDACValues[PORT_15] = 4095;
   rgDACValues[PORT_16] = 4095;
 
-  /*	
+/*	
 	rgDACValues[PORT_1]  = 0;
 	rgDACValues[PORT_3]  = 0;
 	rgDACValues[PORT_5]  = 0;
@@ -64,14 +62,16 @@ void setup(){
 	rgDACValues[PORT_14] = 0;
 	rgDACValues[PORT_15] = 0;
 	rgDACValues[PORT_16] = 0;
-  */
+*/
 
+	MAX11300_setBuffers(rgADCValues, rgDACValues);
+	MAX11300_startContinuous();
 }
 
 void run(){
-  Nop_delay(10000000);
-  MAX11300_bulksetDAC(rgDACValues);
+//  Nop_delay(10000000);
+//  MAX11300_bulksetDAC();
 			
   Nop_delay(10000000);	
-  MAX11300_bulkreadADC(rgADCValues);
+//  MAX11300_bulkreadADC();
 }

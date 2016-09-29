@@ -1,6 +1,5 @@
 #ifndef __HAL_TLC5946_H
-	#define __HAL_TLC5946_H
-#endif
+#define __HAL_TLC5946_H
 
 #ifdef __cplusplus
 	extern "C" {
@@ -46,4 +45,5 @@ void TLC5946_TxINTCallback(void);
 
 #ifdef __cplusplus
 }
+#endif
 #endif

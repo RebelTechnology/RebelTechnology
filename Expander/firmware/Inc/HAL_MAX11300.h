@@ -1,6 +1,6 @@
 #ifndef __HAL_MAX11300_H
 #define __HAL_MAX11300_H
-#endif
+
 
 #ifdef __cplusplus
 	extern "C" {
@@ -140,6 +140,12 @@
 #define PCR_Mode_GPISwitch_Term     (11<<12)  	// Mode 11 - Terminal to GPI-controlled analog switch
 #define PCR_Mode_RegSwitch_Term  		(12<<12)  	// Mode 12 - Terminal to register-controlled analog switch
  
+#define STATE_Idle				0
+#define STATE_ContConv		1
+
+#define TASK_readADC			0
+#define TASK_setDAC				1
+
 // SPI Read/Write bit
 #define SPI_Read        	1
 #define SPI_Write       	0
@@ -147,27 +153,35 @@
 // Pin Control
 #define pbarCS(state)		HAL_GPIO_WritePin(MAX_CS_GPIO_Port,  MAX_CS_Pin,  (GPIO_PinState)state)
  
+// Task and State Control
+#define setPixiTask(task)		ucPixiTask = task
+#define getPixiTask()				ucPixiTask
+#define setPixiState(state)	ucPixiState = state
+#define getPixiState()			ucPixiState
+
 // Prototypes
-void MAX11300_init (SPI_HandleTypeDef *spiconfig);
-void MAX11300_setPortMode(uint8_t port, uint16_t config);
-uint16_t MAX11300_readPortMode(uint8_t port);
-void MAX11300_setDeviceControl(uint16_t config);
-void MAX11300_ConfigPort(uint8_t port, uint16_t config);
+void MAX11300_init (SPI_HandleTypeDef*);
+void MAX11300_setBuffers(uint16_t*, uint16_t*);
+
+void MAX11300_setPortMode(uint8_t, uint16_t);
+uint16_t MAX11300_readPortMode(uint8_t);
+void MAX11300_setDeviceControl(uint16_t);
+void MAX11300_ConfigPort(uint8_t, uint16_t);
 
 uint16_t MAX11300_readADC(uint8_t port);
-void MAX11300_bulkreadADC(uint32_t*);
-void MAX11300_setDAC(uint8_t port, uint16_t value);
-void MAX11300_bulksetDAC(uint32_t*);
+void MAX11300_setDAC(uint8_t, uint16_t);
+void MAX11300_bulkreadADC(void);
+void MAX11300_bulksetDAC(void);
 
 void MAX11300_TxINTCallback(void);
 void MAX11300_RxINTCallback(void);
 
-void Nop_delay(uint32_t nops);
+void MAX11300_startContinuous(void);
+void MAX11300_stopContinuous(void);
 
-// Variables
-extern uint8_t rgADCData_Rx[40];
-extern uint16_t rgADCData[20];
+void Nop_delay(uint32_t);
 
 #ifdef __cplusplus
 }
+#endif
 #endif

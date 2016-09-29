@@ -402,6 +402,11 @@
               <FileType>1</FileType>
               <FilePath>..\Src\HAL_MAX11300.c</FilePath>
             </File>
+            <File>
+              <FileName>test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\test.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
