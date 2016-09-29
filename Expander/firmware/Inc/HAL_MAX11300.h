@@ -5,8 +5,6 @@
 #ifdef __cplusplus
 	extern "C" {
 #endif
-	 
-#include "stm32f1xx_hal.h"
 
 #define Pixi_SPIDMA
  
@@ -139,25 +137,6 @@
 #define PCR_Mode_DACOut_ADCNegIn    (10<<12)  	// Mode 10 - Analog output for DAC and negative analog input to differential ADC
 #define PCR_Mode_GPISwitch_Term     (11<<12)  	// Mode 11 - Terminal to GPI-controlled analog switch
 #define PCR_Mode_RegSwitch_Term  		(12<<12)  	// Mode 12 - Terminal to register-controlled analog switch
- 
-#define STATE_Idle				0
-#define STATE_ContConv		1
-
-#define TASK_readADC			0
-#define TASK_setDAC				1
-
-// SPI Read/Write bit
-#define SPI_Read        	1
-#define SPI_Write       	0
-
-// Pin Control
-#define pbarCS(state)		HAL_GPIO_WritePin(MAX_CS_GPIO_Port,  MAX_CS_Pin,  (GPIO_PinState)state)
- 
-// Task and State Control
-#define setPixiTask(task)		ucPixiTask = task
-#define getPixiTask()				ucPixiTask
-#define setPixiState(state)	ucPixiState = state
-#define getPixiState()			ucPixiState
 
 // Prototypes
 void MAX11300_init (SPI_HandleTypeDef*);

@@ -76,8 +76,12 @@ void TLC5946_SetOutput_DC (unsigned char LED_ID, unsigned char value)
 
 void TLC5946_TxINTCallback(void)
 {
-	pBLANK(1);
 	pXLAT(1);
+	pBLANK(1);
+	pXLAT(0);
+
+	pBLANK(0);
+	HAL_SPI_Transmit_IT(TLC5946_SPIConfig, rgGSbuf, sizeof rgGSbuf);
 }
 
 void TLC5946_Refresh_GS(void)

@@ -23,20 +23,23 @@
  * LED channel index is the inverse of MAX channel index.
  */
 
+#define USE_TLC
+
 extern "C" {
+#ifdef USE_TLC
 #include "HAL_TLC5946.h"
+#endif
   void setup(void);
   void run(void);
   extern SPI_HandleTypeDef hspi2;
   extern SPI_HandleTypeDef hspi1;
 
-  uint32_t rgADCValues[20];
-  uint32_t rgDACValues[20];
+  uint16_t rgADCValues[20];
+  uint16_t rgDACValues[20];
 }
 
 // #define HYSTERESIS_DELTA 3
 static uint16_t HYSTERESIS_DELTA = 7;
-#define USE_TLC
 
 enum ChannelMode {
   ADC_5TO5,
@@ -73,17 +76,19 @@ void setup(){
 //   configureDigitalOutput(GPIOB, GPIO_Pin_10); // debug
 // #endif
 
+#ifdef USE_TLC
   TLC5946_init(&hspi2);
   TLC5946_Refresh_DC();
+  TLC5946_Refresh_GS(); // starts endless refresh loop
+#endif
 
   int delayms = 1;
-  for(int i=0; i<8192; ++i){
+  // for(int i=0; i<8192; ++i){
+  for(int i=0; i<2048; ++i){
     for(int ch=0; ch<16; ++ch)
       setLed(ch, i&0x0fff);
-    TLC5946_Refresh_GS();
     HAL_Delay(delayms);
   }
-  // configureDigitalOutput(TLC_BLANK_GPIO_Port, TLC_BLANK_Pin);
 
   // pixi.begin();
   MAX11300_init(&hspi1);
@@ -98,25 +103,24 @@ void setup(){
   for(int ch=0; ch<16; ++ch)
     configureChannel(ch, cfg[ch]);
   bus_setup();
+
+  MAX11300_setBuffers(rgADCValues, rgDACValues);
+  MAX11300_startContinuous();
 }
 
 void configureChannel(uint8_t ch, ChannelMode mode){
   switch(mode){
   case ADC_5TO5:
     MAX11300_setPortMode(PORT_1+ch, PCR_Range_ADC_M5_P5|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
-    // pixi.configChannel(CHANNEL_0+ch, CH_MODE_ADC_P, 0, CH_5N_TO_5P, ADC_MODE_CONT);
     break;
   case ADC_0TO10:
     MAX11300_setPortMode(PORT_1+ch, PCR_Range_ADC_0_P10|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
-    // pixi.configChannel(CHANNEL_0+ch, CH_MODE_ADC_P, 0, CH_0_TO_10P, ADC_MODE_CONT);
     break;
   case DAC_5TO5:
-    MAX11300_setPortMode(PORT_1, PCR_Range_DAC_M5_P5|PCR_Mode_DAC);
-    // pixi.configChannel(CHANNEL_0+ch, CH_MODE_DAC, 0, CH_5N_TO_5P, 0);
+    MAX11300_setPortMode(PORT_1+ch, PCR_Range_DAC_M5_P5|PCR_Mode_DAC);
     break;
   case DAC_0TO10:
-    MAX11300_setPortMode(PORT_1, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
-    // pixi.configChannel(CHANNEL_0+ch, CH_MODE_DAC, 0, CH_0_TO_10P, 0);
+    MAX11300_setPortMode(PORT_1+ch, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
     break;
   default:
     debug << "Invalid mode [" << mode << "]\r\n";
@@ -199,13 +203,21 @@ void run(){
 	setLed(ch, dac[ch]);
       }
     }
-#ifdef USE_TLC
-    TLC5946_Refresh_GS();
-#endif
-    Nop_delay(100000);
-    MAX11300_bulksetDAC(rgDACValues);
-    Nop_delay(100000);
-    MAX11300_bulkreadADC(rgADCValues);
+// #ifdef USE_TLC
+//     TLC5946_Refresh_GS();
+// #endif
+    // for(int ch=0; ch<16; ++ch){
+    //   if(cfg[ch] < DAC_MODE){
+    // 	setADC(ch, MAX11300_readADC(ch));
+    //   }else if(cfg[ch] > DAC_MODE){
+    // 	MAX11300_setDAC(ch, dac[ch]);
+    //   }
+    // }
+    // Nop_delay(100000);
+    // // Nop_delay(10);
+    // MAX11300_bulksetDAC();
+    // Nop_delay(100000);
+    // MAX11300_bulkreadADC();
   }
 }
 
