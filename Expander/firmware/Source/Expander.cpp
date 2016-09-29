@@ -76,6 +76,24 @@ void setup(){
 //   configureDigitalOutput(GPIOB, GPIO_Pin_10); // debug
 // #endif
 
+  MAX11300_init(&hspi1);
+
+  for(int ch=0; ch<16; ++ch){
+    adc[ch] = 0;
+    dac[ch] = 0;
+    cfg[ch] = ADC_0TO10;
+    // cfg[ch] = ADC_5TO5;
+    // cfg[ch] = ch < 8 ? ADC_0TO10 : ADC_5TO5;
+  }
+
+  MAX11300_setBuffers(rgADCValues, rgDACValues);
+  MAX11300_startContinuous();
+
+  for(int ch=0; ch<16; ++ch)
+    configureChannel(ch, cfg[ch]);
+
+  bus_setup();
+
 #ifdef USE_TLC
   TLC5946_init(&hspi2);
   TLC5946_Refresh_DC();
@@ -89,23 +107,6 @@ void setup(){
       setLed(ch, i&0x0fff);
     HAL_Delay(delayms);
   }
-
-  // pixi.begin();
-  MAX11300_init(&hspi1);
-
-  // int pixi_id = pixi.config();
-  for(int ch=0; ch<16; ++ch){
-    adc[ch] = 0;
-    dac[ch] = 0;
-    cfg[ch] = ADC_5TO5;
-    // cfg[ch] = ch < 8 ? ADC_0TO10 : ADC_5TO5;
-  }
-  for(int ch=0; ch<16; ++ch)
-    configureChannel(ch, cfg[ch]);
-  bus_setup();
-
-  MAX11300_setBuffers(rgADCValues, rgDACValues);
-  MAX11300_startContinuous();
 }
 
 void configureChannel(uint8_t ch, ChannelMode mode){
