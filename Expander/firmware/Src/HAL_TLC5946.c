@@ -2,6 +2,8 @@
 #include "stm32f1xx_hal.h"
 #include "HAL_TLC5946.h"
 
+/* #define TLC_CONTINUOUS */
+
 uint8_t rgGSbuf[24] = {0};
 uint8_t rgDCbuf[12] = {255,255,255,255,255,255,255,255,255,255,255,255};
 SPI_HandleTypeDef* TLC5946_SPIConfig;
@@ -80,8 +82,10 @@ void TLC5946_TxINTCallback(void)
 	pBLANK(1);
 	pXLAT(0);
 
+#ifdef TLC_CONTINUOUS
 	pBLANK(0);
 	HAL_SPI_Transmit_IT(TLC5946_SPIConfig, rgGSbuf, sizeof rgGSbuf);
+#endif
 }
 
 void TLC5946_Refresh_GS(void)
@@ -90,10 +94,13 @@ void TLC5946_Refresh_GS(void)
 	// Update Grayscale
 	pMODE(Mode_GS);
 	pBLANK(0);
-	/* HAL_SPI_Transmit(TLC5946_SPIConfig, rgGSbuf, sizeof rgGSbuf, 100); */
-	/* pBLANK(1);	 */
-	/* pXLAT(1);     */
+#ifdef TLC_CONTINUOUS
 	HAL_SPI_Transmit_IT(TLC5946_SPIConfig, rgGSbuf, sizeof rgGSbuf);
+#else
+	HAL_SPI_Transmit(TLC5946_SPIConfig, rgGSbuf, sizeof rgGSbuf, 100);
+	pBLANK(1);
+	pXLAT(1);
+#endif
 }
 
 void TLC5946_Refresh_DC(void)

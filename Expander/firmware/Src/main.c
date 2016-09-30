@@ -104,7 +104,8 @@ int main(void)
 	
   /* USER CODE BEGIN 2 */
 	  
-	MAX11300_init(&hspi1);
+  MAX11300_init(&hspi1);
+  TLC5946_init(&hspi2);
   setup();
 
   /* USER CODE END 2 */
@@ -167,7 +168,8 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  /* hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2; */
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -359,6 +361,11 @@ void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi)
 {
   if(hspi == &hspi2){}
 	if(hspi == &hspi1){MAX11300_RxINTCallback();}
+}
+
+void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi){
+  if(hspi == &hspi2){}
+  if(hspi == &hspi1){MAX11300_TxRxINTCallback();}
 }
 
 /* USER CODE END 4 */

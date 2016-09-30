@@ -151,9 +151,12 @@ uint16_t MAX11300_readADC(uint8_t port);
 void MAX11300_setDAC(uint8_t, uint16_t);
 void MAX11300_bulkreadADC(void);
 void MAX11300_bulksetDAC(void);
+uint16_t MAX11300_getADCValue(uint8_t port);
+void MAX11300_setDACValue(uint8_t port, uint16_t value);
 
 void MAX11300_TxINTCallback(void);
 void MAX11300_RxINTCallback(void);
+void MAX11300_TxRxINTCallback(void);
 
 void MAX11300_startContinuous(void);
 void MAX11300_stopContinuous(void);

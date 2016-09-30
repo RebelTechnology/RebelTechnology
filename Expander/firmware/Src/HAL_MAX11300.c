@@ -7,21 +7,28 @@
 SPI_HandleTypeDef* MAX11300_SPIConfig;
  
 // Variables
-uint8_t rgADCData_Rx[40];
-uint8_t ucPixiTask, ucPixiState;
-uint16_t *pADCBuffer, *pDACBuffer;
+static uint8_t rgADCData_Rx[41];
+static uint8_t rgDACData_Tx[41];
+static volatile uint8_t ucPixiTask;
+static volatile uint8_t ucPixiState;
+static volatile uint8_t ucPixiBusy;
+static uint16_t *pADCBuffer, *pDACBuffer;
 
 #define STATE_Idle				0
 #define STATE_ContConv		1
+#define STATE_Busy				1
 
 #define TASK_readADC			0
 #define TASK_setDAC				1
+
 
 // Task and State Control
 #define setPixiTask(task)		ucPixiTask = task
 #define getPixiTask()				ucPixiTask
 #define setPixiState(state)	ucPixiState = state
 #define getPixiState()			ucPixiState
+#define setPixiBusy(state)	ucPixiBusy = state
+#define getPixiBusy()			ucPixiBusy
 
 // SPI Read/Write bit
 #define SPI_Read        	1
@@ -41,9 +48,10 @@ void MAX11300_setPortMode(uint8_t port, uint16_t config)
 	rgData[1] = (config&0xFF00)>>8;
 	rgData[2] = (config&0x00FF);
    
-	pbarCS(0);  
-	
+	while(getPixiBusy() == STATE_Busy); // wait until last transfer has finished
+	pbarCS(0);
 	#ifdef Pixi_SPIDMA_CTRL
+		setPixiBusy(STATE_Busy);	
 		HAL_SPI_Transmit_DMA(MAX11300_SPIConfig, rgData, sizeof rgData);
 	#else
 		HAL_SPI_Transmit(MAX11300_SPIConfig, rgData, sizeof rgData, 100);
@@ -60,6 +68,7 @@ uint16_t MAX11300_readPortMode(uint8_t port)
 	 
 	ucAddress = (ADDR_CFGbase+port)<<1 | SPI_Read;
 	
+	while(getPixiBusy() == STATE_Busy); // wait until last transfer has finished
 	pbarCS(0);
 	HAL_SPI_Transmit(MAX11300_SPIConfig, &ucAddress, 1, 100);
 	HAL_SPI_Receive(MAX11300_SPIConfig, rgRtnData, 2, 100);
@@ -79,9 +88,10 @@ void MAX11300_setDeviceControl(uint16_t config)
 	rgData[1] = (config&0xFF00)>>8;
 	rgData[2] = (config&0x00FF);
 	
-	pbarCS(0);  
-	
+	while(getPixiBusy() == STATE_Busy); // wait until last transfer has finished
+	pbarCS(0);	
 	#ifdef Pixi_SPIDMA_CTRL
+		setPixiBusy(STATE_Busy);	
 		HAL_SPI_Transmit_DMA(MAX11300_SPIConfig, rgData, sizeof rgData);
 	#else
 		HAL_SPI_Transmit(MAX11300_SPIConfig, rgData, sizeof rgData, 100);
@@ -99,6 +109,7 @@ uint16_t MAX11300_readADC(uint8_t port)
 	 
 	ucAddress = (ADDR_ADCbase+port)<<1 | SPI_Read;
 	
+	while(getPixiBusy() == STATE_Busy); // wait until last transfer has finished
 	pbarCS(0);
 	HAL_SPI_Transmit(MAX11300_SPIConfig, &ucAddress, 1, 100);
 	HAL_SPI_Receive(MAX11300_SPIConfig, rgRtnData, 2, 100);
@@ -112,16 +123,18 @@ uint16_t MAX11300_readADC(uint8_t port)
 
 void MAX11300_bulkreadADC(void)
 {
-	uint8_t ucAddress=0;
+	/* uint8_t ucAddress=0; */
 	
-	ucAddress = (ADDR_ADCbase)<<1 | SPI_Read;
+	rgADCData_Rx[0] = (ADDR_ADCbase)<<1 | SPI_Read;
 	
+	while(getPixiBusy() == STATE_Busy); // wait until last transfer has finished
 	pbarCS(0);
-	HAL_SPI_Transmit(MAX11300_SPIConfig, &ucAddress, 1, 100);
+	setPixiTask(TASK_readADC);
+	/* HAL_SPI_Transmit(MAX11300_SPIConfig, &ucAddress, 1, 100); */
 	#ifdef Pixi_SPIDMA
-	HAL_SPI_Receive_DMA(MAX11300_SPIConfig, rgADCData_Rx, 40);
+	HAL_SPI_TransmitReceive_DMA(MAX11300_SPIConfig, rgADCData_Rx, rgADCData_Rx, 41);
         #else
-	HAL_SPI_Receive(MAX11300_SPIConfig, rgADCData_Rx, 40, 100);
+	HAL_SPI_TransmitReceive(MAX11300_SPIConfig, rgADCData_Rx, rgADCData_Rx, 41, 100);
 	pbarCS(1);
 	#endif
 }
@@ -135,9 +148,10 @@ void MAX11300_setDAC(uint8_t port, uint16_t value)
 	rgData[1] = (value&0xFF00)>>8;
 	rgData[2] = (value&0x00FF);
 	 	
-	pbarCS(0);
-	
+	while(getPixiBusy() == STATE_Busy); // wait until last transfer has finished
+	pbarCS(0);	
 	#ifdef Pixi_SPIDMA_CTRL
+		setPixiBusy(STATE_Busy);	
 		HAL_SPI_Transmit_DMA(MAX11300_SPIConfig, rgData, sizeof rgData);
 	#else
 		HAL_SPI_Transmit(MAX11300_SPIConfig, rgData, sizeof rgData, 100);
@@ -145,27 +159,27 @@ void MAX11300_setDAC(uint8_t port, uint16_t value)
 	#endif
 }
 
+void MAX11300_setDACValue(uint8_t ucChannel, uint16_t value){
+	// Convert and add data to buffer
+	/* for (ucChannel=0; ucChannel<20; ucChannel++) */
+	/* { */
+		rgDACData_Tx[(ucChannel*2)+1]	= (value&0x0F00)>>8;
+		rgDACData_Tx[(ucChannel*2)+2] = (value&0x00FF);
+	/* } */
+}
 void MAX11300_bulksetDAC(void)
 {
-  uint8_t ucChannel;
-  static uint8_t rgData[41] = "";
-	
 	// Set address
-	rgData[0] = ADDR_DACbase<<1 | SPI_Write;
+	rgDACData_Tx[0] = ADDR_DACbase<<1 | SPI_Write;
 	
-	// Convert and add data to buffer
-	for (ucChannel=0; ucChannel<20; ucChannel++)
-	{
-		rgData[(ucChannel*2)+1]	= (pDACBuffer[ucChannel]&0x0F00)>>8;
-		rgData[(ucChannel*2)+2] = (pDACBuffer[ucChannel]&0x00FF);
-	}
-	
-	pbarCS(0);  
-	
+	while(getPixiBusy() == STATE_Busy); // wait until last transfer has finished
+	pbarCS(0);  	
+	setPixiTask(TASK_setDAC);
 	#ifdef Pixi_SPIDMA
-		HAL_SPI_Transmit_DMA(MAX11300_SPIConfig, rgData, 41);
+		setPixiBusy(STATE_Busy);	
+		HAL_SPI_Transmit_DMA(MAX11300_SPIConfig, rgDACData_Tx, 41);
 	#else
-		HAL_SPI_Transmit(MAX11300_SPIConfig, rgData, sizeof rgData, 100);
+		HAL_SPI_Transmit(MAX11300_SPIConfig, rgDACData_Tx, 41, 100);
 		pbarCS(1);
 	#endif
 
@@ -178,6 +192,7 @@ uint16_t MAX11300_readDAC(uint8_t port)
 	 
 	ucAddress = (ADDR_DACbase+port)<<1 | SPI_Read;
 	
+	while(getPixiBusy() == STATE_Busy); // wait until last transfer has finished
 	pbarCS(0);
 	HAL_SPI_Transmit(MAX11300_SPIConfig, &ucAddress, 1, 100);
 	HAL_SPI_Receive(MAX11300_SPIConfig, rgRtnData, 2, 100);
@@ -205,6 +220,7 @@ void MAX11300_init (SPI_HandleTypeDef *spiconfig)
 	 
 	MAX11300_SPIConfig = spiconfig;
 	setPixiState(STATE_Idle);
+	setPixiBusy(STATE_Idle);
 }
 
 void MAX11300_setBuffers(uint16_t* adc, uint16_t* dac)
@@ -215,7 +231,6 @@ void MAX11300_setBuffers(uint16_t* adc, uint16_t* dac)
 
 void MAX11300_startContinuous(void)
 {
-	setPixiTask(TASK_setDAC);
 	setPixiState(STATE_ContConv);
 	MAX11300_bulkreadADC();
 }
@@ -228,33 +243,51 @@ void MAX11300_stopContinuous(void)
 void MAX11300_TxINTCallback(void)
 {
 	pbarCS(1);
+	setPixiBusy(STATE_Idle);	
 	
 	// Manage next task
 	if (getPixiState() == STATE_ContConv)
 	{
-		if (getPixiTask() == TASK_readADC) 	{setPixiTask(TASK_setDAC);  MAX11300_bulkreadADC();}
-		else  															{setPixiTask(TASK_readADC); MAX11300_bulksetDAC();}
+		if (getPixiTask() == TASK_setDAC) 	{MAX11300_bulkreadADC();}
+		else  															{MAX11300_bulksetDAC();}
 	}
+}
+
+uint16_t MAX11300_getADCValue(uint8_t ucChannel){
+  uint16_t ret = rgADCData_Rx[(ucChannel*2)]<<8;
+  ret += rgADCData_Rx[(ucChannel*2)+1];
+  return ret;
 }
 
 void MAX11300_RxINTCallback(void)
 {
-	uint8_t ucChannel = 0;
-	
 	pbarCS(1);
+	setPixiBusy(STATE_Idle);	
 	
-	for (ucChannel=0; ucChannel<20; ucChannel++)
-	{
-		pADCBuffer[ucChannel]  = rgADCData_Rx[(ucChannel*2)]<<8;
-		pADCBuffer[ucChannel] += rgADCData_Rx[(ucChannel*2)+1];
-	}
+	/* for (ucChannel=0; ucChannel<20; ucChannel++) */
+	/* { */
+	/* 	pADCBuffer[ucChannel]  = rgADCData_Rx[(ucChannel*2)]<<8; */
+	/* 	pADCBuffer[ucChannel] += rgADCData_Rx[(ucChannel*2)+1]; */
+	/* } */
 	
 	// Manage next task
 	if (getPixiState() == STATE_ContConv)
 	{
-		if (getPixiTask() == TASK_readADC) 	{setPixiTask(TASK_setDAC);  MAX11300_bulkreadADC();}
-		else  															{setPixiTask(TASK_readADC); MAX11300_bulksetDAC();}
+		if (getPixiTask() == TASK_setDAC) 	{MAX11300_bulkreadADC();}
+		else  															{MAX11300_bulksetDAC();}
 	}
+}
+
+void MAX11300_TxRxINTCallback(void){
+  pbarCS(1);
+  setPixiBusy(STATE_Idle);	
+  // Manage next task
+  if (getPixiState() == STATE_ContConv){
+    if(getPixiTask() == TASK_setDAC)
+      MAX11300_bulkreadADC();
+    else
+      MAX11300_bulksetDAC();
+  }
 }
 
 void Nop_delay(uint32_t nops){

@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "stm32f1xx_hal.h"
 #include "HAL_MAX11300.h"
-// #include "Pixi.h"
+#include "HAL_TLC5946.h"
 #include "bus.h"
 #include "gpio.h"
 #include "clock.h"
@@ -27,12 +27,10 @@
 
 extern "C" {
 #ifdef USE_TLC
-#include "HAL_TLC5946.h"
 #endif
   void setup(void);
   void run(void);
-  extern SPI_HandleTypeDef hspi2;
-  extern SPI_HandleTypeDef hspi1;
+  void setParameter(uint8_t pid, int16_t value);
 
   uint16_t rgADCValues[20];
   uint16_t rgDACValues[20];
@@ -68,15 +66,8 @@ void setDAC(uint8_t ch, int16_t value);
 void setADC(uint8_t ch, int16_t value);
 uint8_t getChannelIndex(uint8_t ch);
 
-// Pixi pixi;
 void setup(){
-  setPin(TLC_BLANK_GPIO_Port, TLC_BLANK_Pin); // bring BLANK high to turn LEDs off
-
-// #ifdef DEBUG_PINS
-//   configureDigitalOutput(GPIOB, GPIO_Pin_10); // debug
-// #endif
-
-  MAX11300_init(&hspi1);
+  // setPin(TLC_BLANK_GPIO_Port, TLC_BLANK_Pin); // bring BLANK high to turn LEDs off
 
   for(int ch=0; ch<16; ++ch){
     adc[ch] = 0;
@@ -86,27 +77,26 @@ void setup(){
     // cfg[ch] = ch < 8 ? ADC_0TO10 : ADC_5TO5;
   }
 
-  MAX11300_setBuffers(rgADCValues, rgDACValues);
-  MAX11300_startContinuous();
-
   for(int ch=0; ch<16; ++ch)
     configureChannel(ch, cfg[ch]);
 
   bus_setup();
 
 #ifdef USE_TLC
-  TLC5946_init(&hspi2);
   TLC5946_Refresh_DC();
   TLC5946_Refresh_GS(); // starts endless refresh loop
 #endif
 
   int delayms = 1;
   // for(int i=0; i<8192; ++i){
-  for(int i=0; i<2048; ++i){
+  for(int i=0; i<4096; ++i){
     for(int ch=0; ch<16; ++ch)
       setLed(ch, i&0x0fff);
     HAL_Delay(delayms);
   }
+
+  MAX11300_setBuffers(rgADCValues, rgDACValues);
+  MAX11300_startContinuous();
 }
 
 void configureChannel(uint8_t ch, ChannelMode mode){
@@ -174,13 +164,13 @@ uint8_t getChannelIndex(uint8_t ch){
 
 
 uint16_t getPortValue(uint8_t ch){
-  return rgADCValues[ch];
-  // return pixi.readAnalog(ch));
+  return MAX11300_getADCValue(ch);
+  // return rgADCValues[ch];
 }
 
 void setPortValue(uint8_t ch, uint16_t value){
-  rgDACValues[ch] = value;
-  // pixi.writeAnalog(ch, value);
+  MAX11300_setDACValue(ch, value);
+  // rgDACValues[ch] = value;
 }
 
 void run(){
@@ -222,11 +212,15 @@ void run(){
   }
 }
 
+void setParameter(uint8_t pid, int16_t value){
+  uint8_t ch = getChannelIndex(pid-PARAMETER_AA);
+  setDAC(ch, value);
+}
+
 void bus_rx_parameter(uint8_t pid, int16_t value){
-  debug << "rx parameter [" << pid << "][" << value << "]\r\n" ;
+  // debug << "rx parameter [" << pid << "][" << value << "]\r\n" ;
   if(pid >= PARAMETER_AA && pid <= PARAMETER_BH){
-    uint8_t ch = getChannelIndex(pid-PARAMETER_AA);
-    setDAC(ch, value);
+    setParameter(pid, value);
   }
 }
 
@@ -234,7 +228,7 @@ void bus_rx_command(uint8_t cmd, int16_t data){
   if(cmd == BUS_CMD_CONFIGURE_IO){
     uint8_t ch = getChannelIndex(data>>8);
     ChannelMode mode = (ChannelMode)(data&0xff);
-    debug << "rx command [" << cmd << "][" << ch << "][" << mode << "]\r\n" ;
+    // debug << "rx command [" << cmd << "][" << ch << "][" << mode << "]\r\n" ;
     if(ch < 16){
       configureChannel(ch, mode);
       bus_tx_message("Configured channel");

@@ -10,6 +10,9 @@
 // #include "ProgramManager.h"
 // #include "Owl.h"
 #include "MidiHandler.h"
+#include "OpenWareMidiControl.h"
+
+extern "C"  void setParameter(uint8_t pid, int16_t value);
 
 MidiHandler::MidiHandler(){
   // memset(midi_values, 0, NOF_PARAMETERS*sizeof(uint16_t));
@@ -31,11 +34,8 @@ void MidiHandler::handleProgramChange(uint8_t status, uint8_t pid){
 }
 
 void MidiHandler::handleControlChange(uint8_t status, uint8_t cc, uint8_t value){
-  // switch(cc){
-  //   if(cc >= PATCH_PARAMETER_AA && cc <= PATCH_PARAMETER_BH)
-  //     setParameter(PARAMETER_AA+(cc-PATCH_PARAMETER_AA), value<<5);
-  //   break;
-  // }
+  if(cc >= PATCH_PARAMETER_AA && cc <= PATCH_PARAMETER_BH)
+    setParameter(PARAMETER_AA+(cc-PATCH_PARAMETER_AA), value<<5);
 }
 
 #if 0
