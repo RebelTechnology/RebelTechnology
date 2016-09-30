@@ -104,7 +104,7 @@ int main(void)
 	
   /* USER CODE BEGIN 2 */
 	  
-  MAX11300_init(&hspi1);
+  /* MAX11300_init(&hspi1); */
   TLC5946_init(&hspi2);
   setup();
 
