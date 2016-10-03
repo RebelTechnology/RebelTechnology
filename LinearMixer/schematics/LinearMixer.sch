@@ -15646,7 +15646,7 @@ W = angled&lt;p&gt;
 <part name="C101" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C201" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="P+13" library="supply1" deviceset="+12V" device=""/>
-<part name="C1" library="rcl" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
+<part name="C1" library="rcl" deviceset="CPOL-EU" device="153CLV-0505" value="10u"/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
 <part name="P-2" library="supply1" deviceset="-12V" device=""/>
 <part name="P-3" library="supply1" deviceset="-12V" device=""/>
@@ -15656,7 +15656,7 @@ W = angled&lt;p&gt;
 <part name="P+10" library="supply1" deviceset="+12V" device=""/>
 <part name="P-5" library="supply1" deviceset="-12V" device=""/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
-<part name="C2" library="rcl" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
+<part name="C2" library="rcl" deviceset="CPOL-EU" device="153CLV-0505" value="10u"/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="C202" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
@@ -15736,7 +15736,7 @@ W = angled&lt;p&gt;
 <part name="U3" library="Rebel" deviceset="CON-JST_PH_5W" device=""/>
 <part name="C3" library="Rebel" deviceset="C-EU" device="C1210" value="1u Polyester"/>
 <part name="C4" library="Rebel" deviceset="C-EU" device="C1210" value="1u Polyester"/>
-<part name="Q1" library="transistor-small-signal" deviceset="BSS84" device=""/>
+<part name="Q1" library="transistor-small-signal" deviceset="BSS84" device="" value="SI2309CDS"/>
 <part name="Q2" library="transistor-small-signal" deviceset="BSS123" device=""/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="SV1" library="con-lstb" deviceset="MA05-2" device=""/>
