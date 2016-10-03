@@ -600,5 +600,19 @@ LM317 (for 5v) and LTC3265 (for +/-12v)
 VLDO = 1.2V * (R1 / R2 + 1)
 for 12v, R1/R2 = 9, 180k / 20k = 9
 
+20k resistors: we have 0805
+
+DC jack wrong footprint: board works with centre negative psu
+
 --------------------------------------------------------------------------
 
+LT1054 charge pump / voltage doubler / inverter
+The LT1054 device is a bipolar, switched-capacitor voltage converter with regulator. 
+http://music.codydeschenes.com/wp-content/uploads/2013/02/Charge-Pump-Madbean-RoadRage-TRANSFER.pdf
+
+--------------------------------------------------------------------------
+
+changes PowerTXBoard Rev01:
+- fix +/-15v header orientation
+
+--------------------------------------------------------------------------
