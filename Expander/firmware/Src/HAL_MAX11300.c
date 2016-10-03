@@ -3,7 +3,8 @@
 #include "HAL_MAX11300.h"
 
 #include <string.h>
- 
+#define Pixi_SPIDMA
+  
 SPI_HandleTypeDef* MAX11300_SPIConfig;
  
 // Variables
@@ -103,29 +104,19 @@ void MAX11300_setDeviceControl(uint16_t config)
 // ADC Functions
 uint16_t MAX11300_readADC(uint8_t port)
 {
-	uint8_t ucAddress=0, rgRtnData[2] = "";
 	uint16_t usiRtnValue = 0;
-	 
-	ucAddress = (ADDR_ADCbase+port)<<1 | SPI_Read;
-	
+	uint8_t rgData[3] = {(ADDR_ADCbase+port)<<1 | SPI_Read, 0, 0 };
 	while(getPixiBusy() == STATE_Busy); // wait until last transfer has finished
 	pbarCS(0);
-	HAL_SPI_Transmit(MAX11300_SPIConfig, &ucAddress, 1, 100);
-	HAL_SPI_Receive(MAX11300_SPIConfig, rgRtnData, 2, 100);
+	HAL_SPI_TransmitReceive(MAX11300_SPIConfig, rgData, rgData, 3, 100);
 	pbarCS(1);
-	
-	usiRtnValue  = rgRtnData[0]<<8;
-	usiRtnValue += rgRtnData[1];
-	
+	usiRtnValue  = (rgData[1]<<8) | rgData[2];
 	return usiRtnValue & 0xFFF;
 }
 
 void MAX11300_bulkreadADC(void)
 {
-	/* uint8_t ucAddress=0; */
-	
 	rgADCData_Rx[0] = (ADDR_ADCbase)<<1 | SPI_Read;
-	
 	while(getPixiBusy() == STATE_Busy); // wait until last transfer has finished
 	pbarCS(0);
 	setPixiTask(TASK_readADC);
@@ -159,18 +150,14 @@ void MAX11300_setDAC(uint8_t port, uint16_t value)
 }
 
 void MAX11300_setDACValue(uint8_t ucChannel, uint16_t value){
-	// Convert and add data to buffer
-	/* for (ucChannel=0; ucChannel<20; ucChannel++) */
-	/* { */
-		rgDACData_Tx[(ucChannel*2)+1]	= (value&0x0F00)>>8;
-		rgDACData_Tx[(ucChannel*2)+2] = (value&0x00FF);
-	/* } */
+  rgDACData_Tx[(ucChannel*2)+1]	= (value&0x0F00)>>8;
+  rgDACData_Tx[(ucChannel*2)+2] = (value&0x00FF);
 }
+
 void MAX11300_bulksetDAC(void)
 {
 	// Set address
-	rgDACData_Tx[0] = ADDR_DACbase<<1 | SPI_Write;
-	
+	rgDACData_Tx[0] = ADDR_DACbase<<1 | SPI_Write;	
 	while(getPixiBusy() == STATE_Busy); // wait until last transfer has finished
 	pbarCS(0);  	
 	setPixiTask(TASK_setDAC);
@@ -247,8 +234,8 @@ void MAX11300_TxINTCallback(void)
 }
 
 uint16_t MAX11300_getADCValue(uint8_t ucChannel){
-  uint16_t ret = rgADCData_Rx[(ucChannel*2)]<<8;
-  ret += rgADCData_Rx[(ucChannel*2)+1];
+  uint16_t ret = rgADCData_Rx[(ucChannel*2)+1]<<8;
+  ret += rgADCData_Rx[(ucChannel*2)+2];
   return ret;
 }
 

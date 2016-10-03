@@ -17,11 +17,11 @@
 #define abs(x) ((x)>0?(x):-(x))
 #endif
 
-#define TLC_CONTINUOUS
-
-#define USE_PIXI
+// #define USE_PIXI
 // #define USE_MAX
-// #define USE_MAX_DMA
+#define USE_MAX_DMA
+#define TLC_CONTINUOUS
+// #define MAX_CONTINUOUS
 
 #ifdef USE_PIXI
 #include "Pixi.h"
@@ -112,7 +112,7 @@ void setup(){
 #elif defined USE_MAX || defined  USE_MAX_DMA
   MAX11300_setDeviceControl(DCR_DACCTL_ImmUpdate|DCR_DACREF_Int|DCR_ADCCTL_ContSweep/*|DCR_BRST_Contextual*/);
 #endif
-#if defined USE_MAX_DMA
+#if defined USE_MAX_DMA && defined MAX_CONTINUOUS
   MAX11300_startContinuous();
 #endif
 }
@@ -195,7 +195,6 @@ uint8_t getChannelIndex(uint8_t ch){
   return ch;
 }
 
-
 uint16_t getPortValue(uint8_t ch){
 #ifdef USE_PIXI
   return pixi.readAnalog(ch);
@@ -219,10 +218,8 @@ void setPortValue(uint8_t ch, uint16_t value){
 void run(){
   for(;;){
     bus_status();
-#ifdef USE_TEMP
-    temp[0] = pixi.readTemperature ( TEMP_CHANNEL_INT );
-    temp[1] = pixi.readTemperature ( TEMP_CHANNEL_EXT0 );
-    temp[2] = pixi.readTemperature ( TEMP_CHANNEL_EXT1 );
+#if defined USE_MAX_DMA && !defined MAX_CONTINUOUS
+    MAX11300_bulksetDAC();
 #endif
     for(int ch=0; ch<16; ++ch){
       if(cfg[ch] < DAC_MODE){
@@ -232,21 +229,20 @@ void run(){
 	  bus_tx_parameter(getChannelIndex(PARAMETER_AA+ch), adc[ch]);
 	  cc_values[ch] = cc;
 	}
-      }else if(cfg[ch] > DAC_MODE){
+      }
+    }
+#if defined USE_MAX_DMA && !defined MAX_CONTINUOUS
+    MAX11300_bulkreadADC();
+#endif
+    for(int ch=0; ch<16; ++ch){
+      if(cfg[ch] > DAC_MODE){
 	setPortValue(ch, dac[ch]);
 	setLed(ch, dac[ch]);
       }
     }
-#ifdef USE_TLC
-#ifndef TLC_CONTINUOUS
+#if defined USE_TLC && !defined TLC_CONTINUOUS
     TLC5946_Refresh_GS();
 #endif
-#endif
-    // Nop_delay(100000);
-    // // Nop_delay(10);
-    // MAX11300_bulksetDAC();
-    // Nop_delay(100000);
-    // MAX11300_bulkreadADC();
   }
 }
 

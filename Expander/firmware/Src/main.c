@@ -150,11 +150,7 @@ void SystemClock_Config(void)
   }
 
   HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
-
   HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
-
-  /* SysTick_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 }
 
 /* SPI1 init function */
@@ -363,7 +359,7 @@ void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi)
 }
 
 void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi){
-  if(hspi == &hspi2){}
+  if(hspi == &hspi2){TLC5946_TxINTCallback();}
   if(hspi == &hspi1){MAX11300_TxRxINTCallback();}
 }
 

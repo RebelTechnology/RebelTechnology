@@ -6,8 +6,6 @@
 	extern "C" {
 #endif
 
-#define Pixi_SPIDMA
- 
 // Port Mapping
 #define PORT_1    0
 #define PORT_2    1
