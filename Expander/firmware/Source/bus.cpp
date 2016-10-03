@@ -35,7 +35,7 @@ uint8_t* bus_deviceid(){
 }
 
 void bus_setup(){
-  debug << "bus_setup\r\n";
+  // debug << "bus_setup\r\n";
   extern UART_HandleTypeDef huart1;
   UART_HandleTypeDef *huart = &huart1;
   /* Enable the UART Parity Error Interrupt */
@@ -78,17 +78,17 @@ extern "C" {
 }
 
 void bus_tx_parameter(uint8_t pid, int16_t value){
-  debug << "tx parameter [" << pid << "][" << value << "]" ;
+  // debug << "tx parameter [" << pid << "][" << value << "]" ;
   bus.sendParameterChange(pid, value);
 }
 
 void bus_tx_command(uint8_t cmd, int16_t data){
-  debug << "tx command [" << cmd << "][" << data << "]" ;
+  // debug << "tx command [" << cmd << "][" << data << "]" ;
   bus.sendCommand(cmd, data);
 }
 
 void bus_tx_message(const char* msg){
-  debug << "tx msg [" << msg << "]" ;
+  // debug << "tx msg [" << msg << "]" ;
   bus.sendMessage(msg);
 }
 

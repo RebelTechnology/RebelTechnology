@@ -36,7 +36,7 @@
 #include "stm32f1xx_it.h"
 
 /* USER CODE BEGIN 0 */
-//void serial_rx_callback(uint8_t c);
+void serial_rx_callback(uint8_t c);
 #define NO_ERROR            0x00
 #define HARDFAULT_ERROR     0x10
 #define BUS_ERROR           0x20
@@ -46,7 +46,7 @@
 #define PROGRAM_ERROR       0x60
 #define CONFIG_ERROR        0x70
 #define UART_ERROR          0x80
-//void setErrorMessage(int8_t err, const char* msg);
+void setErrorMessage(int8_t err, const char* msg);
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -166,7 +166,7 @@ void USART1_IRQHandler(void)
   { 
     /* Clear all the error flag at once */
     __HAL_UART_CLEAR_PEFLAG(huart);
-//    setErrorMessage(UART_ERROR, "uart parity error");
+   setErrorMessage(UART_ERROR, "uart parity error");
   }
 
   tmp_flag = __HAL_UART_GET_FLAG(huart, UART_FLAG_FE);
@@ -175,7 +175,7 @@ void USART1_IRQHandler(void)
   if((tmp_flag != RESET) && (tmp_it_source != RESET))
   {
     __HAL_UART_CLEAR_PEFLAG(huart);
-//    setErrorMessage(UART_ERROR, "uart frame error");
+   setErrorMessage(UART_ERROR, "uart frame error");
   }
   
   tmp_flag = __HAL_UART_GET_FLAG(huart, UART_FLAG_NE);
@@ -183,7 +183,7 @@ void USART1_IRQHandler(void)
   if((tmp_flag != RESET) && (tmp_it_source != RESET))
   { 
     __HAL_UART_CLEAR_PEFLAG(huart);
-//    setErrorMessage(UART_ERROR, "uart noise error");
+   setErrorMessage(UART_ERROR, "uart noise error");
   }
   
   tmp_flag = __HAL_UART_GET_FLAG(huart, UART_FLAG_ORE);
@@ -191,7 +191,7 @@ void USART1_IRQHandler(void)
   if((tmp_flag != RESET) && (tmp_it_source != RESET))
   { 
     __HAL_UART_CLEAR_PEFLAG(huart);
-//    setErrorMessage(UART_ERROR, "uart overrun error");
+   setErrorMessage(UART_ERROR, "uart overrun error");
     (uint8_t)(huart->Instance->DR & (uint8_t)0x00FF);
   }
   
@@ -200,7 +200,7 @@ void USART1_IRQHandler(void)
   /* UART in mode Receiver ---------------------------------------------------*/
   if((tmp_flag != RESET) && (tmp_it_source != RESET))
   { 
-//      serial_rx_callback((uint8_t)(huart->Instance->DR & (uint8_t)0x00FF));
+     serial_rx_callback((uint8_t)(huart->Instance->DR & (uint8_t)0x00FF));
   }
   /* USER CODE END USART1_IRQn 0 */
   /* HAL_UART_IRQHandler(&huart1); */

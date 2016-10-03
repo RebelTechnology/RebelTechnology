@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include "stm32f1xx_hal.h"
-// #include "HAL_MAX11300.h"
 #include "HAL_TLC5946.h"
 #include "bus.h"
 #include "gpio.h"
@@ -18,8 +17,18 @@
 #define abs(x) ((x)>0?(x):-(x))
 #endif
 
+#define TLC_CONTINUOUS
+
+#define USE_PIXI
+// #define USE_MAX
+// #define USE_MAX_DMA
+
+#ifdef USE_PIXI
 #include "Pixi.h"
 Pixi pixi;
+#elif defined USE_MAX || defined USE_MAX_DMA
+#include "HAL_MAX11300.h"
+#endif
 
 /**
  * MAX channel index goes from 0 at top left, to 8 at bottom right, to 15 at top right.
@@ -34,9 +43,6 @@ extern "C" {
   void setup(void);
   void run(void);
   void setParameter(uint8_t pid, int16_t value);
-
-  uint16_t rgADCValues[20];
-  uint16_t rgDACValues[20];
 }
 
 // #define HYSTERESIS_DELTA 3
@@ -54,9 +60,9 @@ enum ChannelMode {
 };
 
 uint8_t cc_values[16] = {0};
-volatile ChannelMode cfg[16];
-volatile int dac[16];
-volatile int adc[16];
+ChannelMode cfg[16];
+int dac[16];
+int adc[16];
 
 // #define USE_TEMP
 #ifdef USE_TEMP
@@ -101,13 +107,19 @@ void setup(){
     HAL_Delay(delayms);
   }
 
+#ifdef USE_PIXI
   pixi.begin();
-  // MAX11300_setBuffers(rgADCValues, rgDACValues);
-  // MAX11300_startContinuous();
+#elif defined USE_MAX || defined  USE_MAX_DMA
+  MAX11300_setDeviceControl(DCR_DACCTL_ImmUpdate|DCR_DACREF_Int|DCR_ADCCTL_ContSweep/*|DCR_BRST_Contextual*/);
+#endif
+#if defined USE_MAX_DMA
+  MAX11300_startContinuous();
+#endif
 }
 
 void configureChannel(uint8_t ch, ChannelMode mode){
   switch(mode){
+#ifdef USE_PIXI
   case ADC_5TO5:
     pixi.configChannel(CHANNEL_0+ch, CH_MODE_ADC_P, 0, CH_5N_TO_5P, ADC_MODE_CONT);
     break;
@@ -120,18 +132,20 @@ void configureChannel(uint8_t ch, ChannelMode mode){
   case DAC_0TO10:
     pixi.configChannel(CHANNEL_0+ch, CH_MODE_DAC, 0, CH_0_TO_10P, 0);
     break;
-  // case ADC_5TO5:
-  //   MAX11300_setPortMode(PORT_1+ch, PCR_Range_ADC_M5_P5|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
-  //   break;
-  // case ADC_0TO10:
-  //   MAX11300_setPortMode(PORT_1+ch, PCR_Range_ADC_0_P10|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
-  //   break;
-  // case DAC_5TO5:
-  //   MAX11300_setPortMode(PORT_1+ch, PCR_Range_DAC_M5_P5|PCR_Mode_DAC);
-  //   break;
-  // case DAC_0TO10:
-  //   MAX11300_setPortMode(PORT_1+ch, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
-  //   break;
+#elif defined USE_MAX || defined USE_MAX_DMA
+  case ADC_5TO5:
+    MAX11300_setPortMode(PORT_1+ch, PCR_Range_ADC_M5_P5|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
+    break;
+  case ADC_0TO10:
+    MAX11300_setPortMode(PORT_1+ch, PCR_Range_ADC_0_P10|PCR_Mode_ADC_SgEn_PosIn|PCR_ADCSamples_16|PCR_ADCref_INT);
+    break;
+  case DAC_5TO5:
+    MAX11300_setPortMode(PORT_1+ch, PCR_Range_DAC_M5_P5|PCR_Mode_DAC);
+    break;
+  case DAC_0TO10:
+    MAX11300_setPortMode(PORT_1+ch, PCR_Range_DAC_0_P10|PCR_Mode_DAC);
+    break;
+#endif
   default:
     debug << "Invalid mode [" << mode << "]\r\n";
     return;
@@ -183,17 +197,23 @@ uint8_t getChannelIndex(uint8_t ch){
 
 
 uint16_t getPortValue(uint8_t ch){
+#ifdef USE_PIXI
   return pixi.readAnalog(ch);
-  // return MAX11300_readADC(ch);
-  // return MAX11300_getADCValue(ch);
-  // return rgADCValues[ch];
+#elif defined USE_MAX
+  return MAX11300_readADC(ch);
+#elif defined USE_MAX_DMA
+  return MAX11300_getADCValue(ch);
+#endif
 }
 
 void setPortValue(uint8_t ch, uint16_t value){
+#ifdef USE_PIXI
   pixi.writeAnalog(ch, value);
-  // MAX11300_setDAC(ch, value);
-  // MAX11300_setDACValue(ch, value);
-  // rgDACValues[ch] = value;
+#elif defined USE_MAX
+  MAX11300_setDAC(ch, value);
+#elif defined USE_MAX_DMA
+  MAX11300_setDACValue(ch, value);
+#endif
 }
 
 void run(){
@@ -222,13 +242,6 @@ void run(){
     TLC5946_Refresh_GS();
 #endif
 #endif
-    // for(int ch=0; ch<16; ++ch){
-    //   if(cfg[ch] < DAC_MODE){
-    // 	setADC(ch, MAX11300_readADC(ch));
-    //   }else if(cfg[ch] > DAC_MODE){
-    // 	MAX11300_setDAC(ch, dac[ch]);
-    //   }
-    // }
     // Nop_delay(100000);
     // // Nop_delay(10);
     // MAX11300_bulksetDAC();

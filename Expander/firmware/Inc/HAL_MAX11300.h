@@ -140,7 +140,6 @@
 
 // Prototypes
 void MAX11300_init (SPI_HandleTypeDef*);
-void MAX11300_setBuffers(uint16_t*, uint16_t*);
 
 void MAX11300_setPortMode(uint8_t, uint16_t);
 uint16_t MAX11300_readPortMode(uint8_t);

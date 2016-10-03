@@ -2,7 +2,7 @@
 #include "stm32f1xx_hal.h"
 #include "HAL_TLC5946.h"
 
-/* #define TLC_CONTINUOUS */
+#define TLC_CONTINUOUS
 
 uint8_t rgGSbuf[24] = {0};
 uint8_t rgDCbuf[12] = {255,255,255,255,255,255,255,255,255,255,255,255};

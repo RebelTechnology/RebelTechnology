@@ -12,7 +12,6 @@ static uint8_t rgDACData_Tx[41];
 static volatile uint8_t ucPixiTask;
 static volatile uint8_t ucPixiState;
 static volatile uint8_t ucPixiBusy;
-static uint16_t *pADCBuffer, *pDACBuffer;
 
 #define STATE_Idle				0
 #define STATE_ContConv		1
@@ -223,12 +222,6 @@ void MAX11300_init (SPI_HandleTypeDef *spiconfig)
 	setPixiBusy(STATE_Idle);
 }
 
-void MAX11300_setBuffers(uint16_t* adc, uint16_t* dac)
-{
-	pADCBuffer = adc;
-	pDACBuffer = dac;
-}
-
 void MAX11300_startContinuous(void)
 {
 	setPixiState(STATE_ContConv);
@@ -263,12 +256,6 @@ void MAX11300_RxINTCallback(void)
 {
 	pbarCS(1);
 	setPixiBusy(STATE_Idle);	
-	
-	/* for (ucChannel=0; ucChannel<20; ucChannel++) */
-	/* { */
-	/* 	pADCBuffer[ucChannel]  = rgADCData_Rx[(ucChannel*2)]<<8; */
-	/* 	pADCBuffer[ucChannel] += rgADCData_Rx[(ucChannel*2)+1]; */
-	/* } */
 	
 	// Manage next task
 	if (getPixiState() == STATE_ContConv)
