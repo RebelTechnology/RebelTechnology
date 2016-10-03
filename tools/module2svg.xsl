@@ -23,8 +23,14 @@
 	 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	 xmlns:xlink="http://www.w3.org/1999/xlink"
 	 xmlns:svg="http://www.w3.org/2000/svg" version="1.1"
+	 xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+	 xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
 	 width="210mm" height="297mm"
 	 viewBox="0 0 210 297">
+  <sodipodi:namedview
+     id="base"
+     inkscape:document-units="mm"
+     units="mm"/>
       <defs>
 	<g id="potgrading">
 	  <path
