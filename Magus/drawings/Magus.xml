@@ -24,23 +24,23 @@
   <!-- <hole x="1.5" y="-0.05" radius="3.5"/> -->
 
   <!-- leds -->
-  <hole x="-1.75" y="-0.75" radius="1.5"/>
-  <hole x="-1.25" y="-0.75" radius="1.5"/>
-  <hole x="-0.75" y="-0.75" radius="1.5"/>
-  <hole x="-0.25" y="-0.75" radius="1.5"/>
-  <hole x="0.25" y="-0.75" radius="1.5"/>
-  <hole x="0.75" y="-0.75" radius="1.5"/>
-  <hole x="1.25" y="-0.75" radius="1.5"/>
-  <hole x="1.75" y="-0.75" radius="1.5"/>
+  <hole x="-1.75" y="-0.80" radius="1.5"/>
+  <hole x="-1.25" y="-0.80" radius="1.5"/>
+  <hole x="-0.75" y="-0.80" radius="1.5"/>
+  <hole x="-0.25" y="-0.80" radius="1.5"/>
+  <hole x="0.25" y="-0.80" radius="1.5"/>
+  <hole x="0.75" y="-0.80" radius="1.5"/>
+  <hole x="1.25" y="-0.80" radius="1.5"/>
+  <hole x="1.75" y="-0.80" radius="1.5"/>
 
-  <hole x="-1.75" y="-1.95" radius="1.5"/>
-  <hole x="-1.25" y="-1.95" radius="1.5"/>
-  <hole x="-0.75" y="-1.95" radius="1.5"/>
-  <hole x="-0.25" y="-1.95" radius="1.5"/>
-  <hole x="0.25" y="-1.95" radius="1.5"/>
-  <hole x="0.75" y="-1.95" radius="1.5"/>
-  <hole x="1.25" y="-1.95" radius="1.5"/>
-  <hole x="1.75" y="-1.95" radius="1.5"/>
+  <hole x="-1.75" y="-1.90" radius="1.5"/>
+  <hole x="-1.25" y="-1.90" radius="1.5"/>
+  <hole x="-0.75" y="-1.90" radius="1.5"/>
+  <hole x="-0.25" y="-1.90" radius="1.5"/>
+  <hole x="0.25" y="-1.90" radius="1.5"/>
+  <hole x="0.75" y="-1.90" radius="1.5"/>
+  <hole x="1.25" y="-1.90" radius="1.5"/>
+  <hole x="1.75" y="-1.90" radius="1.5"/>
 
   <!-- jacks -->
   <hole x="-1.75" y="1.75" radius="3.25"/>
