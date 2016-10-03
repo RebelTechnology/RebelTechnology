@@ -9991,7 +9991,7 @@ www.irf.com&lt;p&gt;
 <part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="5k1"/>
 <part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="5k1"/>
 <part name="C5" library="Rebel" deviceset="C-EU" device="C0603" value="10pF"/>
-<part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
 <part name="R13" library="Rebel" deviceset="R-EU_" device="0603" value="120k"/>
 <part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
@@ -10031,11 +10031,11 @@ www.irf.com&lt;p&gt;
 <part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="C14" library="Rebel" deviceset="C-EU" device="C0603" value="10pF"/>
-<part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
 <part name="C15" library="Rebel" deviceset="C-EU" device="C0603" value="10pF"/>
-<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
 <part name="C16" library="Rebel" deviceset="C-EU" device="C0603" value="10pF"/>
-<part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
 <part name="P+3" library="supply1" deviceset="+12V" device=""/>
 <part name="P-1" library="supply1" deviceset="-12V" device=""/>
 <part name="SV1" library="con-lstb" deviceset="MA05-2" device=""/>
