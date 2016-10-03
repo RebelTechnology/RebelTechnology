@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -15788,10 +15788,10 @@ Source: 008-0260-0_E.pdf</description>
 <part name="C304" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND57" library="supply1" deviceset="GND" device=""/>
 <part name="C306" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C308" library="resistor" deviceset="C-EU" device="C1206" value="1u"/>
+<part name="C308" library="resistor" deviceset="C-EU" device="C1206" value="4u7"/>
 <part name="C309" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C303" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C302" library="resistor" deviceset="C-EU" device="C1206" value="1u"/>
+<part name="C302" library="resistor" deviceset="C-EU" device="C1206" value="4u7"/>
 <part name="C301" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND59" library="supply1" deviceset="GND" device=""/>
 <part name="GND60" library="supply1" deviceset="GND" device=""/>
