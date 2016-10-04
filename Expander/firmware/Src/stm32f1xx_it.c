@@ -190,9 +190,9 @@ void USART1_IRQHandler(void)
   /* UART Over-Run interrupt occurred ----------------------------------------*/
   if((tmp_flag != RESET) && (tmp_it_source != RESET))
   { 
-    __HAL_UART_CLEAR_PEFLAG(huart);
-   setErrorMessage(UART_ERROR, "uart overrun error");
-    (uint8_t)(huart->Instance->DR & (uint8_t)0x00FF);
+    __HAL_UART_CLEAR_OREFLAG(huart);
+    (uint8_t)(huart->Instance->DR);
+    setErrorMessage(UART_ERROR, "uart overrun error");
   }
   
   tmp_flag = __HAL_UART_GET_FLAG(huart, UART_FLAG_RXNE);

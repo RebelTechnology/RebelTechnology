@@ -91,8 +91,12 @@ void setup(){
 
   bus_setup();
 
+  for(int ch=0; ch<16; ++ch)
+    TLC5946_SetOutput_DC(ch, 0xff);
+
 #ifdef USE_TLC
   TLC5946_Refresh_DC();
+  HAL_Delay(10);
   TLC5946_Refresh_GS(); // starts endless refresh loop
 #endif
 

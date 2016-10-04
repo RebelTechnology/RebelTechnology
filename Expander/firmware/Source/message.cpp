@@ -1,7 +1,8 @@
 #include "message.h"
 #include <string.h>
 
-static char buffer[64];
+#define MESSAGE_BUFFER_SIZE 128
+static char buffer[MESSAGE_BUFFER_SIZE];
 static const char hexnumerals[] = "0123456789abcdef";
 
 #ifndef abs
@@ -70,12 +71,12 @@ void setDebugMessage(const char* msg){
 }
 
 void debugMessage(const char* msg){
-  strlcpy(buffer, msg, 64);
+  strlcpy(buffer, msg, MESSAGE_BUFFER_SIZE);
 }
 
 void debugMessage(const char* msg, int a){
   char* p = buffer;
-  p = stpncpy(p, msg, 48);
+  p = stpncpy(p, msg, MESSAGE_BUFFER_SIZE-16);
   p = stpcpy(p, (const char*)" ");
   p = stpcpy(p, itoa(a, 10));
   setDebugMessage(buffer);
@@ -83,7 +84,7 @@ void debugMessage(const char* msg, int a){
 
 void debugMessage(const char* msg, int a, int b){
   char* p = buffer;
-  p = stpncpy(p, msg, 32);
+  p = stpncpy(p, msg, MESSAGE_BUFFER_SIZE-32);
   p = stpcpy(p, (const char*)" ");
   p = stpcpy(p, itoa(a, 10));
   p = stpcpy(p, (const char*)" ");
@@ -105,7 +106,7 @@ void debugMessage(const char* msg, int a, int b, int c){
 
 void debugMessage(const char* msg, float a){
   char* p = buffer;
-  p = stpncpy(p, msg, 48);
+  p = stpncpy(p, msg, MESSAGE_BUFFER_SIZE-16);
   p = stpcpy(p, (const char*)" ");
   p = stpcpy(p, ftoa(a, 10));
   setDebugMessage(buffer);
@@ -113,7 +114,7 @@ void debugMessage(const char* msg, float a){
 
 void debugMessage(const char* msg, float a, float b){
   char* p = buffer;
-  p = stpncpy(p, msg, 32);
+  p = stpncpy(p, msg, MESSAGE_BUFFER_SIZE-32);
   p = stpcpy(p, (const char*)" ");
   p = stpcpy(p, ftoa(a, 10));
   p = stpcpy(p, (const char*)" ");
@@ -123,7 +124,7 @@ void debugMessage(const char* msg, float a, float b){
 
 void debugMessage(const char* msg, float a, float b, float c){
   char* p = buffer;
-  p = stpncpy(p, msg, 32);
+  p = stpncpy(p, msg, MESSAGE_BUFFER_SIZE-32);
   p = stpcpy(p, (const char*)" ");
   p = stpcpy(p, ftoa(a, 10));
   p = stpcpy(p, (const char*)" ");
@@ -132,32 +133,6 @@ void debugMessage(const char* msg, float a, float b, float c){
   p = stpcpy(p, ftoa(c, 10));
   setDebugMessage(buffer);
 }
-
-// void error(int8_t code, const char* reason){
-//   ProgramVector* vec = getProgramVector();
-//   if(vec != NULL){
-//     vec->error = code;
-//     vec->message = (char*)reason;
-//     if(vec->programStatus != NULL)
-//       vec->programStatus(AUDIO_ERROR_STATUS);
-//   }
-// }
-
-// void assert_failed(const char* msg, const char* location, int line){
-//   char* p = buffer;
-//   p = stpncpy(p, msg, 32);
-//   p = stpcpy(p, (const char*)" in ");
-//   p = stpncpy(p, location, 32);
-//   p = stpcpy(p, (const char*)" line ");
-//   p = stpcpy(p, itoa(line, 10));
-//   getDebugMessage() = buffer;
-//   if(getProgramVector()->programStatus != NULL)
-//     getProgramVector()->programStatus(AUDIO_ERROR_STATUS);
-// }
-
-// void assert_failed(uint8_t* location, uint32_t line){
-//   assert_failed("Assertion Failed", (const char*)location, line);
-// }
 
 Debug debug;
 
