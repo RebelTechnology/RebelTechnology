@@ -56,7 +56,7 @@ bool sw2(){
 }
 
 #define RX_BUFF_SIZE   64  /* Max Received data 64 bytes */
-static uint8_t USBHOST_RX_Buffer[RX_BUFF_SIZE]; // MIDI reception buffer
+extern uint8_t USBHOST_RX_Buffer[RX_BUFF_SIZE];
 
 // #define OLED_HEIGHT 64
 // #define OLED_WIDTH 128
@@ -121,10 +121,13 @@ void setup(void){
   CV_Out_A(&hdac, 0);
   CV_Out_B(&hdac, 0);
   updateProgramVector(&programVector);
-  // codec.reset();
-  graphics.begin(&hspi2);
-  // codec.start();
+#ifdef USE_CODEC
+  codec.reset();
+  codec.start();
   // codec.ramp(1<<23);
+#endif
+
+  graphics.begin(&hspi2);
 
   __HAL_TIM_SetCounter(&htim2, INT16_MAX/2);
   __HAL_TIM_SetCounter(&htim3, INT16_MAX/2);
@@ -134,10 +137,6 @@ void setup(void){
   patches[currentPatch]->reset();
 
   doProcessAudio = true;
- 
-  extern USBH_HandleTypeDef hUsbHostFS;
-  // just once at the beginning, start the first reception
-  // USBH_MIDI_Receive(&hUsbHostFS, USBHOST_RX_Buffer, RX_BUFF_SIZE);
 }
 
 void processBlock(ProgramVector* pv){
@@ -151,7 +150,9 @@ void processBlock(ProgramVector* pv){
 
 void run(void){
   for(;;){
+#ifdef USE_USBHOST
     MX_USB_HOST_Process();
+#endif
     if(doProcessAudio){
       processBlock(&programVector);
       if(dodisplay){
@@ -167,11 +168,10 @@ void run(void){
 }
 
   void USBH_MIDI_ReceiveCallback(USBH_HandleTypeDef *phost){
-    uint16_t numberOfPackets;
-    uint8_t *ptr = USBHOST_RX_Buffer;
-    // midi_package_t pack;
-    numberOfPackets = USBH_MIDI_GetLastReceivedDataSize(phost) / 4; //each USB midi package is 4 bytes long
-
+    uint8_t* ptr = USBHOST_RX_Buffer;
+    uint16_t len = USBH_MIDI_GetLastReceivedDataSize(phost);
+    for(uint32_t i=0; i<len; i+=4)
+      midireader.readMidiFrame(ptr+i); 
     USBH_MIDI_Receive(phost, USBHOST_RX_Buffer, RX_BUFF_SIZE); // start a new reception
   }
 

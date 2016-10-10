@@ -78,6 +78,7 @@ static USBH_StatusTypeDef USBH_MIDI_InterfaceInit (USBH_HandleTypeDef *phost)
 
 	USBH_StatusTypeDef status = USBH_FAIL ;
 	uint8_t interface = 0;
+	static MIDI_HandleTypeDef staticMidiHandle;
 	MIDI_HandleTypeDef *MIDI_Handle;
 
 	//USB_MIDI_ChangeConnectionState(0);
@@ -92,8 +93,8 @@ static USBH_StatusTypeDef USBH_MIDI_InterfaceInit (USBH_HandleTypeDef *phost)
 	else
 	{
 		USBH_SelectInterface (phost, interface);
-
-		phost->pActiveClass->pData = (MIDI_HandleTypeDef *)USBH_malloc (sizeof(MIDI_HandleTypeDef));
+		/* phost->pActiveClass->pData = (MIDI_HandleTypeDef *)USBH_malloc (sizeof(MIDI_HandleTypeDef)); */
+		phost->pActiveClass->pData = &staticMidiHandle;
 		MIDI_Handle =  phost->pActiveClass->pData;
 
 		if(phost->device.CfgDesc.Itf_Desc[phost->device.current_interface].Ep_Desc[0].bEndpointAddress & 0x80)
@@ -179,7 +180,8 @@ USBH_StatusTypeDef USBH_MIDI_InterfaceDeInit (USBH_HandleTypeDef *phost)
 
 	if(phost->pActiveClass->pData)
 	{
-		USBH_free (phost->pActiveClass->pData);
+		/* statically allocated in init
+		   USBH_free (phost->pActiveClass->pData); */
 		phost->pActiveClass->pData = 0;
 	}
 

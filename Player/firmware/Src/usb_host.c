@@ -49,7 +49,7 @@ ApplicationTypeDef Appli_state = APPLICATION_IDLE;
 /* USER CODE END 0 */
 
 /*
-* user callbak declaration
+* user callback declaration
 */ 
 static void USBH_UserProcess  (USBH_HandleTypeDef *phost, uint8_t id);
 
@@ -79,8 +79,11 @@ void MX_USB_HOST_Process()
   /* USB Host Background task */
     USBH_Process(&hUsbHostFS); 						
 }
+
+#define RX_BUFF_SIZE   64  /* Max Received data 64 bytes */
+uint8_t USBHOST_RX_Buffer[RX_BUFF_SIZE]; // MIDI reception buffer
 /*
- * user callbak definition
+ * user callback definition
 */ 
 static void USBH_UserProcess  (USBH_HandleTypeDef *phost, uint8_t id)
 {
@@ -96,7 +99,10 @@ static void USBH_UserProcess  (USBH_HandleTypeDef *phost, uint8_t id)
   break;
     
   case HOST_USER_CLASS_ACTIVE:
-  Appli_state = APPLICATION_READY;
+    if(Appli_state == APPLICATION_START){
+      USBH_MIDI_Receive(phost, USBHOST_RX_Buffer, RX_BUFF_SIZE);
+      Appli_state = APPLICATION_READY;
+    }
   break;
 
   case HOST_USER_CONNECTION:

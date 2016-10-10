@@ -6,6 +6,9 @@
 /* #define OLED_BITBANG */
 #define OLED_SOFT_CS
 
+#define USE_USBHOST
+/* #define USE_CODEC */
+
 #ifdef SSD1331
 #define OLED_WIDTH			96
 #define OLED_HEIGHT			64
