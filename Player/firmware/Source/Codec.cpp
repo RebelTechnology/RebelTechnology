@@ -268,6 +268,7 @@ void Codec::ramp(uint32_t max){
 }
 
 void Codec::reset(){
+  // HAL_SAI_MspInit() is called from HAL_SAI_Init() in MX_SAI1_Init()
   MX_SAI1_Init();
   MX_SPI4_Init();
 
@@ -338,8 +339,8 @@ void Codec::start(){
 
 extern "C" {
 
-void HAL_SAI_TxHalfCpltCallback(SAI_HandleTypeDef *hsai){
-}
+// void HAL_SAI_TxHalfCpltCallback(SAI_HandleTypeDef *hsai){
+// }
 
 extern void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size);
 

@@ -165,7 +165,7 @@ void SystemClock_Config(void)
 // ADC1 init function
 void MX_ADC1_Init(void)
 {
-	ADC_ChannelConfTypeDef sConfig;
+  ADC_ChannelConfTypeDef sConfig;
 	
   // Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
   hadc1.Instance = ADC1;

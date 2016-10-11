@@ -26,7 +26,7 @@ static void MX_DMA2D_Init(void);
 static void MX_FMC_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_RNG_Init(void);
-static void MX_SAI1_Init(void);
+void MX_SAI1_Init(void);
 static void MX_SPI2_Init(void);
 static void MX_SPI5_Init(void);
 static void MX_TIM2_Init(void);

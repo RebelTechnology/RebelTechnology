@@ -122,9 +122,15 @@ void setup(void){
   CV_Out_B(&hdac, 0);
   updateProgramVector(&programVector);
 #ifdef USE_CODEC
+  /* SAI rx and tx DMA interrupt init */
+  HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
+  HAL_NVIC_SetPriority(DMA2_Stream4_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream4_IRQn);
+
   codec.reset();
   codec.start();
-  // codec.ramp(1<<23);
+  codec.ramp(1<<23);
 #endif
 
   graphics.begin(&hspi2);
@@ -136,16 +142,16 @@ void setup(void){
 
   patches[currentPatch]->reset();
 
-  doProcessAudio = true;
+  // doProcessAudio = true;
 }
 
 void processBlock(ProgramVector* pv){
-  // samples.split(pv->audio_input, pv->audio_blocksize);
+  samples.split(pv->audio_input, pv->audio_blocksize);
   screen.setBuffer(pv->pixels);
   patches[currentPatch]->processAudio(samples);
   // screen.setTextSize(1);
   // screen.print(0, screen.getHeight()-8, "Rebel Technology");
-  // samples.comb(pv->audio_output);
+  samples.comb(pv->audio_output);
 }
 
 void run(void){
@@ -162,7 +168,7 @@ void run(void){
 	// programVector.pixels = pixelbuffer[swappb];
 	// swappb = !swappb;
       }
-      // doProcessAudio = false;
+      doProcessAudio = false;
     }
   }
 }
