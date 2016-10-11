@@ -6,10 +6,6 @@
 #include "StompBox.h"
 #include "FloatArray.h"
 
-// #ifdef ARM_CORTEX
-// #include "arm_math.h"
-// #endif //ARM_CORTEX
-
 #define AUDIO_MAX_BLOCK_SIZE (CODEC_BUFFER_SIZE/4)
 
 class SampleBuffer : public AudioBuffer {
@@ -36,7 +32,6 @@ public:
     uint32_t* dest = output;
     int32_t tmp;
     // Seems CS4271 ADC samples are signed, DAC are unsigned. I2S Standard mode.
-    // Also appears that setting any of the high bits causes a
     for(int i=0; i<size; ++i){
       // tmp = (int32_t)(left[i] * 0x800000);
       // *dest++ = (uint32_t)(tmp+0x800000);

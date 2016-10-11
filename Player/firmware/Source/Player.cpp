@@ -139,7 +139,7 @@ void setup(void){
 
   patches[currentPatch]->reset();
 
-  doProcessAudio = true;
+  // doProcessAudio = true;
 }
 
 void processBlock(ProgramVector* pv){
@@ -161,7 +161,7 @@ void loop(void){
       // programVector.pixels = pixelbuffer[swappb];
       // swappb = !swappb;
     }
-    // doProcessAudio = false;
+    doProcessAudio = false;
   }
 }
 
