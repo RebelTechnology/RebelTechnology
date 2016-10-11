@@ -20,7 +20,7 @@ extern "C" {
 
 extern "C" {
   void setup(void);
-  void run(void);
+  void loop(void);
 }
 extern DAC_HandleTypeDef hdac;
 extern SDRAM_HandleTypeDef hsdram1;
@@ -33,9 +33,6 @@ void encoderChanged(uint8_t encoder, int32_t value);
 extern "C" {
   void delay(uint32_t ms){
     osDelay(ms);
-  }
-  void Error_Handler(void){
-    assert_param(0);
   }
 }
 
@@ -123,10 +120,10 @@ void setup(void){
   updateProgramVector(&programVector);
 #ifdef USE_CODEC
   /* SAI rx and tx DMA interrupt init */
-  HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 5, 0);
-  HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
-  HAL_NVIC_SetPriority(DMA2_Stream4_IRQn, 5, 0);
-  HAL_NVIC_EnableIRQ(DMA2_Stream4_IRQn);
+  // HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 5, 0);
+  // HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
+  // HAL_NVIC_SetPriority(DMA2_Stream4_IRQn, 5, 0);
+  // HAL_NVIC_EnableIRQ(DMA2_Stream4_IRQn);
 
   codec.reset();
   codec.start();
@@ -142,7 +139,7 @@ void setup(void){
 
   patches[currentPatch]->reset();
 
-  // doProcessAudio = true;
+  doProcessAudio = true;
 }
 
 void processBlock(ProgramVector* pv){
@@ -154,22 +151,17 @@ void processBlock(ProgramVector* pv){
   samples.comb(pv->audio_output);
 }
 
-void run(void){
-  for(;;){
-#ifdef USE_USBHOST
-    MX_USB_HOST_Process();
-#endif
-    if(doProcessAudio){
-      processBlock(&programVector);
-      if(dodisplay){
+void loop(void){
+  if(doProcessAudio){
+    processBlock(&programVector);
+    if(dodisplay){
       // if(dodisplay && graphics.isReady()){
-	graphics.display(programVector.pixels, OLED_WIDTH*OLED_HEIGHT);
-	// swap pixelbuffer
-	// programVector.pixels = pixelbuffer[swappb];
-	// swappb = !swappb;
-      }
-      doProcessAudio = false;
+      graphics.display(programVector.pixels, OLED_WIDTH*OLED_HEIGHT);
+      // swap pixelbuffer
+      // programVector.pixels = pixelbuffer[swappb];
+      // swappb = !swappb;
     }
+    // doProcessAudio = false;
   }
 }
 

@@ -1,7 +1,7 @@
 # object files
 OBJS += $(PERIPH) 
 
-OBJS += $(LIBROOT)/BSP/STM32F7xx_Nucleo_144/stm32f7xx_nucleo_144.o
+# OBJS += $(LIBROOT)/BSP/STM32F7xx_Nucleo_144/stm32f7xx_nucleo_144.o
 OBJS += $(DRIVERS)/Src/stm32f7xx_hal.o
 OBJS += $(DRIVERS)/Src/stm32f7xx_hal_rcc.o
 OBJS += $(DRIVERS)/Src/stm32f7xx_hal_dac.o
@@ -78,7 +78,6 @@ OBJS += $(BUILD)/libnosys_gnu.o
 # OBJS += $(DSPLIB)/SupportFunctions/arm_q15_to_float.o
 
 OBJS += $(FREERTOS_DIR)/CMSIS_RTOS/cmsis_os.o
-# OBJS += $(FREERTOS_DIR)/portable/GCC/ARM_CM3_MPU/port.o
 OBJS += $(FREERTOS_DIR)/portable/GCC/ARM_CM7/r0p1/port.o
 OBJS += $(FREERTOS_DIR)/tasks.o
 OBJS += $(FREERTOS_DIR)/timers.o

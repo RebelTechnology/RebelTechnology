@@ -34,6 +34,7 @@
 #include "stm32f7xx_hal.h"
 #include "stm32f7xx.h"
 #include "stm32f7xx_it.h"
+#include "cmsis_os.h"
 
 /* USER CODE BEGIN 0 */
 
@@ -42,6 +43,10 @@
 /* External variables --------------------------------------------------------*/
 extern PCD_HandleTypeDef hpcd_USB_OTG_HS;
 extern HCD_HandleTypeDef hhcd_USB_OTG_FS;
+extern DMA_HandleTypeDef hdma_sai1_a;
+extern DMA_HandleTypeDef hdma_sai1_b;
+extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim3;
 
 /******************************************************************************/
 /*            Cortex-M7 Processor Interruption and Exception Handlers         */ 
@@ -56,7 +61,7 @@ void SysTick_Handler(void)
 
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
-  HAL_SYSTICK_IRQHandler();
+  osSystickHandler();
   /* USER CODE BEGIN SysTick_IRQn 1 */
 
   /* USER CODE END SysTick_IRQn 1 */
@@ -68,6 +73,68 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f7xx.s).                    */
 /******************************************************************************/
+
+/**
+* @brief This function handles TIM2 global interrupt.
+*/
+void TIM2_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM2_IRQn 0 */
+
+  /* USER CODE END TIM2_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim2);
+  /* USER CODE BEGIN TIM2_IRQn 1 */
+
+  /* USER CODE END TIM2_IRQn 1 */
+}
+
+/**
+* @brief This function handles TIM3 global interrupt.
+*/
+void TIM3_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM3_IRQn 0 */
+
+  /* USER CODE END TIM3_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim3);
+  /* USER CODE BEGIN TIM3_IRQn 1 */
+
+  /* USER CODE END TIM3_IRQn 1 */
+}
+
+/**
+* @brief This function handles DMA2 stream1 global interrupt.
+*/
+void DMA2_Stream1_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Stream1_IRQn 0 */
+
+  /* USER CODE END DMA2_Stream1_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_sai1_a);
+  /* USER CODE BEGIN DMA2_Stream1_IRQn 1 */
+  if(__HAL_DMA_GET_FLAG(&hdma_sai1_a, DMA_FLAG_TCIF1_5))
+    __HAL_DMA_CLEAR_FLAG(&hdma_sai1_a, DMA_FLAG_TCIF1_5); // transfer complete
+  if(__HAL_DMA_GET_FLAG(&hdma_sai1_a, DMA_FLAG_HTIF1_5))
+    __HAL_DMA_CLEAR_FLAG(&hdma_sai1_a, DMA_FLAG_HTIF1_5); // half transfer complete
+  /* USER CODE END DMA2_Stream1_IRQn 1 */
+}
+
+/**
+* @brief This function handles DMA2 stream4 global interrupt.
+*/
+void DMA2_Stream4_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Stream4_IRQn 0 */
+
+  /* USER CODE END DMA2_Stream4_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_sai1_b);
+  /* USER CODE BEGIN DMA2_Stream4_IRQn 1 */
+  if(__HAL_DMA_GET_FLAG(&hdma_sai1_b, DMA_FLAG_TCIF0_4))
+    __HAL_DMA_CLEAR_FLAG(&hdma_sai1_b, DMA_FLAG_TCIF0_4); // transfer complete
+  if(__HAL_DMA_GET_FLAG(&hdma_sai1_b, DMA_FLAG_HTIF0_4))
+    __HAL_DMA_CLEAR_FLAG(&hdma_sai1_b, DMA_FLAG_HTIF0_4); // half transfer complete
+  /* USER CODE END DMA2_Stream4_IRQn 1 */
+}
 
 /**
 * @brief This function handles USB On The Go FS global interrupt.
@@ -98,59 +165,6 @@ void OTG_HS_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
-extern TIM_HandleTypeDef htim2;
-extern TIM_HandleTypeDef htim3;
-
-void TIM2_IRQHandler(void){
-  HAL_TIM_IRQHandler(&htim2);
-}
-
-void TIM3_IRQHandler(void){
-  HAL_TIM_IRQHandler(&htim3);
-}
-
-
-extern DMA_HandleTypeDef hdma_sai1_rx;
-extern DMA_HandleTypeDef hdma_sai1_tx;
-
-/**
-* @brief This function handles DMA2 stream1 global interrupt.
-*/
-void DMA2_Stream1_IRQHandler(void)
-{
-  /* USER CODE BEGIN DMA2_Stream1_IRQn 0 */
-  // SAI TX: memory to peripheral/codec 
-  static int counter = 0;
-  counter++;
-  /* USER CODE END DMA2_Stream1_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_sai1_tx);
-  /* USER CODE BEGIN DMA2_Stream1_IRQn 1 */
-  if(__HAL_DMA_GET_FLAG(&hdma_sai1_tx, DMA_FLAG_TCIF1_5))
-    __HAL_DMA_CLEAR_FLAG(&hdma_sai1_tx, DMA_FLAG_TCIF1_5); // transfer complete
-  if(__HAL_DMA_GET_FLAG(&hdma_sai1_tx, DMA_FLAG_HTIF1_5))
-    __HAL_DMA_CLEAR_FLAG(&hdma_sai1_tx, DMA_FLAG_HTIF1_5); // half transfer complete
-  /* USER CODE END DMA2_Stream1_IRQn 1 */
-}
-
-
-/**
-* @brief This function handles DMA2 stream4 global interrupt.
-*/
-void DMA2_Stream4_IRQHandler(void)
-{
-  /* USER CODE BEGIN DMA2_Stream4_IRQn 0 */
-  // SAI RX: peripheral/codec to memory
-  static int counter = 0;
-  counter++;
-  /* USER CODE END DMA2_Stream4_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_sai1_rx);
-  /* USER CODE BEGIN DMA2_Stream4_IRQn 1 */
-  if(__HAL_DMA_GET_FLAG(&hdma_sai1_rx, DMA_FLAG_TCIF0_4))
-    __HAL_DMA_CLEAR_FLAG(&hdma_sai1_rx, DMA_FLAG_TCIF0_4); // transfer complete
-  if(__HAL_DMA_GET_FLAG(&hdma_sai1_rx, DMA_FLAG_HTIF0_4))
-    __HAL_DMA_CLEAR_FLAG(&hdma_sai1_rx, DMA_FLAG_HTIF0_4); // half transfer complete
-  /* USER CODE END DMA2_Stream4_IRQn 1 */
-}
 
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

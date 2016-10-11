@@ -8,6 +8,15 @@
 static uint32_t txbuf[CODEC_BUFFER_SIZE];
 static uint32_t rxbuf[CODEC_BUFFER_SIZE];
 
+extern "C" {
+SAI_HandleTypeDef hsai_BlockA1;
+SAI_HandleTypeDef hsai_BlockB1;
+DMA_HandleTypeDef hdma_sai1_a;
+DMA_HandleTypeDef hdma_sai1_b;
+SPI_HandleTypeDef hspi4;
+}
+
+#if 0
 // SAI_HandleTypeDef hsai_BlockA1;
 // SAI_HandleTypeDef hsai_BlockB1;
 
@@ -15,7 +24,7 @@ static uint32_t rxbuf[CODEC_BUFFER_SIZE];
 // #define hsai_BlockTx hsai_BlockB1
 
 extern "C" {
-  void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai);
+  // void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai);
   void MX_SPI4_Init();
   void MX_SAI1_Init();
   SPI_HandleTypeDef hspi4;
@@ -126,7 +135,6 @@ void MX_SAI1_Init(void)
 
 void HAL_SAI_MspInit(SAI_HandleTypeDef* hsai)
 {
-
   GPIO_InitTypeDef GPIO_InitStruct;
 /* SAI1 */
     if(hsai->Instance==SAI1_Block_A)
@@ -260,6 +268,7 @@ void HAL_SAI_MspDeInit(SAI_HandleTypeDef* hsai)
     HAL_DMA_DeInit(hsai->hdmatx);
     }
 }
+#endif
 
 void Codec::ramp(uint32_t max){
   uint32_t incr = max/CODEC_BUFFER_SIZE;
@@ -269,11 +278,11 @@ void Codec::ramp(uint32_t max){
 
 void Codec::reset(){
   // HAL_SAI_MspInit() is called from HAL_SAI_Init() in MX_SAI1_Init()
-  MX_SAI1_Init();
-  MX_SPI4_Init();
+  // MX_SAI1_Init();
+  // MX_SPI4_Init();
 
-  __HAL_SAI_ENABLE(&hsai_BlockRx);
-  __HAL_SAI_ENABLE(&hsai_BlockTx);
+  __HAL_SAI_ENABLE(&hsai_BlockA1);
+  __HAL_SAI_ENABLE(&hsai_BlockB1);
   codec_init(&hspi4);
 
   // configure i2s mode for DAC and ADC, hp filters off
@@ -288,8 +297,8 @@ void Codec::clear(){
 }
 
 void Codec::txrx(){
-  HAL_SAI_DMAStop(&hsai_BlockTx);
-  HAL_SAI_Transmit_DMA(&hsai_BlockTx, (uint8_t*)rxbuf, CODEC_BUFFER_SIZE);
+  HAL_SAI_DMAStop(&hsai_BlockA1);
+  HAL_SAI_Transmit_DMA(&hsai_BlockB1, (uint8_t*)rxbuf, CODEC_BUFFER_SIZE);
 }
 
 uint32_t Codec::getMin(){
@@ -325,15 +334,15 @@ void Codec::bypass(bool doBypass){
 }
 
 void Codec::stop(){
-  HAL_SAI_DMAStop(&hsai_BlockRx);
-  HAL_SAI_DMAStop(&hsai_BlockTx);
+  HAL_SAI_DMAStop(&hsai_BlockA1);
+  HAL_SAI_DMAStop(&hsai_BlockB1);
 }
 
 void Codec::start(){
   HAL_StatusTypeDef ret;
-  ret = HAL_SAI_Receive_DMA(&hsai_BlockRx, (uint8_t*)rxbuf, CODEC_BUFFER_SIZE);
+  ret = HAL_SAI_Receive_DMA(&hsai_BlockA1, (uint8_t*)rxbuf, CODEC_BUFFER_SIZE);
   assert_param(ret == HAL_OK);
-  ret = HAL_SAI_Transmit_DMA(&hsai_BlockTx, (uint8_t*)txbuf, CODEC_BUFFER_SIZE);
+  ret = HAL_SAI_Transmit_DMA(&hsai_BlockB1, (uint8_t*)txbuf, CODEC_BUFFER_SIZE);
   assert_param(ret == HAL_OK);
 }
 

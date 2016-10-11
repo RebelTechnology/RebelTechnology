@@ -1,5 +1,5 @@
 # Library path
-LIBROOT=$(TEMPLATEROOT)/Libraries/STM32Cube_FW_F7_V1.4.0/Drivers/
+LIBROOT=$(TEMPLATEROOT)/Libraries/Drivers/
 
 # Build path
 BUILD=$(TEMPLATEROOT)/Build
@@ -9,12 +9,12 @@ DEVICE=$(LIBROOT)/CMSIS/Device/ST/STM32F7xx
 CMSIS=$(LIBROOT)/CMSIS/Include
 PERIPH_FILE=$(LIBROOT)/STM32F7xx_StdPeriph_Driver
 DSPLIB=$(LIBROOT)/CMSIS/DSP_Lib/Source
-USB_DEVICE_FILE=$(TEMPLATEROOT)/Libraries/STM32Cube_FW_F7_V1.4.0/Middlewares/ST/STM32_USB_Device_Library
+USB_DEVICE_FILE=$(TEMPLATEROOT)/Libraries/Middlewares/ST/STM32_USB_Device_Library
 #$(LIBROOT)/STM32_USB_Device_Library
-USB_HOST_FILE=$(TEMPLATEROOT)/Libraries/STM32Cube_FW_F7_V1.4.0/Middlewares/ST/STM32_USB_Host_Library
+USB_HOST_FILE=$(TEMPLATEROOT)/Libraries/Middlewares/ST/STM32_USB_Host_Library
 USB_OTG_FILE=$(LIBROOT)/STM32_USB_OTG_Driver
 DRIVERS=$(LIBROOT)/STM32F7xx_HAL_Driver
-FREERTOS_DIR=$(TEMPLATEROOT)/Libraries/STM32Cube_FW_F7_V1.4.0/Middlewares/Third_Party/FreeRTOS/Source
+FREERTOS_DIR=$(TEMPLATEROOT)/Libraries/Middlewares/Third_Party/FreeRTOS/Source
 
 # Processor specific
 # LDSCRIPT ?= $(DEMO_FILE)/TrueSTUDIO/STM32F7-Discovery_Demo/stm32_flash.ld
