@@ -341,8 +341,8 @@
 <smd name="22" x="-0.325" y="3.1" dx="1.15" dy="0.4" layer="1" rot="R90"/>
 <smd name="23" x="-0.975" y="3.1" dx="1.15" dy="0.4" layer="1" rot="R90"/>
 <smd name="24" x="-1.625" y="3.1" dx="1.15" dy="0.4" layer="1" rot="R90"/>
-<text x="-4.445" y="4.445" size="0.889" layer="25" ratio="11">&gt;NAME</text>
-<text x="-4.445" y="-5.715" size="0.889" layer="27" ratio="11">&gt;VALUE</text>
+<text x="-3.81" y="0" size="0.889" layer="25" ratio="11">&gt;NAME</text>
+<text x="-3.81" y="-1.27" size="0.889" layer="27" ratio="11">&gt;VALUE</text>
 <smd name="25" x="-2.275" y="3.1" dx="1.15" dy="0.4" layer="1" rot="R90"/>
 <smd name="26" x="-2.925" y="3.1" dx="1.15" dy="0.4" layer="1" rot="R90"/>
 <smd name="27" x="-3.575" y="3.1" dx="1.15" dy="0.4" layer="1" rot="R90"/>
