@@ -6778,7 +6778,6 @@ Source: AVX .. aphvc.pdf</description>
 <package name="PJ-301DM">
 <pad name="P$2" x="0" y="-3.5" drill="2.1" rot="R90"/>
 <pad name="P$1" x="0" y="5" drill="2.1" rot="R90"/>
-<pad name="P$3" x="0" y="-6.8" drill="1.2" rot="R90"/>
 <wire x1="-4.5" y1="6" x2="4.5" y2="6" width="0.127" layer="21"/>
 <wire x1="-4.5" y1="6" x2="-4.5" y2="-4.5" width="0.127" layer="21"/>
 <wire x1="-4.5" y1="-4.5" x2="4.5" y2="-4.5" width="0.127" layer="21"/>
@@ -6870,22 +6869,15 @@ Source: AVX .. aphvc.pdf</description>
 <circle x="0" y="0" radius="0.254" width="0.254" layer="94"/>
 <text x="-2.54" y="2.54" size="1.778" layer="95">&gt;NAME</text>
 </symbol>
-<symbol name="STEREO_JACK">
-<pin name="P1" x="-5.08" y="0" length="middle"/>
-<pin name="P2" x="-5.08" y="-5.08" length="middle"/>
-<pin name="P3" x="-5.08" y="-10.16" length="middle"/>
-<wire x1="0" y1="-10.16" x2="17.78" y2="-10.16" width="0.254" layer="94"/>
-<wire x1="17.78" y1="-10.16" x2="17.78" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="17.78" y1="-2.54" x2="17.78" y2="0" width="0.254" layer="94"/>
-<wire x1="17.78" y1="0" x2="15.24" y2="0" width="0.254" layer="94"/>
-<wire x1="15.24" y1="0" x2="15.24" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="17.78" y1="-2.54" x2="15.24" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="-5.08" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="7.62" y2="0" width="0.254" layer="94"/>
-<wire x1="7.62" y1="0" x2="10.16" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-2.54" x2="12.7" y2="0" width="0.254" layer="94"/>
-<wire x1="2.54" y1="-5.08" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-2.54" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
+<symbol name="STEREO_JACK_NO_GND">
+<pin name="P1" x="-10.16" y="5.08" length="middle"/>
+<pin name="P2" x="-10.16" y="0" length="middle"/>
+<wire x1="-5.08" y1="0" x2="-2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="5.08" x2="2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="5.08" x2="5.08" y2="2.54" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="2.54" y2="0" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -7693,14 +7685,13 @@ Source: AVX .. aphvc.pdf</description>
 </deviceset>
 <deviceset name="PJ-301DM">
 <gates>
-<gate name="G$1" symbol="STEREO_JACK" x="-5.08" y="2.54"/>
+<gate name="G$1" symbol="STEREO_JACK_NO_GND" x="0" y="-2.54"/>
 </gates>
 <devices>
 <device name="" package="PJ-301DM">
 <connects>
 <connect gate="G$1" pin="P1" pad="P$2"/>
 <connect gate="G$1" pin="P2" pad="P$1"/>
-<connect gate="G$1" pin="P3" pad="P$3"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -15699,7 +15690,6 @@ W = angled&lt;p&gt;
 <part name="C9" library="Rebel" deviceset="C-EU" device="C0603" value="47n"/>
 <part name="P+3" library="supply1" deviceset="+12V" device=""/>
 <part name="P-6" library="supply1" deviceset="-12V" device=""/>
-<part name="GND32" library="supply1" deviceset="GND" device=""/>
 <part name="R5" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
 <part name="R6" library="resistor" deviceset="R-EU_" device="R0603" value="22k"/>
 <part name="R15" library="resistor" deviceset="R-EU_" device="R0603" value="22k"/>
@@ -15852,7 +15842,6 @@ W = angled&lt;p&gt;
 <instance part="IC3" gate="P" x="254" y="208.28"/>
 <instance part="P+3" gate="1" x="254" y="223.52"/>
 <instance part="P-6" gate="1" x="254" y="193.04"/>
-<instance part="GND32" gate="1" x="307.34" y="142.24"/>
 <instance part="R5" gate="G$1" x="218.44" y="165.1" rot="R90"/>
 <instance part="R6" gate="G$1" x="226.06" y="175.26" rot="R180"/>
 <instance part="R15" gate="G$1" x="226.06" y="134.62" rot="R180"/>
@@ -15898,7 +15887,7 @@ W = angled&lt;p&gt;
 <instance part="R17" gate="G$1" x="271.78" y="137.16" rot="R180"/>
 <instance part="GND18" gate="1" x="236.22" y="152.4"/>
 <instance part="GND23" gate="1" x="236.22" y="111.76"/>
-<instance part="U$1" gate="G$1" x="314.96" y="167.64"/>
+<instance part="U$1" gate="G$1" x="320.04" y="162.56"/>
 </instances>
 <busses>
 </busses>
@@ -16204,12 +16193,6 @@ W = angled&lt;p&gt;
 <junction x="93.98" y="193.04"/>
 <wire x1="93.98" y1="193.04" x2="93.98" y2="195.58" width="0.1524" layer="91"/>
 <junction x="93.98" y="195.58"/>
-</segment>
-<segment>
-<wire x1="307.34" y1="157.48" x2="307.34" y2="144.78" width="0.1524" layer="91"/>
-<pinref part="GND32" gate="1" pin="GND"/>
-<wire x1="309.88" y1="157.48" x2="307.34" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="P3"/>
 </segment>
 <segment>
 <pinref part="GND36" gate="1" pin="GND"/>
