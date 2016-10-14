@@ -7690,8 +7690,8 @@ Source: AVX .. aphvc.pdf</description>
 <devices>
 <device name="" package="PJ-301DM">
 <connects>
-<connect gate="G$1" pin="P1" pad="P$2"/>
-<connect gate="G$1" pin="P2" pad="P$1"/>
+<connect gate="G$1" pin="P1" pad="P$1"/>
+<connect gate="G$1" pin="P2" pad="P$2"/>
 </connects>
 <technologies>
 <technology name=""/>
