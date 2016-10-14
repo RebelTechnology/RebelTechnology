@@ -14958,6 +14958,11 @@ NS Package M08A</description>
 <label x="279.4" y="15.24" size="1.778" layer="95"/>
 <pinref part="USB1" gate="USB" pin="ID"/>
 </segment>
+<segment>
+<pinref part="IC8" gate="G$2" pin="PB12"/>
+<wire x1="139.7" y1="119.38" x2="121.92" y2="119.38" width="0.1524" layer="91"/>
+<label x="121.92" y="119.38" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="EXTSPI_CLK" class="0">
 <segment>
@@ -15084,18 +15089,6 @@ NS Package M08A</description>
 <pinref part="JP4" gate="G$1" pin="3"/>
 <wire x1="254" y1="30.48" x2="254" y2="17.78" width="0.1524" layer="91"/>
 <label x="254" y="17.78" size="1.778" layer="95" rot="R90"/>
-</segment>
-</net>
-<net name="TOP_GP6" class="0">
-<segment>
-<pinref part="JP4" gate="G$1" pin="1"/>
-<wire x1="259.08" y1="30.48" x2="259.08" y2="17.78" width="0.1524" layer="91"/>
-<label x="259.08" y="17.78" size="1.778" layer="95" rot="R90"/>
-</segment>
-<segment>
-<pinref part="IC8" gate="G$3" pin="PA11"/>
-<wire x1="269.24" y1="99.06" x2="287.02" y2="99.06" width="0.1524" layer="91"/>
-<label x="271.78" y="99.06" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="LEFT_GP1" class="0">
