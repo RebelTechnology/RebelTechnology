@@ -10459,7 +10459,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="GND46" library="supply1" deviceset="GND" device=""/>
 <part name="P-5" library="supply1" deviceset="-12V" device=""/>
 <part name="P-6" library="supply1" deviceset="-12V" device=""/>
-<part name="U$1" library="resistor" deviceset="R-TRIMM" device="64W"/>
+<part name="OFFSET" library="resistor" deviceset="R-TRIMM" device="64W"/>
 <part name="P+15" library="supply1" deviceset="+12V" device=""/>
 <part name="GND48" library="supply1" deviceset="GND" device=""/>
 <part name="P+16" library="supply1" deviceset="+12V" device=""/>
@@ -10470,7 +10470,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="GND49" library="supply1" deviceset="GND" device=""/>
 <part name="IC4" library="linear" deviceset="TL072" device="D"/>
 <part name="R41" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
-<part name="U$2" library="resistor" deviceset="R-TRIMM" device="64W"/>
+<part name="CLAMP" library="resistor" deviceset="R-TRIMM" device="64W"/>
 <part name="P+17" library="supply1" deviceset="+12V" device=""/>
 <part name="R42" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="P-8" library="supply1" deviceset="-12V" device=""/>
@@ -10591,13 +10591,13 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <instance part="IC2" gate="B" x="256.54" y="429.26"/>
 <instance part="IC2" gate="C" x="259.08" y="264.16"/>
 <instance part="IC2" gate="D" x="256.54" y="162.56"/>
-<instance part="U$1" gate="G$1" x="-12.7" y="337.82"/>
+<instance part="OFFSET" gate="G$1" x="-12.7" y="337.82"/>
 <instance part="P+15" gate="1" x="-12.7" y="363.22"/>
 <instance part="GND48" gate="1" x="-12.7" y="322.58"/>
 <instance part="IC4" gate="A" x="2.54" y="335.28"/>
 <instance part="IC4" gate="B" x="55.88" y="370.84"/>
 <instance part="R41" gate="G$1" x="-12.7" y="353.06" rot="R90"/>
-<instance part="U$2" gate="G$1" x="27.94" y="373.38"/>
+<instance part="CLAMP" gate="G$1" x="27.94" y="373.38"/>
 <instance part="P+17" gate="1" x="27.94" y="398.78"/>
 <instance part="R42" gate="G$1" x="27.94" y="388.62" rot="R90"/>
 <instance part="P-8" gate="1" x="27.94" y="347.98"/>
@@ -10721,7 +10721,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </segment>
 <segment>
 <pinref part="GND48" gate="1" pin="GND"/>
-<pinref part="U$1" gate="G$1" pin="A"/>
+<pinref part="OFFSET" gate="G$1" pin="A"/>
 <wire x1="-12.7" y1="325.12" x2="-12.7" y2="332.74" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -11519,7 +11519,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </net>
 <net name="N$33" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="S"/>
+<pinref part="OFFSET" gate="G$1" pin="S"/>
 <wire x1="-7.62" y1="337.82" x2="-5.08" y2="337.82" width="0.1524" layer="91"/>
 <pinref part="IC4" gate="A" pin="+IN"/>
 </segment>
@@ -11599,28 +11599,28 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </net>
 <net name="N$13" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="E"/>
+<pinref part="OFFSET" gate="G$1" pin="E"/>
 <pinref part="R41" gate="G$1" pin="1"/>
 <wire x1="-12.7" y1="342.9" x2="-12.7" y2="347.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$44" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="E"/>
+<pinref part="CLAMP" gate="G$1" pin="E"/>
 <pinref part="R42" gate="G$1" pin="1"/>
 <wire x1="27.94" y1="378.46" x2="27.94" y2="383.54" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$77" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="A"/>
+<pinref part="CLAMP" gate="G$1" pin="A"/>
 <wire x1="27.94" y1="363.22" x2="27.94" y2="368.3" width="0.1524" layer="91"/>
 <pinref part="R43" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$78" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="S"/>
+<pinref part="CLAMP" gate="G$1" pin="S"/>
 <pinref part="IC4" gate="B" pin="+IN"/>
 <wire x1="33.02" y1="373.38" x2="48.26" y2="373.38" width="0.1524" layer="91"/>
 </segment>
