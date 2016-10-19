@@ -1,7 +1,5 @@
 *.d
-Expander/firmware Keil/MDK-ARM/Expander/Expander_Expander.dep
 *.htm
-*.d
 *.b#1
 *.b#2
 *.b#3
@@ -20,17 +18,7 @@ Expander/firmware Keil/MDK-ARM/Expander/Expander_Expander.dep
 *.s#7
 *.s#8
 *.s#9
-Magus/schematic/Magus.s#1
 
-Magus/schematic/Magus.s#2
-Magus/schematic/Magus.b#5
-
-Magus/schematic/Magus.s#3
-
-
-
+Expander/firmware Keil/MDK-ARM/Expander/Expander_Expander.dep
 Expander/firmware/Drivers
-Expander/firmware/Middleware
-*.s#1
-*.s#1
-*.s#1
+

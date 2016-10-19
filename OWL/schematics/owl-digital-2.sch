@@ -15110,9 +15110,9 @@ NS Package M08A</description>
 <pinref part="JP10" gate="G$1" pin="4"/>
 </segment>
 <segment>
-<pinref part="IC8" gate="G$1" pin="PA2"/>
-<wire x1="73.66" y1="139.7" x2="88.9" y2="139.7" width="0.1524" layer="91"/>
-<label x="76.2" y="139.7" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$1" pin="PA1"/>
+<wire x1="73.66" y1="142.24" x2="88.9" y2="142.24" width="0.1524" layer="91"/>
+<label x="76.2" y="142.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="LEFT_GP3" class="0">
@@ -15122,9 +15122,9 @@ NS Package M08A</description>
 <label x="205.74" y="-15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC8" gate="G$1" pin="PA1"/>
-<wire x1="73.66" y1="142.24" x2="88.9" y2="142.24" width="0.1524" layer="91"/>
-<label x="76.2" y="142.24" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$1" pin="PA2"/>
+<wire x1="73.66" y1="139.7" x2="88.9" y2="139.7" width="0.1524" layer="91"/>
+<label x="76.2" y="139.7" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="LEFT_GP4" class="0">
