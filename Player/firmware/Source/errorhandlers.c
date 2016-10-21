@@ -22,32 +22,6 @@ void setErrorMessage(int8_t err, const char* msg){
   errormsg = msg;
 }
 
-#if 0
-/**
-  * @brief  Reports the name of the source file and the source line number
-  *   where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
-void assert_failed(uint8_t* file, uint32_t line){ 
-  /* Blink LED */
-  /* volatile uint32_t delayCounter; */
-  /* setLed(RED); */
-  /* for(delayCounter = 0; delayCounter < 4000000; delayCounter++); */
-  /* setLed(NONE); */
-  /* for(delayCounter = 0; delayCounter < 4000000; delayCounter++); */
-  /* setLed(RED); */
-#ifdef DEBUG
-  /* __builtin_trap(); */
-  __asm__("BKPT");
-#else
-  NVIC_SystemReset();
-  /* exitProgram(true); */
-#endif
-}
-#endif 
-
 /* exception handlers - so we know what's failing */
 void NMI_Handler(void){
   errorcode = NMI_ERROR;

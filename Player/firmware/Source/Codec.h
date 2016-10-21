@@ -19,4 +19,5 @@ class Codec {
  private:
 };
 
+extern Codec codec;
 #endif /* __Codec_h */

@@ -4,8 +4,8 @@
 #include <stdint.h>
 
 class MidiHandler {
-private:
-  /* int16_t midi_values[NOF_PARAMETERS]; */
+protected:
+  int8_t channel;
 public:
   MidiHandler();
   void handleProgramChange(uint8_t status, uint8_t pc);
@@ -21,6 +21,10 @@ public:
   void handleChannelPressure(uint8_t status, uint8_t value);
   void handlePolyKeyPressure(uint8_t status, uint8_t note, uint8_t value);
 
+  void setInputChannel(int8_t ch){
+    channel = ch;
+  }
+  static int8_t getChannel(uint8_t status);
 private:
   void updateCodecSettings();
   void handleConfigurationCommand(uint8_t* data, uint16_t size);
@@ -28,7 +32,6 @@ private:
   void handleFirmwareRunCommand(uint8_t* data, uint16_t size);
   void handleFirmwareFlashCommand(uint8_t* data, uint16_t size);
   void handleFirmwareStoreCommand(uint8_t* data, uint16_t size);
-
 };
 
 #endif /* _MidiHandler_h_ */

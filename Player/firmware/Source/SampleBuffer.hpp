@@ -6,8 +6,6 @@
 #include "StompBox.h"
 #include "FloatArray.h"
 
-#define AUDIO_MAX_BLOCK_SIZE (CODEC_BUFFER_SIZE/4)
-
 class SampleBuffer : public AudioBuffer {
 protected:
   float left[AUDIO_MAX_BLOCK_SIZE];

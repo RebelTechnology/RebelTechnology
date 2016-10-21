@@ -54,7 +54,10 @@
 #define CONFIGURATION_ERROR_STATUS -30
 
    extern ProgramVector programVector;
-#define getProgramVector() (&programVector)
+   inline ProgramVector* getProgramVector(){
+     return &programVector;
+   }
+/* #define getProgramVector() (&programVector) */
 
 #ifdef __cplusplus
 }

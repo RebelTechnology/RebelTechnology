@@ -2,6 +2,11 @@
 #include "gpio.h"
 #include "device.h"
 #include "stm32f7xx_hal.h"
+/* #include "stm32f7xx.h" */
+/* #include "stm32f7xx_hal.h" */
+/* #include "stm32f7xx_hal_i2c.h" */
+/* #include "stm32f7xx_hal_i2s.h" */
+/* #include "stm32f7xx_hal_spi.h" */
 
 extern void NopDelay(uint32_t usec);
 #define delay(x) NopDelay(x*1000)
@@ -60,10 +65,8 @@ void codec_init(SPI_HandleTypeDef* spi){
    * activating the Control Port and placing the part in power-down. When using 
    * the CS4271 with internally generated MCLK, it is necessary to wait 1 ms 
    * following the release of RST before initiating this Control Port write. */
-  codec_write(0x07, 0x03);
-
-  /* codec_write(CODEC_MODE_CTRL2_REG, CODEC_MODE_CTRL2_POWER_DOWN */
-  /* 	    | CODEC_MODE_CTRL2_CTRL_PORT_EN); */
+  codec_write(CODEC_MODE_CTRL2_REG, CODEC_MODE_CTRL2_POWER_DOWN
+	      | CODEC_MODE_CTRL2_CTRL_PORT_EN);
 	
   // Further setup
   delay(1);
@@ -79,11 +82,11 @@ void codec_init(SPI_HandleTypeDef* spi){
 	      CODEC_MC_MASTER_SLAVE);
 
 
-  /* codec_write(CODEC_DAC_VOL_REG,  */
-  /* 	    CODEC_DAC_VOL_CHB_CHA | */
-  /* 	    CODEC_DAC_VOL_SOFT_RAMP | */
-  /* 	    CODEC_DAC_VOL_ZERO_CROSS | */
-  /* 	    CODEC_DAC_VOL_ATAPI_DEFAULT); */
+  /* codec_write(CODEC_DAC_VOL_REG, */
+  /* 	      CODEC_DAC_VOL_CHB_CHA | */
+  /* 	      CODEC_DAC_VOL_SOFT_RAMP(0) | */
+  /* 	      CODEC_DAC_ZERO_CROSS | */
+  /* 	      CODEC_DAC_VOL_ATAPI_DEFAULT); */
 
   // Release power down bit to start up codec
   codec_write(CODEC_MODE_CTRL2_REG, CODEC_MODE_CTRL2_CTRL_PORT_EN);
@@ -96,9 +99,9 @@ void codec_bypass(int bypass){
   codec_write(CODEC_MODE_CTRL2_REG, value);
 }
 
-// set volume (negative for mute)
+/* // set volume (negative for mute) */
 /* void codec_set_volume(int8_t value){ */
-/*   uint8_t value = codec_read(CODEC_DAC_CHA_VOL); */
+/*   uint8_t value = codec_read(CODEC_DAC_CHA_VOL_REG); */
 /*   value &= ~(CODEC_DAC_CHA_VOL_MUTE); */
 /*   value |= CODEC_DAC_CHA_VOL_VOLUME(value); */
 /*   codec_write(CODEC_DAC_CHA_VOL, value); */

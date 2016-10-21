@@ -18,6 +18,11 @@ extern "C" {
 
 #include "MidiReader.h"
 
+#include "ProgramManager.h"
+#include "ApplicationSettings.h"
+ProgramManager program;
+ApplicationSettings settings;
+
 extern "C" {
   void setup(void);
   void loop(void);
@@ -139,7 +144,9 @@ void setup(void){
 
   patches[currentPatch]->reset();
 
-  // doProcessAudio = true;
+#ifndef USE_CODEC
+  doProcessAudio = true;
+#endif
 }
 
 void processBlock(ProgramVector* pv){
@@ -161,7 +168,9 @@ void loop(void){
       // programVector.pixels = pixelbuffer[swappb];
       // swappb = !swappb;
     }
+#ifdef USE_CODEC
     doProcessAudio = false;
+#endif
   }
 }
 
