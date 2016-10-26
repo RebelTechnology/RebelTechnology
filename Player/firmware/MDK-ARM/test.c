@@ -47,7 +47,7 @@ void run(void){
 		
 		OLED_Refresh();
 		
-		SDRAM_Address = (uint32_t*)1;
+		SDRAM_Address = (uint32_t*)0xD0000000L;
 		
 		for (x=0; x<100; x++)
 		{

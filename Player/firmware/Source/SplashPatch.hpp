@@ -36,16 +36,12 @@ public:
       buffer = (uint8_t*)EXTRAM;
       uint8_t* src = (uint8_t*)(float*)(samples.getSamples(LEFT_CHANNEL));
       memcpy(buffer, src, 256);
-      int fail = -1; 
+      int failures = 0; 
       for(int i=0; i<256; ++i)
 	if(buffer[i] != src[i])
-	  fail = i;
-      if(fail != -1){
-	screen.print(20, 20, "fail: ");
-	screen.print(fail);
-      }else
-	screen.print(20, 20, "pass");
-
+	  ++failures;
+      screen.print(20, 20, "fail: ");
+      screen.print(failures);
       setErrorMessage(NO_ERROR, NULL);
     }
 
