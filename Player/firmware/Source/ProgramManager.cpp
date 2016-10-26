@@ -25,7 +25,19 @@ void updateProgramVector(ProgramVector* pv);
 ProgramManager::ProgramManager(){}
 void ProgramManager::startProgram(bool isr){}
 void ProgramManager::exitProgram(bool isr){}
-void ProgramManager::loadDynamicProgram(void* address, uint32_t length){}
+static DynamicPatchDefinition dynamo;
+void ProgramManager::loadDynamicProgram(void* address, uint32_t length){
+  dynamo.load(address, length);
+  // if(dynamo.getProgramVector() != NULL){
+  //   patchdef = &dynamo;
+  //   registry.setDynamicPatchDefinition(patchdef);
+  //   // currentpatch = &dynamo;
+  //   // registry.setDynamicPatchDefinition(currentpatch);
+  //   updateProgramIndex(0);
+  // }else{
+  //   registry.setDynamicPatchDefinition(NULL);
+  // }
+}
 void ProgramManager::saveProgramToFlash(uint8_t sector, void* address, uint32_t length){}
 
 #if 0

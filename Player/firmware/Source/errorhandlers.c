@@ -6,11 +6,16 @@ const char* errormsg = 0;
 
 void error(int8_t code, const char* reason){
   errorcode = code;
-  assert_param(0);
+  errormsg = reason;
+  /* assert_param(0); */
 }
 
 int8_t getErrorStatus(){
   return errorcode;
+}
+
+const char* getErrorMessage(){
+  return errormsg;
 }
 
 void setErrorStatus(int8_t err){

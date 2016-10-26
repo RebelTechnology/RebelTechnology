@@ -8,6 +8,7 @@
 
    void error(int8_t code, const char* reason);
    int8_t getErrorStatus();
+   const char* getErrorMessage();
    void setErrorStatus(int8_t err);
    void setErrorMessage(int8_t err, const char* msg);
    void setParameterValues(uint16_t* values, int size);

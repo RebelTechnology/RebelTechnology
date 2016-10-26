@@ -31,16 +31,18 @@ void MidiHandler::handleControlChange(uint8_t status, uint8_t cc, uint8_t value)
   if(channel != MIDI_OMNI_CHANNEL && channel != getChannel(status))
     return;
   switch(cc){
-  case 21:
+  case 21: {
     static uint8_t last = 0;
     encoderChanged(0, (value-last)*3);
     last = value;
     break;
-  case 22:
+  }
+  case 22: {
     static uint8_t last = 0;
     encoderChanged(1, (value-last)*3);
     last = value;
     break;
+  }
   }
 }
 

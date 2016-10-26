@@ -41,6 +41,8 @@ extern "C" {
   }
 }
 
+#include "sdram.h"
+
 bool tr1(){
   return HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_11) != GPIO_PIN_SET;
 }
@@ -115,6 +117,8 @@ void updateProgramVector(ProgramVector* pv){
 
 void setup(void){
   // memset(pixelbuffer, 0xAA, 1024);
+
+  sdram_cfg(&hsdram1);
 
 // Product Specific Initialisation
   Triggers_Config();

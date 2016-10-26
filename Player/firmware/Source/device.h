@@ -50,7 +50,9 @@
 
 #define CCMRAM                      ((uint32_t)0x10000000)
 #define PATCHRAM                    ((uint32_t)0x2000c000)
-#define EXTRAM                      ((uint32_t)0x68000000)
+/* #define EXTRAM                      ((uint32_t)0x68000000) */
+#define EXTRAM                      ((uint32_t)0xD0000000)
+
 #define PROGRAM_TASK_STACK_SIZE          (4*1024/sizeof(portSTACK_TYPE))
 #define MANAGER_TASK_STACK_SIZE          (512/sizeof(portSTACK_TYPE))
 #define FLASH_TASK_STACK_SIZE            (512/sizeof(portSTACK_TYPE))

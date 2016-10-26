@@ -1,4 +1,5 @@
 #include "StompBox.h"
+#include "errorhandlers.h"
 
 class SplashPatch : public Patch {
 private:
@@ -18,12 +19,35 @@ public:
   }
   void processAudio(AudioBuffer& samples){
     screen.clear();
+    if(getErrorStatus() != NO_ERROR && getErrorMessage() != NULL){
+      screen.setTextSize(1);
+      screen.print(2, 32, getErrorMessage());
+    }else if(!sw2()){
+      screen.setTextSize(2);
+      screen.print(x, y, "PLAYER");
+    }
     // if(sw1()){
     //   screen.fill(WHITE);
     //   screen.setTextColour(BLACK);
     // }
-    screen.setTextSize(2);
-    screen.print(x, y, "PLAYER");
+
+    if(sw2()){
+      uint8_t* buffer;
+      buffer = (uint8_t*)EXTRAM;
+      uint8_t* src = (uint8_t*)(float*)(samples.getSamples(LEFT_CHANNEL));
+      memcpy(buffer, src, 256);
+      int fail = -1; 
+      for(int i=0; i<256; ++i)
+	if(buffer[i] != src[i])
+	  fail = i;
+      if(fail != -1){
+	screen.print(20, 20, "fail: ");
+	screen.print(fail);
+      }else
+	screen.print(20, 20, "pass");
+
+      setErrorMessage(NO_ERROR, NULL);
+    }
 
     if(tr1())
       screen.print(20, 20, "TR1");
