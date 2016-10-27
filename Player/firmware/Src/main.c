@@ -71,6 +71,7 @@ DMA_HandleTypeDef hdma_sai1_b;
 SPI_HandleTypeDef hspi2;
 SPI_HandleTypeDef hspi4;
 SPI_HandleTypeDef hspi5;
+DMA_HandleTypeDef hdma_spi2_tx;
 
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
@@ -589,8 +590,12 @@ static void MX_DMA_Init(void)
 {
   /* DMA controller clock enable */
   __HAL_RCC_DMA2_CLK_ENABLE();
+  __HAL_RCC_DMA1_CLK_ENABLE();
 
   /* DMA interrupt init */
+  /* DMA1_Stream4_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream4_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream4_IRQn);
   /* DMA2_Stream1_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
@@ -619,21 +624,13 @@ static void MX_FMC_Init(void)
   hsdram1.Init.ReadBurst = FMC_SDRAM_RBURST_ENABLE;
   hsdram1.Init.ReadPipeDelay = FMC_SDRAM_RPIPE_DELAY_0;
   /* SdramTiming */
-  SdramTiming.LoadToActiveDelay = 4;
-  SdramTiming.ExitSelfRefreshDelay = 8;
-  SdramTiming.SelfRefreshTime = 6;
-  SdramTiming.RowCycleDelay = 8;
-  SdramTiming.WriteRecoveryTime = 4;
-  SdramTiming.RPDelay = 4;
-  SdramTiming.RCDDelay = 4;
-
-  /* SdramTiming.LoadToActiveDelay = 2; */
-  /* SdramTiming.ExitSelfRefreshDelay = 6; */
-  /* SdramTiming.SelfRefreshTime = 4; */
-  /* SdramTiming.RowCycleDelay = 6; */
-  /* SdramTiming.WriteRecoveryTime = 2; */
-  /* SdramTiming.RPDelay = 2; */
-  /* SdramTiming.RCDDelay = 2; */
+  SdramTiming.LoadToActiveDelay = 2;
+  SdramTiming.ExitSelfRefreshDelay = 6;
+  SdramTiming.SelfRefreshTime = 4;
+  SdramTiming.RowCycleDelay = 6;
+  SdramTiming.WriteRecoveryTime = 2;
+  SdramTiming.RPDelay = 2;
+  SdramTiming.RCDDelay = 2;
 
   if (HAL_SDRAM_Init(&hsdram1, &SdramTiming) != HAL_OK)
   {
@@ -702,7 +699,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : TR_IN_B_Pin TR_IN_A_Pin */
   GPIO_InitStruct.Pin = TR_IN_B_Pin|TR_IN_A_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
@@ -722,13 +719,13 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : ENC1_SW_Pin */
   GPIO_InitStruct.Pin = ENC1_SW_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(ENC1_SW_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : ENC2_SW_Pin */
   GPIO_InitStruct.Pin = ENC2_SW_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(ENC2_SW_GPIO_Port, &GPIO_InitStruct);
 

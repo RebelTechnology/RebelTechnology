@@ -38,15 +38,28 @@ void OLED_writeCMD(const uint8_t* data, uint16_t length)
 	pCS_Set();	// CS high
 }
 
+void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi){
+  assert_param(0);
+}
+
+void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
+  if(__HAL_DMA_GET_FLAG(OLED_SPIInst,  __HAL_DMA_GET_TC_FLAG_INDEX(OLED_SPIInst))){
+    pCS_Set();	// CS high
+  }
+}
+
 void OLED_writeDAT(const uint8_t* data, uint16_t length)
 {
 	pCS_Clr();	// CS low
 	pDC_Set();	// DC high
 	
-	// Send Data
-	HAL_SPI_Transmit(OLED_SPIInst, (uint8_t*)data, length, 1000);
+	/* // Send Data */
+	/* HAL_SPI_Transmit(OLED_SPIInst, (uint8_t*)data, length, 1000); */
+	/* pCS_Set();	// CS high */
 	
-	pCS_Set();	// CS high
+	// Send Data
+	HAL_SPI_Transmit_IT(OLED_SPIInst, (uint8_t*)data, length);
+	
 }
 
 void OLED_Refresh(void)
