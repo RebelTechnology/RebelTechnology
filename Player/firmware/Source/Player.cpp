@@ -116,10 +116,10 @@ void updateProgramVector(ProgramVector* pv){
 }
 
 void setup(void){
-  testram();
+  HAL_SDRAM_MspInit(&hsdram1);
   MPU_Config();
-  testram();
   sdram_cfg(&hsdram1);
+  osDelay(10);
   testram();
 
   // memset(pixelbuffer, 0xAA, 1024);

@@ -31,18 +31,22 @@ public:
     //   screen.setTextColour(BLACK);
     // }
 
+    // FloatArray left = samples.getSamples(LEFT_CHANNEL);
+    // FloatArray right = samples.getSamples(RIGHT_CHANNEL);
+
     if(sw2()){
-      uint8_t* buffer;
-      buffer = (uint8_t*)EXTRAM;
-      uint8_t* src = (uint8_t*)(float*)(samples.getSamples(LEFT_CHANNEL));
-      memcpy(buffer, src, 256);
-      int failures = 0; 
-      for(int i=0; i<256; ++i)
-	if(buffer[i] != src[i])
-	  ++failures;
-      screen.print(20, 20, "fail: ");
-      screen.print(failures);
+      // uint8_t* buffer;
+      // buffer = (uint8_t*)EXTRAM;
+      // uint8_t* src = (uint8_t*)(float*)left;
+      // memcpy(buffer, src, 128);
+      // int failures = 0; 
+      // for(int i=0; i<128; ++i)
+      // 	if(buffer[i] != src[i])
+      // 	  ++failures;
+      // screen.print(20, 20, "fail: ");
+      // screen.print(failures);
       setErrorMessage(NO_ERROR, NULL);
+      testram();
     }
 
     if(tr1())
