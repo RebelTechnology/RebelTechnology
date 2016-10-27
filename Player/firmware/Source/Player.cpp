@@ -116,11 +116,16 @@ void updateProgramVector(ProgramVector* pv){
 }
 
 void setup(void){
-  HAL_SDRAM_MspInit(&hsdram1);
-  MPU_Config();
-  sdram_cfg(&hsdram1);
-  osDelay(10);
-  testram();
+  // HAL_SDRAM_MspInit(&hsdram1);
+  // MPU_Config();
+  // sdram_cfg(&hsdram1);
+  // osDelay(10);
+  // if(testram8(&hsdram1) != 0)
+  //   error(PROGRAM_ERROR, "testram8 failed");
+  // if(testram16(&hsdram1) != 0)
+  //   error(PROGRAM_ERROR, "testram16 failed");
+  // if(testram32(&hsdram1) != 0)
+  //   error(PROGRAM_ERROR, "testram32 failed");
 
   // memset(pixelbuffer, 0xAA, 1024);
 // Product Specific Initialisation
@@ -130,13 +135,8 @@ void setup(void){
   CV_Out_A(&hdac, 0);
   CV_Out_B(&hdac, 0);
   updateProgramVector(&programVector);
-#ifdef USE_CODEC
-  /* SAI rx and tx DMA interrupt init */
-  // HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 5, 0);
-  // HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
-  // HAL_NVIC_SetPriority(DMA2_Stream4_IRQn, 5, 0);
-  // HAL_NVIC_EnableIRQ(DMA2_Stream4_IRQn);
 
+#ifdef USE_CODEC
   codec.reset();
   codec.start();
   codec.ramp(1<<23);

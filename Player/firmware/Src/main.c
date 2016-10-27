@@ -51,6 +51,7 @@
 #include "HAL_Triggers.h"
 #include "HAL_Encoders.h"
 #include "HAL_CV_IO.h"
+#include "sdram.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -118,7 +119,9 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+  /* Configure the MPU attributes as Write Back */
+  MPU_Config();
+  
   /* USER CODE END 1 */
 
   /* MCU Configuration----------------------------------------------------------*/
@@ -146,6 +149,10 @@ int main(void)
   MX_SPI4_Init();
 
   /* USER CODE BEGIN 2 */
+
+  /* Program the SDRAM external device */
+  SDRAM_Initialization_Sequence(&hsdram1);
+
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -612,13 +619,21 @@ static void MX_FMC_Init(void)
   hsdram1.Init.ReadBurst = FMC_SDRAM_RBURST_ENABLE;
   hsdram1.Init.ReadPipeDelay = FMC_SDRAM_RPIPE_DELAY_0;
   /* SdramTiming */
-  SdramTiming.LoadToActiveDelay = 2;
-  SdramTiming.ExitSelfRefreshDelay = 6;
-  SdramTiming.SelfRefreshTime = 4;
-  SdramTiming.RowCycleDelay = 6;
-  SdramTiming.WriteRecoveryTime = 2;
-  SdramTiming.RPDelay = 2;
-  SdramTiming.RCDDelay = 2;
+  SdramTiming.LoadToActiveDelay = 4;
+  SdramTiming.ExitSelfRefreshDelay = 8;
+  SdramTiming.SelfRefreshTime = 6;
+  SdramTiming.RowCycleDelay = 8;
+  SdramTiming.WriteRecoveryTime = 4;
+  SdramTiming.RPDelay = 4;
+  SdramTiming.RCDDelay = 4;
+
+  /* SdramTiming.LoadToActiveDelay = 2; */
+  /* SdramTiming.ExitSelfRefreshDelay = 6; */
+  /* SdramTiming.SelfRefreshTime = 4; */
+  /* SdramTiming.RowCycleDelay = 6; */
+  /* SdramTiming.WriteRecoveryTime = 2; */
+  /* SdramTiming.RPDelay = 2; */
+  /* SdramTiming.RCDDelay = 2; */
 
   if (HAL_SDRAM_Init(&hsdram1, &SdramTiming) != HAL_OK)
   {

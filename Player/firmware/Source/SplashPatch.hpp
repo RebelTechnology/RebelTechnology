@@ -46,7 +46,11 @@ public:
       // screen.print(20, 20, "fail: ");
       // screen.print(failures);
       setErrorMessage(NO_ERROR, NULL);
-      testram();
+      int fail = testram8(&hsdram1);
+      if(fail > 0){
+	screen.print(20, 20, "fail: ");
+	screen.print(fail);
+      }
     }
 
     if(tr1())
