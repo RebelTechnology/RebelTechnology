@@ -1,7 +1,7 @@
 #include "main.h"
 
 #define SSD1309
-/* #define OLED_DMA */
+#define OLED_DMA
 /* #define OLED_IT */
 /* #define OLED_BITBANG */
 #define OLED_SOFT_CS

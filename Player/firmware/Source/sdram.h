@@ -106,3 +106,55 @@ void sdram_cfg(SDRAM_HandleTypeDef *hsdram){
   /* Program the SDRAM external device */
   SDRAM_Initialization_Sequence(hsdram);
 }
+
+void MPU_Config(void){
+  MPU_Region_InitTypeDef MPU_InitStruct;
+  
+  /* Disable the MPU */
+  HAL_MPU_Disable();
+
+  /* Configure the MPU attributes as WB for SDRAM */
+  MPU_InitStruct.Enable = MPU_REGION_ENABLE;
+  MPU_InitStruct.BaseAddress = 0xD0000000;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_32MB;
+  MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+  MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
+  MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
+  MPU_InitStruct.IsShareable = MPU_ACCESS_NOT_SHAREABLE;
+  MPU_InitStruct.Number = MPU_REGION_NUMBER0;
+  MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL0;
+  MPU_InitStruct.SubRegionDisable = 0x00;
+  MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+
+  /* Enable the MPU */
+  HAL_MPU_Enable(MPU_PRIVILEGED_DEFAULT);
+}
+
+void testram(){
+  const int len = 128;
+  static int failures = 0; 
+  static char msg[7] = "fail  ";
+  uint32_t* sram;
+  sram = (uint32_t*)EXTRAM;
+  uint16_t src[len];
+  uint16_t dst[len];
+  for(int i=0; i<len; ++i){
+    src[i] = rand();
+    dst[i] = 0;
+  }
+  if(HAL_SDRAM_Write_16b(&hsdram1, sram, src, len) != HAL_OK)
+    failures++;
+  if(HAL_SDRAM_Read_16b(&hsdram1, sram, dst, len) != HAL_OK)
+    failures++;
+  for(int i=0; i<len; ++i){
+    if(dst[i] != src[i]){
+      failures++;
+      break;
+    }
+  }
+  msg[5] = '0'+failures;
+  if(failures > 0)
+    error(PROGRAM_ERROR, msg);
+}

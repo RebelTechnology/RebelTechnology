@@ -54,8 +54,8 @@ void run(void){
 			SDRAM_In_Buffer[x] = rand();
 		}
 		
-		SDRAM_Status = HAL_SDRAM_Write_16b(&hsdram1, SDRAM_Address, SDRAM_In_Buffer, sizeof SDRAM_In_Buffer);
-		SDRAM_Status = HAL_SDRAM_Read_16b(&hsdram1, SDRAM_Address, SDRAM_Out_Buffer, sizeof SDRAM_Out_Buffer);
+		SDRAM_Status = HAL_SDRAM_Write_16b(&hsdram1, SDRAM_Address, SDRAM_In_Buffer, (sizeof SDRAM_In_Buffer)/2);
+		SDRAM_Status = HAL_SDRAM_Read_16b(&hsdram1, SDRAM_Address, SDRAM_Out_Buffer, (sizeof SDRAM_Out_Buffer)/2);
 		
 		Trigger_OUT_A(LOW);
 	  Trigger_OUT_B(LOW);

@@ -44,6 +44,7 @@ OBJS += $(USB_HOST_FILE)/Class/AUDIO/Src/usbh_audio.o
 
 OBJS += $(TEMPLATEROOT)/LibSource/FloatArray.o
 OBJS += $(TEMPLATEROOT)/LibSource/StompBox.o
+OBJS += $(TEMPLATEROOT)/LibSource/basicmaths.o
 
 # OBJS += $(BUILD)/startup.o
 OBJS += $(BUILD)/libnosys_gnu.o

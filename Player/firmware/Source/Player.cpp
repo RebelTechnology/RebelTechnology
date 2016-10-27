@@ -116,10 +116,13 @@ void updateProgramVector(ProgramVector* pv){
 }
 
 void setup(void){
-  // memset(pixelbuffer, 0xAA, 1024);
-
+  testram();
+  MPU_Config();
+  testram();
   sdram_cfg(&hsdram1);
+  testram();
 
+  // memset(pixelbuffer, 0xAA, 1024);
 // Product Specific Initialisation
   Triggers_Config();
   // Encoders_Config();
