@@ -166,5 +166,31 @@ void OTG_HS_IRQHandler(void)
 
 /* USER CODE BEGIN 1 */
 
+/* #define CHECK_EXTI(pin) if(__HAL_GPIO_EXTI_GET_IT(pin) != RESET){ \ */
+/*     __HAL_GPIO_EXTI_CLEAR_IT(pin);				  \ */
+/*     HAL_GPIO_EXTI_Callback(pin); } */
+
+static void checkEXTI(uint16_t pin){
+  if(__HAL_GPIO_EXTI_GET_IT(pin) != RESET){
+    __HAL_GPIO_EXTI_CLEAR_IT(pin);
+    HAL_GPIO_EXTI_Callback(pin);
+  }
+}
+
+void EXTI4_IRQHandler(void){
+  /* HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4); */
+  checkEXTI(GPIO_PIN_4);
+}
+
+void EXTI15_10_IRQHandler(void){
+  // sw1() pg14
+  // sw2() pb4
+  // tr1() pc11
+  // tr2() pc10
+  checkEXTI(GPIO_PIN_10);
+  checkEXTI(GPIO_PIN_11);
+  checkEXTI(GPIO_PIN_14);
+}
+
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

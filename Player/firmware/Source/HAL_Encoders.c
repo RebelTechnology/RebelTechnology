@@ -76,3 +76,4 @@ void Encoders_Config(void)
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 	HAL_NVIC_EnableIRQ(EXTI4_IRQn);
 }
+

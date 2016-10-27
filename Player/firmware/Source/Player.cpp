@@ -115,11 +115,35 @@ void updateProgramVector(ProgramVector* pv){
   pv->screen_height = OLED_HEIGHT;
 }
 
+void switchInA(){}
+void switchInB(){}
+void triggerInA(){}
+void triggerInB(){}
+
+extern "C"{
+  void HAL_GPIO_EXTI_Callback(uint16_t pin){
+  // sw1() pg14
+  // sw2() pb4
+  // tr1() pc11
+  // tr2() pc10
+    switch(pin){
+    case GPIO_PIN_14:
+      switchInA();
+      break;
+    case GPIO_PIN_4:
+      switchInB();
+      break;
+    case GPIO_PIN_11:
+      triggerInA();
+      break;
+    case GPIO_PIN_10:
+      triggerInB();
+      break;
+    }
+  }
+}
+
 void setup(void){
-  // HAL_SDRAM_MspInit(&hsdram1);
-  // MPU_Config();
-  // sdram_cfg(&hsdram1);
-  // osDelay(10);
   // if(testram8(&hsdram1) != 0)
   //   error(PROGRAM_ERROR, "testram8 failed");
   // if(testram16(&hsdram1) != 0)
@@ -129,8 +153,15 @@ void setup(void){
 
   // memset(pixelbuffer, 0xAA, 1024);
 // Product Specific Initialisation
-  Triggers_Config();
+  // Triggers_Config();
   // Encoders_Config();
+
+  // enable sw1/sw2 and tr1/tr2 callbacks
+  // HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0x0F, 0x00);
+  // HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+  // HAL_NVIC_SetPriority(EXTI4_IRQn, 0x0F, 0x00);
+  // HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+
   CV_IO_Config();
   CV_Out_A(&hdac, 0);
   CV_Out_B(&hdac, 0);

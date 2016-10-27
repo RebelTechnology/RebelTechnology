@@ -41,6 +41,20 @@ void Trigger_OUT_B(uint8_t state)
 	else				{HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, GPIO_PIN_RESET);}
 }
 
+/* /\** */
+/*   * @brief EXTI line detection callbacks */
+/*   * @param GPIO_Pin: Specifies the pins connected EXTI line */
+/*   * @retval None */
+/*   *\/ */
+/* void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) */
+/* { */
+/*   if(GPIO_Pin == GPIO_PIN_10){ */
+/*     _Trigger_IN_A(); */
+/*   }else if(GPIO_Pin == GPIO_PIN_11){ */
+/*     _Trigger_IN_B(); */
+/*   } */
+/* } */
+
 void Triggers_Config(void)
 {
 	GPIO_InitTypeDef GPIO_InitStruct;
@@ -51,9 +65,6 @@ void Triggers_Config(void)
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
 	GPIO_InitStruct.Pull  = GPIO_PULLUP;
 	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-	
-	HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0x0F, 0x00);
-	HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 	
 	// Configure Output Pins
 	GPIO_InitStruct.Pin   = GPIO_PIN_12;				// TR_OUT_A
@@ -67,4 +78,8 @@ void Triggers_Config(void)
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
 	GPIO_InitStruct.Pull  = GPIO_PULLDOWN;
 	HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+	
+	// no handler defined EXTI15_10_IRQHandler
+	HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0x0F, 0x00);
+	HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 }

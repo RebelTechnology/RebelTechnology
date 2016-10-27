@@ -194,62 +194,55 @@ void PendSV_Handler(void){
 }
 */
 
-/*
 void WWDG_IRQHandler(void) {
-  for(;;);
+  assert_failed(0, 0);
 }
 
 void PVD_IRQHandler(void) {
-  for(;;);
+  assert_failed(0, 0);
 }
 
 void FPU_IRQHandler(void){
-  for(;;);
+  assert_failed(0, 0);
 }
 
+/*
+
 void UART4_IRQHandler(void){
-  for(;;);
+  assert_failed(0, 0);
 }
 
 void UART5_IRQHandler(void){
-  for(;;);
+  assert_failed(0, 0);
 }
 
 void USART6_IRQHandler(void){
-  for(;;);
+  assert_failed(0, 0);
 }
 
 void USART3_IRQHandler(void){
-  for(;;);
+  assert_failed(0, 0);
 } 
 void USART2_IRQHandler(void){
-  for(;;);
+  assert_failed(0, 0);
 } 
 void USART1_IRQHandler(void){
-  for(;;);
+  assert_failed(0, 0);
 } 
-*/
 
-/* void WWDG_IRQHandler(void){ */
-/*   for(;;); */
-/* }  */
-/* void PVD_IRQHandler(void){ */
-/*   for(;;); */
-/* }  */
-/*
 void FLASH_IRQHandler(void){
-  for(;;);
+  assert_failed(0, 0);
 }
 
 void TIM8_UP_TIM13_IRQHandler(void){
-  for(;;);
+  assert_failed(0, 0);
 }
 
 void TIM8_TRG_COM_TIM14_IRQHandler(void){
-  for(;;);
+  assert_failed(0, 0);
 }
 
 void TIM8_CC_IRQHandler(void){
-  for(;;);
+  assert_failed(0, 0);
 }
 */
