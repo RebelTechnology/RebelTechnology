@@ -31,26 +31,26 @@ public:
     //   screen.setTextColour(BLACK);
     // }
 
-    // FloatArray left = samples.getSamples(LEFT_CHANNEL);
+    FloatArray left = samples.getSamples(LEFT_CHANNEL);
     // FloatArray right = samples.getSamples(RIGHT_CHANNEL);
 
     if(sw2()){
-      // uint8_t* buffer;
-      // buffer = (uint8_t*)EXTRAM;
-      // uint8_t* src = (uint8_t*)(float*)left;
-      // memcpy(buffer, src, 128);
-      // int failures = 0; 
-      // for(int i=0; i<128; ++i)
-      // 	if(buffer[i] != src[i])
-      // 	  ++failures;
-      // screen.print(20, 20, "fail: ");
-      // screen.print(failures);
+      uint32_t* buffer = (uint32_t*)EXTRAM;
+      uint32_t* src = (uint32_t*)(float*)left;
+      memcpy(buffer, src, 128*sizeof(uint32_t));
+      int failures = 0; 
+      for(int i=0; i<128; ++i)
+      	if(buffer[i] != src[i])
+      	  ++failures;
+      screen.print(20, 20, "fail: ");
+      screen.print(failures);
+
       setErrorMessage(NO_ERROR, NULL);
-      int fail = testram8(&hsdram1);
-      if(fail > 0){
-	screen.print(20, 20, "fail: ");
-	screen.print(fail);
-      }
+      // int fail = testram32(&hsdram1);
+      // if(fail > 0){
+      // 	screen.print(20, 20, "fail: ");
+      // 	screen.print(fail);
+      // }
     }
 
     if(tr1())

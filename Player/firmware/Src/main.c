@@ -631,6 +631,13 @@ static void MX_FMC_Init(void)
   SdramTiming.WriteRecoveryTime = 2;
   SdramTiming.RPDelay = 2;
   SdramTiming.RCDDelay = 2;
+  /* SdramTiming.LoadToActiveDelay = 4; */
+  /* SdramTiming.ExitSelfRefreshDelay = 12; */
+  /* SdramTiming.SelfRefreshTime = 8; */
+  /* SdramTiming.RowCycleDelay = 12; */
+  /* SdramTiming.WriteRecoveryTime = 4; */
+  /* SdramTiming.RPDelay = 4; */
+  /* SdramTiming.RCDDelay = 4; */
 
   if (HAL_SDRAM_Init(&hsdram1, &SdramTiming) != HAL_OK)
   {
