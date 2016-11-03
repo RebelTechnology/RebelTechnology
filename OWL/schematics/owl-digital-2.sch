@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -13037,7 +13037,7 @@ NS Package M08A</description>
 <part name="GND66" library="supply1" deviceset="GND" device=""/>
 <part name="C24" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND122" library="supply1" deviceset="GND" device=""/>
-<part name="U2" library="Rebel" deviceset="INDUCTOR" device="" value="1uH">
+<part name="L4" library="Rebel" deviceset="INDUCTOR" device="" value="1uH">
 <attribute name="OC_FARNELL" value="2288736"/>
 </part>
 <part name="C27" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
@@ -13051,7 +13051,7 @@ NS Package M08A</description>
 <part name="+3V17" library="supply1" deviceset="+3V3" device=""/>
 <part name="C37" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
-<part name="U3" library="Rebel" deviceset="INDUCTOR" device="" value="1uH">
+<part name="L3" library="Rebel" deviceset="INDUCTOR" device="" value="1uH">
 <attribute name="OC_FARNELL" value="2288736"/>
 </part>
 <part name="C38" library="Rebel" deviceset="C-EU" device="C1206" value="10u"/>
@@ -13086,10 +13086,10 @@ NS Package M08A</description>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="+3V14" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
-<part name="U$1" library="Rebel" deviceset="INDUCTOR" device="" value="1uH">
+<part name="L1" library="Rebel" deviceset="INDUCTOR" device="" value="1uH">
 <attribute name="OC_FARNELL" value="2288736"/>
 </part>
-<part name="U$4" library="Rebel" deviceset="INDUCTOR" device="" value="1uH">
+<part name="L2" library="Rebel" deviceset="INDUCTOR" device="" value="1uH">
 <attribute name="OC_FARNELL" value="2288736"/>
 </part>
 <part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="22R"/>
@@ -13212,7 +13212,7 @@ NS Package M08A</description>
 <instance part="GND66" gate="1" x="231.14" y="134.62"/>
 <instance part="C24" gate="G$1" x="91.44" y="213.36"/>
 <instance part="GND122" gate="1" x="91.44" y="203.2"/>
-<instance part="U2" gate="G$1" x="81.28" y="218.44" rot="R180">
+<instance part="L4" gate="G$1" x="81.28" y="218.44" rot="R180">
 <attribute name="OC_FARNELL" x="81.28" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="C27" gate="G$1" x="101.6" y="213.36"/>
@@ -13226,7 +13226,7 @@ NS Package M08A</description>
 <instance part="+3V17" gate="G$1" x="99.06" y="-17.78"/>
 <instance part="C37" gate="G$1" x="419.1" y="142.24"/>
 <instance part="GND6" gate="1" x="419.1" y="132.08"/>
-<instance part="U3" gate="G$1" x="408.94" y="147.32" rot="R180">
+<instance part="L3" gate="G$1" x="408.94" y="147.32" rot="R180">
 <attribute name="OC_FARNELL" x="408.94" y="147.32" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="C38" gate="G$1" x="429.26" y="142.24"/>
@@ -13265,12 +13265,12 @@ NS Package M08A</description>
 <instance part="GND2" gate="1" x="276.86" y="7.62"/>
 <instance part="+3V14" gate="G$1" x="243.84" y="-22.86"/>
 <instance part="GND3" gate="1" x="241.3" y="-45.72"/>
-<instance part="U$1" gate="G$1" x="304.8" y="22.86" smashed="yes">
+<instance part="L1" gate="G$1" x="304.8" y="22.86" smashed="yes">
 <attribute name="OC_FARNELL" x="304.8" y="22.86" size="1.778" layer="96" display="off"/>
 <attribute name="NAME" x="304.8" y="26.67" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="309.88" y="26.67" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="U$4" gate="G$1" x="304.8" y="12.7" smashed="yes" rot="R180">
+<instance part="L2" gate="G$1" x="304.8" y="12.7" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" x="304.8" y="12.7" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="NAME" x="304.8" y="8.89" size="1.778" layer="95"/>
 <attribute name="VALUE" x="299.72" y="8.89" size="1.778" layer="96"/>
@@ -13611,7 +13611,7 @@ NS Package M08A</description>
 <pinref part="GND2" gate="1" pin="GND"/>
 <wire x1="276.86" y1="10.16" x2="276.86" y2="12.7" width="0.1524" layer="91"/>
 <junction x="276.86" y="12.7"/>
-<pinref part="U$4" gate="G$1" pin="2"/>
+<pinref part="L2" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="GND3" gate="1" pin="GND"/>
@@ -13841,7 +13841,7 @@ NS Package M08A</description>
 <wire x1="419.1" y1="147.32" x2="429.26" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="C38" gate="G$1" pin="1"/>
 <wire x1="429.26" y1="144.78" x2="429.26" y2="147.32" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="1"/>
+<pinref part="L3" gate="G$1" pin="1"/>
 <wire x1="416.56" y1="147.32" x2="419.1" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="P+6" gate="1" pin="+5V"/>
 <wire x1="429.26" y1="147.32" x2="429.26" y2="152.4" width="0.1524" layer="91"/>
@@ -14540,7 +14540,7 @@ NS Package M08A</description>
 <label x="279.4" y="22.86" size="1.778" layer="95"/>
 <pinref part="JP7" gate="G$1" pin="4"/>
 <wire x1="274.32" y1="30.48" x2="274.32" y2="22.86" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="1"/>
+<pinref part="L1" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="USB_D_D-" class="0">
@@ -14591,7 +14591,7 @@ NS Package M08A</description>
 <pinref part="C27" gate="G$1" pin="1"/>
 <wire x1="101.6" y1="215.9" x2="101.6" y2="218.44" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="218.44" x2="109.22" y2="218.44" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="1"/>
+<pinref part="L4" gate="G$1" pin="1"/>
 <junction x="91.44" y="218.44"/>
 <junction x="101.6" y="218.44"/>
 </segment>
@@ -14622,7 +14622,7 @@ NS Package M08A</description>
 <wire x1="393.7" y1="147.32" x2="386.08" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="393.7" y1="101.6" x2="398.78" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="398.78" y1="101.6" x2="398.78" y2="147.32" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="2"/>
+<pinref part="L3" gate="G$1" pin="2"/>
 <wire x1="401.32" y1="147.32" x2="398.78" y2="147.32" width="0.1524" layer="91"/>
 <junction x="398.78" y="147.32"/>
 <pinref part="C408" gate="G$1" pin="1"/>
@@ -14694,7 +14694,7 @@ NS Package M08A</description>
 <junction x="58.42" y="218.44"/>
 <junction x="68.58" y="218.44"/>
 <wire x1="73.66" y1="218.44" x2="68.58" y2="218.44" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="2"/>
+<pinref part="L4" gate="G$1" pin="2"/>
 <pinref part="U4" gate="G$1" pin="OUT"/>
 </segment>
 <segment>
@@ -15180,7 +15180,7 @@ NS Package M08A</description>
 <segment>
 <pinref part="USB1" gate="USB" pin="GND"/>
 <wire x1="312.42" y1="12.7" x2="314.96" y2="12.7" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="1"/>
+<pinref part="L2" gate="G$1" pin="1"/>
 <pinref part="USB1" gate="USB" pin="SHIELD"/>
 <wire x1="314.96" y1="12.7" x2="317.5" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="317.5" y1="10.16" x2="314.96" y2="10.16" width="0.1524" layer="91"/>
@@ -15190,7 +15190,7 @@ NS Package M08A</description>
 </net>
 <net name="N$2" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="2"/>
+<pinref part="L1" gate="G$1" pin="2"/>
 <pinref part="USB1" gate="USB" pin="VCC"/>
 <wire x1="312.42" y1="22.86" x2="317.5" y2="22.86" width="0.1524" layer="91"/>
 </segment>
