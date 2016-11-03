@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -11979,6 +11979,192 @@ NS Package M08A</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="texas">
+<description>&lt;b&gt;Texas Instruments Devices&lt;/b&gt;&lt;p&gt;
+ &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="DBZ_R-PDSO-G3">
+<description>&lt;b&gt;DBZ (R-PDSO-G3)&lt;/b&gt; SOT-23&lt;p&gt;
+Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
+<wire x1="-1.973" y1="1.983" x2="1.973" y2="1.983" width="0.0508" layer="39"/>
+<wire x1="1.973" y1="-1.983" x2="-1.973" y2="-1.983" width="0.0508" layer="39"/>
+<wire x1="-1.973" y1="-1.983" x2="-1.973" y2="1.983" width="0.0508" layer="39"/>
+<wire x1="1.973" y1="1.983" x2="1.973" y2="-1.983" width="0.0508" layer="39"/>
+<wire x1="1.422" y1="0.66" x2="1.422" y2="-0.66" width="0.1524" layer="51"/>
+<wire x1="1.422" y1="-0.66" x2="-1.422" y2="-0.66" width="0.1524" layer="51"/>
+<wire x1="-1.422" y1="-0.66" x2="-1.422" y2="0.66" width="0.1524" layer="51"/>
+<wire x1="-1.422" y1="0.66" x2="1.422" y2="0.66" width="0.1524" layer="51"/>
+<smd name="3" x="0" y="1.1" dx="0.7" dy="1" layer="1"/>
+<smd name="2" x="0.95" y="-1.1" dx="0.7" dy="1" layer="1"/>
+<smd name="1" x="-0.95" y="-1.1" dx="0.7" dy="1" layer="1"/>
+<text x="-1.905" y="1.905" size="1.27" layer="25">&gt;NAME</text>
+<text x="-1.905" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.2286" y1="0.7112" x2="0.2286" y2="1.2954" layer="51"/>
+<rectangle x1="0.7112" y1="-1.2954" x2="1.1684" y2="-0.7112" layer="51"/>
+<rectangle x1="-1.1684" y1="-1.2954" x2="-0.7112" y2="-0.7112" layer="51"/>
+<rectangle x1="-0.5001" y1="-0.3" x2="0.5001" y2="0.3" layer="35"/>
+</package>
+<package name="DCK_R-PDSO-G5">
+<description>&lt;b&gt;DCK (R-PDSO-G5)&lt;/b&gt; SC-70&lt;p&gt;
+Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
+<wire x1="0.975" y1="-0.6" x2="-0.975" y2="-0.6" width="0.2032" layer="51"/>
+<wire x1="-0.975" y1="-0.6" x2="-0.975" y2="0.6" width="0.2032" layer="21"/>
+<wire x1="-0.975" y1="0.6" x2="0.975" y2="0.6" width="0.2032" layer="51"/>
+<wire x1="0.975" y1="0.6" x2="0.975" y2="-0.6" width="0.2032" layer="21"/>
+<smd name="4" x="0.65" y="0.95" dx="0.35" dy="0.8" layer="1"/>
+<smd name="5" x="-0.65" y="0.95" dx="0.35" dy="0.8" layer="1"/>
+<smd name="1" x="-0.65" y="-0.95" dx="0.35" dy="0.8" layer="1"/>
+<smd name="2" x="0" y="-0.95" dx="0.35" dy="0.8" layer="1"/>
+<smd name="3" x="0.65" y="-0.95" dx="0.35" dy="0.8" layer="1"/>
+<text x="-1.27" y="1.397" size="1.016" layer="25">&gt;NAME</text>
+<text x="-1.27" y="-2.54" size="1.016" layer="27">&gt;VALUE</text>
+<rectangle x1="0.5" y1="0.675" x2="0.8" y2="1.2" layer="51"/>
+<rectangle x1="-0.8" y1="0.675" x2="-0.5" y2="1.2" layer="51"/>
+<rectangle x1="-0.8" y1="-1.2" x2="-0.5" y2="-0.675" layer="51"/>
+<rectangle x1="-0.15" y1="-1.2" x2="0.15" y2="-0.675" layer="51"/>
+<rectangle x1="0.5" y1="-1.2" x2="0.8" y2="-0.675" layer="51"/>
+<rectangle x1="-1.016" y1="-0.508" x2="-0.127" y2="0" layer="21"/>
+</package>
+<package name="LP_O-PBCY-W3">
+<description>&lt;b&gt;LP (O-PBCY-W3)&lt;/b&gt; TO-92/TO-226&lt;p&gt;
+Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
+<wire x1="-2.1" y1="-1.5" x2="2.1" y2="-1.5" width="0.2032" layer="51" curve="-250.988591"/>
+<wire x1="-2.1" y1="-1.5" x2="2.1" y2="-1.5" width="0.2032" layer="21"/>
+<wire x1="-2.1" y1="-1.5" x2="-2.4" y2="-0.95" width="0.2032" layer="21" curve="-16.054475"/>
+<wire x1="-2.425" y1="0.875" x2="2.425" y2="0.875" width="0.2032" layer="21" curve="-140.126391"/>
+<wire x1="2.1" y1="-1.5" x2="2.4" y2="-0.95" width="0.2032" layer="21" curve="16.054475"/>
+<pad name="3" x="2.54" y="0" drill="0.8" diameter="1.4"/>
+<pad name="2" x="0" y="0" drill="0.8" diameter="1.4"/>
+<pad name="1" x="-2.54" y="0" drill="0.8" diameter="1.4"/>
+<text x="-2.159" y="-3.556" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-2.54" y="2.794" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+</packages>
+<symbols>
+<symbol name="LM4041">
+<wire x1="1.27" y1="1.905" x2="1.27" y2="1.524" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.524" x2="0" y2="1.524" width="0.254" layer="94"/>
+<wire x1="0" y1="1.524" x2="-1.27" y2="1.524" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.524" x2="-1.27" y2="1.143" width="0.254" layer="94"/>
+<text x="2.794" y="1.905" size="1.778" layer="95">&gt;NAME</text>
+<text x="2.794" y="-0.889" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="A" x="0" y="-2.54" visible="off" length="short" direction="pas" rot="R90"/>
+<pin name="C" x="0" y="2.54" visible="off" length="short" direction="pas" rot="R270"/>
+<polygon width="0.254" layer="94">
+<vertex x="0" y="1.524"/>
+<vertex x="-1.27" y="-0.762"/>
+<vertex x="1.27" y="-0.762"/>
+</polygon>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="LM4041" prefix="IC">
+<description>&lt;b&gt;PRECISION MICROPOWER SHUNT VOLTAGE REFERENCE&lt;/b&gt;&lt;p&gt;
+Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
+<gates>
+<gate name="G$1" symbol="LM4041" x="0" y="0"/>
+</gates>
+<devices>
+<device name="DBZ" package="DBZ_R-PDSO-G3">
+<connects>
+<connect gate="G$1" pin="A" pad="2"/>
+<connect gate="G$1" pin="C" pad="1"/>
+</connects>
+<technologies>
+<technology name="A12">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="LM4041A12IDBZR" constant="no"/>
+<attribute name="OC_FARNELL" value="1407949" constant="no"/>
+<attribute name="OC_NEWARK" value="58K5875" constant="no"/>
+</technology>
+<technology name="B12">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="LM4041B12IDBZR" constant="no"/>
+<attribute name="OC_FARNELL" value="1575212" constant="no"/>
+<attribute name="OC_NEWARK" value="58K5882" constant="no"/>
+</technology>
+<technology name="C12">
+<attribute name="MF" value="TEXAS INSTRUMENT CONNECTORS" constant="no"/>
+<attribute name="MPN" value="LM4041C12QDBZT" constant="no"/>
+<attribute name="OC_FARNELL" value="1771733" constant="no"/>
+<attribute name="OC_NEWARK" value="43K3376" constant="no"/>
+</technology>
+<technology name="D12">
+<attribute name="MF" value="TEXAS INSTRUMENT CONNECTORS" constant="no"/>
+<attribute name="MPN" value="LM4041D12QDBZT" constant="no"/>
+<attribute name="OC_FARNELL" value="1755118" constant="no"/>
+<attribute name="OC_NEWARK" value="43K3381" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="DCK" package="DCK_R-PDSO-G5">
+<connects>
+<connect gate="G$1" pin="A" pad="1"/>
+<connect gate="G$1" pin="C" pad="3"/>
+</connects>
+<technologies>
+<technology name="A12">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="LM4041A12IDCKR" constant="no"/>
+<attribute name="OC_FARNELL" value="unknown" constant="no"/>
+<attribute name="OC_NEWARK" value="58K5877" constant="no"/>
+</technology>
+<technology name="B12">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="LM4041B12IDCKR" constant="no"/>
+<attribute name="OC_FARNELL" value="unknown" constant="no"/>
+<attribute name="OC_NEWARK" value="58K5884" constant="no"/>
+</technology>
+<technology name="C12">
+<attribute name="MF" value="TEXAS INSTRUMENT CONNECTORS" constant="no"/>
+<attribute name="MPN" value="LM4041C12IDCKR" constant="no"/>
+<attribute name="OC_FARNELL" value="unknown" constant="no"/>
+<attribute name="OC_NEWARK" value="43K3374" constant="no"/>
+</technology>
+<technology name="D12">
+<attribute name="MF" value="TEXAS INSTRUMENT CONNECTORS" constant="no"/>
+<attribute name="MPN" value="LM4041D12IDCKR" constant="no"/>
+<attribute name="OC_FARNELL" value="1575129" constant="no"/>
+<attribute name="OC_NEWARK" value="43K3379" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="LP" package="LP_O-PBCY-W3">
+<connects>
+<connect gate="G$1" pin="A" pad="3"/>
+<connect gate="G$1" pin="C" pad="2"/>
+</connects>
+<technologies>
+<technology name="A12">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="" constant="no"/>
+<attribute name="OC_FARNELL" value="9486119" constant="no"/>
+<attribute name="OC_NEWARK" value="unknown" constant="no"/>
+</technology>
+<technology name="B12">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="" constant="no"/>
+<attribute name="OC_FARNELL" value="unknown" constant="no"/>
+<attribute name="OC_NEWARK" value="unknown" constant="no"/>
+</technology>
+<technology name="C12">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="LM4041C12ILP" constant="no"/>
+<attribute name="OC_FARNELL" value="unknown" constant="no"/>
+<attribute name="OC_NEWARK" value="18M2429" constant="no"/>
+</technology>
+<technology name="D12">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="LM4041D12ILP" constant="no"/>
+<attribute name="OC_FARNELL" value="unknown" constant="no"/>
+<attribute name="OC_NEWARK" value="18M2431" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -12130,18 +12316,6 @@ NS Package M08A</description>
 <part name="P-13" library="supply1" deviceset="-12V" device=""/>
 <part name="BOOT" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
-<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
-<part name="IC5" library="linear" deviceset="TL072" device="D"/>
-<part name="GND8" library="supply1" deviceset="GND" device=""/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
-<part name="P+1" library="supply1" deviceset="+5V" device=""/>
-<part name="P+3" library="supply1" deviceset="+12V" device=""/>
-<part name="GND5" library="supply1" deviceset="GND" device=""/>
-<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="P+10" library="supply1" deviceset="+5V" device=""/>
-<part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="R6" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
 <part name="R7" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
@@ -12159,6 +12333,12 @@ NS Package M08A</description>
 <part name="C5" library="resistor" deviceset="CPOL-EU" device="A" value="10u"/>
 <part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R13" library="Rebel" deviceset="R-EU_" device="0603" value="7.5k"/>
+<part name="IC4" library="texas" deviceset="LM4041" device="DBZ" technology="C12" value="LM4040B10"/>
+<part name="GND17" library="supply1" deviceset="GND" device=""/>
+<part name="P-2" library="supply1" deviceset="-12V" device=""/>
+<part name="R15" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
+<part name="C1" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="GND18" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12166,8 +12346,7 @@ NS Package M08A</description>
 <text x="-25.4" y="-58.42" size="6.4516" layer="97" font="vector">Tesseract Revision 1</text>
 <text x="-25.4" y="-66.04" size="3.81" layer="97" font="vector">Copyright 2016 Rebel Technology</text>
 <text x="-25.4" y="-73.66" size="3.81" layer="97" font="vector">Published under the GNU GPL</text>
-<text x="345.44" y="266.7" size="2.54" layer="97" font="vector">10V</text>
-<text x="345.44" y="299.72" size="2.54" layer="97" font="vector">1.6V</text>
+<text x="297.18" y="266.7" size="1.778" layer="97">+10V</text>
 </plain>
 <instances>
 <instance part="GND36" gate="1" x="106.68" y="-45.72"/>
@@ -12218,8 +12397,8 @@ NS Package M08A</description>
 <instance part="IN_R" gate="G$1" x="-5.08" y="10.16" rot="R180"/>
 <instance part="OUT_L" gate="G$1" x="106.68" y="68.58"/>
 <instance part="OUT_R" gate="G$1" x="106.68" y="45.72"/>
-<instance part="GND7" gate="1" x="284.48" y="215.9"/>
-<instance part="POT5" gate="G$1" x="284.48" y="228.6" rot="R90"/>
+<instance part="GND7" gate="1" x="292.1" y="228.6"/>
+<instance part="POT5" gate="G$1" x="287.02" y="220.98" rot="R90"/>
 <instance part="POT6" gate="G$1" x="284.48" y="149.86" rot="R90"/>
 <instance part="POT7" gate="G$1" x="284.48" y="73.66" rot="R90"/>
 <instance part="POT8" gate="G$1" x="284.48" y="0" rot="R90"/>
@@ -12241,8 +12420,8 @@ NS Package M08A</description>
 <instance part="GND14" gate="1" x="287.02" y="175.26"/>
 <instance part="IC2" gate="P" x="111.76" y="2.54"/>
 <instance part="IC2" gate="A" x="327.66" y="193.04" rot="MR180"/>
-<instance part="R501" gate="G$1" x="297.18" y="195.58" rot="MR180"/>
-<instance part="R500" gate="G$1" x="297.18" y="228.6" rot="MR180"/>
+<instance part="R501" gate="G$1" x="299.72" y="195.58" rot="MR180"/>
+<instance part="R500" gate="G$1" x="299.72" y="220.98" rot="MR180"/>
 <instance part="GND22" gate="1" x="317.5" y="175.26"/>
 <instance part="R503" gate="G$1" x="327.66" y="203.2" rot="MR180"/>
 <instance part="R504" gate="G$1" x="345.44" y="193.04" rot="MR0"/>
@@ -12329,24 +12508,6 @@ NS Package M08A</description>
 <instance part="P-13" gate="1" x="35.56" y="-15.24"/>
 <instance part="BOOT" gate="G$1" x="144.78" y="-20.32"/>
 <instance part="+3V13" gate="G$1" x="154.94" y="-10.16"/>
-<instance part="R2" gate="G$1" x="307.34" y="187.96" rot="MR90"/>
-<instance part="IC5" gate="A" x="327.66" y="292.1" rot="MR180"/>
-<instance part="GND8" gate="1" x="317.5" y="279.4"/>
-<instance part="R3" gate="G$1" x="309.88" y="294.64" rot="MR180"/>
-<instance part="R4" gate="G$1" x="327.66" y="302.26" rot="MR180"/>
-<instance part="IC5" gate="B" x="327.66" y="259.08"/>
-<instance part="IC5" gate="P" x="368.3" y="279.4"/>
-<instance part="P+1" gate="1" x="302.26" y="299.72" smashed="yes">
-<attribute name="VALUE" x="302.26" y="302.26" size="1.778" layer="96" rot="R180"/>
-</instance>
-<instance part="P+3" gate="1" x="368.3" y="292.1"/>
-<instance part="GND5" gate="1" x="368.3" y="266.7"/>
-<instance part="R1" gate="G$1" x="327.66" y="269.24" rot="MR180"/>
-<instance part="R5" gate="G$1" x="309.88" y="261.62" rot="MR180"/>
-<instance part="P+10" gate="1" x="302.26" y="266.7" smashed="yes">
-<attribute name="VALUE" x="302.26" y="269.24" size="1.778" layer="96" rot="R180"/>
-</instance>
-<instance part="GND10" gate="1" x="317.5" y="248.92"/>
 <instance part="GND12" gate="1" x="284.48" y="60.96"/>
 <instance part="R6" gate="G$1" x="307.34" y="35.56" rot="MR90"/>
 <instance part="R7" gate="G$1" x="307.34" y="-38.1" rot="MR90"/>
@@ -12378,6 +12539,15 @@ NS Package M08A</description>
 <instance part="C5" gate="G$1" x="22.86" y="205.74" rot="R90"/>
 <instance part="R12" gate="G$1" x="30.48" y="195.58" rot="MR270"/>
 <instance part="R13" gate="G$1" x="63.5" y="167.64" rot="MR0"/>
+<instance part="IC4" gate="G$1" x="330.2" y="264.16" rot="R180"/>
+<instance part="GND17" gate="1" x="330.2" y="248.92"/>
+<instance part="P-2" gate="1" x="309.88" y="248.92"/>
+<instance part="R15" gate="G$1" x="309.88" y="259.08" rot="MR90"/>
+<instance part="C1" gate="G$1" x="337.82" y="259.08" smashed="yes">
+<attribute name="NAME" x="339.979" y="260.604" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="337.439" y="260.604" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="GND18" gate="1" x="337.82" y="248.92"/>
 </instances>
 <busses>
 </busses>
@@ -12449,11 +12619,6 @@ NS Package M08A</description>
 <wire x1="96.52" y1="43.18" x2="96.52" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="43.18" x2="96.52" y2="43.18" width="0.1524" layer="91"/>
 <junction x="96.52" y="43.18"/>
-</segment>
-<segment>
-<pinref part="GND7" gate="1" pin="GND"/>
-<pinref part="POT5" gate="G$1" pin="1"/>
-<wire x1="284.48" y1="220.98" x2="284.48" y2="218.44" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="5.08" y1="99.06" x2="5.08" y2="96.52" width="0.1524" layer="91"/>
@@ -12632,27 +12797,10 @@ NS Package M08A</description>
 <wire x1="40.64" y1="-12.7" x2="40.64" y2="-2.54" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="GND8" gate="1" pin="GND"/>
-<wire x1="317.5" y1="281.94" x2="317.5" y2="289.56" width="0.1524" layer="91"/>
-<pinref part="IC5" gate="A" pin="+IN"/>
-<wire x1="317.5" y1="289.56" x2="320.04" y2="289.56" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <wire x1="317.5" y1="177.8" x2="317.5" y2="190.5" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="A" pin="+IN"/>
 <wire x1="317.5" y1="190.5" x2="320.04" y2="190.5" width="0.1524" layer="91"/>
 <pinref part="GND22" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="GND5" gate="1" pin="GND"/>
-<pinref part="IC5" gate="P" pin="V-"/>
-<wire x1="368.3" y1="269.24" x2="368.3" y2="271.78" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND10" gate="1" pin="GND"/>
-<wire x1="317.5" y1="251.46" x2="317.5" y2="256.54" width="0.1524" layer="91"/>
-<pinref part="IC5" gate="B" pin="-IN"/>
-<wire x1="320.04" y1="256.54" x2="317.5" y2="256.54" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="284.48" y1="66.04" x2="284.48" y2="63.5" width="0.1524" layer="91"/>
@@ -12664,6 +12812,23 @@ NS Package M08A</description>
 <pinref part="GND13" gate="1" pin="GND"/>
 <wire x1="101.6" y1="177.8" x2="99.06" y2="177.8" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="177.8" x2="99.06" y2="175.26" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IC4" gate="G$1" pin="C"/>
+<pinref part="GND17" gate="1" pin="GND"/>
+<wire x1="330.2" y1="261.62" x2="330.2" y2="251.46" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C1" gate="G$1" pin="2"/>
+<pinref part="GND18" gate="1" pin="GND"/>
+<wire x1="337.82" y1="251.46" x2="337.82" y2="254" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND7" gate="1" pin="GND"/>
+<wire x1="292.1" y1="231.14" x2="292.1" y2="233.68" width="0.1524" layer="91"/>
+<pinref part="POT5" gate="G$1" pin="3"/>
+<wire x1="292.1" y1="233.68" x2="287.02" y2="233.68" width="0.1524" layer="91"/>
+<wire x1="287.02" y1="233.68" x2="287.02" y2="228.6" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -12689,18 +12854,6 @@ NS Package M08A</description>
 <wire x1="198.12" y1="76.2" x2="198.12" y2="81.28" width="0.1524" layer="91"/>
 <pinref part="JP5" gate="G$1" pin="1"/>
 <wire x1="200.66" y1="76.2" x2="198.12" y2="76.2" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="R3" gate="G$1" pin="1"/>
-<pinref part="P+1" gate="1" pin="+5V"/>
-<wire x1="304.8" y1="294.64" x2="302.26" y2="294.64" width="0.1524" layer="91"/>
-<wire x1="302.26" y1="294.64" x2="302.26" y2="297.18" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<wire x1="302.26" y1="261.62" x2="302.26" y2="264.16" width="0.1524" layer="91"/>
-<pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="304.8" y1="261.62" x2="302.26" y2="261.62" width="0.1524" layer="91"/>
-<pinref part="P+10" gate="1" pin="+5V"/>
 </segment>
 <segment>
 <pinref part="D300" gate="G$1" pin="C2"/>
@@ -13075,11 +13228,6 @@ NS Package M08A</description>
 <wire x1="35.56" y1="12.7" x2="35.56" y2="10.16" width="0.1524" layer="91"/>
 <junction x="35.56" y="12.7"/>
 </segment>
-<segment>
-<pinref part="IC5" gate="P" pin="V+"/>
-<pinref part="P+3" gate="1" pin="+12V"/>
-<wire x1="368.3" y1="287.02" x2="368.3" y2="289.56" width="0.1524" layer="91"/>
-</segment>
 </net>
 <net name="-12V" class="0">
 <segment>
@@ -13128,6 +13276,11 @@ NS Package M08A</description>
 <pinref part="P-13" gate="1" pin="-12V"/>
 <wire x1="35.56" y1="-10.16" x2="35.56" y2="-12.7" width="0.1524" layer="91"/>
 <junction x="35.56" y="-10.16"/>
+</segment>
+<segment>
+<pinref part="P-2" gate="1" pin="-12V"/>
+<pinref part="R15" gate="G$1" pin="1"/>
+<wire x1="309.88" y1="254" x2="309.88" y2="251.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="BOOT0" class="0">
@@ -13197,15 +13350,13 @@ NS Package M08A</description>
 <segment>
 <pinref part="R501" gate="G$1" pin="1"/>
 <pinref part="CV_A" gate="G$1" pin="3"/>
-<wire x1="292.1" y1="195.58" x2="281.94" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="294.64" y1="195.58" x2="281.94" y2="195.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$13" class="0">
 <segment>
 <pinref part="R501" gate="G$1" pin="2"/>
-<wire x1="302.26" y1="195.58" x2="307.34" y2="195.58" width="0.1524" layer="91"/>
-<pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="307.34" y1="193.04" x2="307.34" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="304.8" y1="195.58" x2="307.34" y2="195.58" width="0.1524" layer="91"/>
 <pinref part="R503" gate="G$1" pin="1"/>
 <wire x1="322.58" y1="203.2" x2="317.5" y2="203.2" width="0.1524" layer="91"/>
 <wire x1="317.5" y1="203.2" x2="317.5" y2="195.58" width="0.1524" layer="91"/>
@@ -13214,16 +13365,16 @@ NS Package M08A</description>
 <wire x1="307.34" y1="195.58" x2="317.5" y2="195.58" width="0.1524" layer="91"/>
 <junction x="317.5" y="195.58"/>
 <junction x="307.34" y="195.58"/>
-<wire x1="307.34" y1="195.58" x2="307.34" y2="228.6" width="0.1524" layer="91"/>
 <pinref part="R500" gate="G$1" pin="2"/>
-<wire x1="307.34" y1="228.6" x2="302.26" y2="228.6" width="0.1524" layer="91"/>
+<wire x1="307.34" y1="195.58" x2="307.34" y2="220.98" width="0.1524" layer="91"/>
+<wire x1="307.34" y1="220.98" x2="304.8" y2="220.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$14" class="0">
 <segment>
 <pinref part="POT5" gate="G$1" pin="2"/>
 <pinref part="R500" gate="G$1" pin="1"/>
-<wire x1="292.1" y1="228.6" x2="289.56" y2="228.6" width="0.1524" layer="91"/>
+<wire x1="292.1" y1="220.98" x2="294.64" y2="220.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$17" class="0">
@@ -13446,35 +13597,7 @@ NS Package M08A</description>
 <label x="157.48" y="35.56" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$10" class="0">
-<segment>
-<pinref part="IC5" gate="A" pin="-IN"/>
-<wire x1="320.04" y1="294.64" x2="317.5" y2="294.64" width="0.1524" layer="91"/>
-<pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="317.5" y1="294.64" x2="314.96" y2="294.64" width="0.1524" layer="91"/>
-<wire x1="317.5" y1="294.64" x2="317.5" y2="302.26" width="0.1524" layer="91"/>
-<pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="317.5" y1="302.26" x2="322.58" y2="302.26" width="0.1524" layer="91"/>
-<junction x="317.5" y="294.64"/>
-</segment>
-</net>
 <net name="CV_REF" class="0">
-<segment>
-<pinref part="R4" gate="G$1" pin="2"/>
-<wire x1="332.74" y1="302.26" x2="337.82" y2="302.26" width="0.1524" layer="91"/>
-<wire x1="337.82" y1="302.26" x2="337.82" y2="292.1" width="0.1524" layer="91"/>
-<pinref part="IC5" gate="A" pin="OUT"/>
-<wire x1="337.82" y1="292.1" x2="335.28" y2="292.1" width="0.1524" layer="91"/>
-<wire x1="337.82" y1="292.1" x2="350.52" y2="292.1" width="0.1524" layer="91"/>
-<label x="340.36" y="292.1" size="1.778" layer="95"/>
-<junction x="337.82" y="292.1"/>
-</segment>
-<segment>
-<pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="294.64" y1="180.34" x2="307.34" y2="180.34" width="0.1524" layer="91"/>
-<wire x1="307.34" y1="180.34" x2="307.34" y2="182.88" width="0.1524" layer="91"/>
-<label x="294.64" y="180.34" size="1.778" layer="95"/>
-</segment>
 <segment>
 <pinref part="R602" gate="G$1" pin="1"/>
 <wire x1="307.34" y1="106.68" x2="307.34" y2="101.6" width="0.1524" layer="91"/>
@@ -13493,36 +13616,28 @@ NS Package M08A</description>
 <wire x1="307.34" y1="-48.26" x2="294.64" y2="-48.26" width="0.1524" layer="91"/>
 <label x="294.64" y="-48.26" size="1.778" layer="95"/>
 </segment>
-</net>
-<net name="N$8" class="0">
 <segment>
-<pinref part="R5" gate="G$1" pin="2"/>
-<wire x1="314.96" y1="261.62" x2="317.5" y2="261.62" width="0.1524" layer="91"/>
-<wire x1="317.5" y1="261.62" x2="317.5" y2="269.24" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="317.5" y1="269.24" x2="322.58" y2="269.24" width="0.1524" layer="91"/>
-<pinref part="IC5" gate="B" pin="+IN"/>
-<wire x1="317.5" y1="261.62" x2="320.04" y2="261.62" width="0.1524" layer="91"/>
-<junction x="317.5" y="261.62"/>
+<pinref part="IC4" gate="G$1" pin="A"/>
+<wire x1="330.2" y1="266.7" x2="330.2" y2="269.24" width="0.1524" layer="91"/>
+<wire x1="330.2" y1="269.24" x2="309.88" y2="269.24" width="0.1524" layer="91"/>
+<wire x1="309.88" y1="269.24" x2="309.88" y2="264.16" width="0.1524" layer="91"/>
+<pinref part="R15" gate="G$1" pin="2"/>
+<wire x1="309.88" y1="269.24" x2="297.18" y2="269.24" width="0.1524" layer="91"/>
+<junction x="309.88" y="269.24"/>
+<label x="297.18" y="269.24" size="1.778" layer="95"/>
+<pinref part="C1" gate="G$1" pin="1"/>
+<wire x1="330.2" y1="269.24" x2="337.82" y2="269.24" width="0.1524" layer="91"/>
+<wire x1="337.82" y1="269.24" x2="337.82" y2="261.62" width="0.1524" layer="91"/>
+<junction x="330.2" y="269.24"/>
+</segment>
+<segment>
+<pinref part="POT5" gate="G$1" pin="1"/>
+<wire x1="287.02" y1="213.36" x2="287.02" y2="208.28" width="0.1524" layer="91"/>
+<wire x1="287.02" y1="208.28" x2="274.32" y2="208.28" width="0.1524" layer="91"/>
+<label x="274.32" y="208.28" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CV_POT_REF" class="0">
-<segment>
-<label x="340.36" y="259.08" size="1.778" layer="95"/>
-<pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="337.82" y1="259.08" x2="355.6" y2="259.08" width="0.1524" layer="91"/>
-<wire x1="332.74" y1="269.24" x2="337.82" y2="269.24" width="0.1524" layer="91"/>
-<wire x1="337.82" y1="269.24" x2="337.82" y2="259.08" width="0.1524" layer="91"/>
-<pinref part="IC5" gate="B" pin="OUT"/>
-<wire x1="337.82" y1="259.08" x2="335.28" y2="259.08" width="0.1524" layer="91"/>
-<junction x="337.82" y="259.08"/>
-</segment>
-<segment>
-<pinref part="POT5" gate="G$1" pin="3"/>
-<wire x1="284.48" y1="236.22" x2="284.48" y2="238.76" width="0.1524" layer="91"/>
-<wire x1="284.48" y1="238.76" x2="302.26" y2="238.76" width="0.1524" layer="91"/>
-<label x="287.02" y="238.76" size="1.778" layer="95"/>
-</segment>
 <segment>
 <wire x1="284.48" y1="157.48" x2="284.48" y2="160.02" width="0.1524" layer="91"/>
 <pinref part="POT6" gate="G$1" pin="3"/>
