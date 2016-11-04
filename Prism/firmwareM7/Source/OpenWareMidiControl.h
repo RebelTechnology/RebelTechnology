@@ -2,7 +2,8 @@
 #define OPENWAREMIDICONTROL_H_INCLUDED
 
 #define MIDI_SYSEX_MANUFACTURER        0x7d     /* Educational or development use only */
-#define MIDI_SYSEX_DEVICE              0x52     /* OWL Open Ware Laboratory */
+#define MIDI_SYSEX_DEVICE              0x52
+#define MIDI_SYSEX_OWL_DEVICE          0x20     /* OWL Open Ware Laboratory */
 #define MIDI_SYSEX_VERSION             0x03     /* Revision */
 
 #define SYSEX_CONFIGURATION_AUDIO_RATE            "FS"
@@ -19,6 +20,8 @@
 #define SYSEX_CONFIGURATION_INPUT_SCALAR          "IS"
 #define SYSEX_CONFIGURATION_OUTPUT_OFFSET         "OO"
 #define SYSEX_CONFIGURATION_OUTPUT_SCALAR         "OS"
+#define SYSEX_CONFIGURATION_MIDI_INPUT_CHANNEL    "MI"
+#define SYSEX_CONFIGURATION_MIDI_OUTPUT_CHANNEL   "MO"
 
 enum OpenWareMidiSysexCommand {
   SYSEX_PRESET_NAME_COMMAND       = 0x01,
@@ -45,6 +48,10 @@ enum OpenWareMidiControl {
   PATCH_PARAMETER_C      = 22, /* Parameter C */
   PATCH_PARAMETER_D      = 23, /* Parameter D */
   PATCH_PARAMETER_E      = 24, /* Expression pedal / input */
+  PATCH_PARAMETER_F      = 1,  /* Extended parameter Modulation */
+  PATCH_PARAMETER_G      = 12, /* Extended parameter Effect Ctrl 1 */
+  PATCH_PARAMETER_H      = 13, /* Extended parameter Effect Ctrl 2 */
+
   PATCH_BUTTON           = 25, /* LED Pushbutton: 0=not pressed, 127=pressed */
   PATCH_CONTROL          = 26, /* Remote control: 0=local, 127=MIDI */
   LED                    = 30, /* set/get LED value: 
@@ -61,35 +68,43 @@ enum OpenWareMidiControl {
   LEFT_OUTPUT_MUTE       = 38, /* mute left output (127=muted) */
   RIGHT_OUTPUT_MUTE      = 39,
   BYPASS                 = 40, /* codec bypass mode (127=bypass) */
-
-  CODEC_MASTER           = 41, /* codec mode, slave or master:
-				* 0-63 = slave
-				* 64-127 = master
-				*/
-  CODEC_PROTOCOL         = 42, /* codec protocol: 
-				* 0-63 = I2S Philips
-				* 64-127 = MSB
-				*/
-  SAMPLING_RATE          = 60, /* sampling rate
-				* 0-31 = 8kHz
-				* 32-63 = 32kHz
-				* 64-95 = 48kHz
-				* 96-127 = 96kHz
-				*/
-  SAMPLING_BITS          = 61, /* sampling bits
-				* 0-41 = 16bit
-				* 42-83 = 24bit
-				* 84-127 = 32bit
-				*/
-  SAMPLING_SIZE          = 62, /* block size in samples */
-
-  LEFT_RIGHT_SWAP        = 63, /* swap left/right channels */
-
   REQUEST_SETTINGS       = 67, /* load settings from device (127=all settings) (30 for LED) (more to come) */
   SAVE_SETTINGS          = 68, /* save settings to device */
-  DEVICE_FIRMWARE_UPDATE = 69, /* enter Device Firmware Upgrade mode */
   FACTORY_RESET          = 70, /* reset all settings */
-  DEVICE_STATUS          = 71
+  DEVICE_STATUS          = 71,
+
+  PATCH_PARAMETER_AA     = 75,
+  PATCH_PARAMETER_AB     = 76,
+  PATCH_PARAMETER_AC     = 77,
+  PATCH_PARAMETER_AD     = 78,
+  PATCH_PARAMETER_AE     = 79,
+  PATCH_PARAMETER_AF     = 80,
+  PATCH_PARAMETER_AG     = 81,
+  PATCH_PARAMETER_AH     = 82,
+  PATCH_PARAMETER_BA     = 83,
+  PATCH_PARAMETER_BB     = 84,
+  PATCH_PARAMETER_BC     = 85,
+  PATCH_PARAMETER_BD     = 86,
+  PATCH_PARAMETER_BE     = 87,
+  PATCH_PARAMETER_BF     = 88,
+  PATCH_PARAMETER_BG     = 89,
+  PATCH_PARAMETER_BH     = 90,
+  PATCH_PARAMETER_CA     = 91,
+  PATCH_PARAMETER_CB     = 92,
+  PATCH_PARAMETER_CC     = 93,
+  PATCH_PARAMETER_CD     = 94,
+  PATCH_PARAMETER_CE     = 95,
+  PATCH_PARAMETER_CF     = 96,
+  PATCH_PARAMETER_CG     = 97,
+  PATCH_PARAMETER_CH     = 98,
+  PATCH_PARAMETER_DA     = 99,
+  PATCH_PARAMETER_DB     = 100,
+  PATCH_PARAMETER_DC     = 101,
+  PATCH_PARAMETER_DD     = 102,
+  PATCH_PARAMETER_DE     = 103,
+  PATCH_PARAMETER_DF     = 104,
+  PATCH_PARAMETER_DG     = 105,
+  PATCH_PARAMETER_DH     = 106
 };
 
 #endif  // OPENWAREMIDICONTROL_H_INCLUDED

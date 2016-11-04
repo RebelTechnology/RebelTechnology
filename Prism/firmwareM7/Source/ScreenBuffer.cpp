@@ -42,7 +42,7 @@ size_t ScreenBuffer::write(uint8_t c) {
   } else if (c == '\r') {
     // skip em
   } else {
-    drawChar(cursor_x, cursor_y, c, textcolor, textbgcolor, textsize);
+    drawRotatedChar(cursor_x, cursor_y, c, textcolor, textbgcolor, textsize);
     cursor_x += textsize*6;
     // if (wrap && (cursor_x > (width - textsize*6))) {
     //   cursor_y += textsize*8;

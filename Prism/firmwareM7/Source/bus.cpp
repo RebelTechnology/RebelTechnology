@@ -180,8 +180,8 @@ void bus_rx_error(const char* reason){
 
 extern "C" {
   void midi_rx_usb_buffer(uint8_t *buffer, uint32_t length){
+    bus.readMidiFrame(buffer); // process locally
     bus.sendFrame(buffer); // forward USB MIDI to serial bus
-    // bus.readMidiFrame(buffer);
   }
 }
 

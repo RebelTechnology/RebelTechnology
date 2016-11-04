@@ -614,7 +614,7 @@ extern "C" {
 ProgramVector programVector;
 // ProgramVector pv;
 
-uint16_t adc_values[4];
+uint16_t adc_values[NOF_PARAMETERS];
 volatile bool doProcessAudio = false;
 uint32_t dropouts = 0;
 extern "C" {
@@ -642,7 +642,7 @@ int swappb = 0;
 void updateProgramVector(ProgramVector* pv){
   pv->checksum = sizeof(ProgramVector);
   pv->hardware_version = PRISM_HARDWARE;
-  pv->parameters_size = 2;
+  pv->parameters_size = NOF_PARAMETERS;
   pv->parameters = adc_values;
   pv->audio_bitdepth = 24;
   pv->audio_samplingrate = 48000;

@@ -17,12 +17,18 @@ bool sw2(){
   // return !getPin(SW2_GPIO_Port, SW2_Pin);
 }
 
+void setParameterValue(uint8_t pid, int16_t value){
+  ASSERT(pid < getProgramVector()->parameters_size, "Invalid parameter ID");
+  getProgramVector()->parameters[pid] = value;
+}
+
+
 ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
 
 // #include "ScopePatch.hpp"
 // #include "LissajouPatch.hpp"
 // #include "DemoPatch.hpp"
-#include "SplashPatch.hpp"
+// #include "SplashPatch.hpp"
 #include "PresetDisplayPatch.hpp"
 
 SampleBuffer samples;
@@ -36,8 +42,6 @@ PresetDisplayPatch preset;
 Patch* patches[] = {&preset};
 #define PRESET_COUNT 2
 // Patch* patches[] = {&scope, &lissajou, &splash};
-
-extern uint16_t adc_values[4];
 
 uint8_t currentPatch = 0;
 void changePatch(uint8_t pid){

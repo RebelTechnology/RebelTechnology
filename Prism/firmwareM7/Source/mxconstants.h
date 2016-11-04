@@ -27,6 +27,9 @@
 #define USE_USB
 #define MIDI_MAX_MESSAGE_SIZE        260
 
+#define NOF_PARAMETERS               40
+
+
 // MCOT096064 max recommended SPI speed 6.6MHz
 // MCOT096096AY-RGBM max 5MHz
 /* #define OLED_SPI_PRESCALER SPI_BAUDRATEPRESCALER_16  // 6.75MHz */
