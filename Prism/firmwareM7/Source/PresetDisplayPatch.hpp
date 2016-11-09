@@ -28,15 +28,16 @@ private:
 #endif
   int16_t hspace = -10;
   int16_t vspace = 46;
-  uint16_t bg = GREEN; // BLACK;
+  uint16_t bg = GREEN;
   uint16_t fg = WHITE;
 public:
   PresetDisplayPatch(){
   }
   void reset(){
+    counter = 0;
     preset0 = preset1 = 1;
-    setParameterValue(PARAMETER_A, preset0*4096/MANUAL_PRESET+1);
-    setParameterValue(PARAMETER_B, preset1*4096/MANUAL_PRESET+1);
+    setParameterValue(PARAMETER_A, preset0*4096/MANUAL_PRESET);
+    setParameterValue(PARAMETER_B, preset1*4096/MANUAL_PRESET);
 
     // // send PC to change to last program, E8: PC40
     // midiSendPC(OWL_A_CH, 40);
@@ -68,7 +69,8 @@ public:
 	preset0 = max(1, preset0-1);
       midiSendCC(OWL_A_CH, PATCH_PARAMETER_E, preset0*127/MANUAL_PRESET);
       midiSendCC(OWL_B_CH, PATCH_PARAMETER_E, preset0*127/MANUAL_PRESET);
-      setParameterValue(PARAMETER_A, preset0*4096/MANUAL_PRESET+1);
+      setParameterValue(PARAMETER_A, preset0*4096/MANUAL_PRESET);
+      counter = 0;
     }else if(encoder == 1){
       if(dir > 0)
 	preset1 = min(MAX_PRESET, preset1+1);
@@ -76,7 +78,8 @@ public:
 	preset1 = max(1, preset1-1);
       midiSendCC(OWL_C_CH, PATCH_PARAMETER_E, preset1*127/MANUAL_PRESET);
       midiSendCC(OWL_D_CH, PATCH_PARAMETER_E, preset1*127/MANUAL_PRESET);
-      setParameterValue(PARAMETER_B, preset1*4096/MANUAL_PRESET+1);
+      setParameterValue(PARAMETER_B, preset1*4096/MANUAL_PRESET);
+      counter = 0;
     }
   }
   void draw(uint8_t x, uint8_t y, uint8_t preset){
@@ -98,22 +101,38 @@ public:
     }
   }
   void processAudio(AudioBuffer& samples){
+    bg = GREEN;
     if(sw1()){
-      screen.fill(fg);
+      fg = BLACK;
+      bg = WHITE;
       reset();
     }else{
-      screen.fill(bg);
+      fg = WHITE;
     }
     if(sw2())
-      screen.fill(BLUE);
+      bg = BLUE;
+    screen.fill(bg);
 
-    preset0 = max(1, min(MANUAL_PRESET, getParameterValue(PARAMETER_A)*MANUAL_PRESET));
-    preset1 = max(1, min(MANUAL_PRESET, getParameterValue(PARAMETER_B)*MANUAL_PRESET));
-
+    int preset = max(1, min(MANUAL_PRESET, round(getParameterValue(PARAMETER_A)*MANUAL_PRESET)));
+    if(preset0 != preset){
+      preset0 = preset;
+      midiSendCC(OWL_A_CH, PATCH_PARAMETER_E, preset0*127/MANUAL_PRESET);
+      midiSendCC(OWL_B_CH, PATCH_PARAMETER_E, preset0*127/MANUAL_PRESET);
+      setParameterValue(PARAMETER_A, preset0*4096/MANUAL_PRESET);
+      counter = 0;
+    }
+    preset = max(1, min(MANUAL_PRESET, round(getParameterValue(PARAMETER_B)*MANUAL_PRESET)));
+    if(preset1 != preset){
+      preset1 = preset;
+      midiSendCC(OWL_C_CH, PATCH_PARAMETER_E, preset1*127/MANUAL_PRESET);
+      midiSendCC(OWL_D_CH, PATCH_PARAMETER_E, preset1*127/MANUAL_PRESET);
+      setParameterValue(PARAMETER_B, preset1*4096/MANUAL_PRESET);
+      counter = 0;
+    }
     draw(x, y, preset1);
     draw(x+hspace, y+vspace, preset0);
 
-    if(counter++ == SEND_RATE){
+    if(++counter == SEND_RATE){
       if(preset0 < MANUAL_PRESET)
 	midiSendCC(OWL_A_CH, PATCH_PARAMETER_E, preset0*127/MANUAL_PRESET);
     }else if(counter == SEND_RATE*2){

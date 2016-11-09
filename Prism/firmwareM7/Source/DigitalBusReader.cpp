@@ -1,5 +1,6 @@
 #include "DigitalBusReader.h"
 #include "bus.h"
+#include "midi.h"
 #include <string.h>
 
 // read a 4-byte data frame
@@ -8,8 +9,11 @@ bool DigitalBusReader::readBusFrame(uint8_t* frame){
   uint8_t seq = frame[0]&0x0f;
   switch(frame[0]&0xf0){
   case 0:
-    if(!readMidiFrame(frame))
-      return rxError("Invalid MIDI message");
+    // note: disabled MIDI input on bus for OWL Rack (todo!)
+    // if(!readMidiFrame(frame))
+    //   return rxError("Invalid MIDI message");
+    // note: forward MIDI messages from bus to USB
+    midi_tx_usb_buffer(frame, 4);
     if(DIGITAL_BUS_PROPAGATE_MIDI)
       sendFrame(frame); // warning: circular propagation!
     break;

@@ -3,6 +3,7 @@
 #include "serial.h"
 #include "message.h"
 #include "DigitalBusStreamReader.h"
+#include "MidiReader.h"
 #include "cmsis_os.h"
 #include "stm32f7xx_hal.h"
 #include "stm32f7xx.h"
@@ -16,11 +17,21 @@
 MidiWriter writer;
 static DigitalBusStreamReader bus;
 static SerialBuffer<256> bus_tx_buf;
+static MidiReader midi;
 bool DIGITAL_BUS_PROPAGATE_MIDI = 0;
 bool DIGITAL_BUS_ENABLE_BUS = 0;
 
 void midiSendCC(uint8_t ch, uint8_t cc, uint8_t value){
-  writer.controlChange(ch, cc, value);
+  writer.controlChange(ch, cc, value); // send to bus
+  // midi.controlChange(ch, cc, value); // send over USB
+  // send to bus and USB
+  // uint8_t packet[4] = { USB_COMMAND_CONTROL_CHANGE,
+  // 			(uint8_t)(CONTROL_CHANGE | ch),
+  // 			cc, value };
+  // serial_write(packet, sizeof(packet));
+  // midi_tx_usb_buffer(packet, sizeof(packet));
+  // todo: to update an attached USB client the message should be forwarded
+  // but to avoid message feedback loops this is disabled
 }
 
 void midiSendPC(uint8_t ch, uint8_t pc){
@@ -180,7 +191,7 @@ void bus_rx_error(const char* reason){
 
 extern "C" {
   void midi_rx_usb_buffer(uint8_t *buffer, uint32_t length){
-    bus.readMidiFrame(buffer); // process locally
+    midi.readMidiFrame(buffer); // process locally
     bus.sendFrame(buffer); // forward USB MIDI to serial bus
   }
 }
