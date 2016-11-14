@@ -33,7 +33,7 @@
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
@@ -54,7 +54,7 @@
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
@@ -172,6 +172,10 @@
 <text x="92.075" y="92.71" size="1.778" layer="22" font="vector" rot="MR0">VCAMatrix Rev01</text>
 <text x="100.965" y="7.62" size="1.27" layer="22" font="vector" rot="MR270">Offset</text>
 <text x="109.5375" y="16.51" size="1.27" layer="22" font="vector" rot="MR270">Clamp</text>
+<dimension x1="109.685221875" y1="100.3" x2="109.685221875" y2="0.3" x3="113.03" y3="50.3" textsize="1.778" layer="47"/>
+<dimension x1="59.685221875" y1="0.3" x2="109.685221875" y2="0.3" x3="84.685221875" y3="-2.54" textsize="1.778" layer="47"/>
+<text x="102.5525" y="16.51" size="1.27" layer="22" font="vector" rot="MR180">-12v</text>
+<text x="107.6325" y="16.51" size="1.27" layer="21" font="vector" rot="R180">-12v</text>
 </plain>
 <libraries>
 <library name="Rebel">
@@ -2024,19 +2028,19 @@ design rules under a new name.</description>
 <element name="R24" library="Rebel" package="0603" value="100k" x="76.363728125" y="10.53918125" smashed="yes">
 <attribute name="NAME" x="74.74131875" y="10.641228125" size="0.762" layer="25" font="vector" rot="R90" align="bottom-center"/>
 </element>
-<element name="R25" library="Rebel" package="0603" value="20k" x="61.758728125" y="2.60168125" smashed="yes" rot="R90">
+<element name="R25" library="Rebel" package="0603" value="22k" x="61.758728125" y="2.60168125" smashed="yes" rot="R90">
 <attribute name="NAME" x="60.996728125" y="2.91918125" size="0.762" layer="25" font="vector" rot="R90" align="bottom-center"/>
 </element>
 <element name="R26" library="Rebel" package="0603" value="560" x="62.781228125" y="16.85918125" smashed="yes" rot="R90">
 <attribute name="NAME" x="64.559228125" y="16.85918125" size="0.762" layer="25" font="vector" rot="R90" align="bottom-center"/>
 </element>
-<element name="R27" library="Rebel" package="0603" value="20k" x="65.568728125" y="9.58668125" smashed="yes" rot="R270">
+<element name="R27" library="Rebel" package="0603" value="22k" x="65.568728125" y="9.58668125" smashed="yes" rot="R270">
 <attribute name="NAME" x="64.796771875" y="9.46331875" size="0.762" layer="25" font="vector" rot="R90" align="bottom-center"/>
 </element>
 <element name="R28" library="Rebel" package="0603" value="560" x="60.806228125" y="16.88918125" smashed="yes" rot="R90">
 <attribute name="NAME" x="61.02168125" y="18.378271875" size="0.762" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R29" library="Rebel" package="0603" value="20k" x="75.088728125" y="8.33918125" smashed="yes">
+<element name="R29" library="Rebel" package="0603" value="22k" x="75.088728125" y="8.33918125" smashed="yes">
 <attribute name="NAME" x="73.44881875" y="8.413728125" size="0.762" layer="25" font="vector" rot="R90" align="bottom-center"/>
 </element>
 <element name="R3" library="Rebel" package="0603" value="100k" x="66.25654375" y="82.109534375" smashed="yes" rot="R270">
@@ -2045,29 +2049,29 @@ design rules under a new name.</description>
 <element name="R30" library="Rebel" package="0603" value="560" x="61.123728125" y="13.07918125" smashed="yes" rot="R90">
 <attribute name="NAME" x="61.33918125" y="14.568271875" size="0.762" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R31" library="Rebel" package="0603" value="20k" x="87.223728125" y="6.83168125" smashed="yes" rot="R270">
+<element name="R31" library="Rebel" package="0603" value="22k" x="87.223728125" y="6.83168125" smashed="yes" rot="R270">
 <attribute name="NAME" x="87.985728125" y="6.83168125" size="1.016" layer="25" font="vector" rot="R270" align="bottom-center"/>
 </element>
 <element name="R32" library="Rebel" package="0603" value="560" x="62.023728125" y="21.67168125" smashed="yes" rot="R90">
 <attribute name="NAME" x="61.261728125" y="21.67168125" size="1.016" layer="25" font="vector" rot="R90" align="bottom-center"/>
 </element>
-<element name="R33" library="Rebel" package="0603" value="20k" x="97.066228125" y="15.50168125" smashed="yes" rot="R180">
+<element name="R33" library="Rebel" package="0603" value="22k" x="97.066228125" y="15.50168125" smashed="yes" rot="R180">
 <attribute name="NAME" x="96.926271875" y="16.37531875" size="1.016" layer="25" font="vector" align="bottom-center"/>
 </element>
 <element name="R34" library="Rebel" package="0603" value="560" x="64.933728125" y="34.66918125" smashed="yes" rot="R180">
 <attribute name="NAME" x="64.933728125" y="33.90718125" size="0.762" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="R35" library="Rebel" package="0603" value="20k" x="68.743728125" y="17.20668125" smashed="yes">
+<element name="R35" library="Rebel" package="0603" value="22k" x="68.743728125" y="17.20668125" smashed="yes">
 <attribute name="NAME" x="68.743728125" y="15.42868125" size="1.016" layer="25" font="vector" align="bottom-center"/>
 </element>
 <element name="R36" library="Rebel" package="0603" value="560" x="65.886228125" y="37.20918125" smashed="yes" rot="R180">
 <attribute name="NAME" x="65.886228125" y="36.44718125" size="0.762" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="R37" library="Rebel" package="0603" value="20k" x="106.208728125" y="13.07918125" rot="R270"/>
+<element name="R37" library="Rebel" package="0603" value="22k" x="106.208728125" y="13.07918125" rot="R270"/>
 <element name="R38" library="Rebel" package="0603" value="560" x="63.663728125" y="13.07918125" smashed="yes" rot="R90">
 <attribute name="NAME" x="62.901728125" y="13.07918125" size="0.762" layer="25" font="vector" rot="R90" align="bottom-center"/>
 </element>
-<element name="R39" library="Rebel" package="0603" value="20k" x="88.111228125" y="11.49168125" smashed="yes" rot="R180">
+<element name="R39" library="Rebel" package="0603" value="22k" x="88.111228125" y="11.49168125" smashed="yes" rot="R180">
 <attribute name="NAME" x="88.111228125" y="10.72968125" size="1.016" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="R4" library="Rebel" package="0603" value="100k" x="74.776228125" y="36.25668125" smashed="yes" rot="R270">
@@ -2112,8 +2116,12 @@ design rules under a new name.</description>
 <element name="R9" library="Rebel" package="0603" value="100k" x="99.388728125" y="55.46668125" smashed="yes" rot="R270">
 <attribute name="NAME" x="99.79081875" y="56.970728125" size="1.016" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="OFFSET" library="resistor" package="RTRIM64W" value="" x="103.891228125" y="6.06168125" rot="MR0"/>
-<element name="CLAMP" library="resistor" package="RTRIM64W" value="" x="108.901228125" y="6.06168125" rot="MR0"/>
+<element name="OFFSET" library="resistor" package="RTRIM64W" value="" x="103.891228125" y="6.06168125" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="99.541228125" y="1.11168125" size="1.27" layer="28" rot="MR90"/>
+</element>
+<element name="CLAMP" library="resistor" package="RTRIM64W" value="" x="108.901228125" y="6.06168125" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="104.551228125" y="1.11168125" size="1.27" layer="28" rot="MR90"/>
+</element>
 <element name="A:C1" library="resistor" package="C0603K" value="560p" x="73.87654375" y="96.397034375" smashed="yes" rot="R180">
 <attribute name="NAME" x="72.252034375" y="95.82095625" size="0.762" layer="25" font="vector" rot="R90"/>
 <attribute name="VALUE" x="74.67654375" y="98.047034375" size="1.016" layer="27" rot="R180"/>
@@ -2232,7 +2240,7 @@ design rules under a new name.</description>
 <element name="A:R21" library="Rebel" package="0603" value="68k" x="77.36904375" y="81.792034375" smashed="yes" rot="R270">
 <attribute name="NAME" x="78.13104375" y="81.792034375" size="0.762" layer="25" font="vector" rot="R270" align="bottom-center"/>
 </element>
-<element name="A:R22" library="Rebel" package="0603" value="6k" x="82.13154375" y="96.079534375" smashed="yes">
+<element name="A:R22" library="Rebel" package="0603" value="5k6" x="82.13154375" y="96.079534375" smashed="yes">
 <attribute name="NAME" x="81.81404375" y="97.159034375" size="0.762" layer="25" font="vector" align="bottom-center"/>
 </element>
 <element name="A:R23" library="Rebel" package="0603" value="560" x="91.02154375" y="89.094534375" smashed="yes">
@@ -2383,7 +2391,7 @@ design rules under a new name.</description>
 <element name="B:R21" library="Rebel" package="0603" value="68k" x="74.458728125" y="69.59418125" smashed="yes" rot="R270">
 <attribute name="NAME" x="75.220728125" y="69.59418125" size="0.762" layer="25" font="vector" rot="R270" align="bottom-center"/>
 </element>
-<element name="B:R22" library="Rebel" package="0603" value="6k" x="82.123728125" y="73.18168125" smashed="yes" rot="R180">
+<element name="B:R22" library="Rebel" package="0603" value="5k6" x="82.123728125" y="73.18168125" smashed="yes" rot="R180">
 <attribute name="NAME" x="82.023771875" y="73.94781875" size="0.762" layer="25" font="vector" align="bottom-center"/>
 </element>
 <element name="B:R23" library="Rebel" package="0603" value="560" x="90.968728125" y="66.10168125" smashed="yes">
@@ -2534,7 +2542,7 @@ design rules under a new name.</description>
 <element name="C:R21" library="Rebel" package="0603" value="68k" x="76.448728125" y="49.56668125" smashed="yes" rot="R270">
 <attribute name="NAME" x="78.046771875" y="49.49331875" size="0.762" layer="25" font="vector" rot="R90" align="bottom-center"/>
 </element>
-<element name="C:R22" library="Rebel" package="0603" value="6k" x="81.998728125" y="53.37668125" smashed="yes" rot="R180">
+<element name="C:R22" library="Rebel" package="0603" value="5k6" x="81.998728125" y="53.37668125" smashed="yes" rot="R180">
 <attribute name="NAME" x="82.148771875" y="54.38281875" size="0.762" layer="25" font="vector" align="bottom-center"/>
 </element>
 <element name="C:R23" library="Rebel" package="0603" value="560" x="91.388728125" y="46.07418125" smashed="yes">
@@ -2685,7 +2693,7 @@ design rules under a new name.</description>
 <element name="D:R21" library="Rebel" package="0603" value="68k" x="76.363728125" y="29.58918125" smashed="yes" rot="R270">
 <attribute name="NAME" x="75.591771875" y="29.46581875" size="0.762" layer="25" font="vector" rot="R90" align="bottom-center"/>
 </element>
-<element name="D:R22" library="Rebel" package="0603" value="6k" x="83.031228125" y="34.03418125" smashed="yes" rot="R180">
+<element name="D:R22" library="Rebel" package="0603" value="5k6" x="83.031228125" y="34.03418125" smashed="yes" rot="R180">
 <attribute name="NAME" x="83.031228125" y="33.27218125" size="0.762" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="D:R23" library="Rebel" package="0603" value="560" x="91.286228125" y="26.41418125" smashed="yes">
@@ -5079,7 +5087,7 @@ design rules under a new name.</description>
 <wire x1="108.2675" y1="7.3025" x2="104.877046875" y2="7.3025" width="0.4064" layer="16"/>
 <wire x1="104.877046875" y1="7.3025" x2="103.636228125" y2="6.06168125" width="0.4064" layer="16"/>
 </signal>
-<signal name="N$34">
+<signal name="OFFSET_REF">
 <contactref element="IC4" pad="2"/>
 <contactref element="IC4" pad="1"/>
 <contactref element="A:IC5" pad="5"/>
