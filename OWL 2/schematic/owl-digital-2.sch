@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -13105,6 +13105,8 @@ NS Package M08A</description>
 <part name="C3" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="P+7" library="supply1" deviceset="+5V" device=""/>
+<part name="+3V15" library="supply1" deviceset="+3V3" device=""/>
+<part name="GND12" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -13296,6 +13298,8 @@ NS Package M08A</description>
 <instance part="C3" gate="G$1" x="431.8" y="25.4"/>
 <instance part="GND9" gate="1" x="431.8" y="10.16"/>
 <instance part="P+7" gate="1" x="431.8" y="38.1"/>
+<instance part="+3V15" gate="G$1" x="259.08" y="17.78" rot="R180"/>
+<instance part="GND12" gate="1" x="254" y="17.78"/>
 </instances>
 <busses>
 </busses>
@@ -13643,6 +13647,11 @@ NS Package M08A</description>
 <pinref part="GND9" gate="1" pin="GND"/>
 <pinref part="C3" gate="G$1" pin="2"/>
 <wire x1="431.8" y1="12.7" x2="431.8" y2="20.32" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND12" gate="1" pin="GND"/>
+<pinref part="JP4" gate="G$1" pin="3"/>
+<wire x1="254" y1="20.32" x2="254" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="FLASH_NCS" class="0">
@@ -14902,6 +14911,11 @@ NS Package M08A</description>
 <pinref part="C42" gate="G$1" pin="1"/>
 <wire x1="106.68" y1="-45.72" x2="106.68" y2="-43.18" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="+3V15" gate="G$1" pin="+3V3"/>
+<pinref part="JP4" gate="G$1" pin="1"/>
+<wire x1="259.08" y1="20.32" x2="259.08" y2="30.48" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="ADC4" class="0">
 <segment>
@@ -15083,13 +15097,6 @@ NS Package M08A</description>
 <wire x1="269.24" y1="127" x2="287.02" y2="127" width="0.1524" layer="91"/>
 <label x="271.78" y="127" size="1.778" layer="95"/>
 <pinref part="IC8" gate="G$3" pin="PG9"/>
-</segment>
-</net>
-<net name="TOP_GP5" class="0">
-<segment>
-<pinref part="JP4" gate="G$1" pin="3"/>
-<wire x1="254" y1="30.48" x2="254" y2="17.78" width="0.1524" layer="91"/>
-<label x="254" y="17.78" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="LEFT_GP1" class="0">

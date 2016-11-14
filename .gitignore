@@ -22,3 +22,5 @@
 Expander/firmware Keil/MDK-ARM/Expander/Expander_Expander.dep
 Expander/firmware/Drivers
 
+OWL 2/firmware/OWL2/Drivers
+OWL 2/firmware_blankbuild

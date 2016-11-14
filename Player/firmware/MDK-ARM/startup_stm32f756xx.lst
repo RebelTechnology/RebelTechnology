@@ -4,12 +4,12 @@
 ARM Macro Assembler    Page 1 
 
 
-    1 00000000         ;******************** (C) COPYRIGHT 2015 STMicroelectron
+    1 00000000         ;******************** (C) COPYRIGHT 2016 STMicroelectron
                        ics ********************
     2 00000000         ;* File Name          : startup_stm32f756xx.s
     3 00000000         ;* Author             : MCD Application Team
-    4 00000000         ;* Version            : V1.0.2
-    5 00000000         ;* Date               : 21-September-2015
+    4 00000000         ;* Version            : V1.1.2
+    5 00000000         ;* Date               : 23-September-2016
     6 00000000         ;* Description        : STM32F756xx devices vector table
                         for MDK-ARM toolchain. 
     7 00000000         ;*                      This module performs:
@@ -703,7 +703,7 @@ ARM Macro Assembler    Page 11
   304 0000001A                 EXPORT           FMC_IRQHandler                 
    [WEAK]
   305 0000001A                 EXPORT           SDMMC1_IRQHandler              
-     [WEAK]
+   [WEAK]
   306 0000001A                 EXPORT           TIM5_IRQHandler                
    [WEAK]
   307 0000001A                 EXPORT           SPI3_IRQHandler                
@@ -948,12 +948,12 @@ ARM Macro Assembler    Page 15
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M7.fp.sp --apcs=
 interwork --depend=player\startup_stm32f756xx.d -oplayer\startup_stm32f756xx.o 
--I"E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechn
-ology\Player\firmware\MDK-ARM\RTE" -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\
-Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.6.0\Drivers\CMSIS\Device\ST\
-STM32F7xx\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSIO
-N SETA 520" --predefine="_RTE_ SETA 1" --predefine="STM32F756xx SETA 1" --list=
-startup_stm32f756xx.lst startup_stm32f756xx.s
+-I../Inc -I"E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\R
+ebelTechnology\Player\firmware\MDK-ARM\RTE" -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0
+.0-Beta4\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.6.0\Drivers\C
+MSIS\Device\ST\STM32F7xx\Include --predefine="__MICROLIB SETA 1" --predefine="_
+_UVISION_VERSION SETA 520" --predefine="_RTE_ SETA 1" --predefine="STM32F756xx 
+SETA 1" --list=startup_stm32f756xx.lst startup_stm32f756xx.s
 
 
 
