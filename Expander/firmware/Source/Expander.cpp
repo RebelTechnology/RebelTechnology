@@ -7,15 +7,8 @@
 #include "message.h"
 #include "OpenWareMidiControl.h"
 #include "device.h"
-#ifndef min
-#define min(a,b) ((a)<(b)?(a):(b))
-#endif
-#ifndef max
-#define max(a,b) ((a)>(b)?(a):(b))
-#endif
-#ifndef abs
-#define abs(x) ((x)>0?(x):-(x))
-#endif
+#include "basicmaths.h"
+#include "SmoothValue.h"
 
 // #define USE_PIXI
 // #define USE_MAX
@@ -59,10 +52,13 @@ enum ChannelMode {
   CHANNEL_MODES
 };
 
-uint8_t cc_values[16] = {0};
-ChannelMode cfg[16];
-int dac[16];
-int adc[16];
+#define TLC5940_CHANNELS 20
+#define MAX11300_CHANNELS 20
+
+uint8_t cc_values[MAX11300_CHANNELS] = {0};
+ChannelMode cfg[MAX11300_CHANNELS];
+SmoothFloat dac[MAX11300_CHANNELS];
+int adc[MAX11300_CHANNELS];
 
 // #define USE_TEMP
 #ifdef USE_TEMP
@@ -78,20 +74,22 @@ uint8_t getChannelIndex(uint8_t ch);
 void setup(){
   // setPin(TLC_BLANK_GPIO_Port, TLC_BLANK_Pin); // bring BLANK high to turn LEDs off
 
-  for(int ch=0; ch<16; ++ch){
+  for(int ch=0; ch<MAX11300_CHANNELS; ++ch){
     adc[ch] = 0;
     dac[ch] = 0;
-    cfg[ch] = ADC_0TO10;
-    // cfg[ch] = ADC_5TO5;
+    dac[ch].lambda = 0.95;
+    // cfg[ch] = ADC_0TO10;
+    // cfg[ch] = DAC_0TO10;
+    cfg[ch] = ADC_5TO5;
     // cfg[ch] = ch < 8 ? ADC_0TO10 : ADC_5TO5;
   }
 
-  for(int ch=0; ch<16; ++ch)
+  for(int ch=0; ch<MAX11300_CHANNELS; ++ch)
     configureChannel(ch, cfg[ch]);
 
   bus_setup();
 
-  for(int ch=0; ch<16; ++ch)
+  for(int ch=0; ch<TLC5940_CHANNELS; ++ch)
     TLC5946_SetOutput_DC(ch, 0xff);
 
 #ifdef USE_TLC
@@ -103,7 +101,7 @@ void setup(){
   int delayms = 1;
   // for(int i=0; i<8192; ++i){
   for(int i=0; i<=4096; ++i){
-    for(int ch=0; ch<16; ++ch)
+    for(int ch=0; ch<TLC5940_CHANNELS; ++ch)
       setLed(ch, i&0x0fff);
 #ifndef TLC_CONTINUOUS
     TLC5946_Refresh_GS();
@@ -160,36 +158,42 @@ void configureChannel(uint8_t ch, ChannelMode mode){
 
 void setLed(uint8_t ch, int16_t value){
 #ifdef USE_TLC
-  // note that LED channel index is inverse of MAX channel index
-  if(cfg[ch] == DAC_5TO5 || cfg[ch] == ADC_5TO5)
-    TLC5946_SetOutput_GS(15-ch, max(0, min(4095, abs(value-2048)*2)));
-  else
-    TLC5946_SetOutput_GS(15-ch, max(0, min(4095, value)));
+  if(ch < TLC5940_CHANNELS){
+    // note that LED channel index is inverse of MAX channel index
+    if(cfg[ch] == DAC_5TO5 || cfg[ch] == ADC_5TO5)
+      TLC5946_SetOutput_GS(15-ch, max(0, min(4095, abs(value-2048)*2)));
+    else
+      TLC5946_SetOutput_GS(15-ch, max(0, min(4095, value)));
+  }
 #endif
 }
 
 void setDAC(uint8_t ch, int16_t value){
-  if(cfg[ch] < DAC_MODE){
-    // auto configure to output
-    if(value < 0){
-      configureChannel(ch, DAC_5TO5);
-    }else{
-      configureChannel(ch, DAC_0TO10);
+  if(ch < MAX11300_CHANNELS){
+    if(cfg[ch] < DAC_MODE){
+      // auto configure to output
+      if(value < 0){
+	configureChannel(ch, DAC_5TO5);
+      }else{
+	configureChannel(ch, DAC_0TO10);
+      }
     }
-  }
-  if(cfg[ch] == DAC_5TO5)
-    value += 2048;
-  value = max(0, min(4095, value));
-  if(dac[ch] != value){
-    dac[ch] = value;
-    setLed(ch, value);
+    if(cfg[ch] == DAC_5TO5)
+      value += 2048;
+    value = max(0, min(4095, value));
+    if(dac[ch] != value){
+      dac[ch] = value;
+      setLed(ch, value);
+    }
   }
 }
 
 void setADC(uint8_t ch, int16_t value){
-  if(adc[ch] != value){
-    adc[ch] = value;
-    setLed(ch, value);
+  if(ch < MAX11300_CHANNELS){
+    if(adc[ch] != value){
+      adc[ch] = value;
+      setLed(ch, value);
+    }
   }
 }
 
@@ -225,7 +229,7 @@ void run(){
 #if defined USE_MAX_DMA && !defined MAX_CONTINUOUS
     MAX11300_bulksetDAC();
 #endif
-    for(int ch=0; ch<16; ++ch){
+    for(int ch=0; ch<MAX11300_CHANNELS; ++ch){
       if(cfg[ch] < DAC_MODE){
 	setADC(ch, getPortValue(ch));
 	uint8_t cc = adc[ch] >> 5;
@@ -235,10 +239,11 @@ void run(){
 	}
       }
     }
+    bus_status();
 #if defined USE_MAX_DMA && !defined MAX_CONTINUOUS
     MAX11300_bulkreadADC();
 #endif
-    for(int ch=0; ch<16; ++ch){
+    for(int ch=0; ch<MAX11300_CHANNELS; ++ch){
       if(cfg[ch] > DAC_MODE){
 	setPortValue(ch, dac[ch]);
 	setLed(ch, dac[ch]);
@@ -267,7 +272,7 @@ void bus_rx_command(uint8_t cmd, int16_t data){
     uint8_t ch = getChannelIndex(data>>8);
     ChannelMode mode = (ChannelMode)(data&0xff);
     // debug << "rx command [" << cmd << "][" << ch << "][" << mode << "]\r\n" ;
-    if(ch < 16){
+    if(ch < MAX11300_CHANNELS){
       configureChannel(ch, mode);
       bus_tx_message("Configured channel");
     }
@@ -275,13 +280,13 @@ void bus_rx_command(uint8_t cmd, int16_t data){
 }
 
 void bus_rx_button(uint8_t bid, int16_t value){
-  debug << "rx button [" << bid << "][" << value << "]\r\n" ;
+  // debug << "rx button [" << bid << "][" << value << "]\r\n" ;
 }
 
 void bus_rx_message(const char* msg){
-  debug << "rx msg [" << msg << "]\r\n" ;
+  // debug << "rx msg [" << msg << "]\r\n" ;
 }
 
 void bus_rx_data(const uint8_t* data, uint16_t size){
-  debug << "rx data [" << size << "]\r\n" ;
+  // debug << "rx data [" << size << "]\r\n" ;
 }

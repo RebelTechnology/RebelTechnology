@@ -8,12 +8,15 @@
 #include "SerialBuffer.hpp"
 
 static DigitalBusStreamReader bus;
-static SerialBuffer<256> bus_tx_buf;
-bool DIGITAL_BUS_PROPAGATE_MIDI = 1;
+static SerialBuffer<512> bus_tx_buf;
+bool DIGITAL_BUS_PROPAGATE_MIDI = 0;
 bool DIGITAL_BUS_ENABLE_BUS = 1;
 
 extern "C" {
   void serial_rx_callback(uint8_t c);
+  uint8_t serial_tx_available();
+  uint8_t serial_tx_pull();
+
 #define NO_ERROR            0x00
 #define HARDFAULT_ERROR     0x10
 #define BUS_ERROR           0x20
@@ -58,24 +61,26 @@ int bus_status(){
   return bus.getStatus();
 }
 
-extern "C" {
-
-  void serial_rx_callback(uint8_t c){
-    bus.read(c);
-  }
-
-  // void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart){
-  //   bus.reset();
-  // }
-
-  // void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
-  //   bus.readBusFrame(busframe);
-  // }
-
-  // void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
-  // }
-
+// c functions used in interrupts
+void serial_rx_callback(uint8_t c){
+  bus.read(c);
 }
+
+uint8_t serial_tx_available(){
+  return bus_tx_buf.notEmpty();
+}
+
+uint8_t serial_tx_pull(){
+  return bus_tx_buf.pull();
+}
+
+void serial_write(uint8_t* data, uint16_t size){
+  extern UART_HandleTypeDef huart1;
+  UART_HandleTypeDef *huart = &huart1;
+  bus_tx_buf.push(data, size);
+  __HAL_UART_ENABLE_IT(huart, UART_IT_TXE);
+}
+
 
 void bus_tx_parameter(uint8_t pid, int16_t value){
   // debug << "tx parameter [" << pid << "][" << value << "]" ;

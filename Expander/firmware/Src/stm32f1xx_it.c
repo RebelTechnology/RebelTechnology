@@ -37,6 +37,9 @@
 
 /* USER CODE BEGIN 0 */
 void serial_rx_callback(uint8_t c);
+uint8_t serial_tx_available();
+uint8_t serial_tx_pull();
+
 #define NO_ERROR            0x00
 #define HARDFAULT_ERROR     0x10
 #define BUS_ERROR           0x20
@@ -194,7 +197,18 @@ void USART1_IRQHandler(void)
     (uint8_t)(huart->Instance->DR);
     setErrorMessage(UART_ERROR, "uart overrun error");
   }
-  
+
+  tmp_flag = __HAL_UART_GET_FLAG(huart, UART_FLAG_TXE);
+  tmp_it_source = __HAL_UART_GET_IT_SOURCE(huart, UART_IT_TXE);
+  if((tmp_flag != RESET) && (tmp_it_source != RESET))
+  { 
+    if(serial_tx_available()){
+      huart->Instance->DR = (serial_tx_pull() & (uint8_t)0xFF);
+    }else{
+      __HAL_UART_DISABLE_IT(huart, UART_IT_TXE);
+    }
+  }
+
   tmp_flag = __HAL_UART_GET_FLAG(huart, UART_FLAG_RXNE);
   tmp_it_source = __HAL_UART_GET_IT_SOURCE(huart, UART_IT_RXNE);
   /* UART in mode Receiver ---------------------------------------------------*/
