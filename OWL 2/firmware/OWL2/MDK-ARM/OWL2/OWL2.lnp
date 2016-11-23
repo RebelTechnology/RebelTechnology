@@ -27,6 +27,8 @@
 "owl2\main.o"
 "owl2\stm32f4xx_hal_msp.o"
 "owl2\stm32f4xx_it.o"
+"owl2\test.o"
+"owl2\cs4272.o"
 "owl2\startup_stm32f427xx.o"
 --library_type=microlib --strict --scatter "OWL2\OWL2.sct"
 --diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols

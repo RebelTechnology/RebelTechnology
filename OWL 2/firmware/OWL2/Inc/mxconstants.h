@@ -83,6 +83,10 @@
 #define FLASH_NCS_GPIO_Port GPIOC
 #define PWM3_Pin GPIO_PIN_1
 #define PWM3_GPIO_Port GPIOB
+#define CS_nCS_Pin GPIO_PIN_10
+#define CS_nCS_GPIO_Port GPIOB
+#define CS_nRST_Pin GPIO_PIN_11
+#define CS_nRST_GPIO_Port GPIOB
 #define CS_SDIN_Pin GPIO_PIN_6
 #define CS_SDIN_GPIO_Port GPIOD
 /* USER CODE BEGIN Private defines */

@@ -34,24 +34,14 @@
 #include "stm32f4xx_hal.h"
 
 /* USER CODE BEGIN Includes */
-#define BUFFER_SIZE         ((uint32_t)0x000A)
-#define WRITE_READ_ADDR     ((uint32_t)0x0800)
+
+#include "cs4272.h"
+#include "test.h"
+
 #define REFRESH_COUNT       ((uint32_t)0x0569)   /* SDRAM refresh counter (90MHz SD clock) */
 
 FMC_SDRAM_TimingTypeDef SDRAM_Timing;
 FMC_SDRAM_CommandTypeDef command;
-
-/* Read/Write Buffers */
-uint32_t aTxBuffer[BUFFER_SIZE];
-uint32_t aRxBuffer[BUFFER_SIZE];
-
-/* Status variables */
-__IO uint32_t uwWriteReadStatus = 0;
-
-/* Counter index */
-uint32_t uwIndex = 0;
-
-#define SDRAM_BANK_ADDR                 ((uint32_t)0xD0000000)
 
 /* #define SDRAM_MEMORY_WIDTH            FMC_SDRAM_MEM_BUS_WIDTH_8 */
 #define SDRAM_MEMORY_WIDTH            FMC_SDRAM_MEM_BUS_WIDTH_16
@@ -73,7 +63,7 @@ uint32_t uwIndex = 0;
 #define SDRAM_MODEREG_WRITEBURST_MODE_SINGLE     ((uint16_t)0x0200) 
 
 static void SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram, FMC_SDRAM_CommandTypeDef *Command);
-static void Fill_Buffer(uint32_t *pBuffer, uint32_t uwBufferLenght, uint32_t uwOffset);
+
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -180,45 +170,12 @@ int main(void)
 		}
 	
 		/* Program the SDRAM external device */
-			SDRAM_Initialization_Sequence(&hsdram1, &command);   
-				
-			/*##-2- SDRAM memory read/write access #####################################*/  
+		SDRAM_Initialization_Sequence(&hsdram1, &command);   
+		
+		// Initialise Codec
+		codec_init(&hspi4);
+		
 			
-			/* Fill the buffer to write */
-			Fill_Buffer(aTxBuffer, BUFFER_SIZE, 0xA244250F);   
-			
-			/* Write data to the SDRAM memory */
-			for (uwIndex = 0; uwIndex < BUFFER_SIZE; uwIndex++)
-			{
-				*(__IO uint32_t*) (SDRAM_BANK_ADDR + WRITE_READ_ADDR + 4*uwIndex) = aTxBuffer[uwIndex];
-			}    
-			
-			/* Read back data from the SDRAM memory */
-			for (uwIndex = 0; uwIndex < BUFFER_SIZE; uwIndex++)
-			{
-				aRxBuffer[uwIndex] = *(__IO uint32_t*) (SDRAM_BANK_ADDR + WRITE_READ_ADDR + 4*uwIndex);
-			} 
-
-			/*##-3- Checking data integrity ############################################*/    
-
-			for (uwIndex = 0; (uwIndex < BUFFER_SIZE) && (uwWriteReadStatus == 0); uwIndex++)
-			{
-				if (aRxBuffer[uwIndex] != aTxBuffer[uwIndex])
-				{
-					uwWriteReadStatus++;
-				}
-			}	
-			
-			if (uwWriteReadStatus)
-			{
-				/* KO */
-				while(1){}   
-			}
-			else
-			{ 
-				/* OK */
-				while(1){}   it p
-			}
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -228,7 +185,7 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */	
-		
+		OWLtest();
   }
   /* USER CODE END 3 */
 
@@ -758,6 +715,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+	
+	/*Configure GPIO pins : CS_nCS_Pin CS_nRST_Pin */
+  GPIO_InitStruct.Pin = CS_nCS_Pin|CS_nRST_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : FLASH_NCS_Pin */
   GPIO_InitStruct.Pin = FLASH_NCS_Pin;
@@ -837,23 +801,7 @@ static void SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram, FMC_SDRAM
   HAL_SDRAM_ProgramRefreshRate(hsdram, REFRESH_COUNT); 
 }
 
-/**
-  * @brief  Fills buffer with user predefined data.
-  * @param  pBuffer: pointer on the buffer to fill
-  * @param  uwBufferLenght: size of the buffer to fill
-  * @param  uwOffset: first value to fill on the buffer
-  * @retval None
-  */
-static void Fill_Buffer(uint32_t *pBuffer, uint32_t uwBufferLenght, uint32_t uwOffset)
-{
-  uint32_t tmpIndex = 0;
-
-  /* Put in global buffer different values */
-  for (tmpIndex = 0; tmpIndex < uwBufferLenght; tmpIndex++ )
-  {
-    pBuffer[tmpIndex] = tmpIndex + uwOffset;
-  }
-}                  
+              
 
 /* USER CODE END 4 */
 

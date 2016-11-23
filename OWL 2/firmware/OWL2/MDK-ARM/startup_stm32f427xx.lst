@@ -896,7 +896,7 @@ ARM Macro Assembler    Page 14
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=owl2\startup_stm32f427xx.d -oowl2\startup_stm32f427xx.o -I"E:\D
 ropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\O
-WL 2\firmware\Owl2\MDK-ARM\RTE" -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMS
+WL 2\firmware\OWL2\MDK-ARM\RTE" -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMS
 IS\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\
 ST\STM32F4xx\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VER
 SION SETA 520" --predefine="_RTE_ SETA 1" --predefine="STM32F427xx SETA 1" --li
