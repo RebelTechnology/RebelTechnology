@@ -537,6 +537,11 @@
               <FileType>1</FileType>
               <FilePath>..\Src\cs4272.c</FilePath>
             </File>
+            <File>
+              <FileName>HAL_IO.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\HAL_IO.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

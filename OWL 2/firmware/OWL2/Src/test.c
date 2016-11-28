@@ -1,6 +1,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
+#include "HAL_IO.h"
 
 static void Fill_Buffer(uint32_t *pBuffer, uint32_t uwBufferLenght, uint32_t uwOffset);
 
@@ -16,12 +17,15 @@ uint32_t aRxBuffer[BUFFER_SIZE];
 
 void OWLtest(void)
 {
+	uint16_t ADC_Test = 0;
 	
 	while(1)
 	{
-	
+		ADC_Test = readCV_A();
+		
 		SDRAM_Test();
-	
+		RGB_Update(ADC_Test, 500, 500);
+		
 	}
 }
 
