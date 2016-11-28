@@ -37,6 +37,7 @@
 
 #include "cs4272.h"
 #include "test.h"
+#include "HAL_IO.h"
 
 #define REFRESH_COUNT       ((uint32_t)0x0569)   /* SDRAM refresh counter (90MHz SD clock) */
 
@@ -172,9 +173,17 @@ int main(void)
 		/* Program the SDRAM external device */
 		SDRAM_Initialization_Sequence(&hsdram1, &command);   
 		
+		// Initialise RGB LED
+		RGB_init(&htim2, &htim3, &htim5);
+		CV_init(&hadc1, &hadc2, &hadc3);
+		
 		// Initialise Codec
+		__HAL_SAI_ENABLE(&hsai_BlockA1);
+		__HAL_SAI_ENABLE(&hsai_BlockB1);
 		codec_init(&hspi4);
 		
+		codec_write(0x01, (1<<3) | (1<<5) | 1);
+		codec_write(0x06, (1<<4) | (1<<1) | 1) ;
 			
   /* USER CODE END 2 */
 
@@ -518,9 +527,9 @@ static void MX_TIM2_Init(void)
   TIM_OC_InitTypeDef sConfigOC;
 
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 0;
+  htim2.Init.Prescaler = 100;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 0;
+  htim2.Init.Period = 1000;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
   {
@@ -544,7 +553,6 @@ static void MX_TIM2_Init(void)
   }
 
   HAL_TIM_MspPostInit(&htim2);
-
 }
 
 /* TIM3 init function */
@@ -555,9 +563,9 @@ static void MX_TIM3_Init(void)
   TIM_OC_InitTypeDef sConfigOC;
 
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 0;
+  htim3.Init.Prescaler = 100;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 0;
+  htim3.Init.Period = 1000;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
   {
@@ -581,20 +589,20 @@ static void MX_TIM3_Init(void)
   }
 
   HAL_TIM_MspPostInit(&htim3);
-
+	
+	HAL_TIM_MspPostInit(&htim3);
 }
 
 /* TIM5 init function */
 static void MX_TIM5_Init(void)
 {
-
   TIM_MasterConfigTypeDef sMasterConfig;
   TIM_OC_InitTypeDef sConfigOC;
 
   htim5.Instance = TIM5;
-  htim5.Init.Prescaler = 0;
+  htim5.Init.Prescaler = 100;
   htim5.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim5.Init.Period = 0;
+  htim5.Init.Period = 1000;
   htim5.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   if (HAL_TIM_PWM_Init(&htim5) != HAL_OK)
   {
@@ -609,7 +617,7 @@ static void MX_TIM5_Init(void)
   }
 
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 0;
+  sConfigOC.Pulse = 5000;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   if (HAL_TIM_PWM_ConfigChannel(&htim5, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
@@ -618,7 +626,8 @@ static void MX_TIM5_Init(void)
   }
 
   HAL_TIM_MspPostInit(&htim5);
-
+	
+	HAL_TIM_MspPostInit(&htim5);
 }
 
 /* USART2 init function */

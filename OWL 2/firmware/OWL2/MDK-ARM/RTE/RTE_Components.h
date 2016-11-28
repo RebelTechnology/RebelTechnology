@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Component Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'OWL2' 
+ * Project: 'Owl2' 
  * Target:  'OWL2' 
  */
 
