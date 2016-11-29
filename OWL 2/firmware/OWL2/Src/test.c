@@ -24,7 +24,7 @@ void OWLtest(void)
 		ADC_Test = readCV_A();
 		
 		SDRAM_Test();
-		RGB_Update(ADC_Test, 500, 500);
+		RGB_Update(500, 500, 500);
 		
 	}
 }

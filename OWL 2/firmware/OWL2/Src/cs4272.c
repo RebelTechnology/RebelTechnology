@@ -27,7 +27,7 @@ void codec_write(uint8_t reg, uint8_t data)
 /* To write to a register, bring CS low. The first 7 bits on CDIN form the chip address, and must be 0010000. The eighth bit is a read/write indicator (R/W), which must be low to write. The next 8 bits form the Memory Address Pointer (MAP), which is set to the address of the register that is to be updated. The next 8 bits are the data which will be placed into the register designated by the MAP. */
 
   clearCS();	
-  uint8_t buf[3];
+  uint8_t buf[3] = "";
   buf[0] = 1<<5; // chip address, bit 0 is low to write
   buf[1] = reg;
   buf[2] = data;
@@ -47,40 +47,44 @@ void codec_init(SPI_HandleTypeDef* spi){
    * default settings. */
   clearRST();
   setCS();
-  delay(10); // settle
-
+//  delay(10); // settle
+	HAL_Delay(1);
+	
   /* 2) Bring RST high. The device will remain in a low power state and the 
    * control port will be accessible. If internally generated MCLK is being 
    * used, it will appear on the MCLK pin prior to 1 ms from the release of RST. 
    */
   setRST();
-  delay(1);
+//  delay(1);
+	
   /* If the CS4271 ever detects a high to low transition on AD0/CS after 
    * power-up, SPI mode will be selected. The Control Port registers are 
    * write-only in SPI mode. */
   clearCS();	
-  delay(1);
+//  delay(1);
 
+	HAL_Delay(5);
+	
   /* 3) Write 03h to register 07h within 10 ms following the release of RST. 
    * This sets the Control Port Enable (CPEN) and Power Down (PDN) bits, 
    * activating the Control Port and placing the part in power-down. When using 
    * the CS4271 with internally generated MCLK, it is necessary to wait 1 ms 
    * following the release of RST before initiating this Control Port write. */
-  codec_write(CODEC_MODE_CTRL2_REG, CODEC_MODE_CTRL2_POWER_DOWN
-	      | CODEC_MODE_CTRL2_CTRL_PORT_EN);
+  codec_write(CODEC_MODE_CTRL2_REG, CODEC_MODE_CTRL2_POWER_DOWN |
+																		CODEC_MODE_CTRL2_CTRL_PORT_EN);
 	
   // Further setup
-  delay(1);
-
+//  delay(1);
+	HAL_Delay(1);
+	
   /* The desired register settings can be loaded while keeping the PDN bit set. */
 
   // functional mode 0b00: single speed mode
   // ratio 0b10: MCLK/LRCK = 512
   // crystal = MCLK = 24.576MHz, FS = LRCK = 48kHz (24.576MHz/512)
-  codec_write(CODEC_MODE_CTRL1_REG, 
-	      CODEC_MC_FUNC_MODE(0) |
-	      CODEC_MC_RATIO_SEL(2) |
-	      CODEC_MC_MASTER_SLAVE);
+  codec_write(CODEC_MODE_CTRL1_REG, CODEC_MC_FUNC_MODE(0) |
+																		CODEC_MC_RATIO_SEL(2) |
+																		CODEC_MC_MASTER_SLAVE);
 
 
   /* codec_write(CODEC_DAC_VOL_REG, */
@@ -95,8 +99,8 @@ void codec_init(SPI_HandleTypeDef* spi){
 
 void codec_bypass(int bypass){
   uint8_t value = CODEC_MODE_CTRL2_CTRL_PORT_EN;
-  if(bypass)
-    value |= CODEC_MODE_CTRL2_LOOP;
+  
+	if(bypass)value |= CODEC_MODE_CTRL2_LOOP;
   codec_write(CODEC_MODE_CTRL2_REG, value);
 }
 
