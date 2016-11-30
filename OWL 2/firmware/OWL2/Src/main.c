@@ -163,27 +163,28 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
 	
-		/* Initialize the SDRAM controller */
-		if(HAL_SDRAM_Init(&hsdram1, &SDRAM_Timing) != HAL_OK)
-		{
-			/* Initialization Error */
-			Error_Handler(); 
-		}
+	/* Initialize the SDRAM controller */
+	if(HAL_SDRAM_Init(&hsdram1, &SDRAM_Timing) != HAL_OK)
+	{
+		/* Initialization Error */
+		Error_Handler(); 
+	}
+
+	/* Program the SDRAM external device */
+	SDRAM_Initialization_Sequence(&hsdram1, &command);   
 	
-		/* Program the SDRAM external device */
-		SDRAM_Initialization_Sequence(&hsdram1, &command);   
-		
-		// Initialise RGB LED
-		RGB_init(&htim2, &htim3, &htim5);
-		CV_init(&hadc1, &hadc2, &hadc3);
-		
-		// Initialise Codec
-		__HAL_SAI_ENABLE(&hsai_BlockA1);
-		__HAL_SAI_ENABLE(&hsai_BlockB1);
-		codec_init(&hspi4);
-		
-		codec_write(0x01, (1<<3) | (1<<5) | 1);
-		codec_write(0x06, (1<<4) | (1<<1) | 1) ;
+	// Initialise RGB LED
+	RGB_init(&htim2, &htim3, &htim5);
+	CV_init(&hadc1, &hadc2, &hadc3);
+	
+	// Initialise Codec
+	__HAL_SAI_ENABLE(&hsai_BlockA1);
+	__HAL_SAI_ENABLE(&hsai_BlockB1);
+	codec_init(&hspi4);
+	
+	codec_write(0x01, (1<<3) | (1<<5) | 1);
+	codec_write(0x06, (1<<4) | (1<<1) | 1) ;
+	codec_bypass(1);
 			
   /* USER CODE END 2 */
 
