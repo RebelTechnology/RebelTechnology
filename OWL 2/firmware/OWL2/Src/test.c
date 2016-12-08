@@ -17,16 +17,8 @@ uint32_t aRxBuffer[BUFFER_SIZE];
 
 void OWLtest(void)
 {
-	uint16_t ADC_Test = 0;
-	
-	while(1)
-	{
-		ADC_Test = readCV_A();
-		
-		SDRAM_Test();
-		RGB_Update(500, 500, 500);
-		
-	}
+	SDRAM_Test();
+	RGB_Update(500, 500, 500);
 }
 
 

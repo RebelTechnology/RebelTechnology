@@ -40,6 +40,9 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern DMA_HandleTypeDef hdma_adc3;
+extern DMA_HandleTypeDef hdma_sai1_a;
+extern DMA_HandleTypeDef hdma_sai1_b;
 
 /******************************************************************************/
 /*            Cortex-M4 Processor Interruption and Exception Handlers         */ 
@@ -92,6 +95,54 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f4xx.s).                    */
 /******************************************************************************/
+
+/**
+* @brief This function handles DMA2 stream0 global interrupt.
+*/
+void DMA2_Stream0_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Stream0_IRQn 0 */
+
+  /* USER CODE END DMA2_Stream0_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_adc3);
+  /* USER CODE BEGIN DMA2_Stream0_IRQn 1 */
+
+  /* USER CODE END DMA2_Stream0_IRQn 1 */
+}
+
+/**
+* @brief This function handles DMA2 stream1 global interrupt.
+*/
+void DMA2_Stream1_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Stream1_IRQn 0 */
+
+  /* USER CODE END DMA2_Stream1_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_sai1_a);
+  /* USER CODE BEGIN DMA2_Stream1_IRQn 1 */
+	if(__HAL_DMA_GET_FLAG(&hdma_sai1_a, DMA_FLAG_TCIF1_5))
+    __HAL_DMA_CLEAR_FLAG(&hdma_sai1_a, DMA_FLAG_TCIF1_5); // transfer complete
+  if(__HAL_DMA_GET_FLAG(&hdma_sai1_a, DMA_FLAG_HTIF1_5))
+    __HAL_DMA_CLEAR_FLAG(&hdma_sai1_a, DMA_FLAG_HTIF1_5); // half transfer complete
+  /* USER CODE END DMA2_Stream1_IRQn 1 */
+}
+
+/**
+* @brief This function handles DMA2 stream4 global interrupt.
+*/
+void DMA2_Stream4_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Stream4_IRQn 0 */
+
+  /* USER CODE END DMA2_Stream4_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_sai1_b);
+  /* USER CODE BEGIN DMA2_Stream4_IRQn 1 */
+  if(__HAL_DMA_GET_FLAG(&hdma_sai1_b, DMA_FLAG_TCIF0_4))
+    __HAL_DMA_CLEAR_FLAG(&hdma_sai1_b, DMA_FLAG_TCIF0_4); // transfer complete
+  if(__HAL_DMA_GET_FLAG(&hdma_sai1_b, DMA_FLAG_HTIF0_4))
+    __HAL_DMA_CLEAR_FLAG(&hdma_sai1_b, DMA_FLAG_HTIF0_4); // half transfer complete
+  /* USER CODE END DMA2_Stream4_IRQn 1 */
+}
 
 /* USER CODE BEGIN 1 */
 

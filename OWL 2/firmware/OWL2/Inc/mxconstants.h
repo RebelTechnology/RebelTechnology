@@ -79,8 +79,8 @@
 #define FLASH_MOSI_GPIO_Port GPIOA
 #define FLASH_HOLD_Pin GPIO_PIN_4
 #define FLASH_HOLD_GPIO_Port GPIOC
-#define FLASH_NCS_Pin GPIO_PIN_5
-#define FLASH_NCS_GPIO_Port GPIOC
+#define FLASH_nCS_Pin GPIO_PIN_5
+#define FLASH_nCS_GPIO_Port GPIOC
 #define PWM3_Pin GPIO_PIN_1
 #define PWM3_GPIO_Port GPIOB
 #define CS_nCS_Pin GPIO_PIN_10
