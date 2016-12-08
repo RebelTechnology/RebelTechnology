@@ -331,10 +331,10 @@
             <v6Lto>0</v6Lto>
             <v6WtE>0</v6WtE>
             <VariousControls>
-              <MiscControls>--C99</MiscControls>
+              <MiscControls>--C99 --cpp</MiscControls>
               <Define>USE_HAL_DRIVER,STM32F427xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;      ../Drivers/STM32F4xx_HAL_Driver/Inc;      ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;      ../Drivers/CMSIS/Include;      ../Drivers/CMSIS/Device/ST/STM32F4xx/Include</IncludePath>
+              <IncludePath>../Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Include;../Drivers/CMSIS/Device/ST/STM32F4xx/Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -528,11 +528,6 @@
               <FilePath>../Src/stm32f4xx_it.c</FilePath>
             </File>
             <File>
-              <FileName>test.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\src\test.c</FilePath>
-            </File>
-            <File>
               <FileName>cs4272.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\cs4272.c</FilePath>
@@ -541,6 +536,21 @@
               <FileName>HAL_IO.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\HAL_IO.c</FilePath>
+            </File>
+            <File>
+              <FileName>test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\test.c</FilePath>
+            </File>
+            <File>
+              <FileName>Owl.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\Src\Owl.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Codec.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\Src\Codec.cpp</FilePath>
             </File>
           </Files>
         </Group>

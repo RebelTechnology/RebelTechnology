@@ -95,6 +95,10 @@ void codec_init(SPI_HandleTypeDef* spi){
 
   // Release power down bit to start up codec
   codec_write(CODEC_MODE_CTRL2_REG, CODEC_MODE_CTRL2_CTRL_PORT_EN);
+	
+	// ADC and DAC Configuration
+	codec_write(0x01, (1<<3) | (1<<5) | 1);
+	codec_write(0x06, (1<<4) | (1<<1) | 1);
 }
 
 void codec_bypass(int bypass){
