@@ -13237,15 +13237,15 @@ NS Package M08A</description>
 <part name="R101" library="resistor" deviceset="R-EU_" device="R0603" value="10k"/>
 <part name="POT1A" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
-<part name="R105" library="resistor" deviceset="R-EU_" device="R0603" value="20k"/>
+<part name="R105" library="resistor" deviceset="R-EU_" device="R0603" value="18k"/>
 <part name="OUT" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="R104" library="resistor" deviceset="R-EU_" device="R0603" value="10k"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
-<part name="R508" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
-<part name="R507" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
-<part name="R506" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
-<part name="R505" library="resistor" deviceset="R-EU_" device="R0603" value="100k"/>
+<part name="R508" library="resistor" deviceset="R-EU_" device="R0603" value="1M"/>
+<part name="R507" library="resistor" deviceset="R-EU_" device="R0603" value="1M"/>
+<part name="R506" library="resistor" deviceset="R-EU_" device="R0603" value="1M"/>
+<part name="R505" library="resistor" deviceset="R-EU_" device="R0603" value="1M"/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
@@ -13280,7 +13280,7 @@ NS Package M08A</description>
 <part name="C302" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="U1" library="Rebel" deviceset="CON-JST_PH_5W" device=""/>
-<part name="R109" library="resistor" deviceset="R-EU_" device="R0603" value="20k"/>
+<part name="R109" library="resistor" deviceset="R-EU_" device="R0603" value="18k"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
