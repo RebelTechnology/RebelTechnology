@@ -124,6 +124,7 @@ void DMA2_Stream1_IRQHandler(void)
     __HAL_DMA_CLEAR_FLAG(&hdma_sai1_a, DMA_FLAG_TCIF1_5); // transfer complete
   if(__HAL_DMA_GET_FLAG(&hdma_sai1_a, DMA_FLAG_HTIF1_5))
     __HAL_DMA_CLEAR_FLAG(&hdma_sai1_a, DMA_FLAG_HTIF1_5); // half transfer complete
+
   /* USER CODE END DMA2_Stream1_IRQn 1 */
 }
 
@@ -141,6 +142,7 @@ void DMA2_Stream4_IRQHandler(void)
     __HAL_DMA_CLEAR_FLAG(&hdma_sai1_b, DMA_FLAG_TCIF0_4); // transfer complete
   if(__HAL_DMA_GET_FLAG(&hdma_sai1_b, DMA_FLAG_HTIF0_4))
     __HAL_DMA_CLEAR_FLAG(&hdma_sai1_b, DMA_FLAG_HTIF0_4); // half transfer complete
+
   /* USER CODE END DMA2_Stream4_IRQn 1 */
 }
 

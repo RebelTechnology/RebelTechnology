@@ -999,7 +999,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x58274412)
-F (../Src/main.c)(0x584991D6)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include --C99 --cpp-I "E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\OWL 2\firmware\OWL2\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx --C99-o owl2\main.o --omf_browse owl2\main.crf --depend owl2\main.d)
+F (../Src/main.c)(0x584A959B)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include --C99 --cpp-I "E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\OWL 2\firmware\OWL2\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx --C99-o owl2\main.o --omf_browse owl2\main.crf --depend owl2\main.d)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x58274412)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5846CD5F)
 I (../Inc/mxconstants.h)(0x5846CD60)
@@ -1040,8 +1040,8 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x58274412)
 I (../Src/cs4272.h)(0x583593EA)
-I (../Src/HAL_IO.h)(0x583DF56A)
-F (../Src/stm32f4xx_hal_msp.c)(0x5849405B)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include --C99 --cpp-I "E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\OWL 2\firmware\OWL2\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx --C99-o owl2\stm32f4xx_hal_msp.o --omf_browse owl2\stm32f4xx_hal_msp.crf --depend owl2\stm32f4xx_hal_msp.d)
+I (../Src/HAL_CV.h)(0x584A8E74)
+F (../Src/stm32f4xx_hal_msp.c)(0x58499F05)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include --C99 --cpp-I "E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\OWL 2\firmware\OWL2\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx --C99-o owl2\stm32f4xx_hal_msp.o --omf_browse owl2\stm32f4xx_hal_msp.crf --depend owl2\stm32f4xx_hal_msp.d)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x58274412)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5846CD5F)
 I (../Inc/mxconstants.h)(0x5846CD60)
@@ -1081,7 +1081,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x58274412)
-F (../Src/stm32f4xx_it.c)(0x58499B65)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include --C99 --cpp-I "E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\OWL 2\firmware\OWL2\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx --C99-o owl2\stm32f4xx_it.o --omf_browse owl2\stm32f4xx_it.crf --depend owl2\stm32f4xx_it.d)
+F (../Src/stm32f4xx_it.c)(0x584A8E16)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include --C99 --cpp-I "E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\OWL 2\firmware\OWL2\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx --C99-o owl2\stm32f4xx_it.o --omf_browse owl2\stm32f4xx_it.crf --depend owl2\stm32f4xx_it.d)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x58274412)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5846CD5F)
 I (../Inc/mxconstants.h)(0x5846CD60)
@@ -1163,8 +1163,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x58274412)
-F (..\Src\HAL_IO.c)(0x5849534E)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include --C99 --cpp-I "E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\OWL 2\firmware\OWL2\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx --C99-o owl2\hal_io.o --omf_browse owl2\hal_io.crf --depend owl2\hal_io.d)
-I (..\Src\HAL_IO.h)(0x583DF56A)
+F (..\Src\test.c)(0x5849AACC)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include --C99 --cpp-I "E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\OWL 2\firmware\OWL2\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx --C99-o owl2\test.o --omf_browse owl2\test.crf --depend owl2\test.d)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x58274412)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5846CD5F)
 I (../Inc/mxconstants.h)(0x5846CD60)
@@ -1204,48 +1203,8 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x58274412)
-F (..\Src\test.c)(0x584994A8)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include --C99 --cpp-I "E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\OWL 2\firmware\OWL2\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx --C99-o owl2\test.o --omf_browse owl2\test.crf --depend owl2\test.d)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x58274412)
-I (../Inc/stm32f4xx_hal_conf.h)(0x5846CD5F)
-I (../Inc/mxconstants.h)(0x5846CD60)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x58274412)
-I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x582743F4)
-I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h)(0x582743F4)
-I (../Drivers/CMSIS/Include/core_cm4.h)(0x582743F5)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FEA54E)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x582743F5)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x582743F5)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x582743F5)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x582743F5)
-I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x582743F4)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x58274412)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x56FEA54E)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma2d.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sdram.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_fmc.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rng.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sai.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sai_ex.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x58274412)
-I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x58274412)
-I (..\Src\HAL_IO.h)(0x583DF56A)
-F (..\Src\Owl.cpp)(0x58499D18)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include --C99 --cpp-I "E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\OWL 2\firmware\OWL2\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx-o owl2\owl.o --omf_browse owl2\owl.crf --depend owl2\owl.d)
+I (..\Src\HAL_CV.h)(0x584A8E74)
+F (..\Src\Owl.cpp)(0x5849AA52)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include --C99 --cpp-I "E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\OWL 2\firmware\OWL2\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx-o owl2\owl.o --omf_browse owl2\owl.crf --depend owl2\owl.d)
 I (..\Src\Owl.hpp)(0x58498A1A)
 I (..\Src\Codec.hpp)(0x58498AFD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FEA54E)
@@ -1288,7 +1247,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x58274412)
 I (..\Src\test.h)(0x583593EA)
-F (..\Src\Codec.cpp)(0x584994A8)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include --C99 --cpp-I "E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\OWL 2\firmware\OWL2\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx-o owl2\codec.o --omf_browse owl2\codec.crf --depend owl2\codec.d)
+F (..\Src\Codec.cpp)(0x584A9787)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include --C99 --cpp-I "E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\OWL 2\firmware\OWL2\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx-o owl2\codec.o --omf_browse owl2\codec.crf --depend owl2\codec.d)
 I (..\Src\Codec.hpp)(0x58498AFD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FEA54E)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x58274412)
@@ -1330,4 +1289,45 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x58274412)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x58274412)
 I (..\Src\cs4272.h)(0x583593EA)
+F (..\Src\HAL_CV.c)(0x584A8E74)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include --C99 --cpp-I "E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\OWL 2\firmware\OWL2\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx --C99-o owl2\hal_cv.o --omf_browse owl2\hal_cv.crf --depend owl2\hal_cv.d)
+I (..\Src\HAL_CV.h)(0x584A8E74)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x58274412)
+I (../Inc/stm32f4xx_hal_conf.h)(0x5846CD5F)
+I (../Inc/mxconstants.h)(0x5846CD60)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x58274412)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x582743F4)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h)(0x582743F4)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x582743F5)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FEA54E)
+I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x582743F5)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x582743F5)
+I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x582743F5)
+I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x582743F5)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x582743F4)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x58274412)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x56FEA54E)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma2d.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sdram.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_fmc.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rng.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sai.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sai_ex.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x58274412)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x58274412)
 F (startup_stm32f427xx.s)(0x5846CD61)(--cpu Cortex-M4.fp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I "E:\Dropbox\Dropbox (Personal)\Freelance\Rebel Tech\Git Repository\RebelTechnology\OWL 2\firmware\OWL2\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include--pd "__UVISION_VERSION SETA 520" --pd "_RTE_ SETA 1" --pd "STM32F427xx SETA 1"--list startup_stm32f427xx.lst --xref -o owl2\startup_stm32f427xx.o --depend owl2\startup_stm32f427xx.d)
