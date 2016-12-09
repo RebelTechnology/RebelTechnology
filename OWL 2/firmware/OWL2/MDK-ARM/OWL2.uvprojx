@@ -533,11 +533,6 @@
               <FilePath>..\Src\cs4272.c</FilePath>
             </File>
             <File>
-              <FileName>HAL_IO.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\HAL_IO.c</FilePath>
-            </File>
-            <File>
               <FileName>test.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\test.c</FilePath>
@@ -551,6 +546,11 @@
               <FileName>Codec.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\Src\Codec.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>HAL_CV.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\HAL_CV.c</FilePath>
             </File>
           </Files>
         </Group>
