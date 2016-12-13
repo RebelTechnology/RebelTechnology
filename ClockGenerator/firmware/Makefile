@@ -1,24 +1,29 @@
-TARGET = ClockGenerator
+TARGET = TripleClockGenerator
 # INSTALL_DIR = /Users/mars/arduino/arduino-0013
-INSTALL_DIR = /Applications/Arduino.app/Contents/Resources/Java/
-PORT = /dev/tty.usb*
-AVRDUDE_PROGRAMMER = stk500v1
+# INSTALL_DIR = /Applications/Arduino.app/Contents/Resources/Java/
+INSTALL_DIR = /usr/share/arduino/
+# INSTALL_DIR = /cygdrive/c/WinAVR-20100110
+PORT = /dev/ttyUSB0
+# PORT = COM7
+# PORT = /dev/ttyS4
+PROGRAMMER = avrispv2
 F_CPU = 16000000
 # MCU = atmega328p
 # UPLOAD_RATE = 57600
 MCU = atmega168
 UPLOAD_RATE = 19200
-WIRING = ../../Libraries/wiring
 
 ARDUINO = $(INSTALL_DIR)/hardware/cores/arduino
 
-CXXSRC = ClockGenerator.cpp adc_freerunner.cpp main.cpp
-SRC = wiring_serial.c
+CXXSRC = TripleClockGenerator.cpp adc_freerunner.cpp main.cpp
+SRC = # wiring_serial.c
 
 ############################################################################
 
 AVR_TOOLS_PATH = $(INSTALL_DIR)/hardware/tools/avr/bin
+# AVR_TOOLS_PATH = $(INSTALL_DIR)/bin
 FORMAT = ihex
+
 
 # Name of this Makefile (used for "make depend").
 MAKEFILE = Makefile
@@ -28,15 +33,15 @@ MAKEFILE = Makefile
 # AVR (extended) COFF requires stabs, plus an avr-objcopy run.
 DEBUG = stabs
 
-OPT = s -mcall-prologues 
+OPT = 2 # -mcall-prologues 
 
 # Place -D or -U options here
 CDEFS = -DF_CPU=$(F_CPU)
 CXXDEFS = -DF_CPU=$(F_CPU)
 
 # Place -I options here
-CINCS = -I$(ARDUINO) -I$(WIRING)
-CXXINCS = -I$(ARDUINO) -I$(WIRING)
+CINCS = -I$(ARDUINO)
+CXXINCS = -I$(ARDUINO)
 
 # Compiler flag to set the C Standard level.
 # c89   - "ANSI" C
@@ -44,7 +49,7 @@ CXXINCS = -I$(ARDUINO) -I$(WIRING)
 # c99   - ISO C99 standard (not yet fully implemented)
 # gnu99 - c99 plus GCC extensions
 CSTANDARD = -std=gnu99
-CDEBUG = -g$(DEBUG)
+CDEBUG = # -g$(DEBUG)
 CWARN = -Wall -Wstrict-prototypes
 CTUNING = -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
 #CEXTRA = -Wa,-adhlns=$(<:.c=.lst)
@@ -54,13 +59,6 @@ CXXFLAGS = $(CDEFS) $(CINCS) -O$(OPT)
 #ASFLAGS = -Wa,-adhlns=$(<:.S=.lst),-gstabs 
 LDFLAGS = -lm
 
-# Programming support using avrdude. Settings and variables.
-AVRDUDE_PORT = $(PORT)
-AVRDUDE_WRITE_FLASH = -U flash:w:build/$(TARGET).hex
-AVRDUDE_FLAGS = -F -V -C $(INSTALL_DIR)/hardware/tools/avr/etc/avrdude.conf \
--p $(MCU) -P $(AVRDUDE_PORT) -c $(AVRDUDE_PROGRAMMER) \
--b $(UPLOAD_RATE)
-
 # Program settings
 CC = $(AVR_TOOLS_PATH)/avr-gcc
 CXX = $(AVR_TOOLS_PATH)/avr-g++
@@ -69,7 +67,7 @@ OBJDUMP = $(AVR_TOOLS_PATH)/avr-objdump
 AR  = $(AVR_TOOLS_PATH)/avr-ar
 SIZE = $(AVR_TOOLS_PATH)/avr-size
 NM = $(AVR_TOOLS_PATH)/avr-nm
-AVRDUDE = $(AVR_TOOLS_PATH)/avrdude
+AVRDUDE = avrdude
 REMOVE = rm -f
 MV = mv -f
 
@@ -99,8 +97,8 @@ lss: build/$(TARGET).lss
 sym: build/$(TARGET).sym
 
 # Program the device.  
-upload: build/$(TARGET).hex
-	$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH)
+flash: build/$(TARGET).hex
+	$(AVRDUDE) -p $(MCU) -P $(PORT) -c $(PROGRAMMER) -e -U flash:w:build/$(TARGET).hex
 
 # Display size of file.
 HEXSIZE = $(SIZE) --target=$(FORMAT) build/$(TARGET).hex

@@ -12,9 +12,21 @@ OC2B     PORTD3    OUTB        TIMER2_OUTPUT_B
   Timer 2: 8 bit hardware, OUTB
  */
 
+#define GENERATOR_OUTA_DDR                  DDRD
+#define GENERATOR_OUTA_PORT                 PORTD
+#define GENERATOR_OUTA_PIN                  PORTD6
+
+#define GENERATOR_OUTB_DDR                  DDRB
+#define GENERATOR_OUTB_PORT                 PORTB
+#define GENERATOR_OUTB_PIN                  PORTB1
+
+#define GENERATOR_OUTC_DDR                  DDRD
+#define GENERATOR_OUTC_PORT                 PORTD
+#define GENERATOR_OUTC_PIN                  PORTD3
+
 #define GENERATOR_RATE_A_CONTROL            2
-#define GENERATOR_DUTY_A_CONTROL            1
-#define GENERATOR_RATE_B_CONTROL            0
+#define GENERATOR_RATE_B_CONTROL            1
+#define GENERATOR_RATE_C_CONTROL            0
 
 #define GENERATOR_SWITCH_DDR                DDRB
 #define GENERATOR_SWITCH_PINS               PINB
