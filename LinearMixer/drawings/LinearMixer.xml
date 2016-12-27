@@ -1,4 +1,4 @@
-<module type="10hp">
+<module type="10hp" grading="small">
 
   <!-- pots -->
   <pot x="-0.5" y="1.75"/>
@@ -9,6 +9,15 @@
   <pot x="0.5" y="0.25"/>
   <pot x="-0.5" y="-0.5"/>
   <pot x="0.5" y="-0.5"/>
+
+  <!-- <hole x="-0.5" y="1.75" radius="4.7"/> -->
+  <!-- <hole x="0.5" y="1.75" radius="4.7"/> -->
+  <!-- <hole x="-0.5" y="1.00" radius="4.7"/> -->
+  <!-- <hole x="0.5" y="1.00" radius="4.7"/> -->
+  <!-- <hole x="-0.5" y="0.25" radius="4.7"/> -->
+  <!-- <hole x="0.5" y="0.25" radius="4.7"/> -->
+  <!-- <hole x="-0.5" y="-0.5" radius="4.7"/> -->
+  <!-- <hole x="0.5" y="-0.5" radius="4.7"/> -->
 
   <!-- jacks -->
   <hole x="-0.75" y="-1.25" radius="3.25"/>
