@@ -12953,11 +12953,11 @@ NS Package M08A</description>
 <part name="C402" library="Rebel" deviceset="C-EU" device="C0603" value="39pF C0G"/>
 <part name="IC4" library="Rebel" deviceset="CS4271" device=""/>
 <part name="P+6" library="supply1" deviceset="+5V" device=""/>
-<part name="C406" library="Rebel" deviceset="C-EU" device="C0603" value="1u"/>
+<part name="C406" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="R401" library="Rebel" deviceset="R-EU_" device="0603" value="5R1"/>
 <part name="C403" library="Rebel" deviceset="C-EU" device="C0603" value="1u"/>
 <part name="C404" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C405" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C405" library="Rebel" deviceset="C-EU" device="C0603" value="1u"/>
 <part name="GND45" library="supply1" deviceset="GND" device=""/>
 <part name="C407" library="Rebel" deviceset="C-EU" device="C0603" value="1u"/>
 <part name="C408" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
@@ -13107,6 +13107,7 @@ NS Package M08A</description>
 <part name="P+7" library="supply1" deviceset="+5V" device=""/>
 <part name="+3V15" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
+<part name="GND13" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -13172,7 +13173,7 @@ NS Package M08A</description>
 <instance part="GND48" gate="1" x="416.56" y="71.12"/>
 <instance part="C412" gate="G$1" x="429.26" y="83.82"/>
 <instance part="C411" gate="G$1" x="421.64" y="83.82"/>
-<instance part="C410" gate="G$1" x="411.48" y="83.82"/>
+<instance part="C410" gate="G$1" x="426.72" y="20.32"/>
 <instance part="C401" gate="G$1" x="330.2" y="127" rot="R180"/>
 <instance part="GND17" gate="1" x="320.04" y="124.46"/>
 <instance part="GND20" gate="1" x="342.9" y="71.12"/>
@@ -13180,7 +13181,7 @@ NS Package M08A</description>
 <instance part="+3V7" gate="G$1" x="345.44" y="167.64"/>
 <instance part="GND50" gate="1" x="340.36" y="139.7"/>
 <instance part="GND51" gate="1" x="332.74" y="139.7"/>
-<instance part="C409" gate="G$1" x="403.86" y="83.82"/>
+<instance part="C409" gate="G$1" x="419.1" y="20.32"/>
 <instance part="IC10" gate="G$1" x="58.42" y="0">
 <attribute name="OC_FARNELL" x="58.42" y="0" size="1.778" layer="96" display="off"/>
 </instance>
@@ -13295,11 +13296,12 @@ NS Package M08A</description>
 <instance part="GND5" gate="1" x="383.54" y="10.16"/>
 <instance part="GND7" gate="1" x="373.38" y="10.16"/>
 <instance part="GND8" gate="1" x="388.62" y="-15.24"/>
-<instance part="C3" gate="G$1" x="431.8" y="25.4"/>
-<instance part="GND9" gate="1" x="431.8" y="10.16"/>
-<instance part="P+7" gate="1" x="431.8" y="38.1"/>
+<instance part="C3" gate="G$1" x="439.42" y="25.4"/>
+<instance part="GND9" gate="1" x="439.42" y="12.7"/>
+<instance part="P+7" gate="1" x="439.42" y="38.1"/>
 <instance part="+3V15" gate="G$1" x="259.08" y="17.78" rot="R180"/>
 <instance part="GND12" gate="1" x="254" y="17.78"/>
+<instance part="GND13" gate="1" x="426.72" y="10.16"/>
 </instances>
 <busses>
 </busses>
@@ -13386,21 +13388,14 @@ NS Package M08A</description>
 <wire x1="416.56" y1="104.14" x2="416.56" y2="76.2" width="0.1524" layer="91"/>
 <pinref part="GND48" gate="1" pin="GND"/>
 <wire x1="416.56" y1="76.2" x2="416.56" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="416.56" y1="76.2" x2="411.48" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="411.48" y1="76.2" x2="403.86" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="403.86" y1="76.2" x2="403.86" y2="78.74" width="0.1524" layer="91"/>
 <junction x="416.56" y="76.2"/>
 <pinref part="C412" gate="G$1" pin="-"/>
 <wire x1="416.56" y1="76.2" x2="421.64" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="421.64" y1="76.2" x2="429.26" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="429.26" y1="76.2" x2="429.26" y2="78.74" width="0.1524" layer="91"/>
-<pinref part="C410" gate="G$1" pin="2"/>
-<wire x1="411.48" y1="76.2" x2="411.48" y2="78.74" width="0.1524" layer="91"/>
-<junction x="411.48" y="76.2"/>
 <pinref part="C411" gate="G$1" pin="2"/>
 <wire x1="421.64" y1="76.2" x2="421.64" y2="78.74" width="0.1524" layer="91"/>
 <junction x="421.64" y="76.2"/>
-<pinref part="C409" gate="G$1" pin="-"/>
 </segment>
 <segment>
 <pinref part="C402" gate="G$1" pin="2"/>
@@ -13646,12 +13641,21 @@ NS Package M08A</description>
 <segment>
 <pinref part="GND9" gate="1" pin="GND"/>
 <pinref part="C3" gate="G$1" pin="2"/>
-<wire x1="431.8" y1="12.7" x2="431.8" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="439.42" y1="15.24" x2="439.42" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND12" gate="1" pin="GND"/>
 <pinref part="JP4" gate="G$1" pin="3"/>
 <wire x1="254" y1="20.32" x2="254" y2="30.48" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C410" gate="G$1" pin="2"/>
+<wire x1="426.72" y1="12.7" x2="426.72" y2="15.24" width="0.1524" layer="91"/>
+<pinref part="C409" gate="G$1" pin="-"/>
+<wire x1="419.1" y1="15.24" x2="419.1" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="419.1" y1="12.7" x2="426.72" y2="12.7" width="0.1524" layer="91"/>
+<pinref part="GND13" gate="1" pin="GND"/>
+<junction x="426.72" y="12.7"/>
 </segment>
 </net>
 <net name="FLASH_NCS" class="0">
@@ -13876,7 +13880,7 @@ NS Package M08A</description>
 <segment>
 <pinref part="C3" gate="G$1" pin="1"/>
 <pinref part="P+7" gate="1" pin="+5V"/>
-<wire x1="431.8" y1="27.94" x2="431.8" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="439.42" y1="27.94" x2="439.42" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AOUTA-" class="0">
@@ -13905,17 +13909,9 @@ NS Package M08A</description>
 </net>
 <net name="CS_VQ1" class="0">
 <segment>
-<wire x1="393.7" y1="88.9" x2="403.86" y2="88.9" width="0.1524" layer="91"/>
 <label x="434.34" y="88.9" size="1.778" layer="95"/>
 <pinref part="IC4" gate="CS4271" pin="VQ1"/>
-<wire x1="403.86" y1="88.9" x2="411.48" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="411.48" y1="88.9" x2="444.5" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="403.86" y1="88.9" x2="403.86" y2="86.36" width="0.1524" layer="91"/>
-<junction x="403.86" y="88.9"/>
-<pinref part="C410" gate="G$1" pin="1"/>
-<wire x1="411.48" y1="86.36" x2="411.48" y2="88.9" width="0.1524" layer="91"/>
-<junction x="411.48" y="88.9"/>
-<pinref part="C409" gate="G$1" pin="+"/>
+<wire x1="393.7" y1="88.9" x2="444.5" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="256.54" y1="-30.48" x2="256.54" y2="-12.7" width="0.1524" layer="91"/>
@@ -13955,14 +13951,20 @@ NS Package M08A</description>
 <segment>
 <pinref part="IC1" gate="A" pin="-IN"/>
 <wire x1="393.7" y1="22.86" x2="391.16" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="391.16" y1="22.86" x2="391.16" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="391.16" y1="22.86" x2="391.16" y2="12.7" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="A" pin="OUT"/>
-<wire x1="391.16" y1="15.24" x2="411.48" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="411.48" y1="15.24" x2="411.48" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="391.16" y1="12.7" x2="411.48" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="411.48" y1="12.7" x2="411.48" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="411.48" y1="25.4" x2="408.94" y2="25.4" width="0.1524" layer="91"/>
-<label x="411.48" y="25.4" size="1.778" layer="95"/>
-<wire x1="411.48" y1="25.4" x2="421.64" y2="25.4" width="0.1524" layer="91"/>
+<label x="419.1" y="25.4" size="1.778" layer="95"/>
+<wire x1="411.48" y1="25.4" x2="419.1" y2="25.4" width="0.1524" layer="91"/>
 <junction x="411.48" y="25.4"/>
+<pinref part="C409" gate="G$1" pin="+"/>
+<wire x1="419.1" y1="22.86" x2="419.1" y2="25.4" width="0.1524" layer="91"/>
+<junction x="419.1" y="25.4"/>
+<pinref part="C410" gate="G$1" pin="1"/>
+<wire x1="426.72" y1="22.86" x2="426.72" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="426.72" y1="25.4" x2="419.1" y2="25.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AINB" class="0">
@@ -15232,7 +15234,6 @@ NS Package M08A</description>
 </sheet>
 </sheets>
 <errors>
-<approved hash="202,1,393.7,27.94,IC1A,+IN,,,,"/>
 <approved hash="208,1,231.14,-30.48,+3V3,sup,,,,"/>
 <approved hash="208,1,243.84,-25.4,+3V3,sup,,,,"/>
 <approved hash="208,1,68.58,223.52,+3V3,sup,,,,"/>
