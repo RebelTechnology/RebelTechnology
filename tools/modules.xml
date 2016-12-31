@@ -61,6 +61,30 @@
     <svg:circle cx="93.86" cy="3" r="1.6"/>
     <svg:circle cx="93.86" cy="125.5" r="1.6"/>
   </module>
+  <module name="21hp" width="106.30" height="128.50">
+    <svg:circle cx="7.5" cy="3" r="1.6"/>
+    <svg:circle cx="7.5" cy="125.5" r="1.6"/>
+    <svg:circle cx="98.94" cy="3" r="1.6"/>
+    <svg:circle cx="98.94" cy="125.5" r="1.6"/>
+  </module>
+  <module name="22hp" width="111.40" height="128.50">
+    <svg:circle cx="7.5" cy="3" r="1.6"/>
+    <svg:circle cx="7.5" cy="125.5" r="1.6"/>
+    <svg:circle cx="104.02" cy="3" r="1.6"/>
+    <svg:circle cx="104.02" cy="125.5" r="1.6"/>
+  </module>
+  <module name="28hp" width="141.90" height="128.50">
+    <svg:circle cx="7.5" cy="3" r="1.6"/>
+    <svg:circle cx="7.5" cy="125.5" r="1.6"/>
+    <svg:circle cx="134.50" cy="3" r="1.6"/>
+    <svg:circle cx="134.50" cy="125.5" r="1.6"/>
+  </module>
+  <module name="42hp" width="213.00" height="128.50">
+    <svg:circle cx="7.5" cy="3" r="1.6"/>
+    <svg:circle cx="7.5" cy="125.5" r="1.6"/>
+    <svg:circle cx="205.60" cy="3" r="1.6"/>
+    <svg:circle cx="205.60" cy="125.5" r="1.6"/>
+  </module>
   <!-- http://www.doepfer.de/a100_man/a100m_e.htm -->
-  <!-- steps = (width-7.5)/5.08 - 1, second hole pos = 7.5 + 5.08*steps -->
+  <!-- steps = floor((width-7.5)/5.08 - 1), second hole pos = 7.5 + 5.08*steps -->
 </modules>

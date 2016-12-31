@@ -1,10 +1,10 @@
 <module type="10hp">
 
   <!-- pots -->
-  <hole x="-0.5" y="0.75" radius="4.75"/>
-  <hole x="0.5" y="0.75" radius="4.75"/>
-  <hole x="-0.5" y="1.50" radius="4.75"/>
-  <hole x="0.5" y="1.50" radius="4.75"/>
+  <pot x="-0.5" y="0.75"/>
+  <pot x="0.5" y="0.75"/>
+  <pot x="-0.5" y="1.50"/>
+  <pot x="0.5" y="1.50"/>
 
   <!-- leds -->
   <hole x="0.0" y="0.25" radius="1.5"/>
