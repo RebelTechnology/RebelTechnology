@@ -1,8 +1,3 @@
-// #define SERIAL_DEBUG
-#ifdef SERIAL_DEBUG
-#include "serial.h"
-#endif // SERIAL_DEBUG
-
 #include <inttypes.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -110,11 +105,12 @@ void setup(){
 }
 
 ClockTick a, b, c;
-const ClockTick MAX_TICK = 5341;
-const ClockTick MIN_TICK = 477;
+const ClockTick FREQ_RANGE = 2666;
+const ClockTick FREQ_MIN = 666;
+const ClockTick FREQ_TICKS_PER_MILLIHZ = 1920L*1000L;
 const int MULTIPLIERS[] = { 2, 4, 8, 16, 24 };
 void loop(){
-  a = (getAnalogValue(GENERATOR_RATE_A_CONTROL) * MAX_TICK)/ADC_VALUE_RANGE + MIN_TICK;
+  a = (getAnalogValue(GENERATOR_RATE_A_CONTROL) * FREQ_RANGE)/ADC_VALUE_RANGE + FREQ_MIN;
   b = (getAnalogValue(GENERATOR_RATE_B_CONTROL) * 11) / ADC_VALUE_RANGE;
   if(b > 5)
     b = a*(b-4);
@@ -132,9 +128,9 @@ void loop(){
   }else{
     c = a;
   }
-  // clockA.period = ADC_VALUE_RANGE - a;
-  // clockB.period = ADC_VALUE_RANGE - min(b, ADC_VALUE_RANGE);
-  // clockC.period = ADC_VALUE_RANGE - min(c, ADC_VALUE_RANGE);
+  a = FREQ_TICKS_PER_MILLIHZ / a;
+  b = FREQ_TICKS_PER_MILLIHZ / b;
+  c = FREQ_TICKS_PER_MILLIHZ / c;
   clockA.period = a;
   clockB.period = b;
   clockC.period = c;
