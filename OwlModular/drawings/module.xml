@@ -1,4 +1,4 @@
-<module type="20hp">
+<module type="20hp" grading="none">
 
   <!-- pots -->
   <pot x="-1.5" y="1.75"/>
@@ -15,7 +15,7 @@
   <hole x="0.0" y="-0.25" radius="3.5"/>
 
   <!-- usb connector -->
-  <rect x="0.0" y="-1.2" width="12" height="11"/>
+  <rect x="0.0" y="-1.175" width="13" height="11"/>
 
   <!-- jacks -->
   <hole x="-1.60" y="-1.2" radius="3.25"/>
