@@ -19,10 +19,6 @@ typedef uint32_t ClockTick;
 #define MEDIUM_MULTIPLIER      (F_CPU / (64*256ull))
 #define SLOW_MULTIPLIER        (F_CPU / (64*4096ull))
 
-// FrequencyController rateA;
-// FrequencyController rateB;
-// FrequencyController rateC;
-
 #define CLOCK_TYPE_A 1
 #define CLOCK_TYPE_B 2
 #define CLOCK_TYPE_C 3
@@ -34,7 +30,7 @@ public:
   ClockTick period;
   ClockTick pos;
   void clock(){
-    if(pos++ > period){
+    if(++pos > period){
       toggle();
       pos = 0;
     }
@@ -64,7 +60,7 @@ template<> void ClockGenerator<CLOCK_TYPE_B>::on(){
   GENERATOR_OUTB_PORT &= ~_BV(GENERATOR_OUTB_PIN);
 }
 template<> void ClockGenerator<CLOCK_TYPE_B>::off(){
-  GENERATOR_OUTB_PORT |= _BV(GENERATOR_OUTA_PIN);
+  GENERATOR_OUTB_PORT |= _BV(GENERATOR_OUTB_PIN);
 }
 template<> bool ClockGenerator<CLOCK_TYPE_B>::isOff(){
   return GENERATOR_OUTB_PORT & _BV(GENERATOR_OUTB_PIN);
@@ -74,7 +70,7 @@ template<> void ClockGenerator<CLOCK_TYPE_C>::on(){
   GENERATOR_OUTC_PORT &= ~_BV(GENERATOR_OUTC_PIN);
 }
 template<> void ClockGenerator<CLOCK_TYPE_C>::off(){
-  GENERATOR_OUTC_PORT |= _BV(GENERATOR_OUTA_PIN);
+  GENERATOR_OUTC_PORT |= _BV(GENERATOR_OUTC_PIN);
 }
 template<> bool ClockGenerator<CLOCK_TYPE_C>::isOff(){
   return GENERATOR_OUTC_PORT & _BV(GENERATOR_OUTC_PIN);
@@ -98,29 +94,50 @@ void setup(){
   GENERATOR_OUTB_DDR |= _BV(GENERATOR_OUTB_PIN);
   GENERATOR_OUTC_DDR |= _BV(GENERATOR_OUTC_PIN);
 
+  // At 16MHz CPU clock and prescaler 64, Timer 0 should run at 1024Hz.
+
   // configure Timer 0 to Fast PWM, 0xff top.
   TCCR0A |= _BV(WGM01) | _BV(WGM00);
-  TCCR0B |= _BV(CS01) | _BV(CS00); // prescaler: 64
-//   TCCR0B |= _BV(CS01);  // prescaler: 8
+  // TCCR0B |= _BV(CS01) | _BV(CS00); // prescaler: 64
+  // TCCR0B |= _BV(CS01);  // prescaler: 8
+  TCCR0B |= _BV(CS00);  // prescaler: 1
   TIMSK0 |= _BV(TOIE0); // enable timer 0 overflow interrupt
-//   OCR0A = 0;
-
-  // rateA.delta = GENERATOR_CONTROLLER_DELTA;
-  // rateB.delta = GENERATOR_CONTROLLER_DELTA;
-  // rateC.delta = GENERATOR_CONTROLLER_DELTA;
+  OCR0A = 0;
 
   setup_adc();
 
   sei();
 }
 
+ClockTick a, b, c;
+const ClockTick MAX_TICK = 5341;
+const ClockTick MIN_TICK = 477;
+const int MULTIPLIERS[] = { 2, 4, 8, 16, 24 };
 void loop(){
-  // rateA.update(getAnalogValue(GENERATOR_RATE_A_CONTROL));
-  // rateB.update(getAnalogValue(GENERATOR_RATE_B_CONTROL));
-  // rateC.update(getAnalogValue(GENERATOR_RATE_C_CONTROL));
-  clockA.period = getAnalogValue(GENERATOR_RATE_A_CONTROL);
-  clockB.period = getAnalogValue(GENERATOR_RATE_B_CONTROL);
-  clockC.period = getAnalogValue(GENERATOR_RATE_C_CONTROL);
+  a = (getAnalogValue(GENERATOR_RATE_A_CONTROL) * MAX_TICK)/ADC_VALUE_RANGE + MIN_TICK;
+  b = (getAnalogValue(GENERATOR_RATE_B_CONTROL) * 11) / ADC_VALUE_RANGE;
+  if(b > 5)
+    b = a*(b-4);
+  else if(b < 5)
+    b = a/(6-b);
+  else
+    b = a;
+  c = (getAnalogValue(GENERATOR_RATE_C_CONTROL) * 11) / ADC_VALUE_RANGE;
+  if(c > 5){
+    c = MULTIPLIERS[c-6];
+    c = a*c;
+  }else if(c < 5){
+    c = MULTIPLIERS[4-c];
+    c = a/c;
+  }else{
+    c = a;
+  }
+  // clockA.period = ADC_VALUE_RANGE - a;
+  // clockB.period = ADC_VALUE_RANGE - min(b, ADC_VALUE_RANGE);
+  // clockC.period = ADC_VALUE_RANGE - min(c, ADC_VALUE_RANGE);
+  clockA.period = a;
+  clockB.period = b;
+  clockC.period = c;
 }
 
 ISR(TIMER0_OVF_vect){
