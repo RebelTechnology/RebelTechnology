@@ -16544,7 +16544,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <sheets>
 <sheet>
 <plain>
-<text x="129.54" y="-25.4" size="3.048" layer="97" font="vector">Rebel Technology TapTempo Rev05</text>
+<text x="129.54" y="-25.4" size="3.048" layer="97" font="vector">Rebel Technology SlopeGenerator Rev01</text>
 <text x="129.54" y="-33.02" size="3.048" layer="97" font="vector">published 2017 under the GNU GPL v2</text>
 <text x="170.18" y="10.16" size="1.778" layer="97">LP Fc apprx 800Hz</text>
 <text x="124.46" y="170.18" size="1.778" layer="97">-10V</text>
