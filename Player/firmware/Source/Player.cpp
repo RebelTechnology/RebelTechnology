@@ -15,13 +15,13 @@ extern "C" {
 #include "SampleBuffer.hpp"
 #include "midi.h"
 #include "usbh_midi.h"
-
+#include "BitState.hpp"
 #include "MidiReader.h"
-
 #include "ProgramManager.h"
 #include "ApplicationSettings.h"
-ProgramManager program;
+extern ProgramManager program;
 ApplicationSettings settings;
+Graphics graphics;
 
 extern "C" {
   void setup(void);
@@ -33,9 +33,16 @@ extern SPI_HandleTypeDef hspi2;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim3;
 
-void encoderChanged(uint8_t encoder, int32_t value);
+// there are only really 2 timestamps needed: LED pushbutton and midi gate
+uint16_t timestamps[NOF_BUTTONS]; 
+BitState32 stateChanged;
+
+bool getButton(uint8_t bid){
+  return getProgramVector()->buttons & (1<<bid);
+}
 
 extern "C" {
+  void encoderChanged(uint8_t encoder, int32_t value);
   void delay(uint32_t ms){
     osDelay(ms);
   }
@@ -64,12 +71,8 @@ extern uint8_t USBHOST_RX_Buffer[RX_BUFF_SIZE];
 
 // #define OLED_HEIGHT 64
 // #define OLED_WIDTH 128
-#define OLED_DATA_LENGTH (OLED_WIDTH*OLED_HEIGHT/8)
-Graphics graphics;
-static uint8_t pixelbuffer[OLED_DATA_LENGTH];
 static bool dodisplay = true;
 Codec codec;
-ProgramVector programVector;
 ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
 SampleBuffer samples;
 MidiReader midireader;
@@ -84,35 +87,14 @@ uint32_t dropouts = 0;
 extern "C" {
   void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size){
     if(!doProcessAudio){
-      programVector.audio_input = rx;
-      programVector.audio_output = tx;
-      programVector.audio_blocksize = size;
+      getProgramVector()->audio_input = rx;
+      getProgramVector()->audio_output = tx;
+      getProgramVector()->audio_blocksize = size;
       doProcessAudio = true;
     }else{
       dropouts++;
     }
   }
-}
-
-void updateProgramVector(ProgramVector* pv){
-  pv->checksum = PROGRAM_VECTOR_CHECKSUM_V13;
-  pv->hardware_version = PLAYER_HARDWARE;
-  pv->parameters_size = 2;
-  pv->parameters = NULL; // adc_values;
-  pv->audio_bitdepth = 24;
-  pv->audio_samplingrate = 48000;
-  pv->buttons = 0;
-  pv->registerPatch = NULL;
-  pv->registerPatchParameter = NULL;
-  pv->cycles_per_block = 0;
-  pv->heap_bytes_used = 0;
-  pv->programReady = NULL;
-  pv->programStatus = NULL;
-  pv->serviceCall = NULL;
-  pv->message = NULL;
-  pv->pixels = pixelbuffer;
-  pv->screen_width = OLED_WIDTH;
-  pv->screen_height = OLED_HEIGHT;
 }
 
 void switchInA(){}
@@ -165,7 +147,6 @@ void setup(void){
   CV_IO_Config();
   CV_Out_A(&hdac, 0);
   CV_Out_B(&hdac, 0);
-  updateProgramVector(&programVector);
 
 #ifdef USE_CODEC
   codec.reset();
@@ -185,32 +166,39 @@ void setup(void){
 #ifndef USE_CODEC
   doProcessAudio = true;
 #endif
+
+  program.startManager();
+
+  program.loadProgram(
 }
 
-void processBlock(ProgramVector* pv){
-  samples.split(pv->audio_input, pv->audio_blocksize);
-  screen.setBuffer(pv->pixels);
-  patches[currentPatch]->processAudio(samples);
-  // screen.setTextSize(1);
-  // screen.print(0, screen.getHeight()-8, "Rebel Technology");
-  samples.comb(pv->audio_output);
-}
+extern "C" {
 
-void loop(void){
-  if(doProcessAudio){
-    processBlock(&programVector);
-    if(dodisplay){
-      // if(dodisplay && graphics.isReady()){
-      graphics.display(programVector.pixels, OLED_WIDTH*OLED_HEIGHT);
-      // swap pixelbuffer
-      // programVector.pixels = pixelbuffer[swappb];
-      // swappb = !swappb;
-    }
+  // void processBlock(ProgramVector* pv){
+  //   samples.split(pv->audio_input, pv->audio_blocksize);
+  //   screen.setBuffer(pv->pixels);
+  //   patches[currentPatch]->processAudio(samples);
+  //   // screen.setTextSize(1);
+  //   // screen.print(0, screen.getHeight()-8, "Rebel Technology");
+  //   samples.comb(pv->audio_output);
+  // }
+
+  void loop(void){
+    if(doProcessAudio){
+      ProgramVector* pv = getProgramVector();
+      processBlock(pv);
+      if(dodisplay){
+	// if(dodisplay && graphics.isReady()){
+	graphics.display(pv->pixels, OLED_WIDTH*OLED_HEIGHT);
+	// swap pixelbuffer
+	// pv->pixels = pixelbuffer[swappb];
+	// swappb = !swappb;
+      }
 #ifdef USE_CODEC
-    doProcessAudio = false;
+      doProcessAudio = false;
 #endif
+    }
   }
-}
 
   void USBH_MIDI_ReceiveCallback(USBH_HandleTypeDef *phost){
     uint8_t* ptr = USBHOST_RX_Buffer;
@@ -221,35 +209,34 @@ void loop(void){
   }
 
   void USBH_MIDI_TransmitCallback(USBH_HandleTypeDef *phost){
-    // get ready to send some called
+    // get ready to send some data
   }
 
-// more from USB device interface
-void midi_rx_usb_buffer(uint8_t *buffer, uint32_t length){
-  for(uint32_t i=0; i<length; i+=4)
-    midireader.readMidiFrame(buffer+i);
-}
-   // void midi_tx_usb_buffer(uint8_t* buffer, uint32_t length);
+  // more from USB device interface
+  void midi_rx_usb_buffer(uint8_t *buffer, uint32_t length){
+    for(uint32_t i=0; i<length; i+=4)
+      midireader.readMidiFrame(buffer+i);
+  }
+  // void midi_tx_usb_buffer(uint8_t* buffer, uint32_t length);
 
-static int16_t encoders[2] = {INT16_MAX/2, INT16_MAX/2};
-static int16_t deltas[2] = {0, 0};
-void encoderChanged(uint8_t encoder, int32_t value){
-  // // todo: debounce
-  // // pass encoder change event to patch
-  int32_t delta = value - encoders[encoder];
-  encoders[encoder] = value;
-  deltas[encoder] = delta;
-  patches[currentPatch]->encoderChanged(encoder, delta);
-}
+  static int16_t encoders[2] = {INT16_MAX/2, INT16_MAX/2};
+  static int16_t deltas[2] = {0, 0};
+  void encoderChanged(uint8_t encoder, int32_t value){
+    // // todo: debounce
+    // // pass encoder change event to patch
+    int32_t delta = value - encoders[encoder];
+    encoders[encoder] = value;
+    deltas[encoder] = delta;
+    patches[currentPatch]->encoderChanged(encoder, delta);
+  }
 
-void encoderReset(uint8_t encoder, int32_t value){
-  if(encoder == 0)
-    __HAL_TIM_SetCounter(&htim2, value);
-  else if(encoder == 1)
-    __HAL_TIM_SetCounter(&htim3, value);
-}
+  void encoderReset(uint8_t encoder, int32_t value){
+    if(encoder == 0)
+      __HAL_TIM_SetCounter(&htim2, value);
+    else if(encoder == 1)
+      __HAL_TIM_SetCounter(&htim3, value);
+  }
 
-extern "C" {
   void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim){
     if(htim == &htim2)
       encoderChanged(0, __HAL_TIM_GET_COUNTER(&htim2));

@@ -569,7 +569,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /* USER CODE BEGIN USART2_MspInit 1 */
-
+    /* todo: this should probably be AF_PP on tx, input pull-up on rx */
   /* USER CODE END USART2_MspInit 1 */
   }
 

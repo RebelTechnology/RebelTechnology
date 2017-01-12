@@ -8,6 +8,9 @@
 #include "Codec.h"
 
 static FirmwareLoader loader;
+extern "C" {
+  void encoderChanged(uint8_t encoder, int32_t value);
+}
 
 MidiHandler::MidiHandler(){
   // memset(midi_values, 0, NOF_PARAMETERS*sizeof(uint16_t));
@@ -24,8 +27,6 @@ void MidiHandler::handleNoteOff(uint8_t status, uint8_t note, uint8_t velocity){
 
 void MidiHandler::handleProgramChange(uint8_t status, uint8_t pid){
 }
-
-void encoderChanged(uint8_t encoder, int32_t value);
 
 void MidiHandler::handleControlChange(uint8_t status, uint8_t cc, uint8_t value){
   if(channel != MIDI_OMNI_CHANNEL && channel != getChannel(status))

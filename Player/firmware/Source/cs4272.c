@@ -27,12 +27,11 @@ void codec_write(uint8_t reg, uint8_t data)
   clearCS();	
   uint8_t buf[3];
   buf[0] = 0b00100000; // chip address, bit 0 is low to write
-  buf[1] = reg;
+  buf[1] = reg & 0x0f;
   buf[2] = data;
   /* i2c_write(CODEC_ADDR,2,buf); */
   HAL_SPI_Transmit(hspi, buf, 3, CS_TIMEOUT);
   setCS();
-
 
 /* The CS4271 has MAP auto increment capability, enabled by the INCR bit in the MAP. If INCR is 0, then the MAP will stay constant for successive writes. If INCR is set, then MAP will auto increment after each byte is written, allowing block writes to successive registers. */
 }

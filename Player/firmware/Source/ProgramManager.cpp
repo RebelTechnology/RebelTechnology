@@ -10,6 +10,7 @@
 #include "ApplicationSettings.h"
 // #include "CodecController.h"
 #include "errorhandlers.h"
+#include "Graphics.h"
 
 // FreeRTOS low priority numbers denote low priority tasks. 
 // The idle task has priority zero (tskIDLE_PRIORITY).
@@ -20,34 +21,20 @@
 
 #include "task.h"
 
-void updateProgramVector(ProgramVector* pv);
-
-ProgramManager::ProgramManager(){}
-void ProgramManager::startProgram(bool isr){}
-void ProgramManager::exitProgram(bool isr){}
 static DynamicPatchDefinition dynamo;
-void ProgramManager::loadDynamicProgram(void* address, uint32_t length){
-  dynamo.load(address, length);
-  // if(dynamo.getProgramVector() != NULL){
-  //   patchdef = &dynamo;
-  //   registry.setDynamicPatchDefinition(patchdef);
-  //   // currentpatch = &dynamo;
-  //   // registry.setDynamicPatchDefinition(currentpatch);
-  //   updateProgramIndex(0);
-  // }else{
-  //   registry.setDynamicPatchDefinition(NULL);
-  // }
-}
-void ProgramManager::saveProgramToFlash(uint8_t sector, void* address, uint32_t length){}
-
-#if 0
 ProgramManager program;
 ProgramVector staticVector;
-// ProgramVector* programVector = &staticVector;
-// extern "C" ProgramVector* getProgramVector() { return programVector; }
-volatile ProgramVectorAudioStatus audioStatus = AUDIO_IDLE_STATUS;
-static DynamicPatchDefinition dynamo;
+ProgramVector* programVector = &staticVector;
+static volatile ProgramVectorAudioStatus audioStatus = AUDIO_IDLE_STATUS;
 static DynamicPatchDefinition flashPatches[MAX_USER_PATCHES];
+
+#define OLED_DATA_LENGTH (OLED_WIDTH*OLED_HEIGHT/8)
+uint8_t pixelbuffer[OLED_DATA_LENGTH];
+
+extern "C" {
+  void updateProgramVector(ProgramVector* pv);
+  ProgramVector* getProgramVector() { return programVector; }
+}
 
 // static uint32_t getFlashAddress(int sector){
 //   uint32_t addr = ADDR_FLASH_SECTOR_11;
@@ -141,7 +128,7 @@ extern "C" {
    * re-program firmware: this entire function and all subroutines must run from RAM
    * (don't make this static!)
    */
-  __attribute__ ((section (".coderam")))
+  // __attribute__ ((section (".coderam")))
   void flashFirmware(uint8_t* source, uint32_t size){
     // __disable_irq(); // Disable ALL interrupts. Can only be executed in Privileged modes.
     // // setLed(RED);
@@ -215,7 +202,8 @@ extern "C" {
   }
 
 #ifdef DEBUG_DWT
-volatile uint32_t *DWT_CYCCNT = (volatile uint32_t *)0xE0001004; //address of the register
+// volatile uint32_t *DWT_CYCCNT = (volatile uint32_t *)0xE0001004; //address of the register
+#define DWT_CYCCNT CYCCNT
 #endif /* DEBUG_DWT */
 ProgramManager::ProgramManager() {
 #ifdef DEBUG_DWT
@@ -225,39 +213,6 @@ ProgramManager::ProgramManager() {
   *SCB_DEMCR = *SCB_DEMCR | 0x01000000;
   *DWT_CONTROL = *DWT_CONTROL | 1 ; // enable the counter
 #endif /* DEBUG_DWT */
-}
-
-/* called by the audio interrupt when a block should be processed */
-__attribute__ ((section (".coderam")))
-void ProgramManager::audioReady(){
-  audioStatus = AUDIO_READY_STATUS;
-}
-
-/* called by the program when a block has been processed */
-__attribute__ ((section (".coderam")))
-void ProgramManager::programReady(){
-#ifdef DEBUG_DWT
-  programVector->cycles_per_block = *DWT_CYCCNT;
-  // getProgramVector()->cycles_per_block = *DWT_CYCCNT;
-    // (*DWT_CYCCNT + getProgramVector()->cycles_per_block)>>1;
-#endif /* DEBUG_DWT */
-#ifdef DEBUG_AUDIO
-  clearPin(GPIOC, GPIO_Pin_5); // PC5 DEBUG
-#endif
-  while(audioStatus != AUDIO_READY_STATUS);
-  audioStatus = AUDIO_PROCESSING_STATUS;
-#ifdef DEBUG_DWT
-  *DWT_CYCCNT = 0; // reset the performance counter
-#endif /* DEBUG_DWT */
-#ifdef DEBUG_AUDIO
-  setPin(GPIOC, GPIO_Pin_5); // PC5 DEBUG
-#endif
-}
-
-/* called by the program when an error or anomaly has occured */
-void ProgramManager::programStatus(int){
-  setLed(RED);
-  for(;;);
 }
 
 void ProgramManager::startManager(){
@@ -314,7 +269,7 @@ void ProgramManager::loadProgram(uint8_t pid){
 }
 
 void ProgramManager::loadDynamicProgram(void* address, uint32_t length){
-  // dynamo.load(address, length);
+  dynamo.load(address, length);
   // if(dynamo.getProgramVector() != NULL){
   //   patchdef = &dynamo;
   //   registry.setDynamicPatchDefinition(patchdef);
@@ -453,4 +408,142 @@ void ProgramManager::saveProgramToFlash(uint8_t sector, void* address, uint32_t 
   notifyManagerFromISR(STOP_PROGRAM_NOTIFICATION|PROGRAM_FLASH_NOTIFICATION);
 }
 
-#endif /* 0 */
+/* called by the audio interrupt when a block should be processed */
+  void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size){
+    // getProgramVector()->audio_input = src;
+    // getProgramVector()->audio_output = dst;
+      programVector->audio_input = rx;
+      programVector->audio_output = tx;
+      programVector->audio_blocksize = size;
+    // program.audioReady();
+    audioStatus = AUDIO_READY_STATUS;
+
+    // if(!doProcessAudio){
+    //   programVector->audio_input = rx;
+    //   programVector->audio_output = tx;
+    //   programVector->audio_blocksize = size;
+    //   doProcessAudio = true;
+    // }else{
+    //   dropouts++;
+    // }
+  }
+
+/* called by the audio interrupt when a block should be processed */
+// __attribute__ ((section (".coderam")))
+// void onAudioReady(){
+//   audioStatus = AUDIO_READY_STATUS;
+// }
+
+/* called by the program when an error or anomaly has occured */
+void onProgramStatus(ProgramVectorAudioStatus status){
+  // setLed(RED);
+  for(;;);
+}
+
+/* called by the program when a block has been processed */
+// __attribute__ ((section (".coderam")))
+void onProgramReady(){
+#ifdef DEBUG_DWT
+  programVector->cycles_per_block = *DWT_CYCCNT;
+  // getProgramVector()->cycles_per_block = *DWT_CYCCNT;
+    // (*DWT_CYCCNT + getProgramVector()->cycles_per_block)>>1;
+#endif /* DEBUG_DWT */
+#ifdef DEBUG_AUDIO
+  clearPin(GPIOC, GPIO_Pin_5); // PC5 DEBUG
+#endif
+  extern Graphics graphics;
+  if(audioStatus != AUDIO_IDLE_STATUS)
+    graphics.display(programVector->pixels, OLED_WIDTH*OLED_HEIGHT);
+  while(audioStatus != AUDIO_READY_STATUS);
+  audioStatus = AUDIO_PROCESSING_STATUS;
+#ifdef DEBUG_DWT
+  *DWT_CYCCNT = 0; // reset the performance counter
+#endif /* DEBUG_DWT */
+#ifdef DEBUG_AUDIO
+  setPin(GPIOC, GPIO_Pin_5); // PC5 DEBUG
+#endif
+}
+
+//   void onProgramReady(){
+//     ProgramVector* vec = getProgramVector();
+// #ifdef DEBUG_DWT
+//     vec->cycles_per_block = *DWT_CYCCNT;
+// #endif /* DEBUG_DWT */
+// #ifdef DEBUG_AUDIO
+//     clearPin(GPIOC, GPIO_Pin_5); // PC5 DEBUG
+// #endif
+//     while(audioStatus != AUDIO_READY_STATUS);
+//     audioStatus = AUDIO_PROCESSING_STATUS;
+// #ifdef DEBUG_DWT
+//     *DWT_CYCCNT = 0; // reset the performance counter
+// #endif /* DEBUG_DWT */
+// #ifdef DEBUG_AUDIO
+//     setPin(GPIOC, GPIO_Pin_5); // PC5 DEBUG
+// #endif
+//     if(vec->buttonChangedCallback != NULL && stateChanged.getState()){
+//       int bid = stateChanged.getFirstSetIndex();
+//       do{
+// 	vec->buttonChangedCallback(bid, getButton((PatchButtonId)bid)?4095:0, timestamps[bid]);
+// 	timestamps[bid] = 0;
+// 	stateChanged.clear(bid);
+// 	bid = stateChanged.getFirstSetIndex();
+//       }while(bid > 0); // bid 0 is bypass button which we ignore
+//     }
+// #if defined OWLRACK || defined OWLMODULAR
+//     bus_status();
+// #endif
+//   }
+// }
+
+void updateProgramVector(ProgramVector* pv){
+  pv->checksum = PROGRAM_VECTOR_CHECKSUM_V13;
+  pv->hardware_version = PLAYER_HARDWARE;
+  pv->parameters_size = 2;
+  pv->parameters = NULL; // adc_values;
+  pv->audio_bitdepth = 24;
+  pv->audio_samplingrate = 48000;
+  pv->buttons = 0;
+  pv->registerPatch = NULL;
+  pv->registerPatchParameter = NULL;
+  pv->cycles_per_block = 0;
+  pv->heap_bytes_used = 0;
+  pv->programReady = onProgramReady;
+  pv->programStatus = onProgramStatus;
+  pv->serviceCall = NULL;
+  pv->message = NULL;
+  pv->pixels = pixelbuffer;
+  pv->screen_width = OLED_WIDTH;
+  pv->screen_height = OLED_HEIGHT;
+}
+
+}
+
+
+extern "C" {
+  static StaticTask_t xIdleTaskTCBBuffer;// CCM;
+  static StackType_t xIdleStack[IDLE_TASK_STACK_SIZE];// CCM;
+  void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize) {
+    *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
+    *ppxIdleTaskStackBuffer = &xIdleStack[0];
+    *pulIdleTaskStackSize = IDLE_TASK_STACK_SIZE;
+  }
+  void vApplicationMallocFailedHook(void) {
+    // taskDISABLE_INTERRUPTS();
+    // for(;;);
+    // exitProgram(false);
+    error(PROGRAM_ERROR, "malloc failed");
+  }
+  void vApplicationIdleHook(void) {
+  }
+  void vApplicationStackOverflowHook(xTaskHandle pxTask, signed char *pcTaskName) {
+    (void) pcTaskName;
+    (void) pxTask;
+    /* Run time stack overflow checking is performed if
+       configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2.  This hook
+       function is called if a stack overflow is detected. */
+    // exitProgram(false);
+    error(PROGRAM_ERROR, "stack overflow");
+    // taskDISABLE_INTERRUPTS();
+    // for(;;);
+  }
+}

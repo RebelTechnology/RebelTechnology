@@ -5,6 +5,14 @@
 #include "PatchDefinition.hpp"
 #include "ProgramVector.h"
 
+extern "C" {
+  void updateProgramVector(ProgramVector* pv);
+  void onProgramReady(void);
+  void onProgramStatus(ProgramVectorAudioStatus status);
+  void onAudioReady(void);
+  void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size);
+}
+
 class ProgramManager {
 private:
   PatchDefinition* patchdef = NULL;
@@ -12,6 +20,7 @@ private:
   void notifyManagerFromISR(uint32_t ulValue);
 public:
   ProgramManager();
+
   void loadProgram(uint8_t index);
   void loadStaticProgram(PatchDefinition* def);
   void loadDynamicProgram(void* address, uint32_t length);
@@ -23,9 +32,9 @@ public:
   void startProgramChange(bool isr);
   /* void sendMidiData(int type, bool isr); */
 
-  void audioReady();
-  void programReady();
-  void programStatus(int);
+  // void audioReady();
+  // void programReady();
+  // void programStatus(int);
 
   uint32_t getProgramStackUsed();
   uint32_t getProgramStackAllocation();
