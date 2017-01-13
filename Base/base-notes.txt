@@ -178,7 +178,8 @@ Prices and names
 Arctic Cases	HP	W/S	MSRP
 Scout		42	40	62.40		no PSU
 Explorer	42	60	93.60		AC adapter PSU
-Excursion	60	90	140.40		15W PSU 1x active bus board
+Explorer	42	80	124.80		16W PSU TX bus board
+Excursion	60	95	148.20		15W PSU 1x active bus board
 Expedition	84	120	187.20		30W PSU 2x active bus boards
 Base		104	150	234.00		30W PSU 3x active bus boards
 		126
@@ -277,3 +278,17 @@ A-SCREW-1-8  Screws for D mounts, A type
 http://cpc.farnell.com/neutrik/a-screw-1-8/screws-for-d-mounts-a-type/dp/AV18050?CMP=CPC-PLA
 
 --------------------------------------------------------------------------
+
+THAT 1646 drivers: cheaper from Mouser
+Neutrik Combo: cheaper from Farnell
+
+--------------------------------------------------------------------------
+
+www.perspexsheet.uk same parent company as www.plasticsheets.com, slightly cheaper?
+Wanna Limited
+also: http://www.woodsheets.com/
+
+www.perspexsheet.co.uk / www.theplasticshop.co.uk Gilbert Curry Industrial Plastics Co Ltd
+
+--------------------------------------------------------------------------
+
