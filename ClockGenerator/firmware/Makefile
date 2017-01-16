@@ -48,7 +48,7 @@ CXXINCS = -I$(ARDUINO)
 # gnu89 - c89 plus GCC extensions
 # c99   - ISO C99 standard (not yet fully implemented)
 # gnu99 - c99 plus GCC extensions
-CSTANDARD = -std=gnu99
+CSTANDARD = -std=c++11
 CDEBUG = # -g$(DEBUG)
 CWARN = -Wall -Wstrict-prototypes
 CTUNING = -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
