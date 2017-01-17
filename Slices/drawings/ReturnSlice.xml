@@ -1,0 +1,13 @@
+<module type="4hp" grading="small">
+
+  <!-- pots -->
+  <pot x="0.0" y="1.75"/>
+  <pot x="0.0" y="1.00"/>
+
+  <!-- jacks -->
+  <hole x="0.059" y="-0.25" radius="3.25"/>
+  <hole x="0.059" y="-0.75" radius="3.25"/>
+  <hole x="0.059" y="-1.25" radius="3.25"/>
+  <hole x="0.059" y="-1.75" radius="3.25"/>
+
+</module>
