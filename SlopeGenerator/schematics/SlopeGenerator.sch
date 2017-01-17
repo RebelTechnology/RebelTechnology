@@ -12050,9 +12050,9 @@ Source: Fairchild .. BAT54.pdf</description>
 <instance part="GND28" gate="1" x="111.76" y="121.92"/>
 <instance part="R18" gate="G$1" x="154.94" y="7.62"/>
 <instance part="R14" gate="G$1" x="134.62" y="7.62"/>
-<instance part="GND18" gate="1" x="43.18" y="152.4"/>
+<instance part="GND18" gate="1" x="66.04" y="165.1"/>
 <instance part="R12" gate="G$1" x="76.2" y="200.66" rot="R180"/>
-<instance part="GND17" gate="1" x="43.18" y="180.34"/>
+<instance part="GND17" gate="1" x="66.04" y="193.04"/>
 <instance part="R3" gate="G$1" x="-91.44" y="96.52" rot="MR180"/>
 <instance part="R7" gate="G$1" x="-68.58" y="111.76" rot="MR270"/>
 <instance part="GND6" gate="1" x="-68.58" y="81.28"/>
@@ -12362,15 +12362,15 @@ Source: Fairchild .. BAT54.pdf</description>
 </segment>
 <segment>
 <pinref part="R13" gate="G$1" pin="2"/>
-<wire x1="71.12" y1="172.72" x2="43.18" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="172.72" x2="66.04" y2="172.72" width="0.1524" layer="91"/>
 <pinref part="GND18" gate="1" pin="GND"/>
-<wire x1="43.18" y1="172.72" x2="43.18" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="172.72" x2="66.04" y2="167.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R12" gate="G$1" pin="2"/>
-<wire x1="71.12" y1="200.66" x2="43.18" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="200.66" x2="66.04" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="GND17" gate="1" pin="GND"/>
-<wire x1="43.18" y1="200.66" x2="43.18" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="200.66" x2="66.04" y2="195.58" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="Q1" gate="G$1" pin="E"/>
