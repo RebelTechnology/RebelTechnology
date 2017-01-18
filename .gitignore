@@ -29,6 +29,11 @@ OWL 2/firmware/OWL2/
 OWL 2/firmware_blankbuild
 OWL 2/cube/firmware
 
+Player/firmware/Drivers
+Player/firmware/Middlewares
+
+
+
 
 
 *.o
