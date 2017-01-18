@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -13029,7 +13029,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="JP2" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="JP5" library="SparkFun" deviceset="M06" device="SIP"/>
 <part name="JP6" library="SparkFun" deviceset="M06" device="SIP"/>
-<part name="USB1" library="Rebel" deviceset="USB_HRS_ZX62-B-5PA(11)MICRO.B" device=""/>
+<part name="USB" library="Rebel" deviceset="USB_HRS_ZX62-B-5PA(11)MICRO.B" device=""/>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
@@ -13212,7 +13212,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <instance part="JP6" gate="G$1" x="259.08" y="-35.56" smashed="yes" rot="MR90">
 <attribute name="VALUE" x="248.92" y="-40.64" size="1.778" layer="96" rot="MR90"/>
 </instance>
-<instance part="USB1" gate="USB" x="320.04" y="17.78"/>
+<instance part="USB" gate="USB" x="320.04" y="17.78"/>
 <instance part="P+2" gate="1" x="238.76" y="-22.86"/>
 <instance part="P+3" gate="1" x="223.52" y="-27.94"/>
 <instance part="+3V1" gate="G$1" x="231.14" y="-27.94"/>
@@ -14927,7 +14927,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <pinref part="JP7" gate="G$1" pin="1"/>
 <wire x1="266.7" y1="15.24" x2="266.7" y2="30.48" width="0.1524" layer="91"/>
 <label x="279.4" y="15.24" size="1.778" layer="95"/>
-<pinref part="USB1" gate="USB" pin="ID"/>
+<pinref part="USB" gate="USB" pin="ID"/>
 </segment>
 <segment>
 <pinref part="IC8" gate="G$2" pin="PB12"/>
@@ -15007,7 +15007,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <label x="76.2" y="101.6" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="TOP_GP1" class="0">
+<net name="TOP_GP8" class="0">
 <segment>
 <pinref part="JP3" gate="G$1" pin="5"/>
 <wire x1="226.06" y1="30.48" x2="226.06" y2="17.78" width="0.1524" layer="91"/>
@@ -15019,7 +15019,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <label x="271.78" y="132.08" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="TOP_GP2" class="0">
+<net name="TOP_GP9" class="0">
 <segment>
 <pinref part="JP3" gate="G$1" pin="4"/>
 <wire x1="228.6" y1="30.48" x2="228.6" y2="17.78" width="0.1524" layer="91"/>
@@ -15031,7 +15031,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <label x="271.78" y="134.62" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="TOP_GP3" class="0">
+<net name="TOP_GP10" class="0">
 <segment>
 <pinref part="JP3" gate="G$1" pin="2"/>
 <wire x1="233.68" y1="30.48" x2="233.68" y2="17.78" width="0.1524" layer="91"/>
@@ -15043,7 +15043,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <pinref part="IC8" gate="G$3" pin="PG10"/>
 </segment>
 </net>
-<net name="TOP_GP4" class="0">
+<net name="TOP_GP11" class="0">
 <segment>
 <pinref part="JP3" gate="G$1" pin="1"/>
 <wire x1="236.22" y1="30.48" x2="236.22" y2="17.78" width="0.1524" layer="91"/>
@@ -15142,10 +15142,10 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </net>
 <net name="N$1" class="0">
 <segment>
-<pinref part="USB1" gate="USB" pin="GND"/>
+<pinref part="USB" gate="USB" pin="GND"/>
 <wire x1="312.42" y1="12.7" x2="314.96" y2="12.7" width="0.1524" layer="91"/>
 <pinref part="L2" gate="G$1" pin="1"/>
-<pinref part="USB1" gate="USB" pin="SHIELD"/>
+<pinref part="USB" gate="USB" pin="SHIELD"/>
 <wire x1="314.96" y1="12.7" x2="317.5" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="317.5" y1="10.16" x2="314.96" y2="10.16" width="0.1524" layer="91"/>
 <wire x1="314.96" y1="10.16" x2="314.96" y2="12.7" width="0.1524" layer="91"/>
@@ -15155,20 +15155,20 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <net name="N$2" class="0">
 <segment>
 <pinref part="L1" gate="G$1" pin="2"/>
-<pinref part="USB1" gate="USB" pin="VCC"/>
+<pinref part="USB" gate="USB" pin="VCC"/>
 <wire x1="312.42" y1="22.86" x2="317.5" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="R2" gate="G$1" pin="1"/>
-<pinref part="USB1" gate="USB" pin="D+"/>
+<pinref part="USB" gate="USB" pin="D+"/>
 <wire x1="314.96" y1="17.78" x2="317.5" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$5" class="0">
 <segment>
-<pinref part="USB1" gate="USB" pin="D-"/>
+<pinref part="USB" gate="USB" pin="D-"/>
 <pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="317.5" y1="20.32" x2="307.34" y2="20.32" width="0.1524" layer="91"/>
 </segment>
