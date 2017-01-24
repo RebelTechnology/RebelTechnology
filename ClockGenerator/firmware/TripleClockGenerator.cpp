@@ -13,8 +13,8 @@ typedef uint16_t SubClockTick;
 const uint32_t FREQ_TICKS = 8160L*1000L/48;
 const MasterClockTick FREQ_MIN = 666;
 
-const SubClockTick B_MULTIPLIERS[] = { 48*6, 48*5, 48*4, 48*3, 48*2, 48*1, 48/2, 48/3, 48/4, 48/5, 48/6 };
-const SubClockTick C_MULTIPLIERS[] = { 48*24, 48*16, 48*8, 48*4, 48*2, 48*1, 48/2, 48/4, 48/8, 48/16, 48/24 };
+const SubClockTick B_MULTIPLIERS[] = { 48*8, 48*6, 48*4, 48*3, 48*2, 48*1, 48/2, 48/3, 48/4, 48/6, 48/8 };
+const SubClockTick C_MULTIPLIERS[] = { 48*24, 48*12, 48*8, 48*4, 48*2, 48*1, 48/2, 48/4, 48/8, 48/12, 48/24 };
 
 // #define FAST_MULTIPLIER        (F_CPU / (64*16ull))
 #define FAST_MULTIPLIER        (F_CPU / (64*64ull))
@@ -34,8 +34,8 @@ public:
   volatile SubClockTick period;
   volatile SubClockTick duty;
   volatile SubClockTick pos;
-  void setPeriod(SubClockTick ticks){
-    duty = min(6, ticks>>1);
+  void setPeriod(SubClockTick ticks, SubClockTick maxDuty){
+    duty = min(maxDuty, ticks>>1);
     period = ticks-1;
   }
   void resetPhase(){
@@ -145,7 +145,6 @@ void setup(){
   TCCR2B |= (1 << CS21); // prescalar 8
   // TCCR2B |= (1 << CS22); // prescalar 64
 
-  clockA.setPeriod(48);
   setup_adc();
 
   sei();
@@ -167,12 +166,12 @@ void loop(){
     master.resetC = true;
   }
   a = getAnalogValue(GENERATOR_RATE_A_CONTROL)*2/3 + FREQ_MIN;
-  uint32_t t = FREQ_TICKS / a;
-  b = B_MULTIPLIERS[b];
-  c = C_MULTIPLIERS[c];
-  master.setPeriod(t);
-  clockB.setPeriod(b);
-  clockC.setPeriod(c);
+  uint32_t ticks = FREQ_TICKS / a;
+  uint16_t maxDuty = 816 / ticks;
+  master.setPeriod(ticks);
+  clockA.setPeriod(48, maxDuty);
+  clockB.setPeriod(B_MULTIPLIERS[b], maxDuty);
+  clockC.setPeriod(C_MULTIPLIERS[c], maxDuty);
 }
 
 ISR(TIMER2_COMPA_vect){
