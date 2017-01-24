@@ -7,14 +7,14 @@
 // #include "ContinuousController.h"
 
 #define GENERATOR_CONTROLLER_DELTA 0.001
-typedef uint32_t ClockTick;
+typedef uint16_t MasterClockTick;
+typedef uint16_t SubClockTick;
 
-const ClockTick FREQ_RANGE = 2666;
-const ClockTick FREQ_MIN = 666;
-const ClockTick FREQ_TICKS_PER_MILLIHZ = 1920L*1000L*2;
-const ClockTick FREQ_TICKS_MAX_DUTY = 384*2;
-const int B_MULTIPLIERS[] = { 48/6, 48/5, 48/4, 48/3, 48/2, 48*1, 48*2, 48*3, 48*4, 48*5, 48*6 };
-const int C_MULTIPLIERS[] = { 48/24, 48/16, 48/8, 48/4, 48/2, 48*1, 48*2, 48*4, 48*8, 48*16, 48*24 };
+const uint32_t FREQ_TICKS = 8160L*1000L/48;
+const MasterClockTick FREQ_MIN = 666;
+
+const SubClockTick B_MULTIPLIERS[] = { 48*6, 48*5, 48*4, 48*3, 48*2, 48*1, 48/2, 48/3, 48/4, 48/5, 48/6 };
+const SubClockTick C_MULTIPLIERS[] = { 48*24, 48*16, 48*8, 48*4, 48*2, 48*1, 48/2, 48/4, 48/8, 48/16, 48/24 };
 
 // #define FAST_MULTIPLIER        (F_CPU / (64*16ull))
 #define FAST_MULTIPLIER        (F_CPU / (64*64ull))
@@ -31,11 +31,11 @@ template<uint8_t TYPE>
 class ClockGenerator {
 private:
 public:
-  volatile ClockTick period;
-  volatile ClockTick duty;
-  volatile ClockTick pos;
-  void setPeriod(ClockTick ticks){
-    duty = ticks>>1;
+  volatile SubClockTick period;
+  volatile SubClockTick duty;
+  volatile SubClockTick pos;
+  void setPeriod(SubClockTick ticks){
+    duty = min(6, ticks>>1);
     period = ticks-1;
   }
   void resetPhase(){
@@ -93,12 +93,6 @@ template<> bool ClockGenerator<CLOCK_TYPE_C>::isOff(){
   return GENERATOR_OUTC_PORT & _BV(GENERATOR_OUTC_PIN);
 }
 
-// class ClockController : public ContinuousController {
-// public:
-//   virtual void hasChanged(float v){
-//     // timer->setRate(v);
-//   }
-// };
 ClockGenerator<CLOCK_TYPE_A> clockA;
 ClockGenerator<CLOCK_TYPE_B> clockB;
 ClockGenerator<CLOCK_TYPE_C> clockC;
@@ -106,25 +100,14 @@ ClockGenerator<CLOCK_TYPE_C> clockC;
 class MasterClock {
 private:
 public:
-volatile bool resetB = false;
-volatile bool resetC = false;
-  volatile ClockTick period;
-  const ClockTick duty = FREQ_TICKS_MAX_DUTY; // max 100mS (2*1920 / 10)
-  ClockTick pos;
-  ClockTick uptime;
-  void setPeriod(ClockTick ticks){
+  volatile bool resetB = false;
+  volatile bool resetC = false;
+  volatile MasterClockTick period;
+  MasterClockTick pos;
+  void setPeriod(MasterClockTick ticks){
     period = ticks;
   }
-  void off(){
-    clockA.off();
-    clockB.off();
-    clockC.off();
-  }
   void clock(){
-    // if(uptime++ == duty){
-    //   uptime = pos;
-    //   off();
-    // }
     if(++pos > period){
       pos = 0;
       clockA.clock();
@@ -153,15 +136,14 @@ void setup(){
   GENERATOR_OUTB_DDR |= _BV(GENERATOR_OUTB_PIN);
   GENERATOR_OUTC_DDR |= _BV(GENERATOR_OUTC_PIN);
 
-  // At 16MHz CPU clock and prescaler 64, Timer 0 should run at 1024Hz.
-
-  // configure Timer 0 to Fast PWM, 0xff top.
-  TCCR0A |= _BV(WGM01) | _BV(WGM00);
-  // TCCR0B |= _BV(CS01) | _BV(CS00); // prescaler: 64
-  // TCCR0B |= _BV(CS01);  // prescaler: 8
-  TCCR0B |= _BV(CS00);  // prescaler: 1
-  TIMSK0 |= _BV(TOIE0); // enable timer 0 overflow interrupt
-  OCR0A = 0;
+  OCR2A = 14;
+  TCCR2A |= (1 << WGM21);
+  // Set to CTC Mode
+  TIMSK2 |= (1 << OCIE2A);
+  // Set interrupt on compare match
+  // TCCR2B |= (1 << CS20); // prescalar 1
+  TCCR2B |= (1 << CS21); // prescalar 8
+  // TCCR2B |= (1 << CS22); // prescalar 64
 
   clockA.setPeriod(48);
   setup_adc();
@@ -169,47 +151,31 @@ void setup(){
   sei();
 }
 
-ClockTick mulB = 5;
-ClockTick mulC = 5;
+SubClockTick mulB = 5;
+SubClockTick mulC = 5;
 void loop(){
-  ClockTick a, b, c;
-  a = (getAnalogValue(GENERATOR_RATE_A_CONTROL) * FREQ_RANGE)/ADC_VALUE_RANGE + FREQ_MIN;
+  MasterClockTick a;
+  SubClockTick b, c;
   b = (getAnalogValue(GENERATOR_RATE_B_CONTROL) * 11) / ADC_VALUE_RANGE;
   if(b != mulB){
     mulB = b;
     master.resetB = true;
   }
-  // if(b > 5)
-  //   b = a*(b-4);
-  // else if(b < 5)
-  //   b = a/(6-b);
-  // else
-  //   b = a;
   c = (getAnalogValue(GENERATOR_RATE_C_CONTROL) * 11) / ADC_VALUE_RANGE;
   if(c != mulC){
     mulC = c;
     master.resetC = true;
   }
-  // if(c > 5){
-  //   c = MULTIPLIERS[c-6];
-  //   c = a*c;
-  // }else if(c < 5){
-  //   c = MULTIPLIERS[4-c];
-  //   c = a/c;
-  // }else
-  //   c = a;
-  a = FREQ_TICKS_PER_MILLIHZ / (a*48);
-  // b = FREQ_TICKS_PER_MILLIHZ / b;
-  // c = FREQ_TICKS_PER_MILLIHZ / c;
-  b = B_MULTIPLIERS[10-b];
-  c = C_MULTIPLIERS[10-c];
-
-  master.setPeriod(a);
+  a = getAnalogValue(GENERATOR_RATE_A_CONTROL)*2/3 + FREQ_MIN;
+  uint32_t t = FREQ_TICKS / a;
+  b = B_MULTIPLIERS[b];
+  c = C_MULTIPLIERS[c];
+  master.setPeriod(t);
   clockB.setPeriod(b);
   clockC.setPeriod(c);
 }
 
-ISR(TIMER0_OVF_vect){
+ISR(TIMER2_COMPA_vect){
   master.clock();
 }
 
