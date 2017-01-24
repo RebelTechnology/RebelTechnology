@@ -11116,10 +11116,10 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 <part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="5O" library="Rebel" deviceset="CON-JST_PH_5W" device=""/>
-<part name="U$1" library="Rebel" deviceset="POT-BOURNS-PTD901" device="" value="10k lin"/>
-<part name="U$2" library="Rebel" deviceset="POT-BOURNS-PTD901" device="" value="10k lin"/>
-<part name="U$3" library="Rebel" deviceset="POT-BOURNS-PTD901" device="" value="10k lin"/>
-<part name="U$4" library="Rebel" deviceset="POT-BOURNS-PTD901" device="" value="10k lin"/>
+<part name="P1" library="Rebel" deviceset="POT-BOURNS-PTD901" device="" value="10k lin"/>
+<part name="P2" library="Rebel" deviceset="POT-BOURNS-PTD901" device="" value="10k lin"/>
+<part name="P3" library="Rebel" deviceset="POT-BOURNS-PTD901" device="" value="10k lin"/>
+<part name="P4" library="Rebel" deviceset="POT-BOURNS-PTD901" device="" value="10k lin"/>
 <part name="IC2" library="linear" deviceset="TL072" device="D"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
@@ -11203,10 +11203,10 @@ Copyright 2017 Rebel Technology</text>
 <instance part="R3" gate="G$1" x="-12.7" y="175.26" rot="R180"/>
 <instance part="GND1" gate="1" x="-109.22" y="193.04"/>
 <instance part="5O" gate="G$1" x="-88.9" y="210.82" rot="MR0"/>
-<instance part="U$1" gate="G$1" x="-27.94" y="175.26" rot="R90"/>
-<instance part="U$2" gate="G$1" x="-43.18" y="137.16" rot="R90"/>
-<instance part="U$3" gate="G$1" x="-58.42" y="99.06" rot="R90"/>
-<instance part="U$4" gate="G$1" x="-73.66" y="58.42" rot="R90"/>
+<instance part="P1" gate="G$1" x="-27.94" y="175.26" rot="R90"/>
+<instance part="P2" gate="G$1" x="-43.18" y="137.16" rot="R90"/>
+<instance part="P3" gate="G$1" x="-58.42" y="99.06" rot="R90"/>
+<instance part="P4" gate="G$1" x="-73.66" y="58.42" rot="R90"/>
 <instance part="IC1" gate="C" x="-96.52" y="149.86"/>
 <instance part="IC1" gate="A" x="-96.52" y="185.42"/>
 <instance part="IC1" gate="B" x="-96.52" y="167.64"/>
@@ -11271,12 +11271,12 @@ Copyright 2017 Rebel Technology</text>
 <segment>
 <pinref part="GND8" gate="1" pin="GND"/>
 <wire x1="-58.42" y1="68.58" x2="-58.42" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="U$3" gate="G$1" pin="1"/>
+<pinref part="P3" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="GND15" gate="1" pin="GND"/>
 <wire x1="-73.66" y1="30.48" x2="-73.66" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="1"/>
+<pinref part="P4" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="R2" gate="G$1" pin="2"/>
@@ -11346,12 +11346,12 @@ Copyright 2017 Rebel Technology</text>
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
 <wire x1="-27.94" y1="147.32" x2="-27.94" y2="167.64" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="1"/>
+<pinref part="P1" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="GND5" gate="1" pin="GND"/>
 <wire x1="-43.18" y1="109.22" x2="-43.18" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="1"/>
+<pinref part="P2" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="R12" gate="G$1" pin="2"/>
@@ -11477,7 +11477,7 @@ Copyright 2017 Rebel Technology</text>
 <wire x1="-66.04" y1="58.42" x2="-68.58" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="-66.04" y1="55.88" x2="-66.04" y2="58.42" width="0.1524" layer="91"/>
 <junction x="-66.04" y="58.42"/>
-<pinref part="U$4" gate="G$1" pin="2"/>
+<pinref part="P4" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$51" class="0">
@@ -11488,7 +11488,7 @@ Copyright 2017 Rebel Technology</text>
 <wire x1="-50.8" y1="99.06" x2="-53.34" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="-50.8" y1="96.52" x2="-50.8" y2="99.06" width="0.1524" layer="91"/>
 <junction x="-50.8" y="99.06"/>
-<pinref part="U$3" gate="G$1" pin="2"/>
+<pinref part="P3" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -11523,7 +11523,7 @@ Copyright 2017 Rebel Technology</text>
 <junction x="-86.36" y="132.08"/>
 <wire x1="-86.36" y1="132.08" x2="-73.66" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="-73.66" y1="132.08" x2="-73.66" y2="66.04" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="3"/>
+<pinref part="P4" gate="G$1" pin="3"/>
 <pinref part="IC1" gate="D" pin="-IN"/>
 <pinref part="IC1" gate="D" pin="OUT"/>
 </segment>
@@ -11538,7 +11538,7 @@ Copyright 2017 Rebel Technology</text>
 <wire x1="-86.36" y1="149.86" x2="-58.42" y2="149.86" width="0.1524" layer="91"/>
 <junction x="-86.36" y="149.86"/>
 <wire x1="-58.42" y1="149.86" x2="-58.42" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="U$3" gate="G$1" pin="3"/>
+<pinref part="P3" gate="G$1" pin="3"/>
 <pinref part="IC1" gate="C" pin="-IN"/>
 <pinref part="IC1" gate="C" pin="OUT"/>
 </segment>
@@ -11551,7 +11551,7 @@ Copyright 2017 Rebel Technology</text>
 <wire x1="-35.56" y1="137.16" x2="-38.1" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="-35.56" y1="134.62" x2="-35.56" y2="137.16" width="0.1524" layer="91"/>
 <junction x="-35.56" y="137.16"/>
-<pinref part="U$2" gate="G$1" pin="2"/>
+<pinref part="P2" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -11562,7 +11562,7 @@ Copyright 2017 Rebel Technology</text>
 <wire x1="-20.32" y1="172.72" x2="-20.32" y2="175.26" width="0.1524" layer="91"/>
 <junction x="-20.32" y="175.26"/>
 <pinref part="R3" gate="G$1" pin="2"/>
-<pinref part="U$1" gate="G$1" pin="2"/>
+<pinref part="P1" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -11575,7 +11575,7 @@ Copyright 2017 Rebel Technology</text>
 <junction x="-86.36" y="167.64"/>
 <wire x1="-86.36" y1="167.64" x2="-43.18" y2="167.64" width="0.1524" layer="91"/>
 <wire x1="-43.18" y1="167.64" x2="-43.18" y2="144.78" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="3"/>
+<pinref part="P2" gate="G$1" pin="3"/>
 <pinref part="IC1" gate="B" pin="-IN"/>
 <pinref part="IC1" gate="B" pin="OUT"/>
 </segment>
@@ -11590,7 +11590,7 @@ Copyright 2017 Rebel Technology</text>
 <wire x1="-86.36" y1="185.42" x2="-27.94" y2="185.42" width="0.1524" layer="91"/>
 <junction x="-86.36" y="185.42"/>
 <wire x1="-27.94" y1="185.42" x2="-27.94" y2="182.88" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="3"/>
+<pinref part="P1" gate="G$1" pin="3"/>
 <pinref part="IC1" gate="A" pin="-IN"/>
 <pinref part="IC1" gate="A" pin="OUT"/>
 </segment>
@@ -11620,7 +11620,7 @@ Copyright 2017 Rebel Technology</text>
 <pinref part="IC2" gate="A" pin="-IN"/>
 </segment>
 </net>
-<net name="IN_4" class="0">
+<net name="IN_1" class="0">
 <segment>
 <wire x1="-106.68" y1="210.82" x2="-119.38" y2="210.82" width="0.1524" layer="91"/>
 <pinref part="5O" gate="G$1" pin="-1"/>
@@ -11635,7 +11635,7 @@ Copyright 2017 Rebel Technology</text>
 <wire x1="-106.68" y1="210.82" x2="-93.98" y2="210.82" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="IN_3" class="0">
+<net name="IN_2" class="0">
 <segment>
 <wire x1="-106.68" y1="208.28" x2="-116.84" y2="208.28" width="0.1524" layer="91"/>
 <pinref part="5O" gate="G$1" pin="-2"/>
@@ -11651,7 +11651,7 @@ Copyright 2017 Rebel Technology</text>
 <wire x1="-106.68" y1="208.28" x2="-93.98" y2="208.28" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="IN_2" class="0">
+<net name="IN_3" class="0">
 <segment>
 <wire x1="-106.68" y1="203.2" x2="-114.3" y2="203.2" width="0.1524" layer="91"/>
 <pinref part="5O" gate="G$1" pin="-4"/>
@@ -11667,7 +11667,7 @@ Copyright 2017 Rebel Technology</text>
 <wire x1="-106.68" y1="203.2" x2="-93.98" y2="203.2" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="IN_1" class="0">
+<net name="IN_4" class="0">
 <segment>
 <wire x1="-106.68" y1="200.66" x2="-111.76" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="5O" gate="G$1" pin="-5"/>
