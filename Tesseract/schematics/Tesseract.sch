@@ -25285,9 +25285,9 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <approved hash="113,1,110.49,45.1273,ADC,,,,,"/>
 <approved hash="113,1,99.6527,-30.48,PWR,,,,,"/>
 <approved hash="113,1,99.6527,11.43,EXTSPI,,,,,"/>
-<approved hash="113,1,99.6527,-17.9485,LGP6-7,,,,,"/>
+<approved hash="113,1,99.6527,-18.4685,LGP6-7,,,,,"/>
 <approved hash="113,1,230.463,-21.3953,BOOT,,,,,"/>
-<approved hash="113,1,126.974,45.1273,TGP1-4,,,,,"/>
+<approved hash="113,1,127,45.1273,TGP1-4,,,,,"/>
 <approved hash="113,1,146.05,45.1273,ICSP,,,,,"/>
 <approved hash="113,1,99.6527,-5.08,LGP1-5,,,,,"/>
 <approved hash="113,1,151.13,-29.8873,ANG1,,,,,"/>
