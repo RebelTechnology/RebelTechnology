@@ -13706,29 +13706,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </library>
 <library name="Rebel">
 <packages>
-<package name="POT-ALPS-RK09L1120">
-<wire x1="-5.35" y1="-5.936" x2="-4.5" y2="-5.936" width="0.2032" layer="21"/>
-<wire x1="-4.5" y1="-5.936" x2="4.5" y2="-5.936" width="0.2032" layer="21"/>
-<wire x1="4.5" y1="-5.936" x2="5.35" y2="-5.936" width="0.2032" layer="21"/>
-<wire x1="5.35" y1="-5.936" x2="5.35" y2="4.764" width="0.127" layer="21"/>
-<wire x1="5.35" y1="4.764" x2="-5.35" y2="4.764" width="0.2032" layer="21"/>
-<wire x1="-5.35" y1="4.764" x2="-5.35" y2="-5.936" width="0.127" layer="21"/>
-<pad name="3" x="2.5" y="-0.036" drill="1" diameter="1.9304" rot="R90"/>
-<pad name="2" x="0" y="-0.036" drill="1" diameter="1.9304" rot="R270"/>
-<pad name="1" x="-2.5" y="-0.036" drill="1" diameter="1.9304" rot="R90"/>
-<text x="-3.35" y="-5.016" size="1.27" layer="25" font="vector">&gt;NAME</text>
-<text x="3.35" y="-7.936" size="1.27" layer="27" font="vector" rot="R180">&gt;VALUE</text>
-<pad name="SHLD1" x="-4.5" y="4.1" drill="2" shape="octagon"/>
-<pad name="SHLD2" x="4.5" y="4.1" drill="2" shape="octagon" rot="R90"/>
-<wire x1="-4.5" y1="-5.936" x2="-4.5" y2="-10.936" width="0.127" layer="21"/>
-<wire x1="-4.5" y1="-10.936" x2="-3" y2="-10.936" width="0.127" layer="21"/>
-<wire x1="-3" y1="-10.936" x2="3" y2="-10.936" width="0.127" layer="21"/>
-<wire x1="3" y1="-10.936" x2="4.5" y2="-10.936" width="0.127" layer="21"/>
-<wire x1="4.5" y1="-10.936" x2="4.5" y2="-5.936" width="0.127" layer="21"/>
-<wire x1="-3" y1="-10.936" x2="-3" y2="-20.936" width="0.127" layer="21"/>
-<wire x1="-3" y1="-20.936" x2="3" y2="-20.936" width="0.127" layer="21"/>
-<wire x1="3" y1="-20.936" x2="3" y2="-10.936" width="0.127" layer="21"/>
-</package>
 <package name="UJ-3502-R">
 <pad name="P$1" x="0" y="0" drill="2.2"/>
 <pad name="P$2" x="0" y="5" drill="2.2"/>
@@ -13742,31 +13719,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="-3" y1="-6.7" x2="-3" y2="-10.7" width="0.127" layer="21"/>
 <wire x1="-3" y1="-10.7" x2="3" y2="-10.7" width="0.127" layer="21"/>
 <wire x1="3" y1="-10.7" x2="3" y2="-6.7" width="0.127" layer="21"/>
-</package>
-<package name="POT-ALPS-RK09L1140">
-<circle x="0" y="0" radius="3" width="0.127" layer="51"/>
-<wire x1="-4.9" y1="5.5" x2="4.9" y2="5.5" width="0.127" layer="51"/>
-<wire x1="4.9" y1="5.5" x2="4.9" y2="-5" width="0.127" layer="51"/>
-<wire x1="4.9" y1="-5" x2="-4.9" y2="-5" width="0.127" layer="51"/>
-<wire x1="-4.9" y1="-5" x2="-4.9" y2="5.5" width="0.127" layer="51"/>
-<wire x1="-5" y1="-5" x2="5" y2="-5" width="0.2032" layer="21"/>
-<wire x1="5" y1="-5" x2="5" y2="5.5" width="0.127" layer="21"/>
-<wire x1="5" y1="5.5" x2="-5" y2="5.5" width="0.2032" layer="21"/>
-<wire x1="-5" y1="5.5" x2="-5" y2="-5" width="0.127" layer="21"/>
-<wire x1="-5.3" y1="1.05" x2="-5.3" y2="-1.05" width="0.127" layer="51"/>
-<wire x1="-5.3" y1="-1.05" x2="-3.5" y2="-1.05" width="0.127" layer="51"/>
-<wire x1="-3.5" y1="-1.05" x2="-3.5" y2="1.05" width="0.127" layer="51"/>
-<wire x1="-3.5" y1="1.05" x2="-5.3" y2="1.05" width="0.127" layer="51"/>
-<wire x1="3.5" y1="-1.05" x2="3.5" y2="1.05" width="0.127" layer="51"/>
-<wire x1="5.3" y1="-1.05" x2="5.3" y2="1.05" width="0.127" layer="51"/>
-<wire x1="5.3" y1="1.05" x2="3.5" y2="1.05" width="0.127" layer="51"/>
-<wire x1="3.5" y1="-1.05" x2="5.3" y2="-1.05" width="0.127" layer="51"/>
-<pad name="3" x="2.5" y="-7.5" drill="1" diameter="1.9304" rot="R90"/>
-<pad name="2" x="0" y="-7.5" drill="1" diameter="1.9304" rot="R270"/>
-<pad name="1" x="-2.5" y="-7.5" drill="1" diameter="1.9304" rot="R90"/>
-<text x="0" y="3.62" size="1.27" layer="25" font="vector" align="bottom-center">&gt;NAME</text>
-<pad name="P$5" x="-4.5" y="0" drill="2" shape="octagon"/>
-<pad name="P$6" x="4.5" y="0" drill="2" shape="octagon" rot="R90"/>
 </package>
 <package name="PTC">
 <wire x1="-3.81" y1="1.524" x2="3.81" y2="1.524" width="0.2032" layer="21"/>
@@ -13796,6 +13748,55 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <text x="1.905" y="-1.651" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <wire x1="2.54" y1="-1.27" x2="2.54" y2="1.27" width="0.254" layer="21" curve="-306.869898"/>
 </package>
+<package name="UJ-3502-R-SLOT">
+<wire x1="-3.6" y1="6.5" x2="-3.6" y2="-6.5" width="0.127" layer="21"/>
+<wire x1="-3.6" y1="-6.5" x2="-3" y2="-6.5" width="0.127" layer="21"/>
+<wire x1="-3" y1="-6.5" x2="-1.27" y2="-6.5" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-6.5" x2="3" y2="-6.5" width="0.127" layer="21"/>
+<wire x1="3" y1="-6.5" x2="3.6" y2="-6.5" width="0.127" layer="21"/>
+<wire x1="3.6" y1="-6.5" x2="3.6" y2="6.5" width="0.127" layer="21"/>
+<wire x1="3.6" y1="6.5" x2="1.27" y2="6.5" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="6.5" x2="-3.6" y2="6.5" width="0.127" layer="21"/>
+<wire x1="-3" y1="-6.5" x2="-3" y2="-10.5" width="0.127" layer="21"/>
+<wire x1="-3" y1="-10.5" x2="3" y2="-10.5" width="0.127" layer="21"/>
+<wire x1="3" y1="-10.5" x2="3" y2="-6.5" width="0.127" layer="21"/>
+<wire x1="0.63" y1="-4.5" x2="0.63" y2="-5.5" width="0.01" layer="46" curve="-180"/>
+<wire x1="-0.63" y1="-4.5" x2="-0.63" y2="-5.5" width="0.01" layer="46" curve="180"/>
+<wire x1="-0.63" y1="-4.5" x2="0.63" y2="-4.5" width="0.01" layer="46"/>
+<wire x1="-0.63" y1="-5.5" x2="0.63" y2="-5.5" width="0.01" layer="46"/>
+<wire x1="0.63" y1="0.5" x2="0.63" y2="-0.5" width="0.01" layer="46" curve="-180"/>
+<wire x1="-0.63" y1="0.5" x2="-0.63" y2="-0.5" width="0.01" layer="46" curve="180"/>
+<wire x1="-0.63" y1="0.5" x2="0.63" y2="0.5" width="0.01" layer="46"/>
+<wire x1="-0.63" y1="-0.5" x2="0.63" y2="-0.5" width="0.01" layer="46"/>
+<wire x1="0.63" y1="5.5" x2="0.63" y2="4.5" width="0.01" layer="46" curve="-180"/>
+<wire x1="-0.63" y1="5.5" x2="-0.63" y2="4.5" width="0.01" layer="46" curve="180"/>
+<wire x1="-0.63" y1="5.5" x2="0.63" y2="5.5" width="0.01" layer="46"/>
+<wire x1="-0.63" y1="4.5" x2="0.63" y2="4.5" width="0.01" layer="46"/>
+<pad name="P$2" x="0" y="5" drill="1" shape="long"/>
+<pad name="P$1" x="0" y="0" drill="1" shape="long"/>
+<pad name="P$3" x="0" y="-5" drill="1" shape="long"/>
+</package>
+<package name="POT-BOURNS-PTD901">
+<wire x1="-5.35" y1="-5" x2="-4.5" y2="-5" width="0.2032" layer="21"/>
+<wire x1="-4.5" y1="-5" x2="4.5" y2="-5" width="0.2032" layer="21"/>
+<wire x1="4.5" y1="-5" x2="5.35" y2="-5" width="0.2032" layer="21"/>
+<wire x1="5.35" y1="-5" x2="5.35" y2="2.05" width="0.127" layer="21"/>
+<wire x1="5.35" y1="2.05" x2="-5.35" y2="2.05" width="0.2032" layer="21"/>
+<wire x1="-5.35" y1="2.05" x2="-5.35" y2="-5" width="0.127" layer="21"/>
+<pad name="3" x="2.5" y="-0.036" drill="1" diameter="1.9304" rot="R90"/>
+<pad name="2" x="0" y="-0.036" drill="1" diameter="1.9304" rot="R270"/>
+<pad name="1" x="-2.5" y="-0.036" drill="1" diameter="1.9304" rot="R90"/>
+<text x="-3.35" y="-3.746" size="1.27" layer="25" font="vector">&gt;NAME</text>
+<text x="-3.35" y="-8.574" size="1.27" layer="27" font="vector">&gt;VALUE</text>
+<wire x1="-4.5" y1="-5" x2="-4.5" y2="-10" width="0.127" layer="21"/>
+<wire x1="-4.5" y1="-10" x2="-3" y2="-11.5" width="0.127" layer="21"/>
+<wire x1="-3" y1="-11.5" x2="3" y2="-11.5" width="0.127" layer="21"/>
+<wire x1="3" y1="-11.5" x2="4.5" y2="-10" width="0.127" layer="21"/>
+<wire x1="4.5" y1="-10" x2="4.5" y2="-5" width="0.127" layer="21"/>
+<wire x1="-3" y1="-11.5" x2="-3" y2="-20" width="0.127" layer="21"/>
+<wire x1="-3" y1="-20" x2="3" y2="-20" width="0.127" layer="21"/>
+<wire x1="3" y1="-20" x2="3" y2="-11.5" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="POT-ALPS-RK09L">
@@ -13813,11 +13814,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="5.08" y1="0" x2="4.318" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="-2.54" x2="2.54" y2="2.54" width="0.254" layer="94"/>
 <wire x1="2.032" y1="3.048" x2="3.302" y2="2.286" width="0.254" layer="94"/>
-</symbol>
-<symbol name="POTSHELL">
-<pin name="P$1" x="0" y="-5.08" length="middle" rot="R90"/>
-<wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
-<text x="-2.794" y="0.508" size="1.778" layer="95">Shell</text>
 </symbol>
 <symbol name="SWITCHED-MONO-JACK">
 <rectangle x1="2.286" y1="-0.508" x2="7.874" y2="0.508" layer="94" rot="R90"/>
@@ -13874,42 +13870,22 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="POT-ALPS-RK09L">
-<gates>
-<gate name="G$1" symbol="POT-ALPS-RK09L" x="0" y="0"/>
-<gate name="G$2" symbol="POTSHELL" x="-15.24" y="5.08" addlevel="request"/>
-</gates>
-<devices>
-<device name="1120" package="POT-ALPS-RK09L1120">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="3" pad="3"/>
-<connect gate="G$2" pin="P$1" pad="SHLD1 SHLD2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="1140" package="POT-ALPS-RK09L1140">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="3" pad="3"/>
-<connect gate="G$2" pin="P$1" pad="P$5 P$6"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="JACK-UJ-3502-R">
+<deviceset name="JACK-UJ-3502-R" prefix="J">
 <gates>
 <gate name="G$1" symbol="SWITCHED-MONO-JACK" x="0" y="0"/>
 </gates>
 <devices>
 <device name="" package="UJ-3502-R">
+<connects>
+<connect gate="G$1" pin="SLEEVE" pad="P$3"/>
+<connect gate="G$1" pin="SW" pad="P$2"/>
+<connect gate="G$1" pin="TIP" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="SLOT" package="UJ-3502-R-SLOT">
 <connects>
 <connect gate="G$1" pin="SLEEVE" pad="P$3"/>
 <connect gate="G$1" pin="SW" pad="P$2"/>
@@ -13950,6 +13926,23 @@ Resettable Fuse. Bourns MF-R, Raychem PolySwitch RXE.</description>
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="K"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="POT-BOURNS-PTD901" prefix="P" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="POT-ALPS-RK09L" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="POT-BOURNS-PTD901">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -14777,15 +14770,11 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <part name="P+15" library="supply1" deviceset="+5V" device=""/>
 <part name="R9" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="R10" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
-<part name="OUTA" library="Rebel" deviceset="JACK-UJ-3502-R" device=""/>
-<part name="OUTB" library="Rebel" deviceset="JACK-UJ-3502-R" device=""/>
-<part name="RATEC" library="Rebel" deviceset="POT-ALPS-RK09L" device="1120"/>
-<part name="RATEB" library="Rebel" deviceset="POT-ALPS-RK09L" device="1120"/>
-<part name="RATEA" library="Rebel" deviceset="POT-ALPS-RK09L" device="1120"/>
+<part name="OUTA" library="Rebel" deviceset="JACK-UJ-3502-R" device="SLOT" value="JACK-UJ-3502-RSLOT"/>
+<part name="OUTB" library="Rebel" deviceset="JACK-UJ-3502-R" device="SLOT" value="JACK-UJ-3502-RSLOT"/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
-<part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="R12" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="Q3" library="transistor-npn" deviceset="2N3904" device=""/>
 <part name="R13" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
@@ -14796,7 +14785,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="R16" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="P+4" library="supply1" deviceset="+12V" device=""/>
-<part name="OUTC" library="Rebel" deviceset="JACK-UJ-3502-R" device=""/>
+<part name="OUTC" library="Rebel" deviceset="JACK-UJ-3502-R" device="SLOT" value="JACK-UJ-3502-RSLOT"/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="JP3" library="SparkFun" deviceset="M06" device="SIP"/>
 <part name="P+17" library="supply1" deviceset="+5V" device=""/>
@@ -14815,6 +14804,9 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <part name="LED1" library="Rebel" deviceset="LED" device="3MM"/>
 <part name="LED2" library="Rebel" deviceset="LED" device="3MM"/>
 <part name="LED3" library="Rebel" deviceset="LED" device="3MM"/>
+<part name="P1" library="Rebel" deviceset="POT-BOURNS-PTD901" device=""/>
+<part name="P2" library="Rebel" deviceset="POT-BOURNS-PTD901" device=""/>
+<part name="P3" library="Rebel" deviceset="POT-BOURNS-PTD901" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -14864,18 +14856,11 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <instance part="R10" gate="G$1" x="137.16" y="-43.18" rot="R270"/>
 <instance part="OUTA" gate="G$1" x="76.2" y="-30.48"/>
 <instance part="OUTB" gate="G$1" x="149.86" y="-30.48"/>
-<instance part="RATEC" gate="G$1" x="127" y="91.44"/>
-<instance part="RATEB" gate="G$1" x="147.32" y="91.44"/>
-<instance part="RATEA" gate="G$1" x="167.64" y="91.44"/>
 <instance part="P+3" gate="1" x="160.02" y="99.06" smashed="yes">
 <attribute name="VALUE" x="160.02" y="101.6" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="GND1" gate="1" x="175.26" y="81.28"/>
 <instance part="GND2" gate="1" x="63.5" y="-53.34"/>
-<instance part="RATEA" gate="G$2" x="193.04" y="99.06"/>
-<instance part="RATEB" gate="G$2" x="200.66" y="99.06"/>
-<instance part="RATEC" gate="G$2" x="185.42" y="99.06"/>
-<instance part="GND3" gate="1" x="193.04" y="81.28"/>
 <instance part="R12" gate="G$1" x="210.82" y="-43.18" rot="R270"/>
 <instance part="Q3" gate="G1" x="187.96" y="-27.94"/>
 <instance part="R13" gate="G$1" x="180.34" y="-27.94" rot="MR180"/>
@@ -14909,6 +14894,9 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <instance part="LED1" gate="G$1" x="63.5" y="-33.02"/>
 <instance part="LED2" gate="G$1" x="137.16" y="-33.02"/>
 <instance part="LED3" gate="G$1" x="210.82" y="-33.02"/>
+<instance part="P1" gate="G$1" x="127" y="91.44"/>
+<instance part="P2" gate="G$1" x="147.32" y="91.44"/>
+<instance part="P3" gate="G$1" x="167.64" y="91.44"/>
 </instances>
 <busses>
 </busses>
@@ -14917,29 +14905,29 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <segment>
 <pinref part="IC1" gate="G$1" pin="PC0(ADC0)"/>
 <wire x1="81.28" y1="73.66" x2="127" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="RATEC" gate="G$1" pin="2"/>
 <wire x1="127" y1="73.66" x2="127" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="P1" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="ADC1" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PC1(ADC1)"/>
 <wire x1="81.28" y1="71.12" x2="147.32" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="RATEB" gate="G$1" pin="2"/>
 <wire x1="147.32" y1="71.12" x2="147.32" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="P2" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="+5V" class="0">
 <segment>
 <pinref part="P+1" gate="1" pin="+5V"/>
 <wire x1="116.84" y1="93.98" x2="116.84" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="RATEC" gate="G$1" pin="1"/>
 <wire x1="116.84" y1="91.44" x2="119.38" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="P1" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="P+2" gate="1" pin="+5V"/>
-<pinref part="RATEB" gate="G$1" pin="1"/>
 <wire x1="139.7" y1="93.98" x2="139.7" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="P2" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="VCC@1"/>
@@ -14970,9 +14958,9 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <wire x1="15.24" y1="88.9" x2="15.24" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="RATEA" gate="G$1" pin="1"/>
 <pinref part="P+3" gate="1" pin="+5V"/>
 <wire x1="160.02" y1="91.44" x2="160.02" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="P3" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="JP3" gate="G$1" pin="6"/>
@@ -14998,13 +14986,13 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <net name="GND" class="0">
 <segment>
 <pinref part="GND6" gate="1" pin="GND"/>
-<pinref part="RATEC" gate="G$1" pin="3"/>
 <wire x1="134.62" y1="91.44" x2="134.62" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="P1" gate="G$1" pin="3"/>
 </segment>
 <segment>
 <pinref part="GND5" gate="1" pin="GND"/>
-<pinref part="RATEB" gate="G$1" pin="3"/>
 <wire x1="154.94" y1="91.44" x2="154.94" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="P2" gate="G$1" pin="3"/>
 </segment>
 <segment>
 <pinref part="R2" gate="G$1" pin="1"/>
@@ -15067,26 +15055,13 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 </segment>
 <segment>
 <pinref part="GND1" gate="1" pin="GND"/>
-<pinref part="RATEA" gate="G$1" pin="3"/>
 <wire x1="175.26" y1="91.44" x2="175.26" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="P3" gate="G$1" pin="3"/>
 </segment>
 <segment>
 <pinref part="R9" gate="G$1" pin="2"/>
 <pinref part="GND2" gate="1" pin="GND"/>
 <wire x1="63.5" y1="-50.8" x2="63.5" y2="-48.26" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="RATEC" gate="G$2" pin="P$1"/>
-<wire x1="185.42" y1="93.98" x2="185.42" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="185.42" y1="86.36" x2="193.04" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="193.04" y1="86.36" x2="193.04" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="RATEA" gate="G$2" pin="P$1"/>
-<wire x1="193.04" y1="93.98" x2="193.04" y2="86.36" width="0.1524" layer="91"/>
-<junction x="193.04" y="86.36"/>
-<pinref part="RATEB" gate="G$2" pin="P$1"/>
-<wire x1="200.66" y1="93.98" x2="200.66" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="200.66" y1="86.36" x2="193.04" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="GND3" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="R14" gate="G$1" pin="1"/>
@@ -15330,8 +15305,8 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <segment>
 <pinref part="IC1" gate="G$1" pin="PC2(ADC2)"/>
 <wire x1="81.28" y1="68.58" x2="167.64" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="RATEA" gate="G$1" pin="2"/>
 <wire x1="167.64" y1="86.36" x2="167.64" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="P3" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$6" class="0">
