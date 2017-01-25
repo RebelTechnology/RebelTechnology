@@ -616,3 +616,74 @@ changes PowerTXBoard Rev01:
 - fix +/-15v header orientation
 
 --------------------------------------------------------------------------
+
+Balanced Output Driver
+C1 and C2 are typically high
+quality non-polarized electrolytic capacitors.
+
+--------------------------------------------------------------------------
+
+AES48 does NOT advocate connecting the pin one connections to the star point, precisely because it is generally impossible to do it with low enough inductance never mind resistance. 
+Instead it advocates connecting pin one to the chassis as close as possible to each connector, which is entirely possible (And then connecting the chassis to the star point at a single location, so the screen currents do not flow in the audio reference but the common mode voltage is still controlled).
+
+--------------------------------------------------------------------------
+
+Balanced input / output Tascam DB-25
+
+Pinout
+http://tascam.com/content/downloads/products/221/DB-25_Pinout.pdf
+http://www.tvtechnology.com/insight/0083/aes-standardizes-application-of--way-d-type-connectors/217259
+
+Chassis: Female DB-25way with 4-40 sockets
+
+TE CONNECTIVITY  5745967-8  Standard D Sub Connector, AMPLIMITE HD-20 Series, DB, Receptacle, 25 Contacts
+Farnell 2526597
+
+Standard D Sub Connector, 25 Contacts, Receptacle, AMPLIMITE HD-20 Series
+Vertical
+3-1634224-2 4-40 screw locks
+1-1634224-2 threaded inserts 4-40 UNC
+Horizontal
+3-1634586-2 4-40 screw locks
+1-1634586-2 threaded inserts 4-40 UNC
+
+--------------------------------------------------------------------------
+
+Balanced Input driver
+INA2137 dual differential driver, configured for 0.5x or 2x gain.
+
+--------------------------------------------------------------------------
+
+todo: add earth connections on PSU boards. Connect balanced shields to earth.
+
+--------------------------------------------------------------------------
+
+Flying bus boards
+AMP FROM TE CONNECTIVITY  1-111446-6  Wire-To-Board Connector, 2.54 mm, 16 Contacts, Plug, AMP-LATCH Universal I/O Series, IDC / IDT
+(farnell £3.94 @1)
+
+Hirose HIF3B Series, Cable Mount IDC Connector Plug, 16 Way, 2 Row, 2.54mm Pitch
+(rs 896-0981 £6.78 @100)
+
+eBay
+2.54mm 2x8Pin 16 Pin IDC Male Box Header Flat Cable Connector 
+http://www.ebay.com/usr/yixue2010
+
+16-Way Ribbon Cable Mount Plug
+https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=225_231&products_id=2775&zenid=foisq4ft0v0j1n2p54v18kou86
+Model: CN402 £0.86 each
+
+IDC FC-110 2x5 way
+
+TruConnect IDC Chassis Cable Mounting Plugs 2.54mm Pitch (rapid 19-0072 £0.372 @100)
+
+TruConnect DS1015-16 NN0A 16 Way Idc Cable Mounting Plug (rapid £0.488 @100)
+https://www.rapidonline.com/idc-cable-mounting-plugs-2-54mm-pitch-180579
+
+Assmann WSW AWHC 16-0111-T IDC Connector 16 Way 2.54mm Pitch Low Profile Header
+(rapid 50-1698 £1.47 @25)
+
+Oupiin 3016-16C00Y11A 16W Chassis Mounting IDC Plug
+(rapid 19-2360 £0.481 @100)
+
+--------------------------------------------------------------------------

@@ -44,7 +44,7 @@
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
@@ -175,6 +175,8 @@
 <text x="27.94" y="12.3825" size="0.8128" layer="21" font="vector">GND</text>
 <text x="27.94" y="11.1125" size="0.8128" layer="21" font="vector">SWDIO</text>
 <text x="27.94" y="9.8425" size="0.8128" layer="21" font="vector">NRST</text>
+<dimension x1="0.6225" y1="25.3875" x2="0.635" y2="0" x3="-3.815625" y3="12.691559375" textsize="1.778" layer="47"/>
+<dimension x1="39.0525" y1="16.51" x2="0" y2="16.51" x3="19.52625" y3="-2.54" textsize="1.778" layer="47"/>
 </plain>
 <libraries>
 <library name="con-lstb">
@@ -831,18 +833,18 @@ design rules under a new name.</description>
 <contactref element="SV3" pad="5"/>
 <contactref element="SV3" pad="9"/>
 <polygon width="0.4064" layer="16">
-<vertex x="-2.54" y="30.48"/>
-<vertex x="44.45" y="30.48"/>
-<vertex x="44.45" y="-2.54"/>
-<vertex x="-2.54" y="-2.54"/>
+<vertex x="-3.81" y="27.94"/>
+<vertex x="40.64" y="27.94"/>
+<vertex x="40.64" y="-2.54"/>
+<vertex x="-3.81" y="-2.54"/>
 </polygon>
 <via x="32.0675" y="12.7" extent="1-16" drill="0.7" alwaysstop="yes"/>
 <contactref element="SV1" pad="3"/>
 <contactref element="SV1" pad="5"/>
 <polygon width="0.4064" layer="1">
-<vertex x="-3.81" y="29.21"/>
-<vertex x="43.18" y="29.21"/>
-<vertex x="43.18" y="-3.81"/>
+<vertex x="-3.81" y="26.67"/>
+<vertex x="40.64" y="26.67"/>
+<vertex x="40.64" y="-3.81"/>
 <vertex x="-3.81" y="-3.81"/>
 </polygon>
 <via x="10.16" y="24.4475" extent="1-16" drill="0.5"/>
