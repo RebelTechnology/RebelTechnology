@@ -13135,8 +13135,8 @@ Source: http://www.lumberg.com/Produkte/PDFs/1503_09.pdf</description>
 </class>
 </classes>
 <parts>
-<part name="R9" library="Rebel" deviceset="R-EU_" device="0603" value="200k"/>
-<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="200k"/>
+<part name="R9" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
+<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="C3" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="P+1" library="supply1" deviceset="+12V" device=""/>
 <part name="C7" library="rcl" deviceset="CPOL-EU" device="153CLV-0505" value="10u"/>
@@ -13211,7 +13211,7 @@ Source: http://www.lumberg.com/Produkte/PDFs/1503_09.pdf</description>
 <text x="-93.98" y="137.16" size="3.81" layer="97">Open Source Hardware
 Published under the Gnu GPL v2
 Copyright 2017 Rebel Technology</text>
-<text x="-93.98" y="157.48" size="5.08" layer="97">HeadphoneSlice Rev02</text>
+<text x="-93.98" y="157.48" size="5.08" layer="97">OutputSlice Rev02</text>
 </plain>
 <instances>
 <instance part="R9" gate="G$1" x="33.02" y="78.74"/>
