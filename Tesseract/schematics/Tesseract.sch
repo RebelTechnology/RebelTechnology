@@ -23470,15 +23470,12 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="TGP1-4" library="SparkFun" deviceset="M05" device="PTH"/>
-<part name="ICSP" library="SparkFun" deviceset="M06" device="SIP"/>
 <part name="LGP1-5" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="ANG1" library="SparkFun" deviceset="M06" device="SIP"/>
 <part name="ANG2" library="SparkFun" deviceset="M06" device="SIP"/>
 <part name="P+9" library="supply1" deviceset="+5V" device=""/>
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
-<part name="GND23" library="supply1" deviceset="GND" device=""/>
-<part name="+3V6" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
 <part name="C6" library="resistor" deviceset="C-EU" device="C0603" value="100p"/>
 <part name="C7" library="resistor" deviceset="C-EU" device="C0603" value="1n"/>
@@ -23703,10 +23700,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <attribute name="VALUE" x="137.16" y="50.8" size="1.778" layer="96" rot="MR270"/>
 <attribute name="NAME" x="129.54" y="51.562" size="1.778" layer="95" rot="MR0"/>
 </instance>
-<instance part="ICSP" gate="G$1" x="147.32" y="45.72" smashed="yes" rot="MR270">
-<attribute name="VALUE" x="157.48" y="50.8" size="1.778" layer="96" rot="MR270"/>
-<attribute name="NAME" x="147.32" y="51.562" size="1.778" layer="95" rot="MR0"/>
-</instance>
 <instance part="LGP1-5" gate="G$1" x="96.52" y="-5.08" smashed="yes" rot="MR180">
 <attribute name="VALUE" x="93.98" y="5.08" size="1.778" layer="96" rot="MR180"/>
 <attribute name="NAME" x="93.218" y="0" size="1.778" layer="95" rot="MR270"/>
@@ -23726,10 +23719,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <attribute name="VALUE" x="149.86" y="-20.32" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="GND20" gate="1" x="147.32" y="-40.64"/>
-<instance part="GND23" gate="1" x="147.32" y="27.94"/>
-<instance part="+3V6" gate="G$1" x="152.4" y="55.88" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="152.4" y="58.42" size="1.778" layer="96" rot="MR180"/>
-</instance>
 <instance part="GND25" gate="1" x="170.18" y="27.94"/>
 <instance part="C6" gate="G$1" x="198.12" y="213.36" smashed="yes" rot="R90">
 <attribute name="NAME" x="194.564" y="216.281" size="1.778" layer="95"/>
@@ -24054,11 +24043,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="GND20" gate="1" pin="GND"/>
 <pinref part="ANG1" gate="G$1" pin="2"/>
 <wire x1="147.32" y1="-38.1" x2="147.32" y2="-25.4" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND23" gate="1" pin="GND"/>
-<pinref part="ICSP" gate="G$1" pin="3"/>
-<wire x1="147.32" y1="30.48" x2="147.32" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND25" gate="1" pin="GND"/>
@@ -24964,34 +24948,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <label x="132.08" y="38.1" size="1.778" layer="95" rot="MR270"/>
 </segment>
 </net>
-<net name="SWO" class="0">
-<segment>
-<pinref part="ICSP" gate="G$1" pin="6"/>
-<wire x1="139.7" y1="40.64" x2="139.7" y2="30.48" width="0.1524" layer="91"/>
-<label x="139.7" y="38.1" size="1.778" layer="95" rot="MR270"/>
-</segment>
-</net>
-<net name="NRST" class="0">
-<segment>
-<pinref part="ICSP" gate="G$1" pin="5"/>
-<wire x1="142.24" y1="40.64" x2="142.24" y2="30.48" width="0.1524" layer="91"/>
-<label x="142.24" y="38.1" size="1.778" layer="95" rot="MR270"/>
-</segment>
-</net>
-<net name="SWDIO" class="0">
-<segment>
-<pinref part="ICSP" gate="G$1" pin="4"/>
-<wire x1="144.78" y1="40.64" x2="144.78" y2="30.48" width="0.1524" layer="91"/>
-<label x="144.78" y="38.1" size="1.778" layer="95" rot="MR270"/>
-</segment>
-</net>
-<net name="SWCLK" class="0">
-<segment>
-<pinref part="ICSP" gate="G$1" pin="2"/>
-<wire x1="149.86" y1="40.64" x2="149.86" y2="30.48" width="0.1524" layer="91"/>
-<label x="149.86" y="38.1" size="1.778" layer="95" rot="MR270"/>
-</segment>
-</net>
 <net name="USB_D_ID" class="0">
 <segment>
 <pinref part="USB" gate="G$1" pin="1"/>
@@ -25269,11 +25225,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="ANG1" gate="G$1" pin="3"/>
 <wire x1="149.86" y1="-22.86" x2="149.86" y2="-25.4" width="0.1524" layer="91"/>
 </segment>
-<segment>
-<pinref part="ICSP" gate="G$1" pin="1"/>
-<pinref part="+3V6" gate="G$1" pin="+3V3"/>
-<wire x1="152.4" y1="40.64" x2="152.4" y2="53.34" width="0.1524" layer="91"/>
-</segment>
 </net>
 </nets>
 </sheet>
@@ -25297,10 +25248,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <approved hash="106,1,124.46,40.64,GP9,,,,,"/>
 <approved hash="106,1,129.54,40.64,GP10,,,,,"/>
 <approved hash="106,1,132.08,40.64,GP11,,,,,"/>
-<approved hash="106,1,142.24,40.64,NRST,,,,,"/>
-<approved hash="106,1,149.86,40.64,SWCLK,,,,,"/>
-<approved hash="106,1,144.78,40.64,SWDIO,,,,,"/>
-<approved hash="106,1,139.7,40.64,SWO,,,,,"/>
 <approved hash="106,1,162.56,40.64,USB_D_D+,,,,,"/>
 <approved hash="106,1,165.1,40.64,USB_D_D-,,,,,"/>
 <approved hash="106,1,160.02,40.64,USB_D_ID,,,,,"/>
@@ -25309,10 +25256,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <approved hash="113,1,110.49,45.1273,ADC,,,,,"/>
 <approved hash="113,1,99.6527,-30.48,PWR,,,,,"/>
 <approved hash="113,1,99.6527,11.43,EXTSPI,,,,,"/>
-<approved hash="113,1,99.6527,-18.4685,LGP6-7,,,,,"/>
 <approved hash="113,1,230.463,-21.3953,BOOT,,,,,"/>
-<approved hash="113,1,127,45.1273,TGP1-4,,,,,"/>
-<approved hash="113,1,146.05,45.1273,ICSP,,,,,"/>
 <approved hash="113,1,99.6527,-5.08,LGP1-5,,,,,"/>
 <approved hash="113,1,151.13,-29.8873,ANG1,,,,,"/>
 <approved hash="113,1,168.91,-29.8873,ANG2,,,,,"/>
