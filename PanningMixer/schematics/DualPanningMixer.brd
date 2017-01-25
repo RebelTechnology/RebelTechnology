@@ -397,11 +397,9 @@ NS Package M08A</description>
 <package name="SO14">
 <description>&lt;b&gt;Small Outline Package 14&lt;/b&gt;</description>
 <wire x1="4.305" y1="-1.9" x2="-4.305" y2="-1.9" width="0.2032" layer="51"/>
-<wire x1="-4.305" y1="-1.9" x2="-4.305" y2="-1.4" width="0.2032" layer="51"/>
-<wire x1="-4.305" y1="-1.4" x2="-4.305" y2="1.9" width="0.2032" layer="51"/>
-<wire x1="4.305" y1="-1.4" x2="-4.305" y2="-1.4" width="0.2032" layer="51"/>
-<wire x1="4.305" y1="1.9" x2="4.305" y2="-1.4" width="0.2032" layer="51"/>
-<wire x1="4.305" y1="-1.4" x2="4.305" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="-4.305" y1="-1.9" x2="-4.305" y2="1.9" width="0.2032" layer="21"/>
+<wire x1="4.305" y1="-1.3716" x2="-4.305" y2="-1.3716" width="0.2032" layer="21"/>
+<wire x1="4.305" y1="1.9" x2="4.305" y2="-1.9" width="0.2032" layer="21"/>
 <wire x1="-4.305" y1="1.9" x2="4.305" y2="1.9" width="0.2032" layer="51"/>
 <smd name="2" x="-2.54" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
 <smd name="13" x="-2.54" y="2.6" dx="0.6" dy="2.2" layer="1"/>
@@ -478,16 +476,16 @@ W = angled&lt;p&gt;
 <wire x1="6.35" y1="1.905" x2="6.35" y2="-1.905" width="0.1524" layer="21"/>
 <wire x1="5.715" y1="2.54" x2="6.35" y2="1.905" width="0.1524" layer="21"/>
 <wire x1="6.35" y1="-1.905" x2="5.715" y2="-2.54" width="0.1524" layer="21"/>
-<pad name="1" x="-5.08" y="-1.27" drill="1.016"/>
-<pad name="3" x="-2.54" y="-1.27" drill="1.016"/>
-<pad name="5" x="0" y="-1.27" drill="1.016"/>
-<pad name="7" x="2.54" y="-1.27" drill="1.016"/>
-<pad name="9" x="5.08" y="-1.27" drill="1.016"/>
-<pad name="2" x="-5.08" y="1.27" drill="1.016"/>
-<pad name="4" x="-2.54" y="1.27" drill="1.016"/>
-<pad name="6" x="0" y="1.27" drill="1.016"/>
-<pad name="8" x="2.54" y="1.27" drill="1.016"/>
-<pad name="10" x="5.08" y="1.27" drill="1.016"/>
+<pad name="1" x="-5.08" y="-1.27" drill="1.016" shape="octagon"/>
+<pad name="3" x="-2.54" y="-1.27" drill="1.016" shape="octagon"/>
+<pad name="5" x="0" y="-1.27" drill="1.016" shape="octagon"/>
+<pad name="7" x="2.54" y="-1.27" drill="1.016" shape="octagon"/>
+<pad name="9" x="5.08" y="-1.27" drill="1.016" shape="octagon"/>
+<pad name="2" x="-5.08" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="4" x="-2.54" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="6" x="0" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="8" x="2.54" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="10" x="5.08" y="1.27" drill="1.016" shape="octagon"/>
 <text x="-5.588" y="-4.191" size="1.27" layer="21" ratio="10">1</text>
 <text x="-6.35" y="2.921" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="0" y="-4.191" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
@@ -1789,9 +1787,9 @@ design rules under a new name.</description>
 <contactref element="OUT_L" pad="P$2"/>
 <contactref element="3O" pad="P1"/>
 <wire x1="45.5" y1="45.3" x2="46.9" y2="45.3" width="0.3048" layer="1"/>
-<wire x1="46.9" y1="45.3" x2="48" y2="44.2" width="0.3048" layer="1"/>
-<wire x1="48" y1="44.2" x2="48" y2="7" width="0.3048" layer="1"/>
-<wire x1="48" y1="7" x2="43.9" y2="2.9" width="0.3048" layer="1"/>
+<wire x1="46.9" y1="45.3" x2="48.2" y2="44" width="0.3048" layer="1"/>
+<wire x1="48.2" y1="44" x2="48.2" y2="7.2" width="0.3048" layer="1"/>
+<wire x1="48.2" y1="7.2" x2="43.9" y2="2.9" width="0.3048" layer="1"/>
 <wire x1="43.9" y1="2.9" x2="16.8" y2="2.9" width="0.3048" layer="1"/>
 <wire x1="16.8" y1="2.9" x2="15.7" y2="4" width="0.3048" layer="1"/>
 <wire x1="15.7" y1="4" x2="15.7" y2="5.53" width="0.3048" layer="1"/>
@@ -1801,9 +1799,9 @@ design rules under a new name.</description>
 <contactref element="OUT_R" pad="P$2"/>
 <contactref element="3O" pad="P3"/>
 <wire x1="41.08" y1="5.55" x2="41.08" y2="5.58" width="0.3048" layer="16"/>
-<wire x1="41.08" y1="5.58" x2="48" y2="12.5" width="0.3048" layer="16"/>
-<wire x1="48" y1="12.5" x2="48" y2="39.9" width="0.3048" layer="16"/>
-<wire x1="48" y1="39.9" x2="46.6" y2="41.3" width="0.3048" layer="16"/>
+<wire x1="41.08" y1="5.58" x2="48.2" y2="12.7" width="0.3048" layer="16"/>
+<wire x1="48.2" y1="12.7" x2="48.2" y2="39.7" width="0.3048" layer="16"/>
+<wire x1="48.2" y1="39.7" x2="46.6" y2="41.3" width="0.3048" layer="16"/>
 <wire x1="46.6" y1="41.3" x2="45.5" y2="41.3" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$42">
@@ -2008,18 +2006,18 @@ design rules under a new name.</description>
 <approved hash="18,30,39e15f0f5f0e39e0"/>
 <approved hash="18,30,33ad454b454a33ac"/>
 <approved hash="18,30,5679228722865678"/>
-<approved hash="19,16,42b9fe94d659618f"/>
-<approved hash="19,16,bfbcf171118054b6"/>
-<approved hash="19,16,b0dc12ebf28a5b46"/>
-<approved hash="19,16,4138e4a7cfbb61df"/>
-<approved hash="19,16,bfcdbabc5a1c5496"/>
-<approved hash="19,16,40391f2a355761bf"/>
-<approved hash="19,16,be8944d1900d61ae"/>
 <approved hash="19,16,befde64606465506"/>
+<approved hash="19,16,b0dc12ebf28a5b46"/>
+<approved hash="19,16,42b9fe94d659618f"/>
+<approved hash="19,16,4138e4a7cfbb61df"/>
+<approved hash="19,16,40391f2a355761bf"/>
+<approved hash="19,16,bfbcf171118054b6"/>
+<approved hash="19,16,bfcdbabc5a1c5496"/>
+<approved hash="19,16,be8944d1900d61ae"/>
 <approved hash="19,16,7c4340e55feecf6e"/>
-<approved hash="19,16,2628b9d55ff76b84"/>
-<approved hash="19,16,c7e6bcf55fa788fa"/>
 <approved hash="19,16,deb4bfb55fee9259"/>
+<approved hash="19,16,c7e6bcf55fa788fa"/>
+<approved hash="19,16,2628b9d55ff76b84"/>
 </errors>
 </board>
 </drawing>
