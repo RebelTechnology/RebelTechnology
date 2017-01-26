@@ -10085,39 +10085,39 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 <parts>
 <part name="MONO_3" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="MONO_4" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R801" library="Rebel" deviceset="R-EU_" device="0603" value="5k1"/>
+<part name="R801" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="MONO_2" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="5k1"/>
+<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
-<part name="R7" library="Rebel" deviceset="R-EU_" device="0603" value="120k"/>
+<part name="R7" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R8" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="MONO_1" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
-<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="5k1"/>
-<part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="5k1"/>
+<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="C5" library="Rebel" deviceset="C-EU" device="C0603" value="10pF"/>
 <part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
-<part name="R13" library="Rebel" deviceset="R-EU_" device="0603" value="120k"/>
+<part name="R13" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="120k"/>
+<part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R20" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
-<part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="120k"/>
+<part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R23" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
-<part name="R21" library="Rebel" deviceset="R-EU_" device="0603" value="120k"/>
+<part name="R21" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R24" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
-<part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="120k"/>
+<part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R27" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
-<part name="R25" library="Rebel" deviceset="R-EU_" device="0603" value="120k"/>
+<part name="R25" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
-<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="120k"/>
+<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="C14" library="Rebel" deviceset="C-EU" device="C0603" value="10pF"/>
@@ -10132,8 +10132,8 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 <part name="P+4" library="supply1" deviceset="+12V" device=""/>
 <part name="P-3" library="supply1" deviceset="-12V" device=""/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
-<part name="C17" library="Rebel" deviceset="CPOL-EU" device="B" value="47u"/>
-<part name="C18" library="Rebel" deviceset="CPOL-EU" device="B" value="47u"/>
+<part name="C17" library="Rebel" deviceset="CPOL-EU" device="B" value="22u"/>
+<part name="C18" library="Rebel" deviceset="CPOL-EU" device="B" value="22u"/>
 <part name="C19" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C20" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
@@ -10156,10 +10156,10 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 <part name="PAN2" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="PAN3" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="PAN4" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
-<part name="R108" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
-<part name="R208" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
-<part name="R110" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
-<part name="R210" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
+<part name="R108" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
+<part name="R208" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
+<part name="R110" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="R210" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="OUT_L" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="OUT_R" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
@@ -10228,6 +10228,9 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 <part name="IC1" library="linear" deviceset="TL072" device="D"/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
+<part name="3O1" library="Rebel" deviceset="CON-JST_PH_3W" device=""/>
+<part name="R40" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="R41" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 </parts>
 <sheets>
 <sheet>
@@ -10327,8 +10330,8 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 <instance part="PAN4" gate="G$1" x="154.94" y="35.56" rot="R90"/>
 <instance part="R108" gate="G$1" x="220.98" y="60.96"/>
 <instance part="R208" gate="G$1" x="220.98" y="15.24"/>
-<instance part="R110" gate="G$1" x="332.74" y="73.66"/>
-<instance part="R210" gate="G$1" x="332.74" y="25.4"/>
+<instance part="R110" gate="G$1" x="317.5" y="73.66"/>
+<instance part="R210" gate="G$1" x="317.5" y="25.4"/>
 <instance part="OUT_L" gate="G$1" x="350.52" y="71.12"/>
 <instance part="OUT_R" gate="G$1" x="350.52" y="22.86"/>
 <instance part="GND35" gate="1" x="342.9" y="10.16"/>
@@ -10445,6 +10448,9 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 <instance part="GND19" gate="1" x="203.2" y="60.96"/>
 <instance part="GND20" gate="1" x="203.2" y="15.24"/>
 <instance part="IC1" gate="P" x="342.9" y="226.06"/>
+<instance part="3O1" gate="G$1" x="327.66" y="48.26" rot="MR0"/>
+<instance part="R40" gate="G$1" x="317.5" y="60.96"/>
+<instance part="R41" gate="G$1" x="317.5" y="38.1"/>
 </instances>
 <busses>
 </busses>
@@ -11412,20 +11418,25 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 <junction x="231.14" y="73.66"/>
 <pinref part="R108" gate="G$1" pin="2"/>
 <pinref part="IC1" gate="A" pin="OUT"/>
-<wire x1="327.66" y1="73.66" x2="238.76" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="312.42" y1="73.66" x2="304.8" y2="73.66" width="0.1524" layer="91"/>
 <junction x="238.76" y="73.66"/>
+<pinref part="R40" gate="G$1" pin="1"/>
+<wire x1="304.8" y1="73.66" x2="238.76" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="312.42" y1="60.96" x2="304.8" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="304.8" y1="60.96" x2="304.8" y2="73.66" width="0.1524" layer="91"/>
+<junction x="304.8" y="73.66"/>
 </segment>
 </net>
 <net name="N$34" class="0">
 <segment>
-<wire x1="337.82" y1="73.66" x2="345.44" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="322.58" y1="73.66" x2="345.44" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="R110" gate="G$1" pin="2"/>
 <pinref part="OUT_L" gate="G$1" pin="3"/>
 </segment>
 </net>
 <net name="N$40" class="0">
 <segment>
-<wire x1="337.82" y1="25.4" x2="345.44" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="322.58" y1="25.4" x2="345.44" y2="25.4" width="0.1524" layer="91"/>
 <pinref part="R210" gate="G$1" pin="2"/>
 <pinref part="OUT_R" gate="G$1" pin="3"/>
 </segment>
@@ -11504,8 +11515,9 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 </net>
 <net name="N$5" class="0">
 <segment>
-<wire x1="327.66" y1="25.4" x2="243.84" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="312.42" y1="25.4" x2="304.8" y2="25.4" width="0.1524" layer="91"/>
 <pinref part="C11" gate="G$1" pin="1"/>
+<wire x1="304.8" y1="25.4" x2="243.84" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="243.84" y1="25.4" x2="231.14" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="231.14" y1="25.4" x2="226.06" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="246.38" y1="119.38" x2="243.84" y2="119.38" width="0.1524" layer="91"/>
@@ -11517,6 +11529,10 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 <pinref part="R208" gate="G$1" pin="2"/>
 <pinref part="IC1" gate="B" pin="OUT"/>
 <pinref part="R210" gate="G$1" pin="1"/>
+<pinref part="R41" gate="G$1" pin="1"/>
+<wire x1="312.42" y1="38.1" x2="304.8" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="304.8" y1="38.1" x2="304.8" y2="25.4" width="0.1524" layer="91"/>
+<junction x="304.8" y="25.4"/>
 </segment>
 </net>
 <net name="N$12" class="0">
@@ -11569,6 +11585,24 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 <wire x1="269.24" y1="160.02" x2="269.24" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="269.24" y1="160.02" x2="266.7" y2="160.02" width="0.1524" layer="91"/>
 <junction x="269.24" y="160.02"/>
+</segment>
+</net>
+<net name="OUT_NS_R" class="0">
+<segment>
+<pinref part="3O1" gate="G$1" pin="-3"/>
+<pinref part="R41" gate="G$1" pin="2"/>
+<wire x1="327.66" y1="43.18" x2="325.12" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="325.12" y1="43.18" x2="325.12" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="325.12" y1="38.1" x2="322.58" y2="38.1" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="OUT_NS_L" class="0">
+<segment>
+<pinref part="3O1" gate="G$1" pin="-1"/>
+<pinref part="R40" gate="G$1" pin="2"/>
+<wire x1="327.66" y1="48.26" x2="325.12" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="325.12" y1="48.26" x2="325.12" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="325.12" y1="60.96" x2="322.58" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
