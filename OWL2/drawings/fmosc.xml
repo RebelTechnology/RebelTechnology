@@ -1,0 +1,44 @@
+<module type="16hp" grading="small">
+
+  <!-- pots -->
+  <pot x="-1.125" y="1.5"/>
+  <pot x="-0.375" y="1.75"/>
+  <pot x="0.375" y="1.75"/>
+  <pot x="1.125" y="1.5"/>
+
+  <pot x="-1.125" y="0.125"/>
+  <pot x="-0.375" y="0.375"/>
+  <pot x="0.375" y="0.375"/>
+  <pot x="1.125" y="0.125"/>
+
+  <!-- switches -->
+  <hole x="-1.125" y="0.8125" radius="3.25"/>
+  <hole x="-0.375" y="1.0625" radius="3.25"/>
+  <hole x="0.375" y="1.0625" radius="3.25"/>
+  <hole x="1.125" y="0.8125" radius="3.25"/>
+
+  <!-- leds -->
+  <hole x="-1.125" y="-0.35" radius="1.50"/>
+  <hole x="-0.375" y="-0.35" radius="1.50"/>
+  <hole x="0.375" y="-0.35" radius="1.50"/>
+  <hole x="1.125" y="-0.35" radius="1.50"/>
+
+  <!-- jacks -->
+  <hole x="-1.25" y="-1.00" radius="3.25"/>
+  <hole x="-1.25" y="-1.50" radius="3.25"/>
+  <hole x="-0.75" y="-0.75" radius="3.25"/>
+  <hole x="-0.25" y="-0.75" radius="3.25"/>
+  <hole x="0.25" y="-0.75" radius="3.25"/>
+  <hole x="0.75" y="-0.75" radius="3.25"/>
+  <hole x="-0.75" y="-1.25" radius="3.25"/>
+  <hole x="-0.25" y="-1.25" radius="3.25"/>
+  <hole x="0.25" y="-1.25" radius="3.25"/>
+  <hole x="0.75" y="-1.25" radius="3.25"/>
+  <hole x="-0.75" y="-1.75" radius="3.25"/>
+  <hole x="-0.25" y="-1.75" radius="3.25"/>
+  <hole x="0.25" y="-1.75" radius="3.25"/>
+  <hole x="0.75" y="-1.75" radius="3.25"/>
+  <hole x="1.25" y="-1.50" radius="3.25"/>
+  <hole x="1.25" y="-1.00" radius="3.25"/>
+
+</module>
