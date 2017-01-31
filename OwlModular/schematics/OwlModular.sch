@@ -366,35 +366,31 @@ type 0204, grid 7.5 mm</description>
 <rectangle x1="-2.921" y1="-0.254" x2="-2.54" y2="0.254" layer="21"/>
 <text x="-2.54" y="1.2954" size="1.016" layer="27" font="vector" ratio="10">&gt;VALUE</text>
 </package>
-<package name="CON-LUMBERG_1502_03">
+<package name="THONKICONN">
+<pad name="P$2" x="0" y="-3.38" drill="1"/>
+<pad name="P$3" x="0" y="4.92" drill="1"/>
+<pad name="P$1" x="0" y="-5.5" drill="1"/>
+<wire x1="-4.5" y1="6" x2="-4.5" y2="-4.5" width="0.127" layer="21"/>
+<wire x1="-4.5" y1="-4.5" x2="-0.6" y2="-4.5" width="0.127" layer="21"/>
+<wire x1="-0.6" y1="-4.5" x2="0.6" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="0.6" y1="-4.5" x2="4.5" y2="-4.5" width="0.127" layer="21"/>
+<wire x1="4.5" y1="-4.5" x2="4.5" y2="6" width="0.127" layer="21"/>
+<wire x1="4.5" y1="6" x2="1.8" y2="6" width="0.127" layer="21"/>
 <circle x="0" y="0" radius="1.8" width="0.127" layer="51"/>
-<wire x1="0.15" y1="-3.45" x2="0.15" y2="-3.95" width="0.127" layer="51"/>
-<wire x1="0.15" y1="-3.45" x2="1.65" y2="-3.45" width="0.127" layer="51"/>
-<wire x1="0.15" y1="-3.95" x2="1.65" y2="-3.95" width="0.127" layer="51"/>
-<wire x1="1.65" y1="-3.45" x2="1.65" y2="-3.95" width="0.127" layer="51"/>
-<wire x1="-4.05" y1="-2.15" x2="-4.05" y2="-0.65" width="0.127" layer="51"/>
-<wire x1="-3.55" y1="-2.15" x2="-3.55" y2="-0.65" width="0.127" layer="51"/>
-<wire x1="-4.05" y1="-0.65" x2="-3.55" y2="-0.65" width="0.127" layer="51"/>
-<wire x1="-4.05" y1="-2.15" x2="-3.55" y2="-2.15" width="0.127" layer="51"/>
-<wire x1="0.25" y1="4.65" x2="1.75" y2="4.65" width="0.127" layer="51"/>
-<wire x1="0.25" y1="4.15" x2="1.75" y2="4.15" width="0.127" layer="51"/>
-<wire x1="0.25" y1="4.65" x2="0.25" y2="4.15" width="0.127" layer="51"/>
-<wire x1="1.75" y1="4.65" x2="1.75" y2="4.15" width="0.127" layer="51"/>
-<wire x1="-5" y1="-4.9" x2="4" y2="-4.9" width="0.127" layer="51"/>
-<wire x1="4" y1="-4.9" x2="4" y2="5.6" width="0.127" layer="51"/>
-<wire x1="4" y1="5.6" x2="-5" y2="5.6" width="0.127" layer="51"/>
-<wire x1="-5" y1="5.6" x2="-5" y2="-4.9" width="0.127" layer="51"/>
-<wire x1="4" y1="-4.9" x2="4" y2="5.6" width="0.2032" layer="21"/>
-<wire x1="-5" y1="5.6" x2="-1.27" y2="5.6" width="0.127" layer="21"/>
-<wire x1="3.27" y1="5.6" x2="4" y2="5.6" width="0.127" layer="21"/>
-<wire x1="-5" y1="5.6" x2="-5" y2="0.635" width="0.127" layer="21"/>
-<wire x1="-5" y1="-3.135" x2="-5" y2="-5" width="0.127" layer="21"/>
-<wire x1="-5" y1="-5" x2="-1.27" y2="-5" width="0.127" layer="21"/>
-<wire x1="2.635" y1="-5" x2="4" y2="-5" width="0.127" layer="21"/>
-<pad name="P$1" x="-3.8" y="-1.4" drill="2.8" shape="octagon"/>
-<pad name="P$2" x="1" y="4.4" drill="2.8" shape="octagon"/>
-<pad name="P$3" x="0.9" y="-3.7" drill="2.8" shape="octagon" rot="R90"/>
-<text x="-5" y="0.65" size="1.27" layer="25" font="vector">&gt;NAME</text>
+<circle x="0" y="0" radius="2.5" width="0.127" layer="51"/>
+<wire x1="1.8" y1="6" x2="-1.8" y2="6" width="0.127" layer="51"/>
+<wire x1="-1.8" y1="6" x2="-4.5" y2="6" width="0.127" layer="21"/>
+<wire x1="-2.95" y1="-3.6" x2="3.05" y2="-3.6" width="0.127" layer="51"/>
+<wire x1="-2.95" y1="-3.6" x2="-2.95" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="3.05" y1="-3.6" x2="3.05" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="0.6" y1="-4.5" x2="0.6" y2="-6.2" width="0.127" layer="51"/>
+<wire x1="0.6" y1="-6.2" x2="-0.6" y2="-6.2" width="0.127" layer="51"/>
+<wire x1="-0.6" y1="-6.2" x2="-0.6" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="-1.8" y1="6" x2="-1.8" y2="3.8" width="0.127" layer="51"/>
+<wire x1="-1.8" y1="3.8" x2="1.8" y2="3.8" width="0.127" layer="51"/>
+<wire x1="1.8" y1="3.8" x2="1.8" y2="6" width="0.127" layer="51"/>
+<text x="0" y="2.54" size="1.27" layer="104" font="vector" align="bottom-center">&gt;NAME</text>
+<hole x="0" y="0" drill="3.6"/>
 </package>
 <package name="PTC">
 <wire x1="-3.81" y1="1.524" x2="3.81" y2="1.524" width="0.2032" layer="21"/>
@@ -470,6 +466,32 @@ type 0204, grid 7.5 mm</description>
 <wire x1="1" y1="-1.5" x2="2" y2="-1.5" width="0.127" layer="21"/>
 <wire x1="2" y1="-1.5" x2="2" y2="0" width="0.127" layer="21"/>
 <text x="-5" y="7" size="1.27" layer="21">&gt;NAME</text>
+</package>
+<package name="THONKIBANA">
+<pad name="P$2" x="0" y="-3.38" drill="1"/>
+<pad name="P$3" x="0" y="4.92" drill="1"/>
+<pad name="P$1" x="0" y="-5.5" drill="1"/>
+<wire x1="-4.5" y1="6" x2="-4.5" y2="-4.5" width="0.127" layer="21"/>
+<wire x1="-4.5" y1="-4.5" x2="-0.6" y2="-4.5" width="0.127" layer="21"/>
+<wire x1="-0.6" y1="-4.5" x2="0.6" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="0.6" y1="-4.5" x2="4.5" y2="-4.5" width="0.127" layer="21"/>
+<wire x1="4.5" y1="-4.5" x2="4.5" y2="6" width="0.127" layer="21"/>
+<wire x1="4.5" y1="6" x2="1.8" y2="6" width="0.127" layer="21"/>
+<circle x="0" y="0" radius="1.8" width="0.127" layer="51"/>
+<circle x="0" y="0" radius="2.5" width="0.127" layer="51"/>
+<wire x1="1.8" y1="6" x2="-1.8" y2="6" width="0.127" layer="51"/>
+<wire x1="-1.8" y1="6" x2="-4.5" y2="6" width="0.127" layer="21"/>
+<wire x1="-2.95" y1="-3.6" x2="3.05" y2="-3.6" width="0.127" layer="51"/>
+<wire x1="-2.95" y1="-3.6" x2="-2.95" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="3.05" y1="-3.6" x2="3.05" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="0.6" y1="-4.5" x2="0.6" y2="-6.2" width="0.127" layer="51"/>
+<wire x1="0.6" y1="-6.2" x2="-0.6" y2="-6.2" width="0.127" layer="51"/>
+<wire x1="-0.6" y1="-6.2" x2="-0.6" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="-1.8" y1="6" x2="-1.8" y2="3.8" width="0.127" layer="51"/>
+<wire x1="-1.8" y1="3.8" x2="1.8" y2="3.8" width="0.127" layer="51"/>
+<wire x1="1.8" y1="3.8" x2="1.8" y2="6" width="0.127" layer="51"/>
+<text x="0" y="2.54" size="1.27" layer="104" font="vector" align="bottom-center">&gt;NAME</text>
+<pad name="P$4" x="0" y="0" drill="3.6"/>
 </package>
 </packages>
 <symbols>
@@ -614,16 +636,26 @@ type 0204, grid 7.5 mm</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="CON-LUMBERG_1502_03">
+<deviceset name="THONKICONN" prefix="J">
 <gates>
-<gate name="G$1" symbol="CON-LUMBERG_JACK-SWITCH" x="-2.54" y="0"/>
+<gate name="G$1" symbol="CON-LUMBERG_JACK-SWITCH" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="CON-LUMBERG_1502_03">
+<device name="DUAL" package="THONKIBANA">
 <connects>
-<connect gate="G$1" pin="3" pad="P$2"/>
-<connect gate="G$1" pin="4" pad="P$1"/>
-<connect gate="G$1" pin="5" pad="P$3"/>
+<connect gate="G$1" pin="3" pad="P$3 P$4"/>
+<connect gate="G$1" pin="4" pad="P$2"/>
+<connect gate="G$1" pin="5" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="" package="THONKICONN">
+<connects>
+<connect gate="G$1" pin="3" pad="P$3"/>
+<connect gate="G$1" pin="4" pad="P$2"/>
+<connect gate="G$1" pin="5" pad="P$1"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -12933,11 +12965,11 @@ NS Package M08A</description>
 <part name="JP10" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="JP7" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="JP9" library="SparkFun" deviceset="M04" device="PTH"/>
-<part name="IN_L" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
-<part name="IN_R" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
-<part name="OUT_L" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
-<part name="OUT_R" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
-<part name="EXP" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
+<part name="IN_L" library="Rebel" deviceset="THONKICONN" device=""/>
+<part name="IN_R" library="Rebel" deviceset="THONKICONN" device=""/>
+<part name="OUT_L" library="Rebel" deviceset="THONKICONN" device=""/>
+<part name="OUT_R" library="Rebel" deviceset="THONKICONN" device=""/>
+<part name="EXP" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="POT5" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="POT6" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
@@ -12957,12 +12989,12 @@ NS Package M08A</description>
 <part name="D3" library="Rebel" deviceset="DIODE" device="1N4001"/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="P-2" library="supply1" deviceset="-12V" device=""/>
-<part name="CV_A" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
-<part name="CV_B" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
-<part name="CV_C" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
-<part name="CV_D" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
-<part name="IN_D" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
-<part name="OUT_D" library="Rebel" deviceset="CON-LUMBERG_1502_03" device=""/>
+<part name="CV_A" library="Rebel" deviceset="THONKICONN" device=""/>
+<part name="CV_B" library="Rebel" deviceset="THONKICONN" device=""/>
+<part name="CV_C" library="Rebel" deviceset="THONKICONN" device=""/>
+<part name="CV_D" library="Rebel" deviceset="THONKICONN" device=""/>
+<part name="IN_D" library="Rebel" deviceset="THONKICONN" device=""/>
+<part name="OUT_D" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="P+6" library="supply1" deviceset="+12V" device=""/>
