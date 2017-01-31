@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -53,6 +53,11 @@
 <layer number="53" name="tGND_GNDA" color="7" fill="1" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="7" fill="1" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
+<layer number="58" name="bCAD" color="7" fill="1" visible="no" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
@@ -61,6 +66,7 @@
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="99" name="SpiceOrder" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="100" name="Muster" color="7" fill="1" visible="no" active="no"/>
 <layer number="101" name="Patch_Top" color="12" fill="4" visible="yes" active="yes"/>
 <layer number="102" name="Vscore" color="7" fill="1" visible="yes" active="yes"/>
@@ -75,7 +81,13 @@
 <layer number="111" name="LPC17xx" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="112" name="tSilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="113" name="Max.sfx.Comments" color="9" fill="1" visible="yes" active="yes"/>
+<layer number="114" name="FRNTMAAT1" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="115" name="FRNTMAAT2" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
+<layer number="117" name="BACKMAAT1" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="118" name="Rect_Pads" color="7" fill="1" visible="no" active="no"/>
+<layer number="119" name="KAP_TEKEN" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="120" name="KAP_MAAT1" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="121" name="_tsilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="122" name="_bsilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="123" name="tTestmark" color="7" fill="1" visible="no" active="yes"/>
@@ -84,11 +96,19 @@
 <layer number="126" name="_bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="129" name="Mask" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="130" name="SMDSTROOK" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="131" name="tAdjust" color="7" fill="1" visible="no" active="yes"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="no" active="yes"/>
+<layer number="133" name="bottom_silk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="150" name="Notes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="152" name="_bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="153" name="FabDoc1" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="154" name="FabDoc2" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="155" name="FabDoc3" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="190" name="Faceplate-Hole" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="199" name="Contour" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="200" name="200bmp" color="1" fill="10" visible="no" active="no"/>
 <layer number="201" name="201bmp" color="7" fill="1" visible="yes" active="yes"/>
@@ -115,11 +135,22 @@
 <layer number="222" name="222bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="223" name="223bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="224" name="224bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="225" name="225bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="226" name="226bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="227" name="227bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="228" name="228bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="229" name="229bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="230" name="230bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="231" name="231bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="232" name="Eagle3D_PG2" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="233" name="Eagle3D_PG3" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="248" name="Housing" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="249" name="Edge" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
 <layer number="251" name="SMDround" color="12" fill="11" visible="no" active="no"/>
+<layer number="253" name="Extra" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="254" name="cooling" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
 <libraries>
@@ -422,6 +453,24 @@ type 0204, grid 7.5 mm</description>
 <wire x1="-0.762" y1="0.6731" x2="0.762" y2="0.6731" width="0.127" layer="21"/>
 <wire x1="-0.762" y1="-0.6731" x2="0.762" y2="-0.6731" width="0.127" layer="21"/>
 </package>
+<package name="CON-JST_PH_3W">
+<pad name="P1" x="0" y="0" drill="0.8" shape="long" rot="R90"/>
+<pad name="P2" x="-2" y="0" drill="0.8" shape="long" rot="R90"/>
+<pad name="P3" x="-4" y="0" drill="0.8" shape="long" rot="R90"/>
+<wire x1="-6" y1="0" x2="-6" y2="6.5" width="0.127" layer="21"/>
+<wire x1="-6" y1="0" x2="-5" y2="0" width="0.127" layer="21"/>
+<wire x1="-5" y1="0" x2="1" y2="0" width="0.127" layer="21"/>
+<wire x1="1" y1="0" x2="2" y2="0" width="0.127" layer="21"/>
+<wire x1="2" y1="0" x2="2" y2="6.5" width="0.127" layer="21"/>
+<wire x1="-6" y1="6.5" x2="2" y2="6.5" width="0.127" layer="21"/>
+<wire x1="-5" y1="-1.5" x2="-6" y2="-1.5" width="0.127" layer="21"/>
+<wire x1="-6" y1="-1.5" x2="-6" y2="0" width="0.127" layer="21"/>
+<wire x1="-5" y1="-1.5" x2="-5" y2="0" width="0.127" layer="21"/>
+<wire x1="1" y1="0" x2="1" y2="-1.5" width="0.127" layer="21"/>
+<wire x1="1" y1="-1.5" x2="2" y2="-1.5" width="0.127" layer="21"/>
+<wire x1="2" y1="-1.5" x2="2" y2="0" width="0.127" layer="21"/>
+<text x="-5" y="7" size="1.27" layer="21">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="POT-ALPS-RK09L">
@@ -494,6 +543,18 @@ type 0204, grid 7.5 mm</description>
 <text x="2.54" y="-2.3114" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
 <pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+</symbol>
+<symbol name="CON-3W">
+<pin name="-1" x="0" y="0" length="middle" rot="R180"/>
+<pin name="-2" x="0" y="-2.54" length="middle" rot="R180"/>
+<pin name="-3" x="0" y="-5.08" length="middle" rot="R180"/>
+<circle x="-5.08" y="0" radius="0.508" width="0.508" layer="94"/>
+<circle x="-5.08" y="-2.54" radius="0.508" width="0.508" layer="94"/>
+<circle x="-5.08" y="-5.08" radius="0.508" width="0.508" layer="94"/>
+<wire x1="-5.334" y1="0" x2="-4.826" y2="0" width="0.508" layer="94"/>
+<wire x1="-5.334" y1="-2.54" x2="-4.826" y2="-2.54" width="0.508" layer="94"/>
+<wire x1="-5.334" y1="-5.08" x2="-4.826" y2="-5.08" width="0.508" layer="94"/>
+<text x="-6.604" y="2.032" size="1.778" layer="95">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -608,6 +669,23 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="CON-JST_PH_3W" prefix="J">
+<gates>
+<gate name="G$1" symbol="CON-3W" x="0" y="2.54"/>
+</gates>
+<devices>
+<device name="" package="CON-JST_PH_3W">
+<connects>
+<connect gate="G$1" pin="-1" pad="P1"/>
+<connect gate="G$1" pin="-2" pad="P2"/>
+<connect gate="G$1" pin="-3" pad="P3"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -13025,6 +13103,8 @@ NS Package M08A</description>
 <part name="P-13" library="supply1" deviceset="-12V" device=""/>
 <part name="BOOT" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
+<part name="BUS" library="Rebel" deviceset="CON-JST_PH_3W" device=""/>
+<part name="GND13" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -13279,6 +13359,8 @@ NS Package M08A</description>
 <instance part="P-13" gate="1" x="35.56" y="-15.24"/>
 <instance part="BOOT" gate="G$1" x="144.78" y="-20.32"/>
 <instance part="+3V13" gate="G$1" x="154.94" y="-10.16"/>
+<instance part="BUS" gate="G$1" x="238.76" y="45.72" rot="MR0"/>
+<instance part="GND13" gate="1" x="233.68" y="33.02"/>
 </instances>
 <busses>
 </busses>
@@ -13685,6 +13767,12 @@ NS Package M08A</description>
 <pinref part="GND18" gate="1" pin="GND"/>
 <pinref part="IC1" gate="A" pin="+IN"/>
 <wire x1="38.1" y1="226.06" x2="40.64" y2="226.06" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND13" gate="1" pin="GND"/>
+<wire x1="233.68" y1="43.18" x2="233.68" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="BUS" gate="G$1" pin="-2"/>
+<wire x1="238.76" y1="43.18" x2="233.68" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -14730,6 +14818,11 @@ NS Package M08A</description>
 <label x="50.8" y="101.6" size="1.778" layer="95"/>
 <pinref part="Q901" gate="G$1" pin="C"/>
 </segment>
+<segment>
+<pinref part="BUS" gate="G$1" pin="-3"/>
+<wire x1="238.76" y1="40.64" x2="223.52" y2="40.64" width="0.1524" layer="91"/>
+<label x="223.52" y="40.64" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="PB6" class="0">
 <segment>
@@ -14741,6 +14834,11 @@ NS Package M08A</description>
 <pinref part="R900" gate="G$1" pin="1"/>
 <wire x1="-30.48" y1="144.78" x2="-43.18" y2="144.78" width="0.1524" layer="91"/>
 <label x="-43.18" y="144.78" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="223.52" y1="45.72" x2="238.76" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="BUS" gate="G$1" pin="-1"/>
+<label x="223.52" y="45.72" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$51" class="0">
