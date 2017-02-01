@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -15820,7 +15820,7 @@ naming: grid - package width</description>
 <part name="P+10" library="supply1" deviceset="VCC/2" device=""/>
 <part name="P+11" library="supply1" deviceset="VCC/2" device=""/>
 <part name="P+12" library="supply1" deviceset="VCC/2" device=""/>
-<part name="IC1" library="linear" deviceset="TL074" device="P" value="TL074P"/>
+<part name="IC1" library="linear" deviceset="TL074" device="P" value="MCP6040"/>
 <part name="R406" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k"/>
 <part name="C404" library="capacitor-wima" deviceset="C" device="5/5" value="1uF"/>
 <part name="R408" library="Rebel" deviceset="R-EU_" device="0204/7" value="100R"/>
@@ -15867,6 +15867,7 @@ naming: grid - package width</description>
 <part name="BOOT" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
+<part name="SWD1" library="SparkFun" deviceset="M06" device="SIP"/>
 </parts>
 <sheets>
 <sheet>
@@ -16021,6 +16022,7 @@ naming: grid - package width</description>
 <instance part="BOOT" gate="G$1" x="38.1" y="-83.82"/>
 <instance part="GND11" gate="1" x="48.26" y="-93.98"/>
 <instance part="+3V4" gate="G$1" x="48.26" y="-73.66"/>
+<instance part="SWD1" gate="G$1" x="218.44" y="63.5" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -16940,6 +16942,48 @@ naming: grid - package width</description>
 <wire x1="60.96" y1="-83.82" x2="45.72" y2="-83.82" width="0.1524" layer="91"/>
 <label x="50.8" y="-83.82" size="1.778" layer="95"/>
 <pinref part="BOOT" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="SWD" gate="G$1" pin="1"/>
+<pinref part="SWD1" gate="G$1" pin="1"/>
+<wire x1="200.66" y1="71.12" x2="213.36" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="SWD" gate="G$1" pin="2"/>
+<pinref part="SWD1" gate="G$1" pin="2"/>
+<wire x1="200.66" y1="68.58" x2="213.36" y2="66.04" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="SWD" gate="G$1" pin="3"/>
+<pinref part="SWD1" gate="G$1" pin="3"/>
+<wire x1="200.66" y1="66.04" x2="213.36" y2="63.5" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="SWD" gate="G$1" pin="4"/>
+<pinref part="SWD1" gate="G$1" pin="4"/>
+<wire x1="200.66" y1="63.5" x2="213.36" y2="60.96" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="SWD" gate="G$1" pin="5"/>
+<pinref part="SWD1" gate="G$1" pin="5"/>
+<wire x1="200.66" y1="60.96" x2="213.36" y2="58.42" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="SWD" gate="G$1" pin="6"/>
+<pinref part="SWD1" gate="G$1" pin="6"/>
+<wire x1="200.66" y1="58.42" x2="213.36" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
