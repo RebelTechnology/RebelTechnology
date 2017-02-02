@@ -1,0 +1,15 @@
+# object files
+OBJS += $(DRIVERS)/Src/stm32f1xx_hal.o
+OBJS += $(DRIVERS)/Src/stm32f1xx_hal_rcc.o
+OBJS += $(DRIVERS)/Src/stm32f1xx_hal_dac.o
+OBJS += $(DRIVERS)/Src/stm32f1xx_hal_dma.o
+OBJS += $(DRIVERS)/Src/stm32f1xx_hal_adc.o
+OBJS += $(DRIVERS)/Src/stm32f1xx_hal_gpio.o
+OBJS += $(DRIVERS)/Src/stm32f1xx_hal_dac_ex.o
+OBJS += $(DRIVERS)/Src/stm32f1xx_hal_adc_ex.o
+OBJS += $(DRIVERS)/Src/stm32f1xx_hal_rcc_ex.o
+OBJS += $(DRIVERS)/Src/stm32f1xx_hal_tim_ex.o
+OBJS += $(DRIVERS)/Src/stm32f1xx_hal_tim.o
+OBJS += $(DRIVERS)/Src/stm32f1xx_hal_cortex.o
+OBJS += $(TEMPLATEROOT)/startup/startup_stm32f100xb.o
+OBJS += $(TEMPLATEROOT)/Libraries/syscalls/libnosys_gnu.o
