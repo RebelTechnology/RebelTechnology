@@ -12934,20 +12934,6 @@ Source: Fairchild .. BAT54.pdf</description>
 <label x="60.96" y="35.56" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="PB10" class="0">
-<segment>
-<pinref part="U1" gate="A" pin="PB10"/>
-<wire x1="58.42" y1="15.24" x2="68.58" y2="15.24" width="0.1524" layer="91"/>
-<label x="60.96" y="15.24" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="PB11" class="0">
-<segment>
-<pinref part="U1" gate="A" pin="PB11"/>
-<wire x1="58.42" y1="12.7" x2="68.58" y2="12.7" width="0.1524" layer="91"/>
-<label x="60.96" y="12.7" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="BOOT0" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="BOOT0"/>
@@ -12957,14 +12943,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <label x="-10.16" y="40.64" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="PA15" class="0">
-<segment>
-<pinref part="U1" gate="A" pin="PA15"/>
-<wire x1="2.54" y1="0" x2="-10.16" y2="0" width="0.1524" layer="91"/>
-<label x="-10.16" y="0" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="PB4" class="0">
+<net name="TEMPOIN" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PB4"/>
 <wire x1="58.42" y1="30.48" x2="68.58" y2="30.48" width="0.1524" layer="91"/>
@@ -12980,7 +12959,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <junction x="-68.58" y="157.48"/>
 </segment>
 </net>
-<net name="PA6" class="0">
+<net name="LED2" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PA6"/>
 <wire x1="2.54" y1="22.86" x2="-10.16" y2="22.86" width="0.1524" layer="91"/>
@@ -12992,14 +12971,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <pinref part="LED2" gate="G$1" pin="A"/>
 </segment>
 </net>
-<net name="PA7" class="0">
-<segment>
-<pinref part="U1" gate="A" pin="PA7"/>
-<wire x1="2.54" y1="20.32" x2="-10.16" y2="20.32" width="0.1524" layer="91"/>
-<label x="-10.16" y="20.32" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="PB6" class="0">
+<net name="TR1" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PB6"/>
 <wire x1="58.42" y1="25.4" x2="68.58" y2="25.4" width="0.1524" layer="91"/>
@@ -13015,7 +12987,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <junction x="15.24" y="104.14"/>
 </segment>
 </net>
-<net name="PB7" class="0">
+<net name="TEMPOOUT" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PB7"/>
 <wire x1="58.42" y1="22.86" x2="68.58" y2="22.86" width="0.1524" layer="91"/>
@@ -13028,7 +13000,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <label x="-88.9" y="167.64" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="PA9" class="0">
+<net name="TOGGLE2A" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PA9"/>
 <wire x1="2.54" y1="15.24" x2="-10.16" y2="15.24" width="0.1524" layer="91"/>
@@ -13040,7 +13012,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <label x="88.9" y="132.08" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="PA10" class="0">
+<net name="TOGGLE2B" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PA10"/>
 <wire x1="2.54" y1="12.7" x2="-10.16" y2="12.7" width="0.1524" layer="91"/>
@@ -13052,7 +13024,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <label x="88.9" y="127" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="PB9" class="0">
+<net name="TOGGLE1B" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PB9"/>
 <wire x1="58.42" y1="17.78" x2="68.58" y2="17.78" width="0.1524" layer="91"/>
@@ -13064,7 +13036,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <label x="50.8" y="127" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="PB8" class="0">
+<net name="TOGGLE1A" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PB8"/>
 <wire x1="58.42" y1="20.32" x2="68.58" y2="20.32" width="0.1524" layer="91"/>
@@ -13076,7 +13048,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <wire x1="63.5" y1="132.08" x2="50.8" y2="132.08" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="PB5" class="0">
+<net name="TR2" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PB5"/>
 <wire x1="58.42" y1="27.94" x2="68.58" y2="27.94" width="0.1524" layer="91"/>
@@ -13131,7 +13103,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <pinref part="LED2" gate="G$1" pin="C"/>
 </segment>
 </net>
-<net name="PA8" class="0">
+<net name="LED1" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PA8"/>
 <wire x1="2.54" y1="17.78" x2="-10.16" y2="17.78" width="0.1524" layer="91"/>

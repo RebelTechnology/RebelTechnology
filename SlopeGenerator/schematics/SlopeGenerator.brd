@@ -3022,12 +3022,6 @@ design rules under a new name.</description>
 <signal name="BOOT1">
 <contactref element="U1" pad="20"/>
 </signal>
-<signal name="PB10">
-<contactref element="U1" pad="21"/>
-</signal>
-<signal name="PB11">
-<contactref element="U1" pad="22"/>
-</signal>
 <signal name="BOOT0">
 <contactref element="U1" pad="44"/>
 <contactref element="R8" pad="1"/>
@@ -3041,10 +3035,7 @@ design rules under a new name.</description>
 <wire x1="22.645" y1="78.525" x2="21.9075" y2="77.7875" width="0.254" layer="16"/>
 <wire x1="21.9075" y1="77.7875" x2="21.9075" y2="77.47" width="0.254" layer="16"/>
 </signal>
-<signal name="PA15">
-<contactref element="U1" pad="38"/>
-</signal>
-<signal name="PB4">
+<signal name="TEMPOIN">
 <contactref element="U1" pad="40"/>
 <via x="23.495" y="66.675" extent="1-16" drill="0.3048"/>
 <wire x1="23.495" y1="66.675" x2="23.495" y2="66.81986875" width="0.254" layer="16"/>
@@ -3064,7 +3055,7 @@ design rules under a new name.</description>
 <wire x1="23.495" y1="63.1825" x2="23.495" y2="66.675" width="0.254" layer="1"/>
 <wire x1="6.35" y1="39.835" x2="7.2" y2="40.685" width="0.254" layer="16"/>
 </signal>
-<signal name="PA6">
+<signal name="LED2">
 <contactref element="U1" pad="16"/>
 <contactref element="LED2" pad="A"/>
 <via x="29.845" y="63.5" extent="1-16" drill="0.3048"/>
@@ -3084,10 +3075,7 @@ design rules under a new name.</description>
 <wire x1="29.845" y1="63.5" x2="29.845" y2="63.99013125" width="0.254" layer="16"/>
 <wire x1="29.845" y1="63.99013125" x2="28.6265125" y2="65.20861875" width="0.254" layer="16"/>
 </signal>
-<signal name="PA7">
-<contactref element="U1" pad="17"/>
-</signal>
-<signal name="PB6">
+<signal name="TR1">
 <contactref element="U1" pad="42"/>
 <contactref element="Q3" pad="3"/>
 <contactref element="R11" pad="2"/>
@@ -3104,7 +3092,7 @@ design rules under a new name.</description>
 <wire x1="20.32" y1="70.485" x2="20.77539375" y2="70.94039375" width="0.254" layer="1"/>
 <via x="20.77539375" y="70.94039375" extent="1-16" drill="0.3048"/>
 </signal>
-<signal name="PB7">
+<signal name="TEMPOOUT">
 <contactref element="U1" pad="43"/>
 <contactref element="R1" pad="2"/>
 <wire x1="30.06" y1="32.385" x2="30.06" y2="32.805" width="0.254" layer="16"/>
@@ -3119,7 +3107,7 @@ design rules under a new name.</description>
 <wire x1="24.4892125" y1="67.945" x2="21.9631625" y2="70.47105" width="0.254" layer="16"/>
 <wire x1="28.8925" y1="33.9725" x2="29.21" y2="33.655" width="0.254" layer="1"/>
 </signal>
-<signal name="PA9">
+<signal name="TOGGLE2A">
 <contactref element="U1" pad="30"/>
 <contactref element="S2" pad="3"/>
 <wire x1="22.225" y1="60.6425" x2="22.225" y2="60.96" width="0.254" layer="16"/>
@@ -3139,7 +3127,7 @@ design rules under a new name.</description>
 <wire x1="21.2725" y1="39.0525" x2="22.225" y2="40.005" width="0.254" layer="1"/>
 <wire x1="22.225" y1="40.005" x2="22.225" y2="60.6425" width="0.254" layer="1"/>
 </signal>
-<signal name="PA10">
+<signal name="TOGGLE2B">
 <contactref element="U1" pad="31"/>
 <contactref element="S2" pad="1"/>
 <via x="23.495" y="60.0075" extent="1-16" drill="0.3048"/>
@@ -3155,7 +3143,7 @@ design rules under a new name.</description>
 <wire x1="25.4" y1="56.1975" x2="23.495" y2="58.1025" width="0.254" layer="1"/>
 <wire x1="23.495" y1="58.1025" x2="23.495" y2="60.0075" width="0.254" layer="1"/>
 </signal>
-<signal name="PB9">
+<signal name="TOGGLE1B">
 <contactref element="U1" pad="46"/>
 <contactref element="S1" pad="1"/>
 <wire x1="20.32" y1="60.96" x2="22.86" y2="63.5" width="0.254" layer="1"/>
@@ -3169,7 +3157,7 @@ design rules under a new name.</description>
 <wire x1="20.32" y1="41.91" x2="13.081" y2="41.91" width="0.254" layer="16"/>
 <wire x1="13.081" y1="41.91" x2="12.7" y2="41.529" width="0.254" layer="16"/>
 </signal>
-<signal name="PB8">
+<signal name="TOGGLE1A">
 <contactref element="U1" pad="45"/>
 <contactref element="S1" pad="3"/>
 <wire x1="19.685" y1="61.2775" x2="22.225" y2="63.8175" width="0.254" layer="1"/>
@@ -3183,7 +3171,7 @@ design rules under a new name.</description>
 <wire x1="19.685" y1="32.385" x2="12.954" y2="32.385" width="0.254" layer="16"/>
 <wire x1="12.954" y1="32.385" x2="12.7" y2="32.131" width="0.254" layer="16"/>
 </signal>
-<signal name="PB5">
+<signal name="TR2">
 <contactref element="U1" pad="41"/>
 <contactref element="Q1" pad="3"/>
 <contactref element="R7" pad="2"/>
@@ -3239,7 +3227,7 @@ design rules under a new name.</description>
 <wire x1="13.97" y1="17.78" x2="13.97" y2="19.9" width="0.254" layer="16"/>
 <wire x1="13.97" y1="19.9" x2="13.55" y2="20.32" width="0.254" layer="16"/>
 </signal>
-<signal name="PA8">
+<signal name="LED1">
 <contactref element="U1" pad="29"/>
 <via x="22.86" y="61.2775" extent="1-16" drill="0.3048"/>
 <wire x1="22.86" y1="61.2775" x2="21.59" y2="62.5475" width="0.254" layer="16"/>
