@@ -1,9 +1,9 @@
 # name of executable
-ELF=$(BUILD)/TapTempo.elf                    
-BIN=$(BUILD)/TapTempo.bin
+ELF=$(BUILD)/SlopeGenerator.elf                    
+BIN=$(BUILD)/SlopeGenerator.bin
 
 # Tool path
-TOOLROOT=~/devel/OwlWare/Tools/gcc-arm-none-eabi-5_2-2015q4/bin
+TOOLROOT=~/devel/OwlWare/Tools/gcc-arm-none-eabi-5_4-2016q2/bin
 STLINK=~/devel/stlink/build
 
 # Tools

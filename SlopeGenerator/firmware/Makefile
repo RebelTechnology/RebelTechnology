@@ -7,7 +7,7 @@ CXXFLAGS = -fno-rtti -fno-exceptions -std=c++11 $(CFLAGS)
 
 C_SRC   = main.c stm32f1xx_it.c stm32f1xx_hal_msp.c system_stm32f1xx.c
 C_SRC  += gpio.c periph.c
-CPP_SRC = TapTempo.cpp DDS.cpp
+CPP_SRC = SlopeGenerator.cpp DDS.cpp
 
 OBJS = $(C_SRC:%.c=Build/%.o) $(CPP_SRC:%.cpp=Build/%.o)
 include $(TEMPLATEROOT)/libs.mk

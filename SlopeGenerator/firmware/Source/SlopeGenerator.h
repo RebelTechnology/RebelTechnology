@@ -1,5 +1,5 @@
-#ifndef __TAPTEMPO_H__
-#define __TAPTEMPO_H__
+#ifndef __SLOPEGENERATOR_H__
+#define __SLOPEGENERATOR_H__
 
 #include <inttypes.h>
 
@@ -11,4 +11,4 @@
 }
 #endif
 
-#endif // __TAPTEMPO_H__
+#endif // __SLOPEGENERATOR_H__
