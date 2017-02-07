@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="8.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -8619,6 +8619,45 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="-3.8" y="2.5" size="0.4064" layer="25">&gt;NAME</text>
 <text x="-3.8" y="1.3" size="0.4064" layer="27">&gt;VALUE</text>
 </package>
+<package name="PTC">
+<wire x1="-3.81" y1="1.524" x2="3.81" y2="1.524" width="0.2032" layer="21"/>
+<wire x1="3.81" y1="1.524" x2="3.81" y2="-1.524" width="0.2032" layer="21"/>
+<wire x1="3.81" y1="-1.524" x2="-3.81" y2="-1.524" width="0.2032" layer="21"/>
+<wire x1="-3.81" y1="-1.524" x2="-3.81" y2="1.524" width="0.2032" layer="21"/>
+<pad name="P$1" x="-2.54" y="0" drill="0.8" diameter="1.8796"/>
+<pad name="P$2" x="2.54" y="0" drill="0.8" diameter="1.8796"/>
+<text x="-3.81" y="1.705" size="0.4318" layer="25">&gt;Name</text>
+<text x="-3.81" y="-2.14" size="0.4318" layer="27">&gt;Value</text>
+</package>
+<package name="PTC-1206">
+<wire x1="-1.5" y1="0.75" x2="1.5" y2="0.75" width="0.127" layer="51"/>
+<wire x1="1.5" y1="0.75" x2="1.5" y2="-0.75" width="0.127" layer="51"/>
+<wire x1="1.5" y1="-0.75" x2="-1.5" y2="-0.75" width="0.127" layer="51"/>
+<wire x1="-1.5" y1="-0.75" x2="-1.5" y2="0.75" width="0.127" layer="51"/>
+<wire x1="0.635" y1="-0.762" x2="-0.635" y2="-0.762" width="0.2032" layer="21"/>
+<wire x1="-0.635" y1="0.762" x2="0.635" y2="0.762" width="0.2032" layer="21"/>
+<wire x1="-1.143" y1="-1.016" x2="0.254" y2="1.016" width="0.127" layer="51"/>
+<wire x1="0.254" y1="1.016" x2="1.143" y2="1.016" width="0.127" layer="51"/>
+<smd name="1" x="-1.4" y="0" dx="1" dy="1.8" layer="1"/>
+<smd name="2" x="1.4" y="0" dx="1" dy="1.8" layer="1"/>
+<text x="-1.524" y="1.27" size="0.4064" layer="25">&gt;Name</text>
+<text x="-1.524" y="-1.651" size="0.4064" layer="27">&gt;Value</text>
+</package>
+<package name="0603">
+<wire x1="-1.473" y1="0.983" x2="1.473" y2="0.983" width="0.0508" layer="39"/>
+<wire x1="1.473" y1="0.983" x2="1.473" y2="-0.983" width="0.0508" layer="39"/>
+<wire x1="1.473" y1="-0.983" x2="-1.473" y2="-0.983" width="0.0508" layer="39"/>
+<wire x1="-1.473" y1="-0.983" x2="-1.473" y2="0.983" width="0.0508" layer="39"/>
+<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
+<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
+<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
+<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
+<text x="-0.889" y="0.762" size="0.4064" layer="25" font="vector">&gt;NAME</text>
+<text x="-1.016" y="-1.143" size="0.4064" layer="27" font="vector">&gt;VALUE</text>
+<rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
+<rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
+<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
+</package>
 </packages>
 <symbols>
 <symbol name="M05X2">
@@ -8672,6 +8711,18 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pin name="6" x="5.08" y="5.08" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="7" x="5.08" y="7.62" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="8" x="5.08" y="10.16" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+</symbol>
+<symbol name="PTC">
+<wire x1="5.08" y1="1.27" x2="5.08" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-1.27" x2="-2.54" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-1.27" x2="-2.54" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="1.27" x2="5.08" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-1.524" y1="-2.54" x2="3.81" y2="2.54" width="0.254" layer="94"/>
+<wire x1="3.81" y1="2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
+<text x="-2.54" y="3.048" size="1.778" layer="95">&gt;NAME</text>
+<text x="-3.302" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="1" x="-5.08" y="0" visible="off" length="short"/>
+<pin name="2" x="7.62" y="0" visible="off" length="short" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -8923,6 +8974,42 @@ Standard 8-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <connect gate="G$1" pin="6" pad="6"/>
 <connect gate="G$1" pin="7" pad="7"/>
 <connect gate="G$1" pin="8" pad="8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="PTC" prefix="F">
+<description>&lt;b&gt;Resettable Fuse PTC&lt;/b&gt;
+Resettable Fuse. Spark Fun Electronics SKU : COM-08357</description>
+<gates>
+<gate name="G$1" symbol="PTC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="PTH" package="PTC">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+<connect gate="G$1" pin="2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="SMD" package="PTC-1206">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="0603" package="0603">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -10326,6 +10413,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="C14" library="Rebel" deviceset="C-EU" device="C0603K" value="100n"/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="P-10" library="supply1" deviceset="-12V" device=""/>
+<part name="F2" library="SparkFun" deviceset="PTC" device="SMD"/>
 </parts>
 <sheets>
 <sheet>
@@ -10415,15 +10503,15 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <instance part="C6" gate="G$1" x="452.12" y="558.8"/>
 <instance part="GND49" gate="1" x="452.12" y="548.64"/>
 <instance part="IC4" gate="P" x="444.5" y="548.64"/>
-<instance part="P+18" gate="1" x="436.88" y="472.44"/>
+<instance part="P+18" gate="1" x="452.12" y="472.44"/>
 <instance part="GND60" gate="1" x="401.32" y="444.5"/>
-<instance part="P-9" gate="1" x="436.88" y="441.96"/>
+<instance part="P-9" gate="1" x="452.12" y="441.96"/>
 <instance part="JP8" gate="G$1" x="411.48" y="457.2"/>
-<instance part="Q9" gate="G$1" x="426.72" y="462.28" rot="MR90">
-<attribute name="OC_FARNELL" x="426.72" y="462.28" size="1.778" layer="96" rot="MR90" display="off"/>
+<instance part="Q9" gate="G$1" x="441.96" y="462.28" rot="MR90">
+<attribute name="OC_FARNELL" x="441.96" y="462.28" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
-<instance part="Q10" gate="G$1" x="426.72" y="452.12" rot="MR270">
-<attribute name="OC_FARNELL" x="426.72" y="452.12" size="1.778" layer="96" rot="MR270" display="off"/>
+<instance part="Q10" gate="G$1" x="441.96" y="452.12" rot="MR270">
+<attribute name="OC_FARNELL" x="441.96" y="452.12" size="1.778" layer="96" rot="MR270" display="off"/>
 </instance>
 <instance part="J3" gate="G$1" x="431.8" y="398.78" rot="MR0"/>
 <instance part="J4" gate="G$1" x="431.8" y="378.46" rot="MR0"/>
@@ -10504,6 +10592,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <instance part="C14" gate="G$1" x="477.52" y="533.4"/>
 <instance part="GND20" gate="1" x="477.52" y="523.24"/>
 <instance part="P-10" gate="1" x="467.36" y="520.7"/>
+<instance part="F2" gate="G$1" x="426.72" y="462.28"/>
 </instances>
 <busses>
 </busses>
@@ -10643,9 +10732,9 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <pinref part="JP8" gate="G$1" pin="5"/>
 <pinref part="JP8" gate="G$1" pin="3"/>
 <pinref part="Q9" gate="G$1" pin="G"/>
-<wire x1="419.1" y1="457.2" x2="429.26" y2="457.2" width="0.1524" layer="91"/>
+<wire x1="419.1" y1="457.2" x2="444.5" y2="457.2" width="0.1524" layer="91"/>
 <pinref part="Q10" gate="G$1" pin="G"/>
-<junction x="429.26" y="457.2"/>
+<junction x="444.5" y="457.2"/>
 <junction x="419.1" y="457.2"/>
 </segment>
 <segment>
@@ -10878,8 +10967,8 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </segment>
 <segment>
 <pinref part="Q9" gate="G$1" pin="S"/>
-<wire x1="431.8" y1="462.28" x2="436.88" y2="462.28" width="0.1524" layer="91"/>
-<wire x1="436.88" y1="462.28" x2="436.88" y2="469.9" width="0.1524" layer="91"/>
+<wire x1="447.04" y1="462.28" x2="452.12" y2="462.28" width="0.1524" layer="91"/>
+<wire x1="452.12" y1="462.28" x2="452.12" y2="469.9" width="0.1524" layer="91"/>
 <pinref part="P+18" gate="1" pin="+12V"/>
 </segment>
 <segment>
@@ -10991,8 +11080,8 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <segment>
 <pinref part="P-9" gate="1" pin="-12V"/>
 <pinref part="Q10" gate="G$1" pin="S"/>
-<wire x1="431.8" y1="452.12" x2="436.88" y2="452.12" width="0.1524" layer="91"/>
-<wire x1="436.88" y1="444.5" x2="436.88" y2="452.12" width="0.1524" layer="91"/>
+<wire x1="447.04" y1="452.12" x2="452.12" y2="452.12" width="0.1524" layer="91"/>
+<wire x1="452.12" y1="444.5" x2="452.12" y2="452.12" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="P-10" gate="1" pin="-12V"/>
@@ -11710,7 +11799,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <pinref part="JP8" gate="G$1" pin="10"/>
 <pinref part="JP8" gate="G$1" pin="9"/>
 <pinref part="Q10" gate="G$1" pin="D"/>
-<wire x1="419.1" y1="452.12" x2="421.64" y2="452.12" width="0.1524" layer="91"/>
+<wire x1="419.1" y1="452.12" x2="436.88" y2="452.12" width="0.1524" layer="91"/>
 <junction x="419.1" y="452.12"/>
 </segment>
 </net>
@@ -11719,7 +11808,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <wire x1="403.86" y1="462.28" x2="419.1" y2="462.28" width="0.1524" layer="91"/>
 <pinref part="JP8" gate="G$1" pin="2"/>
 <pinref part="JP8" gate="G$1" pin="1"/>
-<pinref part="Q9" gate="G$1" pin="D"/>
+<pinref part="F2" gate="G$1" pin="1"/>
 <wire x1="419.1" y1="462.28" x2="421.64" y2="462.28" width="0.1524" layer="91"/>
 <junction x="419.1" y="462.28"/>
 </segment>
@@ -11943,6 +12032,13 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <wire x1="210.82" y1="177.8" x2="210.82" y2="160.02" width="0.1524" layer="91"/>
 <junction x="210.82" y="177.8"/>
 <junction x="210.82" y="160.02"/>
+</segment>
+</net>
+<net name="N$17" class="0">
+<segment>
+<pinref part="F2" gate="G$1" pin="2"/>
+<pinref part="Q9" gate="G$1" pin="D"/>
+<wire x1="434.34" y1="462.28" x2="436.88" y2="462.28" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
