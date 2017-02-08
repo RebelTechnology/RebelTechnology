@@ -125,7 +125,7 @@ public:
   }
 };
 
-class TapTempo {
+class SlopeGenerator {
 private:
   volatile uint32_t counter;
   uint32_t goLow;
@@ -135,7 +135,7 @@ private:
   bool on;
 public:
   uint16_t speed;
-  TapTempo() : counter(0), goLow(TRIGGER_LIMIT>>2), goHigh(TRIGGER_LIMIT>>1), 
+  SlopeGenerator() : counter(0), goLow(TRIGGER_LIMIT>>2), goHigh(TRIGGER_LIMIT>>1), 
 	       trig(0), isHigh(false), on(false), speed(4095) {}	       
   void reset(){
     counter = 0;
@@ -208,7 +208,7 @@ public:
 };
 
 Synchroniser synchro;
-TapTempo tempo;
+SlopeGenerator tempo;
 
 // todo: proper debouncing with systick counter
 void buttonCallback(){
@@ -221,7 +221,8 @@ void triggerCallback(){
   }
 }
 
-void timerCallback(){
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+// void timerCallback(){
   tempo.clock();
   synchro.clock();
 #ifdef DEBUG_PINS

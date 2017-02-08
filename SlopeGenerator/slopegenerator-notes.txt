@@ -15,3 +15,24 @@ todo:
 - change default TEMPO to a TIM output channel
 
 -------------------------------------------------------
+
+Rev01
+- b1 programmer does not connect
+
+- b2 connects
+
+-------------------------------------------------------
+
+Διαγώνιος diagonios diagonal
+Γωνία gonia angle
+
+Informally, any sloping line is called diagonal. The word "diagonal" derives from the ancient Greek διαγώνιος diagonios,[1] "from angle to angle" (from διά- dia-, "through", "across" and γωνία gonia, "angle", related to gony "knee")
+
+Olympus / Όλυμπος
+άνυσμα ánysma vector
+Διάνυσμα diánysma vector
+
+
+Ὅπερ ἔδει δεῖξαι. Hóper édei deîxai. Which was to be proved. Abbreviated as ΟΕΔ / Q.E.D.
+
+-------------------------------------------------------
