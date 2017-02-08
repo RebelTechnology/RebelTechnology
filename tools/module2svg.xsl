@@ -68,12 +68,12 @@
     <xsl:param name="style" select="'normal'"/>
     <xsl:variable name="scale">
       <xsl:choose>
-	<xsl:when test="$style = 'small'">0.78</xsl:when>
+	<xsl:when test="$style[1] = 'small'">0.78</xsl:when>
 	<xsl:otherwise>1.0</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <xsl:message>scale: <xsl:value-of select="$scale"/></xsl:message>
-    <xsl:message>grading: <xsl:value-of select="$style"/></xsl:message>
+    <!-- <xsl:message>scale: <xsl:value-of select="$scale"/></xsl:message> -->
+    <!-- <xsl:message>grading: <xsl:value-of select="$style"/></xsl:message> -->
     <xsl:if test="not($style = 'none')">
       <g transform="translate({$width div 2+@x*$inch},{$height div 2 - @y*$inch})">
 	<g transform="scale({$scale})">
@@ -128,22 +128,34 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="pot[@grading]">
+  <xsl:template match="pot" mode="PTD90">
+    <!-- Bourns PTD901 / PTD902 -->
+    <!-- cut path for right angle M7 pot with rotation stop -->
+    <path inkscape:connector-curvature="0"
+	d="m {$width div 2+@x*$inch - 3.626},{$height div 2 - @y*$inch} c 0,2.002 1.6212268,3.62994 3.6230338,3.62994 1.6368275,0 3.0237835,-1.08879 3.4738775,-2.57831 l 2.368487,0 0,-2.01736 -2.347283,0 c -0.425034,-1.52937 -1.830243,-2.6564 -3.4953613,-2.6564 -2.0018076,-2.6e-4 -3.622754,1.62066 -3.622754,3.62213 z"
+       style="fill:none;stroke:#ff0000" />
+  </xsl:template>
+
+  <xsl:template match="pot" mode="RK09">
+    <!-- Alps RK09L -->
     <!-- cut path for M9 pot with rotation stop -->
     <path inkscape:connector-curvature="0"
 	d="m {$width div 2+@x*$inch},{$height div 2 - @y*$inch - 4.75} c -2.6129013,0 -4.7375971,2.115556 -4.7375971,4.727735 0,2.135913 1.421033,3.945767 3.3650681,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 3.38e-4,-2.612179 -2.115205,-4.727369 -4.727403,-4.727369 z"
        style="fill:none;stroke:#ff0000" />
-    <xsl:call-template name="grading">
-      <xsl:with-param name="style" select="@grading"/>
-    </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="pot">
-    <path inkscape:connector-curvature="0"	
-	d="m {$width div 2+@x*$inch},{$height div 2 - @y*$inch - 4.75} c -2.6129013,0 -4.7375971,2.115556 -4.7375971,4.727735 0,2.135913 1.421033,3.945767 3.3650681,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 3.38e-4,-2.612179 -2.115205,-4.727369 -4.727403,-4.727369 z"
-       style="fill:none;stroke:#ff0000" />
+    <xsl:choose>
+      <xsl:when test="@type = 'M7'">
+	<xsl:apply-templates select="." mode="PTD90"/>
+      </xsl:when>
+      <xsl:otherwise>
+	<xsl:apply-templates select="." mode="RK09"/>
+      </xsl:otherwise>
+    </xsl:choose>
+
     <xsl:call-template name="grading">
-      <xsl:with-param name="style" select="/module/@grading"/>
+      <xsl:with-param name="style" select="/module/@grading|@grading"/>
     </xsl:call-template>
   </xsl:template>
 
