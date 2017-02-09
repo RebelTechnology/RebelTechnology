@@ -1,5 +1,5 @@
 extern "C" {
-#include "stm32f7xx_hal.h"
+#include "stm32f4xx_hal.h"
 #include "cmsis_os.h"
 #include "HAL_Triggers.h"
 #include "HAL_Encoders.h"
@@ -169,19 +169,19 @@ void setup(void){
 
   program.startManager();
 
-  program.loadProgram(
+  // program.loadProgram()
 }
 
 extern "C" {
 
-  // void processBlock(ProgramVector* pv){
-  //   samples.split(pv->audio_input, pv->audio_blocksize);
-  //   screen.setBuffer(pv->pixels);
-  //   patches[currentPatch]->processAudio(samples);
-  //   // screen.setTextSize(1);
-  //   // screen.print(0, screen.getHeight()-8, "Rebel Technology");
-  //   samples.comb(pv->audio_output);
-  // }
+  void processBlock(ProgramVector* pv){
+    samples.split(pv->audio_input, pv->audio_blocksize);
+    screen.setBuffer(pv->pixels);
+    patches[currentPatch]->processAudio(samples);
+    // screen.setTextSize(1);
+    // screen.print(0, screen.getHeight()-8, "Rebel Technology");
+    samples.comb(pv->audio_output);
+  }
 
   void loop(void){
     if(doProcessAudio){

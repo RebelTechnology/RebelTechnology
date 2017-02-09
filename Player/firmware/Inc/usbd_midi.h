@@ -2,6 +2,8 @@
 #ifndef __USB_MIDI_CORE_H
 #define __USB_MIDI_CORE_H
 
+#include  <stdint.h>
+
 #ifdef __cplusplus
  extern "C" {
 #endif

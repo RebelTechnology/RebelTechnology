@@ -4,7 +4,7 @@
   * Description        : This file contains the common defines of the application
   ******************************************************************************
   *
-  * Copyright (c) 2016 STMicroelectronics International N.V. 
+  * Copyright (c) 2017 STMicroelectronics International N.V. 
   * All rights reserved.
   *
   * Redistribution and use in source and binary forms, with or without 
@@ -69,12 +69,12 @@
 #define Flash_MISO_GPIO_Port GPIOF
 #define Flash_MOSI_Pin GPIO_PIN_9
 #define Flash_MOSI_GPIO_Port GPIOF
-#define OLED_MOSI_Pin GPIO_PIN_1
-#define OLED_MOSI_GPIO_Port GPIOC
+#define OLED_DC_Pin GPIO_PIN_1
+#define OLED_DC_GPIO_Port GPIOC
 #define OLED_RST_Pin GPIO_PIN_2
 #define OLED_RST_GPIO_Port GPIOC
-#define OLED_DC_Pin GPIO_PIN_3
-#define OLED_DC_GPIO_Port GPIOC
+#define OLED_MOSI_Pin GPIO_PIN_3
+#define OLED_MOSI_GPIO_Port GPIOC
 #define CV_IN_A_Pin GPIO_PIN_0
 #define CV_IN_A_GPIO_Port GPIOA
 #define CV_IN_B_Pin GPIO_PIN_1
@@ -85,8 +85,6 @@
 #define ENC2_CH2_GPIO_Port GPIOA
 #define CS_SDIN_Pin GPIO_PIN_2
 #define CS_SDIN_GPIO_Port GPIOB
-#define OLED_SCK_Pin GPIO_PIN_10
-#define OLED_SCK_GPIO_Port GPIOB
 #define OLED_CS_Pin GPIO_PIN_12
 #define OLED_CS_GPIO_Port GPIOB
 #define ENC1_CH1_Pin GPIO_PIN_15
@@ -110,7 +108,6 @@
 #define ENC2_SW_Pin GPIO_PIN_4
 #define ENC2_SW_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
-
 #define USB_DM_Pin GPIO_PIN_14
 #define USB_DP_Pin GPIO_PIN_15
 

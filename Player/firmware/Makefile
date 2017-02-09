@@ -17,9 +17,6 @@ ifeq ($(CONFIG),Release)
 endif
 
 LDFLAGS += -Wl,--gc-sections
-#LDSCRIPT = Source/flash.ld
-# LDSCRIPT = Source/STM32F746VE_FLASH.ld
-LDSCRIPT = Source/STM32F756IGTx_FLASH.ld
 
 CPPFLAGS += -ILibSource
 
@@ -35,15 +32,14 @@ CPPFLAGS += -mtune=cortex-m7
 CXXFLAGS = -fno-rtti -fno-exceptions -std=c++11
 CFLAGS  += -std=gnu99
 
-C_SRC = $(notdir $(wildcard Src/*.c)) $(notdir $(wildcard Source/*.c)) # $(notdir $(wildcard MDK-ARM/*.c)) #
+C_SRC = $(notdir $(wildcard Src/*.c)) $(notdir $(wildcard Source/*.c))
 # C_SRC += system_stm32f7xx.c
 
-CPP_SRC = $(notdir $(wildcard Src/*.cpp)) $(notdir $(wildcard MDK-ARM/*.cpp)) $(notdir $(wildcard Source/*.cpp))
+CPP_SRC = $(notdir $(wildcard Src/*.cpp)) $(notdir $(wildcard Source/*.cpp))
 # CPP_SRC += Graphics.cpp Player.cpp Codec.cpp ScreenBuffer.cpp operators.cpp
 # CPP_SRC += MidiReader.cpp MidiHandler.cpp
 
 OBJS = $(C_SRC:%.c=Build/%.o) $(CPP_SRC:%.cpp=Build/%.o)
-OBJS += $(BUILD)/startup_stm32f756xx.o
 
 include $(TEMPLATEROOT)/libs.mk
-include $(TEMPLATEROOT)/f7.mk
+include $(TEMPLATEROOT)/f4.mk

@@ -1,4 +1,4 @@
-#include "stm32f7xx_hal.h"
+#include "stm32f4xx_hal.h"
 
 // _____ Defines _______________________________________________________________________
 #define pRST_Set()	HAL_GPIO_WritePin(OLED_RST_GPIO_Port, OLED_RST_Pin, GPIO_PIN_SET)

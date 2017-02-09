@@ -409,6 +409,7 @@ void ProgramManager::saveProgramToFlash(uint8_t sector, void* address, uint32_t 
 }
 
 /* called by the audio interrupt when a block should be processed */
+#if 0
   void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size){
     // getProgramVector()->audio_input = src;
     // getProgramVector()->audio_output = dst;
@@ -427,6 +428,7 @@ void ProgramManager::saveProgramToFlash(uint8_t sector, void* address, uint32_t 
     //   dropouts++;
     // }
   }
+#endif
 
 /* called by the audio interrupt when a block should be processed */
 // __attribute__ ((section (".coderam")))

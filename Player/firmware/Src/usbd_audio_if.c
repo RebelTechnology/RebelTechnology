@@ -4,29 +4,39 @@
   * @brief          : Generic media access Layer.
   ******************************************************************************
   *
-  * COPYRIGHT(c) 2016 STMicroelectronics
+  * Copyright (c) 2017 STMicroelectronics International N.V. 
+  * All rights reserved.
   *
-  * Redistribution and use in source and binary forms, with or without modification,
-  * are permitted provided that the following conditions are met:
-  * 1. Redistributions of source code must retain the above copyright notice,
-  * this list of conditions and the following disclaimer.
+  * Redistribution and use in source and binary forms, with or without 
+  * modification, are permitted, provided that the following conditions are met:
+  *
+  * 1. Redistribution of source code must retain the above copyright notice, 
+  *    this list of conditions and the following disclaimer.
   * 2. Redistributions in binary form must reproduce the above copyright notice,
-  * this list of conditions and the following disclaimer in the documentation
-  * and/or other materials provided with the distribution.
-  * 3. Neither the name of STMicroelectronics nor the names of its contributors
-  * may be used to endorse or promote products derived from this software
-  * without specific prior written permission.
+  *    this list of conditions and the following disclaimer in the documentation
+  *    and/or other materials provided with the distribution.
+  * 3. Neither the name of STMicroelectronics nor the names of other 
+  *    contributors to this software may be used to endorse or promote products 
+  *    derived from this software without specific written permission.
+  * 4. This software, including modifications and/or derivative works of this 
+  *    software, must execute solely and exclusively on microcontroller or
+  *    microprocessor devices manufactured by or for STMicroelectronics.
+  * 5. Redistribution and use of this software other than as permitted under 
+  *    this license is void and will automatically terminate your rights under 
+  *    this license. 
   *
-  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  * THIS SOFTWARE IS PROVIDED BY STMICROELECTRONICS AND CONTRIBUTORS "AS IS" 
+  * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT 
+  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+  * PARTICULAR PURPOSE AND NON-INFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY
+  * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT 
+  * SHALL STMICROELECTRONICS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
+  * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
 */
@@ -77,10 +87,6 @@
 /** @defgroup USBD_AUDIO_IF_Private_Variables
   * @{
   */
-/* USB handler declaration */
-/* Handle for USB Full Speed IP */
-/* Handle for USB High Speed IP */
-  USBD_HandleTypeDef  *hUsbDevice_1;
 /* USER CODE BEGIN PRIVATE_VARIABLES */
 /* USER CODE END PRIVATE_VARIABLES */
 
@@ -139,8 +145,7 @@ USBD_AUDIO_ItfTypeDef USBD_AUDIO_fops_HS =
   * @retval Result of the operation: USBD_OK if all operations are OK else USBD_FAIL
   */
 static int8_t AUDIO_Init_HS(uint32_t  AudioFreq, uint32_t Volume, uint32_t options)
-{
-  hUsbDevice_1 = &hUsbDeviceHS;
+{  
   /* USER CODE BEGIN 9 */ 
   return (USBD_OK);
   /* USER CODE END 9 */
@@ -242,7 +247,7 @@ static int8_t AUDIO_GetState_HS (void)
 void TransferComplete_CallBack_HS(void)
 {
   /* USER CODE BEGIN 16 */ 
-  USBD_AUDIO_Sync(hUsbDevice_1, AUDIO_OFFSET_FULL);
+  USBD_AUDIO_Sync(&hUsbDeviceHS, AUDIO_OFFSET_FULL);
   /* USER CODE END 16 */
 }
 
@@ -254,7 +259,7 @@ void TransferComplete_CallBack_HS(void)
 void HalfTransfer_CallBack_HS(void)
 { 
   /* USER CODE BEGIN 17 */ 
-  USBD_AUDIO_Sync(hUsbDevice_1, AUDIO_OFFSET_HALF);
+  USBD_AUDIO_Sync(&hUsbDeviceHS, AUDIO_OFFSET_HALF);
   /* USER CODE END 17 */
 }
 

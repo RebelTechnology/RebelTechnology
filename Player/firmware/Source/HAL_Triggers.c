@@ -2,7 +2,7 @@
 // _____ HAL Triggers ______
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f7xx_hal.h"
+#include "stm32f4xx_hal.h"
 #include "HAL_Triggers.h"
 
 void _Trigger_IN_A(void)

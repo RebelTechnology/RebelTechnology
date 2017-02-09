@@ -2,7 +2,7 @@
 #define CS4272_H
 
 #include <stdint.h>
-#include "stm32f7xx_hal.h"
+#include "stm32f4xx_hal.h"
 
 #ifdef __cplusplus
  extern "C" {

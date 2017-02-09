@@ -1,5 +1,5 @@
 // _____ Includes ______________________________________________________________________
-#include "stm32f7xx_hal.h"
+#include "stm32f4xx_hal.h"
 #include "HAL_OLED.h"
 #include <string.h>
 
@@ -76,9 +76,10 @@ void OLED_ClearScreen(void)
 
 // Configuration
 void OLED_Config(SPI_HandleTypeDef* spi, unsigned char* buffer){
-	GPIO_InitTypeDef GPIO_InitStruct;
 	OLED_SPIInst = spi;
 	OLED_Buffer = buffer;
+#if 0
+	GPIO_InitTypeDef GPIO_InitStruct;
 		
 	// Configure RST and DC Pins
 	GPIO_InitStruct.Pin   = OLED_RST_Pin | OLED_DC_Pin;					
@@ -111,7 +112,8 @@ void OLED_Config(SPI_HandleTypeDef* spi, unsigned char* buffer){
 	OLED_SPIInst->Init.CRCPolynomial = 7;
 	OLED_SPIInst->Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
 	HAL_SPI_Init(OLED_SPIInst);
-	
+
+#endif	
 	// Initialisation
 	pRST_Clr();
 	NopDelay(2000);

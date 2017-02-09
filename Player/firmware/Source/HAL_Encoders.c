@@ -2,7 +2,7 @@
 // _____ HAL Encoders ______
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f7xx_hal.h"
+#include "stm32f4xx_hal.h"
 #include "HAL_Encoders.h"
 
 void _Encoder_A_Switch(void)

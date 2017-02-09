@@ -4,7 +4,7 @@
   * Description        : Main program body
   ******************************************************************************
   *
-  * Copyright (c) 2016 STMicroelectronics International N.V. 
+  * Copyright (c) 2017 STMicroelectronics International N.V. 
   * All rights reserved.
   *
   * Redistribution and use in source and binary forms, with or without 
@@ -42,26 +42,22 @@
   */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "stm32f7xx_hal.h"
+#include "stm32f4xx_hal.h"
 #include "cmsis_os.h"
 #include "usb_device.h"
 #include "usb_host.h"
 
 /* USER CODE BEGIN Includes */
-#include "HAL_Triggers.h"
-#include "HAL_Encoders.h"
-#include "HAL_CV_IO.h"
-#include "sdram.h"
+
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
+DMA_HandleTypeDef hdma_adc1;
 
 DAC_HandleTypeDef hdac;
-
-DMA2D_HandleTypeDef hdma2d;
-
-RNG_HandleTypeDef hrng;
+DMA_HandleTypeDef hdma_dac1;
+DMA_HandleTypeDef hdma_dac2;
 
 SAI_HandleTypeDef hsai_BlockA1;
 SAI_HandleTypeDef hsai_BlockB1;
@@ -94,22 +90,21 @@ static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_DAC_Init(void);
-static void MX_DMA2D_Init(void);
 static void MX_FMC_Init(void);
-static void MX_RNG_Init(void);
 static void MX_SAI1_Init(void);
 static void MX_SPI2_Init(void);
+static void MX_SPI4_Init(void);
 static void MX_SPI5_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_USART2_UART_Init(void);
-static void MX_SPI4_Init(void);
 void StartDefaultTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
 void setup(void);
 void loop(void);
+
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -120,9 +115,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-  /* Configure the MPU attributes as Write Back */
-  MPU_Config();
-  
+
   /* USER CODE END 1 */
 
   /* MCU Configuration----------------------------------------------------------*/
@@ -138,21 +131,16 @@ int main(void)
   MX_DMA_Init();
   MX_ADC1_Init();
   MX_DAC_Init();
-  MX_DMA2D_Init();
   MX_FMC_Init();
-  MX_RNG_Init();
   MX_SAI1_Init();
   MX_SPI2_Init();
+  MX_SPI4_Init();
   MX_SPI5_Init();
   MX_TIM2_Init();
   MX_TIM3_Init();
   MX_USART2_UART_Init();
-  MX_SPI4_Init();
 
   /* USER CODE BEGIN 2 */
-
-  /* Program the SDRAM external device */
-  SDRAM_Initialization_Sequence(&hsdram1);
 
   /* USER CODE END 2 */
 
@@ -189,8 +177,11 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  setup();
   while (1)
   {
+    /* MX_USB_HOST_Process(); */
+    loop();
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
@@ -213,7 +204,7 @@ void SystemClock_Config(void)
     */
   __HAL_RCC_PWR_CLK_ENABLE();
 
-  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
     /**Initializes the CPU, AHB and APB busses clocks 
     */
@@ -244,17 +235,10 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USART2|RCC_PERIPHCLK_SAI1
-                              |RCC_PERIPHCLK_CLK48;
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SAI_PLLSAI;
   PeriphClkInitStruct.PLLSAI.PLLSAIN = 100;
-  PeriphClkInitStruct.PLLSAI.PLLSAIR = 2;
   PeriphClkInitStruct.PLLSAI.PLLSAIQ = 2;
-  PeriphClkInitStruct.PLLSAI.PLLSAIP = RCC_PLLSAIP_DIV2;
   PeriphClkInitStruct.PLLSAIDivQ = 1;
-  PeriphClkInitStruct.PLLSAIDivR = RCC_PLLSAIDIVR_2;
-  PeriphClkInitStruct.Sai1ClockSelection = RCC_SAI1CLKSOURCE_PLLSAI;
-  PeriphClkInitStruct.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
-  PeriphClkInitStruct.Clk48ClockSelection = RCC_CLK48SOURCE_PLL;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -286,7 +270,8 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ScanConvMode = DISABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
-  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
+  hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIGCONV_T1_CC1;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc1.Init.NbrOfConversion = 1;
   hadc1.Init.DMAContinuousRequests = DISABLE;
@@ -340,70 +325,52 @@ static void MX_DAC_Init(void)
 
 }
 
-/* DMA2D init function */
-static void MX_DMA2D_Init(void)
-{
-
-  hdma2d.Instance = DMA2D;
-  hdma2d.Init.Mode = DMA2D_M2M;
-  hdma2d.Init.ColorMode = DMA2D_OUTPUT_ARGB8888;
-  hdma2d.Init.OutputOffset = 0;
-  hdma2d.LayerCfg[1].InputOffset = 0;
-  hdma2d.LayerCfg[1].InputColorMode = DMA2D_INPUT_ARGB8888;
-  hdma2d.LayerCfg[1].AlphaMode = DMA2D_NO_MODIF_ALPHA;
-  hdma2d.LayerCfg[1].InputAlpha = 0;
-  if (HAL_DMA2D_Init(&hdma2d) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  if (HAL_DMA2D_ConfigLayer(&hdma2d, 1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-}
-
-/* RNG init function */
-static void MX_RNG_Init(void)
-{
-
-  hrng.Instance = RNG;
-  if (HAL_RNG_Init(&hrng) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-}
-
 /* SAI1 init function */
 static void MX_SAI1_Init(void)
 {
 
   hsai_BlockA1.Instance = SAI1_Block_A;
+  hsai_BlockA1.Init.Protocol = SAI_FREE_PROTOCOL;
   hsai_BlockA1.Init.AudioMode = SAI_MODESLAVE_TX;
+  hsai_BlockA1.Init.DataSize = SAI_DATASIZE_24;
+  hsai_BlockA1.Init.FirstBit = SAI_FIRSTBIT_MSB;
+  hsai_BlockA1.Init.ClockStrobing = SAI_CLOCKSTROBING_FALLINGEDGE;
   hsai_BlockA1.Init.Synchro = SAI_ASYNCHRONOUS;
   hsai_BlockA1.Init.OutputDrive = SAI_OUTPUTDRIVE_DISABLE;
   hsai_BlockA1.Init.FIFOThreshold = SAI_FIFOTHRESHOLD_EMPTY;
-  hsai_BlockA1.Init.SynchroExt = SAI_SYNCEXT_DISABLE;
-  hsai_BlockA1.Init.MonoStereoMode = SAI_STEREOMODE;
-  hsai_BlockA1.Init.CompandingMode = SAI_NOCOMPANDING;
-  hsai_BlockA1.Init.TriState = SAI_OUTPUT_NOTRELEASED;
-  if (HAL_SAI_InitProtocol(&hsai_BlockA1, SAI_I2S_STANDARD, SAI_PROTOCOL_DATASIZE_24BIT, 2) != HAL_OK)
+  hsai_BlockA1.FrameInit.FrameLength = 24;
+  hsai_BlockA1.FrameInit.ActiveFrameLength = 1;
+  hsai_BlockA1.FrameInit.FSDefinition = SAI_FS_STARTFRAME;
+  hsai_BlockA1.FrameInit.FSPolarity = SAI_FS_ACTIVE_LOW;
+  hsai_BlockA1.FrameInit.FSOffset = SAI_FS_FIRSTBIT;
+  hsai_BlockA1.SlotInit.FirstBitOffset = 0;
+  hsai_BlockA1.SlotInit.SlotSize = SAI_SLOTSIZE_DATASIZE;
+  hsai_BlockA1.SlotInit.SlotNumber = 1;
+  hsai_BlockA1.SlotInit.SlotActive = 0x00000000;
+  if (HAL_SAI_Init(&hsai_BlockA1) != HAL_OK)
   {
     Error_Handler();
   }
 
   hsai_BlockB1.Instance = SAI1_Block_B;
+  hsai_BlockB1.Init.Protocol = SAI_FREE_PROTOCOL;
   hsai_BlockB1.Init.AudioMode = SAI_MODESLAVE_RX;
+  hsai_BlockB1.Init.DataSize = SAI_DATASIZE_24;
+  hsai_BlockB1.Init.FirstBit = SAI_FIRSTBIT_MSB;
+  hsai_BlockB1.Init.ClockStrobing = SAI_CLOCKSTROBING_FALLINGEDGE;
   hsai_BlockB1.Init.Synchro = SAI_SYNCHRONOUS;
   hsai_BlockB1.Init.OutputDrive = SAI_OUTPUTDRIVE_DISABLE;
   hsai_BlockB1.Init.FIFOThreshold = SAI_FIFOTHRESHOLD_EMPTY;
-  hsai_BlockB1.Init.SynchroExt = SAI_SYNCEXT_DISABLE;
-  hsai_BlockB1.Init.MonoStereoMode = SAI_STEREOMODE;
-  hsai_BlockB1.Init.CompandingMode = SAI_NOCOMPANDING;
-  hsai_BlockB1.Init.TriState = SAI_OUTPUT_NOTRELEASED;
-  if (HAL_SAI_InitProtocol(&hsai_BlockB1, SAI_I2S_STANDARD, SAI_PROTOCOL_DATASIZE_24BIT, 2) != HAL_OK)
+  hsai_BlockB1.FrameInit.FrameLength = 24;
+  hsai_BlockB1.FrameInit.ActiveFrameLength = 1;
+  hsai_BlockB1.FrameInit.FSDefinition = SAI_FS_STARTFRAME;
+  hsai_BlockB1.FrameInit.FSPolarity = SAI_FS_ACTIVE_LOW;
+  hsai_BlockB1.FrameInit.FSOffset = SAI_FS_FIRSTBIT;
+  hsai_BlockB1.SlotInit.FirstBitOffset = 0;
+  hsai_BlockB1.SlotInit.SlotSize = SAI_SLOTSIZE_DATASIZE;
+  hsai_BlockB1.SlotInit.SlotNumber = 1;
+  hsai_BlockB1.SlotInit.SlotActive = 0x00000000;
+  if (HAL_SAI_Init(&hsai_BlockB1) != HAL_OK)
   {
     Error_Handler();
   }
@@ -417,17 +384,15 @@ static void MX_SPI2_Init(void)
   hspi2.Instance = SPI2;
   hspi2.Init.Mode = SPI_MODE_MASTER;
   hspi2.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi2.Init.DataSize = SPI_DATASIZE_4BIT;
+  hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
   hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi2.Init.NSS = SPI_NSS_SOFT;
-  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
+  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-  hspi2.Init.CRCPolynomial = 7;
-  hspi2.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
-  hspi2.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+  hspi2.Init.CRCPolynomial = 10;
   if (HAL_SPI_Init(&hspi2) != HAL_OK)
   {
     Error_Handler();
@@ -450,9 +415,7 @@ static void MX_SPI4_Init(void)
   hspi4.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi4.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi4.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-  hspi4.Init.CRCPolynomial = 7;
-  hspi4.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
-  hspi4.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
+  hspi4.Init.CRCPolynomial = 10;
   if (HAL_SPI_Init(&hspi4) != HAL_OK)
   {
     Error_Handler();
@@ -467,7 +430,7 @@ static void MX_SPI5_Init(void)
   hspi5.Instance = SPI5;
   hspi5.Init.Mode = SPI_MODE_MASTER;
   hspi5.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi5.Init.DataSize = SPI_DATASIZE_4BIT;
+  hspi5.Init.DataSize = SPI_DATASIZE_8BIT;
   hspi5.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi5.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi5.Init.NSS = SPI_NSS_SOFT;
@@ -475,9 +438,7 @@ static void MX_SPI5_Init(void)
   hspi5.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi5.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi5.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-  hspi5.Init.CRCPolynomial = 7;
-  hspi5.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
-  hspi5.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+  hspi5.Init.CRCPolynomial = 10;
   if (HAL_SPI_Init(&hspi5) != HAL_OK)
   {
     Error_Handler();
@@ -561,14 +522,12 @@ static void MX_USART2_UART_Init(void)
 
   huart2.Instance = USART2;
   huart2.Init.BaudRate = 115200;
-  huart2.Init.WordLength = UART_WORDLENGTH_7B;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
   huart2.Init.StopBits = UART_STOPBITS_1;
   huart2.Init.Parity = UART_PARITY_NONE;
   huart2.Init.Mode = UART_MODE_TX_RX;
   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
-  huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-  huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
   if (HAL_UART_Init(&huart2) != HAL_OK)
   {
     Error_Handler();
@@ -587,8 +546,17 @@ static void MX_DMA_Init(void)
 
   /* DMA interrupt init */
   /* DMA1_Stream4_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Stream4_IRQn, 4, 0);
+  HAL_NVIC_SetPriority(DMA1_Stream4_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream4_IRQn);
+  /* DMA1_Stream5_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream5_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream5_IRQn);
+  /* DMA1_Stream6_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream6_IRQn);
+  /* DMA2_Stream0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
   /* DMA2_Stream1_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
@@ -658,7 +626,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(Flash_CS_GPIO_Port, Flash_CS_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, OLED_RST_Pin|OLED_DC_Pin|TR_OUT_A_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, OLED_DC_Pin|OLED_RST_Pin|TR_OUT_A_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(OLED_CS_GPIO_Port, OLED_CS_Pin, GPIO_PIN_RESET);
@@ -676,12 +644,18 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(Flash_CS_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : OLED_RST_Pin OLED_DC_Pin TR_OUT_A_Pin */
-  GPIO_InitStruct.Pin = OLED_RST_Pin|OLED_DC_Pin|TR_OUT_A_Pin;
+  /*Configure GPIO pins : OLED_DC_Pin OLED_RST_Pin TR_OUT_A_Pin */
+  GPIO_InitStruct.Pin = OLED_DC_Pin|OLED_RST_Pin|TR_OUT_A_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : CS_SDIN_Pin */
+  GPIO_InitStruct.Pin = CS_SDIN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(CS_SDIN_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : OLED_CS_Pin */
   GPIO_InitStruct.Pin = OLED_CS_Pin;
@@ -731,20 +705,17 @@ static void MX_GPIO_Init(void)
 /* StartDefaultTask function */
 void StartDefaultTask(void const * argument)
 {
-  /* init code for USB_DEVICE */
-  MX_USB_DEVICE_Init();
-
   /* init code for USB_HOST */
   MX_USB_HOST_Init();
 
+  /* init code for USB_DEVICE */
+  MX_USB_DEVICE_Init();
+
   /* USER CODE BEGIN 5 */
-  setup();
   /* Infinite loop */
   for(;;)
   {
-    MX_USB_HOST_Process();
-    loop();
-    /* osDelay(1); */
+    osDelay(1);
   }
   /* USER CODE END 5 */ 
 }
@@ -757,7 +728,10 @@ void StartDefaultTask(void const * argument)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler */
-  assert_param(0);
+  /* User can add his own implementation to report the HAL error return state */
+  while(1) 
+  {
+  }
   /* USER CODE END Error_Handler */ 
 }
 

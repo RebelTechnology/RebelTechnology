@@ -18,21 +18,10 @@ OBJDUMP=$(TOOLROOT)/arm-none-eabi-objdump
 SIZE=$(TOOLROOT)/arm-none-eabi-size
 
 # Set up search path
+vpath %.c $(TEMPLATEROOT)/Src
 vpath %.cpp $(TEMPLATEROOT)/Source
 vpath %.c $(TEMPLATEROOT)/Source
 vpath %.s $(TEMPLATEROOT)/Source
-vpath %.cpp $(TEMPLATEROOT)/MDK-ARM
-vpath %.c $(TEMPLATEROOT)/MDK-ARM
-vpath %.s $(TEMPLATEROOT)/MDK-ARM
-vpath %.cpp $(TEMPLATEROOT)/Src
-vpath %.c $(TEMPLATEROOT)/Src
-vpath %.s $(TEMPLATEROOT)/Src
-vpath %.c $(TEMPLATEROOT)/Libraries/syscalls
-vpath %.c $(PERIPH_FILE)/src
-vpath %.c $(PERIPH_FILE)/inc
-vpath %.c $(DEVICE)
-vpath %.c $(USB_DEVICE_FILE)/Core/src
-vpath %.c $(USB_OTG_FILE)/src/
 
 all: bin
 
@@ -76,13 +65,6 @@ flash:
 stlink:
 	echo "target extended localhost:4242" > gdbscript
 	$(GDB) -x gdbscript $(ELF)
-
-etags:
-	find $(PERIPH_FILE) -type f -iname "*.[ch]" | xargs etags --append
-	find $(DEVICE) -type f -iname "*.[ch]" | xargs etags --append
-	find $(CORE) -type f -iname "*.[ch]" | xargs etags --append
-	find $(DISCOVERY_FILE) -type f -iname "*.[ch]" | xargs etags --append
-	find . -type f -iname "*.[ch]" | xargs etags --append
 
 bin: $(BIN)
 	@echo Successfully built $(CONFIG) firmware in $(BIN)
