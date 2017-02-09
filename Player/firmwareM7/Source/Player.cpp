@@ -89,11 +89,13 @@ extern "C" {
     getProgramVector()->audio_input = rx;
     getProgramVector()->audio_output = tx;
     getProgramVector()->audio_blocksize = size;
-    vTaskSuspend(screenTask);
+    // vTaskSuspend(screenTask);
     BaseType_t yield;
-    yield = xTaskResumeFromISR(audioTask);
-    if(yield == pdTRUE)
-      portYIELD_FROM_ISR(yield);
+    vTaskNotifyGiveFromISR(audioTask, &yield);
+    portYIELD_FROM_ISR(yield);
+    // yield = xTaskResumeFromISR(audioTask);
+    // if(yield == pdTRUE)
+    //   portYIELD_FROM_ISR(yield);
     // if(!doProcessAudio){
     //   getProgramVector()->audio_input = rx;
     //   getProgramVector()->audio_output = tx;
@@ -135,6 +137,7 @@ extern "C"{
 
 void runScreenTask(void* p){
   for(;;){
+    taskYIELD();
     ProgramVector* pv = getProgramVector();
     screen.setBuffer(pv->pixels);
     patches[currentPatch]->processScreen(screen);
@@ -150,19 +153,28 @@ void runScreenTask(void* p){
 
 void runAudioTask(void* p){
   for(;;){
-    ProgramVector* pv = getProgramVector();
-    samples.split(pv->audio_input, pv->audio_blocksize);
-    patches[currentPatch]->processAudio(samples);
-    samples.comb(pv->audio_output);
-    vTaskResume(screenTask);  
-    vTaskSuspend(NULL);
+    uint32_t ulNotifiedValue;
+    const TickType_t xBlockTime = portMAX_DELAY;  /* Block indefinitely. */
+    // const TickType_t xBlockTime = pdMS_TO_TICS( 500 );
+    // ulNotifiedValue = ulTaskNotifyTake(pdTRUE, xBlockTime);
+    ulNotifiedValue = ulTaskNotifyTake(pdTRUE, 500);
+    if(ulNotifiedValue > 0){
+      // audio block ready for processing
+      ProgramVector* pv = getProgramVector();
+      samples.split(pv->audio_input, pv->audio_blocksize);
+      patches[currentPatch]->processAudio(samples);
+      samples.comb(pv->audio_output);
+      // done processing one audio block
+      // vTaskResume(screenTask);
+      // vTaskSuspend(NULL);
+    }
   }
 }
 
 // FreeRTOS low priority numbers denote low priority tasks. 
 // The idle task has priority zero (tskIDLE_PRIORITY).
 #define SCREEN_TASK_STACK_SIZE (2*1024/sizeof(portSTACK_TYPE))
-#define SCREEN_TASK_PRIORITY 2
+#define SCREEN_TASK_PRIORITY 3
 #define AUDIO_TASK_STACK_SIZE  (2*1024/sizeof(portSTACK_TYPE))
 #define AUDIO_TASK_PRIORITY  4
 
@@ -185,18 +197,9 @@ void setup(void){
   // HAL_NVIC_SetPriority(EXTI4_IRQn, 0x0F, 0x00);
   // HAL_NVIC_EnableIRQ(EXTI4_IRQn);
   
-  xTaskCreate(runScreenTask, "Screen", SCREEN_TASK_STACK_SIZE, NULL, SCREEN_TASK_PRIORITY, &screenTask);
-  xTaskCreate(runAudioTask, "Audio", AUDIO_TASK_STACK_SIZE, NULL, AUDIO_TASK_PRIORITY, &audioTask);
-
   CV_IO_Config();
   CV_Out_A(&hdac, 0);
   CV_Out_B(&hdac, 0);
-
-#ifdef USE_CODEC
-  codec.reset();
-  codec.start();
-  codec.ramp(1<<23);
-#endif
 
   graphics.begin(&hspi2);
 
@@ -207,8 +210,13 @@ void setup(void){
 
   patches[currentPatch]->reset();
 
-#ifndef USE_CODEC
-  doProcessAudio = true;
+  xTaskCreate(runScreenTask, "Screen", SCREEN_TASK_STACK_SIZE, NULL, SCREEN_TASK_PRIORITY, &screenTask);
+  xTaskCreate(runAudioTask, "Audio", AUDIO_TASK_STACK_SIZE, NULL, AUDIO_TASK_PRIORITY, &audioTask);
+
+#ifdef USE_CODEC
+  codec.reset();
+  codec.start();
+  codec.ramp(1<<23);
 #endif
 
   // program.startManager();
@@ -218,34 +226,9 @@ void setup(void){
 
 extern "C" {
 
-#if 0
-  void processBlock(ProgramVector* pv){
-    samples.split(pv->audio_input, pv->audio_blocksize);
-    screen.setBuffer(pv->pixels);
-    patches[currentPatch]->processAudio(samples);
-    // screen.setTextSize(1);
-    // screen.print(0, screen.getHeight()-8, "Rebel Technology");
-    samples.comb(pv->audio_output);
-  }
   void loop(void){
-    if(doProcessAudio){
-      ProgramVector* pv = getProgramVector();
-      processBlock(pv);
-      if(dodisplay){
-	// if(dodisplay && graphics.isReady()){
-	graphics.display(pv->pixels, OLED_WIDTH*OLED_HEIGHT);
-	// swap pixelbuffer
-	// pv->pixels = pixelbuffer[swappb];
-	// swappb = !swappb;
-      }
-#ifdef USE_CODEC
-      doProcessAudio = false;
-#endif
-    }
+    taskYIELD();
   }
-#else
-  void loop(void){}
-#endif
 
   void USBH_MIDI_ReceiveCallback(USBH_HandleTypeDef *phost){
     uint8_t* ptr = USBHOST_RX_Buffer;
