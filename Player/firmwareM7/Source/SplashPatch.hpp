@@ -18,6 +18,9 @@ public:
     }
   }
   void processAudio(AudioBuffer& samples){
+  }
+
+  void processScreen(ScreenBuffer& screen){
     screen.clear();
     if(getErrorStatus() != NO_ERROR && getErrorMessage() != NULL){
       screen.setTextSize(1);

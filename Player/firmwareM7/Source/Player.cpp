@@ -17,9 +17,9 @@ extern "C" {
 #include "usbh_midi.h"
 #include "BitState.hpp"
 #include "MidiReader.h"
-#include "ProgramManager.h"
+// #include "ProgramManager.h"
 #include "ApplicationSettings.h"
-extern ProgramManager program;
+// extern ProgramManager program;
 ApplicationSettings settings;
 Graphics graphics;
 
@@ -71,7 +71,7 @@ extern uint8_t USBHOST_RX_Buffer[RX_BUFF_SIZE];
 
 // #define OLED_HEIGHT 64
 // #define OLED_WIDTH 128
-static bool dodisplay = true;
+// static bool dodisplay = true;
 Codec codec;
 ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
 SampleBuffer samples;
@@ -82,18 +82,26 @@ SplashPatch splash;
 Patch* patches[] = {&splash};
 uint8_t currentPatch = 0;
 
-volatile bool doProcessAudio = false;
-uint32_t dropouts = 0;
+TaskHandle_t screenTask;
+TaskHandle_t audioTask;
 extern "C" {
   void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size){
-    if(!doProcessAudio){
-      getProgramVector()->audio_input = rx;
-      getProgramVector()->audio_output = tx;
-      getProgramVector()->audio_blocksize = size;
-      doProcessAudio = true;
-    }else{
-      dropouts++;
-    }
+    getProgramVector()->audio_input = rx;
+    getProgramVector()->audio_output = tx;
+    getProgramVector()->audio_blocksize = size;
+    vTaskSuspend(screenTask);
+    BaseType_t yield;
+    yield = xTaskResumeFromISR(audioTask);
+    if(yield == pdTRUE)
+      portYIELD_FROM_ISR(yield);
+    // if(!doProcessAudio){
+    //   getProgramVector()->audio_input = rx;
+    //   getProgramVector()->audio_output = tx;
+    //   getProgramVector()->audio_blocksize = size;
+    //   doProcessAudio = true;
+    // }else{
+    //   dropouts++;
+    // }
   }
 }
 
@@ -125,6 +133,39 @@ extern "C"{
   }
 }
 
+void runScreenTask(void* p){
+  for(;;){
+    ProgramVector* pv = getProgramVector();
+    screen.setBuffer(pv->pixels);
+    patches[currentPatch]->processScreen(screen);
+    // if(dodisplay && graphics.isReady()){
+    graphics.display(pv->pixels, OLED_WIDTH*OLED_HEIGHT);
+    // swap pixelbuffer
+    // pv->pixels = pixelbuffer[swappb];
+    // swappb = !swappb;
+  }
+  // screen.setTextSize(1);
+  // screen.print(0, screen.getHeight()-8, "Rebel Technology");
+}
+
+void runAudioTask(void* p){
+  for(;;){
+    ProgramVector* pv = getProgramVector();
+    samples.split(pv->audio_input, pv->audio_blocksize);
+    patches[currentPatch]->processAudio(samples);
+    samples.comb(pv->audio_output);
+    vTaskResume(screenTask);  
+    vTaskSuspend(NULL);
+  }
+}
+
+// FreeRTOS low priority numbers denote low priority tasks. 
+// The idle task has priority zero (tskIDLE_PRIORITY).
+#define SCREEN_TASK_STACK_SIZE (2*1024/sizeof(portSTACK_TYPE))
+#define SCREEN_TASK_PRIORITY 2
+#define AUDIO_TASK_STACK_SIZE  (2*1024/sizeof(portSTACK_TYPE))
+#define AUDIO_TASK_PRIORITY  4
+
 void setup(void){
   // if(testram8(&hsdram1) != 0)
   //   error(PROGRAM_ERROR, "testram8 failed");
@@ -143,6 +184,9 @@ void setup(void){
   // HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
   // HAL_NVIC_SetPriority(EXTI4_IRQn, 0x0F, 0x00);
   // HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+  
+  xTaskCreate(runScreenTask, "Screen", SCREEN_TASK_STACK_SIZE, NULL, SCREEN_TASK_PRIORITY, &screenTask);
+  xTaskCreate(runAudioTask, "Audio", AUDIO_TASK_STACK_SIZE, NULL, AUDIO_TASK_PRIORITY, &audioTask);
 
   CV_IO_Config();
   CV_Out_A(&hdac, 0);
@@ -167,22 +211,22 @@ void setup(void){
   doProcessAudio = true;
 #endif
 
-  program.startManager();
+  // program.startManager();
 
-  program.loadProgram(
+  // program.loadProgram();
 }
 
 extern "C" {
 
-  // void processBlock(ProgramVector* pv){
-  //   samples.split(pv->audio_input, pv->audio_blocksize);
-  //   screen.setBuffer(pv->pixels);
-  //   patches[currentPatch]->processAudio(samples);
-  //   // screen.setTextSize(1);
-  //   // screen.print(0, screen.getHeight()-8, "Rebel Technology");
-  //   samples.comb(pv->audio_output);
-  // }
-
+#if 0
+  void processBlock(ProgramVector* pv){
+    samples.split(pv->audio_input, pv->audio_blocksize);
+    screen.setBuffer(pv->pixels);
+    patches[currentPatch]->processAudio(samples);
+    // screen.setTextSize(1);
+    // screen.print(0, screen.getHeight()-8, "Rebel Technology");
+    samples.comb(pv->audio_output);
+  }
   void loop(void){
     if(doProcessAudio){
       ProgramVector* pv = getProgramVector();
@@ -199,6 +243,9 @@ extern "C" {
 #endif
     }
   }
+#else
+  void loop(void){}
+#endif
 
   void USBH_MIDI_ReceiveCallback(USBH_HandleTypeDef *phost){
     uint8_t* ptr = USBHOST_RX_Buffer;
