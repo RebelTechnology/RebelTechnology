@@ -5,19 +5,36 @@ class SplashPatch : public Patch {
 private:
   float x = 0;
   float y = 0;
-  float ratex = 0.1;
-  float ratey = 0.1;
+  float ratex = 0.8;
+  float ratey = 0.8;
 public:
   SplashPatch(){
   }
   void encoderChanged(uint8_t encoder, int32_t dir){
     if(encoder == 1){
-      ratex += dir/50.0f;
+      ratex += dir/20.0f;
     }else{
-      ratey += dir/50.0f;
+      ratey -= dir/20.0f;
     }
   }
   void processAudio(AudioBuffer& samples){
+    // animate
+    x += ratex;
+    if(x < 0){
+      x = 0.1;
+      ratex *= -0.9;
+    }else if(x > 58){
+      x = 58;
+      ratex *= -0.9;
+    }
+    y += ratey;
+    if(y < 0){
+      y = 0.1;
+      ratey *= -0.9;
+    }else if(y > 48){
+      y = 48;
+      ratey *= -0.9;
+    }
   }
 
   void processScreen(ScreenBuffer& screen){
@@ -69,22 +86,5 @@ public:
     screen.setTextSize(1);
     // screen.print(20, screen.getHeight()-8, "Rebel Technology");
     screen.print(20, 0, "Rebel Technology");
-    // animate
-    x += ratex;
-    if(x < 0){
-      x = 0;
-      ratex = +0.05;
-    }else if(x > 58){
-      x = 58;
-      ratex = -0.04;      
-    }
-    y += ratey;
-    if(y < 0){
-      y = 0;
-      ratey = +0.02;
-    }else if(y > 48){
-      y = 48;
-      ratey = -0.03;
-    }
   }
 };

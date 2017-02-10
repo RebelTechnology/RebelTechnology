@@ -17,7 +17,7 @@ extern "C" {
 #include "usbh_midi.h"
 #include "BitState.hpp"
 #include "MidiReader.h"
-// #include "ProgramManager.h"
+#include "ProgramManager.h"
 #include "ApplicationSettings.h"
 // extern ProgramManager program;
 ApplicationSettings settings;
@@ -26,6 +26,7 @@ Graphics graphics;
 extern "C" {
   void setup(void);
   void loop(void);
+  void updateProgramVector(ProgramVector* pv);
 }
 extern DAC_HandleTypeDef hdac;
 extern SDRAM_HandleTypeDef hsdram1;
@@ -136,13 +137,16 @@ extern "C"{
 }
 
 void runScreenTask(void* p){
+  const TickType_t delay = 20 / portTICK_PERIOD_MS;
   for(;;){
-    taskYIELD();
     ProgramVector* pv = getProgramVector();
     screen.setBuffer(pv->pixels);
     patches[currentPatch]->processScreen(screen);
     // if(dodisplay && graphics.isReady()){
     graphics.display(pv->pixels, OLED_WIDTH*OLED_HEIGHT);
+    // taskYIELD();
+    vTaskDelay(delay);
+
     // swap pixelbuffer
     // pv->pixels = pixelbuffer[swappb];
     // swappb = !swappb;
@@ -156,8 +160,7 @@ void runAudioTask(void* p){
     uint32_t ulNotifiedValue;
     const TickType_t xBlockTime = portMAX_DELAY;  /* Block indefinitely. */
     // const TickType_t xBlockTime = pdMS_TO_TICS( 500 );
-    // ulNotifiedValue = ulTaskNotifyTake(pdTRUE, xBlockTime);
-    ulNotifiedValue = ulTaskNotifyTake(pdTRUE, 500);
+    ulNotifiedValue = ulTaskNotifyTake(pdTRUE, xBlockTime);
     if(ulNotifiedValue > 0){
       // audio block ready for processing
       ProgramVector* pv = getProgramVector();
@@ -208,6 +211,7 @@ void setup(void){
   HAL_TIM_Encoder_Start_IT(&htim2, 0);
   HAL_TIM_Encoder_Start_IT(&htim3, TIM_CHANNEL_ALL);
 
+  updateProgramVector(getProgramVector());
   patches[currentPatch]->reset();
 
   xTaskCreate(runScreenTask, "Screen", SCREEN_TASK_STACK_SIZE, NULL, SCREEN_TASK_PRIORITY, &screenTask);
@@ -218,6 +222,7 @@ void setup(void){
   codec.start();
   codec.ramp(1<<23);
 #endif
+
 
   // program.startManager();
 
