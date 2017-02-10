@@ -79,12 +79,12 @@ SampleBuffer samples;
 MidiReader midireader;
 
 #include "SplashPatch.hpp"
-SplashPatch splash;
-Patch* patches[] = {&splash};
-uint8_t currentPatch = 0;
+static SplashPatch splash;
+static Patch* patches[] = {&splash};
+static uint8_t currentPatch = 0;
 
-TaskHandle_t screenTask;
-TaskHandle_t audioTask;
+static TaskHandle_t screenTask;
+static TaskHandle_t audioTask;
 extern "C" {
   void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size){
     DWT->CYCCNT = 0;
