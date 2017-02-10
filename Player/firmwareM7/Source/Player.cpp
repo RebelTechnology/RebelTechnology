@@ -87,6 +87,7 @@ TaskHandle_t screenTask;
 TaskHandle_t audioTask;
 extern "C" {
   void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size){
+    DWT->CYCCNT = 0;
     getProgramVector()->audio_input = rx;
     getProgramVector()->audio_output = tx;
     getProgramVector()->audio_blocksize = size;
@@ -94,6 +95,8 @@ extern "C" {
     BaseType_t yield;
     vTaskNotifyGiveFromISR(audioTask, &yield);
     portYIELD_FROM_ISR(yield);
+
+
     // yield = xTaskResumeFromISR(audioTask);
     // if(yield == pdTRUE)
     //   portYIELD_FROM_ISR(yield);
@@ -163,11 +166,13 @@ void runAudioTask(void* p){
     ulNotifiedValue = ulTaskNotifyTake(pdTRUE, xBlockTime);
     if(ulNotifiedValue > 0){
       // audio block ready for processing
+      // DWT->CYCCNT = 0;
       ProgramVector* pv = getProgramVector();
       samples.split(pv->audio_input, pv->audio_blocksize);
       patches[currentPatch]->processAudio(samples);
       samples.comb(pv->audio_output);
       // done processing one audio block
+      pv->cycles_per_block = DWT->CYCCNT;
       // vTaskResume(screenTask);
       // vTaskSuspend(NULL);
     }
@@ -199,6 +204,13 @@ void setup(void){
   // HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
   // HAL_NVIC_SetPriority(EXTI4_IRQn, 0x0F, 0x00);
   // HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+
+  // DWT cycle count enable
+  CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+  DWT->LAR = 0xC5ACCE55; 
+  DWT->CYCCNT = 0;
+  DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+
   
   CV_IO_Config();
   CV_Out_A(&hdac, 0);

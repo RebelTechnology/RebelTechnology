@@ -62,15 +62,18 @@ public:
       for(int i=0; i<128; ++i)
       	if(buffer[i] != src[i])
       	  ++failures;
-      screen.print(20, 20, "fail: ");
+      screen.print(20, 56, "fail: ");
       screen.print(failures);
-
       setErrorMessage(NO_ERROR, NULL);
       // int fail = testram32(&hsdram1);
       // if(fail > 0){
       // 	screen.print(20, 20, "fail: ");
       // 	screen.print(fail);
       // }
+    }else{
+      screen.setTextSize(1);
+      screen.print(20, 56, "cps: ");
+      screen.print((int)(getProgramVector()->cycles_per_block)/getBlockSize());
     }
 
     if(tr1())
