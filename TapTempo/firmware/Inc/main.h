@@ -57,6 +57,8 @@
 #define TR1_GPIO_Port GPIOB
 #define TEMPO1_Pin GPIO_PIN_1
 #define TEMPO1_GPIO_Port GPIOB
+#define PUSH2_Pin GPIO_PIN_15
+#define PUSH2_GPIO_Port GPIOB
 #define LED2_Pin GPIO_PIN_8
 #define LED2_GPIO_Port GPIOA
 #define SW2A_Pin GPIO_PIN_9

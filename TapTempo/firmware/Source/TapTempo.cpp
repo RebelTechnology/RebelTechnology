@@ -41,57 +41,71 @@ void setAnalogValue(uint8_t channel, uint16_t value){
     // DAC_SetChannel2Data(DAC_Align_12b_R, value);
 }
 
-inline bool isSlowMode(){
+inline bool isSineMode(){
   return !getPin(SW1A_GPIO_Port, SW1A_Pin);
 }
 
-inline bool isFastMode(){
+inline bool isTriangleMode(){
   return !getPin(SW1B_GPIO_Port, SW1B_Pin);
 }
 
-inline bool isSineMode(){
+inline bool isRisingMode(){
   return !getPin(SW2A_GPIO_Port, SW2A_Pin);
 }
 
-inline bool isTriangleMode(){
+inline bool isFallingMode(){
   return !getPin(SW2B_GPIO_Port, SW2B_Pin);
 }
 
-enum SynchroniserMode {
-  OFF, SINE, TRIANGLE
+inline bool isPushButton1Pressed(){
+  return !getPin(PUSH1_GPIO_Port, PUSH1_Pin); 
+}
+
+inline bool isPushButton2Pressed(){
+  return !getPin(PUSH2_GPIO_Port, PUSH2_Pin); 
+}
+
+inline bool isTrigger1High(){
+  return !getPin(TEMPO1_GPIO_Port, TEMPO1_Pin);
+}
+
+inline bool isTrigger2High(){
+  return !getPin(TEMPO2_GPIO_Port, TEMPO2_Pin);
+}
+
+class Waveform {
+public:
+  virtual void reset() = 0;
+  virtual void output(uint32_t phase) = 0;
+};
+
+class SineWave : public Waveform {
+public:
+  void reset(){
+    setAnalogValue(1, DDS_SINE_ZERO_VALUE);
+  }
+  void output(uint32_t phase){
+    // setAnalogValue(1, dds.getSine(phase));
+  }
 };
 
 class Synchroniser {
 private:
+  const bool phaseReset;
+  Waveform* wave;
   volatile uint32_t trig;
   uint32_t period;
-  bool isHigh;  
-  SynchroniserMode mode;
+  DDS dds;
+  uint32_t phase;
 public:
   uint16_t speed;
-  DDS dds;
-  uint32_t sine, saw;
-public:
-  Synchroniser() : trig(TRIGGER_LIMIT), period(0),
-	       isHigh(false), mode(OFF), speed(4095) {
+  Synchroniser(bool rst, Waveform* wv) : 
+    phaseReset(rst), wave(wv), trig(TRIGGER_LIMIT), period(0), speed(4095) {
     dds.setPeriod(period);
+    reset();
   }
-  void reset(){
-    trig = TRIGGER_LIMIT;
-    sine = saw = 0; // reset phase accumulators
-    setAnalogValue(0, DDS_RAMP_ZERO_VALUE);
-    setAnalogValue(1, DDS_SINE_ZERO_VALUE);
-    // DAC_SetDualChannelData(DAC_Align_12b_R, DDS_RAMP_ZERO_VALUE, DDS_SINE_ZERO_VALUE);
-  }
-  void trigger(){
-    if(trig < TRIGGER_THRESHOLD)
-      return;
-    if(trig < TRIGGER_LIMIT){
-      period = trig;
-      dds.setPeriod(period);
-    }
-    trig = 0;
-    saw = 0; // phase reset
+  void setWaveform(Waveform* wv){
+    wave = wv;
   }
   void setSpeed(int16_t s){
     if(abs(speed-s) > 16){
@@ -101,27 +115,27 @@ public:
       speed = s;
     }
   }
-  void setMode(SynchroniserMode m){
-    if(m == OFF && mode != OFF)
-      reset();
-    mode = m;
+  void reset(){
+    trig = TRIGGER_LIMIT;
+    phase = 0;
+    wave->reset();
+  }
+  void trigger(){
+    if(trig < TRIGGER_THRESHOLD)
+      return;
+    if(trig < TRIGGER_LIMIT){
+      period = trig;
+      dds.setPeriod(period);
+    }
+    trig = 0;
+    if(phaseReset)
+      phase = 0;
   }
   void clock(){
     if(trig < TRIGGER_LIMIT)
       trig++;
-    if(mode == SINE){
-      setAnalogValue(0, dds.getRisingRamp(saw));
-      setAnalogValue(1, dds.getSine(sine));
-      // DAC_SetDualChannelData(DAC_Align_12b_R, dds.getRisingRamp(saw), dds.getSine(sine));
-      saw += dds.inc();
-      sine += dds.inc();
-    }else if(mode == TRIANGLE){
-      setAnalogValue(0, dds.getFallingRamp(saw));
-      setAnalogValue(1, dds.getTri(sine));
-      // DAC_SetDualChannelData(DAC_Align_12b_R, dds.getFallingRamp(saw), dds.getTri(sine));
-      saw += dds.inc();
-      sine += dds.inc();
-    }
+    wave->output(phase);
+    phase += dds.inc();
   }
 };
 
@@ -207,23 +221,27 @@ public:
   }
 };
 
-Synchroniser synchro;
-TapTempo tempo;
+Waveform* waves[] = {new SineWave(), new SineWave(), new SineWave(), new SineWave() };
+Synchroniser synchro1(false, waves[0]);
+Synchroniser synchro2(true, waves[2]);
+TapTempo tempo1, tempo2;
 
 // todo: proper debouncing with systick counter
 void buttonCallback(){
-  tempo.trigger(isPushButtonPressed());
+  tempo1.trigger(isPushButton1Pressed());
 }
 
 void triggerCallback(){
-  if(isTriggerHigh()){
-    synchro.trigger();
+  if(isTrigger1High()){
+    synchro1.trigger();
   }
 }
 
 void timerCallback(){
-  tempo.clock();
-  synchro.clock();
+  tempo1.clock();
+  synchro1.clock();
+  tempo2.clock();
+  synchro2.clock();
 #ifdef DEBUG_PINS
   togglePin(GPIOB, GPIO_Pin_10); // debug
 #endif
@@ -231,21 +249,21 @@ void timerCallback(){
 
 void updateMode(){
   if(isSineMode()){
-    synchro.setMode(SINE);
-    tempo.setStatus(true);
+    // synchro1.setMode(SINE);
+    tempo1.setStatus(true);
   }else if(isTriangleMode()){
-    synchro.setMode(TRIANGLE);
-    tempo.setStatus(true);
+    // synchro1.setMode(TRIANGLE);
+    tempo1.setStatus(true);
   }else{
-    synchro.setMode(OFF);
-    tempo.setStatus(false);
+    // synchro1.setMode(OFF);
+    tempo1.setStatus(false);
   }
 }
 
 void updateSpeed(){
   int16_t p = getAnalogValue(0);
-  synchro.setSpeed(p);
-  tempo.setSpeed(p);
+  synchro1.setSpeed(p);
+  tempo1.setSpeed(p);
 }
 
 void setup(){
@@ -268,8 +286,8 @@ void setup(){
   // pushButtonSetup(buttonCallback);
   // timerSetup(TIMER_PERIOD, timerCallback);
   updateSpeed();
-  synchro.speed = getAnalogValue(0);
-  tempo.speed = getAnalogValue(0);
+  synchro1.speed = getAnalogValue(0);
+  tempo1.speed = getAnalogValue(0);
 }
 
 

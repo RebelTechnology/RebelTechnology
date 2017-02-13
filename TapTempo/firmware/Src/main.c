@@ -399,11 +399,11 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, TR1_Pin|TR2_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : PUSH1_Pin SW2A_Pin SW2B_Pin */
-  GPIO_InitStruct.Pin = PUSH1_Pin|SW2A_Pin|SW2B_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  /*Configure GPIO pin : PUSH1_Pin */
+  GPIO_InitStruct.Pin = PUSH1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(PUSH1_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : TR1_Pin TR2_Pin */
   GPIO_InitStruct.Pin = TR1_Pin|TR2_Pin;
@@ -411,12 +411,22 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : TEMPO1_Pin PB15 TEMPO2_Pin SW1A_Pin 
-                           SW1B_Pin */
-  GPIO_InitStruct.Pin = TEMPO1_Pin|GPIO_PIN_15|TEMPO2_Pin|SW1A_Pin 
-                          |SW1B_Pin;
+  /*Configure GPIO pins : TEMPO1_Pin PUSH2_Pin TEMPO2_Pin */
+  GPIO_InitStruct.Pin = TEMPO1_Pin|PUSH2_Pin|TEMPO2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : SW2A_Pin SW2B_Pin */
+  GPIO_InitStruct.Pin = SW2A_Pin|SW2B_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : SW1A_Pin SW1B_Pin */
+  GPIO_InitStruct.Pin = SW1A_Pin|SW1B_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }

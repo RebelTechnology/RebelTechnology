@@ -64,16 +64,6 @@ char* getFirmwareVersion(){
 /*   initializeTimer(); */
 /* } */
 
-bool isPushButtonPressed(){
-  /* return !getPin(PUSHBUTTON_PORT, PUSHBUTTON_PIN); */ 
-}
-
-bool isTriggerHigh(){
-  /* return !getPin(TRIGGER_INPUT_PORT, TRIGGER_INPUT_PIN); */
-  return !getPin(TR1_GPIO_Port, TR1_Pin);
-
-}
-
 #define NOF_ADC_VALUES 1
 /* #define ADC1_DR_Address    ((uint32_t)0x4001244C) */
 uint16_t adc_values[NOF_ADC_VALUES];
