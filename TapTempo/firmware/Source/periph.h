@@ -19,7 +19,8 @@
 
 #define LED_FULL 127
    /* LedPin getLed(); */
-   void setLed(uint16_t brightness);
+   void setLed1(uint16_t brightness);
+   void setLed2(uint16_t brightness);
    /* void setLed(LedPin led); */
    /* void toggleLed(); */
 

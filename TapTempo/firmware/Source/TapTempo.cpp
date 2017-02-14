@@ -10,14 +10,15 @@ extern "C"{
   void loop();
   extern DAC_HandleTypeDef hdac;
   extern ADC_HandleTypeDef hadc1;
-
+  extern TIM_HandleTypeDef htim1;
+  extern TIM_HandleTypeDef htim2;
+  extern TIM_HandleTypeDef htim3;
 }
 
+#define NOF_ADC_VALUES 4
+uint16_t adc_values[NOF_ADC_VALUES];
 
-#define NOF_ADC_VALUES 2
-uint32_t adc_values[NOF_ADC_VALUES];
-
-uint32_t getAnalogValue(uint8_t index){
+uint16_t getAnalogValue(uint8_t index){
   return adc_values[index];
 }
 
@@ -166,7 +167,6 @@ public:
   Synchroniser(bool rst, Waveform* wv) : 
     phaseReset(rst), wave(wv), trig(TRIGGER_LIMIT), period(0), speed(4095) {
     dds.setPeriod(period);
-    reset();
   }
   void setWaveform(Waveform* wv){
     wave = wv;
@@ -203,6 +203,7 @@ public:
   }
 };
 
+template<uint16_t TYPE>
 class TapTempo {
 private:
   volatile uint32_t counter;
@@ -260,22 +261,12 @@ public:
 	counter = 0;
       }else if(counter >= goLow && isHigh){
 	setLow();
+      }else if(isSineMode()){
+	setValue(LED_FULL*(goHigh-counter)/(goHigh+1));
+      }else{
+	setValue(LED_FULL*counter/(goHigh+1));
       }
-      if(isSineMode())
-	setLed(LED_FULL*(goHigh-counter)/(goHigh+1));
-      else
-	setLed(LED_FULL*counter/(goHigh+1));
     }
-  }
-  void setLow(){
-    isHigh = false;
-    setPin(TR1_GPIO_Port, TR1_Pin);
-    setLed(0);    
-  }
-  void setHigh(){
-    isHigh = true;
-    clearPin(TR1_GPIO_Port, TR1_Pin);
-    setLed(LED_FULL);
   }
   void toggle(){
     if(isHigh)
@@ -283,14 +274,52 @@ public:
     else
       setHigh();
   }
+  void setLow();
+  void setHigh();
+  void setValue(uint16_t value);
 };
+
+template<>
+void TapTempo<0>::setLow(){
+  isHigh = false;
+  setPin(TR1_GPIO_Port, TR1_Pin);
+  setLed1(0);    
+}
+template<>
+void TapTempo<0>::setHigh(){
+  isHigh = true;
+  clearPin(TR1_GPIO_Port, TR1_Pin);
+  setLed1(LED_FULL);
+}
+template<>
+void TapTempo<0>::setValue(uint16_t value){
+  setLed1(value);  
+}
+
+template<>
+void TapTempo<1>::setLow(){
+  isHigh = false;
+  setPin(TR2_GPIO_Port, TR2_Pin);
+  setLed2(0);    
+}
+template<>
+void TapTempo<1>::setHigh(){
+  isHigh = true;
+  clearPin(TR2_GPIO_Port, TR2_Pin);
+  setLed2(LED_FULL);
+}
+template<>
+void TapTempo<1>::setValue(uint16_t value){
+  setLed2(value);  
+}
 
 SineWave sine;
 
 Waveform* waves[] = {&sine, &sine, &sine, &sine };
 Synchroniser synchro1(false, waves[0]);
 Synchroniser synchro2(true, waves[2]);
-TapTempo tempo1, tempo2;
+TapTempo<0> tempo1;
+TapTempo<1> tempo2;
 
 extern "C"{
   void HAL_GPIO_EXTI_Callback(uint16_t pin){
@@ -348,6 +377,19 @@ void updateSpeed(){
 }
 
 void setup(){
+  HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
+  HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_values, 2);
+
+  HAL_TIM_Base_Start_IT(&htim2);
+  HAL_TIM_OC_Start_IT(&htim2, TIM_CHANNEL_1);
+
+  HAL_TIM_Base_Start(&htim1); 
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  HAL_TIM_Base_Start(&htim3); 
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+
+
   // RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
   // RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
   // configureDigitalInput(SW_L_PORT, SW_R_PIN_A, true);
@@ -360,7 +402,8 @@ void setup(){
 //   configureDigitalOutput(GPIOB, GPIO_Pin_10); // debug
 // #endif
 //   ledSetup();
-  setLed(0);
+  setLed1(0);
+  setLed2(0);
   // adcSetup();
   // dacSetup();
   // triggerInputSetup(triggerCallback);
@@ -370,7 +413,10 @@ void setup(){
   synchro1.speed = getAnalogValue(0);
   tempo1.speed = getAnalogValue(0);
 
-  HAL_ADC_Start_DMA(&hadc1, adc_values, 2);
+  synchro1.reset();
+  synchro2.reset();
+  tempo1.reset();
+  tempo2.reset();
 }
 
 void loop(){
