@@ -31,8 +31,8 @@
    /* void dacSetup(); */
    /* void adcSetup(); */
 
-   uint16_t getAnalogValue(uint8_t index);
-   uint16_t* getAnalogValues();
+   /* uint16_t getAnalogValue(uint8_t index); */
+   /* uint16_t* getAnalogValues(); */
 
    /* void setupSwitchA(void (*f)()); */
    /* void setupSwitchB(void (*f)()); */

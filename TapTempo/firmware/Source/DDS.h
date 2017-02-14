@@ -3,16 +3,6 @@
 
 #include <stdint.h>
 
-#ifndef min
-#define min(a,b) ((a)<(b)?(a):(b))
-#endif /* min */
-#ifndef max
-#define max(a,b) ((a)>(b)?(a):(b))
-#endif /* max */
-#ifndef abs
-#define abs(x) ((x)>0?(x):-(x))
-#endif /* abs */
-
 #define DDS_ACCUMULATOR_PERIOD UINT32_MAX
 #define DDS_ACCUMULATOR_WIDTH  32
 #define DDS_DATATYPE           uint32_t

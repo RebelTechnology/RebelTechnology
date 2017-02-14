@@ -66,7 +66,7 @@ char* getFirmwareVersion(){
 
 #define NOF_ADC_VALUES 1
 /* #define ADC1_DR_Address    ((uint32_t)0x4001244C) */
-uint16_t adc_values[NOF_ADC_VALUES];
+/* uint16_t adc_values[NOF_ADC_VALUES]; */
 /* void adcSetup(){ */
 /*   memset(adc_values, 0, sizeof adc_values); */
 
@@ -142,14 +142,14 @@ uint16_t adc_values[NOF_ADC_VALUES];
 
 /* } */
 
-uint16_t getAnalogValue(uint8_t index){
-  assert_param(index < sizeof(adc_values));
-  return adc_values[index];
-}
+/* uint16_t getAnalogValue(uint8_t index){ */
+/*   assert_param(index < sizeof(adc_values)); */
+/*   return adc_values[index]; */
+/* } */
 
-uint16_t* getAnalogValues(){
-  return adc_values;
-}
+/* uint16_t* getAnalogValues(){ */
+/*   return adc_values; */
+/* } */
 
 /* void (*externalInterruptCallbackA)(); */
 /* void (*externalInterruptCallbackB)(); */

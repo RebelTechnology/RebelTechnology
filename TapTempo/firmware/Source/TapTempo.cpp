@@ -9,7 +9,27 @@ extern "C"{
   void setup();
   void loop();
   extern DAC_HandleTypeDef hdac;
+  extern ADC_HandleTypeDef hadc1;
+
 }
+
+
+#define NOF_ADC_VALUES 2
+uint32_t adc_values[NOF_ADC_VALUES];
+
+uint32_t getAnalogValue(uint8_t index){
+  return adc_values[index];
+}
+
+#ifndef min
+#define min(a,b) ((a)<(b)?(a):(b))
+#endif /* min */
+#ifndef max
+#define max(a,b) ((a)>(b)?(a):(b))
+#endif /* max */
+#ifndef abs
+#define abs(x) ((x)>0?(x):-(x))
+#endif /* abs */
 
 /* period 3000: 1kHz toggle
  *        1000: 3kHz
@@ -79,23 +99,67 @@ public:
   virtual void output(uint32_t phase) = 0;
 };
 
+#include "sinewave.h"
+#include "trianglewave.h"
+
+DDS dds;
+
 class SineWave : public Waveform {
 public:
   void reset(){
     setAnalogValue(1, DDS_SINE_ZERO_VALUE);
   }
   void output(uint32_t phase){
-    // setAnalogValue(1, dds.getSine(phase));
+    setAnalogValue(1, dds.getSine(phase));
   }
 };
 
+class TriangleWave : public Waveform {
+public:
+  void reset(){
+    setAnalogValue(1, DDS_SINE_ZERO_VALUE);
+  }
+  void output(uint32_t phase){
+    setAnalogValue(1, dds.getTri(phase));
+  }
+};
+
+class RisingRampWave : public Waveform {
+public:
+  void reset(){
+    setAnalogValue(0, DDS_RAMP_ZERO_VALUE);
+  }
+  void output(uint32_t phase){
+    setAnalogValue(0, dds.getRisingRamp(phase));
+  }
+};
+
+class FallingRampWave : public Waveform {
+public:
+  void reset(){
+    setAnalogValue(0, DDS_RAMP_ZERO_VALUE);
+  }
+  void output(uint32_t phase){
+    setAnalogValue(0, dds.getFallingRamp(phase));
+  }
+};
+
+/*
+Synchronised LFO
+- trigger: update period
+- clock: increment phase
+- convert phase to wave: 
+  sine / triangle
+  rising / falling saw
+- occasional: update period from speed
+
+*/
 class Synchroniser {
 private:
   const bool phaseReset;
   Waveform* wave;
   volatile uint32_t trig;
   uint32_t period;
-  DDS dds;
   uint32_t phase;
 public:
   uint16_t speed;
@@ -221,30 +285,47 @@ public:
   }
 };
 
-Waveform* waves[] = {new SineWave(), new SineWave(), new SineWave(), new SineWave() };
+SineWave sine;
+
+Waveform* waves[] = {&sine, &sine, &sine, &sine };
 Synchroniser synchro1(false, waves[0]);
 Synchroniser synchro2(true, waves[2]);
 TapTempo tempo1, tempo2;
 
-// todo: proper debouncing with systick counter
-void buttonCallback(){
-  tempo1.trigger(isPushButton1Pressed());
-}
-
-void triggerCallback(){
-  if(isTrigger1High()){
+extern "C"{
+  void HAL_GPIO_EXTI_Callback(uint16_t pin){
+    switch(pin){
+    case TEMPO1_Pin:
     synchro1.trigger();
+      break;
+    case TEMPO2_Pin: 
+    synchro2.trigger();
+     break;
+    case PUSH1_Pin:
+      tempo1.trigger(isPushButton1Pressed());
+      break;
+    case PUSH2_Pin:
+      tempo2.trigger(isPushButton2Pressed());
+      break;
+    }
   }
-}
 
-void timerCallback(){
-  tempo1.clock();
-  synchro1.clock();
-  tempo2.clock();
-  synchro2.clock();
+  void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+    tempo1.clock();
+    synchro1.clock();
+    tempo2.clock();
+    synchro2.clock();
 #ifdef DEBUG_PINS
-  togglePin(GPIOB, GPIO_Pin_10); // debug
+    togglePin(GPIOB, GPIO_Pin_10); // debug
 #endif
+  }
+
+  void HAL_ADC_ErrorCallback(ADC_HandleTypeDef *hadc){
+    assert_param(0);
+  }
+  void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
+  }
+
 }
 
 void updateMode(){
@@ -288,8 +369,9 @@ void setup(){
   updateSpeed();
   synchro1.speed = getAnalogValue(0);
   tempo1.speed = getAnalogValue(0);
-}
 
+  HAL_ADC_Start_DMA(&hadc1, adc_values, 2);
+}
 
 void loop(){
   updateMode();
