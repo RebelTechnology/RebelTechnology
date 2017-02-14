@@ -9,6 +9,53 @@ extern "C"{
   void setup();
   void loop();
   extern DAC_HandleTypeDef hdac;
+  extern ADC_HandleTypeDef hadc1;
+  extern TIM_HandleTypeDef htim1; // LED1
+  extern TIM_HandleTypeDef htim2; // internal clock
+  extern TIM_HandleTypeDef htim3; // LED2
+  extern TIM_HandleTypeDef htim6; // DAC trigger
+}
+
+enum Channel {
+  CH1, CH2
+};
+
+enum OperatingMode {
+  OFF, UP, DOWN
+};
+
+OperatingMode getMode(Channel ch){  
+  switch(ch){
+  case CH1:
+    if(!getPin(SW1A_GPIO_Port, SW1A_Pin))
+      return UP;
+    else if(!getPin(SW1B_GPIO_Port, SW1B_Pin))
+      return DOWN;
+    else
+      return OFF;
+  case CH2:
+    if(!getPin(SW2A_GPIO_Port, SW2A_Pin))
+      return UP;
+    else if(!getPin(SW2B_GPIO_Port, SW2B_Pin))
+      return DOWN;
+    else
+      return OFF;
+  }
+  return OFF;
+}
+
+#define NOF_ADC_VALUES 12
+uint16_t adc_values[NOF_ADC_VALUES];
+uint16_t dac_values[4];
+uint16_t getAnalogValue(uint8_t index){
+  return adc_values[index];
+}
+void setAnalogValue(Channel ch, uint16_t value){
+  value &= 0xfff;
+  if(ch == CH1)
+    dac_values[0] = value;
+  else if(ch == CH2)
+    dac_values[1] = value;
 }
 
 /* period 3000: 1kHz toggle
@@ -31,42 +78,29 @@ extern "C"{
 /* #define DEBOUNCE(nm, ms) if(true){static uint32_t nm ## Debounce = 0; \
 if(getSysTicks() < nm ## Debounce+(ms)) return; nm ## Debounce = getSysTicks();} */
 
-void setAnalogValue(uint8_t channel, uint16_t value){
-  value = value & 0xfff;
-  if(channel == 0)
-    HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, value);
-    // DAC_SetChannel1Data(DAC_Align_12b_R, value);
-  else if(channel == 1)
-    HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R, value);
-    // DAC_SetChannel2Data(DAC_Align_12b_R, value);
-}
 
 inline bool isSlowMode(){
-  return !getPin(TOGGLE1A_GPIO_Port, TOGGLE1A_Pin);
+  return !getPin(SW1A_GPIO_Port, SW1A_Pin);
 }
 
 inline bool isFastMode(){
-  return !getPin(TOGGLE1B_GPIO_Port, TOGGLE1B_Pin);
+  return !getPin(SW1B_GPIO_Port, SW1B_Pin);
 }
 
 inline bool isSineMode(){
-  return !getPin(TOGGLE2A_GPIO_Port, TOGGLE2A_Pin);
+  return !getPin(SW2A_GPIO_Port, SW2A_Pin);
 }
 
 inline bool isTriangleMode(){
-  return !getPin(TOGGLE2B_GPIO_Port, TOGGLE2B_Pin);
+  return !getPin(SW2B_GPIO_Port, SW2B_Pin);
 }
-
-enum SynchroniserMode {
-  OFF, SINE, TRIANGLE
-};
 
 class Synchroniser {
 private:
   volatile uint32_t trig;
   uint32_t period;
   bool isHigh;  
-  SynchroniserMode mode;
+  OperatingMode mode;
 public:
   uint16_t speed;
   DDS dds;
@@ -79,8 +113,8 @@ public:
   void reset(){
     trig = TRIGGER_LIMIT;
     sine = saw = 0; // reset phase accumulators
-    setAnalogValue(0, DDS_RAMP_ZERO_VALUE);
-    setAnalogValue(1, DDS_SINE_ZERO_VALUE);
+    setAnalogValue(CH1, DDS_RAMP_ZERO_VALUE);
+    setAnalogValue(CH2, DDS_SINE_ZERO_VALUE);
     // DAC_SetDualChannelData(DAC_Align_12b_R, DDS_RAMP_ZERO_VALUE, DDS_SINE_ZERO_VALUE);
   }
   void trigger(){
@@ -101,7 +135,7 @@ public:
       speed = s;
     }
   }
-  void setMode(SynchroniserMode m){
+  void setMode(OperatingMode m){
     if(m == OFF && mode != OFF)
       reset();
     mode = m;
@@ -109,15 +143,15 @@ public:
   void clock(){
     if(trig < TRIGGER_LIMIT)
       trig++;
-    if(mode == SINE){
-      setAnalogValue(0, dds.getRisingRamp(saw));
-      setAnalogValue(1, dds.getSine(sine));
+    if(mode == UP){
+      setAnalogValue(CH1, dds.getRisingRamp(saw));
+      setAnalogValue(CH2, dds.getSine(sine));
       // DAC_SetDualChannelData(DAC_Align_12b_R, dds.getRisingRamp(saw), dds.getSine(sine));
       saw += dds.inc();
       sine += dds.inc();
-    }else if(mode == TRIANGLE){
-      setAnalogValue(0, dds.getFallingRamp(saw));
-      setAnalogValue(1, dds.getTri(sine));
+    }else if(mode == DOWN){
+      setAnalogValue(CH1, dds.getFallingRamp(saw));
+      setAnalogValue(CH2, dds.getTri(sine));
       // DAC_SetDualChannelData(DAC_Align_12b_R, dds.getFallingRamp(saw), dds.getTri(sine));
       saw += dds.inc();
       sine += dds.inc();
@@ -184,20 +218,20 @@ public:
 	setLow();
       }
       if(isSineMode())
-	setLed(LED_FULL*(goHigh-counter)/(goHigh+1));
+	setLed1(LED_FULL*(goHigh-counter)/(goHigh+1));
       else
-	setLed(LED_FULL*counter/(goHigh+1));
+	setLed1(LED_FULL*counter/(goHigh+1));
     }
   }
   void setLow(){
     isHigh = false;
     setPin(TR1_GPIO_Port, TR1_Pin);
-    setLed(0);    
+    setLed1(0);    
   }
   void setHigh(){
     isHigh = true;
     clearPin(TR1_GPIO_Port, TR1_Pin);
-    setLed(LED_FULL);
+    setLed1(LED_FULL);
   }
   void toggle(){
     if(isHigh)
@@ -211,17 +245,28 @@ Synchroniser synchro;
 SlopeGenerator tempo;
 
 // todo: proper debouncing with systick counter
-void buttonCallback(){
-  tempo.trigger(isPushButtonPressed());
-}
+// void buttonCallback(){
+//   tempo.trigger(isPushButtonPressed());
+// }
 
-void triggerCallback(){
-  if(isTriggerHigh()){
-    synchro.trigger();
-  }
-}
+// void triggerCallback(){
+//   if(isTriggerHigh()){
+//     synchro.trigger();
+//   }
+// }
 
 extern "C"{
+  void HAL_GPIO_EXTI_Callback(uint16_t pin){
+    switch(pin){
+    case TR1_Pin:
+      break;
+    case TR2_Pin:
+      break;
+    case TEMPOIN_Pin:
+      break;
+    }
+  }
+
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 // void timerCallback(){
   tempo.clock();
@@ -230,14 +275,28 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
   togglePin(GPIOB, GPIO_Pin_10); // debug
 #endif
 }
+
+  void HAL_ADC_ErrorCallback(ADC_HandleTypeDef *hadc){
+    assert_param(0);
+  }
+  // void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
+  // }
+
+  void HAL_DAC_ErrorCallbackCh1(DAC_HandleTypeDef *hdac){
+    assert_param(0);
+  }
+
+  void HAL_DAC_ErrorCallbackCh2(DAC_HandleTypeDef *hdac){
+    assert_param(0);
+  }
 }
 
 void updateMode(){
   if(isSineMode()){
-    synchro.setMode(SINE);
+    synchro.setMode(UP);
     tempo.setStatus(true);
   }else if(isTriangleMode()){
-    synchro.setMode(TRIANGLE);
+    synchro.setMode(DOWN);
     tempo.setStatus(true);
   }else{
     synchro.setMode(OFF);
@@ -252,24 +311,25 @@ void updateSpeed(){
 }
 
 void setup(){
-  // RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
-  // RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-  // configureDigitalInput(TOGGLE_L_PORT, TOGGLE_R_PIN_A, true);
-  // configureDigitalInput(TOGGLE_L_PORT, TOGGLE_R_PIN_B, true);
-  // RCC_APB2PeriphClockCmd(TOGGLE_R_CLOCK, ENABLE);
-  // configureDigitalInput(TOGGLE_R_PORT, TOGGLE_R_PIN_A, true);
-  // configureDigitalInput(TOGGLE_R_PORT, TOGGLE_R_PIN_B, true);
-//   configureDigitalOutput(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
-// #ifdef DEBUG_PINS
-//   configureDigitalOutput(GPIOB, GPIO_Pin_10); // debug
-// #endif
-//   ledSetup();
-  setLed(0);
-  // adcSetup();
-  // dacSetup();
-  // triggerInputSetup(triggerCallback);
-  // pushButtonSetup(buttonCallback);
-  // timerSetup(TIMER_PERIOD, timerCallback);
+  HAL_TIM_Base_Start(&htim6);
+  HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
+  HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
+  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)&dac_values[0], 1, DAC_ALIGN_12B_R);
+  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_2, (uint32_t*)&dac_values[1], 1, DAC_ALIGN_12B_R);
+
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_values, 6);
+
+  HAL_TIM_Base_Start_IT(&htim2);
+  HAL_TIM_OC_Start_IT(&htim2, TIM_CHANNEL_1);
+
+  HAL_TIM_Base_Start(&htim1); 
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  HAL_TIM_Base_Start(&htim3); 
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+
+  setLed1(LED_FULL/2);
+  setLed2(LED_FULL/2);
+
   updateSpeed();
   synchro.speed = getAnalogValue(0);
   tempo.speed = getAnalogValue(0);

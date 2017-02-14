@@ -19,7 +19,8 @@
 
 #define LED_FULL 127
    /* LedPin getLed(); */
-   void setLed(uint16_t brightness);
+   void setLed1(uint16_t brightness);
+   void setLed2(uint16_t brightness);
    /* void setLed(LedPin led); */
    /* void toggleLed(); */
 
@@ -31,11 +32,8 @@
    /* void dacSetup(); */
    /* void adcSetup(); */
 
-   uint16_t getAnalogValue(uint8_t index);
-   uint16_t* getAnalogValues();
-
-   bool isPushButtonPressed();
-   bool isTriggerHigh();
+   /* uint16_t getAnalogValue(uint8_t index); */
+   /* uint16_t* getAnalogValues(); */
 
    /* void setupSwitchA(void (*f)()); */
    /* void setupSwitchB(void (*f)()); */

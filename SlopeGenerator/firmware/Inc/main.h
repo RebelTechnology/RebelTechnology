@@ -61,10 +61,10 @@
 #define ADC6_GPIO_Port GPIOB
 #define LED1_Pin GPIO_PIN_8
 #define LED1_GPIO_Port GPIOA
-#define TOGGLE2A_Pin GPIO_PIN_9
-#define TOGGLE2A_GPIO_Port GPIOA
-#define TOGGLE2B_Pin GPIO_PIN_10
-#define TOGGLE2B_GPIO_Port GPIOA
+#define SW2A_Pin GPIO_PIN_9
+#define SW2A_GPIO_Port GPIOA
+#define SW2B_Pin GPIO_PIN_10
+#define SW2B_GPIO_Port GPIOA
 #define TEMPOIN_Pin GPIO_PIN_4
 #define TEMPOIN_GPIO_Port GPIOB
 #define TR2_Pin GPIO_PIN_5
@@ -73,10 +73,10 @@
 #define TR1_GPIO_Port GPIOB
 #define TEMPOOUT_Pin GPIO_PIN_7
 #define TEMPOOUT_GPIO_Port GPIOB
-#define TOGGLE1A_Pin GPIO_PIN_8
-#define TOGGLE1A_GPIO_Port GPIOB
-#define TOGGLE1B_Pin GPIO_PIN_9
-#define TOGGLE1B_GPIO_Port GPIOB
+#define SW1A_Pin GPIO_PIN_8
+#define SW1A_GPIO_Port GPIOB
+#define SW1B_Pin GPIO_PIN_9
+#define SW1B_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
