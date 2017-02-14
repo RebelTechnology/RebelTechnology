@@ -221,6 +221,7 @@ void triggerCallback(){
   }
 }
 
+extern "C"{
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 // void timerCallback(){
   tempo.clock();
@@ -228,6 +229,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 #ifdef DEBUG_PINS
   togglePin(GPIOB, GPIO_Pin_10); // debug
 #endif
+}
 }
 
 void updateMode(){
