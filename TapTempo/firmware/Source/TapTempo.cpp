@@ -314,8 +314,11 @@ void TapTempo<1>::setValue(uint16_t value){
 }
 
 SineWave sine;
+TriangleWave triangle;
+RisingRampWave risingRamp;
+FallingRampWave fallingRamp;
 
-Waveform* waves[] = {&sine, &sine, &sine, &sine };
+Waveform* waves[] = {&sine, &triangle, &risingRamp, &fallingRamp };
 Synchroniser synchro1(false, waves[0]);
 Synchroniser synchro2(true, waves[2]);
 TapTempo<0> tempo1;
@@ -354,7 +357,6 @@ extern "C"{
   }
   void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
   }
-
 }
 
 void updateMode(){
@@ -374,11 +376,15 @@ void updateSpeed(){
   int16_t p = getAnalogValue(0);
   synchro1.setSpeed(p);
   tempo1.setSpeed(p);
+  p = getAnalogValue(1);
+  synchro2.setSpeed(p);
+  tempo2.setSpeed(p);
 }
 
 void setup(){
   HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
   HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
+
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_values, 2);
 
   HAL_TIM_Base_Start_IT(&htim2);
@@ -388,7 +394,6 @@ void setup(){
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_Base_Start(&htim3); 
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-
 
   // RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
   // RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
