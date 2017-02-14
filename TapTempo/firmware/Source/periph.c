@@ -51,16 +51,16 @@ void setPWM2(uint16_t pulse){
 
 void setLed1(uint16_t brightness){
   static uint16_t value = 0;
-  if(brightness != value){
-    setPWM1(pwmvalues[brightness]); // pw: 0 to 100
+  if(brightness != value && brightness <= LED_FULL){
+    setPWM1(pwmvalues[brightness]);
     value = brightness;
   }
 }
 
 void setLed2(uint16_t brightness){
   static uint16_t value = 0;
-  if(brightness != value){
-    setPWM2(pwmvalues[brightness]); // pw: 0 to 100
+  if(brightness != value && brightness <= LED_FULL){
+    setPWM2(pwmvalues[brightness]);
     value = brightness;
   }
 }

@@ -139,8 +139,8 @@ private:
   uint32_t goLow;
   uint32_t goHigh;
   uint32_t trig;
-  bool isHigh;  
-  OperatingMode mode;
+  bool isHigh;
+  volatile OperatingMode mode;
 public:
   uint16_t speed;
   TapTempo() : counter(0), goLow(TRIGGER_LIMIT>>2), goHigh(TRIGGER_LIMIT>>1), 
@@ -262,7 +262,6 @@ template<>
 void TapTempo<CH2>::setValue(uint16_t value){
   setLed2(value);  
 }
-
 
 template<Channel CH>
 class Synchroniser {
