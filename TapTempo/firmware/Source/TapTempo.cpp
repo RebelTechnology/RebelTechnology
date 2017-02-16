@@ -67,16 +67,16 @@ OperatingMode getMode(Channel ch){
   switch(ch){
   case CH1:
     if(!getPin(SW1A_GPIO_Port, SW1A_Pin))
-      return UP;
-    else if(!getPin(SW1B_GPIO_Port, SW1B_Pin))
       return DOWN;
+    else if(!getPin(SW1B_GPIO_Port, SW1B_Pin))
+      return UP;
     else
       return OFF;
   case CH2:
     if(!getPin(SW2A_GPIO_Port, SW2A_Pin))
-      return UP;
-    else if(!getPin(SW2B_GPIO_Port, SW2B_Pin))
       return DOWN;
+    else if(!getPin(SW2B_GPIO_Port, SW2B_Pin))
+      return UP;
     else
       return OFF;
   }
@@ -289,6 +289,8 @@ public:
     tuning = UINT32_MAX/(t+1);
   }
   void setMode(OperatingMode op){
+    if(op != mode && op == OFF)
+      reset();
     mode = op;
   }
   void trigger(){
@@ -313,12 +315,13 @@ void Synchroniser<CH1>::clock(){
   switch(mode){
   case UP:
     setAnalogValue(CH1, dds.getSine(phase));
+    phase += tuning;
     break;
   case DOWN:
     setAnalogValue(CH1, dds.getTri(phase));
+    phase += tuning;
     break;
   }
-  phase += tuning;
 }
 
 template<>
@@ -335,12 +338,13 @@ void Synchroniser<CH2>::clock(){
   switch(mode){
   case UP:
     setAnalogValue(CH2, dds.getRisingRamp(phase));
+    phase += tuning;
     break;
   case DOWN:
     setAnalogValue(CH2, dds.getFallingRamp(phase));
+    phase += tuning;
     break;
   }
-  phase += tuning;
 }
 
 template<>
