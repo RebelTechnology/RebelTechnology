@@ -3,6 +3,7 @@
 #include "stm32f1xx_hal.h"
 #include "gpio.h"
 #include "periph.h"
+#include "qint.h"
 
 #define ATTACK1  2
 #define ATTACK2  3
@@ -13,6 +14,16 @@
 
 // #define DEBUG_PINS_CLOCK
 // #define DEBUG_PINS_MAIN
+
+#ifndef min
+#define min(a,b) ((a)<(b)?(a):(b))
+#endif /* min */
+#ifndef max
+#define max(a,b) ((a)>(b)?(a):(b))
+#endif /* max */
+#ifndef abs
+#define abs(x) ((x)>0?(x):-(x))
+#endif /* abs */
 
 extern "C"{
   void setup();
@@ -122,8 +133,17 @@ enum Stage {
   ATTACK_STAGE, SUSTAIN_STAGE, RELEASE_STAGE, END_STAGE
 };
 
-#define MAX_LEVEL (3960<<18) // 3960 appears to be at DAC maximum excursion
-#define MIN_LEVEL 0
+// #define DAC_SCALAR 18
+// #define LED_SCALAR 22
+// #define MAX_LEVEL (3960<<18) // 3960 appears to be at DAC maximum excursion
+// #define MIN_LEVEL (1<<10)
+
+#define DAC_SCALAR 8
+#define LED_SCALAR (DAC_SCALAR+4)
+#define MAX_LEVEL (3960<<DAC_SCALAR) // 3960 appears to be at DAC maximum excursion
+#define MIN_LEVEL 2
+
+#define MIN_INCREMENT 8
 
 template<Channel CH>
 class Envelope {
@@ -132,13 +152,14 @@ public:
   OperatingMode mode;  
   uint32_t attack;
   uint32_t release;
+  int32_t skew;
   Stage stage;
   Envelope() : 
-    level(0), mode(GATE_MODE), attack(0), release(0), stage(END_STAGE) {}
+    level(MIN_LEVEL), mode(GATE_MODE), attack(0), release(0), skew(0), stage(END_STAGE) {}
   void clock(){
     switch(stage){
     case ATTACK_STAGE:
-      level += attack;
+      level += max(MIN_INCREMENT, attack + Q15_MUL_Q15(level, skew));
       if(level >= MAX_LEVEL){
 	level = MAX_LEVEL;
 	stage = SUSTAIN_STAGE;
@@ -149,7 +170,7 @@ public:
 	stage = RELEASE_STAGE;
       break;
     case RELEASE_STAGE:
-      level -= release;
+      level -= max(MIN_INCREMENT, release + Q15_MUL_Q15(MAX_LEVEL-level, skew));
       if(level <= MIN_LEVEL){
 	level = MIN_LEVEL;
 	stage = END_STAGE;
@@ -159,8 +180,8 @@ public:
       if(mode == CYCLE_MODE)
 	stage = ATTACK_STAGE;
     }
-    setAnalogValue(CH, level>>18);
-    setLed(CH, (level>>22)&0x7f);
+    setAnalogValue(CH, level>>DAC_SCALAR);
+    setLed(CH, (level>>LED_SCALAR)&0x7f);
   }
   void trigger(){
     stage = ATTACK_STAGE;
@@ -227,7 +248,7 @@ extern "C"{
       env1.trigger();
       break;
     case TR2_Pin:
-      env1.trigger();
+      env2.trigger();
       break;
     case TEMPOIN_Pin:
       tempo.trigger();
@@ -266,12 +287,31 @@ void updateMode(){
   env2.mode = getMode(CH2);
 }
 
-#define MIN_SLOPE 19280
+// #define MIN_SLOPE 19280
+// #define MIN_ATTACK ((1<<16L) + 2048)
+// #define MIN_RELEASE 2048
+
+// #define MIN_ATTACK 19280
+// #define MIN_RELEASE 19280
+
+#define MIN_ATTACK 1
+#define MIN_RELEASE 1
+
 void updateParameters(){
-  env1.attack = (getAnalogValue(ATTACK1)<<10L) + MIN_SLOPE;
-  env2.attack = (getAnalogValue(ATTACK2)<<10L) + MIN_SLOPE;
-  env1.release = (getAnalogValue(RELEASE1)<<10L) + MIN_SLOPE;
-  env2.release = (getAnalogValue(RELEASE2)<<10L) + MIN_SLOPE;
+  // env1.attack = (getAnalogValue(ATTACK1) << 10L) + MIN_ATTACK;
+  // env2.attack = (getAnalogValue(ATTACK2) << 10L) + MIN_ATTACK;
+  // // env2.attack = (getAnalogValue(ATTACK2)<<10L) + MIN_SLOPE;
+  // env1.release = (getAnalogValue(RELEASE1)<<10L) + MIN_RELEASE;
+  // env2.release = (getAnalogValue(RELEASE2)<<10L) + MIN_RELEASE;
+  // env1.skew = (2048 - getAnalogValue(SHAPE1))<<10L;
+  // env2.skew = (2048 - getAnalogValue(SHAPE2))<<10L;
+
+  env1.attack = (getAnalogValue(ATTACK1)<<2) + MIN_ATTACK;
+  env2.attack = (getAnalogValue(ATTACK2)<<1) + MIN_ATTACK;
+  env1.release = (getAnalogValue(RELEASE1)<<2) + MIN_RELEASE;
+  env2.release = (getAnalogValue(RELEASE2)<<1) + MIN_RELEASE;
+  env1.skew = (2048 - getAnalogValue(SHAPE1))>>4;
+  env2.skew = (2048 - getAnalogValue(SHAPE2))>>4;
 }
 
 void setup(){
