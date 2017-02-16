@@ -138,28 +138,37 @@ enum Stage {
 // #define MAX_LEVEL (3960<<18) // 3960 appears to be at DAC maximum excursion
 // #define MIN_LEVEL (1<<10)
 
-#define DAC_SCALAR 8
+#define DAC_SCALAR 6
 #define LED_SCALAR (DAC_SCALAR+4)
+// #define SKEW_SCALAR 15
+int32_t SKEW_SCALAR = 20;
 #define MAX_LEVEL (3960<<DAC_SCALAR) // 3960 appears to be at DAC maximum excursion
-#define MIN_LEVEL 2
+#define MIN_LEVEL 0
 
-#define MIN_INCREMENT 8
+int32_t MIN_INCREMENT = 2;
+int32_t MAX_INCREMENT = 4095;
+// #define MIN_INCREMENT 128
+// #define MAX_INCREMENT (1024<<DAC_SCALAR)
+
+// #define MID_LEVEL (MAX_LEVEL>>1)
+int32_t MID_LEVEL = MAX_LEVEL>>1;
 
 template<Channel CH>
 class Envelope {
 public:
   int32_t level;
-  OperatingMode mode;  
-  uint32_t attack;
-  uint32_t release;
-  int32_t skew;
-  Stage stage;
+  volatile OperatingMode mode;  
+  volatile int32_t attack;
+  volatile int32_t release;
+  volatile int32_t skew;
+  volatile Stage stage;
   Envelope() : 
     level(MIN_LEVEL), mode(GATE_MODE), attack(0), release(0), skew(0), stage(END_STAGE) {}
   void clock(){
     switch(stage){
     case ATTACK_STAGE:
-      level += max(MIN_INCREMENT, attack + Q15_MUL_Q15(level, skew));
+      // level += min(MAX_INCREMENT, max(MIN_INCREMENT, attack + Q15_MUL_Q15(level, skew)));
+      level += min(MAX_INCREMENT, max(MIN_INCREMENT, attack + (((level-MID_LEVEL)*skew)>>SKEW_SCALAR)));
       if(level >= MAX_LEVEL){
 	level = MAX_LEVEL;
 	stage = SUSTAIN_STAGE;
@@ -170,7 +179,8 @@ public:
 	stage = RELEASE_STAGE;
       break;
     case RELEASE_STAGE:
-      level -= max(MIN_INCREMENT, release + Q15_MUL_Q15(MAX_LEVEL-level, skew));
+      // level -= min(MAX_INCREMENT, max(MIN_INCREMENT, release + Q15_MUL_Q15(MAX_LEVEL-level, skew)));
+      level -= min(MAX_INCREMENT, max(MIN_INCREMENT, release + (((MID_LEVEL-level)*skew)>>SKEW_SCALAR)));
       if(level <= MIN_LEVEL){
 	level = MIN_LEVEL;
 	stage = END_STAGE;
@@ -294,8 +304,8 @@ void updateMode(){
 // #define MIN_ATTACK 19280
 // #define MIN_RELEASE 19280
 
-#define MIN_ATTACK 1
-#define MIN_RELEASE 1
+#define MIN_ATTACK 16
+#define MIN_RELEASE 16
 
 void updateParameters(){
   // env1.attack = (getAnalogValue(ATTACK1) << 10L) + MIN_ATTACK;
@@ -306,12 +316,12 @@ void updateParameters(){
   // env1.skew = (2048 - getAnalogValue(SHAPE1))<<10L;
   // env2.skew = (2048 - getAnalogValue(SHAPE2))<<10L;
 
-  env1.attack = (getAnalogValue(ATTACK1)<<2) + MIN_ATTACK;
-  env2.attack = (getAnalogValue(ATTACK2)<<1) + MIN_ATTACK;
-  env1.release = (getAnalogValue(RELEASE1)<<2) + MIN_RELEASE;
-  env2.release = (getAnalogValue(RELEASE2)<<1) + MIN_RELEASE;
-  env1.skew = (2048 - getAnalogValue(SHAPE1))>>4;
-  env2.skew = (2048 - getAnalogValue(SHAPE2))>>4;
+  env1.attack = (getAnalogValue(ATTACK1)<<0) + MIN_ATTACK;
+  env2.attack = (getAnalogValue(ATTACK2)<<0) + MIN_ATTACK;
+  env1.release = (getAnalogValue(RELEASE1)<<0) + MIN_RELEASE;
+  env2.release = (getAnalogValue(RELEASE2)<<0) + MIN_RELEASE;
+  env1.skew = (2048 - getAnalogValue(SHAPE1));
+  env2.skew = (2048 - getAnalogValue(SHAPE2));
 }
 
 void setup(){
