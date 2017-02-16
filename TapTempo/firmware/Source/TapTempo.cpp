@@ -5,7 +5,7 @@
 #include "gpio.h"
 #include "periph.h"
 
-#define DEBUG_PINS
+// #define DEBUG_PINS
 
 extern "C"{
   void setup();
@@ -437,27 +437,8 @@ void setup(){
   HAL_TIM_Base_Start(&htim3); 
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 
-  // RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
-  // RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-  // configureDigitalInput(SW_L_PORT, SW_R_PIN_A, true);
-  // configureDigitalInput(SW_L_PORT, SW_R_PIN_B, true);
-  // RCC_APB2PeriphClockCmd(SW_R_CLOCK, ENABLE);
-  // configureDigitalInput(SW_R_PORT, SW_R_PIN_A, true);
-  // configureDigitalInput(SW_R_PORT, SW_R_PIN_B, true);
-//   configureDigitalOutput(TRIGGER_OUTPUT_PORT, TRIGGER_OUTPUT_PIN);
-// #ifdef DEBUG_PINS
-//   configureDigitalOutput(GPIOB, GPIO_Pin_10); // debug
-// #endif
-//   ledSetup();
   setLed1(0);
   setLed2(0);
-  // adcSetup();
-  // dacSetup();
-  // triggerInputSetup(triggerCallback);
-  // pushButtonSetup(buttonCallback);
-  // timerSetup(TIMER_PERIOD, timerCallback);
-  // updateSpeed();
-  // updateMode();
 
   synchro1.reset();
   synchro2.reset();
