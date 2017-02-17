@@ -5,7 +5,7 @@
 #include "gpio.h"
 #include "periph.h"
 
-// #define DEBUG_PINS
+#define DEBUG_PINS
 
 extern "C"{
   void setup();
@@ -267,14 +267,16 @@ template<Channel CH>
 class Synchroniser {
 private:
   volatile uint32_t trig;
-  uint32_t period;
-  uint32_t phase;
-  uint32_t tuning;
+  volatile uint32_t ticks;
+  volatile uint32_t period;
+  volatile uint32_t phase;
+  volatile uint32_t tuning;
   volatile OperatingMode mode;
+  OperatingMode previousMode;
 public:
   uint16_t speed;
   Synchroniser() : 
-    trig(TRIGGER_LIMIT), period(0), mode(OFF), speed(4095) {
+    trig(TRIGGER_LIMIT), ticks(0), period(0), mode(OFF), speed(4095) {
     setPeriod(period);
   }
   void setSpeed(int16_t s){
@@ -289,68 +291,95 @@ public:
     tuning = UINT32_MAX/(t+1);
   }
   void setMode(OperatingMode op){
-    if(op != mode && op == OFF)
+    if(op != mode && op == OFF){
+      previousMode = mode;
       reset();
+    }
     mode = op;
   }
   void trigger(){
-    if(trig < TRIGGER_THRESHOLD)
-      return;
-    if(trig < TRIGGER_LIMIT){
-      period = trig;
-      setPeriod(period);
+    switch(mode){
+    case OFF:
+      ticks = 1; // start ping
+      break;
+    default:
+      if(trig < TRIGGER_THRESHOLD)
+	return;
+      if(trig < TRIGGER_LIMIT){
+	period = trig;
+	setPeriod(period);
+      }
+      trig = 0;
+      if(CH == CH2) // reset ramp phase on trigger
+	phase = 0;
     }
-    trig = 0;
-    if(CH == CH2) // reset ramp phase on trigger
-      phase = 0;
   }
-  void clock();
-  void reset();
+  void reset(){
+    setZeroValue();
+    trig = TRIGGER_LIMIT; // really?
+    phase = 0;
+    ticks = 0; // stop ping
+  }
+  void clock(){
+    switch(mode){
+    case UP:
+      setUpValue(phase);
+      phase += tuning; 
+      if(trig < TRIGGER_LIMIT)
+	trig++;
+     break;
+    case DOWN:
+      setDownValue(phase);
+      phase += tuning;
+      if(trig < TRIGGER_LIMIT)
+	trig++;
+      break;
+    case OFF:
+      if(ticks){
+	switch(previousMode){
+	case UP:
+	  setUpValue(phase);
+	  phase += tuning;
+	  break;
+	case DOWN:
+	  setDownValue(phase);
+	  phase += tuning;
+	  break;
+	default:
+	  break;
+	}
+	if(ticks++ >= period)
+	  reset();
+      }
+    }
+  }
+  void setUpValue(uint32_t phase);
+  void setDownValue(uint32_t phase);
+  void setZeroValue();
 };
 
 template<>
-void Synchroniser<CH1>::clock(){
-  if(trig < TRIGGER_LIMIT)
-    trig++;
-  switch(mode){
-  case UP:
-    setAnalogValue(CH1, dds.getSine(phase));
-    phase += tuning;
-    break;
-  case DOWN:
-    setAnalogValue(CH1, dds.getTri(phase));
-    phase += tuning;
-    break;
-  }
+void Synchroniser<CH1>::setUpValue(uint32_t phase){
+  setAnalogValue(CH1, dds.getSine(phase));
 }
-
 template<>
-void Synchroniser<CH1>::reset(){
-  trig = TRIGGER_LIMIT;
-  phase = 0;
+void Synchroniser<CH1>::setDownValue(uint32_t phase){
+  setAnalogValue(CH1, dds.getTri(phase));
+}
+template<>
+void Synchroniser<CH1>::setZeroValue(){
   setAnalogValue(CH1, DDS_SINE_ZERO_VALUE);
 }
-
 template<>
-void Synchroniser<CH2>::clock(){
-  if(trig < TRIGGER_LIMIT)
-    trig++;
-  switch(mode){
-  case UP:
-    setAnalogValue(CH2, dds.getRisingRamp(phase));
-    phase += tuning;
-    break;
-  case DOWN:
-    setAnalogValue(CH2, dds.getFallingRamp(phase));
-    phase += tuning;
-    break;
-  }
+void Synchroniser<CH2>::setUpValue(uint32_t phase){
+  setAnalogValue(CH2, dds.getRisingRamp(phase));
 }
-
 template<>
-void Synchroniser<CH2>::reset(){
-  trig = TRIGGER_LIMIT;
-  phase = 0;
+void Synchroniser<CH2>::setDownValue(uint32_t phase){
+  setAnalogValue(CH2, dds.getFallingRamp(phase));
+}
+template<>
+void Synchroniser<CH2>::setZeroValue(){
   setAnalogValue(CH2, DDS_RAMP_ZERO_VALUE);
 }
 
