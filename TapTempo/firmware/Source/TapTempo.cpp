@@ -5,7 +5,7 @@
 #include "gpio.h"
 #include "periph.h"
 
-#define DEBUG_PINS
+// #define DEBUG_PINS
 
 extern "C"{
   void setup();
