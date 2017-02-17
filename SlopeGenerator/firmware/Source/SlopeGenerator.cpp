@@ -139,38 +139,70 @@ enum Stage {
 // #define MIN_LEVEL (1<<10)
 
 #define DAC_SCALAR 6
+#define ADC_SCALAR (DAC_SCALAR-6)
 #define LED_SCALAR (DAC_SCALAR+4)
-// #define SKEW_SCALAR 15
-int32_t SKEW_SCALAR = 20;
+// #define SKEW_SCALAR 21
+int32_t SKEW_SCALAR = 12+DAC_SCALAR;
 #define MAX_LEVEL (3960<<DAC_SCALAR) // 3960 appears to be at DAC maximum excursion
 #define MIN_LEVEL 0
 
-int32_t MIN_INCREMENT = 2;
-int32_t MAX_INCREMENT = 4095;
+int32_t MIN_INCREMENT = 1;
+int32_t MAX_INCREMENT = MAX_LEVEL>>2;
 // #define MIN_INCREMENT 128
 // #define MAX_INCREMENT (1024<<DAC_SCALAR)
 
 // #define MID_LEVEL (MAX_LEVEL>>1)
 int32_t MID_LEVEL = MAX_LEVEL>>1;
 
+// #define MIN_SLOPE 19280
+// #define MIN_ATTACK ((1<<16L) + 2048)
+// #define MIN_RELEASE 2048
+// #define MIN_ATTACK 19280
+// #define MIN_RELEASE 19280
+int32_t MIN_ATTACK = -400;//16;
+int32_t MIN_RELEASE = -400;//16;
+// #define MIN_ATTACK 16
+// #define MIN_RELEASE 16
+
 template<Channel CH>
 class Envelope {
 public:
   int32_t level;
+  int32_t linear;
   volatile OperatingMode mode;  
   volatile int32_t attack;
   volatile int32_t release;
-  volatile int32_t skew;
+  volatile int32_t attack_skew;
+  volatile int32_t release_skew;
   volatile Stage stage;
-  Envelope() : 
-    level(MIN_LEVEL), mode(GATE_MODE), attack(0), release(0), skew(0), stage(END_STAGE) {}
+  Envelope() :
+    level(MIN_LEVEL), linear(-MID_LEVEL), mode(GATE_MODE), attack(0), release(0), attack_skew(0), release_skew(0), stage(END_STAGE) {}
+  void setAttack(int32_t value, int32_t skew){
+    attack = MAX_LEVEL/((4095 + MIN_ATTACK - value)<<ADC_SCALAR);
+    // attack = value + MIN_ATTACK;
+
+    // value is ticks of clock
+    // attack is increment per clock to reach full value
+    // calculate skew as percent of attack
+    // add skew each tick by q mult of linear envelope
+    attack_skew = (attack*skew)>>11;
+  }
+  void setRelease(int32_t value, int32_t skew){
+    release = MAX_LEVEL/((4095 + MIN_RELEASE - value)<<ADC_SCALAR);
+    // release = value + MIN_RELEASE;
+    release_skew = (release*skew)>>11;
+  }
   void clock(){
     switch(stage){
     case ATTACK_STAGE:
       // level += min(MAX_INCREMENT, max(MIN_INCREMENT, attack + Q15_MUL_Q15(level, skew)));
-      level += min(MAX_INCREMENT, max(MIN_INCREMENT, attack + (((level-MID_LEVEL)*skew)>>SKEW_SCALAR)));
-      if(level >= MAX_LEVEL){
-	level = MAX_LEVEL;
+      // level += min(MAX_INCREMENT, max(MIN_INCREMENT, attack + (((level-MID_LEVEL)*skew)>>SKEW_SCALAR)));
+      level += attack + ((linear*attack_skew)>>SKEW_SCALAR);
+      linear += attack;
+      // if(level >= MAX_LEVEL){
+      if(linear >= MID_LEVEL){
+	// level = MAX_LEVEL;
+	linear = MID_LEVEL;
 	stage = SUSTAIN_STAGE;
       }
       break;
@@ -180,8 +212,12 @@ public:
       break;
     case RELEASE_STAGE:
       // level -= min(MAX_INCREMENT, max(MIN_INCREMENT, release + Q15_MUL_Q15(MAX_LEVEL-level, skew)));
-      level -= min(MAX_INCREMENT, max(MIN_INCREMENT, release + (((MID_LEVEL-level)*skew)>>SKEW_SCALAR)));
-      if(level <= MIN_LEVEL){
+      // level -= min(MAX_INCREMENT, max(MIN_INCREMENT, release + (((MID_LEVEL-level)*skew)>>SKEW_SCALAR)));
+      level -= release - ((linear*release_skew)>>SKEW_SCALAR);
+      linear -= release;
+      // if(level <= MIN_LEVEL){
+      if(linear <= -MID_LEVEL){
+	linear = -MID_LEVEL;
 	level = MIN_LEVEL;
 	stage = END_STAGE;
       }
@@ -190,6 +226,7 @@ public:
       if(mode == CYCLE_MODE)
 	stage = ATTACK_STAGE;
     }
+    level = max(0, min(MAX_LEVEL, level));
     setAnalogValue(CH, level>>DAC_SCALAR);
     setLed(CH, (level>>LED_SCALAR)&0x7f);
   }
@@ -297,16 +334,6 @@ void updateMode(){
   env2.mode = getMode(CH2);
 }
 
-// #define MIN_SLOPE 19280
-// #define MIN_ATTACK ((1<<16L) + 2048)
-// #define MIN_RELEASE 2048
-
-// #define MIN_ATTACK 19280
-// #define MIN_RELEASE 19280
-
-#define MIN_ATTACK 16
-#define MIN_RELEASE 16
-
 void updateParameters(){
   // env1.attack = (getAnalogValue(ATTACK1) << 10L) + MIN_ATTACK;
   // env2.attack = (getAnalogValue(ATTACK2) << 10L) + MIN_ATTACK;
@@ -315,13 +342,14 @@ void updateParameters(){
   // env2.release = (getAnalogValue(RELEASE2)<<10L) + MIN_RELEASE;
   // env1.skew = (2048 - getAnalogValue(SHAPE1))<<10L;
   // env2.skew = (2048 - getAnalogValue(SHAPE2))<<10L;
-
-  env1.attack = (getAnalogValue(ATTACK1)<<0) + MIN_ATTACK;
-  env2.attack = (getAnalogValue(ATTACK2)<<0) + MIN_ATTACK;
-  env1.release = (getAnalogValue(RELEASE1)<<0) + MIN_RELEASE;
-  env2.release = (getAnalogValue(RELEASE2)<<0) + MIN_RELEASE;
-  env1.skew = (2048 - getAnalogValue(SHAPE1));
-  env2.skew = (2048 - getAnalogValue(SHAPE2));
+  int32_t skew = 2048 - getAnalogValue(SHAPE1);
+  env1.setAttack(getAnalogValue(ATTACK1), skew);
+  env1.setRelease(getAnalogValue(RELEASE1), skew);
+  skew = 2048 - getAnalogValue(SHAPE2);
+  env2.setAttack(getAnalogValue(ATTACK2), skew);
+  env2.setRelease(getAnalogValue(RELEASE2), skew);
+  // env1.setSkew(2048 - getAnalogValue(SHAPE1));
+  // env2.setSkew(2048 - getAnalogValue(SHAPE2));
 }
 
 void setup(){
