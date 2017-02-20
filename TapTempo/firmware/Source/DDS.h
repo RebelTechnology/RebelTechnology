@@ -8,9 +8,9 @@
 #define DDS_DATATYPE           uint32_t
 
  // calculated zero points
-#define DDS_SINE_ZERO_VALUE    600
-#define DDS_RAMP_ZERO_VALUE     0
-#define DDS_MAX_RAMP_VALUE     3965 // appears to be
+#define DDS_SINE_ZERO_VALUE    1818
+#define DDS_RAMP_ZERO_VALUE    0
+#define DDS_MAX_RAMP_VALUE     3968
 #define DDS_MIN_RAMP_VALUE     0
 #define DDS_RAMP_RANGE         (DDS_MAX_RAMP_VALUE-DDS_MIN_RAMP_VALUE)
 

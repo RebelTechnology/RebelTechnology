@@ -18,7 +18,7 @@ extern "C"{
   extern TIM_HandleTypeDef htim6; // DAC trigger
 }
 
-#define NOF_ADC_VALUES 4
+#define NOF_ADC_VALUES 2
 uint16_t adc_values[NOF_ADC_VALUES];
 
 uint16_t getAnalogValue(uint8_t index){
@@ -276,7 +276,7 @@ private:
 public:
   uint16_t speed;
   Synchroniser() : 
-    trig(TRIGGER_LIMIT), ticks(0), period(0), mode(OFF), speed(4095) {
+    trig(TRIGGER_LIMIT), ticks(0), period(TRIGGER_LIMIT), mode(OFF), speed(4095) {
     setPeriod(period);
   }
   void setSpeed(int16_t s){
