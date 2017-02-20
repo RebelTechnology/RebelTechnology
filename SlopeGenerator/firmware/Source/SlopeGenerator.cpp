@@ -33,6 +33,7 @@ extern "C"{
   extern TIM_HandleTypeDef htim1; // LED1
   extern TIM_HandleTypeDef htim2; // internal clock
   extern TIM_HandleTypeDef htim3; // LED2
+  extern TIM_HandleTypeDef htim4; // TEMPO_OUT
   extern TIM_HandleTypeDef htim6; // DAC trigger
 }
 
@@ -108,26 +109,8 @@ bool isTriggerLow(Channel ch){
   return getPin(TR2_GPIO_Port, TR2_Pin);
 }
 
-/* period 3000: 1kHz toggle
- *        1000: 3kHz
- *	   300: 10kHz
- *	   200: 15kHz
- *	    30: 45Hz 
- */
-#define TIMER_PERIOD      300 // 20kHz sampling rate
-#define TRIGGER_THRESHOLD 16  // 1250Hz at 20kHz sampling rate
 #define TAP_THRESHOLD     256 // 78Hz at 20kHz sampling rate, or 16th notes at 293BPM
 #define TRIGGER_LIMIT     UINT32_MAX
-/* At 20kHz sampling frequency (TIMER_PERIOD 300), a 32-bit counter will 
- * overflow every 59.65 hours. With 63 bits it overflows every 14623560 years.
- */
-
-// tracking at 18Hz trigger input but not at 20Hz with threshold 1024
-// tracking at 610Hz trigger input but not at 625Hz with threshold 32 (20k/32=625)
-
-/* #define DEBOUNCE(nm, ms) if(true){static uint32_t nm ## Debounce = 0; \
-if(getSysTicks() < nm ## Debounce+(ms)) return; nm ## Debounce = getSysTicks();} */
-
 
 enum Stage {
   ATTACK_STAGE, SUSTAIN_STAGE, RELEASE_STAGE, END_STAGE
@@ -138,31 +121,20 @@ enum Stage {
 // #define MAX_LEVEL (3960<<18) // 3960 appears to be at DAC maximum excursion
 // #define MIN_LEVEL (1<<10)
 
-#define DAC_SCALAR 6
-#define ADC_SCALAR (DAC_SCALAR-6)
-#define LED_SCALAR (DAC_SCALAR+4)
+int32_t ADC_RANGE = 4040;
+int32_t DAC_RANGE = 3968;
+// #define DAC_SCALAR 6
+int32_t DAC_SCALAR =  6;
+// #define ADC_SCALAR (DAC_SCALAR-6)
+int32_t ADC_SCALAR =  (DAC_SCALAR-4);
+#define LED_SCALAR (DAC_SCALAR+5)
 // #define SKEW_SCALAR 21
-int32_t SKEW_SCALAR = 12+DAC_SCALAR;
-#define MAX_LEVEL (3960<<DAC_SCALAR) // 3960 appears to be at DAC maximum excursion
+int32_t SKEW_SCALAR = 10+DAC_SCALAR;
+#define MAX_LEVEL (DAC_RANGE<<DAC_SCALAR)
 #define MIN_LEVEL 0
-
-int32_t MIN_INCREMENT = 1;
-int32_t MAX_INCREMENT = MAX_LEVEL>>2;
-// #define MIN_INCREMENT 128
-// #define MAX_INCREMENT (1024<<DAC_SCALAR)
-
 // #define MID_LEVEL (MAX_LEVEL>>1)
 int32_t MID_LEVEL = MAX_LEVEL>>1;
-
-// #define MIN_SLOPE 19280
-// #define MIN_ATTACK ((1<<16L) + 2048)
-// #define MIN_RELEASE 2048
-// #define MIN_ATTACK 19280
-// #define MIN_RELEASE 19280
-int32_t MIN_ATTACK = -400;//16;
-int32_t MIN_RELEASE = -400;//16;
-// #define MIN_ATTACK 16
-// #define MIN_RELEASE 16
+#define MIN_SLOPE 1
 
 template<Channel CH>
 class Envelope {
@@ -178,30 +150,21 @@ public:
   Envelope() :
     level(MIN_LEVEL), linear(-MID_LEVEL), mode(GATE_MODE), attack(0), release(0), attack_skew(0), release_skew(0), stage(END_STAGE) {}
   void setAttack(int32_t value, int32_t skew){
-    attack = MAX_LEVEL/((4095 + MIN_ATTACK - value)<<ADC_SCALAR);
-    // attack = value + MIN_ATTACK;
-
-    // value is ticks of clock
-    // attack is increment per clock to reach full value
-    // calculate skew as percent of attack
-    // add skew each tick by q mult of linear envelope
+    value = min(ADC_RANGE-1, value);
+    attack = max(MIN_SLOPE, MAX_LEVEL/((ADC_RANGE - value)<<ADC_SCALAR));
     attack_skew = (attack*skew)>>11;
   }
   void setRelease(int32_t value, int32_t skew){
-    release = MAX_LEVEL/((4095 + MIN_RELEASE - value)<<ADC_SCALAR);
-    // release = value + MIN_RELEASE;
+    value = min(ADC_RANGE-1, value);
+    release = max(MIN_SLOPE,  MAX_LEVEL/((ADC_RANGE - value)<<ADC_SCALAR));
     release_skew = (release*skew)>>11;
   }
   void clock(){
     switch(stage){
     case ATTACK_STAGE:
-      // level += min(MAX_INCREMENT, max(MIN_INCREMENT, attack + Q15_MUL_Q15(level, skew)));
-      // level += min(MAX_INCREMENT, max(MIN_INCREMENT, attack + (((level-MID_LEVEL)*skew)>>SKEW_SCALAR)));
-      level += attack + ((linear*attack_skew)>>SKEW_SCALAR);
+      level += max(1, attack + ((linear*attack_skew)>>SKEW_SCALAR));
       linear += attack;
-      // if(level >= MAX_LEVEL){
       if(linear >= MID_LEVEL){
-	// level = MAX_LEVEL;
 	linear = MID_LEVEL;
 	stage = SUSTAIN_STAGE;
       }
@@ -211,11 +174,8 @@ public:
 	stage = RELEASE_STAGE;
       break;
     case RELEASE_STAGE:
-      // level -= min(MAX_INCREMENT, max(MIN_INCREMENT, release + Q15_MUL_Q15(MAX_LEVEL-level, skew)));
-      // level -= min(MAX_INCREMENT, max(MIN_INCREMENT, release + (((MID_LEVEL-level)*skew)>>SKEW_SCALAR)));
-      level -= release - ((linear*release_skew)>>SKEW_SCALAR);
+      level -= max(1, release - ((linear*release_skew)>>SKEW_SCALAR));
       linear -= release;
-      // if(level <= MIN_LEVEL){
       if(linear <= -MID_LEVEL){
 	linear = -MID_LEVEL;
 	level = MIN_LEVEL;
@@ -238,27 +198,15 @@ public:
 
 class TapTempo {
 private:
-  volatile uint32_t counter;
-  uint32_t goLow;
-  uint32_t goHigh;
   uint32_t trig;
-  bool isHigh;  
 public:
-  uint16_t speed;
-  TapTempo() : counter(0), goLow(TRIGGER_LIMIT>>2), goHigh(TRIGGER_LIMIT>>1), 
-	       trig(0), isHigh(false) {}
-  void reset(){
-    counter = 0;
-    setLow();
-  }
+  uint32_t period;
+  TapTempo() : trig(0), period(TRIGGER_LIMIT>>1) {}
   void trigger(){
     if(trig < TAP_THRESHOLD)
       return;
     if(trig < TRIGGER_LIMIT){
-      setHigh();
-      goHigh = trig;
-      goLow = trig>>1;
-      counter = 0;
+      period = trig;
       trig = 0;
     }else{
       trig = 0;
@@ -267,20 +215,6 @@ public:
   void clock(){
     if(trig < TRIGGER_LIMIT)
       trig++;
-    if(++counter >= goHigh){
-      setHigh();
-      counter = 0;
-    }else if(counter >= goLow && isHigh){
-      setLow();
-    }
-  }
-  void setLow(){
-    isHigh = false;
-    clearPin(TEMPOOUT_GPIO_Port, TEMPOOUT_Pin);
-  }
-  void setHigh(){
-    isHigh = true;
-    setPin(TEMPOOUT_GPIO_Port, TEMPOOUT_Pin);
   }
 };
 
@@ -334,22 +268,19 @@ void updateMode(){
   env2.mode = getMode(CH2);
 }
 
+#define NOMINAL_PERIOD 9000 // 1.33Hz, 80BPM, at 12kHz
 void updateParameters(){
-  // env1.attack = (getAnalogValue(ATTACK1) << 10L) + MIN_ATTACK;
-  // env2.attack = (getAnalogValue(ATTACK2) << 10L) + MIN_ATTACK;
-  // // env2.attack = (getAnalogValue(ATTACK2)<<10L) + MIN_SLOPE;
-  // env1.release = (getAnalogValue(RELEASE1)<<10L) + MIN_RELEASE;
-  // env2.release = (getAnalogValue(RELEASE2)<<10L) + MIN_RELEASE;
-  // env1.skew = (2048 - getAnalogValue(SHAPE1))<<10L;
-  // env2.skew = (2048 - getAnalogValue(SHAPE2))<<10L;
   int32_t skew = 2048 - getAnalogValue(SHAPE1);
-  env1.setAttack(getAnalogValue(ATTACK1), skew);
-  env1.setRelease(getAnalogValue(RELEASE1), skew);
+  int32_t period = tempo.period;
+  int32_t value = (getAnalogValue(ATTACK1)*period)/NOMINAL_PERIOD;
+  env1.setAttack(value, skew);
+  value = (getAnalogValue(RELEASE1)*period)/NOMINAL_PERIOD;
+  env1.setRelease(value, skew);
   skew = 2048 - getAnalogValue(SHAPE2);
-  env2.setAttack(getAnalogValue(ATTACK2), skew);
-  env2.setRelease(getAnalogValue(RELEASE2), skew);
-  // env1.setSkew(2048 - getAnalogValue(SHAPE1));
-  // env2.setSkew(2048 - getAnalogValue(SHAPE2));
+  value = (getAnalogValue(ATTACK2)*period)/NOMINAL_PERIOD;
+  env2.setAttack(value, skew);
+  value = (getAnalogValue(RELEASE2)*period)/NOMINAL_PERIOD;
+  env2.setRelease(value, skew);
 }
 
 void setup(){
@@ -368,6 +299,8 @@ void setup(){
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_Base_Start(&htim3); 
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  HAL_TIM_Base_Start(&htim4); 
+  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
 
   setLed1(LED_FULL/2);
   setLed2(LED_FULL/2);

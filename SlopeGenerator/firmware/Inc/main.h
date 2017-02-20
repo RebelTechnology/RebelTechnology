@@ -71,8 +71,8 @@
 #define TR2_GPIO_Port GPIOB
 #define TR1_Pin GPIO_PIN_6
 #define TR1_GPIO_Port GPIOB
-#define TEMPOOUT_Pin GPIO_PIN_7
-#define TEMPOOUT_GPIO_Port GPIOB
+#define TEMPO_OUT_Pin GPIO_PIN_7
+#define TEMPO_OUT_GPIO_Port GPIOB
 #define SW1A_Pin GPIO_PIN_8
 #define SW1A_GPIO_Port GPIOB
 #define SW1B_Pin GPIO_PIN_9

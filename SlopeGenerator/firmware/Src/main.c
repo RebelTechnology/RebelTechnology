@@ -49,6 +49,7 @@ DMA_HandleTypeDef hdma_dac_ch2;
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
+TIM_HandleTypeDef htim4;
 TIM_HandleTypeDef htim6;
 
 /* USER CODE BEGIN PV */
@@ -67,6 +68,7 @@ static void MX_TIM1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_TIM6_Init(void);
+static void MX_TIM4_Init(void);
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
                                 
@@ -106,6 +108,7 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM3_Init();
   MX_TIM6_Init();
+  MX_TIM4_Init();
 
   /* USER CODE BEGIN 2 */
   setup();
@@ -273,7 +276,7 @@ static void MX_DAC_Init(void)
     /**DAC channel OUT1 config 
     */
   sConfig.DAC_Trigger = DAC_TRIGGER_T6_TRGO;
-  sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
+  sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_DISABLE;
   if (HAL_DAC_ConfigChannel(&hdac, &sConfig, DAC_CHANNEL_1) != HAL_OK)
   {
     Error_Handler();
@@ -414,6 +417,43 @@ static void MX_TIM3_Init(void)
 
 }
 
+/* TIM4 init function */
+static void MX_TIM4_Init(void)
+{
+
+  TIM_MasterConfigTypeDef sMasterConfig;
+  TIM_OC_InitTypeDef sConfigOC;
+
+  htim4.Instance = TIM4;
+  htim4.Init.Prescaler = 2400;
+  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim4.Init.Period = 7500;
+  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  if (HAL_TIM_PWM_Init(&htim4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 1023;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  HAL_TIM_MspPostInit(&htim4);
+
+}
+
 /* TIM6 init function */
 static void MX_TIM6_Init(void)
 {
@@ -476,9 +516,6 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(TEMPOOUT_GPIO_Port, TEMPOOUT_Pin, GPIO_PIN_RESET);
-
   /*Configure GPIO pins : SW2A_Pin SW2B_Pin */
   GPIO_InitStruct.Pin = SW2A_Pin|SW2B_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -490,12 +527,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : TEMPOOUT_Pin */
-  GPIO_InitStruct.Pin = TEMPOOUT_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(TEMPOOUT_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : SW1A_Pin SW1B_Pin */
   GPIO_InitStruct.Pin = SW1A_Pin|SW1B_Pin;
