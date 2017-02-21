@@ -27,12 +27,32 @@ extern "C" {
   void setup(void);
   void loop(void);
   void updateProgramVector(ProgramVector* pv);
+
+  extern DAC_HandleTypeDef hdac;
+  extern SDRAM_HandleTypeDef hsdram1;
+  extern SPI_HandleTypeDef hspi2;
+  extern TIM_HandleTypeDef htim2;
+  extern TIM_HandleTypeDef htim3;
+  extern TIM_HandleTypeDef htim6;
+  extern SAI_HandleTypeDef hsai_BlockA1;
+  extern SAI_HandleTypeDef hsai_BlockB1;
+  extern ADC_HandleTypeDef hadc1;
+
+  uint16_t getAnalogValue(uint8_t index);
+  void setAnalogValue(uint8_t ch, uint16_t value);
 }
-extern DAC_HandleTypeDef hdac;
-extern SDRAM_HandleTypeDef hsdram1;
-extern SPI_HandleTypeDef hspi2;
-extern TIM_HandleTypeDef htim2;
-extern TIM_HandleTypeDef htim3;
+
+uint16_t adc_values[6];
+uint16_t dac_values[2];
+
+uint16_t getAnalogValue(uint8_t index){
+  return adc_values[index];
+}
+
+void setAnalogValue(uint8_t ch, uint16_t value){
+  value &= 0xfff;
+  dac_values[ch] = value;
+}
 
 // there are only really 2 timestamps needed: LED pushbutton and midi gate
 uint16_t timestamps[NOF_BUTTONS]; 
@@ -95,19 +115,6 @@ extern "C" {
     BaseType_t yield;
     vTaskNotifyGiveFromISR(audioTask, &yield);
     portYIELD_FROM_ISR(yield);
-
-
-    // yield = xTaskResumeFromISR(audioTask);
-    // if(yield == pdTRUE)
-    //   portYIELD_FROM_ISR(yield);
-    // if(!doProcessAudio){
-    //   getProgramVector()->audio_input = rx;
-    //   getProgramVector()->audio_output = tx;
-    //   getProgramVector()->audio_blocksize = size;
-    //   doProcessAudio = true;
-    // }else{
-    //   dropouts++;
-    // }
   }
 }
 
@@ -116,7 +123,19 @@ void switchInB(){}
 void triggerInA(){}
 void triggerInB(){}
 
+void stopProgram(){
+  codec.pause();
+  
+}
+
+void startProgram(){
+  codec.resume();
+}
+
 extern "C"{
+  void HAL_ADC_ErrorCallback(ADC_HandleTypeDef *hadc){
+    assert_param(0);
+  }
   void HAL_GPIO_EXTI_Callback(uint16_t pin){
   // sw1() pg14
   // sw2() pb4
@@ -206,8 +225,8 @@ void setup(void){
 
   graphics.begin(&hspi2);
 
-  __HAL_TIM_SetCounter(&htim2, INT16_MAX/2);
-  __HAL_TIM_SetCounter(&htim3, INT16_MAX/2);
+  __HAL_TIM_SET_COUNTER(&htim2, INT16_MAX/2);
+  __HAL_TIM_SET_COUNTER(&htim3, INT16_MAX/2);
   HAL_TIM_Encoder_Start_IT(&htim2, 0);
   HAL_TIM_Encoder_Start_IT(&htim3, TIM_CHANNEL_ALL);
 
@@ -223,6 +242,13 @@ void setup(void){
   codec.ramp(1<<23);
 #endif
 
+  HAL_TIM_Base_Start(&htim6);
+  HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
+  HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
+  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)&dac_values[0], 1, DAC_ALIGN_12B_R);
+  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_2, (uint32_t*)&dac_values[1], 1, DAC_ALIGN_12B_R);
+
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_values, 6);
 
   // program.startManager();
 

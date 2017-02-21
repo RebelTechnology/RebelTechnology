@@ -43,6 +43,9 @@
 /* External variables --------------------------------------------------------*/
 extern PCD_HandleTypeDef hpcd_USB_OTG_HS;
 extern HCD_HandleTypeDef hhcd_USB_OTG_FS;
+extern DMA_HandleTypeDef hdma_adc1;
+extern DMA_HandleTypeDef hdma_dac1;
+extern DMA_HandleTypeDef hdma_dac2;
 extern DMA_HandleTypeDef hdma_sai1_a;
 extern DMA_HandleTypeDef hdma_sai1_b;
 extern DMA_HandleTypeDef hdma_spi2_tx;
@@ -77,6 +80,20 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
+* @brief This function handles EXTI line4 interrupt.
+*/
+void EXTI4_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI4_IRQn 0 */
+
+  /* USER CODE END EXTI4_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);
+  /* USER CODE BEGIN EXTI4_IRQn 1 */
+
+  /* USER CODE END EXTI4_IRQn 1 */
+}
+
+/**
 * @brief This function handles DMA1 stream4 global interrupt.
 */
 void DMA1_Stream4_IRQHandler(void)
@@ -88,6 +105,34 @@ void DMA1_Stream4_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Stream4_IRQn 1 */
 
   /* USER CODE END DMA1_Stream4_IRQn 1 */
+}
+
+/**
+* @brief This function handles DMA1 stream5 global interrupt.
+*/
+void DMA1_Stream5_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA1_Stream5_IRQn 0 */
+
+  /* USER CODE END DMA1_Stream5_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_dac1);
+  /* USER CODE BEGIN DMA1_Stream5_IRQn 1 */
+
+  /* USER CODE END DMA1_Stream5_IRQn 1 */
+}
+
+/**
+* @brief This function handles DMA1 stream6 global interrupt.
+*/
+void DMA1_Stream6_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA1_Stream6_IRQn 0 */
+
+  /* USER CODE END DMA1_Stream6_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_dac2);
+  /* USER CODE BEGIN DMA1_Stream6_IRQn 1 */
+
+  /* USER CODE END DMA1_Stream6_IRQn 1 */
 }
 
 /**
@@ -130,6 +175,36 @@ void SPI2_IRQHandler(void)
   /* USER CODE BEGIN SPI2_IRQn 1 */
 
   /* USER CODE END SPI2_IRQn 1 */
+}
+
+/**
+* @brief This function handles EXTI line[15:10] interrupts.
+*/
+void EXTI15_10_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI15_10_IRQn 0 */
+
+  /* USER CODE END EXTI15_10_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_11);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_14);
+  /* USER CODE BEGIN EXTI15_10_IRQn 1 */
+
+  /* USER CODE END EXTI15_10_IRQn 1 */
+}
+
+/**
+* @brief This function handles DMA2 stream0 global interrupt.
+*/
+void DMA2_Stream0_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Stream0_IRQn 0 */
+
+  /* USER CODE END DMA2_Stream0_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_adc1);
+  /* USER CODE BEGIN DMA2_Stream0_IRQn 1 */
+
+  /* USER CODE END DMA2_Stream0_IRQn 1 */
 }
 
 /**
@@ -195,32 +270,6 @@ void OTG_HS_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
-
-/* #define CHECK_EXTI(pin) if(__HAL_GPIO_EXTI_GET_IT(pin) != RESET){ \ */
-/*     __HAL_GPIO_EXTI_CLEAR_IT(pin);				  \ */
-/*     HAL_GPIO_EXTI_Callback(pin); } */
-
-static void checkEXTI(uint16_t pin){
-  if(__HAL_GPIO_EXTI_GET_IT(pin) != RESET){
-    __HAL_GPIO_EXTI_CLEAR_IT(pin);
-    HAL_GPIO_EXTI_Callback(pin);
-  }
-}
-
-void EXTI4_IRQHandler(void){
-  /* HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4); */
-  checkEXTI(GPIO_PIN_4);
-}
-
-void EXTI15_10_IRQHandler(void){
-  // sw1() pg14
-  // sw2() pb4
-  // tr1() pc11
-  // tr2() pc10
-  checkEXTI(GPIO_PIN_10);
-  checkEXTI(GPIO_PIN_11);
-  checkEXTI(GPIO_PIN_14);
-}
 
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

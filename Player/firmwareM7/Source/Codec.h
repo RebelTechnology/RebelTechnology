@@ -8,6 +8,8 @@ class Codec {
   void reset();
   void start();
   void stop();
+  void pause();
+  void resume();
   void bypass(bool doBypass);
   void clear();
   void txrx();

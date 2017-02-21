@@ -346,6 +346,16 @@ void Codec::start(){
   assert_param(ret == HAL_OK);
 }
 
+void Codec::pause(){
+  HAL_SAI_DMAPause(&hsai_BlockB1);
+  HAL_SAI_DMAPause(&hsai_BlockA1);
+}
+
+void Codec::resume(){
+  HAL_SAI_DMAResume(&hsai_BlockB1);
+  HAL_SAI_DMAResume(&hsai_BlockA1);
+}
+
 extern "C" {
 
 // void HAL_SAI_TxHalfCpltCallback(SAI_HandleTypeDef *hsai){
