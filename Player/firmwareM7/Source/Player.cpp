@@ -194,24 +194,12 @@ void setup(void){
   // if(testram32(&hsdram1) != 0)
   //   error(PROGRAM_ERROR, "testram32 failed");
 
-  // memset(pixelbuffer, 0xAA, 1024);
-// Product Specific Initialisation
-  // Triggers_Config();
-  // Encoders_Config();
-
-  // enable sw1/sw2 and tr1/tr2 callbacks
-  // HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0x0F, 0x00);
-  // HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
-  // HAL_NVIC_SetPriority(EXTI4_IRQn, 0x0F, 0x00);
-  // HAL_NVIC_EnableIRQ(EXTI4_IRQn);
-
   // DWT cycle count enable
   CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
-  DWT->LAR = 0xC5ACCE55; 
+  DWT->LAR = 0xC5ACCE55;
   DWT->CYCCNT = 0;
   DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 
-  
   CV_IO_Config();
   CV_Out_A(&hdac, 0);
   CV_Out_B(&hdac, 0);
