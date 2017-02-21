@@ -74,10 +74,7 @@ uint16_t getAnalogValue(uint8_t index){
 
 void setAnalogValue(Channel ch, uint16_t value){
   value &= 0xfff;
-  if(ch == CH1)
-    dac_values[0] = value;
-  else if(ch == CH2)
-    dac_values[1] = value;
+  dac_values[ch] = value;
 }
 
 // template<Channel CH>
@@ -136,6 +133,8 @@ int32_t SKEW_SCALAR = 10+DAC_SCALAR;
 int32_t MID_LEVEL = MAX_LEVEL>>1;
 #define MIN_SLOPE 1
 
+#define NOMINAL_PERIOD 9000 // 1.33Hz, 80BPM, at 12kHz
+
 template<Channel CH>
 class Envelope {
 public:
@@ -149,14 +148,16 @@ public:
   volatile Stage stage;
   Envelope() :
     level(MIN_LEVEL), linear(-MID_LEVEL), mode(GATE_MODE), attack(0), release(0), attack_skew(0), release_skew(0), stage(END_STAGE) {}
-  void setAttack(int32_t value, int32_t skew){
-    value = min(ADC_RANGE-1, value);
-    attack = max(MIN_SLOPE, MAX_LEVEL/((ADC_RANGE - value)<<ADC_SCALAR));
+  void setAttack(int32_t value, int32_t skew, int32_t period){
+    value = ADC_RANGE - min(ADC_RANGE-1, value);
+    value = (value*period)/NOMINAL_PERIOD;
+    attack = max(MIN_SLOPE, MAX_LEVEL/(value<<ADC_SCALAR));
     attack_skew = (attack*skew)>>11;
   }
-  void setRelease(int32_t value, int32_t skew){
-    value = min(ADC_RANGE-1, value);
-    release = max(MIN_SLOPE,  MAX_LEVEL/((ADC_RANGE - value)<<ADC_SCALAR));
+  void setRelease(int32_t value, int32_t skew, int32_t period){
+    value = ADC_RANGE - min(ADC_RANGE-1, value);
+    value = (value*period)/NOMINAL_PERIOD;
+    release = max(MIN_SLOPE,  MAX_LEVEL/(value<<ADC_SCALAR));
     release_skew = (release*skew)>>11;
   }
   void clock(){
@@ -268,19 +269,14 @@ void updateMode(){
   env2.mode = getMode(CH2);
 }
 
-#define NOMINAL_PERIOD 9000 // 1.33Hz, 80BPM, at 12kHz
 void updateParameters(){
-  int32_t skew = 2048 - getAnalogValue(SHAPE1);
   int32_t period = tempo.period;
-  int32_t value = (getAnalogValue(ATTACK1)*period)/NOMINAL_PERIOD;
-  env1.setAttack(value, skew);
-  value = (getAnalogValue(RELEASE1)*period)/NOMINAL_PERIOD;
-  env1.setRelease(value, skew);
+  int32_t skew = 2048 - getAnalogValue(SHAPE1);
+  env1.setAttack(getAnalogValue(ATTACK1), skew, period);
+  env1.setRelease(getAnalogValue(RELEASE1), skew, period);
   skew = 2048 - getAnalogValue(SHAPE2);
-  value = (getAnalogValue(ATTACK2)*period)/NOMINAL_PERIOD;
-  env2.setAttack(value, skew);
-  value = (getAnalogValue(RELEASE2)*period)/NOMINAL_PERIOD;
-  env2.setRelease(value, skew);
+  env2.setAttack(getAnalogValue(ATTACK2), skew, period);
+  env2.setRelease(getAnalogValue(RELEASE2), skew, period);
 }
 
 void setup(){
