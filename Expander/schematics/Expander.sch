@@ -12163,12 +12163,18 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <part name="P+9" library="supply1" deviceset="+5V" device=""/>
 <part name="CN1" library="Rebel" deviceset="CON-JST-1X03" device="PH-TH"/>
 <part name="T1" library="transistor" deviceset="2N3904" device=""/>
+<part name="C32" library="Rebel" deviceset="C-EU" device="C0603" value="4u7"/>
+<part name="C33" library="Rebel" deviceset="C-EU" device="C0603" value="4u7"/>
+<part name="C34" library="Rebel" deviceset="C-EU" device="C0603" value="4u7"/>
+<part name="GND22" library="supply1" deviceset="GND" device=""/>
+<part name="GND69" library="supply1" deviceset="GND" device=""/>
+<part name="GND70" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="-121.92" y="68.58" size="3.048" layer="97" font="vector">Rebel Technology Porter IO Expander Rev01</text>
-<text x="-121.92" y="60.96" size="3.048" layer="97" font="vector">published 2016 under the GNU GPL v2</text>
+<text x="-121.92" y="68.58" size="3.048" layer="97" font="vector">Rebel Technology Expander 0x10 Rev01</text>
+<text x="-121.92" y="60.96" size="3.048" layer="97" font="vector">Published 2016 under the GNU GPL v2</text>
 </plain>
 <instances>
 <instance part="P1" gate="G$1" x="142.24" y="73.66"/>
@@ -13008,6 +13014,12 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 </instance>
 <instance part="CN1" gate="G$1" x="325.12" y="-25.4"/>
 <instance part="T1" gate="G1" x="106.68" y="-78.74"/>
+<instance part="C32" gate="G$1" x="139.7" y="-68.58"/>
+<instance part="C33" gate="G$1" x="147.32" y="-66.04"/>
+<instance part="C34" gate="G$1" x="154.94" y="-63.5"/>
+<instance part="GND22" gate="1" x="154.94" y="-78.74"/>
+<instance part="GND69" gate="1" x="147.32" y="-78.74"/>
+<instance part="GND70" gate="1" x="139.7" y="-78.74"/>
 </instances>
 <busses>
 </busses>
@@ -13301,6 +13313,21 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <pinref part="C122" gate="G$1" pin="-"/>
 <pinref part="GND68" gate="1" pin="GND"/>
 <wire x1="264.16" y1="137.16" x2="264.16" y2="139.7" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C34" gate="G$1" pin="2"/>
+<pinref part="GND22" gate="1" pin="GND"/>
+<wire x1="154.94" y1="-68.58" x2="154.94" y2="-76.2" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C33" gate="G$1" pin="2"/>
+<pinref part="GND69" gate="1" pin="GND"/>
+<wire x1="147.32" y1="-76.2" x2="147.32" y2="-71.12" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C32" gate="G$1" pin="2"/>
+<pinref part="GND70" gate="1" pin="GND"/>
+<wire x1="139.7" y1="-76.2" x2="139.7" y2="-73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PORT0" class="0">
@@ -14528,6 +14555,30 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <wire x1="251.46" y1="152.4" x2="264.16" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="264.16" y1="152.4" x2="264.16" y2="147.32" width="0.1524" layer="91"/>
 <junction x="264.16" y="152.4"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="U1" gate="-REF" pin="ADC_INT_REF"/>
+<pinref part="C34" gate="G$1" pin="1"/>
+<wire x1="134.62" y1="-58.42" x2="154.94" y2="-58.42" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="-58.42" x2="154.94" y2="-60.96" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="U1" gate="-REF" pin="ADC_EXT_REF"/>
+<pinref part="C33" gate="G$1" pin="1"/>
+<wire x1="134.62" y1="-60.96" x2="147.32" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="-60.96" x2="147.32" y2="-63.5" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="U1" gate="-REF" pin="DAC_REF"/>
+<pinref part="C32" gate="G$1" pin="1"/>
+<wire x1="134.62" y1="-63.5" x2="139.7" y2="-63.5" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="-63.5" x2="139.7" y2="-66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

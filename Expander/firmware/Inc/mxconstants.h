@@ -71,7 +71,9 @@
 #define SWCLK_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
 
-#define BUS_UART_BAUDRATE 460800
+/* #define BUS_UART_BAUDRATE 460800 */
+#define BUS_UART_BAUDRATE 115200
+
 /* USER CODE END Private defines */
 
 /**

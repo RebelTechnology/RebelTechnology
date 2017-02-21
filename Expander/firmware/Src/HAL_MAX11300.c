@@ -105,7 +105,7 @@ void MAX11300_setDeviceControl(uint16_t config)
 uint16_t MAX11300_readADC(uint8_t port)
 {
 	uint16_t usiRtnValue = 0;
-	uint8_t rgData[3] = {(ADDR_ADCbase+port)<<1 | SPI_Read, 0, 0 };
+	uint8_t rgData[3] = {((ADDR_ADCbase+port)<<1) | SPI_Read, 0, 0 };
 	while(getPixiBusy() == STATE_Busy); // wait until last transfer has finished
 	pbarCS(0);
 	HAL_SPI_TransmitReceive(MAX11300_SPIConfig, rgData, rgData, 3, 100);
