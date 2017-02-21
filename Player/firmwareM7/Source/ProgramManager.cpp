@@ -1,16 +1,201 @@
+extern "C" {
+#include "stm32f7xx_hal.h"
+#include "cmsis_os.h"
+}
+
 #include <string.h>
 #include "ProgramManager.h"
 #include "ProgramVector.h"
-// #include "owlcontrol.h"
-// #include "eepromcontrol.h"
 #include "device.h"
 #include "DynamicPatchDefinition.hpp"
-#include "FreeRTOS.h"
-// #include "PatchRegistry.h"
-#include "ApplicationSettings.h"
-// #include "CodecController.h"
 #include "errorhandlers.h"
 #include "Graphics.h"
+#include "ScreenBuffer.h"
+#include "SampleBuffer.hpp"
+#include "Codec.h"
+
+#define SCREEN_TASK_STACK_SIZE (2*1024/sizeof(portSTACK_TYPE))
+#define SCREEN_TASK_PRIORITY 3
+#define AUDIO_TASK_STACK_SIZE  (2*1024/sizeof(portSTACK_TYPE))
+#define AUDIO_TASK_PRIORITY  4
+
+#define OLED_DATA_LENGTH (OLED_WIDTH*OLED_HEIGHT/8)
+uint8_t pixelbuffer[OLED_DATA_LENGTH];
+
+ProgramManager program;
+static ProgramVector staticVector;
+ProgramVector* programVector = &staticVector;
+static TaskHandle_t screenTask;
+static TaskHandle_t audioTask;
+ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
+SampleBuffer samples;
+
+extern "C" {
+  void updateProgramVector(ProgramVector* pv);
+  ProgramVector* getProgramVector() { return programVector; }
+  void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size);
+  void encoderChanged(uint8_t encoder, int32_t value);
+}
+
+#include "SplashPatch.hpp"
+static SplashPatch splash;
+static Patch* patches[] = {&splash};
+static uint8_t currentPatch = 0;
+
+static int16_t encoders[2] = {INT16_MAX/2, INT16_MAX/2};
+static int16_t deltas[2] = {0, 0};
+void encoderChanged(uint8_t encoder, int32_t value){
+  // // todo: debounce
+  // // pass encoder change event to patch
+  int32_t delta = value - encoders[encoder];
+  encoders[encoder] = value;
+  deltas[encoder] = delta;
+  patches[currentPatch]->encoderChanged(encoder, delta);
+}
+
+void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size){
+  DWT->CYCCNT = 0;
+  getProgramVector()->audio_input = rx;
+  getProgramVector()->audio_output = tx;
+  getProgramVector()->audio_blocksize = size;
+  // vTaskSuspend(screenTask);
+  BaseType_t yield;
+  vTaskNotifyGiveFromISR(audioTask, &yield);
+  portYIELD_FROM_ISR(yield);
+}
+
+/* called by the program when an error or anomaly has occured */
+void onProgramStatus(ProgramVectorAudioStatus status){
+  // setLed(RED);
+  for(;;);
+}
+
+/* called by the program when a block has been processed */
+void onProgramReady(){
+  ProgramVector* pv = getProgramVector();
+  pv->cycles_per_block = DWT->CYCCNT;
+  uint32_t ulNotifiedValue = 0;
+  while(ulNotifiedValue <= 0){
+    const TickType_t xBlockTime = portMAX_DELAY;  /* Block indefinitely. */
+    // const TickType_t xBlockTime = pdMS_TO_TICS( 500 );
+    ulNotifiedValue = ulTaskNotifyTake(pdTRUE, xBlockTime);
+  }
+  // ready to run block again
+}
+
+void updateProgramVector(ProgramVector* pv){
+  pv->checksum = PROGRAM_VECTOR_CHECKSUM_V13;
+  pv->hardware_version = PLAYER_HARDWARE;
+  pv->parameters_size = 2;
+  pv->parameters = NULL; // adc_values;
+  pv->audio_bitdepth = 24;
+  pv->audio_samplingrate = 48000;
+  pv->buttons = 0;
+  pv->registerPatch = NULL;
+  pv->registerPatchParameter = NULL;
+  pv->cycles_per_block = 0;
+  pv->heap_bytes_used = 0;
+  pv->programReady = onProgramReady;
+  pv->programStatus = onProgramStatus;
+  pv->serviceCall = NULL;
+  pv->message = NULL;
+  pv->pixels = pixelbuffer;
+  pv->screen_width = OLED_WIDTH;
+  pv->screen_height = OLED_HEIGHT;
+}
+
+void runScreenTask(void* p){
+  const TickType_t delay = 20 / portTICK_PERIOD_MS;
+  for(;;){
+    ProgramVector* pv = getProgramVector();
+    screen.setBuffer(pv->pixels);
+    patches[currentPatch]->processScreen(screen);
+    // if(dodisplay && graphics.isReady()){
+    graphics.display(pv->pixels, OLED_WIDTH*OLED_HEIGHT);
+    // taskYIELD();
+    vTaskDelay(delay);
+    // swap pixelbuffer
+    // pv->pixels = pixelbuffer[swappb];
+    // swappb = !swappb;
+  }
+  // screen.setTextSize(1);
+  // screen.print(0, screen.getHeight()-8, "Rebel Technology");
+}
+
+void runAudioTask(void* p){
+  updateProgramVector(getProgramVector());
+  patches[currentPatch]->reset();
+  ProgramVector* pv = getProgramVector();
+  for(;;){
+    //onProgramReady();
+    pv->programReady();
+    samples.split(pv->audio_input, pv->audio_blocksize);
+    patches[currentPatch]->processAudio(samples);
+    samples.comb(pv->audio_output);
+    // done processing one audio block
+  }
+}
+
+ProgramManager::ProgramManager(){
+}
+
+void ProgramManager::startManager(){
+  xTaskCreate(runScreenTask, "Screen", SCREEN_TASK_STACK_SIZE, NULL, SCREEN_TASK_PRIORITY, &screenTask);
+  xTaskCreate(runAudioTask, "Audio", AUDIO_TASK_STACK_SIZE, NULL, AUDIO_TASK_PRIORITY, &audioTask);
+}
+
+void ProgramManager::startProgram(bool isr){
+  updateProgramVector(getProgramVector());
+  patches[currentPatch]->reset();
+  codec.resume();
+}
+
+void ProgramManager::exitProgram(bool isr){
+  codec.pause();
+}
+
+void ProgramManager::loadDynamicProgram(void* address, uint32_t length){
+}
+
+void ProgramManager::saveProgramToFlash(uint8_t sector, void* address, uint32_t length){
+}
+
+extern "C" {
+  static StaticTask_t xIdleTaskTCBBuffer;// CCM;
+  static StackType_t xIdleStack[IDLE_TASK_STACK_SIZE];// CCM;
+  void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize) {
+    *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
+    *ppxIdleTaskStackBuffer = &xIdleStack[0];
+    *pulIdleTaskStackSize = IDLE_TASK_STACK_SIZE;
+  }
+  void vApplicationMallocFailedHook(void) {
+    // taskDISABLE_INTERRUPTS();
+    // for(;;);
+    // exitProgram(false);
+    error(PROGRAM_ERROR, "malloc failed");
+  }
+  void vApplicationIdleHook(void) {
+  }
+  void vApplicationStackOverflowHook(xTaskHandle pxTask, signed char *pcTaskName) {
+    (void) pcTaskName;
+    (void) pxTask;
+    /* Run time stack overflow checking is performed if
+       configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2.  This hook
+       function is called if a stack overflow is detected. */
+    // exitProgram(false);
+    error(PROGRAM_ERROR, "stack overflow");
+    // taskDISABLE_INTERRUPTS();
+    // for(;;);
+  }
+}
+
+#if 0
+// #include "PatchRegistry.h"
+// #include "ApplicationSettings.h"
+// #include "CodecController.h"
+// #include "owlcontrol.h"
+// #include "eepromcontrol.h"
+// #include "FreeRTOS.h"
 
 // FreeRTOS low priority numbers denote low priority tasks. 
 // The idle task has priority zero (tskIDLE_PRIORITY).
@@ -521,31 +706,4 @@ void updateProgramVector(ProgramVector* pv){
 }
 
 
-extern "C" {
-  static StaticTask_t xIdleTaskTCBBuffer;// CCM;
-  static StackType_t xIdleStack[IDLE_TASK_STACK_SIZE];// CCM;
-  void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize) {
-    *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
-    *ppxIdleTaskStackBuffer = &xIdleStack[0];
-    *pulIdleTaskStackSize = IDLE_TASK_STACK_SIZE;
-  }
-  void vApplicationMallocFailedHook(void) {
-    // taskDISABLE_INTERRUPTS();
-    // for(;;);
-    // exitProgram(false);
-    error(PROGRAM_ERROR, "malloc failed");
-  }
-  void vApplicationIdleHook(void) {
-  }
-  void vApplicationStackOverflowHook(xTaskHandle pxTask, signed char *pcTaskName) {
-    (void) pcTaskName;
-    (void) pxTask;
-    /* Run time stack overflow checking is performed if
-       configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2.  This hook
-       function is called if a stack overflow is detected. */
-    // exitProgram(false);
-    error(PROGRAM_ERROR, "stack overflow");
-    // taskDISABLE_INTERRUPTS();
-    // for(;;);
-  }
-}
+#endif

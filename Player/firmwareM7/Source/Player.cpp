@@ -1,9 +1,6 @@
 extern "C" {
 #include "stm32f7xx_hal.h"
 #include "cmsis_os.h"
-#include "HAL_Triggers.h"
-#include "HAL_Encoders.h"
-#include "HAL_CV_IO.h"
 #include "usb_device.h"
 #include "usb_host.h"
 }
@@ -11,15 +8,12 @@ extern "C" {
 #include "Graphics.h"
 #include "Codec.h"
 #include "ProgramVector.h"
-#include "ScreenBuffer.h"
-#include "SampleBuffer.hpp"
 #include "midi.h"
 #include "usbh_midi.h"
 #include "BitState.hpp"
 #include "MidiReader.h"
 #include "ProgramManager.h"
 #include "ApplicationSettings.h"
-// extern ProgramManager program;
 ApplicationSettings settings;
 Graphics graphics;
 
@@ -42,7 +36,7 @@ extern "C" {
   void setAnalogValue(uint8_t ch, uint16_t value);
 }
 
-uint16_t adc_values[6];
+uint16_t adc_values[2];
 uint16_t dac_values[2];
 
 uint16_t getAnalogValue(uint8_t index){
@@ -57,7 +51,6 @@ void setAnalogValue(uint8_t ch, uint16_t value){
 // there are only really 2 timestamps needed: LED pushbutton and midi gate
 uint16_t timestamps[NOF_BUTTONS]; 
 BitState32 stateChanged;
-
 bool getButton(uint8_t bid){
   return getProgramVector()->buttons & (1<<bid);
 }
@@ -71,22 +64,6 @@ extern "C" {
 
 #include "sdram.h"
 
-bool tr1(){
-  return HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_11) != GPIO_PIN_SET;
-}
-
-bool tr2(){
-  return HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10) != GPIO_PIN_SET;
-}
-
-bool sw1(){
-  return HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_14) != GPIO_PIN_SET;
-}
-
-bool sw2(){
-  return HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4) != GPIO_PIN_SET;
-}
-
 #define RX_BUFF_SIZE   64  /* Max Received data 64 bytes */
 extern uint8_t USBHOST_RX_Buffer[RX_BUFF_SIZE];
 
@@ -94,48 +71,15 @@ extern uint8_t USBHOST_RX_Buffer[RX_BUFF_SIZE];
 // #define OLED_WIDTH 128
 // static bool dodisplay = true;
 Codec codec;
-ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
-SampleBuffer samples;
 MidiReader midireader;
 
-#include "SplashPatch.hpp"
-static SplashPatch splash;
-static Patch* patches[] = {&splash};
-static uint8_t currentPatch = 0;
-
-static TaskHandle_t screenTask;
-static TaskHandle_t audioTask;
-extern "C" {
-  void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size){
-    DWT->CYCCNT = 0;
-    getProgramVector()->audio_input = rx;
-    getProgramVector()->audio_output = tx;
-    getProgramVector()->audio_blocksize = size;
-    // vTaskSuspend(screenTask);
-    BaseType_t yield;
-    vTaskNotifyGiveFromISR(audioTask, &yield);
-    portYIELD_FROM_ISR(yield);
-  }
-}
 
 void switchInA(){}
 void switchInB(){}
 void triggerInA(){}
 void triggerInB(){}
 
-void stopProgram(){
-  codec.pause();
-  
-}
-
-void startProgram(){
-  codec.resume();
-}
-
 extern "C"{
-  void HAL_ADC_ErrorCallback(ADC_HandleTypeDef *hadc){
-    assert_param(0);
-  }
   void HAL_GPIO_EXTI_Callback(uint16_t pin){
   // sw1() pg14
   // sw2() pb4
@@ -156,54 +100,19 @@ extern "C"{
       break;
     }
   }
-}
-
-void runScreenTask(void* p){
-  const TickType_t delay = 20 / portTICK_PERIOD_MS;
-  for(;;){
-    ProgramVector* pv = getProgramVector();
-    screen.setBuffer(pv->pixels);
-    patches[currentPatch]->processScreen(screen);
-    // if(dodisplay && graphics.isReady()){
-    graphics.display(pv->pixels, OLED_WIDTH*OLED_HEIGHT);
-    // taskYIELD();
-    vTaskDelay(delay);
-
-    // swap pixelbuffer
-    // pv->pixels = pixelbuffer[swappb];
-    // swappb = !swappb;
+  void HAL_ADC_ErrorCallback(ADC_HandleTypeDef *hadc){
+    assert_param(0);
   }
-  // screen.setTextSize(1);
-  // screen.print(0, screen.getHeight()-8, "Rebel Technology");
-}
-
-void runAudioTask(void* p){
-  for(;;){
-    uint32_t ulNotifiedValue;
-    const TickType_t xBlockTime = portMAX_DELAY;  /* Block indefinitely. */
-    // const TickType_t xBlockTime = pdMS_TO_TICS( 500 );
-    ulNotifiedValue = ulTaskNotifyTake(pdTRUE, xBlockTime);
-    if(ulNotifiedValue > 0){
-      // audio block ready for processing
-      // DWT->CYCCNT = 0;
-      ProgramVector* pv = getProgramVector();
-      samples.split(pv->audio_input, pv->audio_blocksize);
-      patches[currentPatch]->processAudio(samples);
-      samples.comb(pv->audio_output);
-      // done processing one audio block
-      pv->cycles_per_block = DWT->CYCCNT;
-      // vTaskResume(screenTask);
-      // vTaskSuspend(NULL);
-    }
+  void HAL_DAC_ErrorCallbackCh1(DAC_HandleTypeDef *hdac){
+    assert_param(0);
+  }
+  void HAL_DAC_ErrorCallbackCh2(DAC_HandleTypeDef *hdac){
+    assert_param(0);
   }
 }
 
 // FreeRTOS low priority numbers denote low priority tasks. 
 // The idle task has priority zero (tskIDLE_PRIORITY).
-#define SCREEN_TASK_STACK_SIZE (2*1024/sizeof(portSTACK_TYPE))
-#define SCREEN_TASK_PRIORITY 3
-#define AUDIO_TASK_STACK_SIZE  (2*1024/sizeof(portSTACK_TYPE))
-#define AUDIO_TASK_PRIORITY  4
 
 void setup(void){
   // if(testram8(&hsdram1) != 0)
@@ -219,22 +128,15 @@ void setup(void){
   DWT->CYCCNT = 0;
   DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 
-  CV_IO_Config();
-  CV_Out_A(&hdac, 0);
-  CV_Out_B(&hdac, 0);
-
   graphics.begin(&hspi2);
 
   __HAL_TIM_SET_COUNTER(&htim2, INT16_MAX/2);
   __HAL_TIM_SET_COUNTER(&htim3, INT16_MAX/2);
-  HAL_TIM_Encoder_Start_IT(&htim2, 0);
+  HAL_TIM_Encoder_Start_IT(&htim2, TIM_CHANNEL_ALL);
   HAL_TIM_Encoder_Start_IT(&htim3, TIM_CHANNEL_ALL);
 
-  updateProgramVector(getProgramVector());
-  patches[currentPatch]->reset();
-
-  xTaskCreate(runScreenTask, "Screen", SCREEN_TASK_STACK_SIZE, NULL, SCREEN_TASK_PRIORITY, &screenTask);
-  xTaskCreate(runAudioTask, "Audio", AUDIO_TASK_STACK_SIZE, NULL, AUDIO_TASK_PRIORITY, &audioTask);
+  // updateProgramVector(getProgramVector());
+  // patches[currentPatch]->reset();
 
 #ifdef USE_CODEC
   codec.reset();
@@ -248,17 +150,22 @@ void setup(void){
   HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)&dac_values[0], 1, DAC_ALIGN_12B_R);
   HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_2, (uint32_t*)&dac_values[1], 1, DAC_ALIGN_12B_R);
 
-  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_values, 6);
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_values, 2);
 
-  // program.startManager();
+  program.startManager();
 
   // program.loadProgram();
+
+  setAnalogValue(0, 1023);
+  setAnalogValue(1, 2048);
 }
 
 extern "C" {
 
   void loop(void){
     taskYIELD();
+    // setAnalogValue(0, getAnalogValue(0));
+    // setAnalogValue(1, getAnalogValue(1));
   }
 
   void USBH_MIDI_ReceiveCallback(USBH_HandleTypeDef *phost){
@@ -279,17 +186,6 @@ extern "C" {
       midireader.readMidiFrame(buffer+i);
   }
   // void midi_tx_usb_buffer(uint8_t* buffer, uint32_t length);
-
-  static int16_t encoders[2] = {INT16_MAX/2, INT16_MAX/2};
-  static int16_t deltas[2] = {0, 0};
-  void encoderChanged(uint8_t encoder, int32_t value){
-    // // todo: debounce
-    // // pass encoder change event to patch
-    int32_t delta = value - encoders[encoder];
-    encoders[encoder] = value;
-    deltas[encoder] = delta;
-    patches[currentPatch]->encoderChanged(encoder, delta);
-  }
 
   void encoderReset(uint8_t encoder, int32_t value){
     if(encoder == 0)

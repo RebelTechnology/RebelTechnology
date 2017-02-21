@@ -1,11 +1,12 @@
 #MicroXplorer Configuration settings - do not modify
 ADC1.Channel-0\#ChannelRegularConversion=ADC_CHANNEL_0
 ADC1.Channel-1\#ChannelRegularConversion=ADC_CHANNEL_1
+ADC1.ClockPrescaler=ADC_CLOCK_SYNC_PCLK_DIV8
 ADC1.ContinuousConvMode=ENABLE
 ADC1.DMAContinuousRequests=ENABLE
 ADC1.EOCSelection=ADC_EOC_SEQ_CONV
 ADC1.ExternalTrigConv=ADC_SOFTWARE_START
-ADC1.IPParameters=Rank-0\#ChannelRegularConversion,Channel-0\#ChannelRegularConversion,SamplingTime-0\#ChannelRegularConversion,NbrOfConversionFlag,master,ExternalTrigConv,Rank-1\#ChannelRegularConversion,Channel-1\#ChannelRegularConversion,SamplingTime-1\#ChannelRegularConversion,NbrOfConversion,EOCSelection,DMAContinuousRequests,ScanConvMode,ContinuousConvMode
+ADC1.IPParameters=Rank-0\#ChannelRegularConversion,Channel-0\#ChannelRegularConversion,SamplingTime-0\#ChannelRegularConversion,NbrOfConversionFlag,master,ExternalTrigConv,Rank-1\#ChannelRegularConversion,Channel-1\#ChannelRegularConversion,SamplingTime-1\#ChannelRegularConversion,NbrOfConversion,EOCSelection,DMAContinuousRequests,ScanConvMode,ContinuousConvMode,ClockPrescaler
 ADC1.NbrOfConversion=2
 ADC1.NbrOfConversionFlag=1
 ADC1.Rank-0\#ChannelRegularConversion=1
@@ -461,7 +462,7 @@ ProjectManager.ProjectBuild=false
 ProjectManager.ProjectFileName=Player.ioc
 ProjectManager.ProjectName=Player
 ProjectManager.StackSize=0x200
-ProjectManager.TargetToolchain=MDK-ARM V5
+ProjectManager.TargetToolchain=MDK-ARM V4
 ProjectManager.ToolChainLocation=/home/mars/devel/RebelTechnology/Player/firmwareM7
 ProjectManager.UnderRoot=false
 ProjectManager.functionlistsort=1-MX_GPIO_Init-GPIO-false-HAL,2-MX_DMA_Init-DMA-false-HAL,3-MX_ADC1_Init-ADC1-false-HAL,4-MX_DAC_Init-DAC-false-HAL,5-MX_FMC_Init-FMC-false-HAL,6-MX_SAI1_Init-SAI1-false-HAL,7-MX_SPI2_Init-SPI2-false-HAL,8-MX_SPI5_Init-SPI5-false-HAL,9-MX_TIM2_Init-TIM2-false-HAL,10-MX_TIM3_Init-TIM3-false-HAL,11-MX_USART2_UART_Init-USART2-false-HAL,12-MX_SPI4_Init-SPI4-false-HAL,13-SystemClock_Config-RCC-false-HAL,14-MX_USB_DEVICE_Init-USB_DEVICE-false-HAL,15-MX_USB_HOST_Init-USB_HOST-false-HAL,16-MX_TIM6_Init-TIM6-false-HAL

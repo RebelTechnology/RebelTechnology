@@ -27,4 +27,6 @@ private:
   SPI_HandleTypeDef *hspi;
 };
 
+extern Graphics graphics;
+
 #endif /* _Graphics_h_ */

@@ -39,6 +39,9 @@ public:
   void setBuffer(Colour* buffer){
     pixels = buffer;
   }
+  Colour* getBuffer(){
+    return pixels;
+  }
   Colour getPixel(unsigned int x, unsigned int y);
   void setPixel(unsigned int x, unsigned int y, Colour c);
   void drawLine(int fromX, int fromY, int toX, int toY, Colour c);

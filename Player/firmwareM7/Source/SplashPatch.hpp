@@ -1,6 +1,19 @@
 #include "StompBox.h"
 #include "errorhandlers.h"
 
+bool tr1(){
+  return HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_11) != GPIO_PIN_SET;
+}
+bool tr2(){
+  return HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10) != GPIO_PIN_SET;
+}
+bool sw1(){
+  return HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_14) != GPIO_PIN_SET;
+}
+bool sw2(){
+  return HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4) != GPIO_PIN_SET;
+}
+
 class SplashPatch : public Patch {
 private:
   float x = 0;
@@ -51,16 +64,19 @@ public:
     //   screen.setTextColour(BLACK);
     // }
 
-    FloatArray left = samples.getSamples(LEFT_CHANNEL);
+    // FloatArray left = samples.getSamples(LEFT_CHANNEL);
     // FloatArray right = samples.getSamples(RIGHT_CHANNEL);
 
     if(sw2()){
+      int size = 32;
       uint32_t* buffer = (uint32_t*)EXTRAM;
-      uint32_t* src = (uint32_t*)(float*)left;
-      memcpy(buffer, src, 128*sizeof(uint32_t));
+      uint32_t* src = (uint32_t*)screen.getBuffer();
+      uint32_t dst[size];
+      memcpy(dst, src, size*sizeof(uint32_t));
+      memcpy(buffer, dst, size*sizeof(uint32_t));
       int failures = 0; 
-      for(int i=0; i<128; ++i)
-      	if(buffer[i] != src[i])
+      for(int i=0; i<size; ++i)
+      	if(buffer[i] != dst[i])
       	  ++failures;
       screen.print(20, 56, "fail: ");
       screen.print(failures);
