@@ -27,33 +27,33 @@
   <circle cx="8.700000000000003" cy="83.3" r="3.25" style="fill:none;stroke:#ff0000"/>
 
   
-  
-  
-  
-  
-
   <circle cx="17.59" cy="73.14" r="1.50" style="fill:none;stroke:#ff0000"/>
-  <circle cx="32.83" cy="73.14" r="1.50" style="fill:none;stroke:#ff0000"/>
-  <circle cx="48.07" cy="73.14" r="1.50" style="fill:none;stroke:#ff0000"/>
+  <circle cx="32.83" cy="66.79" r="1.50" style="fill:none;stroke:#ff0000"/>
+  <circle cx="48.07" cy="66.79" r="1.50" style="fill:none;stroke:#ff0000"/>
   <circle cx="63.31" cy="73.14" r="1.50" style="fill:none;stroke:#ff0000"/>
 
   
   <circle cx="8.700000000000003" cy="96" r="3.25" style="fill:none;stroke:#ff0000"/>
   <circle cx="8.700000000000003" cy="108.7" r="3.25" style="fill:none;stroke:#ff0000"/>
   <circle cx="21.4" cy="83.3" r="3.25" style="fill:none;stroke:#ff0000"/>
-  <circle cx="34.1" cy="83.3" r="3.25" style="fill:none;stroke:#ff0000"/>
-  <circle cx="46.8" cy="83.3" r="3.25" style="fill:none;stroke:#ff0000"/>
   <circle cx="59.5" cy="83.3" r="3.25" style="fill:none;stroke:#ff0000"/>
   <circle cx="21.4" cy="96" r="3.25" style="fill:none;stroke:#ff0000"/>
-  <circle cx="34.1" cy="96" r="3.25" style="fill:none;stroke:#ff0000"/>
-  <circle cx="46.8" cy="96" r="3.25" style="fill:none;stroke:#ff0000"/>
+
+  <circle cx="34.1" cy="76.95" r="3.25" style="fill:none;stroke:#ff0000"/>
+  <circle cx="46.8" cy="76.95" r="3.25" style="fill:none;stroke:#ff0000"/>
+  <circle cx="34.1" cy="89.65" r="3.25" style="fill:none;stroke:#ff0000"/>
+  <circle cx="46.8" cy="89.65" r="3.25" style="fill:none;stroke:#ff0000"/>
+  <circle cx="34.1" cy="102.35" r="3.25" style="fill:none;stroke:#ff0000"/>
+  <circle cx="46.8" cy="102.35" r="3.25" style="fill:none;stroke:#ff0000"/>
+
   <circle cx="59.5" cy="96" r="3.25" style="fill:none;stroke:#ff0000"/>
   <circle cx="21.4" cy="108.7" r="3.25" style="fill:none;stroke:#ff0000"/>
-  <circle cx="34.1" cy="108.7" r="3.25" style="fill:none;stroke:#ff0000"/>
-  <circle cx="46.8" cy="108.7" r="3.25" style="fill:none;stroke:#ff0000"/>
   <circle cx="59.5" cy="108.7" r="3.25" style="fill:none;stroke:#ff0000"/>
   <circle cx="72.2" cy="96" r="3.25" style="fill:none;stroke:#ff0000"/>
   <circle cx="72.2" cy="108.7" r="3.25" style="fill:none;stroke:#ff0000"/>
+
+  
+  <rect x="33.075" y="110.28" width="14.75" height="7" style="fill:none;stroke:#ff0000"/>
 
 </g>
 </svg>
