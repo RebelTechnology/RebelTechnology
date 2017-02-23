@@ -39,5 +39,61 @@ https://translate.google.co.uk/#en/el/ANGLES%20-%20ANGLE
 
 ANGLES: ΓΩΝΙΕΣ Gonies
 ANGLE: ΓΩΝΙΑ Gonía
+TRIANGLE: ΤΡΙΓΩΝΟ
+
+http://users.ntua.gr/dimour/euclid/common/lexiko_geo.pdf
+
+-------------------------------------------------------
+
+b2 firmware:
+
+12kHz clock, 17uS duration
+55kHz main, 17uS duration
+
+-------------------------------------------------------
+
+at fully clockwise 400mHz
+rate 2.5sec total, 1.25sec attack / release
+at mid 800mHz
+
+-------------------------------------------------------
+
+SlopeGenerator
+- check Attack/Release bias to reach full range without CV, currently [3675-0]
+- add timer to output fixed 120BPM / 2Hz PWM
+
+-------------------------------------------------------
+
+CV_REF: DMM -9.12V (scope -9.04 to -9.16V)
+
+-------------------------------------------------------
+
+LM4040
+at 10v, min operating current apprx 105uA
+max operating current: 10mA
+
+Rs = (Vs - Vr) / (Il +Iq)
+
+Vr (reverse breakdown voltage) = 10v
+Vs (supply voltage) = 12v
+Il (load current) = 4.40mA (4x 10k + 4x 100k)
+Iq (device current) = 110uA to 10mA
+
+Rs(min) = (Vs(max) - Vout) / (Il(min) + Iq(max))
+        = (11V-10V) / (4.36mA + 15mA)) = 51R
+Rs(max) = (Vs(min) - Vout) / (Il(max) + Iq(min))
+	= (13V-10V) / (4.40mA + 0.110mA) = (13-10)/((4.4+.11)/1000) = 154R
+
+Load R max: 10k||10k||10k||10k || 100k||100k||100k||100k = 2.5k || 25k = 2.27k
+Load R min: 10k||10k||10k||10k || 110k||110k||110k||110k = 2.5k || 27.5k = 2.29k
+Il(max) = 4.40mA, Il(min) = 4.36mA
+
+change R15 to 150R
+
+-------------------------------------------------------
+
+
+tempo 80BPM = 1.33Hz = 9000 ticks at 12kHz
+
 
 -------------------------------------------------------
