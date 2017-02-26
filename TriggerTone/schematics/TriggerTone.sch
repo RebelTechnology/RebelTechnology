@@ -12989,7 +12989,7 @@ www.irf.com&lt;p&gt;
 <part name="T1" library="transistor" deviceset="BC846" device=""/>
 <part name="T2" library="transistor" deviceset="BC846" device=""/>
 <part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
-<part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="P+9" library="supply1" deviceset="+12V" device=""/>
@@ -13008,7 +13008,7 @@ www.irf.com&lt;p&gt;
 <part name="T3" library="transistor" deviceset="BC846" device=""/>
 <part name="T4" library="transistor" deviceset="BC846" device=""/>
 <part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
-<part name="R8" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R8" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="P+1" library="supply1" deviceset="+12V" device=""/>
@@ -13021,7 +13021,7 @@ www.irf.com&lt;p&gt;
 <part name="T5" library="transistor" deviceset="BC846" device=""/>
 <part name="T6" library="transistor" deviceset="BC846" device=""/>
 <part name="R13" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
-<part name="R15" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R15" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="+12V" device=""/>
@@ -13034,7 +13034,7 @@ www.irf.com&lt;p&gt;
 <part name="T7" library="transistor" deviceset="BC846" device=""/>
 <part name="T8" library="transistor" deviceset="BC846" device=""/>
 <part name="R24" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
-<part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="P+3" library="supply1" deviceset="+12V" device=""/>
@@ -13048,7 +13048,7 @@ www.irf.com&lt;p&gt;
 <part name="T9" library="transistor" deviceset="BC846" device=""/>
 <part name="T10" library="transistor" deviceset="BC846" device=""/>
 <part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
-<part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 <part name="P+5" library="supply1" deviceset="+12V" device=""/>
@@ -13060,7 +13060,7 @@ www.irf.com&lt;p&gt;
 <part name="T11" library="transistor" deviceset="BC846" device=""/>
 <part name="T12" library="transistor" deviceset="BC846" device=""/>
 <part name="R34" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
-<part name="R36" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R36" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
 <part name="P+6" library="supply1" deviceset="+12V" device=""/>
