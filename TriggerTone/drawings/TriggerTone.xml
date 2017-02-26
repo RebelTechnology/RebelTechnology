@@ -1,0 +1,26 @@
+<module type="6hp">
+
+  <!-- pots -->
+  <!-- <pot x="-0.15" y="1.75"/> -->
+  <pot x="0.00" y="1.8" grading="small"/>
+
+  <!-- jacks -->
+  <hole x="-0.30" y="1.25" radius="3.25"/>  <!-- adj -->
+  <hole x="-0.30" y="0.75" radius="3.25"/>  <!-- P8 -->
+  <hole x="-0.30" y="0.25" radius="3.25"/>  <!-- P5 -->
+  <hole x="-0.30" y="-0.25" radius="3.25"/> <!-- M3 -->
+  <hole x="-0.30" y="-0.75" radius="3.25"/> <!-- M2 -->
+  <hole x="-0.30" y="-1.25" radius="3.25"/> <!-- m2 -->
+  <hole x="-0.30" y="-1.75" radius="3.25"/> <!-- cv in-->
+  <hole x="0.30" y="-1.75" radius="3.25"/>  <!-- out -->
+
+  <!-- pushbuttons -->
+  <hole x="0.30" y="1.25" radius="3.25"/>
+
+  <hole x="0.30" y="0.75" radius="3.25"/>
+  <hole x="0.30" y="0.25" radius="3.25"/>
+  <hole x="0.30" y="-0.25" radius="3.25"/>
+  <hole x="0.30" y="-0.75" radius="3.25"/>
+  <hole x="0.30" y="-1.25" radius="3.25"/>
+
+</module>

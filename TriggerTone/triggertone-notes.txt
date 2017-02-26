@@ -1,0 +1,57 @@
+
+-------------------------------------------------------
+
+Product: TriggerTone, trigger to tone (1v/oct CV) converter
+m2 = 1/12 11000 | 1000
+M2 = 2/12 10000 | 2000
+m3 = 3/12 10200 | 3400 
+M3 = 4/12 2000 | 1000
+P5 = 7/12 1000 | 1400
+P8 = 12/12 0 | inf
+
+http://www.ti.com/download/kbase/volt/volt_div3.htm
+
+SN5407/SN7407 hex buffer (sink 30/40mA resp)
+
+Logic gates into R-2R DAC
+http://www.sontrak.com/screenshots.html
+BOURNS  4310R-R2R-103LF  Fixed Network Resistor, 10 kohm, 100 V, 5 Elements, Bussed, SIP
+
+2.5v ref
+m2 30090 | 1070
+M2 14k | 1k
+M3 13k | 2k
+P5 10200 | 3090
+
+2.048 ref (nominal 2v + 48mv offset)
+
+Tone Trigger?
+
+-------------------------------------------------------
+
+Binary Envelope
+Slew limiter
+
+https://books.google.co.uk/books?id=dYruCAAAQBAJ&pg=PA477
+
+http://www.yusynth.net/Modular/EN/DUALSLEW/index.html
+
+
+-------------------------------------------------------
+
+6ms to rise to 3v lin: 20k
+2ms to rise to 3v lin: 8k
+2ms to fall to 3v lin: 8k
+
+-------------------------------------------------------
+
+Buffered mults: WTF
+https://www.muffwiggler.com/forum/viewtopic.php?t=81658
+
+-------------------------------------------------------
+
+Harry Bissell MorphLag
+http://www.wiseguysynth.com/larry/schematics/Morph-Lag/Morph-Lag.gif
+http://www.tellun.com/motm/diy/tln862/TLN-862.html
+
+-------------------------------------------------------
