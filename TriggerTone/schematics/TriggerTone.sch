@@ -12993,7 +12993,7 @@ www.irf.com&lt;p&gt;
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="P+9" library="supply1" deviceset="+12V" device=""/>
-<part name="IC1" library="texas" deviceset="LM4041" device="DBZ" technology="A12" value="LM4041A12DBZ"/>
+<part name="IC1" library="texas" deviceset="LM4041" device="DBZ" technology="A12" value="LM4040DIM3-10.0"/>
 <part name="P+11" library="supply1" deviceset="+12V" device=""/>
 <part name="R21" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
