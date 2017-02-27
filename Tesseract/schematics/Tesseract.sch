@@ -23449,7 +23449,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="IC4" library="texas" deviceset="LM4041" device="DBZ" technology="C12" value="LM4040B10"/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="P-2" library="supply1" deviceset="-12V" device=""/>
-<part name="R15" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
+<part name="R15" library="Rebel" deviceset="R-EU_" device="0603" value="150R"/>
 <part name="C1" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
