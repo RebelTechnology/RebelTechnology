@@ -11894,7 +11894,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="IC3" library="texas" deviceset="LM4041" device="DBZ" technology="C12" value="LM4040B10"/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
 <part name="P-2" library="supply1" deviceset="-12V" device=""/>
-<part name="R15" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="R15" library="Rebel" deviceset="R-EU_" device="0603" value="150R"/>
 <part name="C16" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
