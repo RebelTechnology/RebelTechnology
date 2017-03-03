@@ -12926,12 +12926,12 @@ Based on the following sources:
 </module>
 </modules>
 <parts>
-<part name="C1" library="rcl" deviceset="CPOL-EU" device="153CLV-0505" value="10u"/>
+<part name="C1" library="rcl" deviceset="CPOL-EU" device="153CLV-0505" value="47u"/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
 <part name="P+10" library="supply1" deviceset="+12V" device=""/>
 <part name="P-5" library="supply1" deviceset="-12V" device=""/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
-<part name="C2" library="rcl" deviceset="CPOL-EU" device="153CLV-0505" value="10u"/>
+<part name="C2" library="rcl" deviceset="CPOL-EU" device="153CLV-0505" value="47u"/>
 <part name="OUT_CV" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="IN_1" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="V1" library="resistor" deviceset="R-TRIMM" device="64W"/>
