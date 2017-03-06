@@ -24809,7 +24809,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="+3V12" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND48" library="supply1" deviceset="GND" device=""/>
 <part name="D800" library="diode" deviceset="BAT54S" device=""/>
-<part name="C105" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="10u"/>
+<part name="C105" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="22u"/>
 <part name="C501" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND54" library="supply1" deviceset="GND" device=""/>
 <part name="GND56" library="supply1" deviceset="GND" device=""/>
@@ -24877,7 +24877,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="GND99" library="supply1" deviceset="GND" device=""/>
 <part name="P+14" library="supply1" deviceset="+12V" device=""/>
 <part name="P+6" library="supply1" deviceset="+5V" device=""/>
-<part name="C17" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="10u"/>
+<part name="C17" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="22u"/>
 <part name="C14" library="rcl" deviceset="CPOL-EU" device="C" value="220u"/>
 <part name="LED1" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
 <part name="U$1" library="bela_capelet" deviceset="BELA_CAPELET" device="_EXT_OUTLINE"/>
