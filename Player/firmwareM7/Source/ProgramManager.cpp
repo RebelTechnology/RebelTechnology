@@ -275,9 +275,27 @@ void ProgramManager::startProgramChange(bool isr){
 
 void ProgramManager::loadDynamicProgram(void* address, uint32_t length){
   dynamo.load(address, length);
+  if(dynamo.getProgramVector() != NULL){
+    patchdef = &dynamo;
+    // registry.setDynamicPatchDefinition(patchdef);
+    // updateProgramIndex(0);
+  // }else{
+  //   registry.setDynamicPatchDefinition(NULL);
+  }
 }
 
 void ProgramManager::saveProgramToFlash(uint8_t sector, void* address, uint32_t length){
+}
+
+void ProgramManager::loadProgram(uint8_t pid){
+  // patchdef = &dynamo;
+  // PatchDefinition* def = registry.getPatchDefinition(pid);
+  // if(def != NULL && def != patchdef && def->getProgramVector() != NULL){
+  //   patchdef = def;
+  // // if(def != NULL && def->getProgramVector() != NULL){
+  // //   currentpatch = def;
+  //   updateProgramIndex(pid);
+  // }
 }
 
 extern "C" {
@@ -463,17 +481,6 @@ static void eraseFlashProgram(int sector){
     // registry.init();
     vTaskDelete(NULL);
   }
-}
-
-
-void ProgramManager::loadProgram(uint8_t pid){
-  // PatchDefinition* def = registry.getPatchDefinition(pid);
-  // if(def != NULL && def != patchdef && def->getProgramVector() != NULL){
-  //   patchdef = def;
-  // // if(def != NULL && def->getProgramVector() != NULL){
-  // //   currentpatch = def;
-  //   updateProgramIndex(pid);
-  // }
 }
 
 #ifdef DEBUG_STACK
