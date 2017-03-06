@@ -140,7 +140,7 @@ void setup(void){
 
 #ifdef USE_CODEC
   codec.reset();
-  codec.start();
+  // codec.start();
   codec.ramp(1<<23);
 #endif
 
@@ -154,10 +154,14 @@ void setup(void){
 
   program.startManager();
 
+  // vTaskDelay(20);
+
   // program.loadProgram();
 
   setAnalogValue(0, 1023);
   setAnalogValue(1, 2048);
+
+  program.startProgram(false);
 }
 
 extern "C" {
