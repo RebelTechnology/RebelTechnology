@@ -12,7 +12,7 @@ extern "C" {
   void encoderChanged(uint8_t encoder, int32_t value);
 }
 
-MidiHandler::MidiHandler(){
+MidiHandler::MidiHandler() : channel(MIDI_OMNI_CHANNEL) {
   // memset(midi_values, 0, NOF_PARAMETERS*sizeof(uint16_t));
 }
 
@@ -54,6 +54,16 @@ void MidiHandler::handleControlChange(uint8_t status, uint8_t cc, uint8_t value)
     last = value;
     break;
   }
+
+  case PATCH_BUTTON:
+    if(value == 127){
+      program.loadProgram(1);
+      program.resetProgram(true);
+      // togglePushButton();
+      // midi.sendCc(LED, getLed() == GREEN ? 42 : 84);
+    }
+    break;
+
   // case REQUEST_SETTINGS:
   //   switch(value){
   //   case 0:
@@ -165,6 +175,10 @@ void MidiHandler::handleFirmwareUploadCommand(uint8_t* data, uint16_t size){
   }else if(ret == 0){
     // toggleLed(); todo!
   }// else error
+  getProgramVector()->parameters[0] = loader.index*4095/loader.size;
+  getProgramVector()->parameters[1] = loader.packageIndex;
+  getProgramVector()->parameters[2] = loader.index;
+  getProgramVector()->parameters[3] = loader.size;
 }
 
 void MidiHandler::handleFirmwareRunCommand(uint8_t* data, uint16_t size){

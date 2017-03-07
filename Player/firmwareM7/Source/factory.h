@@ -1,4 +1,5 @@
 #include "SplashPatch.hpp"
+#include "ProgressPatch.hpp"
 
 /* #include "JotReverbPatch.hpp" */
 /* #include "FreeVerbPatch.hpp" */

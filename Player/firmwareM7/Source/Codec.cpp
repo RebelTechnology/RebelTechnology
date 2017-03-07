@@ -87,9 +87,9 @@ void Codec::stop(){
 void Codec::start(){
   HAL_StatusTypeDef ret;
   ret = HAL_SAI_Receive_DMA(&hsai_BlockB1, (uint8_t*)rxbuf, CODEC_BUFFER_SIZE);
-  assert_param(ret == HAL_OK);
+  ASSERT(ret == HAL_OK, "Failed to start SAI RX DMA");
   ret = HAL_SAI_Transmit_DMA(&hsai_BlockA1, (uint8_t*)txbuf, CODEC_BUFFER_SIZE);
-  assert_param(ret == HAL_OK);
+  ASSERT(ret == HAL_OK, "Failed to start SAI TX DMA");
 }
 
 void Codec::pause(){

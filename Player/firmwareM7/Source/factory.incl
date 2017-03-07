@@ -1,6 +1,7 @@
 // sed 's/^REGISTER_PATCH.*"\(.*\)", \(.*\)).*/\1, \2/g' < Source/factory.cpp
 
 REGISTER_PATCH(SplashPatch, "Splash", 2, 2);
+REGISTER_PATCH(ProgressPatch, "Progress", 2, 2);
 
 // REGISTER_PATCH(JotReverbPatch, "Jot Reverb", 2, 2);
 // REGISTER_PATCH(FreeVerbPatch, "FreeVerb", 1, 1);

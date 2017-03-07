@@ -483,30 +483,16 @@ static uint8_t  USBD_Midi_IsoOutIncomplete (USBD_HandleTypeDef *pdev, uint8_t ep
 static uint8_t  USBD_Midi_DataOut (USBD_HandleTypeDef *pdev, 
                               uint8_t epnum)
 {
-   USBD_Midi_HandleTypeDef *hmidi = (USBD_Midi_HandleTypeDef*) pdev->pClassData;
-
+  USBD_Midi_HandleTypeDef *hmidi = (USBD_Midi_HandleTypeDef*) pdev->pClassData;
   /* Get the received data buffer and update the counter */
-
-//  USB_Rx_Cnt = ((USB_OTG_CORE_HANDLE*)pdev)->dev.out_ep[epnum].xfer_count;
-   hmidi->rxLen = USBD_LL_GetRxDataSize (pdev, epnum);
-  /* Forward the data to the user callback. */
-//  ((MIDI_IF_Prop_TypeDef *)pdev->pUserData)->pIf_MidiRx((uint8_t*)&USB_Rx_Buffer, USB_Rx_Cnt);
-//  APP_fops->pIf_MidiRx((uint8_t*)&USB_Rx_Buffer, USB_Rx_Cnt);
-
-uint8_t *buf = hmidi->rxBuffer;
-
-for (uint32_t i=0; i<hmidi->rxLen; i+=4) {
-  ((USBD_Midi_ItfTypeDef *)pdev->pUserData)->Receive(buf+i, 4);
-  // send blocks of 4 bytes to midi_rx_usb_buffer
-}
-
-//  ((USBD_Midi_ItfTypeDef *)pdev->pUserData)->Receive(hmidi->rxBuffer,hmidi->rxLen);
-
+  hmidi->rxLen = USBD_LL_GetRxDataSize (pdev, epnum);
+  /* Forward data to user callback (midi_rx_usb_buffer) */
+  ((USBD_Midi_ItfTypeDef *)pdev->pUserData)->Receive(hmidi->rxBuffer, hmidi->rxLen);
+  /* Prepare Out endpoint to receive next packet */
   USBD_LL_PrepareReceive(pdev,
-                       MIDI_OUT_EP,
-                       hmidi->rxBuffer,
-                       MIDI_DATA_OUT_PACKET_SIZE);
-
+			 MIDI_OUT_EP,
+			 hmidi->rxBuffer,
+			 MIDI_DATA_OUT_PACKET_SIZE);
   return USBD_OK;
 }
 

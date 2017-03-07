@@ -23,7 +23,7 @@ void PatchProcessor::run(){
   // ASSERT(vector->audio_blocksize != 0, "Audio blocksize must not be 0");
   ASSERT(vector->audio_samplingrate != 0, "Audio samplingrate must not be 0");
   for(;;){
-    vector->audioReady();
+    vector->programReady();
     buffer.split(vector->audio_input, vector->audio_blocksize);
     setParameterValues(vector->parameters);
     patch->processAudio(buffer);

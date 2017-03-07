@@ -75,9 +75,11 @@ void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size){
   getProgramVector()->audio_output = tx;
   getProgramVector()->audio_blocksize = size;
   // vTaskSuspend(screenTask);
-  BaseType_t yield;
-  vTaskNotifyGiveFromISR(audioTask, &yield);
-  portYIELD_FROM_ISR(yield);
+  if(audioTask != NULL){
+    BaseType_t yield;
+    vTaskNotifyGiveFromISR(audioTask, &yield);
+    portYIELD_FROM_ISR(yield);
+  }
 }
 
 /* called by the program when an error or anomaly has occured */
@@ -87,7 +89,7 @@ void onProgramStatus(ProgramVectorAudioStatus status){
 }
 
 /* called by the program when a block has been processed */
-void onAudioReady(){
+void onProgramReady(){
   ProgramVector* pv = getProgramVector();
   pv->cycles_per_block = DWT->CYCCNT;
   uint32_t ulNotifiedValue = 0;
@@ -99,24 +101,12 @@ void onAudioReady(){
   // ready to run block again
 }
 
-void onScreenReady(){
-  const TickType_t delay = 20 / portTICK_PERIOD_MS;
-  ProgramVector* pv = getProgramVector();
-  // if(dodisplay && graphics.isReady()){
-  // graphics.display(pv->pixels, pv->screen_width*pv->screen_height);
-  graphics.display(pv->pixels, OLED_WIDTH*OLED_HEIGHT);
-    // taskYIELD();
-    // swap pixelbuffer
-    // pv->pixels = pixelbuffer[swappb];
-    // swappb = !swappb;
-  vTaskDelay(delay);  
-}
-
+int16_t parameter_values[16];
 void updateProgramVector(ProgramVector* pv){
   pv->checksum = PROGRAM_VECTOR_CHECKSUM_V13;
   pv->hardware_version = PLAYER_HARDWARE;
-  pv->parameters_size = 2;
-  pv->parameters = NULL; // adc_values;
+  pv->parameters_size = 16;
+  pv->parameters = parameter_values;
   pv->audio_bitdepth = 24;
   pv->audio_samplingrate = 48000;
   pv->audio_blocksize = CODEC_BLOCKSIZE; // todo!
@@ -125,8 +115,7 @@ void updateProgramVector(ProgramVector* pv){
   pv->registerPatchParameter = NULL;
   pv->cycles_per_block = 0;
   pv->heap_bytes_used = 0;
-  pv->audioReady = onAudioReady;
-  pv->screenReady = onScreenReady;
+  pv->programReady = onProgramReady;
   pv->programStatus = onProgramStatus;
   pv->serviceCall = NULL;
   pv->message = NULL;
@@ -152,34 +141,39 @@ void defaultDrawCallback(uint8_t* pixels, uint16_t screen_width, uint16_t screen
 }
 
 void runScreenTask(void* p){
-  ProgramVector* pv = getProgramVector();
-  updateProgramVector(pv);
+  const TickType_t delay = 20 / portTICK_PERIOD_MS;
   for(;;){
-    pv->screenReady();
-    if(getProgramVector()->drawCallback != NULL){
-      getProgramVector()->drawCallback(pv->pixels, pv->screen_width, pv->screen_height);
+    ProgramVector* pv = getProgramVector();
+    if(pv->drawCallback != NULL){
+      pv->drawCallback(pv->pixels, pv->screen_width, pv->screen_height);
     // patches[currentPatch]->processScreen(screen);
     }else{
       defaultDrawCallback(pv->pixels, pv->screen_width, pv->screen_height);
     }
+  // graphics.display(pv->pixels, pv->screen_width*pv->screen_height);
+    graphics.display(pv->pixels, OLED_WIDTH*OLED_HEIGHT);
+    // swap pixelbuffer
+    // pv->pixels = pixelbuffer[swappb];
+    // swappb = !swappb;
+    vTaskDelay(delay);  
   }
 }
 
 void runAudioTask(void* p){
     PatchDefinition* def = getPatchDefinition();
-    ProgramVector* vector = def == NULL ? NULL : def->getProgramVector();
-    if(vector != NULL){
-      updateProgramVector(vector);
-      programVector = vector;
+    ProgramVector* pv = def == NULL ? NULL : def->getProgramVector();
+    if(pv != NULL){
+      updateProgramVector(pv);
+      programVector = pv;
       // audioStatus = AUDIO_IDLE_STATUS;
       setErrorStatus(NO_ERROR);
       // setLed(GREEN);
       // codec.softMute(false);
-      codec.start();
+      codec.resume();
       def->run();
-      setErrorMessage(PROGRAM_ERROR, "Program exited");
+      error(PROGRAM_ERROR, "Program exited");
     }else{
-      setErrorMessage(PROGRAM_ERROR, "Invalid program");
+      error(PROGRAM_ERROR, "Invalid program");
     }
     // setLed(RED);
     for(;;);
@@ -187,9 +181,8 @@ void runAudioTask(void* p){
   // ProgramVector* pv = getProgramVector();
   // updateProgramVector(pv);
   // // patches[currentPatch]->reset();
-  // codec.start();
   // for(;;){
-  //   pv->audioReady();
+  //   pv->programReady();
   //   samples.split(pv->audio_input, pv->audio_blocksize);
   //   patches[currentPatch]->processAudio(samples);
   //   samples.comb(pv->audio_output);
@@ -214,8 +207,9 @@ void runManagerTask(void* p){
       // codec.softMute(true);
       // codec.pause();
       if(audioTask != NULL){
-	codec.stop();
+	codec.pause();
 	programVector = &staticVector;
+	programVector->drawCallback = NULL;
 	vTaskDelete(audioTask);
 	audioTask = NULL;
       }
@@ -265,6 +259,9 @@ ProgramManager::ProgramManager(){
 
 void ProgramManager::startManager(){
   registry.init();
+  codec.start();
+  codec.pause();
+  updateProgramVector(getProgramVector());
   xTaskCreate(runScreenTask, "Screen", SCREEN_TASK_STACK_SIZE, NULL, SCREEN_TASK_PRIORITY, &screenTask);
   // xTaskCreate(runAudioTask, "Audio", AUDIO_TASK_STACK_SIZE, NULL, AUDIO_TASK_PRIORITY, &audioTask);
   xTaskCreate(runManagerTask, "Manager", MANAGER_TASK_STACK_SIZE, NULL, MANAGER_TASK_PRIORITY, &managerTask);

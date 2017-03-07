@@ -18,7 +18,8 @@ private:
   //   ERROR = 0xff
   // };
   // SysExFirmwareStatus status = NORMAL;
-  int packageIndex = 0;
+public:
+  uint16_t packageIndex = 0;
   uint8_t* buffer = NULL;
   uint32_t size;
   uint32_t index;
@@ -65,8 +66,8 @@ public:
   }
 
   int32_t handleFirmwareUpload(uint8_t* data, uint16_t length){
-    int offset = 3;
-    int idx = decodeInt(data+offset);
+    uint16_t offset = 3;
+    uint16_t idx = decodeInt(data+offset);
     offset += 5;
     if(idx == 0){
       clear();
@@ -74,7 +75,10 @@ public:
       if(length < 3+5+5)
 	return setError("Invalid SysEx package");
       // stop running program and free its memory
-      program.exitProgram(true);
+      // program.exitProgram(true);
+      program.loadProgram(2); // load progress bar
+      program.resetProgram(true);
+
       // get firmware data size (decoded)
       size = decodeInt(data+offset);
       offset += 5; // it takes five 7-bit values to encode four bytes
