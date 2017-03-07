@@ -1,5 +1,11 @@
 #include "MidiReader.h"
 #include "bus.h"
+#include "errorhandlers.h"
+
+bool midi_error(const char* str){
+  error(PROGRAM_ERROR, str);
+  return false;
+}
 
 bool MidiReader::readMidiFrame(uint8_t* frame){
   // apparently no running status in USB MIDI frames
@@ -35,11 +41,9 @@ bool MidiReader::readMidiFrame(uint8_t* frame){
     break;
   case USB_COMMAND_SYSEX_EOX1:
     if(pos < 3 || buffer[0] != SYSEX || frame[1] != SYSEX_EOX){
-      return false;
-      // bus_rx_error("Invalid SysEx");
+      return midi_error("Invalid SysEx");
     }else if(pos >= size){
-      return false;
-      // bus_rx_error("SysEx buffer overflow");
+      return midi_error("SysEx buffer overflow");
     }else{
       buffer[pos++] = frame[1];
       handleSysEx(buffer, pos);
@@ -48,11 +52,9 @@ bool MidiReader::readMidiFrame(uint8_t* frame){
     break;
   case USB_COMMAND_SYSEX_EOX2:
     if(pos < 3 || buffer[0] != SYSEX || frame[2] != SYSEX_EOX){
-      return false;
-      // bus_rx_error("Invalid SysEx");
+      return midi_error("Invalid SysEx");
     }else if(pos+2 > size){
-      return false;
-      // bus_rx_error("SysEx buffer overflow");
+      return midi_error("SysEx buffer overflow");
     }else{
       buffer[pos++] = frame[1];
       buffer[pos++] = frame[2];
@@ -62,11 +64,9 @@ bool MidiReader::readMidiFrame(uint8_t* frame){
     break;
   case USB_COMMAND_SYSEX_EOX3:
     if(pos < 3 || buffer[0] != SYSEX || frame[3] != SYSEX_EOX){
-      return false;
-      // bus_rx_error("Invalid SysEx");
+      return midi_error("Invalid SysEx");
     }else if(pos+3 > size){
-      return false;
-      // bus_rx_error("SysEx buffer overflow");
+      return midi_error("SysEx buffer overflow");
     }else{
       buffer[pos++] = frame[1];
       buffer[pos++] = frame[2];
@@ -77,8 +77,7 @@ bool MidiReader::readMidiFrame(uint8_t* frame){
     break;
   case USB_COMMAND_SYSEX:
     if(pos+3 > size){
-      return false;
-      // bus_rx_error("SysEx buffer overflow");
+      return midi_error("SysEx buffer overflow");
     }else{
       buffer[pos++] = frame[1];
       buffer[pos++] = frame[2];
@@ -124,8 +123,7 @@ bool MidiReader::readMidiFrame(uint8_t* frame){
     handlePitchBend(frame[1], frame[2] | (frame[3]<<7));
     break;
   default:
-    return false;
-    // bus_rx_error("Invalid USB MIDI message");
+    return midi_error("Invalid USB MIDI message");
     break;
   }
   return true;

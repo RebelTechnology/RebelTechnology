@@ -32,7 +32,7 @@
 #define MIDI_DATA_IN_PACKET_SIZE       0x40
 #define MIDI_DATA_OUT_PACKET_SIZE      0x40
 
-#define MIDI_BUF_SIZE                  256
+#define MIDI_BUF_SIZE                  64
 
 
 #define AUDIO_DESCRIPTOR_TYPE                         0x21

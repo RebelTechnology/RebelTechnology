@@ -85,7 +85,9 @@ public:
       // allocate memory
       if(size > MAX_SYSEX_FIRMWARE_SIZE)
 	return setError("SysEx too big");
-      buffer = (uint8_t*)EXTRAM;
+      static uint8_t static_buffer[1024*8]; // todo remove!
+      // buffer = (uint8_t*)EXTRAM;
+      buffer = static_buffer; 
       return 0;
     }
     if(++packageIndex != idx)
