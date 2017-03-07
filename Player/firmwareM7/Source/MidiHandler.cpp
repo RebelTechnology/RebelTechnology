@@ -54,6 +54,38 @@ void MidiHandler::handleControlChange(uint8_t status, uint8_t cc, uint8_t value)
     last = value;
     break;
   }
+  // case REQUEST_SETTINGS:
+  //   switch(value){
+  //   case 0:
+  //     midi.sendDeviceInfo();
+  //     break;
+  //   case SYSEX_PRESET_NAME_COMMAND:
+  //     // program.sendMidiData(value, true);
+  //     midi.sendPatchNames();
+  //     break;
+  //   case SYSEX_PARAMETER_NAME_COMMAND:
+  //     midi.sendPatchParameterNames();
+  //     break;
+  //   case SYSEX_FIRMWARE_VERSION:
+  //     midi.sendFirmwareVersion();
+  //     break;
+  //   case SYSEX_DEVICE_ID:
+  //     midi.sendDeviceId();
+  //     break;
+  //   case SYSEX_DEVICE_STATS:
+  //     midi.sendDeviceStats();
+  //     break;
+  //   case SYSEX_PROGRAM_MESSAGE:
+  //     midi.sendProgramMessage();
+  //     break;
+  //   case SYSEX_PROGRAM_STATS:
+  //     midi.sendProgramStats();
+  //     break;
+  //   case PATCH_BUTTON:
+  //     midi.sendCc(PATCH_BUTTON, isPushButtonPressed() ? 127 : 0);
+  //     break;
+  //   }
+  //   break;
   }
 }
 

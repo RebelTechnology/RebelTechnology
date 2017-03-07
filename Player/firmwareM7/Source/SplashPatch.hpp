@@ -1,5 +1,6 @@
 #include "StompBox.h"
 #include "errorhandlers.h"
+#include "stm32f7xx_hal.h"
 
 bool tr1(){
   return HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_11) != GPIO_PIN_SET;
@@ -23,8 +24,8 @@ private:
 public:
   SplashPatch(){
   }
-  void encoderChanged(uint8_t encoder, int32_t dir){
-    if(encoder == 1){
+  void encoderChanged(PatchParameterId pid, int32_t dir, uint16_t samples){
+    if(pid == PARAMETER_A){
       ratex += dir/20.0f;
     }else{
       ratey -= dir/20.0f;

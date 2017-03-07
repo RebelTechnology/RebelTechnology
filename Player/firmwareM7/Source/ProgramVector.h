@@ -37,7 +37,7 @@
      uint8_t audio_bitdepth;
      uint16_t audio_blocksize;
      uint32_t audio_samplingrate;
-     uint16_t* parameters;
+     int16_t* parameters;
      uint8_t parameters_size;
      uint16_t buttons;
      int8_t error;
@@ -50,10 +50,11 @@
      uint32_t cycles_per_block;
      uint32_t heap_bytes_used;
      char* message;
-    void (*setButton)(uint8_t id, uint16_t state, uint16_t samples);
-    void (*setPatchParameter)(uint8_t id, int16_t value);
-    void (*buttonChangedCallback)(uint8_t bid, uint16_t state, uint16_t samples);
-    void (*encoderChangedCallback)(uint8_t bid, int16_t delta, uint16_t samples);
+     void (*setButton)(uint8_t id, uint16_t state, uint16_t samples);
+     void (*setPatchParameter)(uint8_t id, int16_t value);
+     void (*buttonChangedCallback)(uint8_t bid, uint16_t state, uint16_t samples);
+     void (*encoderChangedCallback)(uint8_t bid, int16_t delta, uint16_t samples);
+     void (*drawCallback)(uint8_t* pixels, uint16_t screen_width, uint16_t screen_height);
      uint8_t* pixels;
      uint16_t screen_width;
      uint16_t screen_height;

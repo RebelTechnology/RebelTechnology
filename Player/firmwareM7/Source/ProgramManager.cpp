@@ -1,9 +1,7 @@
-extern "C" {
 #include "stm32f7xx_hal.h"
 #include "cmsis_os.h"
-}
-
 #include <string.h>
+#include "PatchRegistry.h"
 #include "ProgramManager.h"
 #include "ProgramVector.h"
 #include "device.h"
@@ -33,12 +31,12 @@ uint8_t pixelbuffer[OLED_DATA_LENGTH];
 #define PROGRAM_CHANGE_NOTIFICATION 0x10
 
 ProgramManager program;
-static ProgramVector staticVector;
+PatchRegistry registry;
+ProgramVector staticVector;
 ProgramVector* programVector = &staticVector;
 static TaskHandle_t screenTask = NULL;
 static TaskHandle_t audioTask = NULL;
 static TaskHandle_t managerTask = NULL;
-ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
 SampleBuffer samples;
 static DynamicPatchDefinition dynamo;
 
@@ -49,10 +47,10 @@ extern "C" {
   void encoderChanged(uint8_t encoder, int32_t value);
 }
 
-#include "SplashPatch.hpp"
-static SplashPatch splash;
-static Patch* patches[] = {&splash};
-static uint8_t currentPatch = 0;
+// #include "SplashPatch.hpp"
+// static SplashPatch splash;
+// static Patch* patches[] = {&splash};
+// static uint8_t currentPatch = 0;
 
 static int16_t encoders[2] = {INT16_MAX/2, INT16_MAX/2};
 static int16_t deltas[2] = {0, 0};
@@ -62,7 +60,9 @@ void encoderChanged(uint8_t encoder, int32_t value){
   int32_t delta = value - encoders[encoder];
   encoders[encoder] = value;
   deltas[encoder] = delta;
-  patches[currentPatch]->encoderChanged(encoder, delta);
+  if(getProgramVector()->encoderChangedCallback != NULL)
+    getProgramVector()->encoderChangedCallback(encoder, delta, 0);
+  // patches[currentPatch]->encoderChanged(encoder, delta);
 }
 
 PatchDefinition* getPatchDefinition(){
@@ -119,6 +119,7 @@ void updateProgramVector(ProgramVector* pv){
   pv->parameters = NULL; // adc_values;
   pv->audio_bitdepth = 24;
   pv->audio_samplingrate = 48000;
+  pv->audio_blocksize = CODEC_BLOCKSIZE; // todo!
   pv->buttons = 0;
   pv->registerPatch = NULL;
   pv->registerPatchParameter = NULL;
@@ -134,28 +135,66 @@ void updateProgramVector(ProgramVector* pv){
   pv->screen_height = OLED_HEIGHT;
 }
 
+void defaultDrawCallback(uint8_t* pixels, uint16_t screen_width, uint16_t screen_height){
+  static ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
+  screen.setBuffer(pixels);
+  screen.clear();
+  if(getErrorStatus() != NO_ERROR && getErrorMessage() != NULL){
+    screen.setTextSize(1);
+    screen.print(2, 32, getErrorMessage());
+  }else{
+    screen.setTextSize(1);
+    screen.print(20, 56, "cps: ");
+    screen.print((int)(getProgramVector()->cycles_per_block)/getProgramVector()->audio_blocksize);
+  }
+  screen.setTextSize(1);
+  screen.print(20, 0, "Rebel Technology");
+}
+
 void runScreenTask(void* p){
   ProgramVector* pv = getProgramVector();
   updateProgramVector(pv);
   for(;;){
     pv->screenReady();
-    screen.setBuffer(pv->pixels);
-    patches[currentPatch]->processScreen(screen);
+    if(getProgramVector()->drawCallback != NULL){
+      getProgramVector()->drawCallback(pv->pixels, pv->screen_width, pv->screen_height);
+    // patches[currentPatch]->processScreen(screen);
+    }else{
+      defaultDrawCallback(pv->pixels, pv->screen_width, pv->screen_height);
+    }
   }
 }
 
 void runAudioTask(void* p){
-  ProgramVector* pv = getProgramVector();
-  updateProgramVector(pv);
-  patches[currentPatch]->reset();
-  codec.start();
-  for(;;){
-    pv->audioReady();
-    samples.split(pv->audio_input, pv->audio_blocksize);
-    patches[currentPatch]->processAudio(samples);
-    samples.comb(pv->audio_output);
-    // done processing one audio block
-  }
+    PatchDefinition* def = getPatchDefinition();
+    ProgramVector* vector = def == NULL ? NULL : def->getProgramVector();
+    if(vector != NULL){
+      updateProgramVector(vector);
+      programVector = vector;
+      // audioStatus = AUDIO_IDLE_STATUS;
+      setErrorStatus(NO_ERROR);
+      // setLed(GREEN);
+      // codec.softMute(false);
+      codec.start();
+      def->run();
+      setErrorMessage(PROGRAM_ERROR, "Program exited");
+    }else{
+      setErrorMessage(PROGRAM_ERROR, "Invalid program");
+    }
+    // setLed(RED);
+    for(;;);
+
+  // ProgramVector* pv = getProgramVector();
+  // updateProgramVector(pv);
+  // // patches[currentPatch]->reset();
+  // codec.start();
+  // for(;;){
+  //   pv->audioReady();
+  //   samples.split(pv->audio_input, pv->audio_blocksize);
+  //   patches[currentPatch]->processAudio(samples);
+  //   samples.comb(pv->audio_output);
+  //   // done processing one audio block
+  // }
 }
 
 void runManagerTask(void* p){
@@ -225,6 +264,7 @@ ProgramManager::ProgramManager(){
 }
 
 void ProgramManager::startManager(){
+  registry.init();
   xTaskCreate(runScreenTask, "Screen", SCREEN_TASK_STACK_SIZE, NULL, SCREEN_TASK_PRIORITY, &screenTask);
   // xTaskCreate(runAudioTask, "Audio", AUDIO_TASK_STACK_SIZE, NULL, AUDIO_TASK_PRIORITY, &audioTask);
   xTaskCreate(runManagerTask, "Manager", MANAGER_TASK_STACK_SIZE, NULL, MANAGER_TASK_PRIORITY, &managerTask);
@@ -277,10 +317,10 @@ void ProgramManager::loadDynamicProgram(void* address, uint32_t length){
   dynamo.load(address, length);
   if(dynamo.getProgramVector() != NULL){
     patchdef = &dynamo;
-    // registry.setDynamicPatchDefinition(patchdef);
+    registry.setDynamicPatchDefinition(patchdef);
     // updateProgramIndex(0);
-  // }else{
-  //   registry.setDynamicPatchDefinition(NULL);
+  }else{
+    registry.setDynamicPatchDefinition(NULL);
   }
 }
 
@@ -288,14 +328,12 @@ void ProgramManager::saveProgramToFlash(uint8_t sector, void* address, uint32_t 
 }
 
 void ProgramManager::loadProgram(uint8_t pid){
+  PatchDefinition* def = registry.getPatchDefinition(pid);
+  if(def != NULL && def != patchdef && def->getProgramVector() != NULL){
+    patchdef = def;
+    // updateProgramIndex(pid);
+  }
   // patchdef = &dynamo;
-  // PatchDefinition* def = registry.getPatchDefinition(pid);
-  // if(def != NULL && def != patchdef && def->getProgramVector() != NULL){
-  //   patchdef = def;
-  // // if(def != NULL && def->getProgramVector() != NULL){
-  // //   currentpatch = def;
-  //   updateProgramIndex(pid);
-  // }
 }
 
 extern "C" {
@@ -326,231 +364,3 @@ extern "C" {
     // for(;;);
   }
 }
-
-#if 0
-// #include "PatchRegistry.h"
-// #include "ApplicationSettings.h"
-// #include "CodecController.h"
-// #include "owlcontrol.h"
-// #include "eepromcontrol.h"
-// #include "FreeRTOS.h"
-
-// FreeRTOS low priority numbers denote low priority tasks. 
-// The idle task has priority zero (tskIDLE_PRIORITY).
-#define PROGRAM_TASK_PRIORITY            (2)
-#define MANAGER_TASK_PRIORITY            (4 | portPRIVILEGE_BIT)
-#define FLASH_TASK_PRIORITY              (3 | portPRIVILEGE_BIT)
-#define PC_TASK_PRIORITY                 (2)
-
-#include "task.h"
-
-static volatile ProgramVectorAudioStatus audioStatus = AUDIO_IDLE_STATUS;
-static DynamicPatchDefinition flashPatches[MAX_USER_PATCHES];
-
-extern "C" {
-  void updateProgramVector(ProgramVector* pv);
-  ProgramVector* getProgramVector() { return programVector; }
-}
-
-// static uint32_t getFlashAddress(int sector){
-//   uint32_t addr = ADDR_FLASH_SECTOR_11;
-//   addr -= sector*128*1024; // count backwards by 128k blocks, ADDR_FLASH_SECTOR
-//   return addr;
-// }
-
-TaskHandle_t xProgramHandle = NULL;
-
-uint8_t ucHeap[configTOTAL_HEAP_SIZE];
-// uint8_t ucHeap[configTOTAL_HEAP_SIZE] CCM;
-
-template<uint32_t STACK_SIZE>
-class StaticTask {
-private:
-  StaticTask_t xTaskBuffer;
-  StackType_t xStack[STACK_SIZE]; // long unsigned int
-public:
-  TaskHandle_t handle = NULL;
-  bool create(TaskFunction_t pxTaskCode, const char * const pcName,
-	      UBaseType_t uxPriority){
-    if(handle != NULL)
-      vTaskDelete(handle);
-    handle = xTaskCreateStatic(pxTaskCode, pcName, STACK_SIZE, NULL, uxPriority, xStack, &xTaskBuffer);
-    return handle != NULL;
-  }
-  void notify(uint32_t ulValue){
-    if(handle != NULL)
-      xTaskNotify(handle, ulValue, eSetBits );
-  }
-  void notifyFromISR(uint32_t ulValue){
-    BaseType_t xHigherPriorityTaskWoken = 0; 
-    if(handle != NULL)
-      xTaskNotifyFromISR(handle, ulValue, eSetBits, &xHigherPriorityTaskWoken );
-    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
-  }
-};
-
-StaticTask<MANAGER_TASK_STACK_SIZE> managerTask;
-StaticTask<UTILITY_TASK_STACK_SIZE> utilityTask;
-
-volatile int flashSectorToWrite;
-volatile void* flashAddressToWrite;
-volatile uint32_t flashSizeToWrite;
-
-static void eraseFlashProgram(int sector){
-  // uint32_t addr = getFlashAddress(sector);
-  // eeprom_unlock();
-  // int ret = eeprom_erase(addr);
-  // eeprom_lock();
-  // if(ret != 0)
-  //   error(PROGRAM_ERROR, "Failed to erase flash sector");
-}
-
-  /*
-   * re-program firmware: this entire function and all subroutines must run from RAM
-   * (don't make this static!)
-   */
-  // __attribute__ ((section (".coderam")))
-  void flashFirmware(uint8_t* source, uint32_t size){
-    // __disable_irq(); // Disable ALL interrupts. Can only be executed in Privileged modes.
-    // // setLed(RED);
-    // eeprom_unlock();
-    // if(size > (16+16+64+128)*1024){
-    //   eeprom_erase_sector(FLASH_Sector_6);
-    //   toggleLed(); // inline
-    // }
-    // if(size > (16+16+64)*1024){
-    //   eeprom_erase_sector(FLASH_Sector_5);
-    //   toggleLed();
-    // }
-    // if(size > (16+16)*1024){
-    //   eeprom_erase_sector(FLASH_Sector_4);
-    //   toggleLed();
-    // }
-    // if(size > 16*1024){
-    //   eeprom_erase_sector(FLASH_Sector_3);
-    //   toggleLed();
-    // }
-    // eeprom_erase_sector(FLASH_Sector_2);
-    // toggleLed();
-    // eeprom_write_block(ADDR_FLASH_SECTOR_2, source, size);
-    // eeprom_lock();
-    // eeprom_wait();
-    // NVIC_SystemReset(); // (static inline)
-  }
-
-  void programFlashTask(void* p){
-    // int sector = flashSectorToWrite;
-    // uint32_t size = flashSizeToWrite;
-    // uint8_t* source = (uint8_t*)flashAddressToWrite;
-    // if(sector >= 0 && sector < MAX_USER_PATCHES && size <= 128*1024){
-    //   uint32_t addr = getFlashAddress(sector);
-    //   eeprom_unlock();
-    //   int ret = eeprom_erase(addr);
-    //   if(ret == 0)
-    // 	ret = eeprom_write_block(addr, source, size);
-    //   eeprom_lock();
-    //   registry.init();
-    //   if(ret == 0){
-    // 	// load and run program
-    // 	int pc = registry.getNumberOfPatches()-MAX_USER_PATCHES+sector;
-    // 	program.loadProgram(pc);
-    // 	// program.loadDynamicProgram(source, size);
-    // 	program.resetProgram(false);
-    //   }else{
-    // 	error(PROGRAM_ERROR, "Failed to write program to flash");
-    //   }
-    // }else if(sector == 0xff && size < MAX_SYSEX_FIRMWARE_SIZE){
-    //   flashFirmware(source, size);
-    // }else{
-    //   error(PROGRAM_ERROR, "Invalid flash program command");
-    // }
-    vTaskDelete(NULL);
-  }
-
-  void eraseFlashTask(void* p){
-    // int sector = flashSectorToWrite;
-    // if(sector == 0xff){
-    //   for(int i=0; i<MAX_USER_PATCHES; ++i)
-    // 	eraseFlashProgram(i);
-    //   settings.clearFlash();
-    // }else if(sector >= 0 && sector < MAX_USER_PATCHES){
-    //   eraseFlashProgram(sector);
-    // }else{
-    //   error(PROGRAM_ERROR, "Invalid flash erase command");
-    // }
-    // registry.init();
-    vTaskDelete(NULL);
-  }
-}
-
-#ifdef DEBUG_STACK
-uint32_t ProgramManager::getProgramStackUsed(){
-  if(xProgramHandle == NULL)
-    return 0;
-  uint32_t ph = uxTaskGetStackHighWaterMark(xProgramHandle);
-  return getProgramStackAllocation() - ph*sizeof(portSTACK_TYPE);
-}
-
-uint32_t ProgramManager::getProgramStackAllocation(){
-  uint32_t ss = 0;
-  if(patchdef != NULL)
-    ss = patchdef->getStackSize();
-  // if(currentpatch != NULL)
-  //   ss = currentpatch->getStackSize();
-  if(ss == 0)
-    ss = PROGRAM_TASK_STACK_SIZE*sizeof(portSTACK_TYPE);
-  return ss;
-}
-
-uint32_t ProgramManager::getManagerStackUsed(){
-  if(managerTask.handle == NULL)
-    return 0;
-  uint32_t mh = uxTaskGetStackHighWaterMark(managerTask.handle);
-  return getManagerStackAllocation() - mh*sizeof(portSTACK_TYPE);
-}
-
-uint32_t ProgramManager::getManagerStackAllocation(){
-  return MANAGER_TASK_STACK_SIZE*sizeof(portSTACK_TYPE);
-}
-
-uint32_t ProgramManager::getFreeHeapSize(){
-  return xPortGetFreeHeapSize();
-}
-#endif /* DEBUG_STACK */
-
-uint32_t ProgramManager::getCyclesPerBlock(){
-  return getProgramVector()->cycles_per_block;
-}
-
-uint32_t ProgramManager::getHeapMemoryUsed(){
-  return getProgramVector()->heap_bytes_used;
-}
-
-PatchDefinition* ProgramManager::getPatchDefinitionFromFlash(uint8_t sector){
-  // if(sector >= MAX_USER_PATCHES)
-  //   return NULL;
-  // uint32_t addr = getFlashAddress(sector);
-  // ProgramHeader* header = (ProgramHeader*)addr;
-  // DynamicPatchDefinition* def = &flashPatches[sector];
-  // uint32_t size = (uint32_t)header->endAddress - (uint32_t)header->linkAddress;
-  // if(header->magic == 0xDADAC0DE && size <= 80*1024){
-  //   if(def->load((void*)addr, size) && def->verify())
-  //     return def;
-  // }
-  // return NULL;
-}
-
-void ProgramManager::eraseProgramFromFlash(uint8_t sector){
-  flashSectorToWrite = sector;
-  notifyManagerFromISR(STOP_PROGRAM_NOTIFICATION|ERASE_FLASH_NOTIFICATION);
-}
-
-void ProgramManager::saveProgramToFlash(uint8_t sector, void* address, uint32_t length){
-  flashSectorToWrite = sector;
-  flashAddressToWrite = address;
-  flashSizeToWrite = length;
-  notifyManagerFromISR(STOP_PROGRAM_NOTIFICATION|PROGRAM_FLASH_NOTIFICATION);
-}
-
-
-#endif

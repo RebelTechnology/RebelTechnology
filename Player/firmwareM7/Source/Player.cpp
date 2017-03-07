@@ -156,11 +156,11 @@ void setup(void){
 
   // vTaskDelay(20);
 
-  // program.loadProgram();
 
   setAnalogValue(0, 1023);
   setAnalogValue(1, 2048);
 
+  program.loadProgram(1);
   program.startProgram(false);
 }
 

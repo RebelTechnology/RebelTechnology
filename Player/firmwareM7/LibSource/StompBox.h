@@ -53,9 +53,11 @@ public:
   int getElapsedCycles();
 public:
   virtual void reset(){};
-  virtual void encoderChanged(uint8_t encoder, int32_t dir){};
+  virtual void encoderChanged(PatchParameterId pid, int32_t dir, uint16_t samples){};
   virtual void processScreen(ScreenBuffer&) = 0;
   virtual void processAudio(AudioBuffer&) = 0;
+  /* virtual void encoderChanged(PatchParameterId pid, int16_t delta, uint16_t samples){}; */
+  virtual void buttonChanged(PatchButtonId bid, uint16_t value, uint16_t samples){}
 private:
   PatchProcessor* processor;
 };
