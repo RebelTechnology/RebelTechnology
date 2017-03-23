@@ -10,11 +10,6 @@ CMSIS_DEVICE=$(LIBROOT)/CMSIS/Device/ST/STM32F1xx
 CMSIS_CORE=$(LIBROOT)/CMSIS/Include
 DRIVERS=$(PERIPH_PATH)
 
-# Processor specific
-LDSCRIPT ?= $(TEMPLATEROOT)/STM32F100CB_FLASH.ld
-# STARTUP ?= $(TEMPLATEROOT)/startup/startup_stm32f100xb.s
-# SYSTEM ?= $(BUILD)/system_stm32f1xx.o
-
 # Compilation Flags
 ARCH_FLAGS = -mcpu=cortex-m3 -mthumb -mfloat-abi=soft
 ARCH_FLAGS += -fsingle-precision-constant -ffast-math

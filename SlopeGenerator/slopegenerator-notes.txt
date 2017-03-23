@@ -21,6 +21,8 @@ Rev01
 
 - b2 connects
 
+- change R15 to 150R
+
 -------------------------------------------------------
 
 Διαγώνιος diagonios diagonal
@@ -88,12 +90,17 @@ Load R max: 10k||10k||10k||10k || 100k||100k||100k||100k = 2.5k || 25k = 2.27k
 Load R min: 10k||10k||10k||10k || 110k||110k||110k||110k = 2.5k || 27.5k = 2.29k
 Il(max) = 4.40mA, Il(min) = 4.36mA
 
-change R15 to 150R
+set current limiting resistor R15 to 150R
 
 -------------------------------------------------------
-
 
 tempo 80BPM = 1.33Hz = 9000 ticks at 12kHz
 
+-------------------------------------------------------
+
+Rev 01 changes / todo
+/ change R15 to 150R
+/ change to mosfet input protection
 
 -------------------------------------------------------
+
