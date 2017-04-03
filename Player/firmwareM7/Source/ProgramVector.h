@@ -32,8 +32,8 @@
    typedef struct {
      uint8_t checksum;
      uint8_t hardware_version;
-     uint32_t* audio_input;
-     uint32_t* audio_output;
+     int32_t* audio_input;
+     int32_t* audio_output;
      uint8_t audio_bitdepth;
      uint16_t audio_blocksize;
      uint32_t audio_samplingrate;
@@ -54,9 +54,6 @@
      void (*buttonChangedCallback)(uint8_t bid, uint16_t state, uint16_t samples);
      void (*encoderChangedCallback)(uint8_t bid, int16_t delta, uint16_t samples);
      void (*drawCallback)(uint8_t* pixels, uint16_t screen_width, uint16_t screen_height);
-     uint8_t* pixels;
-     uint16_t screen_width;
-     uint16_t screen_height;
    } ProgramVector;
 
 #define CHECKSUM_ERROR_STATUS      -10

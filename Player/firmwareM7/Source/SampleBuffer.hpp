@@ -12,7 +12,7 @@ protected:
   float right[AUDIO_MAX_BLOCK_SIZE];
   uint16_t size;
 public:
-  void split(uint32_t* input, uint16_t blocksize){
+  void split(int32_t* input, uint16_t blocksize){
     ASSERT((blocksize & 0x3) == 0, "invalid blocksize");
     size = blocksize;
     float* l = left;
@@ -26,8 +26,8 @@ public:
       cnt--;
     }
   }
-  void comb(uint32_t* output){
-    uint32_t* dest = output;
+  void comb(int32_t* output){
+    int32_t* dest = output;
     int32_t tmp;
     // Seems CS4271 ADC samples are signed, DAC are unsigned. I2S Standard mode.
     for(int i=0; i<size; ++i){
@@ -35,9 +35,9 @@ public:
       // *dest++ = (uint32_t)(tmp+0x800000);
       // tmp = (int32_t)(right[i] * 0x800000);
       // *dest++ = (uint32_t)(tmp+0x800000);
-      tmp = (uint32_t)((int32_t)(right[i] * 2147483648.0f));
+      tmp = ((int32_t)(right[i] * 2147483648.0f));
       *dest++ = tmp>>8;
-      tmp = (uint32_t)((int32_t)(right[i] * 2147483648.0f));
+      tmp = ((int32_t)(right[i] * 2147483648.0f));
       *dest++ = tmp>>8;
     }
     // float* l = left;

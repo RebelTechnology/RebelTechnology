@@ -40,12 +40,7 @@ static TaskHandle_t managerTask = NULL;
 SampleBuffer samples;
 static DynamicPatchDefinition dynamo;
 
-extern "C" {
-  void updateProgramVector(ProgramVector* pv);
-  ProgramVector* getProgramVector() { return programVector; }
-  void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size);
-  void encoderChanged(uint8_t encoder, int32_t value);
-}
+ProgramVector* getProgramVector() { return programVector; }
 
 // #include "SplashPatch.hpp"
 // static SplashPatch splash;
@@ -69,7 +64,7 @@ PatchDefinition* getPatchDefinition(){
   return program.getPatchDefinition();
 }
 
-void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size){
+void audioCallback(int32_t* rx, int32_t* tx, uint16_t size){
   DWT->CYCCNT = 0;
   getProgramVector()->audio_input = rx;
   getProgramVector()->audio_output = tx;
@@ -119,9 +114,6 @@ void updateProgramVector(ProgramVector* pv){
   pv->programStatus = onProgramStatus;
   pv->serviceCall = NULL;
   pv->message = NULL;
-  pv->pixels = pixelbuffer;
-  pv->screen_width = OLED_WIDTH;
-  pv->screen_height = OLED_HEIGHT;
 }
 
 void defaultDrawCallback(uint8_t* pixels, uint16_t screen_width, uint16_t screen_height){
@@ -145,13 +137,14 @@ void runScreenTask(void* p){
   for(;;){
     ProgramVector* pv = getProgramVector();
     if(pv->drawCallback != NULL){
-      pv->drawCallback(pv->pixels, pv->screen_width, pv->screen_height);
+      pv->drawCallback(pixelbuffer, OLED_WIDTH, OLED_HEIGHT);
+      // pv->drawCallback(pv->pixels, pv->screen_width, pv->screen_height);
     // patches[currentPatch]->processScreen(screen);
     }else{
-      defaultDrawCallback(pv->pixels, pv->screen_width, pv->screen_height);
+      defaultDrawCallback(pixelbuffer, OLED_WIDTH, OLED_HEIGHT);
     }
   // graphics.display(pv->pixels, pv->screen_width*pv->screen_height);
-    graphics.display(pv->pixels, OLED_WIDTH*OLED_HEIGHT);
+    graphics.display(pixelbuffer, OLED_WIDTH*OLED_HEIGHT);
     // swap pixelbuffer
     // pv->pixels = pixelbuffer[swappb];
     // swappb = !swappb;
@@ -248,6 +241,9 @@ void runManagerTask(void* p){
       // todo: make sure no two tasks are using the same stack
       if(audioTask == NULL)
 	xTaskCreate(runAudioTask, "Audio", AUDIO_TASK_STACK_SIZE, NULL, AUDIO_TASK_PRIORITY, &audioTask);
+      else
+	error(PROGRAM_ERROR, "Program already running");
+
       if(audioTask == NULL)
 	error(PROGRAM_ERROR, "Failed to start program task");
     }

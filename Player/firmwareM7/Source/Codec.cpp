@@ -5,8 +5,8 @@
 
 #define CODEC_BUFFER_HALFSIZE (CODEC_BUFFER_SIZE/2)
 #define CODEC_BUFFER_QUARTSIZE (CODEC_BUFFER_SIZE/4)
-static uint32_t txbuf[CODEC_BUFFER_SIZE];
-static uint32_t rxbuf[CODEC_BUFFER_SIZE];
+static int32_t txbuf[CODEC_BUFFER_SIZE];
+static int32_t rxbuf[CODEC_BUFFER_SIZE];
 
 extern "C" {
 SAI_HandleTypeDef hsai_BlockA1;
@@ -107,7 +107,7 @@ extern "C" {
 // void HAL_SAI_TxHalfCpltCallback(SAI_HandleTypeDef *hsai){
 // }
 
-extern void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size);
+extern void audioCallback(int32_t* rx, int32_t* tx, uint16_t size);
 
 void HAL_SAI_RxCpltCallback(SAI_HandleTypeDef *hsai){
   audioCallback(rxbuf+CODEC_BUFFER_HALFSIZE, txbuf+CODEC_BUFFER_HALFSIZE, CODEC_BUFFER_QUARTSIZE);

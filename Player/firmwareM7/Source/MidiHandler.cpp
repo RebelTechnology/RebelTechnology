@@ -28,10 +28,8 @@ void MidiHandler::handleNoteOff(uint8_t status, uint8_t note, uint8_t velocity){
 void MidiHandler::handleProgramChange(uint8_t status, uint8_t pid){
   if(channel != MIDI_OMNI_CHANNEL && channel != getChannel(status))
     return;
-  if(pid == 0 && loader.isReady()){
-    program.loadDynamicProgram(loader.getData(), loader.getSize());
-    loader.clear();
-    program.startProgram(true);
+  if(pid == 0){
+    runProgram();
   }else{
     program.loadProgram(pid);
     program.resetProgram(true);
@@ -182,10 +180,16 @@ void MidiHandler::handleFirmwareUploadCommand(uint8_t* data, uint16_t size){
 }
 
 void MidiHandler::handleFirmwareRunCommand(uint8_t* data, uint16_t size){
+  runProgram();
+}
+
+void MidiHandler::runProgram(){
   if(loader.isReady()){
+    // program.exitProgram(true); // exit progress bar
     program.loadDynamicProgram(loader.getData(), loader.getSize());
     loader.clear();
-    program.startProgram(true);
+    // program.startProgram(true);
+    program.resetProgram(true);
   }else{
     error(PROGRAM_ERROR, "No program to run");
   }      

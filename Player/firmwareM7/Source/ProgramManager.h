@@ -10,7 +10,8 @@ extern "C" {
   void onProgramReady(void);
   void onProgramStatus(ProgramVectorAudioStatus status);
   void onAudioReady(void);
-  void audioCallback(uint32_t* rx, uint32_t* tx, uint16_t size);
+  void audioCallback(int32_t* rx, int32_t* tx, uint16_t size);
+  void encoderChanged(uint8_t encoder, int32_t value);
 }
 
 class ProgramManager {
