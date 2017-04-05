@@ -7589,7 +7589,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <part name="R27" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="DAC5" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
-<part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="3k3"/>
+<part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="4k99"/>
 <part name="GND44" library="supply1" deviceset="GND" device=""/>
 <part name="GND38" library="supply1" deviceset="GND" device=""/>
 <part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
@@ -7597,7 +7597,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="DAC6" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
-<part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="3k3"/>
+<part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="4k99"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="R34" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
@@ -7605,7 +7605,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <part name="R35" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="DAC7" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="R36" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
-<part name="R37" library="Rebel" deviceset="R-EU_" device="0603" value="3k3"/>
+<part name="R37" library="Rebel" deviceset="R-EU_" device="0603" value="4k99"/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
 <part name="R38" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
@@ -7613,7 +7613,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <part name="R39" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="DAC8" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="R40" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
-<part name="R41" library="Rebel" deviceset="R-EU_" device="0603" value="3k3"/>
+<part name="R41" library="Rebel" deviceset="R-EU_" device="0603" value="4k99"/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
 <part name="R42" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
@@ -9019,6 +9019,10 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <approved hash="104,1,261.62,241.3,IC2P,V-,-12V,,,"/>
 <approved hash="104,1,431.8,210.82,IC1P,V+,+12V,,,"/>
 <approved hash="104,1,431.8,195.58,IC1P,V-,-12V,,,"/>
+<approved hash="113,1,146.008,-17.6488,JP1,,,,,"/>
+<approved hash="113,1,83.5829,180.209,USBD,,,,,"/>
+<approved hash="113,1,33.3417,189.23,LED2,,,,,"/>
+<approved hash="113,1,48.5817,189.23,LED3,,,,,"/>
 </errors>
 </schematic>
 </drawing>
