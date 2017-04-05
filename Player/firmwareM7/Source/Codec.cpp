@@ -47,19 +47,19 @@ void Codec::txrx(){
   HAL_SAI_Transmit_DMA(&hsai_BlockB1, (uint8_t*)rxbuf, CODEC_BUFFER_SIZE);
 }
 
-uint32_t Codec::getMin(){
-  uint32_t min = txbuf[0];
+int32_t Codec::getMin(){
+  int32_t min = txbuf[0];
   for(int i=1; i<CODEC_BUFFER_SIZE; ++i)
     if(txbuf[i] < min)
-      min  = txbuf[i];
+      min = txbuf[i];
   return min;
 }
 
-uint32_t Codec::getMax(){
-  uint32_t max = txbuf[0];
+int32_t Codec::getMax(){
+  int32_t max = txbuf[0];
   for(int i=1; i<CODEC_BUFFER_SIZE; ++i)
     if(txbuf[i] > max)
-      max  = txbuf[i];
+      max = txbuf[i];
   return max;
 }
 

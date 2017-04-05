@@ -58,9 +58,9 @@ public:
       return false;
     // sanity-check stack base address and size
     uint32_t sb = (uint32_t)stackBase;
-    if((sb >= PATCHRAM && sb+stackSize <= (PATCHRAM+80*1024)) ||
+    if((sb >= PATCHRAM && sb+stackSize <= (PATCHRAM+64*1024)) ||
        (sb >= CCMRAM && sb+stackSize <= (CCMRAM+64*1024)) ||
-       (sb >= EXTRAM && sb+stackSize <= (EXTRAM+80*1024)) ||
+       (sb >= EXTRAM && sb+stackSize <= (EXTRAM+1024*1024)) ||
        (sb == 0 && stackSize == 0))
       return true;
     return false;
@@ -68,8 +68,7 @@ public:
   void run(){
     if(linkAddress != programAddress)
       copy();
-    if(verify())
-      programFunction();
+    programFunction();
   }
   uint32_t getProgramSize(){
     return programSize;

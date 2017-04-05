@@ -11,6 +11,7 @@ public:
   FactoryPatchDefinition(char* name, uint8_t inputs, uint8_t outputs, PatchCreator c);
   void setup(char* name, uint8_t inputs, uint8_t outputs, PatchCreator c);
   void run();
+  bool verify();
   static void init();
 private:
   Patch* create() {

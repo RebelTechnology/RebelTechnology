@@ -11,6 +11,7 @@
 #include "ScreenBuffer.h"
 #include "SampleBuffer.hpp"
 #include "Codec.h"
+#include "ServiceCall.h"
 
 // FreeRTOS low priority numbers denote low priority tasks. 
 // The idle task has priority zero (tskIDLE_PRIORITY).
@@ -42,11 +43,6 @@ static DynamicPatchDefinition dynamo;
 
 ProgramVector* getProgramVector() { return programVector; }
 
-// #include "SplashPatch.hpp"
-// static SplashPatch splash;
-// static Patch* patches[] = {&splash};
-// static uint8_t currentPatch = 0;
-
 static int16_t encoders[2] = {INT16_MAX/2, INT16_MAX/2};
 static int16_t deltas[2] = {0, 0};
 void encoderChanged(uint8_t encoder, int32_t value){
@@ -57,7 +53,6 @@ void encoderChanged(uint8_t encoder, int32_t value){
   deltas[encoder] = delta;
   if(getProgramVector()->encoderChangedCallback != NULL)
     getProgramVector()->encoderChangedCallback(encoder, delta, 0);
-  // patches[currentPatch]->encoderChanged(encoder, delta);
 }
 
 PatchDefinition* getPatchDefinition(){
@@ -80,6 +75,11 @@ void audioCallback(int32_t* rx, int32_t* tx, uint16_t size){
 /* called by the program when an error or anomaly has occured */
 void onProgramStatus(ProgramVectorAudioStatus status){
   // setLed(RED);
+  program.exitProgram(false);
+  char msg[] = "Err xx";
+  msg[4] = '0'+(status/10);
+  msg[5] = '0'+(status%10);
+  error(PROGRAM_ERROR, msg);
   for(;;);
 }
 
@@ -112,7 +112,7 @@ void updateProgramVector(ProgramVector* pv){
   pv->heap_bytes_used = 0;
   pv->programReady = onProgramReady;
   pv->programStatus = onProgramStatus;
-  pv->serviceCall = NULL;
+  pv->serviceCall = serviceCall;
   pv->message = NULL;
 }
 
@@ -120,13 +120,22 @@ void defaultDrawCallback(uint8_t* pixels, uint16_t screen_width, uint16_t screen
   static ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
   screen.setBuffer(pixels);
   screen.clear();
+
+  ProgramVector* pv = getProgramVector();
+  if(pv->message != NULL){
+    screen.setTextSize(1);
+    screen.print(2, 40, pv->message);
+  }
   if(getErrorStatus() != NO_ERROR && getErrorMessage() != NULL){
     screen.setTextSize(1);
-    screen.print(2, 32, getErrorMessage());
+    screen.print(2, 20, getErrorMessage());
   }else{
     screen.setTextSize(1);
-    screen.print(20, 56, "cps: ");
-    screen.print((int)(getProgramVector()->cycles_per_block)/getProgramVector()->audio_blocksize);
+    screen.print(2, 56, "cps/mem: ");
+    screen.print((int)(pv->cycles_per_block)/pv->audio_blocksize);
+    screen.print("/");
+    screen.print((int)(pv->heap_bytes_used)/1024);
+    screen.print("kB");
   }
   screen.setTextSize(1);
   screen.print(20, 0, "Rebel Technology");
@@ -138,24 +147,18 @@ void runScreenTask(void* p){
     ProgramVector* pv = getProgramVector();
     if(pv->drawCallback != NULL){
       pv->drawCallback(pixelbuffer, OLED_WIDTH, OLED_HEIGHT);
-      // pv->drawCallback(pv->pixels, pv->screen_width, pv->screen_height);
-    // patches[currentPatch]->processScreen(screen);
     }else{
       defaultDrawCallback(pixelbuffer, OLED_WIDTH, OLED_HEIGHT);
     }
-  // graphics.display(pv->pixels, pv->screen_width*pv->screen_height);
     graphics.display(pixelbuffer, OLED_WIDTH*OLED_HEIGHT);
-    // swap pixelbuffer
-    // pv->pixels = pixelbuffer[swappb];
-    // swappb = !swappb;
-    vTaskDelay(delay);  
+    vTaskDelay(delay); // allow a minimum amount of time for pixel data to be transferred
   }
 }
 
 void runAudioTask(void* p){
     PatchDefinition* def = getPatchDefinition();
     ProgramVector* pv = def == NULL ? NULL : def->getProgramVector();
-    if(pv != NULL){
+    if(pv != NULL && def->verify()){
       updateProgramVector(pv);
       programVector = pv;
       // audioStatus = AUDIO_IDLE_STATUS;
@@ -169,18 +172,8 @@ void runAudioTask(void* p){
       error(PROGRAM_ERROR, "Invalid program");
     }
     // setLed(RED);
+    program.exitProgram(false);
     for(;;);
-
-  // ProgramVector* pv = getProgramVector();
-  // updateProgramVector(pv);
-  // // patches[currentPatch]->reset();
-  // for(;;){
-  //   pv->programReady();
-  //   samples.split(pv->audio_input, pv->audio_blocksize);
-  //   patches[currentPatch]->processAudio(samples);
-  //   samples.comb(pv->audio_output);
-  //   // done processing one audio block
-  // }
 }
 
 void runManagerTask(void* p){
@@ -339,9 +332,9 @@ extern "C" {
   }
   void vApplicationMallocFailedHook(void) {
     // taskDISABLE_INTERRUPTS();
-    // for(;;);
-    // exitProgram(false);
+    program.exitProgram(false);
     error(PROGRAM_ERROR, "malloc failed");
+    for(;;);
   }
   void vApplicationIdleHook(void) {
   }
@@ -351,9 +344,9 @@ extern "C" {
     /* Run time stack overflow checking is performed if
        configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2.  This hook
        function is called if a stack overflow is detected. */
-    // exitProgram(false);
-    error(PROGRAM_ERROR, "stack overflow");
+    program.exitProgram(false);
+    error(PROGRAM_ERROR, "Stack overflow");
     // taskDISABLE_INTERRUPTS();
-    // for(;;);
+    for(;;);
   }
 }

@@ -25,7 +25,7 @@
 /* #define CS_RST_Pin CS_nRST_Pin */
 /* #define CS_RST_GPIO_Port CS_nRST_GPIO_Port */
 
-#define CODEC_BLOCKSIZE 2048
+#define CODEC_BLOCKSIZE 512
 #define CODEC_BUFFER_SIZE (4*CODEC_BLOCKSIZE)
 #define AUDIO_MAX_BLOCK_SIZE (CODEC_BUFFER_SIZE/4)
 
@@ -52,7 +52,8 @@
 #define MAX_NUMBER_OF_PATCHES        40
 
 #define CCMRAM                      ((uint32_t)0x10000000)
-#define PATCHRAM                    ((uint32_t)0x2000c000)
+#define PATCHRAM                    ((uint32_t)0x20040000)
+/* #define PATCHRAM                    ((uint32_t)0x2000c000) */
 /* #define EXTRAM                      ((uint32_t)0x68000000) */
 #define EXTRAM                      ((uint32_t)0xD0000000)
 

@@ -15,8 +15,8 @@ class Codec {
   void txrx();
   void set(uint32_t value);
   void ramp(uint32_t max);
-  uint32_t getMin();
-  uint32_t getMax();
+  int32_t getMin();
+  int32_t getMax();
   float getAvg();
  private:
 };

@@ -18,6 +18,9 @@ public:
   //   return function;
   // }
   virtual void run(){}
+  virtual bool verify(){
+    return false;
+  }
   // uint32_t* getAddress(){
   //   return address;
   // }

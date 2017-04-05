@@ -37,6 +37,10 @@ void onDraw(uint8_t* pixels, uint16_t screen_width, uint16_t screen_height){
   }
 }
 
+bool FactoryPatchDefinition::verify(){
+  return true;
+}
+
 void FactoryPatchDefinition::run(){
   sram_init((char*)EXTRAM, 1024*1024);
   Patch* patch = create();
