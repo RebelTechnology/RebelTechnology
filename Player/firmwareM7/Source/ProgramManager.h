@@ -12,6 +12,8 @@ extern "C" {
   void onAudioReady(void);
   void audioCallback(int32_t* rx, int32_t* tx, uint16_t size);
   void encoderChanged(uint8_t encoder, int32_t value);
+  uint16_t getAnalogValue(uint8_t index);
+  void setAnalogValue(uint8_t ch, uint16_t value);
 }
 
 class ProgramManager {

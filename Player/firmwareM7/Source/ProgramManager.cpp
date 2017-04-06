@@ -43,6 +43,82 @@ static DynamicPatchDefinition dynamo;
 
 ProgramVector* getProgramVector() { return programVector; }
 
+class ParameterController {
+public:
+  const uint8_t parameters_size = 8;
+  int16_t parameters[8];
+  const char* names[8] = { "Parameter A",  "Parameter B",  "Parameter C",  "Parameter D", 
+			   "Parameter E",  "Parameter F",  "Parameter G",  "Parameter H" };
+  int8_t selected = 0;
+  void draw(uint8_t* pixels, uint16_t width, uint16_t height){
+    static ScreenBuffer screen(width, height);
+    screen.setBuffer(pixels);
+    draw(screen);
+  }
+  void draw(ScreenBuffer& screen){
+    if(sw1()){
+      screen.clear();
+      drawStats(screen);
+      // todo: show patch name and next/previous patch
+    }else if(sw2()){
+      screen.clear();
+      screen.setTextSize(1);
+      screen.print(2, 0, names[selected]);
+      screen.setTextSize(3);
+      screen.setCursor(30, 20);
+      screen.print(parameters[selected]/41); // assuming parameter value [0-4095]
+      screen.print("%");
+    }else if(getErrorStatus() != NO_ERROR && getErrorMessage() != NULL){
+      screen.clear();
+      screen.setTextSize(1);
+      screen.print(2, 20, getErrorMessage());
+    }else{
+      screen.setTextSize(1);
+      screen.print(2, 56, names[selected]);
+      screen.print(": ");
+      screen.print(parameters[selected]/41);
+    }
+  }
+  void drawStats(ScreenBuffer& screen){
+    ProgramVector* pv = getProgramVector();
+    if(pv->message != NULL)
+      screen.print(2, 36, pv->message);
+    screen.print(2, 46, "cpu/mem: ");
+    screen.print((int)((pv->cycles_per_block)/pv->audio_blocksize)/35);
+    screen.print("% ");
+    screen.print((int)(pv->heap_bytes_used)/1024);
+    screen.print("kB");
+  }
+  void encoderChanged(uint8_t encoder, int32_t delta){
+    if(encoder == 0){
+      if(sw2()){
+	if(delta > 1)
+	  selected = min(parameters_size-1, selected+1);
+	else if(delta < 1)
+	  selected = max(0, selected-1);
+      }else{
+	parameters[selected] += delta*10;
+	parameters[selected] = min(4095, max(0, parameters[selected]));
+      }
+    } // todo: change patch with enc1/sw1
+  }
+private:
+  bool tr1(){
+    return HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_11) != GPIO_PIN_SET;
+  }
+  bool tr2(){
+    return HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10) != GPIO_PIN_SET;
+  }
+  bool sw1(){
+    return HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_14) != GPIO_PIN_SET;
+  }
+  bool sw2(){
+    return HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4) != GPIO_PIN_SET;
+  }
+};
+
+ParameterController params;
+
 static int16_t encoders[2] = {INT16_MAX/2, INT16_MAX/2};
 static int16_t deltas[2] = {0, 0};
 void encoderChanged(uint8_t encoder, int32_t value){
@@ -51,8 +127,10 @@ void encoderChanged(uint8_t encoder, int32_t value){
   int32_t delta = value - encoders[encoder];
   encoders[encoder] = value;
   deltas[encoder] = delta;
-  if(getProgramVector()->encoderChangedCallback != NULL)
-    getProgramVector()->encoderChangedCallback(encoder, delta, 0);
+  params.encoderChanged(encoder, delta);
+  // todo: save changes and pass at programReady()
+  // if(getProgramVector()->encoderChangedCallback != NULL)
+  //   getProgramVector()->encoderChangedCallback(encoder, delta, 0);
 }
 
 PatchDefinition* getPatchDefinition(){
@@ -93,15 +171,23 @@ void onProgramReady(){
     // const TickType_t xBlockTime = pdMS_TO_TICS( 500 );
     ulNotifiedValue = ulTaskNotifyTake(pdTRUE, xBlockTime);
   }
+  params.parameters[0] = getAnalogValue(0);
+  params.parameters[1] = getAnalogValue(1);
   // ready to run block again
 }
 
-int16_t parameter_values[16];
+// called from program
+void onSetPatchParameter(uint8_t pid, int16_t value){     
+}
+// called from program
+void onSetButton(uint8_t bid, uint16_t state, uint16_t samples){
+}
+
 void updateProgramVector(ProgramVector* pv){
   pv->checksum = PROGRAM_VECTOR_CHECKSUM_V13;
   pv->hardware_version = PLAYER_HARDWARE;
-  pv->parameters_size = 16;
-  pv->parameters = parameter_values;
+  pv->parameters_size = params.parameters_size;
+  pv->parameters = params.parameters;
   pv->audio_bitdepth = 24;
   pv->audio_samplingrate = 48000;
   pv->audio_blocksize = CODEC_BLOCKSIZE; // todo!
@@ -113,30 +199,36 @@ void updateProgramVector(ProgramVector* pv){
   pv->programReady = onProgramReady;
   pv->programStatus = onProgramStatus;
   pv->serviceCall = serviceCall;
+  pv->setButton = onSetButton;
+  pv->setPatchParameter = onSetPatchParameter;
+
+  pv->buttonChangedCallback = NULL;
+  pv->encoderChangedCallback = NULL;
+  pv->drawCallback = NULL;
   pv->message = NULL;
 }
 
-void defaultDrawCallback(uint8_t* pixels, uint16_t screen_width, uint16_t screen_height){
-  static ScreenBuffer screen(OLED_WIDTH, OLED_HEIGHT);
+void defaultDrawCallback(uint8_t* pixels, uint16_t width, uint16_t height){
+  static ScreenBuffer screen(width, height);
   screen.setBuffer(pixels);
   screen.clear();
 
-  ProgramVector* pv = getProgramVector();
-  if(pv->message != NULL){
-    screen.setTextSize(1);
-    screen.print(2, 40, pv->message);
-  }
-  if(getErrorStatus() != NO_ERROR && getErrorMessage() != NULL){
-    screen.setTextSize(1);
-    screen.print(2, 20, getErrorMessage());
-  }else{
-    screen.setTextSize(1);
-    screen.print(2, 56, "cps/mem: ");
-    screen.print((int)(pv->cycles_per_block)/pv->audio_blocksize);
-    screen.print("/");
-    screen.print((int)(pv->heap_bytes_used)/1024);
-    screen.print("kB");
-  }
+  // ProgramVector* pv = getProgramVector();
+  // if(pv->message != NULL){
+  //   screen.setTextSize(1);
+  //   screen.print(2, 40, pv->message);
+  // }
+  // if(getErrorStatus() != NO_ERROR && getErrorMessage() != NULL){
+  //   screen.setTextSize(1);
+  //   screen.print(2, 20, getErrorMessage());
+  // }else{
+  //   screen.setTextSize(1);
+  //   screen.print(2, 46, "cps/mem: ");
+  //   screen.print((int)(pv->cycles_per_block)/pv->audio_blocksize);
+  //   screen.print("/");
+  //   screen.print((int)(pv->heap_bytes_used)/1024);
+  //   screen.print("kB");
+  // }
   screen.setTextSize(1);
   screen.print(20, 0, "Rebel Technology");
 }
@@ -150,6 +242,7 @@ void runScreenTask(void* p){
     }else{
       defaultDrawCallback(pixelbuffer, OLED_WIDTH, OLED_HEIGHT);
     }
+    params.draw(pixelbuffer, OLED_WIDTH, OLED_HEIGHT);
     graphics.display(pixelbuffer, OLED_WIDTH*OLED_HEIGHT);
     vTaskDelay(delay); // allow a minimum amount of time for pixel data to be transferred
   }

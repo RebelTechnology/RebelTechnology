@@ -53,22 +53,19 @@ public:
 
   void processScreen(ScreenBuffer& screen){
     screen.clear();
-    if(getErrorStatus() != NO_ERROR && getErrorMessage() != NULL){
-      screen.setTextSize(1);
-      screen.print(2, 32, getErrorMessage());
-    }else if(!sw2()){
+    // if(getErrorStatus() != NO_ERROR && getErrorMessage() != NULL){
+    //   screen.setTextSize(1);
+    //   screen.print(2, 32, getErrorMessage());
+    // }else 
+      if(!sw1()){
       screen.setTextSize(2);
       screen.print(x, y, "PLAYER");
     }
-    // if(sw1()){
-    //   screen.fill(WHITE);
-    //   screen.setTextColour(BLACK);
-    // }
 
     // FloatArray left = samples.getSamples(LEFT_CHANNEL);
     // FloatArray right = samples.getSamples(RIGHT_CHANNEL);
 
-    if(sw2()){
+    if(sw1()){
       int size = 32;
       uint32_t* buffer = (uint32_t*)EXTRAM;
       uint32_t* src = (uint32_t*)screen.getBuffer();
@@ -87,10 +84,10 @@ public:
       // 	screen.print(20, 20, "fail: ");
       // 	screen.print(fail);
       // }
-    }else{
-      screen.setTextSize(1);
-      screen.print(20, 56, "cps: ");
-      screen.print((int)(getProgramVector()->cycles_per_block)/getBlockSize());
+    // }else{
+    //   screen.setTextSize(1);
+    //   screen.print(20, 56, "cps: ");
+    //   screen.print((int)(getProgramVector()->cycles_per_block)/getBlockSize());
     }
 
     if(tr1())
