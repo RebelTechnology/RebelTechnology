@@ -223,35 +223,39 @@ void setPortValue(uint8_t ch, uint16_t value){
 #endif
 }
 
+void loop(){
+  bus_status();
+#if defined USE_MAX_DMA && !defined MAX_CONTINUOUS
+  MAX11300_bulksetDAC();
+#endif
+  for(int ch=0; ch<MAX11300_CHANNELS; ++ch){
+    if(cfg[ch] < DAC_MODE){
+      setADC(ch, getPortValue(ch));
+      uint8_t cc = adc[ch] >> 5;
+      if(abs(cc - cc_values[ch]) > HYSTERESIS_DELTA){
+	bus_tx_parameter(getChannelIndex(PARAMETER_AA+ch), adc[ch]);
+	cc_values[ch] = cc;
+      }
+    }
+  }
+  bus_status();
+#if defined USE_MAX_DMA && !defined MAX_CONTINUOUS
+  MAX11300_bulkreadADC();
+#endif
+  for(int ch=0; ch<MAX11300_CHANNELS; ++ch){
+    if(cfg[ch] > DAC_MODE){
+      setPortValue(ch, dac[ch]);
+      setLed(ch, dac[ch]);
+    }
+  }
+#if defined USE_TLC && !defined TLC_CONTINUOUS
+  TLC5946_Refresh_GS();
+#endif
+}
+
 void run(){
   for(;;){
-    bus_status();
-#if defined USE_MAX_DMA && !defined MAX_CONTINUOUS
-    MAX11300_bulksetDAC();
-#endif
-    for(int ch=0; ch<MAX11300_CHANNELS; ++ch){
-      if(cfg[ch] < DAC_MODE){
-	setADC(ch, getPortValue(ch));
-	uint8_t cc = adc[ch] >> 5;
-	if(abs(cc - cc_values[ch]) > HYSTERESIS_DELTA){
-	  bus_tx_parameter(getChannelIndex(PARAMETER_AA+ch), adc[ch]);
-	  cc_values[ch] = cc;
-	}
-      }
-    }
-    bus_status();
-#if defined USE_MAX_DMA && !defined MAX_CONTINUOUS
-    MAX11300_bulkreadADC();
-#endif
-    for(int ch=0; ch<MAX11300_CHANNELS; ++ch){
-      if(cfg[ch] > DAC_MODE){
-	setPortValue(ch, dac[ch]);
-	setLed(ch, dac[ch]);
-      }
-    }
-#if defined USE_TLC && !defined TLC_CONTINUOUS
-    TLC5946_Refresh_GS();
-#endif
+    loop();
   }
 }
 
