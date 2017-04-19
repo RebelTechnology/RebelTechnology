@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:exslt="http://exslt.org/common" version="1.1" width="210mm" height="297mm" viewBox="0 0 210 297">
+  <sodipodi:namedview id="base" inkscape:document-units="mm" units="mm"/>
+  <defs>
+    <g id="potgrading"/>
+  </defs>
+  <g style="fill:none;stroke-width:0.05;stroke:#ff0000"><rect x="0.0" y="0.0" width="40.30" height="128.50"/><svg:circle cx="7.5" cy="3" r="1.6"/><svg:circle cx="7.5" cy="125.5" r="1.6"/>
+
+
+
+  <circle cx="8.643799999999999" cy="12.3451" r="1.6" style="fill:none;stroke:#ff0000"/>
+  <circle cx="20.15" cy="22.34" r="11.9" style="fill:none;stroke:#ff0000"/>
+  <circle cx="31.6562" cy="32.3349" r="1.6" style="fill:none;stroke:#ff0000"/>
+
+  <circle cx="8.643799999999999" cy="40.2851" r="1.6" style="fill:none;stroke:#ff0000"/>
+  <circle cx="20.15" cy="50.28" r="11.9" style="fill:none;stroke:#ff0000"/>
+  <circle cx="31.6562" cy="60.2749" r="1.6" style="fill:none;stroke:#ff0000"/>
+
+  <circle cx="8.643799999999999" cy="68.2251" r="1.6" style="fill:none;stroke:#ff0000"/>
+  <circle cx="20.15" cy="78.22" r="11.9" style="fill:none;stroke:#ff0000"/>
+  <circle cx="31.6562" cy="88.2149" r="1.6" style="fill:none;stroke:#ff0000"/>
+
+  <circle cx="8.643799999999999" cy="96.1651" r="1.6" style="fill:none;stroke:#ff0000"/>
+  <circle cx="20.15" cy="106.16" r="11.9" style="fill:none;stroke:#ff0000"/>
+  <circle cx="31.6562" cy="116.1549" r="1.6" style="fill:none;stroke:#ff0000"/>
+
+</g>
+</svg>

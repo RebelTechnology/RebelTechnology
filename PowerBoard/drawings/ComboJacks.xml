@@ -1,0 +1,21 @@
+<module type="8hp">
+
+<!-- .3935 -->
+
+  <hole x="-0.453" y="2.0435" radius="1.6"/>
+  <hole x="0.00" y="1.65" radius="11.9"/>
+  <hole x="0.453" y="1.2565" radius="1.6"/>
+
+  <hole x="-0.453" y="0.9435" radius="1.6"/>
+  <hole x="0.00" y="0.55" radius="11.9"/>
+  <hole x="0.453" y="0.1565" radius="1.6"/>
+
+  <hole x="-0.453" y="-0.1565" radius="1.6"/>
+  <hole x="0.00" y="-0.55" radius="11.9"/>
+  <hole x="0.453" y="-0.9435" radius="1.6"/>
+
+  <hole x="-0.453" y="-1.2565" radius="1.6"/>
+  <hole x="0.00" y="-1.65" radius="11.9"/>
+  <hole x="0.453" y="-2.0435" radius="1.6"/>
+
+</module>
