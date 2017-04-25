@@ -4,7 +4,7 @@ BIN=$(BUILD)/SlopeGenerator.bin
 
 # Tool path
 TOOLROOT=~/devel/OwlWare/Tools/gcc-arm-none-eabi-5_4-2016q2/bin
-STLINK=~/devel/stlink/build
+STLINK=~/devel/stlink/build/Release
 
 # Tools
 CC=$(TOOLROOT)/arm-none-eabi-gcc
@@ -82,6 +82,9 @@ bin: $(BIN)
 
 as: $(ELF)
 	$(OBJDUMP) -S $(ELF) > $(ELF:.elf=.s)
+
+map : $(OBJS) $(LDSCRIPT)
+	@$(LD) $(LDFLAGS) -Wl,-Map=$(ELF:.elf=.map) $(OBJS) $(LDLIBS)
 
 dfu: $(BIN)
 	$(DFUUTIL) -d 0483:df11 -c 1 -i 0 -a 0 -s 0x8000000:leave -D $(BIN)

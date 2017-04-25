@@ -121,26 +121,43 @@ enum Stage {
 int32_t ADC_RANGE = 4040;
 int32_t DAC_RANGE = 3968;
 // #define DAC_SCALAR 6
-int32_t DAC_SCALAR =  6;
+int32_t DAC_SCALAR = 10;
 // #define ADC_SCALAR (DAC_SCALAR-6)
 int32_t ADC_SCALAR =  (DAC_SCALAR-4);
 #define LED_SCALAR (DAC_SCALAR+5)
 // #define SKEW_SCALAR 21
 int32_t SKEW_SCALAR = 10+DAC_SCALAR;
-#define MAX_LEVEL (DAC_RANGE<<DAC_SCALAR)
+// #define MAX_LEVEL (DAC_RANGE<<DAC_SCALAR)
+int32_t MAX_LEVEL = (DAC_RANGE<<DAC_SCALAR);
 #define MIN_LEVEL 0
 // #define MID_LEVEL (MAX_LEVEL>>1)
 int32_t MID_LEVEL = MAX_LEVEL>>1;
-#define MIN_SLOPE 1
+int32_t MAX_SLOPE = MAX_LEVEL;// ADC_RANGE*3;
+int32_t MIN_SLOPE = 3;
+// #define MIN_SLOPE 3
 
-#define NOMINAL_PERIOD 9000 // 1.33Hz, 80BPM, at 12kHz
+void setConstants(int range = 10){
+ DAC_SCALAR = range;
+ ADC_SCALAR =  (DAC_SCALAR-4);
+ SKEW_SCALAR = 10+DAC_SCALAR;
+ MAX_LEVEL = (DAC_RANGE<<DAC_SCALAR);
+ MID_LEVEL = MAX_LEVEL>>1;
+ MAX_SLOPE = MAX_LEVEL;// ADC_RANGE*3;
+}
+
+#define MIN_PERIOD     720               // 16.66Hz, 1000 BPM
+#define NOMINAL_PERIOD 9000              // 1.33Hz, 80 BPM, at 12kHz
+#define MAX_PERIOD (INT32_MAX/ADC_RANGE) // 0.025Hz, 1.35 BPM
+
+// int32_t ADC_MUL = 15; // 1<<ADC_SCALAR;
+int32_t ADC_DIV = 8; // 1<<ADC_SCALAR;
 
 template<Channel CH>
 class Envelope {
 public:
   int32_t level;
   int32_t linear;
-  volatile OperatingMode mode;  
+  volatile OperatingMode mode;
   volatile int32_t attack;
   volatile int32_t release;
   volatile int32_t attack_skew;
@@ -148,16 +165,29 @@ public:
   volatile Stage stage;
   Envelope() :
     level(MIN_LEVEL), linear(-MID_LEVEL), mode(GATE_MODE), attack(0), release(0), attack_skew(0), release_skew(0), stage(END_STAGE) {}
-  void setAttack(int32_t value, int32_t skew, int32_t period){
-    value = ADC_RANGE - min(ADC_RANGE-1, value);
+  int32_t compute(int32_t value, int32_t skew, int32_t period){
+    // value = ADC_RANGE-value;
+    // value = max(0, value);
+    value += 8;
     value = (value*period)/NOMINAL_PERIOD;
-    attack = max(MIN_SLOPE, MAX_LEVEL/(value<<ADC_SCALAR));
+
+    value = value*value/ADC_DIV + MIN_SLOPE;
+    value = min(MAX_LEVEL/2, value);
+
+    // value = value*ADC_MUL;
+    // value = max(1, value); // 3 steps apprx 1.5ms
+
+    // value = max(MIN_SLOPE, MAX_LEVEL/value);
+    // value = MAX_LEVEL/value;
+    return value;
+  }
+    
+  void setAttack(int32_t value, int32_t skew, int32_t period){
+    attack = compute(value, skew, period);
     attack_skew = (attack*skew)>>11;
   }
   void setRelease(int32_t value, int32_t skew, int32_t period){
-    value = ADC_RANGE - min(ADC_RANGE-1, value);
-    value = (value*period)/NOMINAL_PERIOD;
-    release = max(MIN_SLOPE,  MAX_LEVEL/(value<<ADC_SCALAR));
+    release = compute(value, skew, period);
     release_skew = (release*skew)>>11;
   }
   void clock(){
@@ -202,7 +232,7 @@ private:
   uint32_t trig;
 public:
   uint32_t period;
-  TapTempo() : trig(0), period(TRIGGER_LIMIT>>1) {}
+  TapTempo() : trig(0), period(NOMINAL_PERIOD) {}
   void trigger(){
     if(trig < TAP_THRESHOLD)
       return;
@@ -270,7 +300,9 @@ void updateMode(){
 }
 
 void updateParameters(){
-  int32_t period = tempo.period;
+ static int32_t period = NOMINAL_PERIOD;
+  period = (period + period + period + tempo.period) >> 2;
+  period = max(MIN_PERIOD, min(MAX_PERIOD, period));
   int32_t skew = 2048 - getAnalogValue(SHAPE1);
   env1.setAttack(getAnalogValue(ATTACK1), skew, period);
   env1.setRelease(getAnalogValue(RELEASE1), skew, period);
@@ -280,6 +312,7 @@ void updateParameters(){
 }
 
 void setup(){
+  setConstants();
   HAL_TIM_Base_Start(&htim6);
   HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
   HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
