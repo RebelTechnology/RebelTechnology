@@ -127,6 +127,7 @@ int32_t ADC_SCALAR =  (DAC_SCALAR-4);
 #define LED_SCALAR (DAC_SCALAR+5)
 // #define SKEW_SCALAR 21
 int32_t SKEW_SCALAR = 10+DAC_SCALAR;
+int32_t SKEW_SHIFT = 11;
 // #define MAX_LEVEL (DAC_RANGE<<DAC_SCALAR)
 int32_t MAX_LEVEL = (DAC_RANGE<<DAC_SCALAR);
 #define MIN_LEVEL 0
@@ -147,16 +148,18 @@ void setConstants(int range = 10){
 
 #define MIN_PERIOD     720               // 16.66Hz, 1000 BPM
 #define NOMINAL_PERIOD 9000              // 1.33Hz, 80 BPM, at 12kHz
-#define MAX_PERIOD (INT32_MAX/ADC_RANGE) // 0.025Hz, 1.35 BPM
+// #define MAX_PERIOD (INT32_MAX/ADC_RANGE) // 0.025Hz, 1.35 BPM
+#define MAX_PERIOD (12000*60)            // 0.016Hz, 1 BPM
 
 // int32_t ADC_MUL = 15; // 1<<ADC_SCALAR;
 int32_t ADC_DIV = 8; // 1<<ADC_SCALAR;
 
+#include "exptable.h"
 template<Channel CH>
 class Envelope {
 public:
   int32_t level;
-  int32_t linear;
+  int64_t linear;
   volatile OperatingMode mode;
   volatile int32_t attack;
   volatile int32_t release;
@@ -165,14 +168,17 @@ public:
   volatile Stage stage;
   Envelope() :
     level(MIN_LEVEL), linear(-MID_LEVEL), mode(GATE_MODE), attack(0), release(0), attack_skew(0), release_skew(0), stage(END_STAGE) {}
-  int32_t compute(int32_t value, int32_t skew, int32_t period){
-    // value = ADC_RANGE-value;
-    // value = max(0, value);
-    value += 8;
-    value = (value*period)/NOMINAL_PERIOD;
 
-    value = value*value/ADC_DIV + MIN_SLOPE;
-    value = min(MAX_LEVEL/2, value);
+  int32_t compute(int32_t value, int32_t skew, int32_t period){
+    value = exptable[value];
+    value = ((int64_t)value*period)/NOMINAL_PERIOD;
+    value = min(MAX_LEVEL/3, max(1, value));
+
+    // value = min(4095, max(0, value));
+    // value = exptable[value];
+
+    // value = value*value/ADC_DIV + MIN_SLOPE;
+    // value = min(MAX_LEVEL/2, value);
 
     // value = value*ADC_MUL;
     // value = max(1, value); // 3 steps apprx 1.5ms
@@ -184,16 +190,17 @@ public:
     
   void setAttack(int32_t value, int32_t skew, int32_t period){
     attack = compute(value, skew, period);
-    attack_skew = (attack*skew)>>11;
+    attack_skew = (attack*skew)>>SKEW_SHIFT;
   }
   void setRelease(int32_t value, int32_t skew, int32_t period){
     release = compute(value, skew, period);
-    release_skew = (release*skew)>>11;
+    release_skew = (release*skew)>>SKEW_SHIFT;
   }
   void clock(){
     switch(stage){
     case ATTACK_STAGE:
-      level += max(1, attack + ((linear*attack_skew)>>SKEW_SCALAR));
+      // level += max(1, attack + ((linear*attack_skew)>>SKEW_SCALAR));
+      level += attack + ((linear*attack_skew)>>SKEW_SCALAR);
       linear += attack;
       if(linear >= MID_LEVEL){
 	linear = MID_LEVEL;
@@ -205,7 +212,8 @@ public:
 	stage = RELEASE_STAGE;
       break;
     case RELEASE_STAGE:
-      level -= max(1, release - ((linear*release_skew)>>SKEW_SCALAR));
+      // level -= max(1, release - ((linear*release_skew)>>SKEW_SCALAR));
+      level -= release - ((linear*release_skew)>>SKEW_SCALAR);
       linear -= release;
       if(linear <= -MID_LEVEL){
 	linear = -MID_LEVEL;
@@ -217,9 +225,9 @@ public:
       if(mode == CYCLE_MODE)
 	stage = ATTACK_STAGE;
     }
-    level = max(0, min(MAX_LEVEL, level));
-    setAnalogValue(CH, level>>DAC_SCALAR);
-    setLed(CH, (level>>LED_SCALAR)&0x7f);
+    uint32_t lvl = max(0, min(MAX_LEVEL, level));
+    setAnalogValue(CH, lvl>>DAC_SCALAR);
+    setLed(CH, (lvl>>LED_SCALAR)&0x7f);
   }
   void trigger(){
     stage = ATTACK_STAGE;
