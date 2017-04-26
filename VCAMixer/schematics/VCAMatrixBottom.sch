@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.0.2">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -10404,7 +10404,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="GND14" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="R59" library="Rebel" deviceset="R-EU_" device="0603" value="30k"/>
 <part name="C9" library="resistor" deviceset="C-EU" device="C0603K" value="100p"/>
-<part name="C10" library="resistor" deviceset="C-EU" device="C0603K" value="100n"/>
+<part name="C10" library="resistor" deviceset="C-EU" device="C0603K" value="4u7"/>
 <part name="C11" library="resistor" deviceset="C-EU" device="C0603K" value="4u7"/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="P+12" library="supply1" deviceset="+12V" device=""/>
