@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -2172,64 +2172,64 @@ design rules under a new name.</description>
 <attribute name="NAME" x="26.6" y="39.238" size="0.9" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
 <element name="DAC5" library="Rebel" package="THONKICONN" value="THONKICONN" x="19.685" y="42.545" locked="yes" rot="R270"/>
-<element name="R28" library="Rebel" package="0603" value="20k" x="24" y="37.1" smashed="yes" rot="MR180">
+<element name="R28" library="Rebel" package="0603" value="2k" x="24" y="37.1" smashed="yes" rot="MR180">
 <attribute name="NAME" x="26.6" y="37.638" size="0.9" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="R29" library="Rebel" package="0603" value="4k99" x="21.4" y="38" smashed="yes" rot="MR90">
+<element name="R29" library="Rebel" package="0603" value="1k" x="21.4" y="38" smashed="yes" rot="MR90">
 <attribute name="NAME" x="22" y="39.662" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
-<element name="R30" library="Rebel" package="0603" value="1k" x="30.3" y="37.1" smashed="yes" rot="MR180">
+<element name="R30" library="Rebel" package="0603" value="510R" x="30.3" y="37.1" smashed="yes" rot="MR180">
 <attribute name="NAME" x="33" y="37.538" size="0.9" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="C16" library="Rebel" package="C0603" value="100n" x="19.7" y="38" smashed="yes" rot="MR90">
+<element name="C16" library="Rebel" package="C0603" value="10n" x="19.7" y="38" smashed="yes" rot="MR90">
 <attribute name="NAME" x="19.5" y="39.662" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="R31" library="Rebel" package="0603" value="100R" x="24" y="33.6" smashed="yes" rot="MR180">
 <attribute name="NAME" x="26.6" y="34.038" size="0.9" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
 <element name="DAC6" library="Rebel" package="THONKICONN" value="THONKICONN" x="19.685" y="29.845" locked="yes" rot="R270"/>
-<element name="R32" library="Rebel" package="0603" value="20k" x="24" y="35.3" smashed="yes" rot="MR180">
+<element name="R32" library="Rebel" package="0603" value="2k" x="24" y="35.3" smashed="yes" rot="MR180">
 <attribute name="NAME" x="26.6" y="35.738" size="0.9" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="R33" library="Rebel" package="0603" value="4k99" x="19.7" y="34.4" smashed="yes" rot="MR270">
+<element name="R33" library="Rebel" package="0603" value="1k" x="19.7" y="34.4" smashed="yes" rot="MR270">
 <attribute name="NAME" x="19.3" y="32.838" size="0.9" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="R34" library="Rebel" package="0603" value="1k" x="30.3" y="35.3" smashed="yes" rot="MR180">
+<element name="R34" library="Rebel" package="0603" value="510R" x="30.3" y="35.3" smashed="yes" rot="MR180">
 <attribute name="NAME" x="32.9" y="35.738" size="0.9" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="C18" library="Rebel" package="C0603" value="100n" x="21.4" y="34.4" smashed="yes" rot="MR270">
+<element name="C18" library="Rebel" package="C0603" value="10n" x="21.4" y="34.4" smashed="yes" rot="MR270">
 <attribute name="NAME" x="22" y="32.838" size="0.9" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
 <element name="R35" library="Rebel" package="0603" value="100R" x="4.3" y="38.8" smashed="yes" rot="MR0">
 <attribute name="NAME" x="1.6" y="38.362" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="DAC7" library="Rebel" package="THONKICONN" value="THONKICONN" x="6.985" y="42.545" locked="yes" rot="R90"/>
-<element name="R36" library="Rebel" package="0603" value="20k" x="4.3" y="37.1" smashed="yes" rot="MR0">
+<element name="R36" library="Rebel" package="0603" value="2k" x="4.3" y="37.1" smashed="yes" rot="MR0">
 <attribute name="NAME" x="1.6" y="36.662" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
-<element name="R37" library="Rebel" package="0603" value="4k99" x="8.6" y="38" smashed="yes" rot="MR90">
+<element name="R37" library="Rebel" package="0603" value="1k" x="8.6" y="38" smashed="yes" rot="MR90">
 <attribute name="NAME" x="8.6" y="39.562" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
-<element name="R38" library="Rebel" package="0603" value="1k" x="30.3" y="38.9" smashed="yes" rot="MR180">
+<element name="R38" library="Rebel" package="0603" value="510R" x="30.3" y="38.9" smashed="yes" rot="MR180">
 <attribute name="NAME" x="33" y="39.438" size="0.9" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="C19" library="Rebel" package="C0603" value="100n" x="6.9" y="38" smashed="yes" rot="MR90">
+<element name="C19" library="Rebel" package="C0603" value="10n" x="6.9" y="38" smashed="yes" rot="MR90">
 <attribute name="NAME" x="6.1" y="39.562" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="R39" library="Rebel" package="0603" value="100R" x="4.3" y="33.6" smashed="yes" rot="MR0">
 <attribute name="NAME" x="1.6" y="33.162" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="DAC8" library="Rebel" package="THONKICONN" value="THONKICONN" x="6.985" y="29.845" locked="yes" rot="R90"/>
-<element name="R40" library="Rebel" package="0603" value="20k" x="4.3" y="35.3" smashed="yes" rot="MR0">
+<element name="R40" library="Rebel" package="0603" value="2k" x="4.3" y="35.3" smashed="yes" rot="MR0">
 <attribute name="NAME" x="1.6" y="34.862" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
-<element name="R41" library="Rebel" package="0603" value="4k99" x="8.6" y="34.4" smashed="yes" rot="MR270">
+<element name="R41" library="Rebel" package="0603" value="1k" x="8.6" y="34.4" smashed="yes" rot="MR270">
 <attribute name="NAME" x="8.5" y="32.838" size="0.9" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="R42" library="Rebel" package="0603" value="1k" x="30.3" y="33.6" smashed="yes" rot="MR180">
+<element name="R42" library="Rebel" package="0603" value="510R" x="30.3" y="33.6" smashed="yes" rot="MR180">
 <attribute name="NAME" x="32.9" y="34.138" size="0.9" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="C20" library="Rebel" package="C0603" value="100n" x="6.9" y="34.4" smashed="yes" rot="MR270">
+<element name="C20" library="Rebel" package="C0603" value="10n" x="6.9" y="34.4" smashed="yes" rot="MR270">
 <attribute name="NAME" x="5.81" y="32.848" size="0.9" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
 <element name="T1" library="transistor" package="SOT23" value="BC846" x="32.9" y="20.8" smashed="yes" rot="MR90">

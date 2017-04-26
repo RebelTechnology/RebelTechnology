@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -13060,6 +13060,8 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="C4" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="47u"/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="IC2" library="linear" deviceset="LM321?*" device="MF"/>
+<part name="C13" library="Rebel" deviceset="C-EU" device="C0603" value="47n"/>
+<part name="C14" library="Rebel" deviceset="C-EU" device="C0603" value="47n"/>
 </parts>
 <sheets>
 <sheet>
@@ -13253,6 +13255,8 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <instance part="C4" gate="G$1" x="33.02" y="213.36"/>
 <instance part="GND14" gate="1" x="33.02" y="203.2"/>
 <instance part="IC2" gate="G$1" x="401.32" y="25.4"/>
+<instance part="C13" gate="G$1" x="436.88" y="121.92"/>
+<instance part="C14" gate="G$1" x="436.88" y="111.76"/>
 </instances>
 <busses>
 </busses>
@@ -13839,9 +13843,12 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </net>
 <net name="AOUTA-" class="0">
 <segment>
-<wire x1="393.7" y1="111.76" x2="414.02" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="393.7" y1="111.76" x2="431.8" y2="111.76" width="0.1524" layer="91"/>
 <label x="403.86" y="111.76" size="1.778" layer="95"/>
 <pinref part="IC4" gate="CS4271" pin="AOUTA-"/>
+<wire x1="431.8" y1="111.76" x2="431.8" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="C14" gate="G$1" pin="2"/>
+<wire x1="431.8" y1="106.68" x2="436.88" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="254" y1="-30.48" x2="254" y2="-10.16" width="0.1524" layer="91"/>
@@ -13936,8 +13943,11 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <net name="AOUTB-" class="0">
 <segment>
 <pinref part="IC4" gate="CS4271" pin="AOUTB-"/>
-<wire x1="393.7" y1="119.38" x2="414.02" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="393.7" y1="119.38" x2="431.8" y2="119.38" width="0.1524" layer="91"/>
 <label x="403.86" y="119.38" size="1.778" layer="95"/>
+<wire x1="431.8" y1="119.38" x2="431.8" y2="124.46" width="0.1524" layer="91"/>
+<pinref part="C13" gate="G$1" pin="1"/>
+<wire x1="431.8" y1="124.46" x2="436.88" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="251.46" y1="-30.48" x2="251.46" y2="-10.16" width="0.1524" layer="91"/>
@@ -14001,8 +14011,9 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <net name="AOUTB+" class="0">
 <segment>
 <pinref part="IC4" gate="CS4271" pin="AOUTB+"/>
-<wire x1="393.7" y1="116.84" x2="414.02" y2="116.84" width="0.1524" layer="91"/>
 <label x="403.86" y="116.84" size="1.778" layer="95"/>
+<pinref part="C13" gate="G$1" pin="2"/>
+<wire x1="393.7" y1="116.84" x2="436.88" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="246.38" y1="-30.48" x2="246.38" y2="-10.16" width="0.1524" layer="91"/>
@@ -14012,9 +14023,10 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </net>
 <net name="AOUTA+" class="0">
 <segment>
-<wire x1="393.7" y1="114.3" x2="414.02" y2="114.3" width="0.1524" layer="91"/>
 <label x="403.86" y="114.3" size="1.778" layer="95"/>
 <pinref part="IC4" gate="CS4271" pin="AOUTA+"/>
+<pinref part="C14" gate="G$1" pin="1"/>
+<wire x1="393.7" y1="114.3" x2="436.88" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="248.92" y1="-30.48" x2="248.92" y2="-10.16" width="0.1524" layer="91"/>

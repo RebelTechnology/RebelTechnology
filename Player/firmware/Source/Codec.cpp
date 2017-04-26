@@ -362,7 +362,7 @@ void HAL_SAI_RxHalfCpltCallback(SAI_HandleTypeDef *hsai){
 }
 
 void HAL_SAI_ErrorCallback(SAI_HandleTypeDef *hsai){
-  error(CONFIG_ERROR, "SAI DMA Error");
+	error(CONFIG_ERROR, "SAI DMA Error");
 }
 
 }

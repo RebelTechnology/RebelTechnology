@@ -299,8 +299,10 @@ public:
   }
   void trigger(){
     switch(mode){
-    case OFF:
-      ticks = 1; // start ping
+    case OFF: // one shot mode
+      ticks = 1; // start period
+      if(CH == CH2) // reset ramp phase on trigger
+	phase = 0;
       break;
     default:
       if(trig < TRIGGER_THRESHOLD)
@@ -335,7 +337,7 @@ public:
 	trig++;
       break;
     case OFF:
-      if(ticks){
+      if(ticks){ // one shot mode
 	switch(previousMode){
 	case UP:
 	  setUpValue(phase);

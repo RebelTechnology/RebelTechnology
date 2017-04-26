@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -23407,7 +23407,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
 <part name="R300" library="Rebel" deviceset="R-EU_" device="0603" value="1M"/>
-<part name="R404" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="R404" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
 <part name="R406" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="IN_L" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="IN_R" library="Rebel" deviceset="THONKICONN" device=""/>
@@ -23486,8 +23486,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="IC3" library="linear" deviceset="NE5532" device="D"/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="R8" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
-<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
+<part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="R13" library="Rebel" deviceset="R-EU_" device="0603" value="1M"/>
 <part name="IC4" library="texas" deviceset="LM4041" device="DBZ" technology="C12" value="LM4040B10"/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
@@ -23508,7 +23508,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="C6" library="resistor" deviceset="C-EU" device="C0603" value="4n7"/>
-<part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
 <part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="1M"/>
@@ -23556,36 +23556,36 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="Q3" library="transistor" deviceset="BC846" device=""/>
 <part name="R27" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="DAC1" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
-<part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="4k99"/>
+<part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
+<part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND44" library="supply1" deviceset="GND" device=""/>
 <part name="GND38" library="supply1" deviceset="GND" device=""/>
-<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="C16" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="C16" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
 <part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="DAC2" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
-<part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="4k99"/>
+<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
+<part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
-<part name="R34" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="C18" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="R34" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="C18" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
 <part name="R35" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="DAC3" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R36" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
-<part name="R37" library="Rebel" deviceset="R-EU_" device="0603" value="4k99"/>
+<part name="R36" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
+<part name="R37" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
-<part name="R38" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="C19" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="R38" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="C19" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
 <part name="R39" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="DAC4" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R40" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
-<part name="R41" library="Rebel" deviceset="R-EU_" device="0603" value="4k99"/>
+<part name="R40" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
+<part name="R41" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
-<part name="R42" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="C20" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="R42" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="C20" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
 <part name="T1" library="transistor" deviceset="BC846" device=""/>
 <part name="R43" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
 <part name="R44" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
