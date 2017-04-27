@@ -169,7 +169,7 @@
 <wire x1="109.685221875" y1="100.3" x2="109.685221875" y2="0.3" width="0" layer="20"/>
 <wire x1="59.685221875" y1="100.3" x2="59.685221875" y2="0.3" width="0" layer="20"/>
 <text x="95.1865" y="97.0915" size="1.778" layer="22" font="vector" rot="MR0">Rebel Technology</text>
-<text x="95.5675" y="94.361" size="1.778" layer="22" font="vector" rot="MR0">VCAMatrix Rev02</text>
+<text x="95.5675" y="94.361" size="1.778" layer="22" font="vector" rot="MR0">VCAMatrix Rev03</text>
 <text x="101.4095" y="6.985" size="1.27" layer="22" font="vector" rot="MR270">Offset</text>
 <text x="109.1565" y="16.9545" size="1.27" layer="22" font="vector" rot="MR270">Clamp</text>
 <dimension x1="109.685221875" y1="100.3" x2="109.685221875" y2="0.3" x3="113.03" y3="50.3" textsize="1.778" layer="47"/>
