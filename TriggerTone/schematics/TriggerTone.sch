@@ -13013,7 +13013,7 @@ Based on the following sources:
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 <part name="P+5" library="supply1" deviceset="+12V" device=""/>
 <part name="IN_6" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
+<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="18k"/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
 <part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
@@ -13081,7 +13081,7 @@ Based on the following sources:
 <text x="-53.34" y="-246.38" size="3.81" layer="97">Open Source Hardware
 Published under the Gnu GPL v2
 Copyright 2017 Rebel Technology</text>
-<text x="-53.34" y="-223.52" size="5.08" layer="97">TriggerTone Rev01</text>
+<text x="-53.34" y="-223.52" size="5.08" layer="97">TriggerTone Rev02</text>
 </plain>
 <instances>
 <instance part="C1" gate="G$1" x="68.58" y="-233.68"/>
@@ -13185,7 +13185,7 @@ Copyright 2017 Rebel Technology</text>
 <instance part="R20" gate="G$1" x="353.06" y="-185.42" rot="R180"/>
 <instance part="R17" gate="G$1" x="289.56" y="-200.66" rot="R180"/>
 <instance part="GND20" gate="1" x="281.94" y="-195.58"/>
-<instance part="P1" gate="G$1" x="360.68" y="-127" rot="R270"/>
+<instance part="P1" gate="G$1" x="360.68" y="-127" rot="MR90"/>
 <instance part="R37" gate="G$1" x="309.88" y="-187.96" rot="R180"/>
 <instance part="R38" gate="G$1" x="353.06" y="-205.74" rot="R180"/>
 <instance part="GND25" gate="1" x="322.58" y="-193.04"/>
@@ -13405,11 +13405,6 @@ Copyright 2017 Rebel Technology</text>
 <wire x1="210.82" y1="-149.86" x2="210.82" y2="-152.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="360.68" y1="-152.4" x2="360.68" y2="-134.62" width="0.1524" layer="91"/>
-<pinref part="GND32" gate="1" pin="GND"/>
-<pinref part="P1" gate="G$1" pin="3"/>
-</segment>
-<segment>
 <pinref part="IN_6" gate="G$1" pin="4"/>
 <pinref part="GND33" gate="1" pin="GND"/>
 <wire x1="287.02" y1="-142.24" x2="289.56" y2="-142.24" width="0.1524" layer="91"/>
@@ -13548,6 +13543,11 @@ Copyright 2017 Rebel Technology</text>
 <pinref part="R7" gate="G$1" pin="2"/>
 <pinref part="GND42" gate="1" pin="GND"/>
 <wire x1="-190.5" y1="-215.9" x2="-190.5" y2="-213.36" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="P1" gate="G$1" pin="1"/>
+<pinref part="GND32" gate="1" pin="GND"/>
+<wire x1="360.68" y1="-134.62" x2="360.68" y2="-152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+12V" class="0">
@@ -13992,13 +13992,6 @@ Copyright 2017 Rebel Technology</text>
 <junction x="251.46" y="-127"/>
 </segment>
 </net>
-<net name="N$51" class="0">
-<segment>
-<pinref part="R32" gate="G$1" pin="1"/>
-<pinref part="P1" gate="G$1" pin="1"/>
-<wire x1="360.68" y1="-119.38" x2="360.68" y2="-106.68" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$52" class="0">
 <segment>
 <pinref part="T11" gate="G$1" pin="B"/>
@@ -14207,6 +14200,13 @@ Copyright 2017 Rebel Technology</text>
 <pinref part="R6" gate="G$1" pin="1"/>
 <wire x1="-170.18" y1="-200.66" x2="-170.18" y2="-182.88" width="0.1524" layer="91"/>
 <junction x="-170.18" y="-200.66"/>
+</segment>
+</net>
+<net name="N$21" class="0">
+<segment>
+<pinref part="P1" gate="G$1" pin="3"/>
+<pinref part="R32" gate="G$1" pin="1"/>
+<wire x1="360.68" y1="-119.38" x2="360.68" y2="-106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
