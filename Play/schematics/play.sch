@@ -17689,13 +17689,6 @@ Source: Fairchild .. BAT54.pdf</description>
 <pinref part="TGP1-4" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="GP8" class="0">
-<segment>
-<wire x1="121.92" y1="40.64" x2="121.92" y2="30.48" width="0.1524" layer="91"/>
-<label x="121.92" y="38.1" size="1.778" layer="95" rot="MR270"/>
-<pinref part="TGP1-4" gate="G$1" pin="5"/>
-</segment>
-</net>
 <net name="CS_VREF" class="0">
 <segment>
 <wire x1="88.9" y1="185.42" x2="76.2" y2="185.42" width="0.1524" layer="91"/>
@@ -18354,6 +18347,11 @@ Source: Fairchild .. BAT54.pdf</description>
 <wire x1="-30.48" y1="132.08" x2="-15.24" y2="132.08" width="0.1524" layer="91"/>
 <junction x="-30.48" y="132.08"/>
 </segment>
+<segment>
+<wire x1="121.92" y1="40.64" x2="121.92" y2="30.48" width="0.1524" layer="91"/>
+<label x="121.92" y="38.1" size="1.778" layer="95" rot="MR270"/>
+<pinref part="TGP1-4" gate="G$1" pin="5"/>
+</segment>
 </net>
 <net name="N$16" class="0">
 <segment>
@@ -18443,12 +18441,6 @@ Source: Fairchild .. BAT54.pdf</description>
 </sheet>
 </sheets>
 <errors>
-<approved hash="104,1,325.12,256.54,IC2P,V+,+12V,,,"/>
-<approved hash="104,1,325.12,241.3,IC2P,V-,-12V,,,"/>
-<approved hash="104,1,182.88,259.08,IC3P,V+,+12V,,,"/>
-<approved hash="104,1,182.88,243.84,IC3P,V-,-12V,,,"/>
-<approved hash="104,1,45.72,256.54,IC5P,V+,+12V,,,"/>
-<approved hash="104,1,45.72,241.3,IC5P,V-,-12V,,,"/>
 <approved hash="106,1,165.1,-25.4,CS_VQ1,,,,,"/>
 <approved hash="106,1,104.14,12.7,EXTSPI_CLK,,,,,"/>
 <approved hash="106,1,104.14,15.24,EXTSPI_CS,,,,,"/>
@@ -18464,7 +18456,6 @@ Source: Fairchild .. BAT54.pdf</description>
 <approved hash="106,1,162.56,40.64,USB_D_D+,,,,,"/>
 <approved hash="106,1,165.1,40.64,USB_D_D-,,,,,"/>
 <approved hash="106,1,160.02,40.64,USB_D_ID,,,,,"/>
-<approved hash="106,1,167.64,40.64,USB_D_VBUS,,,,,"/>
 <approved hash="113,1,165.1,45.1273,USB,,,,,"/>
 <approved hash="113,1,110.49,45.1273,ADC,,,,,"/>
 <approved hash="113,1,99.6527,-30.48,PWR,,,,,"/>
