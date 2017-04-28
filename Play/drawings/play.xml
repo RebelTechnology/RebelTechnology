@@ -2,12 +2,18 @@
 
   <!-- pots -->
   <pot x="0.00" y="1.625"/>
-  <pot x="-0.75" y="1.2"/>
-  <pot x="0.75" y="1.2"/>
+  <pot x="-0.75" y="1.1"/>
+  <pot x="0.75" y="1.1"/>
   <pot x="0.00" y="0.5"/>
 
   <!-- pushbuttons -->
   <hole x="-0.75" y="0.4" radius="4.00"/>
   <hole x="0.75" y="0.4" radius="4.00"/>
+
+  <!-- jacks -->
+  <hole x="-0.75" y="1.7" radius="3.25"/>
+  <hole x="0.75" y="1.7" radius="3.25"/>
+
+  <rect x="0.0" y="1.1" width="62" height="67"/>
 
 </module>
