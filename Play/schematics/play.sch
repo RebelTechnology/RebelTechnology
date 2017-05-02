@@ -17309,6 +17309,14 @@ Source: Fairchild .. BAT54.pdf</description>
 <wire x1="-38.1" y1="157.48" x2="-38.1" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="JIN" gate="G$1" pin="1"/>
 <wire x1="-43.18" y1="157.48" x2="-38.1" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="JIN" gate="G$1" pin="4"/>
+<wire x1="-43.18" y1="162.56" x2="-38.1" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="-38.1" y1="162.56" x2="-38.1" y2="157.48" width="0.1524" layer="91"/>
+<junction x="-38.1" y="157.48"/>
+<pinref part="JIN" gate="G$1" pin="5"/>
+<wire x1="-43.18" y1="165.1" x2="-38.1" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="-38.1" y1="165.1" x2="-38.1" y2="162.56" width="0.1524" layer="91"/>
+<junction x="-38.1" y="162.56"/>
 </segment>
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
@@ -18233,20 +18241,6 @@ Source: Fairchild .. BAT54.pdf</description>
 <wire x1="-40.64" y1="48.26" x2="-60.96" y2="48.26" width="0.1524" layer="91"/>
 <label x="-58.42" y="48.26" size="1.778" layer="95"/>
 <pinref part="EXPI" gate="G$1" pin="5"/>
-</segment>
-</net>
-<net name="SW_IN_R" class="0">
-<segment>
-<pinref part="JIN" gate="G$1" pin="4"/>
-<wire x1="-43.18" y1="162.56" x2="-25.4" y2="162.56" width="0.1524" layer="91"/>
-<label x="-35.56" y="162.56" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SW_IN_L" class="0">
-<segment>
-<pinref part="JIN" gate="G$1" pin="5"/>
-<wire x1="-43.18" y1="165.1" x2="-25.4" y2="165.1" width="0.1524" layer="91"/>
-<label x="-35.56" y="165.1" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="+9V" class="0">
