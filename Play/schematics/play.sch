@@ -16900,9 +16900,9 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="D2" library="diode" deviceset="BAT54S" device=""/>
 <part name="+3V8" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND41" library="supply1" deviceset="GND" device=""/>
-<part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
+<part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
-<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="P+7" library="supply1" deviceset="+5V" device=""/>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
 <part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>

@@ -2366,8 +2366,8 @@ design rules under a new name.</description>
 <element name="R906" library="Rebel" package="0603" value="10k" x="55.88" y="18.415" rot="MR180"/>
 <element name="Q901" library="transistor" package="SOT23" value="BC846" x="50.8" y="13.97" rot="MR0"/>
 <element name="D2" library="diode" package="SOT23" value="BAT54S" x="17.145" y="19.685" rot="MR90"/>
-<element name="R29" library="Rebel" package="0603" value="100R" x="13.335" y="54.61" rot="MR180"/>
-<element name="R30" library="Rebel" package="0603" value="510R" x="13.335" y="41.91" rot="MR180"/>
+<element name="R29" library="Rebel" package="0603" value="220R" x="13.335" y="54.61" rot="MR180"/>
+<element name="R30" library="Rebel" package="0603" value="4k7" x="13.335" y="41.91" rot="MR180"/>
 <element name="R31" library="Rebel" package="0603" value="100R" x="36.195" y="14.605" rot="MR270"/>
 <element name="R32" library="Rebel" package="0603" value="100R" x="38.1" y="14.605" rot="MR270"/>
 </elements>
