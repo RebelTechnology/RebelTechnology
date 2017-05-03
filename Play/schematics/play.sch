@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -17743,7 +17743,7 @@ Source: Fairchild .. BAT54.pdf</description>
 </segment>
 <segment>
 <pinref part="EXPI" gate="G$1" pin="1"/>
-<wire x1="-40.64" y1="58.42" x2="-60.96" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="-40.64" y1="58.42" x2="-58.42" y2="58.42" width="0.1524" layer="91"/>
 <label x="-58.42" y="58.42" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -17860,25 +17860,33 @@ Source: Fairchild .. BAT54.pdf</description>
 <label x="106.68" y="-10.16" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GP4" class="0">
+<net name="GP4_USART_RX" class="0">
 <segment>
 <pinref part="LGP1-5" gate="G$1" pin="4"/>
 <wire x1="104.14" y1="-7.62" x2="119.38" y2="-7.62" width="0.1524" layer="91"/>
 <label x="106.68" y="-7.62" size="1.778" layer="95"/>
 </segment>
-</net>
-<net name="GP3" class="0">
 <segment>
-<pinref part="LGP1-5" gate="G$1" pin="3"/>
-<wire x1="104.14" y1="-5.08" x2="119.38" y2="-5.08" width="0.1524" layer="91"/>
-<label x="106.68" y="-5.08" size="1.778" layer="95"/>
+<wire x1="-40.64" y1="48.26" x2="-63.5" y2="48.26" width="0.1524" layer="91"/>
+<label x="-63.5" y="48.26" size="1.778" layer="95"/>
+<pinref part="EXPI" gate="G$1" pin="5"/>
 </segment>
 </net>
-<net name="GP9" class="0">
+<net name="GP9_LEDPWM" class="0">
 <segment>
 <wire x1="124.46" y1="40.64" x2="124.46" y2="30.48" width="0.1524" layer="91"/>
 <label x="124.46" y="38.1" size="1.778" layer="95" rot="MR270"/>
 <pinref part="TGP1-4" gate="G$1" pin="4"/>
+</segment>
+<segment>
+<pinref part="R23" gate="G$1" pin="1"/>
+<wire x1="38.1" y1="91.44" x2="20.32" y2="91.44" width="0.1524" layer="91"/>
+<label x="20.32" y="91.44" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R25" gate="G$1" pin="1"/>
+<wire x1="83.82" y1="91.44" x2="66.04" y2="91.44" width="0.1524" layer="91"/>
+<label x="66.04" y="91.44" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="GP11" class="0">
@@ -18173,7 +18181,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <label x="27.94" y="157.48" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="-40.64" y1="55.88" x2="-60.96" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="-40.64" y1="55.88" x2="-58.42" y2="55.88" width="0.1524" layer="91"/>
 <label x="-58.42" y="55.88" size="1.778" layer="95"/>
 <pinref part="EXPI" gate="G$1" pin="2"/>
 </segment>
@@ -18236,13 +18244,6 @@ Source: Fairchild .. BAT54.pdf</description>
 <pinref part="C5" gate="G$1" pin="-"/>
 </segment>
 </net>
-<net name="UART_RX" class="0">
-<segment>
-<wire x1="-40.64" y1="48.26" x2="-60.96" y2="48.26" width="0.1524" layer="91"/>
-<label x="-58.42" y="48.26" size="1.778" layer="95"/>
-<pinref part="EXPI" gate="G$1" pin="5"/>
-</segment>
-</net>
 <net name="+9V" class="0">
 <segment>
 <pinref part="P+3" gate="G$1" pin="+9V"/>
@@ -18295,18 +18296,6 @@ Source: Fairchild .. BAT54.pdf</description>
 <pinref part="LED5" gate="G$1" pin="A"/>
 <pinref part="R27" gate="G$1" pin="2"/>
 <wire x1="93.98" y1="76.2" x2="96.52" y2="76.2" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="GP3_LEDPWM" class="0">
-<segment>
-<pinref part="R25" gate="G$1" pin="1"/>
-<wire x1="83.82" y1="91.44" x2="66.04" y2="91.44" width="0.1524" layer="91"/>
-<label x="66.04" y="91.44" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="R23" gate="G$1" pin="1"/>
-<wire x1="38.1" y1="91.44" x2="20.32" y2="91.44" width="0.1524" layer="91"/>
-<label x="20.32" y="91.44" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SW_OUT_L" class="0">
@@ -18448,10 +18437,15 @@ Source: Fairchild .. BAT54.pdf</description>
 <label x="-15.24" y="58.42" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="UART_TX" class="0">
+<net name="GP3_USART_TX" class="0">
+<segment>
+<pinref part="LGP1-5" gate="G$1" pin="3"/>
+<wire x1="104.14" y1="-5.08" x2="119.38" y2="-5.08" width="0.1524" layer="91"/>
+<label x="106.68" y="-5.08" size="1.778" layer="95"/>
+</segment>
 <segment>
 <pinref part="EXPO" gate="G$1" pin="5"/>
-<wire x1="-15.24" y1="48.26" x2="0" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="48.26" x2="5.08" y2="48.26" width="0.1524" layer="91"/>
 <label x="-15.24" y="48.26" size="1.778" layer="95"/>
 </segment>
 </net>
