@@ -16907,6 +16907,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
 <part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
+<part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 </parts>
 <sheets>
 <sheet>
@@ -17157,6 +17158,7 @@ Source: Fairchild .. BAT54.pdf</description>
 </instance>
 <instance part="R31" gate="G$1" x="231.14" y="213.36" rot="MR180"/>
 <instance part="R32" gate="G$1" x="231.14" y="157.48" rot="MR180"/>
+<instance part="R33" gate="G$1" x="-53.34" y="48.26" rot="MR180"/>
 </instances>
 <busses>
 </busses>
@@ -17867,9 +17869,9 @@ Source: Fairchild .. BAT54.pdf</description>
 <label x="106.68" y="-7.62" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="-40.64" y1="48.26" x2="-63.5" y2="48.26" width="0.1524" layer="91"/>
-<label x="-63.5" y="48.26" size="1.778" layer="95"/>
-<pinref part="EXPI" gate="G$1" pin="5"/>
+<label x="-78.74" y="48.26" size="1.778" layer="95"/>
+<pinref part="R33" gate="G$1" pin="1"/>
+<wire x1="-58.42" y1="48.26" x2="-78.74" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GP9_LEDPWM" class="0">
@@ -18447,6 +18449,13 @@ Source: Fairchild .. BAT54.pdf</description>
 <pinref part="EXPO" gate="G$1" pin="5"/>
 <wire x1="-15.24" y1="48.26" x2="5.08" y2="48.26" width="0.1524" layer="91"/>
 <label x="-15.24" y="48.26" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="EXPI" gate="G$1" pin="5"/>
+<wire x1="-40.64" y1="48.26" x2="-48.26" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="R33" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>
