@@ -107,7 +107,7 @@ bool isTriggerLow(Channel ch){
 }
 
 #define TAP_THRESHOLD     256 // 78Hz at 20kHz sampling rate, or 16th notes at 293BPM
-#define TRIGGER_LIMIT     UINT32_MAX
+#define TRIGGER_LIMIT     MAX_PERIOD
 
 enum Stage {
   ATTACK_STAGE, SUSTAIN_STAGE, RELEASE_STAGE, END_STAGE
@@ -147,9 +147,8 @@ void setConstants(int range = 10){
 }
 
 #define MIN_PERIOD     720               // 16.66Hz, 1000 BPM
+#define MAX_PERIOD (12000*600)           // 0.0016Hz, 0.1 BPM
 #define NOMINAL_PERIOD 9000              // 1.33Hz, 80 BPM, at 12kHz
-// #define MAX_PERIOD (INT32_MAX/ADC_RANGE) // 0.025Hz, 1.35 BPM
-#define MAX_PERIOD (12000*60)            // 0.016Hz, 1 BPM
 
 // int32_t ADC_MUL = 15; // 1<<ADC_SCALAR;
 int32_t ADC_DIV = 8; // 1<<ADC_SCALAR;
@@ -171,7 +170,7 @@ public:
 
   int32_t compute(int32_t value, int32_t skew, int32_t period){
     value = exptable[value];
-    value = ((int64_t)value*period)/NOMINAL_PERIOD;
+    value = ((int64_t)value*NOMINAL_PERIOD)/period;
     value = min(MAX_LEVEL/3, max(1, value));
 
     // value = min(4095, max(0, value));
@@ -240,11 +239,11 @@ private:
   uint32_t trig;
 public:
   uint32_t period;
-  TapTempo() : trig(0), period(NOMINAL_PERIOD) {}
+  TapTempo() : trig(MAX_PERIOD), period(NOMINAL_PERIOD) {}
   void trigger(){
-    if(trig < TAP_THRESHOLD)
+    if(trig < MIN_PERIOD)
       return;
-    if(trig < TRIGGER_LIMIT){
+    if(trig < MAX_PERIOD){
       period = trig;
       trig = 0;
     }else{
@@ -252,7 +251,7 @@ public:
     }
   }
   void clock(){
-    if(trig < TRIGGER_LIMIT)
+    if(trig < MAX_PERIOD) // prevents overflow
       trig++;
   }
 };
