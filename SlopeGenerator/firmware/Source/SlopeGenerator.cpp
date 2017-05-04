@@ -121,7 +121,7 @@ enum Stage {
 int32_t ADC_RANGE = 4040;
 int32_t DAC_RANGE = 3968;
 // #define DAC_SCALAR 6
-int32_t DAC_SCALAR = 10;
+int32_t DAC_SCALAR = 16;
 // #define ADC_SCALAR (DAC_SCALAR-6)
 int32_t ADC_SCALAR =  (DAC_SCALAR-4);
 #define LED_SCALAR (DAC_SCALAR+5)
@@ -137,7 +137,7 @@ int32_t MAX_SLOPE = MAX_LEVEL;// ADC_RANGE*3;
 int32_t MIN_SLOPE = 3;
 // #define MIN_SLOPE 3
 
-void setConstants(int range = 10){
+void setConstants(int range = DAC_SCALAR){
  DAC_SCALAR = range;
  ADC_SCALAR =  (DAC_SCALAR-4);
  SKEW_SCALAR = 10+DAC_SCALAR;
@@ -172,18 +172,6 @@ public:
     value = exptable[value];
     value = ((int64_t)value*NOMINAL_PERIOD)/period;
     value = min(MAX_LEVEL/3, max(1, value));
-
-    // value = min(4095, max(0, value));
-    // value = exptable[value];
-
-    // value = value*value/ADC_DIV + MIN_SLOPE;
-    // value = min(MAX_LEVEL/2, value);
-
-    // value = value*ADC_MUL;
-    // value = max(1, value); // 3 steps apprx 1.5ms
-
-    // value = max(MIN_SLOPE, MAX_LEVEL/value);
-    // value = MAX_LEVEL/value;
     return value;
   }
     
