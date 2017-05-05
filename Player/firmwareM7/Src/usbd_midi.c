@@ -398,6 +398,10 @@ void midi_tx_usb_buffer(uint8_t* buf, uint32_t len) {
   }
 }
 
+uint8_t midi_device_connected(void){
+  return hUsbDeviceHS.dev_state == USBD_STATE_CONFIGURED;
+}
+
 /**
   * @brief  USBD_Midi_DataIn
   *         handle data IN Stage

@@ -9,7 +9,6 @@
 #include "errorhandlers.h"
 #include "Graphics.h"
 #include "ScreenBuffer.h"
-#include "SampleBuffer.hpp"
 #include "Codec.h"
 #include "ServiceCall.h"
 
@@ -38,7 +37,6 @@ ProgramVector* programVector = &staticVector;
 static TaskHandle_t screenTask = NULL;
 static TaskHandle_t audioTask = NULL;
 static TaskHandle_t managerTask = NULL;
-SampleBuffer samples;
 static DynamicPatchDefinition dynamo;
 
 ProgramVector* getProgramVector() { return programVector; }
