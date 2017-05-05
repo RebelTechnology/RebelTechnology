@@ -1,8 +1,8 @@
 TEMPLATEROOT = .
 
 CFLAGS = -g -Wall -Wcpp -DUSE_FULL_ASSERT
-# CFLAGS   = -O2 -Wall -Wcpp # -DUSE_FULL_ASSERT
-# CFLAGS   = -O1 -Wall -Wcpp # -DUSE_FULL_ASSERT
+# CFLAGS   = -O2 -Wall -Wcpp # -DUSE_FULL_ASSERT # does not work?!
+CFLAGS   = -O1 -Wall -Wcpp # -DUSE_FULL_ASSERT
 CFLAGS += -DSTM32F100xB
 CXXFLAGS = -fno-rtti -fno-exceptions -std=c++11 $(CFLAGS) 
 # LDSCRIPT ?= $(TEMPLATEROOT)/STM32F100C8_FLASH.ld

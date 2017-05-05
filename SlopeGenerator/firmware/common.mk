@@ -53,7 +53,7 @@ $(BUILD)/%.s: %.cpp
 
 $(BUILD)/%.bin: $(BUILD)/%.elf
 	$(OBJCOPY) -O binary $< $@
-	@echo Successfully built OWL firmware $@
+	@echo Successfully built firmware $@
 
 clean:
 	rm -f $(OBJS) $(OBJS:.o=.d) $(ELF) $(CLEANOTHER) $(BIN) gdbscript
@@ -85,10 +85,6 @@ as: $(ELF)
 
 map : $(OBJS) $(LDSCRIPT)
 	@$(LD) $(LDFLAGS) -Wl,-Map=$(ELF:.elf=.map) $(OBJS) $(LDLIBS)
-
-dfu: $(BIN)
-	$(DFUUTIL) -d 0483:df11 -c 1 -i 0 -a 0 -s 0x8000000:leave -D $(BIN)
-	@echo Uploaded $(BIN) to OWL
 
 # pull in dependencies
 -include $(OBJS:.o=.d)
