@@ -192,6 +192,8 @@ public:
       if(linear >= MID_LEVEL){
 	linear = MID_LEVEL;
 	stage = SUSTAIN_STAGE;
+      }else if(mode == GATE_MODE && isTriggerLow(CH)){
+	stage = RELEASE_STAGE;
       }
       break;
     case SUSTAIN_STAGE:
