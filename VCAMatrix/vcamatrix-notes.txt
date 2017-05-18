@@ -1,0 +1,128 @@
+---------------------------------------------------------------------------------
+
+http://www.thatcorp.com/THAT_Alternatives_to_SSM2164.shtml
+
+---------------------------------------------------------------------------------
+
+http://cabintechglobal.com/index.html?tab=semi&prod=V2164M
+18/8 2016 ordered 16x v2164 soic
+received 16x DIP (order says DIL)
+12/9 2016 ordered 16x v2164 soic
+(and 2x VTL5C1 vactrols)
+
+Also from Mammoth:
+http://www.mammothelectronics.com/Coolaudio-V2164M-p/400-1134-1.htm
+
+---------------------------------------------------------------------------------
+
+THAT2162 Dual Blackmer VCA
+2162Q16-U QSOP-16 Mouser £3.65 @100
+
+THAT2180/2181 single VCA
+
+---------------------------------------------------------------------------------
+
+2164 Power Rail Failure
+http://electronic-sea.net/SSM2164.html
+
+---------------------------------------------------------------------------------
+
+SSM2164 Based Voltage Controlled Amplifier
+http://www.sdiy.org/philgallo/mgbvca.html
+
+---------------------------------------------------------------------------------
+
+The transfer function of an SSM2164 deduced by experiment is approximately:
+Iout=Iin*exp(-3.489*VC).
+
+The linearized circuit has a non inverting summing control port.
+You have a VCA with the transfer function. Iout=Iin*(Ictrl/Iref). Where Iref can be fixed to give Iout=k*Iin*Ictrl.
+
+http://search.retrosynth.com/synth-diy/search/lookit.cgi?-v0906.246
+
+2x gain at VCA input -0.2V
+
+VCA response: -33mV/dB
+
+---------------------------------------------------------------------------------
+
+VCA Matrix Rev01 changes/todo:
+/ change +12v mosfet BSS84 to SI2309CDS
+/ change 500R to 560R
+/ change 20k to 22k
+- change LED resistor values?
+- add caps on CLAMP and OFFSET
+
+---------------------------------------------------------------------------------
+
+single section
+40-45mA per rail +/-12v
+same with reference IC4
+VCA control signal (after op amp) 7.5V: unity gain, 2.5v massive gain
+
+BAT54A erroneously replaced with BAT54S (one half wrong way)
+
+---------------------------------------------------------------------------------
+
+Full build draws 140mA unloaded. LEDs not working.
+
+---------------------------------------------------------------------------------
+
+22k LED base resistors: 5Vpp barely noticeable, 8-10vpp fully on
+
+---------------------------------------------------------------------------------
+
+ref 1.97v
+
+cv in 2.55v, inv op amp out 2.8v
+
+working module offset 1.90v, clamp 0.1V
+
+---------------------------------------------------------------------------------
+
+Dual VCA
+attenuverting VCA? changes pole at 0
+three modes: 
+- unipolar CV+VCA (only positive modulation amount CV)
+- bipolar CV (negative modulation amount)
+- bipolar VCA (phase-inverting at negative CV)
+
+---------------------------------------------------------------------------------
+
+Got 16x DIP / 16x SOIC V2164 from Cabin Tech / eBay
+SOIC $2.94/each + shipping
+
+---------------------------------------------------------------------------------
+
+Rev02 changes/todo
+- change to Rebel.lbr cap footprints
+- fix labels B:R1, B:C8, B:R7, B:R4
+- increase label size to 0.032
+- audio input inverted at output
+- leds always on
+- remove unnecessary vias in pads, eg R26
+
+clamp 0.12V offset 2.0V
+5Vin|5Vcv:-5Vout (-unity gain at 5Vcv)
+output limited to -6.40, clamp not effective higher.
+
+LED pins sitting at 1.56V
+PNP base input max 440mV
+
+---------------------------------------------------------------------------------
+
+the SSM2164 has a -33 mV/dB gain constant.
+
+---------------------------------------------------------------------------------
+
+A: R44 
+B: R47
+GND
+C: R45
+D: R46
+
+---------------------------------------------------------------------------------
+
+Ordered 40x V2164M from Banzai Music 10/5 2017 total cost EUR 170.35
+
+---------------------------------------------------------------------------------
