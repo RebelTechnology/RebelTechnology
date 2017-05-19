@@ -17566,10 +17566,10 @@ W = angled&lt;p&gt;
 <part name="C3" library="Rebel" deviceset="CPOL-EU" device="E2-5" value="10u NP"/>
 <part name="C4" library="Rebel" deviceset="CPOL-EU" device="E2-5" value="10u NP"/>
 <part name="GND4" library="supply1" deviceset="GNDA" device=""/>
-<part name="R1" library="Rebel" deviceset="R-EU_" device="0204/7"/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0204/7"/>
-<part name="R4" library="Rebel" deviceset="R-EU_" device="0204/7"/>
-<part name="R2" library="Rebel" deviceset="R-EU_" device="0204/7"/>
+<part name="R1" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k"/>
+<part name="R3" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k"/>
+<part name="R4" library="Rebel" deviceset="R-EU_" device="0204/7" value="220R"/>
+<part name="R2" library="Rebel" deviceset="R-EU_" device="0204/7" value="220R"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
