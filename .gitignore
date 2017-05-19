@@ -48,3 +48,4 @@ Player/firmware/Middlewares
 
 *.o
 *.dep
+*.lck
