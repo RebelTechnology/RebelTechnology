@@ -23560,7 +23560,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND44" library="supply1" deviceset="GND" device=""/>
 <part name="GND38" library="supply1" deviceset="GND" device=""/>
-<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="330R"/>
 <part name="C16" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
 <part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="DAC2" library="Rebel" deviceset="THONKICONN" device=""/>
@@ -23568,7 +23568,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
-<part name="R34" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="R34" library="Rebel" deviceset="R-EU_" device="0603" value="330R"/>
 <part name="C18" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
 <part name="R35" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="DAC3" library="Rebel" deviceset="THONKICONN" device=""/>
@@ -23576,7 +23576,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="R37" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
-<part name="R38" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="R38" library="Rebel" deviceset="R-EU_" device="0603" value="330R"/>
 <part name="C19" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
 <part name="R39" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="DAC4" library="Rebel" deviceset="THONKICONN" device=""/>
@@ -23584,7 +23584,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="R41" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
-<part name="R42" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="R42" library="Rebel" deviceset="R-EU_" device="0603" value="330R"/>
 <part name="C20" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
 <part name="T1" library="transistor" deviceset="BC846" device=""/>
 <part name="R43" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
