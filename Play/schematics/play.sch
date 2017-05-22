@@ -16728,31 +16728,31 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
 <part name="USB" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="ADC" library="SparkFun" deviceset="M04" device="PTH"/>
-<part name="R404" library="Rebel" deviceset="R-EU_" device="0603" value="4k99"/>
+<part name="R404" library="Rebel" deviceset="R-EU_" device="0603" value="5k1 / 4k99"/>
 <part name="R38" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
-<part name="R35" library="Rebel" deviceset="R-EU_" device="0603" value="4k42"/>
+<part name="R35" library="Rebel" deviceset="R-EU_" device="0603" value="5k1 / 4k42"/>
 <part name="PWR" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="P+8" library="supply1" deviceset="+5V" device=""/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="EXTSPI" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="LGP6-7" library="SparkFun" deviceset="M02" device="PTH"/>
-<part name="R39" library="Rebel" deviceset="R-EU_" device="0603" value="1k33"/>
+<part name="R39" library="Rebel" deviceset="R-EU_" device="0603" value="1k / 1k33"/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND49" library="supply1" deviceset="GND" device=""/>
 <part name="BOOT" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
 <part name="R8" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
-<part name="R9" library="Rebel" deviceset="R-EU_" device="0603" value="634R"/>
-<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="91R"/>
-<part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="91R"/>
+<part name="R9" library="Rebel" deviceset="R-EU_" device="0603" value="560R / 634R"/>
+<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="100R / 91R"/>
+<part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="100R / 91R"/>
 <part name="R13" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="2k32"/>
-<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="715R"/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="634R"/>
-<part name="C3" library="resistor" deviceset="C-EU" device="C0603" value="470p"/>
-<part name="C4" library="resistor" deviceset="C-EU" device="C0603" value="2n7"/>
-<part name="R6" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
+<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="2k / 2k32"/>
+<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="1k / 715R"/>
+<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="560R / 634R"/>
+<part name="C3" library="resistor" deviceset="C-EU" device="C0603" value="220p / 470p"/>
+<part name="C4" library="resistor" deviceset="C-EU" device="C0603" value="2n2 / 2n7 C0G"/>
+<part name="R6" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="TGP1-4" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="LGP1-5" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="ANG1" library="SparkFun" deviceset="M06" device="SIP"/>
@@ -16761,21 +16761,21 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
-<part name="C6" library="resistor" deviceset="C-EU" device="C0603" value="470p C0G"/>
-<part name="C7" library="resistor" deviceset="C-EU" device="C0603" value="6n8 C0G"/>
+<part name="C6" library="resistor" deviceset="C-EU" device="C0603" value="220p / 470p C0G"/>
+<part name="C7" library="resistor" deviceset="C-EU" device="C0603" value="4n7 / 6n8 C0G"/>
 <part name="C8" library="resistor" deviceset="C-EU" device="C0603" value="2n2 C0G"/>
-<part name="R7" library="Rebel" deviceset="R-EU_" device="0603" value="1k5"/>
-<part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="4k99"/>
+<part name="R7" library="Rebel" deviceset="R-EU_" device="0603" value="1k / 1k5"/>
+<part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="5k1 / 4k99"/>
 <part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
-<part name="R16" library="Rebel" deviceset="R-EU_" device="0603" value="4k42"/>
-<part name="R17" library="Rebel" deviceset="R-EU_" device="0603" value="1k33"/>
+<part name="R16" library="Rebel" deviceset="R-EU_" device="0603" value="5k1 / 4k42"/>
+<part name="R17" library="Rebel" deviceset="R-EU_" device="0603" value="1k / 1k33"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
-<part name="R18" library="Rebel" deviceset="R-EU_" device="0603" value="2k32"/>
-<part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="715R"/>
-<part name="C9" library="resistor" deviceset="C-EU" device="C0603" value="470p C0G"/>
-<part name="C10" library="resistor" deviceset="C-EU" device="C0603" value="6n8 C0G"/>
+<part name="R18" library="Rebel" deviceset="R-EU_" device="0603" value="2k / 2k32"/>
+<part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="1k / 715R"/>
+<part name="C9" library="resistor" deviceset="C-EU" device="C0603" value="220p / 470p C0G"/>
+<part name="C10" library="resistor" deviceset="C-EU" device="C0603" value="4n7 / 6n8 C0G"/>
 <part name="C11" library="resistor" deviceset="C-EU" device="C0603" value="2n2 C0G"/>
-<part name="R20" library="Rebel" deviceset="R-EU_" device="0603" value="1k5"/>
+<part name="R20" library="Rebel" deviceset="R-EU_" device="0603" value="1k / 1k5"/>
 <part name="C12" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
@@ -16800,14 +16800,14 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="C16" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="1u"/>
 <part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
-<part name="C18" library="resistor" deviceset="C-EU" device="C0603" value="2n7"/>
+<part name="C18" library="resistor" deviceset="C-EU" device="C0603" value="2n2 / 2n7 C0G"/>
 <part name="C19" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="1u"/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
-<part name="C20" library="resistor" deviceset="C-EU" device="C0603" value="470p"/>
+<part name="C20" library="resistor" deviceset="C-EU" device="C0603" value="220p / 470p C0G"/>
 <part name="C21" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
 <part name="C22" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
-<part name="C23" library="resistor" deviceset="C-EU" device="C0603" value="1n5 C0G"/>
+<part name="C23" library="resistor" deviceset="C-EU" device="C0603" value="1n / 1n5 C0G"/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
@@ -16830,7 +16830,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="C1" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
-<part name="C2" library="resistor" deviceset="C-EU" device="C0603" value="1n5 C0G"/>
+<part name="C2" library="resistor" deviceset="C-EU" device="C0603" value="1n / 1n5 C0G"/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
@@ -16902,7 +16902,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="GND41" library="supply1" deviceset="GND" device=""/>
 <part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
-<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
+<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="5k1"/>
 <part name="P+7" library="supply1" deviceset="+5V" device=""/>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
 <part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
