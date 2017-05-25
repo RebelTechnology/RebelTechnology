@@ -9727,26 +9727,26 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="IC2" library="ssm2164" deviceset="SSM2164" device="S"/>
 <part name="R7" library="Rebel" deviceset="R-EU_" device="0603" value="30k"/>
 <part name="C5" library="resistor" deviceset="C-EU" device="C0603K" value="560p"/>
-<part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="500"/>
+<part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
 <part name="GND11" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="R43" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="68k"/>
 <part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="30k"/>
 <part name="C1" library="resistor" deviceset="C-EU" device="C0603K" value="560p"/>
-<part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="500"/>
+<part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
 <part name="GND3" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="R8" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="68k"/>
 <part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="30k"/>
 <part name="C3" library="resistor" deviceset="C-EU" device="C0603K" value="560p"/>
-<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="500"/>
+<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="IC6" library="adafruit" deviceset="QUAD_OPAMP" device="D"/>
 <part name="R13" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R15" library="Rebel" deviceset="R-EU_" device="0603" value="68k"/>
 <part name="R16" library="Rebel" deviceset="R-EU_" device="0603" value="30k"/>
 <part name="C6" library="resistor" deviceset="C-EU" device="C0603K" value="560p"/>
-<part name="R17" library="Rebel" deviceset="R-EU_" device="0603" value="500"/>
+<part name="R17" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
 <part name="GND7" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R21" library="Rebel" deviceset="R-EU_" device="0603" value="68k"/>
@@ -9762,12 +9762,12 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="C14" library="Rebel" deviceset="C-EU" device="C0603K" value="100n"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
-<part name="R9" library="Rebel" deviceset="R-EU_" device="0603" value="560"/>
-<part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="560"/>
-<part name="R20" library="Rebel" deviceset="R-EU_" device="0603" value="560"/>
+<part name="R9" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="R20" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
 <part name="D4" library="diode" deviceset="BAT54A" device=""/>
 <part name="D2" library="diode" deviceset="BAT54A" device=""/>
-<part name="R23" library="Rebel" deviceset="R-EU_" device="0603" value="560"/>
+<part name="R23" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
 </parts>
 <sheets>
 <sheet>
@@ -9802,22 +9802,22 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <instance part="IC2" gate="A" x="66.04" y="139.7"/>
 <instance part="IC2" gate="B" x="60.96" y="30.48"/>
 <instance part="IC2" gate="D" x="53.34" y="-172.72"/>
-<instance part="IC2" gate="E" x="83.82" y="248.92"/>
+<instance part="IC2" gate="E" x="132.08" y="-10.16"/>
 <instance part="IC2" gate="C" x="58.42" y="-63.5"/>
-<instance part="P+1" gate="1" x="83.82" y="271.78"/>
-<instance part="P-1" gate="1" x="83.82" y="218.44"/>
-<instance part="GND10" gate="1" x="111.76" y="243.84" rot="R90"/>
-<instance part="C8" gate="G$1" x="106.68" y="256.54"/>
-<instance part="C9" gate="G$1" x="106.68" y="233.68"/>
-<instance part="R22" gate="G$1" x="99.06" y="256.54" rot="R90"/>
+<instance part="P+1" gate="1" x="132.08" y="12.7"/>
+<instance part="P-1" gate="1" x="132.08" y="-40.64"/>
+<instance part="GND10" gate="1" x="160.02" y="-15.24" rot="R90"/>
+<instance part="C8" gate="G$1" x="154.94" y="-2.54"/>
+<instance part="C9" gate="G$1" x="154.94" y="-25.4"/>
+<instance part="R22" gate="G$1" x="147.32" y="-2.54" rot="R90"/>
 <instance part="IC6" gate="B" x="2.54" y="55.88"/>
-<instance part="IC6" gate="P" x="132.08" y="243.84"/>
-<instance part="P+2" gate="1" x="132.08" y="266.7"/>
-<instance part="P-2" gate="1" x="132.08" y="226.06"/>
-<instance part="C13" gate="G$1" x="137.16" y="228.6"/>
-<instance part="GND14" gate="1" x="137.16" y="215.9"/>
-<instance part="C14" gate="G$1" x="121.92" y="251.46"/>
-<instance part="GND15" gate="1" x="121.92" y="238.76"/>
+<instance part="IC6" gate="P" x="180.34" y="-15.24"/>
+<instance part="P+2" gate="1" x="180.34" y="7.62"/>
+<instance part="P-2" gate="1" x="180.34" y="-33.02"/>
+<instance part="C13" gate="G$1" x="185.42" y="-30.48"/>
+<instance part="GND14" gate="1" x="185.42" y="-43.18"/>
+<instance part="C14" gate="G$1" x="170.18" y="-7.62"/>
+<instance part="GND15" gate="1" x="170.18" y="-20.32"/>
 <instance part="R9" gate="G$1" x="33.02" y="165.1"/>
 <instance part="R14" gate="G$1" x="25.4" y="55.88"/>
 <instance part="R20" gate="G$1" x="25.4" y="-142.24"/>
@@ -9854,23 +9854,23 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <segment>
 <pinref part="GND10" gate="1" pin="GND"/>
 <pinref part="IC2" gate="E" pin="GND"/>
-<wire x1="109.22" y1="243.84" x2="106.68" y2="243.84" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="-15.24" x2="154.94" y2="-15.24" width="0.1524" layer="91"/>
 <pinref part="C8" gate="G$1" pin="2"/>
-<wire x1="106.68" y1="243.84" x2="91.44" y2="243.84" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="251.46" x2="106.68" y2="243.84" width="0.1524" layer="91"/>
-<junction x="106.68" y="243.84"/>
+<wire x1="154.94" y1="-15.24" x2="139.7" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="-7.62" x2="154.94" y2="-15.24" width="0.1524" layer="91"/>
+<junction x="154.94" y="-15.24"/>
 <pinref part="C9" gate="G$1" pin="1"/>
-<wire x1="106.68" y1="236.22" x2="106.68" y2="243.84" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="-22.86" x2="154.94" y2="-15.24" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND15" gate="1" pin="GND"/>
 <pinref part="C14" gate="G$1" pin="2"/>
-<wire x1="121.92" y1="241.3" x2="121.92" y2="246.38" width="0.1524" layer="91"/>
+<wire x1="170.18" y1="-17.78" x2="170.18" y2="-12.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND14" gate="1" pin="GND"/>
 <pinref part="C13" gate="G$1" pin="2"/>
-<wire x1="137.16" y1="218.44" x2="137.16" y2="223.52" width="0.1524" layer="91"/>
+<wire x1="185.42" y1="-40.64" x2="185.42" y2="-35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$19" class="0">
@@ -10045,56 +10045,56 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <segment>
 <pinref part="IC2" gate="E" pin="V+"/>
 <pinref part="R22" gate="G$1" pin="2"/>
-<wire x1="83.82" y1="264.16" x2="83.82" y2="256.54" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="261.62" x2="99.06" y2="264.16" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="264.16" x2="83.82" y2="264.16" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="5.08" x2="132.08" y2="-2.54" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="2.54" x2="147.32" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="5.08" x2="132.08" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="C8" gate="G$1" pin="1"/>
-<wire x1="99.06" y1="264.16" x2="106.68" y2="264.16" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="264.16" x2="106.68" y2="259.08" width="0.1524" layer="91"/>
-<junction x="99.06" y="264.16"/>
+<wire x1="147.32" y1="5.08" x2="154.94" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="5.08" x2="154.94" y2="0" width="0.1524" layer="91"/>
+<junction x="147.32" y="5.08"/>
 <pinref part="P+1" gate="1" pin="+12V"/>
-<wire x1="83.82" y1="269.24" x2="83.82" y2="264.16" width="0.1524" layer="91"/>
-<junction x="83.82" y="264.16"/>
+<wire x1="132.08" y1="10.16" x2="132.08" y2="5.08" width="0.1524" layer="91"/>
+<junction x="132.08" y="5.08"/>
 </segment>
 <segment>
 <pinref part="IC6" gate="P" pin="V+"/>
-<wire x1="132.08" y1="251.46" x2="132.08" y2="259.08" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="-7.62" x2="180.34" y2="0" width="0.1524" layer="91"/>
 <pinref part="C14" gate="G$1" pin="1"/>
-<wire x1="121.92" y1="254" x2="121.92" y2="259.08" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="259.08" x2="132.08" y2="259.08" width="0.1524" layer="91"/>
+<wire x1="170.18" y1="-5.08" x2="170.18" y2="0" width="0.1524" layer="91"/>
+<wire x1="170.18" y1="0" x2="180.34" y2="0" width="0.1524" layer="91"/>
 <pinref part="P+2" gate="1" pin="+12V"/>
-<wire x1="132.08" y1="264.16" x2="132.08" y2="259.08" width="0.1524" layer="91"/>
-<junction x="132.08" y="259.08"/>
+<wire x1="180.34" y1="5.08" x2="180.34" y2="0" width="0.1524" layer="91"/>
+<junction x="180.34" y="0"/>
 </segment>
 </net>
 <net name="-12V" class="0">
 <segment>
 <pinref part="P-1" gate="1" pin="-12V"/>
 <pinref part="IC2" gate="E" pin="V-"/>
-<wire x1="83.82" y1="220.98" x2="83.82" y2="223.52" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="-38.1" x2="132.08" y2="-35.56" width="0.1524" layer="91"/>
 <pinref part="C9" gate="G$1" pin="2"/>
-<wire x1="83.82" y1="223.52" x2="83.82" y2="236.22" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="228.6" x2="106.68" y2="223.52" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="223.52" x2="83.82" y2="223.52" width="0.1524" layer="91"/>
-<junction x="83.82" y="223.52"/>
+<wire x1="132.08" y1="-35.56" x2="132.08" y2="-22.86" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="-30.48" x2="154.94" y2="-35.56" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="-35.56" x2="132.08" y2="-35.56" width="0.1524" layer="91"/>
+<junction x="132.08" y="-35.56"/>
 </segment>
 <segment>
 <pinref part="P-2" gate="1" pin="-12V"/>
-<wire x1="132.08" y1="228.6" x2="132.08" y2="233.68" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="-30.48" x2="180.34" y2="-25.4" width="0.1524" layer="91"/>
 <pinref part="C13" gate="G$1" pin="1"/>
-<wire x1="137.16" y1="231.14" x2="137.16" y2="233.68" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="233.68" x2="132.08" y2="233.68" width="0.1524" layer="91"/>
+<wire x1="185.42" y1="-27.94" x2="185.42" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="185.42" y1="-25.4" x2="180.34" y2="-25.4" width="0.1524" layer="91"/>
 <pinref part="IC6" gate="P" pin="V-"/>
-<wire x1="132.08" y1="236.22" x2="132.08" y2="233.68" width="0.1524" layer="91"/>
-<junction x="132.08" y="233.68"/>
+<wire x1="180.34" y1="-22.86" x2="180.34" y2="-25.4" width="0.1524" layer="91"/>
+<junction x="180.34" y="-25.4"/>
 </segment>
 </net>
 <net name="N$17" class="0">
 <segment>
 <pinref part="IC2" gate="E" pin="MODE"/>
-<wire x1="91.44" y1="248.92" x2="99.06" y2="248.92" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="-10.16" x2="147.32" y2="-10.16" width="0.1524" layer="91"/>
 <pinref part="R22" gate="G$1" pin="1"/>
-<wire x1="99.06" y1="248.92" x2="99.06" y2="251.46" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="-10.16" x2="147.32" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="CV_A" class="0">
@@ -10344,51 +10344,51 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="JP5" library="SparkFun" deviceset="M08" device="1X08"/>
 <part name="D3" library="diode" deviceset="BAT54A" device=""/>
 <part name="R49" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R50" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
+<part name="R50" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="Q11" library="transistor-pnp" deviceset="BC856*" device="SMD" technology="ALT1"/>
-<part name="R51" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
+<part name="R51" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND62" library="supply1" deviceset="GND" device=""/>
 <part name="P+19" library="supply1" deviceset="+12V" device=""/>
 <part name="R34" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R35" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
+<part name="R35" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="Q5" library="transistor-pnp" deviceset="BC856*" device="SMD" technology="ALT1"/>
-<part name="R36" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
+<part name="R36" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="P+9" library="supply1" deviceset="+12V" device=""/>
 <part name="R37" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R38" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
+<part name="R38" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="Q6" library="transistor-pnp" deviceset="BC856*" device="SMD" technology="ALT1"/>
-<part name="R48" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
+<part name="R48" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="P+10" library="supply1" deviceset="+12V" device=""/>
 <part name="R39" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R40" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
+<part name="R40" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="Q7" library="transistor-pnp" deviceset="BC856*" device="SMD" technology="ALT1"/>
-<part name="R52" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
+<part name="R52" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="P+11" library="supply1" deviceset="+12V" device=""/>
 <part name="R25" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
+<part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="Q1" library="transistor-pnp" deviceset="BC856*" device="SMD" technology="ALT1"/>
-<part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
+<part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="P+5" library="supply1" deviceset="+12V" device=""/>
 <part name="R27" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
+<part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="Q2" library="transistor-pnp" deviceset="BC856*" device="SMD" technology="ALT1"/>
-<part name="R53" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
+<part name="R53" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="P+6" library="supply1" deviceset="+12V" device=""/>
 <part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
+<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="Q3" library="transistor-pnp" deviceset="BC856*" device="SMD" technology="ALT1"/>
-<part name="R54" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
+<part name="R54" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="P+7" library="supply1" deviceset="+12V" device=""/>
 <part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
+<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="Q4" library="transistor-pnp" deviceset="BC856*" device="SMD" technology="ALT1"/>
-<part name="R55" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
+<part name="R55" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="P+8" library="supply1" deviceset="+12V" device=""/>
 <part name="GND11" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
