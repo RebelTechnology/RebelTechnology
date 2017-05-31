@@ -1,8 +1,7 @@
 <module type="6hp">
 
   <!-- pots -->
-  <!-- <pot x="-0.15" y="1.75"/> -->
-  <pot x="0.00" y="1.8" grading="small"/>
+  <pot x="0.00" y="1.8" grading="none"/>
 
   <!-- jacks -->
   <hole x="-0.30" y="1.25" radius="3.25"/>  <!-- adj -->
