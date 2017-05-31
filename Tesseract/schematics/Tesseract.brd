@@ -8,7 +8,7 @@
 </settings>
 <grid distance="0.5" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="0.1" altunitdist="mm" altunit="mm"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Ground" color="9" fill="3" visible="no" active="no"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
@@ -23,7 +23,7 @@
 <layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Power" color="12" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
@@ -36,10 +36,10 @@
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
-<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
-<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="6" visible="no" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="5" visible="no" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
@@ -3185,7 +3185,7 @@ design rules under a new name.</description>
 <element name="R300" library="Rebel" package="0603" value="100k" x="17.6" y="40.1" smashed="yes" rot="MR0">
 <attribute name="NAME" x="15.7585" y="39.238" size="0.9" layer="26" rot="MR180"/>
 </element>
-<element name="R404" library="Rebel" package="0603" value="22k" x="13.1" y="51.9" smashed="yes" rot="MR180">
+<element name="R404" library="Rebel" package="0603" value="10k" x="13.1" y="51.9" smashed="yes" rot="MR180">
 <attribute name="NAME" x="11.2285" y="51.138" size="0.9" layer="26" rot="MR180"/>
 </element>
 <element name="R406" library="Rebel" package="0603" value="1k" x="21.1" y="51.9" smashed="yes" rot="MR180">
@@ -3207,10 +3207,10 @@ design rules under a new name.</description>
 <element name="IN_R" library="Rebel" package="THONKICONN" value="THONKICONN" x="5.87" y="6.55" rot="R180"/>
 <element name="OUT_L" library="Rebel" package="THONKICONN" value="THONKICONN" x="54.13" y="19.25" rot="R180"/>
 <element name="OUT_R" library="Rebel" package="THONKICONN" value="THONKICONN" x="54.13" y="6.55" rot="R180"/>
-<element name="POT5" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="30" y="54.81"/>
-<element name="POT6" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="10.95" y="76.4"/>
-<element name="POT7" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="49.05" y="76.4"/>
-<element name="POT8" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="30" y="89.1"/>
+<element name="POT_A" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="30" y="54.81"/>
+<element name="POT_B" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="10.95" y="76.4"/>
+<element name="POT_C" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="49.05" y="76.4"/>
+<element name="POT_D" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="30" y="89.1"/>
 <element name="CV_A" library="Rebel" package="THONKICONN" value="THONKICONN" x="30" y="6.55" rot="R180"/>
 <element name="CV_B" library="Rebel" package="THONKICONN" value="THONKICONN" x="17.3" y="21.79" rot="R180"/>
 <element name="CV_C" library="Rebel" package="THONKICONN" value="THONKICONN" x="42.7" y="21.79" rot="R180"/>
@@ -3332,10 +3332,10 @@ design rules under a new name.</description>
 <attribute name="NAME" x="48.8" y="85.2" size="0.9" layer="25" ratio="10"/>
 <attribute name="VALUE" x="46.43" y="80.525" size="1.27" layer="27"/>
 </element>
-<element name="R8" library="Rebel" package="0603" value="20k" x="9.6" y="42.2" smashed="yes" rot="MR0">
+<element name="R8" library="Rebel" package="0603" value="22k" x="9.6" y="42.2" smashed="yes" rot="MR0">
 <attribute name="NAME" x="7.1" y="41.762" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
-<element name="R9" library="Rebel" package="0603" value="20k" x="20.2" y="49.8" smashed="yes" rot="MR0">
+<element name="R9" library="Rebel" package="0603" value="22k" x="20.2" y="49.8" smashed="yes" rot="MR0">
 <attribute name="NAME" x="22.3" y="49.662" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="R10" library="Rebel" package="0603" value="91R" x="9.6" y="45.2" smashed="yes" rot="MR180">
@@ -3368,7 +3368,7 @@ design rules under a new name.</description>
 <element name="R2" library="Rebel" package="0603" value="4k7" x="13.1" y="57.8" smashed="yes" rot="MR180">
 <attribute name="NAME" x="15.3" y="57.562" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
-<element name="R3" library="Rebel" package="0603" value="20k" x="20.9" y="40.1" smashed="yes" rot="MR0">
+<element name="R3" library="Rebel" package="0603" value="22k" x="20.9" y="40.1" smashed="yes" rot="MR0">
 <attribute name="NAME" x="20.9" y="39.238" size="0.9" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
 <element name="R4" library="Rebel" package="0603" value="100k" x="13.1" y="43.7" smashed="yes" rot="MR0">
@@ -3389,7 +3389,7 @@ design rules under a new name.</description>
 <element name="R5" library="Rebel" package="0603" value="100k" x="13.1" y="42.2" smashed="yes" rot="MR0">
 <attribute name="NAME" x="13.1" y="41.338" size="1.016" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="R6" library="Rebel" package="0603" value="20k" x="9.6" y="43.7" smashed="yes" rot="MR0">
+<element name="R6" library="Rebel" package="0603" value="22k" x="9.6" y="43.7" smashed="yes" rot="MR0">
 <attribute name="NAME" x="7.1" y="43.162" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="C2" library="resistor" package="C0603" value="100n" x="23.5" y="48.2" smashed="yes" rot="MR270">
@@ -3424,10 +3424,10 @@ design rules under a new name.</description>
 <attribute name="NAME" x="8.089" y="51.462" size="0.9" layer="26" rot="MR0"/>
 <attribute name="VALUE" x="10.489" y="49.868" size="1.27" layer="28" rot="MR0"/>
 </element>
-<element name="R7" library="Rebel" package="0603" value="22k" x="13.1" y="56.3" smashed="yes" rot="MR0">
+<element name="R7" library="Rebel" package="0603" value="10k" x="13.1" y="56.3" smashed="yes" rot="MR0">
 <attribute name="NAME" x="13.1" y="55.538" size="0.9" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="R12" library="Rebel" package="0603" value="22k" x="13.1" y="65.1" smashed="yes" rot="MR180">
+<element name="R12" library="Rebel" package="0603" value="10k" x="13.1" y="65.1" smashed="yes" rot="MR180">
 <attribute name="NAME" x="13.1" y="65.862" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="R14" library="Rebel" package="0603" value="1k" x="19.4" y="65.1" smashed="yes" rot="MR180">
@@ -3457,16 +3457,16 @@ design rules under a new name.</description>
 <attribute name="NAME" x="10.689" y="65.862" size="0.9" layer="26" rot="MR0"/>
 <attribute name="VALUE" x="10.489" y="63.068" size="1.27" layer="28" rot="MR0"/>
 </element>
-<element name="R20" library="Rebel" package="0603" value="22k" x="13.1" y="60.8" smashed="yes" rot="MR0">
+<element name="R20" library="Rebel" package="0603" value="10k" x="13.1" y="60.8" smashed="yes" rot="MR0">
 <attribute name="NAME" x="15.7" y="60.262" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
-<element name="R21" library="Rebel" package="0603" value="91R" x="13.42" y="93.58" smashed="yes" rot="MR90">
+<element name="R21" library="Rebel" package="0603" value="510R" x="13.42" y="93.58" smashed="yes" rot="MR90">
 <attribute name="NAME" x="12.982" y="90.98" size="0.9" layer="26" font="vector" rot="MR90" align="bottom-center"/>
 </element>
-<element name="R22" library="Rebel" package="0603" value="91R" x="23.58" y="93.58" smashed="yes" rot="MR90">
+<element name="R22" library="Rebel" package="0603" value="510R" x="23.58" y="93.58" smashed="yes" rot="MR90">
 <attribute name="NAME" x="23.958" y="90.82" size="1.016" layer="26" font="vector" rot="MR270" align="bottom-center"/>
 </element>
-<element name="R23" library="Rebel" package="0603" value="91R" x="26.04" y="93.58" smashed="yes" rot="MR90">
+<element name="R23" library="Rebel" package="0603" value="510R" x="26.04" y="93.58" smashed="yes" rot="MR90">
 <attribute name="NAME" x="27.002" y="93.58" size="1.016" layer="26" font="vector" rot="MR90" align="bottom-center"/>
 </element>
 <element name="C12" library="resistor" package="C0603" value="100n" x="22.1" y="64.4" smashed="yes" rot="MR90">
@@ -3506,7 +3506,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="40.55" y="13.25" size="0.9" layer="26" rot="MR0"/>
 <attribute name="VALUE" x="42.325" y="12.45" size="1.016" layer="28" rot="MR270"/>
 </element>
-<element name="C14" library="rcl" package="PANASONIC_C" value="220u" x="14.3" y="12.8" smashed="yes" rot="MR0">
+<element name="C14" library="rcl" package="PANASONIC_C" value="47u" x="14.3" y="12.8" smashed="yes" rot="MR0">
 <attribute name="NAME" x="15.6" y="15.65" size="0.9" layer="26" rot="MR0"/>
 <attribute name="VALUE" x="16.95" y="9.025" size="1.016" layer="28" rot="MR0"/>
 </element>
@@ -3538,14 +3538,14 @@ design rules under a new name.</description>
 <contactref element="CV_D" pad="P$2"/>
 <contactref element="CV_D" pad="P$1"/>
 <contactref element="IC2" pad="5"/>
-<contactref element="POT5" pad="P$5"/>
-<contactref element="POT5" pad="P$6"/>
-<contactref element="POT6" pad="P$5"/>
-<contactref element="POT6" pad="P$6"/>
-<contactref element="POT7" pad="P$5"/>
-<contactref element="POT7" pad="P$6"/>
-<contactref element="POT8" pad="P$5"/>
-<contactref element="POT8" pad="P$6"/>
+<contactref element="POT_A" pad="P$5"/>
+<contactref element="POT_A" pad="P$6"/>
+<contactref element="POT_B" pad="P$5"/>
+<contactref element="POT_B" pad="P$6"/>
+<contactref element="POT_C" pad="P$5"/>
+<contactref element="POT_C" pad="P$6"/>
+<contactref element="POT_D" pad="P$5"/>
+<contactref element="POT_D" pad="P$6"/>
 <contactref element="R905" pad="1"/>
 <contactref element="Q901" pad="2"/>
 <contactref element="D500" pad="1"/>
@@ -3562,10 +3562,10 @@ design rules under a new name.</description>
 <contactref element="IC2" pad="12"/>
 <contactref element="IC4" pad="1"/>
 <contactref element="C1" pad="2"/>
-<contactref element="POT5" pad="3"/>
-<contactref element="POT8" pad="3"/>
-<contactref element="POT7" pad="3"/>
-<contactref element="POT6" pad="3"/>
+<contactref element="POT_A" pad="3"/>
+<contactref element="POT_D" pad="3"/>
+<contactref element="POT_C" pad="3"/>
+<contactref element="POT_B" pad="3"/>
 <contactref element="R5" pad="1"/>
 <contactref element="R4" pad="1"/>
 <contactref element="C2" pad="2"/>
@@ -3924,7 +3924,7 @@ design rules under a new name.</description>
 <wire x1="32.45" y1="49.5" x2="32.45" y2="61.1" width="0.4064" layer="16"/>
 </signal>
 <signal name="N$14">
-<contactref element="POT5" pad="2"/>
+<contactref element="POT_A" pad="2"/>
 <contactref element="R500" pad="1"/>
 <wire x1="29.35" y1="49.5" x2="29.35" y2="47.90965" width="0.4064" layer="16"/>
 <wire x1="29.35" y1="47.90965" x2="30" y2="47.31" width="0.4064" layer="16"/>
@@ -3994,7 +3994,7 @@ design rules under a new name.</description>
 </signal>
 <signal name="N$21">
 <contactref element="R600" pad="1"/>
-<contactref element="POT6" pad="2"/>
+<contactref element="POT_B" pad="2"/>
 <wire x1="11.15" y1="71.1" x2="11.15" y2="69.1" width="0.4064" layer="16"/>
 <wire x1="11.15" y1="69.1" x2="10.95" y2="68.9" width="0.4064" layer="16"/>
 </signal>
@@ -4040,7 +4040,7 @@ design rules under a new name.</description>
 </signal>
 <signal name="N$27">
 <contactref element="R700" pad="1"/>
-<contactref element="POT7" pad="2"/>
+<contactref element="POT_C" pad="2"/>
 <wire x1="49.05" y1="68.9" x2="50.05" y2="69.85015" width="0.4064" layer="16"/>
 <wire x1="50.05" y1="69.85015" x2="50.05" y2="71.1" width="0.4064" layer="16"/>
 </signal>
@@ -4099,7 +4099,7 @@ design rules under a new name.</description>
 </signal>
 <signal name="N$34">
 <contactref element="R800" pad="1"/>
-<contactref element="POT8" pad="2"/>
+<contactref element="POT_D" pad="2"/>
 <wire x1="29.45" y1="83.9" x2="29.45" y2="82.15" width="0.4064" layer="16"/>
 <wire x1="29.45" y1="82.15" x2="30" y2="81.6" width="0.4064" layer="16"/>
 </signal>
@@ -4156,10 +4156,10 @@ design rules under a new name.</description>
 <contactref element="IC4" pad="2"/>
 <contactref element="R15" pad="2"/>
 <contactref element="C1" pad="1"/>
-<contactref element="POT5" pad="1"/>
-<contactref element="POT6" pad="1"/>
-<contactref element="POT7" pad="1"/>
-<contactref element="POT8" pad="1"/>
+<contactref element="POT_A" pad="1"/>
+<contactref element="POT_B" pad="1"/>
+<contactref element="POT_C" pad="1"/>
+<contactref element="POT_D" pad="1"/>
 <wire x1="22.15" y1="69.6" x2="22.05" y2="69.5" width="0.4064" layer="16" curve="90"/>
 <wire x1="22.05" y1="68" x2="22.05" y2="69.5" width="0.4064" layer="16"/>
 <wire x1="14.3" y1="67.1" x2="10.25" y2="67.1" width="0.4064" layer="16"/>

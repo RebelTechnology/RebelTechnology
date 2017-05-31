@@ -23351,7 +23351,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="USB" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="ADC" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="R300" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R404" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
+<part name="R404" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R406" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R400" library="Rebel" deviceset="R-EU_" device="0603" value="5k6"/>
 <part name="PWR" library="SparkFun" deviceset="M03" device="PTH"/>
@@ -23365,10 +23365,10 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="OUT_L" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="OUT_R" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="POT5" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
-<part name="POT6" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
-<part name="POT7" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
-<part name="POT8" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
+<part name="POT_A" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
+<part name="POT_B" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
+<part name="POT_C" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
+<part name="POT_D" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="CV_A" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="CV_B" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="CV_C" library="Rebel" deviceset="THONKICONN" device=""/>
@@ -23441,8 +23441,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="BOOT" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
-<part name="R8" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
-<part name="R9" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
+<part name="R8" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
+<part name="R9" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
 <part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="91R"/>
 <part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="91R"/>
 <part name="R13" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
@@ -23454,14 +23454,14 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
+<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
 <part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="C3" library="resistor" deviceset="C-EU" device="C0603" value="2n7"/>
 <part name="C4" library="resistor" deviceset="C-EU" device="C0603" value="2n7"/>
 <part name="IC5" library="linear" deviceset="NE5532" device="D"/>
 <part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
-<part name="R6" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
+<part name="R6" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="P-3" library="supply1" deviceset="-12V" device=""/>
 <part name="P+3" library="supply1" deviceset="+12V" device=""/>
@@ -23480,8 +23480,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="C6" library="resistor" deviceset="C-EU" device="C0603" value="100p"/>
 <part name="C7" library="resistor" deviceset="C-EU" device="C0603" value="1n"/>
 <part name="C8" library="resistor" deviceset="C-EU" device="C0603" value="1n"/>
-<part name="R7" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
-<part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
+<part name="R7" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R16" library="Rebel" deviceset="R-EU_" device="0603" value="5k6"/>
 <part name="R17" library="Rebel" deviceset="R-EU_" device="0603" value="5k6"/>
@@ -23491,10 +23491,10 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="C9" library="resistor" deviceset="C-EU" device="C0603" value="100p"/>
 <part name="C10" library="resistor" deviceset="C-EU" device="C0603" value="1n"/>
 <part name="C11" library="resistor" deviceset="C-EU" device="C0603" value="1n"/>
-<part name="R20" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
-<part name="R21" library="Rebel" deviceset="R-EU_" device="0603" value="91R"/>
-<part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="91R"/>
-<part name="R23" library="Rebel" deviceset="R-EU_" device="0603" value="91R"/>
+<part name="R20" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R21" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="R23" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
 <part name="P+10" library="supply1" deviceset="+5V" device=""/>
 <part name="P-4" library="supply1" deviceset="-12V" device=""/>
 <part name="P+2" library="supply1" deviceset="+12V" device=""/>
@@ -23525,7 +23525,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="P+14" library="supply1" deviceset="+12V" device=""/>
 <part name="P+6" library="supply1" deviceset="+5V" device=""/>
 <part name="C17" library="resistor" deviceset="CPOL-EU" device="A" value="10u"/>
-<part name="C14" library="rcl" deviceset="CPOL-EU" device="C" value="220u"/>
+<part name="C14" library="rcl" deviceset="CPOL-EU" device="C" value="47u"/>
 <part name="LED1" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
 </parts>
 <sheets>
@@ -23576,10 +23576,10 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="OUT_L" gate="G$1" x="-2.54" y="63.5"/>
 <instance part="OUT_R" gate="G$1" x="-2.54" y="40.64"/>
 <instance part="GND7" gate="1" x="292.1" y="228.6"/>
-<instance part="POT5" gate="G$1" x="287.02" y="220.98" rot="R90"/>
-<instance part="POT6" gate="G$1" x="284.48" y="149.86" rot="R90"/>
-<instance part="POT7" gate="G$1" x="284.48" y="73.66" rot="R90"/>
-<instance part="POT8" gate="G$1" x="284.48" y="0" rot="R90"/>
+<instance part="POT_A" gate="G$1" x="287.02" y="220.98" rot="R90"/>
+<instance part="POT_B" gate="G$1" x="284.48" y="149.86" rot="R90"/>
+<instance part="POT_C" gate="G$1" x="284.48" y="73.66" rot="R90"/>
+<instance part="POT_D" gate="G$1" x="284.48" y="0" rot="R90"/>
 <instance part="CV_A" gate="G$1" x="276.86" y="198.12" rot="R180"/>
 <instance part="CV_B" gate="G$1" x="279.4" y="121.92" rot="R180"/>
 <instance part="CV_C" gate="G$1" x="279.4" y="45.72" rot="R180"/>
@@ -23626,10 +23626,10 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="IC2" gate="B" x="327.66" y="116.84" rot="MR180"/>
 <instance part="IC2" gate="C" x="327.66" y="40.64" rot="MR180"/>
 <instance part="IC2" gate="D" x="327.66" y="-33.02" rot="MR180"/>
-<instance part="POT8" gate="G$2" x="63.5" y="35.56"/>
-<instance part="POT7" gate="G$2" x="53.34" y="35.56"/>
-<instance part="POT6" gate="G$2" x="43.18" y="35.56"/>
-<instance part="POT5" gate="G$2" x="33.02" y="35.56"/>
+<instance part="POT_D" gate="G$2" x="63.5" y="35.56"/>
+<instance part="POT_C" gate="G$2" x="53.34" y="35.56"/>
+<instance part="POT_B" gate="G$2" x="43.18" y="35.56"/>
+<instance part="POT_A" gate="G$2" x="33.02" y="35.56"/>
 <instance part="R904" gate="G$1" x="-40.64" y="106.68" rot="MR180"/>
 <instance part="R905" gate="G$1" x="-30.48" y="99.06" rot="MR90"/>
 <instance part="GND1" gate="1" x="-30.48" y="88.9" rot="MR0"/>
@@ -23787,12 +23787,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="P+6" gate="1" x="195.58" y="104.14" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="193.04" y="106.68" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="C17" gate="G$1" x="147.32" y="91.44" smashed="yes">
-<attribute name="VALUE" x="146.177" y="93.4974" size="1.778" layer="96" rot="R180"/>
-</instance>
-<instance part="C14" gate="G$1" x="185.42" y="91.44" smashed="yes">
-<attribute name="VALUE" x="184.277" y="93.4974" size="1.778" layer="96" rot="R180"/>
-</instance>
+<instance part="C17" gate="G$1" x="147.32" y="91.44"/>
+<instance part="C14" gate="G$1" x="185.42" y="91.44"/>
 <instance part="LED1" gate="G$1" x="-58.42" y="198.12" rot="R90"/>
 </instances>
 <busses>
@@ -23803,19 +23799,19 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="GND36" gate="1" pin="GND"/>
 <wire x1="48.26" y1="25.4" x2="48.26" y2="27.94" width="0.1524" layer="91"/>
 <junction x="48.26" y="27.94"/>
-<pinref part="POT5" gate="G$2" pin="P$1"/>
+<pinref part="POT_A" gate="G$2" pin="P$1"/>
 <wire x1="48.26" y1="27.94" x2="33.02" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="27.94" x2="33.02" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="POT6" gate="G$2" pin="P$1"/>
+<pinref part="POT_B" gate="G$2" pin="P$1"/>
 <wire x1="33.02" y1="27.94" x2="43.18" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="43.18" y1="27.94" x2="43.18" y2="30.48" width="0.1524" layer="91"/>
 <junction x="33.02" y="27.94"/>
-<pinref part="POT7" gate="G$2" pin="P$1"/>
+<pinref part="POT_C" gate="G$2" pin="P$1"/>
 <wire x1="43.18" y1="27.94" x2="48.26" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="27.94" x2="53.34" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="27.94" x2="53.34" y2="30.48" width="0.1524" layer="91"/>
 <junction x="43.18" y="27.94"/>
-<pinref part="POT8" gate="G$2" pin="P$1"/>
+<pinref part="POT_D" gate="G$2" pin="P$1"/>
 <wire x1="53.34" y1="27.94" x2="63.5" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="63.5" y1="27.94" x2="63.5" y2="30.48" width="0.1524" layer="91"/>
 <junction x="53.34" y="27.94"/>
@@ -23992,26 +23988,26 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <segment>
 <pinref part="GND7" gate="1" pin="GND"/>
 <wire x1="292.1" y1="231.14" x2="292.1" y2="233.68" width="0.1524" layer="91"/>
-<pinref part="POT5" gate="G$1" pin="3"/>
+<pinref part="POT_A" gate="G$1" pin="3"/>
 <wire x1="292.1" y1="233.68" x2="287.02" y2="233.68" width="0.1524" layer="91"/>
 <wire x1="287.02" y1="233.68" x2="287.02" y2="228.6" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT8" gate="G$1" pin="3"/>
+<pinref part="POT_D" gate="G$1" pin="3"/>
 <wire x1="284.48" y1="7.62" x2="284.48" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="284.48" y1="12.7" x2="289.56" y2="12.7" width="0.1524" layer="91"/>
 <pinref part="GND45" gate="1" pin="GND"/>
 <wire x1="289.56" y1="12.7" x2="289.56" y2="10.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT7" gate="G$1" pin="3"/>
+<pinref part="POT_C" gate="G$1" pin="3"/>
 <wire x1="284.48" y1="81.28" x2="284.48" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="284.48" y1="86.36" x2="289.56" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="GND12" gate="1" pin="GND"/>
 <wire x1="289.56" y1="86.36" x2="289.56" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT6" gate="G$1" pin="3"/>
+<pinref part="POT_B" gate="G$1" pin="3"/>
 <wire x1="284.48" y1="157.48" x2="284.48" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="284.48" y1="162.56" x2="289.56" y2="162.56" width="0.1524" layer="91"/>
 <pinref part="GND28" gate="1" pin="GND"/>
@@ -24487,7 +24483,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </net>
 <net name="N$14" class="0">
 <segment>
-<pinref part="POT5" gate="G$1" pin="2"/>
+<pinref part="POT_A" gate="G$1" pin="2"/>
 <pinref part="R500" gate="G$1" pin="1"/>
 <wire x1="292.1" y1="220.98" x2="294.64" y2="220.98" width="0.1524" layer="91"/>
 </segment>
@@ -24543,7 +24539,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <segment>
 <pinref part="R600" gate="G$1" pin="1"/>
 <wire x1="292.1" y1="149.86" x2="289.56" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="POT6" gate="G$1" pin="2"/>
+<pinref part="POT_B" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$22" class="0">
@@ -24580,7 +24576,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <segment>
 <pinref part="R700" gate="G$1" pin="1"/>
 <wire x1="294.64" y1="73.66" x2="289.56" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="POT7" gate="G$1" pin="2"/>
+<pinref part="POT_C" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$28" class="0">
@@ -24634,7 +24630,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <segment>
 <pinref part="R800" gate="G$1" pin="1"/>
 <wire x1="294.64" y1="0" x2="289.56" y2="0" width="0.1524" layer="91"/>
-<pinref part="POT8" gate="G$1" pin="2"/>
+<pinref part="POT_D" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$35" class="0">
@@ -24708,7 +24704,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <junction x="264.16" y="264.16"/>
 </segment>
 <segment>
-<pinref part="POT5" gate="G$1" pin="1"/>
+<pinref part="POT_A" gate="G$1" pin="1"/>
 <wire x1="287.02" y1="213.36" x2="287.02" y2="208.28" width="0.1524" layer="91"/>
 <wire x1="287.02" y1="208.28" x2="274.32" y2="208.28" width="0.1524" layer="91"/>
 <label x="274.32" y="208.28" size="1.778" layer="95"/>
@@ -24716,19 +24712,19 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <segment>
 <wire x1="284.48" y1="137.16" x2="271.78" y2="137.16" width="0.1524" layer="91"/>
 <label x="271.78" y="137.16" size="1.778" layer="95"/>
-<pinref part="POT6" gate="G$1" pin="1"/>
+<pinref part="POT_B" gate="G$1" pin="1"/>
 <wire x1="284.48" y1="137.16" x2="284.48" y2="142.24" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="284.48" y1="60.96" x2="271.78" y2="60.96" width="0.1524" layer="91"/>
 <label x="271.78" y="60.96" size="1.778" layer="95"/>
-<pinref part="POT7" gate="G$1" pin="1"/>
+<pinref part="POT_C" gate="G$1" pin="1"/>
 <wire x1="284.48" y1="60.96" x2="284.48" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="284.48" y1="-12.7" x2="271.78" y2="-12.7" width="0.1524" layer="91"/>
 <label x="271.78" y="-12.7" size="1.778" layer="95"/>
-<pinref part="POT8" gate="G$1" pin="1"/>
+<pinref part="POT_D" gate="G$1" pin="1"/>
 <wire x1="284.48" y1="-12.7" x2="284.48" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
