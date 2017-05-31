@@ -1,192 +1,40 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1.1"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
-   id="svg3189"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="TriggerTone.svg">
-  <metadata
-     id="metadata3293">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <sodipodi:namedview
-     id="base"
-     inkscape:document-units="mm"
-     units="mm"
-     showgrid="false"
-     inkscape:zoom="1.2685914"
-     inkscape:cx="92.340264"
-     inkscape:cy="798.72966"
-     inkscape:window-width="1680"
-     inkscape:window-height="1000"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="g3195" />
-  <defs
-     id="defs3192">
-    <g
-       id="potgrading" />
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:exslt="http://exslt.org/common" version="1.1" width="210mm" height="297mm" viewBox="0 0 210 297">
+  <sodipodi:namedview id="base" inkscape:document-units="mm" units="mm"/>
+  <defs>
+    <g id="potgrading"/>
   </defs>
-  <g
-     style="fill:none;stroke-width:0.05;stroke:#ff0000"
-     id="g3195">
-    <rect
-       x="0.0"
-       y="0.0"
-       width="30.00"
-       height="128.50"
-       id="rect3197" />
-    <circle
-       cx="7.5"
-       cy="3"
-       r="1.6"
-       id="circle3199" />
-    <circle
-       cx="7.5"
-       cy="125.5"
-       r="1.6"
-       id="circle3201" />
-    <path
-       inkscape:connector-curvature="0"
-       d="m 15,13.78 c -2.6129013,0 -4.7375971,2.115556 -4.7375971,4.727735 0,2.135913 1.421033,3.945767 3.3650681,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 3.38e-4,-2.612179 -2.115205,-4.727369 -4.727403,-4.727369 z"
-       style="fill:none;stroke:#ff0000"
-       id="path3203" />
-    <circle
-       cx="7.380000000000001"
-       cy="32.5"
-       r="3.25"
-       style="fill:none;stroke:#ff0000"
-       id="circle3253" />
-    <circle
-       cx="7.380000000000001"
-       cy="45.2"
-       r="3.25"
-       style="fill:none;stroke:#ff0000"
-       id="circle3255" />
-    <circle
-       cx="7.380000000000001"
-       cy="57.9"
-       r="3.25"
-       style="fill:none;stroke:#ff0000"
-       id="circle3257" />
-    <circle
-       cx="7.380000000000001"
-       cy="70.6"
-       r="3.25"
-       style="fill:none;stroke:#ff0000"
-       id="circle3259" />
-    <circle
-       cx="7.380000000000001"
-       cy="83.3"
-       r="3.25"
-       style="fill:none;stroke:#ff0000"
-       id="circle3261" />
-    <circle
-       cx="7.380000000000001"
-       cy="96"
-       r="3.25"
-       style="fill:none;stroke:#ff0000"
-       id="circle3263" />
-    <circle
-       cx="7.380000000000001"
-       cy="108.7"
-       r="3.25"
-       style="fill:none;stroke:#ff0000"
-       id="circle3265" />
-    <circle
-       cx="22.62"
-       cy="108.7"
-       r="3.25"
-       style="fill:none;stroke:#ff0000"
-       id="circle3267" />
-    <circle
-       cx="15"
-       cy="32.5"
-       r="1.5"
-       style="fill:none;stroke:#ff0000"
-       id="circle3269" />
-    <circle
-       cx="15"
-       cy="45.2"
-       r="1.5"
-       style="fill:none;stroke:#ff0000"
-       id="circle3271" />
-    <circle
-       cx="15"
-       cy="57.9"
-       r="1.5"
-       style="fill:none;stroke:#ff0000"
-       id="circle3273" />
-    <circle
-       cx="15"
-       cy="70.6"
-       r="1.5"
-       style="fill:none;stroke:#ff0000"
-       id="circle3275" />
-    <circle
-       cx="15"
-       cy="83.3"
-       r="1.5"
-       style="fill:none;stroke:#ff0000"
-       id="circle3277" />
-    <circle
-       cx="15"
-       cy="96"
-       r="1.5"
-       style="fill:none;stroke:#ff0000"
-       id="circle3279" />
-    <circle
-       cx="22.62"
-       cy="32.5"
-       r="1.5"
-       style="fill:none;stroke:#ff0000"
-       id="circle3281" />
-    <circle
-       cx="22.62"
-       cy="45.2"
-       r="1.5"
-       style="fill:none;stroke:#ff0000"
-       id="circle3283" />
-    <circle
-       cx="22.62"
-       cy="57.9"
-       r="1.5"
-       style="fill:none;stroke:#ff0000"
-       id="circle3285" />
-    <circle
-       cx="22.62"
-       cy="70.6"
-       r="1.5"
-       style="fill:none;stroke:#ff0000"
-       id="circle3287" />
-    <circle
-       cx="22.62"
-       cy="83.3"
-       r="1.5"
-       style="fill:none;stroke:#ff0000"
-       id="circle3289" />
-    <circle
-       cx="22.62"
-       cy="96"
-       r="1.5"
-       style="fill:none;stroke:#ff0000"
-       id="circle3291" />
-  </g>
+  <g style="fill:none;stroke-width:0.05;stroke:#ff0000"><rect x="0.0" y="0.0" width="30.00" height="128.50"/><svg:circle cx="7.5" cy="3" r="1.6"/><svg:circle cx="7.5" cy="125.5" r="1.6"/>
+
+  
+  
+  <path inkscape:connector-curvature="0" d="m 15,13.78 c -2.6129013,0 -4.7375971,2.115556 -4.7375971,4.727735 0,2.135913 1.421033,3.945767 3.3650681,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 3.38e-4,-2.612179 -2.115205,-4.727369 -4.727403,-4.727369 z" style="fill:none;stroke:#ff0000"/><g transform="translate(15,18.53)"><g transform="scale(0.78)"><path style="fill:none;stroke:#030303;stroke-width:0.212" d="M -4.2037748,7.5814929 C -6.8346316,6.1114925 -8.6120123,3.3014922 -8.6120123,0.07148931 c 0,-4.75000381 3.8628404,-8.61000481 8.6282233,-8.61000481 4.764047,0 8.627555,3.8600011 8.627555,8.61000481 0,3.23000299 -1.780051,6.04000329 -4.414579,7.52000359"/><path style="fill:none;stroke:#030303;stroke-width:0.212" d="m -2.440413,-9.0485165 0.216323,0.810001"/><path style="fill:none;stroke:#030303;stroke-width:0.283" d="m -5.1129926,-8.7785155 0.8080822,1.4000001"/><path style="fill:none;stroke:#030303;stroke-width:0.212" d="m -6.6800914,-6.5985155 0.5891225,0.59"/><path style="fill:none;stroke:#030303;stroke-width:0.283" d="m -8.8466601,-5.0285155 1.3848552,0.8000013"/><path style="fill:none;stroke:#030303;stroke-width:0.212" d="m -9.1267017,-2.3685125 0.8044106,0.2200004"/><path style="fill:none;stroke:#030303;stroke-width:0.283" d="m -10.221501,0.08148931 1.6061507,0"/><path style="fill:none;stroke:#030303;stroke-width:0.212" d="M -9.1243652,2.5214918 -8.3199546,2.3014913"/><path style="fill:none;stroke:#030303;stroke-width:0.283" d="M -8.8489964,5.181492 -7.4574658,4.3814921"/><path style="fill:none;stroke:#030303;stroke-width:0.212" d="m -6.6737496,6.7514925 0.5877873,-0.59"/><path style="fill:none;stroke:#030303;stroke-width:0.283" d="m -5.0742739,8.871494 0.776373,-1.3400011"/><path style="fill:none;stroke:#030303;stroke-width:0.283" d="M 5.113671,8.8814939 4.329988,7.5214929"/><path style="fill:none;stroke:#030303;stroke-width:0.212" d="m 6.704836,6.7414925 -0.588789,-0.58"/><path style="fill:none;stroke:#030303;stroke-width:0.283" d="m 8.846371,5.1614921 -1.360155,-0.79"/><path style="fill:none;stroke:#030303;stroke-width:0.212" d="M 9.151112,2.5114918 8.347402,2.2914913"/><path style="fill:none;stroke:#030303;stroke-width:0.283" d="m 10.195511,0.07148931 -1.555417,0"/><path style="fill:none;stroke:#030303;stroke-width:0.212" d="M 9.148809,-2.3785126 8.344698,-2.1585121"/><path style="fill:none;stroke:#030303;stroke-width:0.283" d="M 8.836691,-5.0185155 7.482544,-4.2385142"/><path style="fill:none;stroke:#030303;stroke-width:0.212" d="m 6.699128,-6.6085155 -0.588421,0.59"/><path style="fill:none;stroke:#030303;stroke-width:0.283" d="m 5.131729,-8.7785155 -0.80875,1.39"/><path style="fill:none;stroke:#030303;stroke-width:0.212" d="m 2.456813,-9.0485165 -0.215288,0.800001"/><path style="fill:none;stroke:#030303;stroke-width:0.283" d="m 0.007833,-10.128517 0,1.5900015"/></g></g>
+
+  
+  <circle cx="7.380000000000001" cy="32.5" r="3.25" style="fill:none;stroke:#ff0000"/>  
+  <circle cx="7.380000000000001" cy="45.2" r="3.25" style="fill:none;stroke:#ff0000"/>  
+  <circle cx="7.380000000000001" cy="57.9" r="3.25" style="fill:none;stroke:#ff0000"/>  
+  <circle cx="7.380000000000001" cy="70.6" r="3.25" style="fill:none;stroke:#ff0000"/> 
+  <circle cx="7.380000000000001" cy="83.3" r="3.25" style="fill:none;stroke:#ff0000"/> 
+  <circle cx="7.380000000000001" cy="96" r="3.25" style="fill:none;stroke:#ff0000"/> 
+  <circle cx="7.380000000000001" cy="108.7" r="3.25" style="fill:none;stroke:#ff0000"/> 
+  <circle cx="22.62" cy="108.7" r="3.25" style="fill:none;stroke:#ff0000"/>  
+
+    
+  <circle cx="15" cy="32.5" r="1.5" style="fill:none;stroke:#ff0000"/>
+  <circle cx="15" cy="45.2" r="1.5" style="fill:none;stroke:#ff0000"/>
+  <circle cx="15" cy="57.9" r="1.5" style="fill:none;stroke:#ff0000"/>
+  <circle cx="15" cy="70.6" r="1.5" style="fill:none;stroke:#ff0000"/>
+  <circle cx="15" cy="83.3" r="1.5" style="fill:none;stroke:#ff0000"/>
+  <circle cx="15" cy="96" r="1.5" style="fill:none;stroke:#ff0000"/>
+
+  
+  <circle cx="22.62" cy="32.5" r="2.5" style="fill:none;stroke:#ff0000"/>
+  <circle cx="22.62" cy="45.2" r="2.5" style="fill:none;stroke:#ff0000"/>
+  <circle cx="22.62" cy="57.9" r="2.5" style="fill:none;stroke:#ff0000"/>
+  <circle cx="22.62" cy="70.6" r="2.5" style="fill:none;stroke:#ff0000"/>
+  <circle cx="22.62" cy="83.3" r="2.5" style="fill:none;stroke:#ff0000"/>
+  <circle cx="22.62" cy="96" r="2.5" style="fill:none;stroke:#ff0000"/>
+
+</g>
 </svg>
