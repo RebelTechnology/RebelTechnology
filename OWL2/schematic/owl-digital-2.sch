@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -15304,26 +15304,26 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </net>
 <net name="FLASH_MOSI" class="0">
 <segment>
-<wire x1="91.44" y1="129.54" x2="73.66" y2="129.54" width="0.1524" layer="91"/>
-<label x="76.2" y="129.54" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$1" pin="PA6"/>
-</segment>
-<segment>
 <pinref part="IC9" gate="N25Q128A13" pin="DQ0"/>
 <wire x1="186.69" y1="198.12" x2="170.18" y2="198.12" width="0.1524" layer="91"/>
 <label x="170.18" y="198.12" size="1.778" layer="95"/>
 </segment>
-</net>
-<net name="FLASH_MISO" class="0">
 <segment>
 <wire x1="91.44" y1="127" x2="73.66" y2="127" width="0.1524" layer="91"/>
 <label x="76.2" y="127" size="1.778" layer="95"/>
 <pinref part="IC8" gate="G$1" pin="PA7"/>
 </segment>
+</net>
+<net name="FLASH_MISO" class="0">
 <segment>
 <pinref part="IC9" gate="N25Q128A13" pin="DQ1"/>
 <wire x1="186.69" y1="193.04" x2="170.18" y2="193.04" width="0.1524" layer="91"/>
 <label x="170.18" y="193.04" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="91.44" y1="129.54" x2="73.66" y2="129.54" width="0.1524" layer="91"/>
+<label x="76.2" y="129.54" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$1" pin="PA6"/>
 </segment>
 </net>
 <net name="EXTSPI_CS" class="0">

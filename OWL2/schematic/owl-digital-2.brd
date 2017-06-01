@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -242,7 +242,7 @@
 <text x="6.42" y="13.0575" size="0.6" layer="22" font="vector" rot="MR90" align="center-left">GP28</text>
 <text x="6.42" y="10.4575" size="0.6" layer="22" font="vector" rot="MR90" align="center-left">GP29</text>
 <text x="6.42" y="8.0075" size="0.6" layer="22" font="vector" rot="MR90" align="center-left">GP30</text>
-<text x="53.525" y="38.38" size="1.4224" layer="21" font="vector" rot="SR270">Rev03</text>
+<text x="53.525" y="38.38" size="1.4224" layer="21" font="vector" rot="SR270">Rev04</text>
 </plain>
 <libraries>
 <library name="Seeed-OPL-crystal-osctllator">
@@ -1773,9 +1773,6 @@ design rules under a new name.
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="50mil"/>
-<param name="AutoGrid" value="1"/>
-<param name="Efforts" value="0"/>
-<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>
@@ -2572,13 +2569,17 @@ design rules under a new name.
 <contactref element="IC8" pad="44"/>
 <wire x1="13.339478125" y1="22.245453125" x2="13.339478125" y2="20.110521875" width="0.204" layer="1"/>
 <wire x1="13.339478125" y1="20.110521875" x2="13.35" y2="20.05" width="0.204" layer="1"/>
-<wire x1="13.35" y1="20.05" x2="13.35" y2="16.15" width="0.204" layer="1"/>
-<wire x1="13.35" y1="16.15" x2="13.6" y2="15.9" width="0.204" layer="1"/>
-<via x="13.6" y="15.9" extent="1-16" drill="0.3048"/>
-<wire x1="13.6" y1="15.9" x2="12.3" y2="14.6" width="0.204" layer="15"/>
-<via x="12.3" y="14.6" extent="1-16" drill="0.3048"/>
-<wire x1="12.3" y1="14.6" x2="10.065" y2="14.6" width="0.204" layer="1"/>
 <wire x1="10.065" y1="14.6" x2="10.05" y2="14.615" width="0.204" layer="1"/>
+<via x="13.65" y="15.2" extent="1-16" drill="0.3048"/>
+<wire x1="13.35" y1="20.05" x2="13.35" y2="16.35" width="0.204" layer="1"/>
+<wire x1="13.35" y1="16.35" x2="13.65" y2="16.05" width="0.204" layer="1"/>
+<wire x1="13.65" y1="16.05" x2="13.65" y2="15.2" width="0.204" layer="1"/>
+<via x="11.4" y="14.6" extent="1-16" drill="0.3048"/>
+<wire x1="10.05" y1="14.615" x2="11.385" y2="14.615" width="0.204" layer="1"/>
+<wire x1="11.385" y1="14.615" x2="11.4" y2="14.6" width="0.204" layer="1"/>
+<wire x1="11.4" y1="14.6" x2="13.35" y2="14.6" width="0.204" layer="16"/>
+<wire x1="13.35" y1="14.6" x2="13.65" y2="14.9" width="0.204" layer="16"/>
+<wire x1="13.65" y1="14.9" x2="13.65" y2="15.2" width="0.204" layer="16"/>
 </signal>
 <signal name="CS_LRCK">
 <contactref element="IC4" pad="4"/>
@@ -4143,27 +4144,27 @@ design rules under a new name.
 <wire x1="2.25" y1="43.5335" x2="1.27" y2="44.5135" width="0.205" layer="1"/>
 </signal>
 <signal name="FLASH_MOSI">
-<contactref element="IC8" pad="42"/>
 <contactref element="IC9" pad="5"/>
-<wire x1="12.348878125" y1="22.245453125" x2="12.348878125" y2="19.601121875" width="0.204" layer="1"/>
-<wire x1="12.348878125" y1="19.601121875" x2="12.35" y2="19.6" width="0.204" layer="1"/>
-<wire x1="12.35" y1="19.6" x2="12.35" y2="15.9" width="0.204" layer="1"/>
-<wire x1="12.35" y1="15.9" x2="11.7" y2="15.25" width="0.204" layer="1"/>
-<wire x1="11.7" y1="15.25" x2="8.85" y2="15.25" width="0.204" layer="1"/>
-<wire x1="8.85" y1="15.25" x2="8.6" y2="15.5" width="0.204" layer="1"/>
-<wire x1="8.6" y1="15.5" x2="8.6" y2="16.95" width="0.204" layer="1"/>
-<wire x1="8.6" y1="16.95" x2="8.8" y2="17.15" width="0.204" layer="1"/>
-<wire x1="8.8" y1="17.15" x2="10.045" y2="17.15" width="0.204" layer="1"/>
 <wire x1="10.045" y1="17.15" x2="10.05" y2="17.155" width="0.204" layer="1"/>
+<contactref element="IC8" pad="43"/>
+<wire x1="12.856878125" y1="22.245453125" x2="12.856878125" y2="15.406878125" width="0.204" layer="1"/>
+<wire x1="12.856878125" y1="15.406878125" x2="12.85" y2="15.2" width="0.204" layer="1"/>
+<via x="12.85" y="15.2" extent="1-16" drill="0.3048"/>
+<via x="10.05" y="17.7" extent="1-16" drill="0.3048"/>
+<wire x1="10.05" y1="17.7" x2="10.05" y2="17.155" width="0.204" layer="1"/>
+<wire x1="12.856878125" y1="15.206878125" x2="12.856878125" y2="17.043121875" width="0.204" layer="16"/>
+<wire x1="12.856878125" y1="17.043121875" x2="12.2" y2="17.7" width="0.204" layer="16"/>
+<wire x1="12.2" y1="17.7" x2="10.05" y2="17.7" width="0.204" layer="16"/>
+<wire x1="12.856878125" y1="15.206878125" x2="12.85" y2="15.2" width="0.204" layer="16"/>
 </signal>
 <signal name="FLASH_MISO">
-<contactref element="IC8" pad="43"/>
 <contactref element="IC9" pad="2"/>
-<wire x1="12.856878125" y1="22.245453125" x2="12.856878125" y2="19.843121875" width="0.204" layer="1"/>
-<wire x1="12.856878125" y1="19.843121875" x2="12.85" y2="19.85" width="0.204" layer="1"/>
-<wire x1="12.85" y1="19.85" x2="12.85" y2="15.5" width="0.204" layer="1"/>
-<wire x1="12.85" y1="15.5" x2="13.75" y2="14.6" width="0.204" layer="1"/>
-<wire x1="13.75" y1="14.6" x2="17.535" y2="14.6" width="0.204" layer="1"/>
+<contactref element="IC8" pad="42"/>
+<wire x1="12.348878125" y1="22.245453125" x2="12.348878125" y2="15.998878125" width="0.204" layer="1"/>
+<wire x1="12.348878125" y1="15.998878125" x2="11.95" y2="15.6" width="0.204" layer="1"/>
+<wire x1="11.95" y1="15.6" x2="11.95" y2="14.85" width="0.204" layer="1"/>
+<wire x1="11.95" y1="14.85" x2="12.2" y2="14.6" width="0.204" layer="1"/>
+<wire x1="12.2" y1="14.6" x2="17.535" y2="14.6" width="0.204" layer="1"/>
 <wire x1="17.535" y1="14.6" x2="17.55" y2="14.615" width="0.204" layer="1"/>
 </signal>
 <signal name="EXTSPI_CS">
