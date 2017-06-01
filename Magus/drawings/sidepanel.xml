@@ -1,0 +1,9 @@
+<module type="4hp">
+
+  <!-- usb client connector -->
+  <rect x="0.0" y="1.50" width="11" height="12"/>
+
+  <!-- usb host connector -->
+  <rect x="0.0" y="0.50" width="7" height="14.75"/>
+
+</module>
