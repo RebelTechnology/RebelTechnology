@@ -55,3 +55,197 @@ http://www.wiseguysynth.com/larry/schematics/Morph-Lag/Morph-Lag.gif
 http://www.tellun.com/motm/diy/tln862/TLN-862.html
 
 -------------------------------------------------------
+
+Names:
+diapason, tones, tonus (Latin), tonos (Greek), unison, diapente (P5)
+tonic, tonality
+Tonic, Supertonic
+
+-------------------------------------------------------
+
+-m2 = -1/12 = -83mV <           Bb
+0 = ~1mV                        C
+M2 = 2/12   = 166mV <           D
+m3 = 3/12                       Eb
+M3 = 4/12   = 333mV = P4-m2     E
+P4 = 5/12   = 416mV <           F
+d5 = 6/12           = M2+P4-m2  Gb
+P5 = 7/12   = 583mV = M2+P4     G
+m6 = 8/12           = M6-m2	Ab
+M6 = 9/12   = 750mV <           A
+m7 = 10/12          = M6+M2-m2	Bb
+M7 = 11/12          = M6+M2	B
+P8 = 12/12  = 1V    < 		C
+
+-m2 M2 P4 M6 P8  =
+ -1  2  5  9 12
+  x             -1 -m2
+                0
+  x  x           1  m2
+     x           2  M2
+  x     x        4  M3
+        x        5  P4
+  x  x  x        6  d5
+     x  x        7  P5
+  x        x     8  m6
+           x     9  M6
+  x  x     x    10  m7
+  x          x  11  M7
+     x     x    11  P8
+  x  x  x  x    12
+             x  12
+     x  x  x    13
+
+1/2/4/8/16: m2/M2/M3/m6/P8+M3
+m2 = 1
+M2 = 2
+m3 = 1+2
+M3 = 4
+P4 = 1+4
+d5 = 2+4
+P5 = 1+2+4
+m6 = 8
+M6 = 1+8
+m7 = 2+8
+M7 = 1+2+8
+P8 = 4+8
+
+Major / ionian : 0/2/4/5/7/9/11/12
+                 0/2/4/1+4/1+2+4/1+8/1+2+8/4+8
+Minor / aeolian: 0/2/3/5/7/8/10/12
+                 0/2/1+2/1+4/1+2+4/8/2+8/4+8
+
+alternative: m1 M2 M3 P5 P8 (1 2 4 7 12)
+
+tuning option 1:
+-m2 -1/12  -83mV
+M2   2/12  166mV
+P4   5/12  416mV
+M6   9/12  750mV
+P8  12/12  1V
+
+tuning option 2:
+m2   1/12  -83mV
+M2   2/12  166mV
+M3   4/12  333mV
+m6   8/12  666mV
+M3  16/12  1.33V
+
+-------------------------------------------------------
+
+Rev01 changes/todo:
+- change BJT to MOSFET
+- pinswap pot or add to negative
+- pinswap trimpots?
+- add header to select trigger output or modulation input
+
+-------------------------------------------------------
+
+tactile switches and caps
+
+Diptronics KTSC-61 cap height 5.50mm 4x4mm square
+Diptronics KTSC-62 cap height 5.50mm 4.5mm dia round
+2.45mm inner fits 
+Diptronics DTS-644 tactile switch 6x6mm total height 7.3mm
+total height: 5.5+7.3-2.5=10.3mm
+
+OMRON B32-1010  KEYCAP
+OMRON ELECTRONIC COMPONENTS  B3F-1052 TACTILE SWITCH 4.3mm height
+B3FS-1050 B3FS-1052 7.3mm height SMT 
+B3F-1050 B3F-1052 B3F-1055 B3F-1056 7.3mm height PTH
+
+4x4mm cap 5.5mm height 2.8mm inside depth, cut-out 4.2x4.2mm
+B32-1000 Light Grey
+B32-1060 White
+total height 10mm
+
+B32-16x0 9.5mm dia round, cut-out 9.7mm dia
+11.5mm total height
+
+B3F-1000, B3F-3000, B3W-1000, B3FS
+
+B3W-1050 height 7.3mm
+
+Alternative: MULTICOMP  MC32865
+
+TE TL1105T 2.4mm projected square, 7.5mm height
+TL1105SP 2.8mm projected square
+Alternative: Multicomp MC32833 2.8mm projected square
+
+MC32865, MC32866, MC32832 2.4mm projected square 7.4mm
+
+Black tall caps BTNKSC990 (got 12) 6.35mm dia round
+ fits KSC931J smt switch (got 6)
+C&K KSC9 tactile switch SMT 2.95mm projected square, 7.7mm height
+total height 15.4mm
+
+Multimec 5ETH935 / 5GTH935 with cap 1SS06 (white)
+
+5GTH935+1SS09-11.0 black 11mm
+5GTH935+1SS09-15.0 black 15mm (farnell £1.08)
+switch size 10.1x10.1mm, pcb layout 10.16x7.62mm, cap round 6.5mm
+
+MULTIMEC RA3ETH9-15-0 15mm black
+
+-------------------------------------------------------
+
+E-switch
+
+TL series
+TLE: ground earth
+LL: long life
+Caps available for SP option only:
+Length 7.5mm, square snap-on acuator head 2.8mm
+
+TL1105JA is TL1105SP equivalent right angle
+
+TL59 (radial lead, on tape)
+
+TL1240 illuminated 7.2mm height (single colour) 1J cap height 2.3mm (need 3J cap, 7.37mm height)
+
+TL2201 8.5x8.5 dpdt latching/momentary 6-pin height 13.5mm
+
+1D SQ: 5.00mm Height: 9.00
+Supported Switch Series: LC, PBH, TL2201, LL1105, TL1105, TL3301, TL58, TL59
+
+1R Diameter: 5.0mm Height: 9.00mm
+1S SQ: 5.00mm Height: 9.0mm
+Supported Switch Series: LC, PBH, TL2201, LL1105, TL1105, TL3301, TL58, TL59
+Notes: These caps are for certain switches within these designated series: TL4201Z, TL2201Z, TL3301SP, LL3301SP, TL1105JA, TL1105SP
+
+TAG 8.8mm dia 10.5mm height
+Supported Switch Series: LC
+
+TAC Length: 9.80mm Width: 5.50mm Height: 11.20mm
+Supported Switch Series: LC, 320
+
+possible combo:
+TL1105SP + 1R or 1S
+7.5mm-2.8mm+9mm=13.7mm
+possible alternative: Multicomp MC32833 2.8mm projected square
+
+Thank you for submitting this sample/quote request. We will get back to you shortly with the information you are looking for. If you need to get a hold of someone now, please call us at 800-867-2717.
+
+TL1105SPF160Q-1SWHT	 6mm tactile switch with square cap
+TL1105SPF100Q-1RWHT	 6mm tactile switch with square cap
+TL59SPF160Q-1DWHT	 radial lead switch with tapered cap
+TL1240YQ-3JWHT		 illuminated yellow switch with translucent white cap
+
+LP11OA1SRG Red/green 12mm square, total height 23mm
+12.7mm / .5" pitch 
+
+LP6OAASRG Red/green 15mm square, total height 20.7mm
+12.5 x 11mm pitch
+
+LP2S2WHTYEL-N single colour 11mm square, total height 23mm
+
+TL1265 SERIES 5mm round, total height 12mm
+
+(dual concentric pot height apprx 13mm)
+
+-------------------------------------------------------
+
+trim pot
+T93YA series 100K: T93YA104KT20
+
+-------------------------------------------------------

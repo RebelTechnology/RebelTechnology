@@ -1869,10 +1869,10 @@ design rules under a new name.</description>
 <attribute name="NAME" x="22.78" y="26.54" size="1.27" layer="26" rot="MR270"/>
 <attribute name="VALUE" x="27.21" y="30.35" size="1.27" layer="28" rot="MR270"/>
 </element>
-<element name="R42" library="Rebel" package="0603" value="20k" x="26.67" y="19.05" smashed="yes" rot="MR180">
+<element name="R42" library="Rebel" package="0603" value="100k" x="26.67" y="19.05" smashed="yes" rot="MR180">
 <attribute name="NAME" x="23.65375" y="19.558" size="1.016" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="R16" library="Rebel" package="0603" value="10k" x="17.4625" y="26.3525" smashed="yes" rot="MR180">
+<element name="R16" library="Rebel" package="0603" value="100k" x="17.4625" y="26.3525" smashed="yes" rot="MR180">
 <attribute name="NAME" x="17.4625" y="28.1305" size="1.016" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
 <element name="C3" library="Rebel" package="C0603" value="100n" x="12.3825" y="55.245" smashed="yes" rot="MR0">
@@ -1919,10 +1919,10 @@ design rules under a new name.</description>
 <attribute name="NAME" x="22.78" y="39.24" size="1.27" layer="26" rot="MR270"/>
 <attribute name="VALUE" x="27.21" y="43.05" size="1.27" layer="28" rot="MR270"/>
 </element>
-<element name="R1" library="Rebel" package="0603" value="20k" x="26.67" y="31.75" smashed="yes" rot="MR180">
+<element name="R1" library="Rebel" package="0603" value="100k" x="26.67" y="31.75" smashed="yes" rot="MR180">
 <attribute name="NAME" x="24.13" y="32.258" size="1.016" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="R2" library="Rebel" package="0603" value="10k" x="18.0975" y="34.6075" smashed="yes" rot="MR0">
+<element name="R2" library="Rebel" package="0603" value="100k" x="18.0975" y="34.6075" smashed="yes" rot="MR0">
 <attribute name="NAME" x="18.0975" y="32.8295" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="Q3" library="transistor-small-signal" package="SOT23" value="BSS123" x="12.3825" y="37.1475" smashed="yes" rot="MR90">
@@ -1946,10 +1946,10 @@ design rules under a new name.</description>
 <attribute name="NAME" x="22.78" y="51.94" size="1.27" layer="26" rot="MR270"/>
 <attribute name="VALUE" x="27.21" y="55.75" size="1.27" layer="28" rot="MR270"/>
 </element>
-<element name="R9" library="Rebel" package="0603" value="20k" x="26.67" y="44.45" smashed="yes" rot="MR180">
+<element name="R9" library="Rebel" package="0603" value="51k" x="26.67" y="44.45" smashed="yes" rot="MR180">
 <attribute name="NAME" x="24.13" y="44.958" size="1.016" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="R12" library="Rebel" package="0603" value="10k" x="18.0975" y="40.9575" smashed="yes" rot="MR0">
+<element name="R12" library="Rebel" package="0603" value="100k" x="18.0975" y="40.9575" smashed="yes" rot="MR0">
 <attribute name="NAME" x="18.0975" y="41.7195" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="Q5" library="transistor-small-signal" package="SOT23" value="BSS123" x="5.3975" y="47.3075" smashed="yes" rot="MR180">
@@ -1973,10 +1973,10 @@ design rules under a new name.</description>
 <attribute name="NAME" x="22.78" y="64.64" size="1.27" layer="26" rot="MR270"/>
 <attribute name="VALUE" x="27.21" y="68.45" size="1.27" layer="28" rot="MR270"/>
 </element>
-<element name="R22" library="Rebel" package="0603" value="20k" x="26.67" y="57.15" smashed="yes" rot="MR180">
+<element name="R22" library="Rebel" package="0603" value="51k" x="26.67" y="57.15" smashed="yes" rot="MR180">
 <attribute name="NAME" x="23.65375" y="57.658" size="1.016" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="R23" library="Rebel" package="0603" value="10k" x="18.0975" y="59.69" smashed="yes" rot="MR0">
+<element name="R23" library="Rebel" package="0603" value="100k" x="18.0975" y="59.69" smashed="yes" rot="MR0">
 <attribute name="NAME" x="18.0975" y="57.912" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="Q7" library="transistor-small-signal" package="SOT23" value="BSS123" x="12.3825" y="62.5475" smashed="yes" rot="MR90">
@@ -2000,10 +2000,10 @@ design rules under a new name.</description>
 <attribute name="NAME" x="22.78" y="77.34" size="1.27" layer="26" rot="MR270"/>
 <attribute name="VALUE" x="27.21" y="81.15" size="1.27" layer="28" rot="MR270"/>
 </element>
-<element name="R27" library="Rebel" package="0603" value="20k" x="26.67" y="69.85" smashed="yes" rot="MR180">
+<element name="R27" library="Rebel" package="0603" value="33k" x="26.67" y="69.85" smashed="yes" rot="MR180">
 <attribute name="NAME" x="23.65375" y="70.358" size="1.016" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="R28" library="Rebel" package="0603" value="10k" x="18.0975" y="72.7075" smashed="yes" rot="MR0">
+<element name="R28" library="Rebel" package="0603" value="100k" x="18.0975" y="72.7075" smashed="yes" rot="MR0">
 <attribute name="NAME" x="18.0975" y="70.9295" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="Q9" library="transistor-small-signal" package="SOT23" value="BSS123" x="12.3825" y="77.1525" smashed="yes" rot="MR90">
@@ -2026,7 +2026,7 @@ design rules under a new name.</description>
 <element name="R32" library="Rebel" package="0603" value="18k" x="26.5675" y="89.2175" smashed="yes" rot="MR180">
 <attribute name="NAME" x="23.71" y="89.7255" size="1.016" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="R33" library="Rebel" package="0603" value="10k" x="18.0975" y="77.47" smashed="yes" rot="MR0">
+<element name="R33" library="Rebel" package="0603" value="100k" x="18.0975" y="77.47" smashed="yes" rot="MR0">
 <attribute name="NAME" x="19.4945" y="77.47" size="1.016" layer="26" font="vector" rot="MR90" align="bottom-center"/>
 </element>
 <element name="Q11" library="transistor-small-signal" package="SOT23" value="BSS123" x="12.3825" y="86.3575" smashed="yes" rot="MR90">
@@ -2046,14 +2046,14 @@ design rules under a new name.</description>
 <element name="R20" library="Rebel" package="0603" value="1k" x="13.0175" y="46.355" smashed="yes" rot="MR0">
 <attribute name="NAME" x="13.0175" y="44.577" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
-<element name="R17" library="Rebel" package="0603" value="10k" x="20.0025" y="52.705" smashed="yes" rot="MR270">
+<element name="R17" library="Rebel" package="0603" value="100k" x="20.0025" y="52.705" smashed="yes" rot="MR270">
 <attribute name="NAME" x="20.5105" y="49.53" size="1.016" layer="26" font="vector" rot="MR270" align="bottom-center"/>
 </element>
 <element name="P1" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="16.51" y="96.52"/>
-<element name="R37" library="Rebel" package="0603" value="10k" x="16.51" y="55.245" smashed="yes" rot="MR180">
+<element name="R37" library="Rebel" package="0603" value="100k" x="16.51" y="55.245" smashed="yes" rot="MR180">
 <attribute name="NAME" x="19.20875" y="55.753" size="1.016" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
-<element name="R38" library="Rebel" package="0603" value="10k" x="15.875" y="47.3075" smashed="yes" rot="MR90">
+<element name="R38" library="Rebel" package="0603" value="100k" x="15.875" y="47.3075" smashed="yes" rot="MR90">
 <attribute name="NAME" x="14.25575" y="47.46625" size="1.016" layer="26" font="vector" rot="MR90" align="bottom-center"/>
 </element>
 <element name="OUT_TR" library="Rebel" package="THONKICONN" value="THONKICONN" x="8.89" y="6.35" smashed="yes">
