@@ -2,9 +2,9 @@
 
   <!-- 11mm dia for Neutrik wide jacks -->
   <!-- offset to clear solder pins below pcb -->
-  <hole x="0.01" y="1.65" radius="5.5"/>
-  <hole x="0.01" y="0.55" radius="5.5"/>
-  <hole x="0.01" y="-0.55" radius="5.5"/>
-  <hole x="0.01" y="-1.65" radius="5.5"/>
+  <hole x="0.1" y="1.65" radius="5.5"/>
+  <hole x="0.1" y="0.55" radius="5.5"/>
+  <hole x="0.1" y="-0.55" radius="5.5"/>
+  <hole x="0.1" y="-1.65" radius="5.5"/>
 
 </module>

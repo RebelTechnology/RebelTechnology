@@ -8,10 +8,10 @@
 
   
   
-  <circle cx="10.254" cy="22.34" r="5.5" style="fill:none;stroke:#ff0000"/>
-  <circle cx="10.254" cy="50.28" r="5.5" style="fill:none;stroke:#ff0000"/>
-  <circle cx="10.254" cy="78.22" r="5.5" style="fill:none;stroke:#ff0000"/>
-  <circle cx="10.254" cy="106.16" r="5.5" style="fill:none;stroke:#ff0000"/>
+  <circle cx="12.54" cy="22.34" r="5.5" style="fill:none;stroke:#ff0000"/>
+  <circle cx="12.54" cy="50.28" r="5.5" style="fill:none;stroke:#ff0000"/>
+  <circle cx="12.54" cy="78.22" r="5.5" style="fill:none;stroke:#ff0000"/>
+  <circle cx="12.54" cy="106.16" r="5.5" style="fill:none;stroke:#ff0000"/>
 
 </g>
 </svg>
