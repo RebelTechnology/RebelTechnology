@@ -77,35 +77,6 @@ void setAnalogValue(Channel ch, uint16_t value){
   dac_values[ch] = value;
 }
 
-// template<Channel CH>
-// void setLed(uint16_t brightness);
-
-void setLed(Channel ch, uint16_t brightness){
-  switch(ch){
-  case CH1:
-    setLed1(brightness);
-    break;
-  case CH2:
-    setLed2(brightness);
-    break;
-  }
-}
-
-// template<Channel CH>
-// bool isTriggerHigh();
-
-bool isTriggerHigh(Channel ch){
-  if(ch == CH1)
-    return !getPin(TR1_GPIO_Port, TR1_Pin);
-  return !getPin(TR2_GPIO_Port, TR2_Pin);
-}
-
-bool isTriggerLow(Channel ch){
-  if(ch == CH1)
-    return getPin(TR1_GPIO_Port, TR1_Pin);
-  return getPin(TR2_GPIO_Port, TR2_Pin);
-}
-
 #define TAP_THRESHOLD     256 // 78Hz at 20kHz sampling rate, or 16th notes at 293BPM
 #define TRIGGER_LIMIT     MAX_PERIOD
 
@@ -168,41 +139,48 @@ public:
   Envelope() :
     level(MIN_LEVEL), linear(-MID_LEVEL), mode(GATE_MODE), attack(0), release(0), attack_skew(0), release_skew(0), stage(END_STAGE) {}
 
-  int32_t compute(int32_t value, int32_t skew, int32_t period){
+  int32_t compute(int32_t value, int32_t period){
     value = exptable[value];
     value = ((int64_t)value*NOMINAL_PERIOD)/period;
     value = min(MAX_LEVEL/3, max(1, value));
     return value;
+  }  
+  void setAttack(int32_t value, int32_t period){
+    attack = compute(value, period);
   }
-    
-  void setAttack(int32_t value, int32_t skew, int32_t period){
-    attack = compute(value, skew, period);
-    attack_skew = (attack*skew)>>SKEW_SHIFT;
+  void setRelease(int32_t value, int32_t period){
+    release = compute(value, period);
   }
-  void setRelease(int32_t value, int32_t skew, int32_t period){
-    release = compute(value, skew, period);
+  void setSkew(int32_t skew){
     release_skew = (release*skew)>>SKEW_SHIFT;
+    attack_skew = (attack*skew)>>SKEW_SHIFT;
+    factor = skew > 0 ? -COMPENSATION_FACTOR : COMPENSATION_FACTOR;
+  }
+  float factor = 0.0;
+  float COMPENSATION_FACTOR = 2.5;
+  /* compensate for skew to ensure that level will reach target in the right time */
+  int32_t compensateNonLinear(int32_t lin, int32_t exp){
+    return max(-MID_LEVEL, min(MID_LEVEL, lin - factor*(lin + MID_LEVEL - exp)));
   }
   void clock(){
     switch(stage){
     case ATTACK_STAGE:
-      // level += max(1, attack + ((linear*attack_skew)>>SKEW_SCALAR));
-      level += attack + ((linear*attack_skew)>>SKEW_SCALAR);
+      level += max(0, attack + ((linear*attack_skew)>>SKEW_SCALAR));
       linear += attack;
       if(linear >= MID_LEVEL){
 	linear = MID_LEVEL;
 	stage = SUSTAIN_STAGE;
-      }else if(mode == GATE_MODE && isTriggerLow(CH)){
+      }else if(mode == GATE_MODE && isTriggerLow()){
+	linear = compensateNonLinear(linear, level);
 	stage = RELEASE_STAGE;
       }
       break;
     case SUSTAIN_STAGE:
-      if(mode != GATE_MODE || isTriggerLow(CH))
+      if(mode != GATE_MODE || isTriggerLow())
 	stage = RELEASE_STAGE;
       break;
     case RELEASE_STAGE:
-      // level -= max(1, release - ((linear*release_skew)>>SKEW_SCALAR));
-      level -= release - ((linear*release_skew)>>SKEW_SCALAR);
+      level -= max(0, release - ((linear*release_skew)>>SKEW_SCALAR));
       linear -= release;
       if(linear <= -MID_LEVEL){
 	linear = -MID_LEVEL;
@@ -214,15 +192,54 @@ public:
       if(mode == CYCLE_MODE)
 	stage = ATTACK_STAGE;
     }
-    uint32_t lvl = max(0, min(MAX_LEVEL, level));
-    setAnalogValue(CH, lvl>>DAC_SCALAR);
-    setLed(CH, (lvl>>LED_SCALAR)&0x7f);
+    level = max(MIN_LEVEL, min(MAX_LEVEL, level));
+    setAnalogValue(level>>DAC_SCALAR);
+    setLed((level>>LED_SCALAR)&0x7f);
   }
   void trigger(){
+    if(stage == RELEASE_STAGE)
+      linear = compensateNonLinear(linear, level);
     stage = ATTACK_STAGE;
-    // level = MIN_LEVEL;
   }
+  
+  bool isTriggerHigh();
+  bool isTriggerLow();
+  void setLed(uint16_t brightness);
+  void setAnalogValue(uint16_t value);
 };
+
+template<>
+bool Envelope<CH1>::isTriggerHigh(){
+    return !getPin(TR1_GPIO_Port, TR1_Pin);
+}
+template<>
+bool Envelope<CH2>::isTriggerHigh(){
+  return !getPin(TR2_GPIO_Port, TR2_Pin);
+}
+template<>
+bool Envelope<CH1>::isTriggerLow(){
+    return getPin(TR1_GPIO_Port, TR1_Pin);
+}
+template<>
+bool Envelope<CH2>::isTriggerLow(){
+  return getPin(TR2_GPIO_Port, TR2_Pin);
+}
+template<>
+void Envelope<CH1>::setLed(uint16_t brightness){
+  setLed1(brightness);
+}
+template<>
+void Envelope<CH2>::setLed(uint16_t brightness){
+  setLed2(brightness);
+}
+template<>
+void Envelope<CH1>::setAnalogValue(uint16_t value){
+  dac_values[CH1] = value & 0xfff;
+}
+template<>
+void Envelope<CH2>::setAnalogValue(uint16_t value){
+  dac_values[CH2] = value & 0xfff;
+}
 
 class TapTempo {
 private:
@@ -297,15 +314,15 @@ void updateMode(){
 }
 
 void updateParameters(){
- static int32_t period = NOMINAL_PERIOD;
+  static int32_t period = NOMINAL_PERIOD;
   period = (period + period + period + tempo.period) >> 2;
   period = max(MIN_PERIOD, min(MAX_PERIOD, period));
-  int32_t skew = 2048 - getAnalogValue(SHAPE1);
-  env1.setAttack(getAnalogValue(ATTACK1), skew, period);
-  env1.setRelease(getAnalogValue(RELEASE1), skew, period);
-  skew = 2048 - getAnalogValue(SHAPE2);
-  env2.setAttack(getAnalogValue(ATTACK2), skew, period);
-  env2.setRelease(getAnalogValue(RELEASE2), skew, period);
+  env1.setAttack(getAnalogValue(ATTACK1), period);
+  env1.setRelease(getAnalogValue(RELEASE1), period);
+  env1.setSkew(2048 - getAnalogValue(SHAPE1));
+  env2.setAttack(getAnalogValue(ATTACK2), period);
+  env2.setRelease(getAnalogValue(RELEASE2), period);
+  env2.setSkew(2048 - getAnalogValue(SHAPE2));
 }
 
 void setup(){
