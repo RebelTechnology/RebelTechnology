@@ -151,7 +151,7 @@ public:
   void setRelease(int32_t value, int32_t period){
     release = compute(value, period);
   }
-  void setSkew(int32_t skew){
+  void setSkew(int64_t skew){
     release_skew = (release*skew)>>SKEW_SHIFT;
     attack_skew = (attack*skew)>>SKEW_SHIFT;
     factor = skew > 0 ? -COMPENSATION_FACTOR : COMPENSATION_FACTOR;
