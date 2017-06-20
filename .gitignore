@@ -49,3 +49,4 @@ Player/firmware/Middlewares
 *.o
 *.dep
 *.lck
+BalancedIO/drawings/Jacks.svg
