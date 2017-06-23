@@ -1,7 +1,7 @@
 
 -----------------------------------------------
 
-MIDI interface with FM and AM
+MIDI interface with FM, AM, operators, envelopes and LFOs
 
 LFOs:
  - rate
@@ -10,19 +10,25 @@ LFOs:
 Envelopes:
  - A/D/S/R
  - curve
+ - trigger
 
 FM functions:
- per operator
-  ratio, amount per destination (one being external L and R)
- algorithm / output
+- algorithm? or allow any cross modulation?
+
+Operators:
+- ratio semitones
+- offset
+- detune
+- FM amount per destination (one being external L and R)
 
 Destinations:
  - Pitch  / L out
  - Amplitude / R out
- - DAC outputs A / B
- - trigger outputs A / B
+ - DAC outputs, CV A / B
+ - trigger outputs TR A / B
  - operator amount
  - operator pitch
+ - lfo rate
 
 Default mono midi mapping:
  Trigger out A: gate
@@ -47,7 +53,7 @@ settings:
 - clock tempo
 - clock start/stop
 
-- pitch input: ignore pitch bend? threshold?
+- pitch input: ignore pitch bend or threshold
 - midi output max message rate (for inputs)
 
 -----------------------------------------------
