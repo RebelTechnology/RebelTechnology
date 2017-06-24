@@ -8120,10 +8120,10 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="+3V3" library="supply1" deviceset="VDD" device=""/>
 <part name="+3V4" library="supply1" deviceset="VDD" device=""/>
 <part name="SV3" library="con-lstb" deviceset="MA04-1" device=""/>
-<part name="SV4" library="pinhead" deviceset="PINHD-1X2" device=""/>
 <part name="ICSP" library="con-lstb" deviceset="MA06-1" device=""/>
 <part name="X1" library="con-molex" deviceset="53?-06" device="048"/>
 <part name="X2" library="con-molex" deviceset="53?-06" device="048"/>
+<part name="SV4" library="con-lstb" deviceset="MA05-1" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8158,7 +8158,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="+3V3" gate="G$1" x="58.42" y="-7.62"/>
 <instance part="+3V4" gate="G$1" x="45.72" y="-30.48"/>
 <instance part="SV3" gate="1" x="162.56" y="-43.18" rot="R180"/>
-<instance part="SV4" gate="G$1" x="172.72" y="-53.34"/>
 <instance part="ICSP" gate="1" x="30.48" y="-40.64"/>
 <instance part="X1" gate="-1" x="68.58" y="-48.26" rot="MR180"/>
 <instance part="X1" gate="-2" x="68.58" y="-45.72" rot="MR180"/>
@@ -8172,6 +8171,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="X2" gate="-4" x="58.42" y="-40.64" rot="MR180"/>
 <instance part="X2" gate="-5" x="58.42" y="-38.1" rot="MR180"/>
 <instance part="X2" gate="-6" x="58.42" y="-35.56" rot="MR180"/>
+<instance part="SV4" gate="G$1" x="170.18" y="-55.88" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -8278,6 +8278,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="IC1" gate="G$1" pin="PB3(MOSI/OC2)"/>
 <wire x1="149.86" y1="-55.88" x2="162.56" y2="-55.88" width="0.1524" layer="91"/>
 <label x="154.94" y="-55.88" size="1.778" layer="95"/>
+<pinref part="SV4" gate="G$1" pin="3"/>
 </segment>
 </net>
 <net name="MISO" class="0">
@@ -8305,6 +8306,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="IC1" gate="G$1" pin="PB4(MISO)"/>
 <wire x1="162.56" y1="-58.42" x2="149.86" y2="-58.42" width="0.1524" layer="91"/>
 <label x="154.94" y="-58.42" size="1.778" layer="95"/>
+<pinref part="SV4" gate="G$1" pin="4"/>
 </segment>
 </net>
 <net name="SCK" class="0">
@@ -8332,6 +8334,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="IC1" gate="G$1" pin="PB5(SCK)"/>
 <wire x1="149.86" y1="-60.96" x2="162.56" y2="-60.96" width="0.1524" layer="91"/>
 <label x="154.94" y="-60.96" size="1.778" layer="95"/>
+<pinref part="SV4" gate="G$1" pin="5"/>
 </segment>
 </net>
 <net name="RST" class="0">
@@ -8451,7 +8454,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <net name="N$6" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PB2(SS/OC1B)"/>
-<wire x1="149.86" y1="-53.34" x2="170.18" y2="-53.34" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="-53.34" x2="162.56" y2="-53.34" width="0.1524" layer="91"/>
 <pinref part="SV4" gate="G$1" pin="2"/>
 </segment>
 </net>
@@ -8550,7 +8553,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <net name="N$20" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PB1(OC1A)"/>
-<wire x1="149.86" y1="-50.8" x2="170.18" y2="-50.8" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="-50.8" x2="162.56" y2="-50.8" width="0.1524" layer="91"/>
 <pinref part="SV4" gate="G$1" pin="1"/>
 </segment>
 </net>
