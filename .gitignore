@@ -50,3 +50,4 @@ Player/firmware/Middlewares
 *.dep
 *.lck
 BalancedIO/drawings/Jacks.svg
+VCAMatrix/schematics/VCAMatrix.brd
