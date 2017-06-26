@@ -5,7 +5,7 @@ http://www.thatcorp.com/THAT_Alternatives_to_SSM2164.shtml
 ---------------------------------------------------------------------------------
 
 http://cabintechglobal.com/index.html?tab=semi&prod=V2164M
-18/8 2016 ordered 16x v2164 soic
+18/8 2016 ordered 16x v2164
 received 16x DIP (order says DIL)
 12/9 2016 ordered 16x v2164 soic
 (and 2x VTL5C1 vactrols)
@@ -124,5 +124,31 @@ D: R46
 ---------------------------------------------------------------------------------
 
 Ordered 40x V2164M from Banzai Music 10/5 2017 total cost EUR 170.35
+
+---------------------------------------------------------------------------------
+
+calibration: unity gain at 5v, clamp at +3db
+5v dc audio input: +3dB is 7.06V
+0 to 10v ramp CV input: 0 to 7.06V out
+5v dc CV input: 5v out
+
+clamp 0dB: 0.28V
+clamp +3dB: 0.2V (0.18V)
+clamp +6dB: 0.08V
+
+offset unity at 2v: 0.8V
+offset unity at 5v: 2.0V
+offset unity at 6v: 2.4V
+offset unity at 8v: 3.2V
+offset unity at 10v: 4.0V
+
+offset: clockwise to lower unity gain voltage
+
+---------------------------------------------------------------------------------
+
+changes Rev04 todo
+/ change LED driver component values
+- change OFFSET trim resistor for 0 to 6V range
+- change BIAS trim to 0 to 1V range
 
 ---------------------------------------------------------------------------------
