@@ -23,9 +23,10 @@ Interior 590 x 240 x 120mm
 
 Vector T-Struts	mouser
 TS81    8.1"	£16.10
-TS169   16.85"	£6.34 @10
+TS169   16.85"	£7.75 @10
 TS180	18" 	£7.15 @5 non stocked
-TS300	30"x1	£11.60 @10
+TS209   20.85"  £8.65 @10
+TS300	30"x1	£11.76 @10
 TS600	60"x4	£60.15 (+£62 delivery charge)
 
 RITTAL - 3685269 - RAILS, HORIZ, FRONT, EXT, 84HP, PK2		£34.16
@@ -152,7 +153,7 @@ T-Strut rails
 TS81  8.12"  206.248mm 40HP+3.048mm
 TS169 16.85" 427.99mm  84HP+1.27mm
 TS209 20.85" 529.59mm  104HP+1.27mm
-TS300 30"    762mm
+TS300 30"    762mm     104HP+42+20.32mm
 TS600 60"    1524mm
 
 42hp width = 213.36mm
@@ -189,8 +190,16 @@ AC Adapter		10	15.60
 
 All cases come with M2.5 mounting screws.
 
+30W PSU:
 20W (+15v) for +12 and +5, e.g. 1.25A +12v 1A +5v, or 1.5A/400mA
 10W for -12v: 833mA
+
+16W PSU:
+10W for +12: 833mA
+6W for -12: 500mA
+
++12v 800mA, -12v 500mA with bus board and +5v supply.
+
 
 1 week lead time
 
@@ -257,13 +266,6 @@ AC input 2.5mm DC jack
 
 --------------------------------------------------------------------------
 
-Alex
-- send drawings of rails
-- part details / dimensions for transformers
-- 
-
---------------------------------------------------------------------------
-
 60hp case, 304.80mm rails
 1x PowerTXBoard, 1x PowerBoard (total apprx width 290mm, height 30mm)
 
@@ -296,3 +298,55 @@ www.perspexsheet.co.uk / www.theplasticshop.co.uk Gilbert Curry Industrial Plast
 https://www.kangyang-europe.com/product/panel-fasteners-rivets/pnl-8/
 
 --------------------------------------------------------------------------
+
+2mm perspex from eBay thewholesaleposco2009
+http://www.ebay.co.uk/itm/360875050516
+
+--------------------------------------------------------------------------
+
+Trojan AL4 Case
+- External Dims: L 570mm x D 325mm (inc.handle & feet) x H 185mm (inc.feet)
+- Internal Dims: L 548mm x D 265mm x H 90mm(bottom); 55mm(lid)
+
+Trojan AL3 Carry Case
+- External Dims: L 433mm x D 325mm (inc.handle & feet) x H 185mm (inc.feet)
+- Internal Dims: L 408mm x D 265mm x H 90mm(bottom); 55mm(lid)
+
+Shallow 4U Rack Bag (also 3U)
+4U 19" rack case in a padded bag with front and rear flaps for access and ventilation. Equipment is protected by an inner wooden frame and secured by metal rack strip front and rear.
+Rack mounting depth 350mm
+
+Trojan Half Depth Shallow ABS Rack Case 3U (also 4U and 6U)
+External Dimensions: 550mm W x 360mm D x 215mm H
+Unit Height: 3U
+Internal Rackable Depth: Approx. 205mm (8")
+Weight: 5 KG
+
+Trojan Roadie Toolcase Locking
+Dimensions: Exterior 460mm x 330mm, Interior 440mm x 300mm.
+
+TROJAN BLACK MKII POP-UP MIXER CASE 12U
+
+--------------------------------------------------------------------------
+
+We can make 42HP, 60HP and 104HP perspex cases to order, with built in PSU, bus boards, rails and M3 threaded inserts.
+
+We also make an 84HP 19" rack mount case. Which one were you interested in?
+
+They are all mains powered with 110/220V compatible PSU, with bus boards and +5v supply.
+
+42HP and 60HP: +12v 800mA, -12v 500mA.
+104HP: +12v 1500mA, -12v 800mA
+
+The +5v supply takes its power from +12v.
+
+Prices are
+
+Rebel Base 42HP: £125.00
+
+Rebel Base 64HP: £150.00
+
+Rebel Base 104HP: £235.00
+
+--------------------------------------------------------------------------
+
