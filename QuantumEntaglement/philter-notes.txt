@@ -1,0 +1,46 @@
+
+Interpolating scanner
+crossfade between 8 channels, defaulting to DC offsets, at LFO or audio rate.
+http://www.jhaible.info/interpolating_scanner_and_scanv/jh_interpolating_scanner_and_scanvib.html
+
+http://www.till.com/articles/scanner/
+
+2-pole SVF
+ambika/voicecard/hardware_design/pcb/Voicecard-SVF-v05.sch
+https://mutable-instruments.net/archive/documents/svf_analysis.pdf
+
+3-pole SVF
+http://www.milton.arachsys.com/nj71/index.php?menu=2&submenu=0&subsubmenu=1
+http://www.milton.arachsys.com/nj71/pdf/cesyg/vcf-sch.pdf
+
+4-pole mission pole mixing
+https://mutable-instruments.net/archive/shruthi/build/4pm/
+https://mutable-instruments.net/archive/documents/pole_mixing.pdf
+(uses LM13700 for resonance VCA)
+
+todo: adapt pole mixing filter for LP3 (mode 2) and HP3 (mode 7)
+- disable first LP stage: the first inverting 1-pole cell has been bypassed and replaced by a simple inverting cell
+     a  b  c  d
+LP3  0  0  0  1      M0
+HP3  1  3  3  1      M4
+mid .5 1.5 1.5 1
+
+mid
+x = a = 0.5
+y = 3a-b = 1.5-1.5 = 0
+z = 3a-2b+c = 1.5-3+3 = 1.5
+t = a-b+c-d = 0.5-1.5+1.5-1 = -0.5
+H(s) = ( xs^3 +ys^2 + zs + t ) / (1 + s)^3
+     = (0.5s^3 + 1.5s - 0.5) / (1 + s)^3
+https://www.wolframalpha.com/input/?i=bode+plot+of+the+transfer+function+(0.5s%5E3+%2B+1.5s+-+0.5)+%2F+(1+%2B+s)%5E3
+notch filter
+
+LP3
+x = 0, y = 0, z = 0, t = -1
+H(s) = -1 / (1 + s)^3
+https://www.wolframalpha.com/input/?i=bode+plot+of+the+transfer+function+-1+%2F+(1+%2B+s)%5E3
+
+HP3
+x = 1, y = 0, z = 3-6+3 = 0, t = 1-3+3-1 = 0
+H(s) = s^3 / (1 + s)^3
+https://www.wolframalpha.com/input/?i=bode+plot+of+the+transfer+function+s%5E3+%2F+(1+%2B+s)%5E3

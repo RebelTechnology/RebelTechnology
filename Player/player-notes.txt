@@ -1,0 +1,71 @@
+
+-----------------------------------------------
+
+MIDI interface with FM, AM, operators, envelopes and LFOs
+
+LFOs:
+ - rate
+ - waveshape
+
+Envelopes:
+ - A/D/S/R
+ - curve
+ - trigger
+
+FM functions:
+- algorithm? or allow any cross modulation?
+
+Operators:
+- ratio semitones
+- offset
+- detune
+- FM amount per destination (one being external L and R)
+
+Destinations:
+ - Pitch  / L out
+ - Amplitude / R out
+ - DAC outputs, CV A / B
+ - trigger outputs TR A / B
+ - operator amount
+ - operator pitch
+ - lfo rate
+
+Default mono midi mapping:
+ Trigger out A: gate
+ Trigger out B: trigger, clock?
+ CV out A: CC1
+ CV out B: CC2? Aftertouch?
+ L out: pitch (note + pb)
+ R out: amplitude (velocity*sensitivity*volume)
+
+Duophonic mapping:
+ Trigger out A / B: gate
+ CV out A / B: velocity
+ Audio out L / R: pitch
+ 
+settings:
+- pitch bend range
+- base note / transpose
+- velocity sensitivity
+- velocity curve
+
+- clock: internal / external
+- clock tempo
+- clock start/stop
+
+- pitch input: ignore pitch bend or threshold
+- midi output max message rate (for inputs)
+
+-----------------------------------------------
+
+Other functions:
+ - CV recorder and playback
+ - audio interface
+ - scope, signal monitor
+ - signal generator
+ - Sample player
+ - Recorder
+ - Tuner
+ 
+-----------------------------------------------
+ 
