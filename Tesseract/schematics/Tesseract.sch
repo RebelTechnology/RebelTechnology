@@ -24418,6 +24418,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="C17" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="10u"/>
 <part name="C14" library="rcl" deviceset="CPOL-EU" device="C" value="47u"/>
 <part name="LED1" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="R24" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 </parts>
 <sheets>
 <sheet>
@@ -24681,6 +24682,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="C17" gate="G$1" x="147.32" y="91.44"/>
 <instance part="C14" gate="G$1" x="185.42" y="91.44"/>
 <instance part="LED1" gate="G$1" x="-58.42" y="198.12" rot="R90"/>
+<instance part="R24" gate="G$1" x="-40.64" y="139.7" rot="MR180"/>
 </instances>
 <busses>
 </busses>
@@ -24738,14 +24740,10 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <junction x="-12.7" y="38.1"/>
 </segment>
 <segment>
-<wire x1="-55.88" y1="111.76" x2="-55.88" y2="109.22" width="0.1524" layer="91"/>
 <pinref part="TR" gate="G$1" pin="5"/>
-<wire x1="-55.88" y1="109.22" x2="-55.88" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="-55.88" y1="111.76" x2="-55.88" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="-60.96" y1="111.76" x2="-55.88" y2="111.76" width="0.1524" layer="91"/>
 <pinref part="GND21" gate="1" pin="GND"/>
-<pinref part="TR" gate="G$1" pin="4"/>
-<wire x1="-60.96" y1="109.22" x2="-55.88" y2="109.22" width="0.1524" layer="91"/>
-<junction x="-55.88" y="109.22"/>
 </segment>
 <segment>
 <pinref part="CV_A" gate="G$1" pin="5"/>
@@ -25821,13 +25819,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <label x="106.68" y="-5.08" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GP9" class="0">
-<segment>
-<wire x1="124.46" y1="40.64" x2="124.46" y2="30.48" width="0.1524" layer="91"/>
-<label x="124.46" y="38.1" size="1.778" layer="95" rot="MR270"/>
-<pinref part="TGP1-4" gate="G$1" pin="4"/>
-</segment>
-</net>
 <net name="GP11" class="0">
 <segment>
 <pinref part="TGP1-4" gate="G$1" pin="1"/>
@@ -26045,7 +26036,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="-20.32" y1="114.3" x2="-20.32" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="-20.32" y1="114.3" x2="2.54" y2="114.3" width="0.1524" layer="91"/>
 <junction x="-20.32" y="114.3"/>
-<label x="-17.78" y="114.3" size="1.778" layer="95"/>
+<label x="-10.16" y="114.3" size="1.778" layer="95"/>
 <pinref part="Q901" gate="G$1" pin="C"/>
 </segment>
 </net>
@@ -26111,6 +26102,27 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="+3V5" gate="G$1" pin="+3V3"/>
 <pinref part="ANG1" gate="G$1" pin="3"/>
 <wire x1="149.86" y1="-22.86" x2="149.86" y2="-25.4" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$38" class="0">
+<segment>
+<pinref part="TR" gate="G$1" pin="4"/>
+<wire x1="-60.96" y1="109.22" x2="-50.8" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="-50.8" y1="109.22" x2="-50.8" y2="139.7" width="0.1524" layer="91"/>
+<pinref part="R24" gate="G$1" pin="1"/>
+<wire x1="-50.8" y1="139.7" x2="-45.72" y2="139.7" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="GP9_CLK" class="0">
+<segment>
+<pinref part="R24" gate="G$1" pin="2"/>
+<wire x1="-35.56" y1="139.7" x2="2.54" y2="139.7" width="0.1524" layer="91"/>
+<label x="-10.16" y="139.7" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="124.46" y1="40.64" x2="124.46" y2="30.48" width="0.1524" layer="91"/>
+<label x="124.46" y="38.1" size="1.778" layer="95" rot="MR270"/>
+<pinref part="TGP1-4" gate="G$1" pin="4"/>
 </segment>
 </net>
 </nets>
