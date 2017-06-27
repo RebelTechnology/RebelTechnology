@@ -23534,7 +23534,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <text x="-66.04" y="-22.86" size="6.4516" layer="97" font="vector">Tesseract Revision 1</text>
 <text x="-66.04" y="-30.48" size="3.81" layer="97" font="vector">Copyright 2017 Rebel Technology</text>
 <text x="-66.04" y="-38.1" size="3.81" layer="97" font="vector">Published under the GNU GPL</text>
-<text x="231.14" y="261.62" size="1.778" layer="97">+10V</text>
+<text x="231.14" y="261.62" size="1.778" layer="97">-10V</text>
 </plain>
 <instances>
 <instance part="GND36" gate="1" x="48.26" y="22.86"/>

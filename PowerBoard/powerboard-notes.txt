@@ -618,8 +618,7 @@ changes PowerTXBoard Rev01:
 --------------------------------------------------------------------------
 
 Balanced Output Driver
-C1 and C2 are typically high
-quality non-polarized electrolytic capacitors.
+C1 and C2 are typically high quality non-polarized electrolytic capacitors.
 
 --------------------------------------------------------------------------
 
@@ -675,9 +674,11 @@ Model: CN402 £0.86 each
 
 IDC FC-110 2x5 way
 
-TruConnect IDC Chassis Cable Mounting Plugs 2.54mm Pitch (rapid 19-0072 £0.372 @100)
+TruConnect DS1015-16 MN0A 16 Way Idc Chassis Mounting Plug 2.54mm Pitch
+(rapid 19-0072 £0.372 @100)
 
-TruConnect DS1015-16 NN0A 16 Way Idc Cable Mounting Plug (rapid £0.488 @100)
+TruConnect DS1015-16 NN0A 16 Way Idc Cable Mounting Plug
+(rapid £0.488 @100)
 https://www.rapidonline.com/idc-cable-mounting-plugs-2-54mm-pitch-180579
 
 Assmann WSW AWHC 16-0111-T IDC Connector 16 Way 2.54mm Pitch Low Profile Header
@@ -685,5 +686,36 @@ Assmann WSW AWHC 16-0111-T IDC Connector 16 Way 2.54mm Pitch Low Profile Header
 
 Oupiin 3016-16C00Y11A 16W Chassis Mounting IDC Plug
 (rapid 19-2360 £0.481 @100)
+
+--------------------------------------------------------------------------
+
+Power dissipation, thermal calculator
+https://docs.google.com/spreadsheets/d/1al_C7hGbdve2jWMqlmiFRsCWqJupy-a4hFh0nKTzHFc/edit
+
+--------------------------------------------------------------------------
+
+Cable with a female header on each end, and 6 boxed male headers, for £6.00 each.
+6x TruConnect DS1015-16 male : 2.232
+2x TruConnect DS1016-16 female: 0.182
+part cost < £3.00 excl
+
+June 2017 made 30 cables with 5 boxed male headers
+
+--------------------------------------------------------------------------
+
+IcspAdapter AVR ISP programming adaptor
+- 3x2 pin ICSP
+- 5x2 pin ICSP
+- 6 pin straight ICSP
+- 6 pin picoblade
+- serial rebel
+- VCC jumper (serial / icsp)
+- V+/GND connection
+
+- ATMEGA168 DIL socket
+- reset cap and 10k pull-up
+- crystal
+
+to fit AVR-ISP-MK2 (which has target power)
 
 --------------------------------------------------------------------------

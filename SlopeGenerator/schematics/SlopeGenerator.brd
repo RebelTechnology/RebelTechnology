@@ -1245,8 +1245,8 @@ design rules under a new name.</description>
 <element name="R12" library="Rebel" package="0603" value="1k" x="38.1" y="20.32" smashed="yes" rot="MR0">
 <attribute name="NAME" x="38.1" y="21.082" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
-<element name="R3" library="Rebel" package="0603" value="100K" x="39.37" y="29.21" smashed="yes" rot="MR0">
-<attribute name="NAME" x="41.5925" y="28.702" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
+<element name="R3" library="Rebel" package="0603" value="100K" x="40.005" y="29.21" smashed="yes" rot="MR0">
+<attribute name="NAME" x="42.2275" y="28.702" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="R7" library="Rebel" package="0603" value="10K" x="26.3525" y="58.42" smashed="yes" rot="MR0">
 <attribute name="NAME" x="26.035" y="56.642" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
@@ -1255,8 +1255,8 @@ design rules under a new name.</description>
 <attribute name="NAME" x="35.56" y="28.8925" size="1.016" layer="26" font="vector" rot="MR0"/>
 <attribute name="VALUE" x="38.1" y="24.765" size="1.27" layer="28" rot="MR0"/>
 </element>
-<element name="R5" library="Rebel" package="0603" value="1M" x="39.37" y="26.67" smashed="yes" rot="MR180">
-<attribute name="NAME" x="41.5925" y="26.162" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
+<element name="R5" library="Rebel" package="0603" value="1M" x="40.005" y="26.67" smashed="yes" rot="MR180">
+<attribute name="NAME" x="42.2275" y="26.162" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="TR2" library="Rebel" package="THONKICONN" value="THONKICONN" x="44.45" y="24.13" locked="yes" smashed="yes">
 <attribute name="NAME" x="44.45" y="26.67" size="1.27" layer="104" font="vector" align="bottom-center"/>
@@ -2189,14 +2189,14 @@ design rules under a new name.</description>
 <contactref element="R3" pad="2"/>
 <contactref element="Q1" pad="1"/>
 <contactref element="R5" pad="1"/>
-<wire x1="37.145" y1="26.84" x2="38.35" y2="26.84" width="0.254" layer="16"/>
-<wire x1="38.35" y1="26.84" x2="38.52" y2="26.67" width="0.254" layer="16"/>
-<wire x1="38.52" y1="26.67" x2="38.52" y2="29.21" width="0.254" layer="16"/>
+<wire x1="37.145" y1="26.84" x2="38.985" y2="26.84" width="0.254" layer="16"/>
+<wire x1="38.985" y1="26.84" x2="39.155" y2="26.67" width="0.254" layer="16"/>
+<wire x1="39.155" y1="26.67" x2="39.155" y2="29.21" width="0.254" layer="16"/>
 </signal>
 <signal name="N$14">
 <contactref element="TR2" pad="P$3"/>
 <contactref element="R3" pad="1"/>
-<wire x1="40.22" y1="29.21" x2="44.29" y2="29.21" width="0.254" layer="16"/>
+<wire x1="40.855" y1="29.21" x2="44.29" y2="29.21" width="0.254" layer="16"/>
 <wire x1="44.29" y1="29.21" x2="44.45" y2="29.05" width="0.254" layer="16"/>
 </signal>
 <signal name="ADC2">

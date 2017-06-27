@@ -1,3 +1,4 @@
+ANGLES: ΓΩΝΙΕΣ Gonies
 
 -------------------------------------------------------
 
@@ -94,13 +95,87 @@ set current limiting resistor R15 to 150R
 
 -------------------------------------------------------
 
-tempo 80BPM = 1.33Hz = 9000 ticks at 12kHz
+tempo 80 BPM = 1.33Hz = 9000 ticks at 12kHz
 
 -------------------------------------------------------
 
 Rev 01 changes / todo
 / change R15 to 150R
 / change to mosfet input protection
+
+-------------------------------------------------------
+
+Code can be made to fit in 64Kb flash with -flto and -O2
+
+-------------------------------------------------------
+
+optimised with -O2 compilation does not work (no output waveforms)
+-O1 works
+
+-------------------------------------------------------
+
+DAC_SCALAR = 10
+i = increment per tick, p = period in secs
+(3968*2^10)/i/12000 = p
+i = (3968*2^10)/(p*12000)
+
+67 steps = 5s
+
+MAX_LEVEL = 4063232
+
+1 + (l(4063232) - l(3)) / 4096 = 1.00344699145149807295
+
+./exp 4096 3 1.00344699145149807295
+
+
+1 + (l(290230) - l(3)) / 4096 = 1.00280268962460997926
+
+min: 1.5ms
+mid: 590ms?
+max: 169s
+
+1 + (l(290230) - l(6)) / 4096 = 1.00263346423873108636
+
+./exp 4096 6 1.00263346423873108636
+
+min: 1.5ms
+mid: 360ms
+max: 70s
+
+limit ADC range
+./exp 4040 6 1.00263346423873108636
+
+DAC_SCALAR = 16
+
+i = 722 to 18574720 (30s to 1ms)
+
+1 + (l(18574720) - l(722)) / 4096 = 1.00247931809949644296
+
+min: 1.5ms
+mid: 400ms
+max: 30s
+
+./exp 4040 722 1.00242
+
+min: 2ms
+mid: 340ms
+max: 30s
+
+24s period = 8 bars at 80 bpm
+1 + (l(18574720) - l(902)) / 4096 = 1.00242497498885928538
+exp  4040 902 1.00235
+
+middle: 278mS (one quarter note at 80 bpm = 188mS)
+
+-------------------------------------------------------
+
+32 bit lookup table, 4096 values (16kb)
+
+-------------------------------------------------------
+
+todo:
+/ skewed envelopes don't reach destination when retriggered 
+/ tempo sync with slow tempos: very short envelope times become very long (overflow?)
 
 -------------------------------------------------------
 
