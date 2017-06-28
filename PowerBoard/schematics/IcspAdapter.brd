@@ -233,16 +233,16 @@ W = angled&lt;p&gt;
 <wire x1="6.35" y1="1.905" x2="6.35" y2="-1.905" width="0.1524" layer="21"/>
 <wire x1="5.715" y1="2.54" x2="6.35" y2="1.905" width="0.1524" layer="21"/>
 <wire x1="6.35" y1="-1.905" x2="5.715" y2="-2.54" width="0.1524" layer="21"/>
-<pad name="1" x="-5.08" y="-1.27" drill="1.016" shape="octagon"/>
-<pad name="3" x="-2.54" y="-1.27" drill="1.016" shape="octagon"/>
-<pad name="5" x="0" y="-1.27" drill="1.016" shape="octagon"/>
-<pad name="7" x="2.54" y="-1.27" drill="1.016" shape="octagon"/>
-<pad name="9" x="5.08" y="-1.27" drill="1.016" shape="octagon"/>
-<pad name="2" x="-5.08" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="4" x="-2.54" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="6" x="0" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="8" x="2.54" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="10" x="5.08" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="1" x="-5.08" y="-1.27" drill="1.016" shape="round"/>
+<pad name="3" x="-2.54" y="-1.27" drill="1.016" shape="round"/>
+<pad name="5" x="0" y="-1.27" drill="1.016" shape="round"/>
+<pad name="7" x="2.54" y="-1.27" drill="1.016" shape="round"/>
+<pad name="9" x="5.08" y="-1.27" drill="1.016" shape="round"/>
+<pad name="2" x="-5.08" y="1.27" drill="1.016" shape="round"/>
+<pad name="4" x="-2.54" y="1.27" drill="1.016" shape="round"/>
+<pad name="6" x="0" y="1.27" drill="1.016" shape="round"/>
+<pad name="8" x="2.54" y="1.27" drill="1.016" shape="round"/>
+<pad name="10" x="5.08" y="1.27" drill="1.016" shape="round"/>
 <text x="-5.588" y="-4.191" size="1.27" layer="21" ratio="10">1</text>
 <text x="-6.35" y="2.921" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="0" y="-4.191" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
@@ -281,11 +281,11 @@ W = angled&lt;p&gt;
 <wire x1="3.175" y1="-2.54" x2="1.905" y2="-2.54" width="0.1524" layer="21"/>
 <wire x1="1.905" y1="-2.54" x2="1.27" y2="-1.905" width="0.1524" layer="21"/>
 <pad name="1" x="-2.54" y="-1.27" drill="1.016"/>
-<pad name="3" x="0" y="-1.27" drill="1.016" shape="octagon"/>
-<pad name="5" x="2.54" y="-1.27" drill="1.016" shape="octagon"/>
-<pad name="2" x="-2.54" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="4" x="0" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="6" x="2.54" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="3" x="0" y="-1.27" drill="1.016" shape="round"/>
+<pad name="5" x="2.54" y="-1.27" drill="1.016" shape="round"/>
+<pad name="2" x="-2.54" y="1.27" drill="1.016" shape="round"/>
+<pad name="4" x="0" y="1.27" drill="1.016" shape="round"/>
+<pad name="6" x="2.54" y="1.27" drill="1.016" shape="round"/>
 <text x="-3.175" y="-4.191" size="1.27" layer="21" ratio="10">1</text>
 <text x="-3.81" y="2.921" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="4.064" y="0.635" size="1.27" layer="21" ratio="10">6</text>
