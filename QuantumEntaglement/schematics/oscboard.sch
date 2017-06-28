@@ -5508,7 +5508,7 @@ Source: &lt;a href="http://www.bourns.com/pdfs/3314.pdf"&gt; Data sheet&lt;/a&gt
 <variantdefs>
 </variantdefs>
 <parts>
-<part name="IC1" library="Rebel" deviceset="CEM3340" device=""/>
+<part name="IC1" library="Rebel" deviceset="CEM3340" device="" value="V3340"/>
 <part name="P+1" library="supply1" deviceset="+12V" device=""/>
 <part name="P-1" library="supply1" deviceset="-12V" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
