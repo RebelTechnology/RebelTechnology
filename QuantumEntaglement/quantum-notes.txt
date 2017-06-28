@@ -1,0 +1,106 @@
+
+-------------------------------------------------------
+
+project / product: Quantum Entanglement
+dual oscillator with cross-modulating fm
+based on CEM3340
+
+http://electricdruid.net/cem3340-vco-voltage-controlled-oscillator-designs/
+http://curtiselectromusic.com/uploads/CEM_3340-3345_Long.pdf
+
+pots:
+- master freq course/fine
+- x/y detune (linear freq) from 1/2 to 1 to 2 (2 octave range)
+- x/y shape (saw / tri crossfade)
+- x/y xmod (cross modulation)
+
+toggles:
+- x/y up/down octave
+
+ins:
+- x/y freq (normalled) exp 1v/oct
+- detune (normalled 5v, detune pot controls amount)
+- shape
+- envelope (normalled 5v, xmod pot controls amount)
+- modulation (adds to xmod)
+- pwm
+
+outs:
+- x/y
+- pulse
+
+shape: morph between saw and tri
+single VCA crossfade
+http://electricdruid.net/single-vca-crossfader/
+requires VCA with inverting inputs.
+
+crossfade with one (linearised) VCA: 
+Sum signal A and B into VCA, sum VCA output with -B.
+Output will blend -A and B proportional to VCA CV.
+
+
+VCAs required:
+shape: 2 or 4 (probably 4)
+xmod: 2 or 4 (probably 2)
+
+Linear FM
+The reference current input pin may be used for linear modulation of the frequency. The external input is summed with the reference current simply through a resistor terminating at this pin. For audio FM, it is recommended that a coupling capacitor be used to prevent frequency shift when connecting to the external source. The value of the input resistor should be selected so that the maximum peak to peak input signal produces a plus and minus current equal to the reference current.
+
+-----------------------------------------------------------------
+
+Digisound Module 80-2 VCO
+http://www.synthdiy.com/files/2006/80-2.pdf
+
+The triangle input is converted to +/-5v at IC2b and attenuated to about +/-100mV, prior to IC3 which is a CA3080E or equivalent. At high input levels this OTA becomes non linear in response and use is made of this to convert the triangle waveform into a sine wave.
+
+Calibration process.
+
+
+-----------------------------------------------------------------
+
+file:///home/mars/Downloads/EKx-40_200dpi.pdf
+
+-----------------------------------------------------------------
+
+http://curtiselectromusic.com/uploads/CEM_3340-3345_Long.pdf
+Trimming the scale error
+
+-----------------------------------------------------------------
+
+https://en.wikipedia.org/wiki/CEM_and_SSM_chips_in_synthesizers
+Crumar Spirit
+Digisound-80 modular: 80-2 VCO, 80-3 VC LFO, 80-C9 Voice Card,
+Doepfer A-111-1 High End VCO
+Moog Memorymoog: 19x CEM3340 VCO, 26x CEM3360 Dual VCA, 12x CEM3310 EG
+Oberheim OB-8 & OB-Xa, OB-SX
+Voyetra Eight
+Paia Proteus
+Roland SH-101 and MC-202, Jupiter-6, MKS-80
+Sequential Circuits Prophet-5 Rev 3, Prophet-10, Prophet 600, Pro-One, Prophet T8
+Simmons SDS7
+Steiner Parker EVI
+Synton Syrinx
+
+-----------------------------------------------------------------
+
+http://electricdruid.net/cem3340-vco-voltage-controlled-oscillator-designs/
+
+-----------------------------------------------------------------
+
+CEM3340
+Ramp is 2/3rds of the positive supply. The Triangle is 1/3rd of the positive supply. The Pulse/Square is the positive supply level minus 1.3V
+
+A series current limiting resistor must be added between pin 3 and the negative supply. Its value is calculated as Ree = (Vee - 7.2) / 0.008. (12 - 7.2)/0.008 = 600
+
+-----------------------------------------------------------------
+
+A study of Sub-Oscillators
+http://electricdruid.net/a-study-of-sub-oscillators/
+and wave shapers: square > ramp, square > tri > sine
+
+-----------------------------------------------------------------
+
+Triangle wave to sine wave conversion
+http://www.timstinchcombe.co.uk/index.php?pge=trisin
+
+-----------------------------------------------------------------
