@@ -24403,7 +24403,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="Q2" library="transistor-small-signal" deviceset="BSS123" device="">
 <attribute name="OC_FARNELL" value="1843725"/>
 </part>
-<part name="C102" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C16" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C15" library="Rebel" deviceset="C-EU" device="C0603" value="100n 16v"/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
 <part name="GND57" library="supply1" deviceset="GND" device=""/>
@@ -24663,7 +24663,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="Q2" gate="G$1" x="241.3" y="81.28" rot="MR270">
 <attribute name="OC_FARNELL" x="241.3" y="81.28" size="1.778" layer="96" rot="MR270" display="off"/>
 </instance>
-<instance part="C102" gate="G$1" x="195.58" y="91.44"/>
+<instance part="C16" gate="G$1" x="195.58" y="91.44"/>
 <instance part="C15" gate="G$1" x="157.48" y="91.44"/>
 <instance part="GND31" gate="1" x="157.48" y="81.28"/>
 <instance part="GND57" gate="1" x="172.72" y="81.28"/>
@@ -25019,7 +25019,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="C14" gate="G$1" pin="-"/>
 </segment>
 <segment>
-<pinref part="C102" gate="G$1" pin="2"/>
+<pinref part="C16" gate="G$1" pin="2"/>
 <pinref part="GND59" gate="1" pin="GND"/>
 <wire x1="195.58" y1="83.82" x2="195.58" y2="86.36" width="0.1524" layer="91"/>
 </segment>
@@ -25042,7 +25042,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="LED1" gate="G$1" pin="A"/>
 </segment>
 <segment>
-<pinref part="C102" gate="G$1" pin="1"/>
+<pinref part="C16" gate="G$1" pin="1"/>
 <wire x1="195.58" y1="93.98" x2="195.58" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="180.34" y1="96.52" x2="185.42" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="185.42" y1="96.52" x2="185.42" y2="93.98" width="0.1524" layer="91"/>
