@@ -249,3 +249,51 @@ trim pot
 T93YA series 100K: T93YA104KT20
 
 -------------------------------------------------------
+
+ B D F A C
+-1 2 5 9 11
+
+I major 7th
+F A C  E
+5 9 11 5+11
+
+II minor 7th
+D F A C
+2 5 9 11
+
+III minor 7th
+A C  E    G
+9 11 5+11 5+11+2
+
+
+B minor seventh flat fifth: B D F A
+R m3 m5 m7
+Dmin7: D F A C
+Dmin6: D F A B
+Dm: D F A
+D5: D A
+
+^^^
+^^
+^
+>
+˅
+12, 5, 8, 3, -4
+New scale: 14, 2, 7, 10, -5
+
+-------------------------------------------------------
+
+voltage divider between +/-12v: +12v - 20k - 5k -|- 5k - 20k - -12v
+24v * 25 / 50 - 12v = 0v
+24v * 20 / 50 - 12v = -2.4v
+
+r1=series resistor, r2=pot=10k
+positive range r = 24*(r2+r1)/(r2+r1*2)-12
+
+solve for r1: 1=24*(r2+r1)/(r2+r1*2)-12, r2=10
+
+r1=51
+24*(r2+r1)/(r2+r1*2)-12
+range +/- 1.07142857142857142857
+
+-------------------------------------------------------
