@@ -11141,7 +11141,7 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 <text x="12.7" y="83.82" size="3.81" layer="97">Open Source Hardware
 Published under the Gnu GPL v2
 Copyright 2017 Rebel Technology</text>
-<text x="12.7" y="104.14" size="5.08" layer="97">SendSlice Rev 01</text>
+<text x="12.7" y="104.14" size="5.08" layer="97">SendSlice Rev02</text>
 </plain>
 <instances>
 <instance part="R11" gate="G$1" x="22.86" y="50.8"/>
