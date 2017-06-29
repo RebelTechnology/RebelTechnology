@@ -172,6 +172,8 @@
 <text x="23.1775" y="23.495" size="1.27" layer="22" font="vector" rot="MR0">PULSE</text>
 <text x="17.4625" y="23.1775" size="1.27" layer="22" font="vector" rot="MR180" align="bottom-right">Rebel Technology</text>
 <text x="15.875" y="20.955" size="1.27" layer="22" font="vector" rot="MR180" align="bottom-right">OSC Rev01</text>
+<dimension x1="-0.635" y1="26.0225" x2="-0.635" y2="-0.3175" x3="-1.5875" y3="12.8525" textsize="1.27" layer="47"/>
+<dimension x1="-0.635" y1="-0.3175" x2="27.285" y2="-0.3175" x3="13.325" y3="-2.54" textsize="1.27" layer="47"/>
 </plain>
 <libraries>
 <library name="resistor">
@@ -1731,16 +1733,16 @@ design rules under a new name.</description>
 <contactref element="X:IC1" pad="12"/>
 <contactref element="X:C5" pad="2"/>
 <polygon width="0.4064" layer="16">
-<vertex x="-2.54" y="26.67"/>
-<vertex x="-2.54" y="0"/>
-<vertex x="29.21" y="0"/>
-<vertex x="29.21" y="26.67"/>
+<vertex x="-0.9525" y="26.67"/>
+<vertex x="-0.9525" y="-0.3175"/>
+<vertex x="27.94" y="-0.3175"/>
+<vertex x="27.94" y="26.67"/>
 </polygon>
 <polygon width="0.4064" layer="1">
-<vertex x="-2.54" y="26.67"/>
-<vertex x="-2.54" y="-1.27"/>
-<vertex x="29.21" y="-1.27"/>
-<vertex x="29.21" y="26.67"/>
+<vertex x="-0.9525" y="26.67"/>
+<vertex x="-0.9525" y="-0.3175"/>
+<vertex x="27.94" y="-0.3175"/>
+<vertex x="27.94" y="26.67"/>
 </polygon>
 <contactref element="PWR" pad="2"/>
 <contactref element="X:C6" pad="2"/>
