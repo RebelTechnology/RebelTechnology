@@ -41,6 +41,47 @@ H(s) = -1 / (1 + s)^3
 https://www.wolframalpha.com/input/?i=bode+plot+of+the+transfer+function+-1+%2F+(1+%2B+s)%5E3
 
 HP3
+a=1, b=3, c=3, d=1
 x = 1, y = 0, z = 3-6+3 = 0, t = 1-3+3-1 = 0
 H(s) = s^3 / (1 + s)^3
 https://www.wolframalpha.com/input/?i=bode+plot+of+the+transfer+function+s%5E3+%2F+(1+%2B+s)%5E3
+
+http://sound.whsites.net/articles/state-variable.htm
+State-variable filters can also produce a notch response, by adding the high and low pass signals together without an inverter. Because they are 180° out of phase all frequencies, the two signals cancel when their relative amplitudes are identical. Complete cancellation can only occur when both signals are present in exactly equal measure, so either side of the centre frequency the signal approaches the full level as you move further away from the notch frequency. With a Q of 0.707 (Butterworth alignment), the attenuation of the second harmonic is 3dB, but using a higher Q can reduce this.
+
+https://mysite.du.edu/~etuttle/electron/elect65.htm
+The three arbitrary complex constants a0, a1 and a2 specify the filter properties in terms of the basic filter types of high pass, bandpass and lowpass, which occur when only one of the constants is nonzero.
+
+a/(1+s) - b/(1+s)^2 + c/(1+s)^3
+(a*s^2 + 2*a*s + a - b*s - b + c) / (1+s)^3
+(a*s^2 + (2*a-b)*s + a - b + c) / (1+s)^3
+x=a, y=2a-b, z=a-b+c
+
+LP:
+a=0, b=0, c=1
+x=0, y=0, z=1
+
+HP/BP:
+a=1, b=2, c=1: s^2/(s+1)^3
+x=1, y=0, z=0
+
+BP/HP:
+a=0, b=-1, c=-1
+x=0, y=1, z=0
+
+HP:
+s * (1/(1+s) - 2/(1+s)^2 + 1/(1+s)^3) = s^3 / (1+s)^3
+
+HP + LP:
+bode plot s^3 / (1+s)^3 + 1/(1+s)^3
+https://www.wolframalpha.com/input/?i=bode+plot+0.0*(s%5E3+%2F+(1%2Bs)%5E3)+%2B+1.0*(1%2F(1%2Bs)%5E3)
+
+https://www.wolframalpha.com/input/?i=plot+bode+transfer+function+1%2F(1%2Bs)-2%2F(1%2Bs)%5E2%2B1%2F(1%2Bs)%5E3
+
+Mix the inverted original signal with the LP filtered signal, BAMM you got a HPF. Adjust the volume of the mixer channel with the inverted original signal and it will sweep between LPF, notch and HPF.
+There are lots of cool tricks with polarizing mixers to get other filter responses. Using a BP plus inverted original signal will result in a sweep between notch and BP, for example.
+
+Patch HP and LP in series to get BP - or LP then HP, doesn't matter.
+
+
+Filtare SEIII has CV control over the LP/HP balance.
