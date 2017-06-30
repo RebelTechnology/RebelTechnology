@@ -28,12 +28,12 @@
   <circle cx="15" cy="96" r="1.5" style="fill:none;stroke:#ff0000"/>
 
   
-  <circle cx="22.62" cy="32.5" r="2.5" style="fill:none;stroke:#ff0000"/>
-  <circle cx="22.62" cy="45.2" r="2.5" style="fill:none;stroke:#ff0000"/>
-  <circle cx="22.62" cy="57.9" r="2.5" style="fill:none;stroke:#ff0000"/>
-  <circle cx="22.62" cy="70.6" r="2.5" style="fill:none;stroke:#ff0000"/>
-  <circle cx="22.62" cy="83.3" r="2.5" style="fill:none;stroke:#ff0000"/>
-  <circle cx="22.62" cy="96" r="2.5" style="fill:none;stroke:#ff0000"/>
+  <circle cx="22.62" cy="32.5" r="2.55" style="fill:none;stroke:#ff0000"/>
+  <circle cx="22.62" cy="45.2" r="2.55" style="fill:none;stroke:#ff0000"/>
+  <circle cx="22.62" cy="57.9" r="2.55" style="fill:none;stroke:#ff0000"/>
+  <circle cx="22.62" cy="70.6" r="2.55" style="fill:none;stroke:#ff0000"/>
+  <circle cx="22.62" cy="83.3" r="2.55" style="fill:none;stroke:#ff0000"/>
+  <circle cx="22.62" cy="96" r="2.55" style="fill:none;stroke:#ff0000"/>
 
 </g>
 </svg>
