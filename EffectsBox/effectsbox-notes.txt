@@ -1,0 +1,29 @@
+
+-------------------------------------------------------
+
+Justin Greenslade
+justin@isonoe.com
+
+- knob design
+- draft panel design for stand alone effects processor
+  select patch: screen? buttons or encoder and leds
+
+-------------------------------------------------------
+
+10bit rotary encoder: https://www.sparkfun.com/products/11102
+
+precision rotary encoder eg Bourns EMS22A magnetic absolute encoder
+or stop-less continuous pot eg Vishay 357 or 601, piher st-15
+Bourns 6639S-1-103 Rotary Potentiometer, Precision, Continuous Turns, 10k
+
+Bourns ES14A0D 64PPR ES14 series
+ES14A0D-E28-L064N 64PPR (mouser £45.91 @10)
+
+EMS22Q31-B28-LS4 EMS22 series
+http://www.mouser.co.uk/new/bourns/bourns-EMS22/
+
+EMS22Q - Non-Contacting Incremental Encoder 256 PPR quadrature
+EMS22Q31-B28-LS4 3v3 1/4" straight shaft (mouser £30.00 @10)
+EMS22Q51-C28-LS4 5v  1/4" flattened shaft
+
+-------------------------------------------------------
