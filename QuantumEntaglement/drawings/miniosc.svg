@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:exslt="http://exslt.org/common" version="1.1" width="210mm" height="297mm" viewBox="0 0 210 297">
+  <sodipodi:namedview id="base" inkscape:document-units="mm" units="mm"/>
+  <defs>
+    <g id="potgrading"/>
+  </defs>
+  <g style="fill:none;stroke-width:0.05;stroke:#ff0000"><rect x="0.0" y="0.0" width="30.00" height="128.50"/><svg:circle cx="7.5" cy="3" r="1.6"/><svg:circle cx="7.5" cy="125.5" r="1.6"/>
+
+  
+  <path inkscape:connector-curvature="0" d="m 15,15.05 c -2.6129013,0 -4.7375971,2.115556 -4.7375971,4.727735 0,2.135913 1.421033,3.945767 3.3650681,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 3.38e-4,-2.612179 -2.115205,-4.727369 -4.727403,-4.727369 z" style="fill:none;stroke:#ff0000"/>
+  <path inkscape:connector-curvature="0" d="m 15,34.1 c -2.6129013,0 -4.7375971,2.115556 -4.7375971,4.727735 0,2.135913 1.421033,3.945767 3.3650681,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 3.38e-4,-2.612179 -2.115205,-4.727369 -4.727403,-4.727369 z" style="fill:none;stroke:#ff0000"/>
+  <path inkscape:connector-curvature="0" d="m 15,53.15 c -2.6129013,0 -4.7375971,2.115556 -4.7375971,4.727735 0,2.135913 1.421033,3.945767 3.3650681,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 3.38e-4,-2.612179 -2.115205,-4.727369 -4.727403,-4.727369 z" style="fill:none;stroke:#ff0000"/>
+
+  
+  <circle cx="8.65" cy="83.3" r="3.25" style="fill:none;stroke:#ff0000"/>
+  <circle cx="8.65" cy="96" r="3.25" style="fill:none;stroke:#ff0000"/>
+  <circle cx="8.65" cy="108.7" r="3.25" style="fill:none;stroke:#ff0000"/>
+  <circle cx="21.35" cy="83.3" r="3.25" style="fill:none;stroke:#ff0000"/>
+  <circle cx="21.35" cy="96" r="3.25" style="fill:none;stroke:#ff0000"/>
+  <circle cx="21.35" cy="108.7" r="3.25" style="fill:none;stroke:#ff0000"/>
+
+</g>
+</svg>
