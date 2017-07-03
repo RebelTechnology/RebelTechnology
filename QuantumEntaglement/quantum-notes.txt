@@ -104,3 +104,9 @@ Triangle wave to sine wave conversion
 http://www.timstinchcombe.co.uk/index.php?pge=trisin
 
 -----------------------------------------------------------------
+
+idea: PWM sawtooth / ramp
+use PNP resistor to short ramp output (or waveform sum) to ground, with gate connected to pulse.
+With PWM at full (>=100%) there's no effect, <100% it cuts the saw short.
+
+-----------------------------------------------------------------

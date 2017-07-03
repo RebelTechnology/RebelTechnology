@@ -1,23 +1,20 @@
 --------------------------------------------------------------------------------
 
-Interpolating scanner
-crossfade between 8 channels, defaulting to DC offsets, at LFO or audio rate.
-http://www.jhaible.info/interpolating_scanner_and_scanv/jh_interpolating_scanner_and_scanvib.html
-
-http://www.till.com/articles/scanner/
---------------------------------------------------------------------------------
-
 2-pole SVF
 ambika/voicecard/hardware_design/pcb/Voicecard-SVF-v05.sch
+https://mutable-instruments.net/archive/ambika/build/voicecards/
 https://mutable-instruments.net/archive/documents/svf_analysis.pdf
+https://mutable-instruments.net/archive/schematics/Ambika-SVF-v05.pdf
 
 3-pole SVF
 http://www.milton.arachsys.com/nj71/index.php?menu=2&submenu=0&subsubmenu=1
 http://www.milton.arachsys.com/nj71/pdf/cesyg/vcf-sch.pdf
+http://modularsynthesis.com/njohnson/3psv/3psv.htm
 
 4-pole mission pole mixing
 https://mutable-instruments.net/archive/shruthi/build/4pm/
 https://mutable-instruments.net/archive/documents/pole_mixing.pdf
+https://mutable-instruments.net/archive/schematics/Shruthi-Analog-PoleMixing-v02.pdf
 (uses LM13700 for resonance VCA)
 
 --------------------------------------------------------------------------------
@@ -53,7 +50,7 @@ https://www.wolframalpha.com/input/?i=bode+plot+of+the+transfer+function+s%5E3+%
 --------------------------------------------------------------------------------
 
 http://sound.whsites.net/articles/state-variable.htm
-State-variable filters can also produce a notch response, by adding the high and low pass signals together without an inverter. Because they are 180� out of phase all frequencies, the two signals cancel when their relative amplitudes are identical. Complete cancellation can only occur when both signals are present in exactly equal measure, so either side of the centre frequency the signal approaches the full level as you move further away from the notch frequency. With a Q of 0.707 (Butterworth alignment), the attenuation of the second harmonic is 3dB, but using a higher Q can reduce this.
+State-variable filters can also produce a notch response, by adding the high and low pass signals together without an inverter. Because they are 180° out of phase all frequencies, the two signals cancel when their relative amplitudes are identical. Complete cancellation can only occur when both signals are present in exactly equal measure, so either side of the centre frequency the signal approaches the full level as you move further away from the notch frequency. With a Q of 0.707 (Butterworth alignment), the attenuation of the second harmonic is 3dB, but using a higher Q can reduce this.
 
 https://mysite.du.edu/~etuttle/electron/elect65.htm
 The three arbitrary complex constants a0, a1 and a2 specify the filter properties in terms of the basic filter types of high pass, bandpass and lowpass, which occur when only one of the constants is nonzero.
@@ -147,17 +144,68 @@ idea:
 9-way scanner + 4-pole filter
 4LP, 3LP, 2LP, 1LP, 2BP, 4BP, 1HP, 2HP, 3HP
 
-or 7-way scanner with two cascaded SVF
+or two cascaded 2-pole SVF
 resonance from end of SVF, mix output, or end of cascade?
-4LP, 2LP, 2BP, 4BP, 2BP, 2HP, 4HP
+7-way: 4LP, 2LP, 2BP, 4BP, 2BP, 2HP, 4HP
+or 5-way: 4LP, 2LP, 2BP, 2HP, 4HP
+2-pole SVF: 3 VCAs each
+
 
 or 3-way scanner with two- or three-pole SVF
 LP, BP, HP
 
 --------------------------------------------------------------------------------
 
-Scanner
-LM394 substitutes
-BCM847BS
+Philter
+
+2-pole SVF:
+- connect S3_OUT by Rg to FB_IN
+- connect S2_OUT to S5_OUT
+- connect FB_NEG to gnd
+- 2HP at S1_OUT
+- 2BP at S2_OUT
+- 2LP at S3_OUT
+
+3-pole SVF:
+- connect S2_OUT to FB_POS
+- connect S3_OUT to FB_NEG
+- connect S4_OUT by 3k3 to FB_NEG
+- connect S5_out to one of: FB_IN / inverted to FB_IN / by 100k to TP2
+- add 
+- 3HP at S1_OUT
+- 3LP at S4_OUT
+- 3BP at S5_OUT
+
+4-pole LPF:
+- replace R6 with 220pF
+- dnp R12
+- connect S4_OUT and S5_OUT
+- connect FB_NEG to gnd
+- provide feedback path from S6_OUT to one of: S1_OUT / other side of R17 / FB_IN
+- 4LP at S6_OUT
+
+--------------------------------------------------------------------------------
+
+REVISITING SOME VCF IDEAS
+http://electronotes.netfirms.com/EN215.pdf
+
+SVF: two integrators and a summer in a loop
+a transfer function that had a numerator that was second–order,
+suggesting that the filter could produce not just a low-pass response (s0), but a bandpass (s1)
+and a highpass (s2), simultaneously
+
+
+The conclusion is that at low frequencies, the state-variable does not self-oscillate, but requires a tiny bit of added positive feedback.
+
+Cheater positive feedback: from BP to input
+Note that this is a path from the bandpass (already inverted because of the inverting integrator) to the (-) input of A1, hence positive feedback.
+An oscillation of slightly wavering amplitude was achieved with Rx=12M
+
+--------------------------------------------------------------------------------
+
+Electronotes
+http://electronotes.netfirms.com/free.htm
+
+http://electronotes.netfirms.com/EN85VCF.PDF
 
 --------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -6288,6 +6288,7 @@ Source: &lt;a href="http://www.bourns.com/pdfs/3314.pdf"&gt; Data sheet&lt;/a&gt
 <part name="R27" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
 <part name="GND12" library="SparkFun" deviceset="GND" device=""/>
+<part name="TP2" library="testpad" deviceset="TP" device="PAD1-13"/>
 </parts>
 <sheets>
 <sheet>
@@ -6330,7 +6331,7 @@ Source: &lt;a href="http://www.bourns.com/pdfs/3314.pdf"&gt; Data sheet&lt;/a&gt
 <instance part="P-1" gate="1" x="195.58" y="-38.1"/>
 <instance part="GND10" gate="1" x="223.52" y="-12.7" rot="R90"/>
 <instance part="C8" gate="G$1" x="218.44" y="0"/>
-<instance part="C9" gate="G$1" x="218.44" y="-22.86"/>
+<instance part="C9" gate="G$1" x="218.44" y="-20.32"/>
 <instance part="R8" gate="G$1" x="210.82" y="0" rot="R90"/>
 <instance part="P+2" gate="1" x="243.84" y="10.16"/>
 <instance part="P-2" gate="1" x="243.84" y="-30.48"/>
@@ -6382,6 +6383,7 @@ Source: &lt;a href="http://www.bourns.com/pdfs/3314.pdf"&gt; Data sheet&lt;/a&gt
 <instance part="R27" gate="G$1" x="-43.18" y="-152.4" rot="R90"/>
 <instance part="R28" gate="G$1" x="5.08" y="-134.62"/>
 <instance part="GND12" gate="1" x="20.32" y="-116.84"/>
+<instance part="TP2" gate="G$1" x="-27.94" y="-38.1"/>
 </instances>
 <busses>
 </busses>
@@ -6445,7 +6447,7 @@ Source: &lt;a href="http://www.bourns.com/pdfs/3314.pdf"&gt; Data sheet&lt;/a&gt
 <wire x1="218.44" y1="-5.08" x2="218.44" y2="-12.7" width="0.1524" layer="91"/>
 <junction x="218.44" y="-12.7"/>
 <pinref part="C9" gate="G$1" pin="1"/>
-<wire x1="218.44" y1="-20.32" x2="218.44" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="218.44" y1="-17.78" x2="218.44" y2="-12.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND3" gate="1" pin="GND"/>
@@ -6800,7 +6802,7 @@ Source: &lt;a href="http://www.bourns.com/pdfs/3314.pdf"&gt; Data sheet&lt;/a&gt
 <pinref part="C9" gate="G$1" pin="2"/>
 <wire x1="195.58" y1="-33.02" x2="195.58" y2="-27.94" width="0.1524" layer="91"/>
 <wire x1="195.58" y1="-27.94" x2="195.58" y2="-20.32" width="0.1524" layer="91"/>
-<wire x1="218.44" y1="-27.94" x2="218.44" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="218.44" y1="-25.4" x2="218.44" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="218.44" y1="-33.02" x2="195.58" y2="-33.02" width="0.1524" layer="91"/>
 <junction x="195.58" y="-33.02"/>
 <pinref part="D3" gate="G$1" pin="AA"/>
@@ -6898,6 +6900,9 @@ Source: &lt;a href="http://www.bourns.com/pdfs/3314.pdf"&gt; Data sheet&lt;/a&gt
 <junction x="-27.94" y="-50.8"/>
 <wire x1="0" y1="-50.8" x2="-27.94" y2="-50.8" width="0.1524" layer="91"/>
 <pinref part="IC5" gate="C" pin="OUT"/>
+<pinref part="TP2" gate="G$1" pin="TP"/>
+<wire x1="-27.94" y1="-43.18" x2="-27.94" y2="-40.64" width="0.1524" layer="91"/>
+<junction x="-27.94" y="-43.18"/>
 </segment>
 </net>
 <net name="FB_IN" class="0">

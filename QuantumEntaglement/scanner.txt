@@ -1,0 +1,32 @@
+--------------------------------------------------------------------------------
+
+Interpolating scanner
+crossfade between 9 channels, defaulting to DC offsets, at LFO or audio rate.
+http://www.jhaible.info/interpolating_scanner_and_scanv/jh_interpolating_scanner_and_scanvib.html
+http://www.jhaible.info/interpolating_scanner_and_scanv/interpolating_scanner_2008_sch.pdf
+
+http://www.till.com/articles/scanner/
+
+--------------------------------------------------------------------------------
+
+LM394 substitutes
+BCM847BS
+
+--------------------------------------------------------------------------------
+
+Mini 3-way scanner
+jacks in1, in2, in3, cv, out
+pots CV (level1, level2, level3, +5v normalled)
+
+TP6: -6v
+TP5: scan CV
+TP3: -13v
+TP2: -6v
+TP1: -13v
+TP4: -6v
+
+todo:
+- -6v ref voltage
+
+--------------------------------------------------------------------------------
+
