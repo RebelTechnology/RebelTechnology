@@ -249,7 +249,7 @@
 </package>
 </packages>
 </library>
-<library name="resistor" urn="urn:adsk.eagle:library:348">
+<library name="resistor">
 <description>&lt;b&gt;Resistors, Capacitors, Inductors&lt;/b&gt;&lt;p&gt;
 Based on the previous libraries:
 &lt;ul&gt;
@@ -2415,7 +2415,7 @@ Metric Code Size 1608</description>
 </package>
 </packages>
 </library>
-<library name="rcl" urn="urn:adsk.eagle:library:334">
+<library name="rcl@1">
 <description>&lt;b&gt;Resistors, Capacitors, Inductors&lt;/b&gt;&lt;p&gt;
 Based on the previous libraries:
 &lt;ul&gt;
@@ -3464,7 +3464,7 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 &lt;/tr&gt;
 &lt;/table&gt;</description>
 <packages>
-<package name="C0603K" library_version="1">
+<package name="C0603K">
 <description>&lt;b&gt;Ceramic Chip Capacitor KEMET 0603 reflow solder&lt;/b&gt;&lt;p&gt;
 Metric Code Size 1608</description>
 <wire x1="-0.725" y1="0.35" x2="0.725" y2="0.35" width="0.1016" layer="51"/>
@@ -3478,7 +3478,7 @@ Metric Code Size 1608</description>
 </package>
 </packages>
 </library>
-<library name="diode" urn="urn:adsk.eagle:library:210">
+<library name="diode">
 <description>&lt;b&gt;Diodes&lt;/b&gt;&lt;p&gt;
 Based on the following sources:
 &lt;ul&gt;
@@ -3510,7 +3510,7 @@ Based on the following sources:
 </package>
 </packages>
 </library>
-<library name="linear" urn="urn:adsk.eagle:library:262">
+<library name="linear">
 <description>&lt;b&gt;Linear Devices&lt;/b&gt;&lt;p&gt;
 Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
@@ -4053,7 +4053,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 </package>
 </packages>
 </library>
-<library name="transistor-pnp" urn="urn:adsk.eagle:library:399">
+<library name="transistor-pnp">
 <description>&lt;b&gt;PNP Transistors&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
 <packages>
@@ -4074,7 +4074,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 </package>
 </packages>
 </library>
-<library name="transistor-small-signal" urn="urn:adsk.eagle:library:401">
+<library name="transistor-small-signal">
 <description>&lt;b&gt;Small Signal Transistors&lt;/b&gt;&lt;p&gt;
 Packages from :&lt;br&gt;
 www.infineon.com; &lt;br&gt;
@@ -4320,68 +4320,68 @@ design rules under a new name.</description>
 <attribute name="MPN" value="MC0063W06031160K" x="-71.12" y="92.71" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="9330682" x="-71.12" y="92.71" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C1" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="4u7" x="-36.83" y="88.9">
+<element name="C1" library="resistor" package="C0603K" value="4u7" x="-36.83" y="88.9">
 <attribute name="MF" value="" x="-36.83" y="88.9" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-36.83" y="88.9" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-36.83" y="88.9" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C10" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="4u7" x="-25.4" y="88.9">
+<element name="C10" library="resistor" package="C0603K" value="4u7" x="-25.4" y="88.9">
 <attribute name="MF" value="" x="-25.4" y="88.9" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-25.4" y="88.9" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-25.4" y="88.9" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C11" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="560p" x="-72.39" y="83.82">
+<element name="C11" library="resistor" package="C0603K" value="560p" x="-72.39" y="83.82">
 <attribute name="MF" value="" x="-72.39" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-72.39" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-72.39" y="83.82" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C12" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="100p" x="89.662" y="28.194" smashed="yes">
+<element name="C12" library="resistor" package="C0603K" value="100p" x="89.662" y="28.194" smashed="yes">
 <attribute name="MF" value="" x="89.662" y="28.194" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="89.662" y="28.194" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="88.862" y="28.844" size="1.016" layer="25"/>
 <attribute name="OC_FARNELL" value="unknown" x="89.662" y="28.194" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C13" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="100p" x="-82.55" y="83.82">
+<element name="C13" library="resistor" package="C0603K" value="100p" x="-82.55" y="83.82">
 <attribute name="MF" value="" x="-82.55" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-82.55" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-82.55" y="83.82" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C14" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="100p" x="-87.63" y="83.82">
+<element name="C14" library="resistor" package="C0603K" value="100p" x="-87.63" y="83.82">
 <attribute name="MF" value="" x="-87.63" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-87.63" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-87.63" y="83.82" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C15" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="560p" x="-92.71" y="83.82">
+<element name="C15" library="resistor" package="C0603K" value="560p" x="-92.71" y="83.82">
 <attribute name="MF" value="" x="-92.71" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-92.71" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-92.71" y="83.82" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C16" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="100p" x="-97.79" y="83.82">
+<element name="C16" library="resistor" package="C0603K" value="100p" x="-97.79" y="83.82">
 <attribute name="MF" value="" x="-97.79" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-97.79" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-97.79" y="83.82" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C17" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="560p" x="-102.87" y="83.82">
+<element name="C17" library="resistor" package="C0603K" value="560p" x="-102.87" y="83.82">
 <attribute name="MF" value="" x="-102.87" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-102.87" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-102.87" y="83.82" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C18" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="100p" x="-16.51" y="88.9">
+<element name="C18" library="resistor" package="C0603K" value="100p" x="-16.51" y="88.9">
 <attribute name="MF" value="" x="-16.51" y="88.9" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-16.51" y="88.9" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-16.51" y="88.9" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C19" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="560p" x="-21.59" y="88.9">
+<element name="C19" library="resistor" package="C0603K" value="560p" x="-21.59" y="88.9">
 <attribute name="MF" value="" x="-21.59" y="88.9" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-21.59" y="88.9" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-21.59" y="88.9" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C2" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="560p" x="-36.83" y="83.82">
+<element name="C2" library="resistor" package="C0603K" value="560p" x="-36.83" y="83.82">
 <attribute name="MF" value="" x="-36.83" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-36.83" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-36.83" y="83.82" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C20" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="4u7" x="-29.21" y="88.9">
+<element name="C20" library="resistor" package="C0603K" value="4u7" x="-29.21" y="88.9">
 <attribute name="MF" value="" x="-29.21" y="88.9" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-29.21" y="88.9" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-29.21" y="88.9" size="1.778" layer="27" display="off"/>
@@ -4389,7 +4389,7 @@ design rules under a new name.</description>
 <element name="C21" library="rcl" package="C0603K" value="100n" x="-86.36" y="71.12"/>
 <element name="C22" library="rcl" package="C0603K" value="100n" x="-91.44" y="71.12"/>
 <element name="C23" library="rcl" package="C0603K" value="100n" x="-96.52" y="71.12"/>
-<element name="C24" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="4u7" x="-33.02" y="88.9">
+<element name="C24" library="resistor" package="C0603K" value="4u7" x="-33.02" y="88.9">
 <attribute name="MF" value="" x="-33.02" y="88.9" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-33.02" y="88.9" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-33.02" y="88.9" size="1.778" layer="27" display="off"/>
@@ -4399,7 +4399,7 @@ design rules under a new name.</description>
 <element name="C27" library="rcl" package="C0603K" value="100n" x="-21.59" y="78.74"/>
 <element name="C28" library="rcl" package="C0603K" value="100n" x="-26.67" y="78.74"/>
 <element name="C29" library="rcl" package="C0603K" value="100n" x="-31.75" y="78.74"/>
-<element name="C3" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="560p" x="76.835" y="44.7675" smashed="yes">
+<element name="C3" library="resistor" package="C0603K" value="560p" x="76.835" y="44.7675" smashed="yes">
 <attribute name="MF" value="" x="76.835" y="44.7675" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="76.835" y="44.7675" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="76.035" y="45.4175" size="1.016" layer="25"/>
@@ -4411,11 +4411,11 @@ design rules under a new name.</description>
 <element name="C33" library="rcl" package="C0603K" value="100n" x="-52.07" y="78.74"/>
 <element name="C34" library="rcl" package="C0603K" value="100n" x="-57.15" y="78.74"/>
 <element name="C35" library="rcl" package="C0603K" value="100n" x="-62.23" y="78.74"/>
-<element name="C36" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0603K" value="100n" x="-67.31" y="78.74"/>
-<element name="C37" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0603K" value="100n" x="-72.39" y="78.74"/>
-<element name="C38" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0603K" value="100n" x="-77.47" y="78.74"/>
-<element name="C39" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0603K" value="100n" x="-82.55" y="78.74"/>
-<element name="C4" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="100p" x="-46.99" y="83.82">
+<element name="C36" library="rcl@1" package="C0603K" value="100n" x="-67.31" y="78.74"/>
+<element name="C37" library="rcl@1" package="C0603K" value="100n" x="-72.39" y="78.74"/>
+<element name="C38" library="rcl@1" package="C0603K" value="100n" x="-77.47" y="78.74"/>
+<element name="C39" library="rcl@1" package="C0603K" value="100n" x="-82.55" y="78.74"/>
+<element name="C4" library="resistor" package="C0603K" value="100p" x="-46.99" y="83.82">
 <attribute name="MF" value="" x="-46.99" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-46.99" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-46.99" y="83.82" size="1.778" layer="27" display="off"/>
@@ -4424,32 +4424,32 @@ design rules under a new name.</description>
 <element name="C41" library="rcl" package="C0603K" value="100n" x="-92.71" y="78.74"/>
 <element name="C42" library="rcl" package="C0603K" value="100n" x="-97.79" y="78.74"/>
 <element name="C43" library="rcl" package="C0603K" value="100n" x="-102.87" y="78.74"/>
-<element name="C44" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0603K" value="100n" x="-16.51" y="83.82"/>
-<element name="C45" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0603K" value="100n" x="-21.59" y="83.82"/>
+<element name="C44" library="rcl@1" package="C0603K" value="100n" x="-16.51" y="83.82"/>
+<element name="C45" library="rcl@1" package="C0603K" value="100n" x="-21.59" y="83.82"/>
 <element name="C46" library="rcl" package="C0603K" value="100n" x="-26.67" y="83.82"/>
 <element name="C47" library="rcl" package="C0603K" value="100n" x="-31.75" y="83.82"/>
-<element name="C5" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="560p" x="89.916" y="44.45" smashed="yes" rot="R180">
+<element name="C5" library="resistor" package="C0603K" value="560p" x="89.916" y="44.45" smashed="yes" rot="R180">
 <attribute name="MF" value="" x="89.916" y="44.45" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MPN" value="" x="89.916" y="44.45" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="90.716" y="43.8" size="1.016" layer="25" rot="R180"/>
 <attribute name="OC_FARNELL" value="unknown" x="89.916" y="44.45" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="C6" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="100p" x="-57.15" y="83.82">
+<element name="C6" library="resistor" package="C0603K" value="100p" x="-57.15" y="83.82">
 <attribute name="MF" value="" x="-57.15" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-57.15" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-57.15" y="83.82" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C7" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="560p" x="-62.23" y="83.82">
+<element name="C7" library="resistor" package="C0603K" value="560p" x="-62.23" y="83.82">
 <attribute name="MF" value="" x="-62.23" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-62.23" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-62.23" y="83.82" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C8" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="100p" x="-67.31" y="83.82">
+<element name="C8" library="resistor" package="C0603K" value="100p" x="-67.31" y="83.82">
 <attribute name="MF" value="" x="-67.31" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-67.31" y="83.82" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-67.31" y="83.82" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C9" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603K" value="4u7" x="-40.64" y="88.9">
+<element name="C9" library="resistor" package="C0603K" value="4u7" x="-40.64" y="88.9">
 <attribute name="MF" value="" x="-40.64" y="88.9" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-40.64" y="88.9" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-40.64" y="88.9" size="1.778" layer="27" display="off"/>
@@ -4474,41 +4474,41 @@ design rules under a new name.</description>
 <attribute name="MPN" value="" x="31.4325" y="20.32" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="31.4325" y="20.32" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="D1" library="diode" library_urn="urn:adsk.eagle:library:210" package="SOT23" value="BAT54A" x="107.95" y="44.45" rot="R270"/>
-<element name="D2" library="diode" library_urn="urn:adsk.eagle:library:210" package="SOT23" value="BAT54A" x="-78.74" y="57.15"/>
-<element name="D3" library="diode" library_urn="urn:adsk.eagle:library:210" package="SOT23" value="BAT54S" x="-101.6" y="57.15">
+<element name="D1" library="diode" package="SOT23" value="BAT54A" x="107.95" y="44.45" rot="R270"/>
+<element name="D2" library="diode" package="SOT23" value="BAT54A" x="-78.74" y="57.15"/>
+<element name="D3" library="diode" package="SOT23" value="BAT54S" x="-101.6" y="57.15">
 <attribute name="MF" value="" x="-101.6" y="57.15" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-101.6" y="57.15" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-101.6" y="57.15" size="1.778" layer="27" display="off"/>
 </element>
-<element name="D4" library="diode" library_urn="urn:adsk.eagle:library:210" package="SOT23" value="BAT54S" x="-17.78" y="64.77">
+<element name="D4" library="diode" package="SOT23" value="BAT54S" x="-17.78" y="64.77">
 <attribute name="MF" value="" x="-17.78" y="64.77" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-17.78" y="64.77" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-17.78" y="64.77" size="1.778" layer="27" display="off"/>
 </element>
-<element name="D5" library="diode" library_urn="urn:adsk.eagle:library:210" package="SOT23" value="BAT54S" x="-25.4" y="64.77">
+<element name="D5" library="diode" package="SOT23" value="BAT54S" x="-25.4" y="64.77">
 <attribute name="MF" value="" x="-25.4" y="64.77" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-25.4" y="64.77" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-25.4" y="64.77" size="1.778" layer="27" display="off"/>
 </element>
-<element name="D6" library="diode" library_urn="urn:adsk.eagle:library:210" package="SOT23" value="BAT54S" x="-33.02" y="64.77">
+<element name="D6" library="diode" package="SOT23" value="BAT54S" x="-33.02" y="64.77">
 <attribute name="MF" value="" x="-33.02" y="64.77" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-33.02" y="64.77" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-33.02" y="64.77" size="1.778" layer="27" display="off"/>
 </element>
-<element name="D7" library="diode" library_urn="urn:adsk.eagle:library:210" package="SOT23" value="BAT54A" x="-86.36" y="57.15"/>
-<element name="D9" library="diode" library_urn="urn:adsk.eagle:library:210" package="SOT23" value="BAT54A" x="-93.98" y="57.15"/>
-<element name="IC1" library="linear" library_urn="urn:adsk.eagle:library:262" package="SO14" value="TL074D" x="83.312" y="88.392" rot="R90">
+<element name="D7" library="diode" package="SOT23" value="BAT54A" x="-86.36" y="57.15"/>
+<element name="D9" library="diode" package="SOT23" value="BAT54A" x="-93.98" y="57.15"/>
+<element name="IC1" library="linear" package="SO14" value="TL074D" x="83.312" y="88.392" rot="R90">
 <attribute name="MF" value="" x="83.312" y="88.392" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="83.312" y="88.392" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="83.312" y="88.392" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="IC10" library="linear" library_urn="urn:adsk.eagle:library:262" package="SO14" value="TL074D" x="100.076" y="69.85" rot="R270">
+<element name="IC10" library="linear" package="SO14" value="TL074D" x="100.076" y="69.85" rot="R270">
 <attribute name="MF" value="" x="100.076" y="69.85" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="100.076" y="69.85" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="100.076" y="69.85" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="IC11" library="linear" library_urn="urn:adsk.eagle:library:262" package="SO08" value="TL072D" x="110.49" y="70.104">
+<element name="IC11" library="linear" package="SO08" value="TL072D" x="110.49" y="70.104">
 <attribute name="MF" value="" x="110.49" y="70.104" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="110.49" y="70.104" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="110.49" y="70.104" size="1.778" layer="27" display="off"/>
@@ -4520,9 +4520,9 @@ design rules under a new name.</description>
 <attribute name="MPN" value="" x="83.312" y="53.086" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="83.312" y="53.086" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="IC3" library="linear" library_urn="urn:adsk.eagle:library:262" package="SO14" value="TL074D" x="79.502" y="18.796"/>
-<element name="IC4" library="linear" library_urn="urn:adsk.eagle:library:262" package="SO08" value="TL072D" x="111.252" y="29.972"/>
-<element name="IC5" library="linear" library_urn="urn:adsk.eagle:library:262" package="SO14" value="TL074D" x="83.312" y="35.56" rot="R270">
+<element name="IC3" library="linear" package="SO14" value="TL074D" x="79.502" y="18.796"/>
+<element name="IC4" library="linear" package="SO08" value="TL072D" x="111.252" y="29.972"/>
+<element name="IC5" library="linear" package="SO14" value="TL074D" x="83.312" y="35.56" rot="R270">
 <attribute name="MF" value="" x="83.312" y="35.56" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="83.312" y="35.56" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="83.312" y="35.56" size="1.778" layer="27" rot="R270" display="off"/>
@@ -4532,17 +4532,17 @@ design rules under a new name.</description>
 <attribute name="MPN" value="" x="100.33" y="53.086" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="100.33" y="53.086" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="IC7" library="linear" library_urn="urn:adsk.eagle:library:262" package="SO14" value="TL074D" x="83.312" y="70.104" rot="R270">
+<element name="IC7" library="linear" package="SO14" value="TL074D" x="83.312" y="70.104" rot="R270">
 <attribute name="MF" value="" x="83.312" y="70.104" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="83.312" y="70.104" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="83.312" y="70.104" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="IC8" library="linear" library_urn="urn:adsk.eagle:library:262" package="SO14" value="TL074D" x="100.33" y="35.56" rot="R270">
+<element name="IC8" library="linear" package="SO14" value="TL074D" x="100.33" y="35.56" rot="R270">
 <attribute name="MF" value="" x="100.33" y="35.56" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="100.33" y="35.56" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="100.33" y="35.56" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="IC9" library="linear" library_urn="urn:adsk.eagle:library:262" package="SO14" value="TL074D" x="100.838" y="88.138" rot="R90">
+<element name="IC9" library="linear" package="SO14" value="TL074D" x="100.838" y="88.138" rot="R90">
 <attribute name="MF" value="" x="100.838" y="88.138" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="100.838" y="88.138" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="100.838" y="88.138" size="1.778" layer="27" rot="R90" display="off"/>
@@ -4571,12 +4571,12 @@ design rules under a new name.</description>
 <attribute name="MPN" value="" x="44.1325" y="7.62" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="44.1325" y="7.62" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="Q1" library="transistor-pnp" library_urn="urn:adsk.eagle:library:399" package="SOT23-BEC" value="BC856ALT1SMD" x="-49.53" y="57.15"/>
-<element name="Q10" library="transistor-small-signal" library_urn="urn:adsk.eagle:library:401" package="SOT23" value="BSS123" x="-40.64" y="64.77">
+<element name="Q1" library="transistor-pnp" package="SOT23-BEC" value="BC856ALT1SMD" x="-49.53" y="57.15"/>
+<element name="Q10" library="transistor-small-signal" package="SOT23" value="BSS123" x="-40.64" y="64.77">
 <attribute name="OC_FARNELL" value="1843725" x="-40.64" y="64.77" size="1.778" layer="27" display="off"/>
 </element>
-<element name="Q5" library="transistor-pnp" library_urn="urn:adsk.eagle:library:399" package="SOT23-BEC" value="BC856ALT1SMD" x="-63.5" y="57.15"/>
-<element name="Q9" library="transistor-small-signal" library_urn="urn:adsk.eagle:library:401" package="SOT23" value="BSS84" x="-46.99" y="64.77">
+<element name="Q5" library="transistor-pnp" package="SOT23-BEC" value="BC856ALT1SMD" x="-63.5" y="57.15"/>
+<element name="Q9" library="transistor-small-signal" package="SOT23" value="BSS84" x="-46.99" y="64.77">
 <attribute name="OC_FARNELL" value="1779264" x="-46.99" y="64.77" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R1" library="Rebel" package="0603" value="2k7" x="76.708" y="36.83" rot="R180">
@@ -5107,27 +5107,27 @@ design rules under a new name.</description>
 <element name="R99" library="Rebel" package="0603" value="68k" x="-49.53" y="107.95"/>
 <element name="S1" library="Rebel" package="SWITCH-SPDT-SALECOM-T8014" value="" x="17.1196" y="33.02" rot="R180"/>
 <element name="S2" library="Rebel" package="SWITCH-SPDT-SALECOM-T8014" value="" x="33.1216" y="33.02" rot="R180"/>
-<element name="OFFSET_LINA" library="resistor" library_urn="urn:adsk.eagle:library:348" package="RTRIM64W" value="" x="-45.72" y="38.1">
+<element name="OFFSET_LINA" library="resistor" package="RTRIM64W" value="" x="-45.72" y="38.1">
 <attribute name="MF" value="" x="-45.72" y="38.1" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-45.72" y="38.1" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-45.72" y="38.1" size="1.778" layer="27" display="off"/>
 </element>
-<element name="OFFSET_LINB" library="resistor" library_urn="urn:adsk.eagle:library:348" package="RTRIM64W" value="" x="-53.34" y="38.1">
+<element name="OFFSET_LINB" library="resistor" package="RTRIM64W" value="" x="-53.34" y="38.1">
 <attribute name="MF" value="" x="-53.34" y="38.1" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-53.34" y="38.1" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-53.34" y="38.1" size="1.778" layer="27" display="off"/>
 </element>
-<element name="OFFSET_REF" library="resistor" library_urn="urn:adsk.eagle:library:348" package="RTRIM64W" value="" x="66.04" y="6.604">
+<element name="OFFSET_REF" library="resistor" package="RTRIM64W" value="" x="66.04" y="6.604">
 <attribute name="MF" value="" x="66.04" y="6.604" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="66.04" y="6.604" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="66.04" y="6.604" size="1.778" layer="27" display="off"/>
 </element>
-<element name="OFFSET_REFB" library="resistor" library_urn="urn:adsk.eagle:library:348" package="RTRIM64W" value="" x="115.824" y="6.35" rot="R180">
+<element name="OFFSET_REFB" library="resistor" package="RTRIM64W" value="" x="115.824" y="6.35" rot="R180">
 <attribute name="MF" value="" x="115.824" y="6.35" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MPN" value="" x="115.824" y="6.35" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="115.824" y="6.35" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="CLAMP_REF" library="resistor" library_urn="urn:adsk.eagle:library:348" package="RTRIM64W" value="" x="116.078" y="41.148" rot="R180">
+<element name="CLAMP_REF" library="resistor" package="RTRIM64W" value="" x="116.078" y="41.148" rot="R180">
 <attribute name="MF" value="" x="116.078" y="41.148" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MPN" value="" x="116.078" y="41.148" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="116.078" y="41.148" size="1.778" layer="27" rot="R180" display="off"/>
@@ -6855,11 +6855,4 @@ design rules under a new name.</description>
 </signals>
 </board>
 </drawing>
-<compatibility>
-<note version="8.2" severity="warning">
-Since Version 8.2, Eagle supports online libraries. The ids
-of those online libraries will not be understood (or retained)
-with this version.
-</note>
-</compatibility>
 </eagle>
