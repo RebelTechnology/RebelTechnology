@@ -11994,20 +11994,20 @@ Source: &lt;a href="http://www.bourns.com/pdfs/3314.pdf"&gt; Data sheet&lt;/a&gt
 <wire x1="-8.89" y1="2.921" x2="-8.89" y2="1.016" width="0.1524" layer="21"/>
 <wire x1="-8.89" y1="-2.921" x2="-8.89" y2="-1.016" width="0.1524" layer="21"/>
 <wire x1="-8.89" y1="1.016" x2="-8.89" y2="-1.016" width="0.1524" layer="21" curve="-180"/>
-<pad name="1" x="-7.62" y="-3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="2" x="-5.08" y="-3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="3" x="-2.54" y="-3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="4" x="0" y="-3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="5" x="2.54" y="-3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="6" x="5.08" y="-3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="7" x="7.62" y="-3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="8" x="7.62" y="3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="9" x="5.08" y="3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="10" x="2.54" y="3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="11" x="0" y="3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="12" x="-2.54" y="3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="13" x="-5.08" y="3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="14" x="-7.62" y="3.81" drill="0.8128" shape="round" rot="R90"/>
+<pad name="1" x="-7.62" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="2" x="-5.08" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="3" x="-2.54" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="4" x="0" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="5" x="2.54" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="6" x="5.08" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="7" x="7.62" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="8" x="7.62" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="9" x="5.08" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="10" x="2.54" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="11" x="0" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="12" x="-2.54" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="13" x="-5.08" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="14" x="-7.62" y="3.81" drill="0.8128" rot="R90"/>
 <text x="-9.271" y="-3.048" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
 <text x="-6.731" y="-0.635" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -12018,20 +12018,20 @@ Source: &lt;a href="http://www.bourns.com/pdfs/3314.pdf"&gt; Data sheet&lt;/a&gt
 <wire x1="-9.906" y1="2.921" x2="-9.906" y2="1.016" width="0.1524" layer="21"/>
 <wire x1="-9.906" y1="-2.921" x2="-9.906" y2="-1.016" width="0.1524" layer="21"/>
 <wire x1="-9.906" y1="1.016" x2="-9.906" y2="-1.016" width="0.1524" layer="21" curve="-180"/>
-<pad name="1" x="-7.62" y="-3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="2" x="-5.08" y="-3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="3" x="-2.54" y="-3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="4" x="0" y="-3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="5" x="2.54" y="-3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="6" x="5.08" y="-3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="7" x="7.62" y="-3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="8" x="7.62" y="3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="9" x="5.08" y="3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="10" x="2.54" y="3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="11" x="0" y="3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="12" x="-2.54" y="3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="13" x="-5.08" y="3.81" drill="0.8128" shape="round" rot="R90"/>
-<pad name="14" x="-7.62" y="3.81" drill="0.8128" shape="round" rot="R90"/>
+<pad name="1" x="-7.62" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="2" x="-5.08" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="3" x="-2.54" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="4" x="0" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="5" x="2.54" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="6" x="5.08" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="7" x="7.62" y="-3.81" drill="0.8128" rot="R90"/>
+<pad name="8" x="7.62" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="9" x="5.08" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="10" x="2.54" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="11" x="0" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="12" x="-2.54" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="13" x="-5.08" y="3.81" drill="0.8128" rot="R90"/>
+<pad name="14" x="-7.62" y="3.81" drill="0.8128" rot="R90"/>
 <text x="-9.271" y="-3.048" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
 <text x="-6.731" y="-0.635" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -12904,9 +12904,9 @@ www.irf.com&lt;p&gt;
 <wire x1="3.81" y1="-0.635" x2="3.175" y2="-1.27" width="0.1524" layer="21"/>
 <wire x1="3.175" y1="-1.27" x2="1.905" y2="-1.27" width="0.1524" layer="21"/>
 <wire x1="1.905" y1="-1.27" x2="1.27" y2="-0.635" width="0.1524" layer="21"/>
-<pad name="1" x="-2.54" y="0" drill="1.016" shape="round" rot="R90"/>
-<pad name="2" x="0" y="0" drill="1.016" shape="round" rot="R90"/>
-<pad name="3" x="2.54" y="0" drill="1.016" shape="round" rot="R90"/>
+<pad name="1" x="-2.54" y="0" drill="1.016" rot="R90"/>
+<pad name="2" x="0" y="0" drill="1.016" rot="R90"/>
+<pad name="3" x="2.54" y="0" drill="1.016" rot="R90"/>
 <text x="-3.8862" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.81" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
@@ -12928,9 +12928,9 @@ www.irf.com&lt;p&gt;
 <wire x1="3.81" y1="-1.905" x2="3.81" y2="0.635" width="0.1524" layer="21"/>
 <wire x1="3.81" y1="0.635" x2="1.27" y2="0.635" width="0.1524" layer="21"/>
 <wire x1="2.54" y1="6.985" x2="2.54" y2="1.27" width="0.762" layer="21"/>
-<pad name="1" x="-2.54" y="-3.81" drill="1.016" shape="round" rot="R90"/>
-<pad name="2" x="0" y="-3.81" drill="1.016" shape="round" rot="R90"/>
-<pad name="3" x="2.54" y="-3.81" drill="1.016" shape="round" rot="R90"/>
+<pad name="1" x="-2.54" y="-3.81" drill="1.016" rot="R90"/>
+<pad name="2" x="0" y="-3.81" drill="1.016" rot="R90"/>
+<pad name="3" x="2.54" y="-3.81" drill="1.016" rot="R90"/>
 <text x="-4.445" y="-3.81" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
 <text x="5.715" y="-3.81" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
 <rectangle x1="-2.921" y1="0.635" x2="-2.159" y2="1.143" layer="21"/>
@@ -12971,10 +12971,10 @@ www.irf.com&lt;p&gt;
 <wire x1="3.175" y1="1.27" x2="2.54" y2="0.635" width="0.1524" layer="21"/>
 <wire x1="2.54" y1="-0.635" x2="3.175" y2="-1.27" width="0.1524" layer="21"/>
 <wire x1="4.445" y1="-1.27" x2="3.175" y2="-1.27" width="0.1524" layer="21"/>
-<pad name="1" x="-3.81" y="0" drill="1.016" shape="round" rot="R90"/>
-<pad name="2" x="-1.27" y="0" drill="1.016" shape="round" rot="R90"/>
-<pad name="3" x="1.27" y="0" drill="1.016" shape="round" rot="R90"/>
-<pad name="4" x="3.81" y="0" drill="1.016" shape="round" rot="R90"/>
+<pad name="1" x="-3.81" y="0" drill="1.016" rot="R90"/>
+<pad name="2" x="-1.27" y="0" drill="1.016" rot="R90"/>
+<pad name="3" x="1.27" y="0" drill="1.016" rot="R90"/>
+<pad name="4" x="3.81" y="0" drill="1.016" rot="R90"/>
 <text x="-5.1562" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-5.08" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="1.016" y1="-0.254" x2="1.524" y2="0.254" layer="51"/>
@@ -13001,10 +13001,10 @@ www.irf.com&lt;p&gt;
 <wire x1="5.08" y1="-1.905" x2="5.08" y2="0.635" width="0.1524" layer="21"/>
 <wire x1="5.08" y1="0.635" x2="2.54" y2="0.635" width="0.1524" layer="21"/>
 <wire x1="3.81" y1="6.985" x2="3.81" y2="1.27" width="0.762" layer="21"/>
-<pad name="1" x="-3.81" y="-3.81" drill="1.016" shape="round" rot="R90"/>
-<pad name="2" x="-1.27" y="-3.81" drill="1.016" shape="round" rot="R90"/>
-<pad name="3" x="1.27" y="-3.81" drill="1.016" shape="round" rot="R90"/>
-<pad name="4" x="3.81" y="-3.81" drill="1.016" shape="round" rot="R90"/>
+<pad name="1" x="-3.81" y="-3.81" drill="1.016" rot="R90"/>
+<pad name="2" x="-1.27" y="-3.81" drill="1.016" rot="R90"/>
+<pad name="3" x="1.27" y="-3.81" drill="1.016" rot="R90"/>
+<pad name="4" x="3.81" y="-3.81" drill="1.016" rot="R90"/>
 <text x="-5.715" y="-3.81" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
 <text x="6.985" y="-4.445" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
 <rectangle x1="-4.191" y1="0.635" x2="-3.429" y2="1.143" layer="21"/>
@@ -13582,8 +13582,8 @@ www.irf.com&lt;p&gt;
 <part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="PULSE" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="OUT" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="C6" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505"/>
-<part name="C1" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505"/>
+<part name="C6" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
+<part name="C1" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
 <part name="PWR" library="pinhead" deviceset="PINHD-1X3" device=""/>
 <part name="P+2" library="supply1" deviceset="+12V" device=""/>
 <part name="P-1" library="supply1" deviceset="-12V" device=""/>
@@ -13602,12 +13602,12 @@ www.irf.com&lt;p&gt;
 <instances>
 <instance part="GND7" gate="1" x="10.16" y="114.3"/>
 <instance part="POT_PWM" gate="G$1" x="2.54" y="228.6" rot="R90"/>
-<instance part="FREQ" gate="G$1" x="0" y="104.14" rot="R180"/>
-<instance part="FM" gate="G$1" x="0" y="71.12" rot="R180"/>
+<instance part="FREQ" gate="G$1" x="-2.54" y="104.14" rot="MR0"/>
+<instance part="FM" gate="G$1" x="0" y="66.04" rot="MR0"/>
 <instance part="PWM" gate="G$1" x="0" y="205.74" rot="MR0"/>
 <instance part="GND14" gate="1" x="10.16" y="93.98"/>
 <instance part="IC2" gate="P" x="99.06" y="160.02"/>
-<instance part="R23" gate="G$1" x="27.94" y="101.6" rot="MR180"/>
+<instance part="R23" gate="G$1" x="27.94" y="106.68" rot="MR180"/>
 <instance part="R22" gate="G$1" x="27.94" y="127" rot="MR0"/>
 <instance part="P-6" gate="1" x="99.06" y="142.24"/>
 <instance part="P+11" gate="1" x="99.06" y="177.8"/>
@@ -13674,8 +13674,8 @@ www.irf.com&lt;p&gt;
 <instance part="P+1" gate="1" x="68.58" y="185.42"/>
 <instance part="R10" gate="G$1" x="30.48" y="228.6" rot="MR90"/>
 <instance part="R14" gate="G$1" x="30.48" y="195.58" rot="MR90"/>
-<instance part="PULSE" gate="G$1" x="170.18" y="203.2" rot="MR180"/>
-<instance part="OUT" gate="G$1" x="180.34" y="20.32" rot="MR180"/>
+<instance part="PULSE" gate="G$1" x="170.18" y="203.2"/>
+<instance part="OUT" gate="G$1" x="180.34" y="20.32"/>
 <instance part="C6" gate="G$1" x="175.26" y="66.04"/>
 <instance part="C1" gate="G$1" x="175.26" y="53.34"/>
 <instance part="PWR" gate="A" x="170.18" y="160.02"/>
@@ -13699,23 +13699,23 @@ www.irf.com&lt;p&gt;
 <net name="GND" class="0">
 <segment>
 <pinref part="FREQ" gate="G$1" pin="5"/>
-<wire x1="5.08" y1="106.68" x2="10.16" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="106.68" x2="10.16" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="2.54" y1="101.6" x2="10.16" y2="101.6" width="0.1524" layer="91"/>
 <pinref part="FREQ" gate="G$1" pin="4"/>
-<wire x1="10.16" y1="104.14" x2="10.16" y2="96.52" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="104.14" x2="10.16" y2="104.14" width="0.1524" layer="91"/>
-<junction x="10.16" y="104.14"/>
+<wire x1="10.16" y1="104.14" x2="10.16" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="101.6" x2="10.16" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="2.54" y1="104.14" x2="10.16" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="GND14" gate="1" pin="GND"/>
+<junction x="10.16" y="101.6"/>
 </segment>
 <segment>
-<wire x1="5.08" y1="73.66" x2="7.62" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="7.62" y1="73.66" x2="7.62" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="7.62" y1="71.12" x2="7.62" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="71.12" x2="7.62" y2="71.12" width="0.1524" layer="91"/>
-<junction x="7.62" y="71.12"/>
+<wire x1="5.08" y1="63.5" x2="7.62" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="66.04" x2="7.62" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="63.5" x2="7.62" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="66.04" x2="7.62" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="GND29" gate="1" pin="GND"/>
 <pinref part="FM" gate="G$1" pin="4"/>
 <pinref part="FM" gate="G$1" pin="5"/>
+<junction x="7.62" y="63.5"/>
 </segment>
 <segment>
 <pinref part="GND30" gate="1" pin="GND"/>
@@ -13784,9 +13784,9 @@ www.irf.com&lt;p&gt;
 </segment>
 <segment>
 <pinref part="GND11" gate="1" pin="GND"/>
-<wire x1="175.26" y1="17.78" x2="172.72" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="172.72" y1="17.78" x2="172.72" y2="12.7" width="0.1524" layer="91"/>
-<pinref part="OUT" gate="G$1" pin="3"/>
+<pinref part="OUT" gate="G$1" pin="5"/>
+<wire x1="175.26" y1="17.78" x2="172.72" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND1" gate="1" pin="GND"/>
@@ -13807,9 +13807,9 @@ www.irf.com&lt;p&gt;
 </segment>
 <segment>
 <pinref part="GND4" gate="1" pin="GND"/>
-<wire x1="165.1" y1="200.66" x2="162.56" y2="200.66" width="0.1524" layer="91"/>
 <wire x1="162.56" y1="200.66" x2="162.56" y2="190.5" width="0.1524" layer="91"/>
-<pinref part="PULSE" gate="G$1" pin="3"/>
+<pinref part="PULSE" gate="G$1" pin="5"/>
+<wire x1="165.1" y1="200.66" x2="162.56" y2="200.66" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R2" gate="G$1" pin="1"/>
@@ -13935,7 +13935,7 @@ www.irf.com&lt;p&gt;
 <segment>
 <pinref part="R23" gate="G$1" pin="1"/>
 <pinref part="FREQ" gate="G$1" pin="3"/>
-<wire x1="22.86" y1="101.6" x2="5.08" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="106.68" x2="2.54" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$14" class="0">
@@ -14175,13 +14175,6 @@ www.irf.com&lt;p&gt;
 <pinref part="IC2" gate="A" pin="OUT"/>
 </segment>
 </net>
-<net name="N$18" class="0">
-<segment>
-<pinref part="R25" gate="G$1" pin="2"/>
-<wire x1="170.18" y1="22.86" x2="175.26" y2="22.86" width="0.1524" layer="91"/>
-<pinref part="OUT" gate="G$1" pin="5"/>
-</segment>
-</net>
 <net name="N$15" class="0">
 <segment>
 <pinref part="R19" gate="G$1" pin="1"/>
@@ -14245,19 +14238,12 @@ www.irf.com&lt;p&gt;
 <wire x1="53.34" y1="127" x2="38.1" y2="127" width="0.1524" layer="91"/>
 <pinref part="R23" gate="G$1" pin="2"/>
 <wire x1="38.1" y1="127" x2="33.02" y2="127" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="101.6" x2="38.1" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="38.1" y1="101.6" x2="38.1" y2="127" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="106.68" x2="38.1" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="106.68" x2="38.1" y2="127" width="0.1524" layer="91"/>
 <junction x="38.1" y="127"/>
 <pinref part="R24" gate="G$1" pin="1"/>
 <wire x1="35.56" y1="139.7" x2="38.1" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="38.1" y1="139.7" x2="38.1" y2="127" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="160.02" y1="205.74" x2="165.1" y2="205.74" width="0.1524" layer="91"/>
-<pinref part="PULSE" gate="G$1" pin="5"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -14301,6 +14287,20 @@ www.irf.com&lt;p&gt;
 <pinref part="P1" gate="G$1" pin="2"/>
 <pinref part="R24" gate="G$1" pin="2"/>
 <wire x1="25.4" y1="139.7" x2="22.86" y2="139.7" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="OUT" gate="G$1" pin="3"/>
+<pinref part="R25" gate="G$1" pin="2"/>
+<wire x1="175.26" y1="22.86" x2="170.18" y2="22.86" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="PULSE" gate="G$1" pin="3"/>
+<pinref part="R1" gate="G$1" pin="2"/>
+<wire x1="165.1" y1="205.74" x2="160.02" y2="205.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
