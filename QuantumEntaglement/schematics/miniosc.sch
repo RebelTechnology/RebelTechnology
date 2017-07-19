@@ -13519,7 +13519,7 @@ www.irf.com&lt;p&gt;
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="IC2" library="adafruit" deviceset="QUAD_OPAMP" device="D" value="QUAD_OPAMPD"/>
 <part name="R23" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
+<part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="P-6" library="supply1" deviceset="-12V" device=""/>
 <part name="P+11" library="supply1" deviceset="+12V" device=""/>
 <part name="C2" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
@@ -13578,7 +13578,7 @@ www.irf.com&lt;p&gt;
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="R6" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="P+1" library="supply1" deviceset="+12V" device=""/>
-<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="dnp / 10k"/>
 <part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="PULSE" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="OUT" library="Rebel" deviceset="THONKICONN" device=""/>
@@ -13590,7 +13590,7 @@ www.irf.com&lt;p&gt;
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="P1" library="Rebel" deviceset="POT-BOURNS-PTD902" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
-<part name="R24" library="Rebel" deviceset="R-EU_" device="0603" value="200k"/>
+<part name="R24" library="Rebel" deviceset="R-EU_" device="0603" value="500k"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 </parts>
