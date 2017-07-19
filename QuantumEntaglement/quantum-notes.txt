@@ -55,7 +55,6 @@ The triangle input is converted to +/-5v at IC2b and attenuated to about +/-100m
 
 Calibration process.
 
-
 -----------------------------------------------------------------
 
 file:///home/mars/Downloads/EKx-40_200dpi.pdf
@@ -110,3 +109,65 @@ use PNP resistor to short ramp output (or waveform sum) to ground, with gate con
 With PWM at full (>=100%) there's no effect, <100% it cuts the saw short.
 
 -----------------------------------------------------------------
+
+The output of the precision multiplier internally connects to the control input of the exponential integrator (base of Q1). This output is current and is given by:
+Iom = (22*Vt/Rt)*(1-Ic*Rz/3.0)
+where Vt = K*T/q = 26mV @20 deg C.
+and where Ic is the total current flowing into the frequency control pin and must remain positive for proper operation (a negative input current will produce the same output as a zero input current). Since the frequency control input pin is a virtual ground summing node, any number of control voltages may be summed simply with input resistors to this pin.
+
+Rs pin 14:
+The current output of the multiplier is converted to the required drive voltage with a resistor from the multiplier output pin to ground. For greatest multiplier accuracy, this resistor Rs should be 1.8k and the current flowing out of pin 2, 22Vt/Rt, should be close to the current flowing out of pin 1, 3.0/Rz.
+
+-----------------------------------------------------------------
+
+OscBoard Rev01
+
+470R use 510R
+R12 1k8 use 1k87
+R8 370k use 390k
+R13 1M5 use 1M2
+C3 200p use 220p
+Q1 use BC856
+
+todo: 
+- replace FM_IN and FREQ_IN pull-up +12v with VREF
+
+-----------------------------------------------------------------
+
+MiniOsc Rev01
+- output jack connections reversed: OUT and PULSE
+- shape: change R16 to 22k, or change R15 to 10k
+- shape mix: offset ramp or use non-inverting mix
+
+oscboard output
+ramp: 7.8Vpp clipped
+tri: 4Vpp
+
+miniosc output
+pwm: 9.6V to 4.7V
+
+freq: 1.6hz to 47kHz
+little knob: goes from 1.6Hz 22Hz
+
+todo: 
+- shape: make both signals positive and add negative bias to zero-centre output
+- freq: add negative bias
+- pwm: add pwm on shape output
+- pwm: fix 
+- swap PWM and SHAPE pots
+
+try:
+- remove R10 - changes PWM bias
+- change R15 to 10k - don't clip triangle
+- change R22 to 100k - reduces coarse range
+- change R24 to 500k - reduces fine range
+
+issues:
+- oscboard ramp is clipped: change output impedance?
+- summed ramp/tri is clipped
+- dual pot doesn't fit
+- alignment: move jacks up to match bottom knobs in Euclidean layout, move dual pot to 1.75"
+- FM and sync: do they work?
+
+-----------------------------------------------------------------
+
