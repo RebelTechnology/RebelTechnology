@@ -13277,6 +13277,10 @@ NS Package M08A</description>
 <sheets>
 <sheet>
 <plain>
+<text x="-180.34" y="55.88" size="3.81" layer="97">Open Source Hardware
+Published under the Gnu GPL
+Copyright 2017 Rebel Technology</text>
+<text x="-180.34" y="76.2" size="5.08" layer="97">MonoMixer Revision 2</text>
 </plain>
 <instances>
 <instance part="R108" gate="G$1" x="119.38" y="58.42"/>
@@ -14043,4 +14047,10 @@ NS Package M08A</description>
 </errors>
 </schematic>
 </drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+</compatibility>
 </eagle>
