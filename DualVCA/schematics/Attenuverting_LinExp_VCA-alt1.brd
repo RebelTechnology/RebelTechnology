@@ -4732,13 +4732,8 @@ design rules under a new name.</description>
 <attribute name="OC_FARNELL" value="unknown" x="-68.58" y="107.95" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R40" library="Rebel" package="0603" value="100k" x="-99.06" y="96.52"/>
-<element name="R41" library="Rebel" package="0603" value="68k" x="-102.87" y="96.52"/>
+<element name="R41" library="Rebel" package="0603" value="100k" x="-102.87" y="96.52"/>
 <element name="R42" library="Rebel" package="0603" value="100k" x="-15.24" y="100.33"/>
-<element name="R43" library="Rebel" package="0603" value="100k" x="-19.05" y="100.33">
-<attribute name="MF" value="" x="-19.05" y="100.33" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="" x="-19.05" y="100.33" size="1.778" layer="27" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="-19.05" y="100.33" size="1.778" layer="27" display="off"/>
-</element>
 <element name="R44" library="Rebel" package="0603" value="560" x="-22.86" y="100.33">
 <attribute name="MF" value="" x="-22.86" y="100.33" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-22.86" y="100.33" size="1.778" layer="27" display="off"/>
@@ -6061,10 +6056,10 @@ design rules under a new name.</description>
 </signal>
 <signal name="CV_SUM-_A">
 <contactref element="R44" pad="2"/>
-<contactref element="R43" pad="2"/>
-<contactref element="IC3" pad="7"/>
-<wire x1="-18.2" y1="100.33" x2="83.312" y2="17.72" width="0" layer="19" extent="1-1"/>
-<wire x1="-22.01" y1="100.33" x2="-18.2" y2="100.33" width="0" layer="19" extent="1-1"/>
+<contactref element="R41" pad="1"/>
+<contactref element="IC14" pad="8"/>
+<wire x1="-22.01" y1="100.33" x2="83.566" y2="8.95" width="0" layer="19" extent="1-1"/>
+<wire x1="-103.72" y1="96.52" x2="-22.01" y2="100.33" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$93">
 <contactref element="IC4" pad="6"/>
@@ -6574,12 +6569,12 @@ design rules under a new name.</description>
 </signal>
 <signal name="OFFSET_REF">
 <contactref element="IC14" pad="14"/>
-<contactref element="IC14" pad="10"/>
 <contactref element="R130" pad="2"/>
 <contactref element="R131" pad="2"/>
+<contactref element="R19" pad="1"/>
 <wire x1="-103.036" y1="-69.088" x2="-103.036" y2="-72.39" width="0" layer="19" extent="1-1"/>
-<wire x1="75.946" y1="8.95" x2="-103.036" y2="-69.088" width="0" layer="19" extent="1-1"/>
-<wire x1="81.026" y1="8.95" x2="75.946" y2="8.95" width="0" layer="19" extent="1-1"/>
+<wire x1="-19.9" y1="96.52" x2="-103.036" y2="-69.088" width="0" layer="19" extent="1-1"/>
+<wire x1="75.946" y1="8.95" x2="-19.9" y2="96.52" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="IC2_8">
 <contactref element="R38" pad="2"/>
@@ -6604,20 +6599,6 @@ design rules under a new name.</description>
 <wire x1="-93.13" y1="92.71" x2="75.946" y2="3.75" width="0" layer="19" extent="1-1"/>
 <wire x1="-96.1" y1="96.52" x2="-93.13" y2="92.71" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$1">
-<contactref element="R19" pad="2"/>
-<contactref element="R23" pad="2"/>
-<contactref element="IC3" pad="5"/>
-<wire x1="-18.2" y1="96.52" x2="80.772" y2="17.72" width="0" layer="19" extent="1-1"/>
-<wire x1="-33.44" y1="96.52" x2="-18.2" y2="96.52" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="EXP_NEG">
-<contactref element="R41" pad="1"/>
-<contactref element="IC14" pad="8"/>
-<contactref element="R19" pad="1"/>
-<wire x1="-19.9" y1="96.52" x2="83.566" y2="8.95" width="0" layer="19" extent="1-1"/>
-<wire x1="-103.72" y1="96.52" x2="-19.9" y2="96.52" width="0" layer="19" extent="1-1"/>
-</signal>
 <signal name="N$36">
 <contactref element="OFFSET_REF" pad="3"/>
 <contactref element="R2" pad="1"/>
@@ -6634,15 +6615,10 @@ design rules under a new name.</description>
 <contactref element="R40" pad="1"/>
 <contactref element="IC14" pad="9"/>
 <contactref element="R41" pad="2"/>
-<wire x1="-99.91" y1="96.52" x2="82.296" y2="8.95" width="0" layer="19" extent="1-1"/>
+<contactref element="R19" pad="2"/>
+<wire x1="-18.2" y1="96.52" x2="82.296" y2="8.95" width="0" layer="19" extent="1-1"/>
+<wire x1="-99.91" y1="96.52" x2="-18.2" y2="96.52" width="0" layer="19" extent="1-1"/>
 <wire x1="-102.02" y1="96.52" x2="-99.91" y2="96.52" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="N$3">
-<contactref element="R46" pad="2"/>
-<contactref element="R43" pad="1"/>
-<contactref element="IC3" pad="6"/>
-<wire x1="-19.9" y1="100.33" x2="82.042" y2="17.72" width="0" layer="19" extent="1-1"/>
-<wire x1="-29.63" y1="100.33" x2="-19.9" y2="100.33" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$84">
 <contactref element="R97" pad="2"/>
@@ -6906,6 +6882,13 @@ design rules under a new name.</description>
 <contactref element="R25" pad="2"/>
 <wire x1="-41.06" y1="96.52" x2="81.026" y2="3.75" width="0" layer="19" extent="1-1"/>
 <wire x1="-102.45" y1="92.71" x2="-41.06" y2="96.52" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$8">
+<contactref element="IC14" pad="10"/>
+<contactref element="R23" pad="2"/>
+<contactref element="R46" pad="2"/>
+<wire x1="-29.63" y1="100.33" x2="81.026" y2="8.95" width="0" layer="19" extent="1-1"/>
+<wire x1="-33.44" y1="96.52" x2="-29.63" y2="100.33" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>
