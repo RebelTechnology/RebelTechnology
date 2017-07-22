@@ -209,3 +209,9 @@ http://electronotes.netfirms.com/free.htm
 http://electronotes.netfirms.com/EN85VCF.PDF
 
 --------------------------------------------------------------------------------
+
+Q compensation:
+- head to head Zener diodes
+- parallel signal diodes
+
+
