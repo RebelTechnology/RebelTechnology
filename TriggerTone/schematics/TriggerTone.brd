@@ -805,11 +805,11 @@ design rules under a new name.</description>
 </autorouter>
 <elements>
 <element name="C1" library="Rebel" package="CPOL-5" value="47u" x="25.4" y="94.9325" smashed="yes" rot="MR90">
-<attribute name="NAME" x="21.395" y="94.0975" size="1.27" layer="26" rot="MR90"/>
+<attribute name="NAME" x="26.235" y="94.42" size="1.016" layer="26" font="vector" rot="MR0"/>
 <attribute name="VALUE" x="21.165" y="92.1575" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="C2" library="Rebel" package="CPOL-5" value="47u" x="7.62" y="94.9325" smashed="yes" rot="MR90">
-<attribute name="NAME" x="10.6" y="94.0975" size="1.27" layer="26" rot="MR90"/>
+<attribute name="NAME" x="8.455" y="94.42" size="1.016" layer="26" font="vector" rot="MR0"/>
 <attribute name="VALUE" x="3.385" y="92.1575" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="OUT_CV" library="Rebel" package="THONKICONN" value="THONKICONN" x="24.13" y="6.35" smashed="yes">
@@ -887,7 +887,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="13.335" y="35.2425" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="R3" library="Rebel" package="0603" value="10k" x="10.4775" y="34.6075" smashed="yes" rot="MR180">
-<attribute name="NAME" x="10.4775" y="33.8455" size="1.016" layer="26" font="vector" rot="MR180" align="bottom-center"/>
+<attribute name="NAME" x="10.95375" y="33.8455" size="1.016" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
 <element name="R8" library="Rebel" package="0603" value="1k" x="14.2875" y="34.6075" smashed="yes" rot="MR0">
 <attribute name="NAME" x="13.97" y="32.8295" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
@@ -941,7 +941,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="13.335" y="60.6425" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="R24" library="Rebel" package="0603" value="10k" x="11.1125" y="59.69" smashed="yes" rot="MR180">
-<attribute name="NAME" x="11.1125" y="58.928" size="1.016" layer="26" font="vector" rot="MR180" align="bottom-center"/>
+<attribute name="NAME" x="11.58875" y="58.928" size="1.016" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
 <element name="R26" library="Rebel" package="0603" value="1k" x="14.605" y="59.69" smashed="yes" rot="MR0">
 <attribute name="NAME" x="14.605" y="57.912" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
@@ -1007,7 +1007,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="19.20875" y="55.753" size="1.016" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
 <element name="R38" library="Rebel" package="0603" value="100k" x="15.875" y="47.3075" smashed="yes" rot="MR90">
-<attribute name="NAME" x="14.25575" y="47.46625" size="1.016" layer="26" font="vector" rot="MR90" align="bottom-center"/>
+<attribute name="NAME" x="16.002" y="44.45" size="1.016" layer="26" font="vector" rot="MR90" align="bottom-center"/>
 </element>
 <element name="OUT_TR" library="Rebel" package="THONKICONN" value="THONKICONN" x="8.89" y="6.35" smashed="yes">
 <attribute name="NAME" x="8.89" y="8.89" size="1.27" layer="104" font="vector" align="bottom-center"/>
@@ -1068,7 +1068,7 @@ design rules under a new name.</description>
 </element>
 <element name="Q14" library="transistor-small-signal" package="SOT23" value="BSS84" x="11.7475" y="15.24" smashed="yes" rot="MR180">
 <attribute name="OC_FARNELL" value="1779264" x="5.3975" y="2.54" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="NAME" x="13.17625" y="16.03375" size="1.016" layer="26" rot="MR180"/>
+<attribute name="NAME" x="13.17625" y="16.35125" size="1.016" layer="26" rot="MR180"/>
 <attribute name="VALUE" x="9.8425" y="18.415" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="Q15" library="transistor-small-signal" package="SOT23" value="BSS123" x="11.7475" y="2.54" smashed="yes" rot="MR180">
@@ -1081,27 +1081,27 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="16.8275" y="47.8155" size="1.27" layer="28" rot="MR0"/>
 </element>
 <element name="LED1" library="Rebel" package="LED3MM" value="" x="16.51" y="19.05" smashed="yes" rot="R180">
-<attribute name="NAME" x="19.58975" y="21.11375" size="1.27" layer="25" ratio="10" rot="R270"/>
+<attribute name="NAME" x="19.58975" y="21.11375" size="1.016" layer="25" font="vector" ratio="10" rot="R270"/>
 <attribute name="VALUE" x="14.605" y="20.701" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="LED2" library="Rebel" package="LED3MM" value="" x="16.51" y="31.75" smashed="yes" rot="R180">
-<attribute name="NAME" x="19.58975" y="34.13125" size="1.27" layer="25" ratio="10" rot="R270"/>
+<attribute name="NAME" x="19.58975" y="34.13125" size="1.016" layer="25" font="vector" ratio="10" rot="R270"/>
 <attribute name="VALUE" x="14.605" y="33.401" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="LED3" library="Rebel" package="LED3MM" value="" x="16.51" y="44.45" smashed="yes" rot="R180">
-<attribute name="NAME" x="19.58975" y="46.99" size="1.27" layer="25" ratio="10" rot="R270"/>
+<attribute name="NAME" x="19.58975" y="46.99" size="1.016" layer="25" font="vector" ratio="10" rot="R270"/>
 <attribute name="VALUE" x="14.605" y="46.101" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="LED4" library="Rebel" package="LED3MM" value="" x="16.51" y="57.15" smashed="yes" rot="R180">
-<attribute name="NAME" x="19.58975" y="59.53125" size="1.27" layer="25" ratio="10" rot="R270"/>
+<attribute name="NAME" x="19.58975" y="59.53125" size="1.016" layer="25" font="vector" ratio="10" rot="R270"/>
 <attribute name="VALUE" x="14.605" y="58.801" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="LED5" library="Rebel" package="LED3MM" value="" x="16.51" y="69.85" smashed="yes" rot="R180">
-<attribute name="NAME" x="19.58975" y="72.23125" size="1.27" layer="25" ratio="10" rot="R270"/>
+<attribute name="NAME" x="19.58975" y="72.23125" size="1.016" layer="25" font="vector" ratio="10" rot="R270"/>
 <attribute name="VALUE" x="14.605" y="71.501" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="LED6" library="Rebel" package="LED3MM" value="" x="16.51" y="82.55" smashed="yes" rot="R180">
-<attribute name="NAME" x="19.58975" y="85.09" size="1.27" layer="25" ratio="10" rot="R270"/>
+<attribute name="NAME" x="19.58975" y="85.09" size="1.016" layer="25" font="vector" ratio="10" rot="R270"/>
 <attribute name="VALUE" x="14.605" y="84.201" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="D1" library="diode" package="SOT23" value="" x="13.97" y="28.8925" smashed="yes" rot="MR270">
@@ -1113,7 +1113,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="3.81" y="62.23" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="D3" library="diode" package="SOT23" value="" x="5.715" y="73.025" smashed="yes" rot="MR270">
-<attribute name="NAME" x="3.81" y="74.93" size="1.016" layer="26" rot="MR270"/>
+<attribute name="NAME" x="4.92125" y="75.565" size="1.016" layer="26" rot="MR270"/>
 <attribute name="VALUE" x="8.89" y="74.93" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="Q13" library="transistor-small-signal" package="SOT23" value="BSS123" x="5.715" y="10.4775" smashed="yes" rot="MR270">
@@ -1124,12 +1124,14 @@ design rules under a new name.</description>
 <attribute name="NAME" x="4.2545" y="16.51" size="1.016" layer="26" font="vector" rot="MR90" align="bottom-center"/>
 </element>
 <element name="R5" library="Rebel" package="0603" value="100R" x="9.525" y="9.525" smashed="yes" rot="MR0">
-<attribute name="NAME" x="9.36625" y="7.747" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
+<attribute name="NAME" x="10.63625" y="7.747" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="R6" library="Rebel" package="0603" value="10k" x="6.985" y="13.97" smashed="yes" rot="MR90">
 <attribute name="NAME" x="6.477" y="16.51" size="1.016" layer="26" font="vector" rot="MR90" align="bottom-center"/>
 </element>
-<element name="R10" library="Rebel" package="0603" value="51k" x="8.89" y="90.17" rot="MR180"/>
+<element name="R10" library="Rebel" package="0603" value="51k" x="8.89" y="90.17" smashed="yes" rot="MR180">
+<attribute name="NAME" x="6.0325" y="90.678" size="1.016" layer="26" font="vector" rot="MR180" align="bottom-center"/>
+</element>
 </elements>
 <signals>
 <signal name="GND">

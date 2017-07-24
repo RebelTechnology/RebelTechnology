@@ -11971,7 +11971,7 @@ Based on the following sources:
 <text x="-53.34" y="-246.38" size="3.81" layer="97">Open Source Hardware
 Published under the Gnu GPL v2
 Copyright 2017 Rebel Technology</text>
-<text x="-53.34" y="-223.52" size="5.08" layer="97">TriggerTone Rev02</text>
+<text x="-53.34" y="-223.52" size="5.08" layer="97">TriggerTone Rev03</text>
 </plain>
 <instances>
 <instance part="C1" gate="G$1" x="68.58" y="-233.68"/>
