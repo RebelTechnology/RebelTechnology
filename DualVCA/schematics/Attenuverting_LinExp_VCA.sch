@@ -15549,7 +15549,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
-<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="2k7">
+<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="1M">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
@@ -15739,7 +15739,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="R52" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R52" library="Rebel" deviceset="R-EU_" device="0603" value="1M">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
@@ -15756,7 +15756,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="R65" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R65" library="Rebel" deviceset="R-EU_" device="0603" value="1M">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
@@ -15896,7 +15896,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
 <part name="GND23" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="R50" library="Rebel" deviceset="R-EU_" device="0603" value="2k7">
+<part name="R50" library="Rebel" deviceset="R-EU_" device="0603" value="1M">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
@@ -15982,7 +15982,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="R72" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R72" library="Rebel" deviceset="R-EU_" device="0603" value="1M">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
@@ -15999,7 +15999,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="R74" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R74" library="Rebel" deviceset="R-EU_" device="0603" value="1M">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
@@ -16387,6 +16387,10 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <part name="R103" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND46" library="supply1" deviceset="GND" device=""/>
 <part name="GND47" library="supply1" deviceset="GND" device=""/>
+<part name="GND52" library="supply1" deviceset="GND" device=""/>
+<part name="GND53" library="supply1" deviceset="GND" device=""/>
+<part name="GND60" library="supply1" deviceset="GND" device=""/>
+<part name="GND61" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -18509,10 +18513,10 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <attribute name="MF" x="180.34" y="81.28" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="180.34" y="81.28" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="R52" gate="G$1" x="35.56" y="81.28">
-<attribute name="OC_FARNELL" x="35.56" y="81.28" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MF" x="35.56" y="81.28" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MPN" x="35.56" y="81.28" size="1.778" layer="96" rot="R90" display="off"/>
+<instance part="R52" gate="G$1" x="33.02" y="73.66" rot="R270">
+<attribute name="OC_FARNELL" x="33.02" y="73.66" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="33.02" y="73.66" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="33.02" y="73.66" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="P-4" gate="1" x="81.28" y="27.94"/>
 <instance part="P+2" gate="1" x="81.28" y="73.66"/>
@@ -18526,10 +18530,10 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <attribute name="MF" x="180.34" y="5.08" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="180.34" y="5.08" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="R65" gate="G$1" x="38.1" y="5.08">
-<attribute name="OC_FARNELL" x="38.1" y="5.08" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MF" x="38.1" y="5.08" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MPN" x="38.1" y="5.08" size="1.778" layer="96" rot="R90" display="off"/>
+<instance part="R65" gate="G$1" x="33.02" y="-2.54" rot="R270">
+<attribute name="OC_FARNELL" x="33.02" y="-2.54" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="33.02" y="-2.54" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="33.02" y="-2.54" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="R31" gate="G$1" x="106.68" y="2.54">
 <attribute name="OC_FARNELL" x="106.68" y="2.54" size="1.778" layer="96" rot="R90" display="off"/>
@@ -18584,10 +18588,10 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <attribute name="MF" x="429.26" y="86.36" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="429.26" y="86.36" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="R72" gate="G$1" x="284.48" y="86.36">
-<attribute name="OC_FARNELL" x="284.48" y="86.36" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MF" x="284.48" y="86.36" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MPN" x="284.48" y="86.36" size="1.778" layer="96" rot="R90" display="off"/>
+<instance part="R72" gate="G$1" x="281.94" y="78.74" rot="R270">
+<attribute name="OC_FARNELL" x="281.94" y="78.74" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="281.94" y="78.74" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="281.94" y="78.74" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="P-2" gate="1" x="327.66" y="33.02"/>
 <instance part="P+6" gate="1" x="327.66" y="81.026"/>
@@ -18601,10 +18605,10 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <attribute name="MF" x="429.26" y="10.16" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="429.26" y="10.16" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="R74" gate="G$1" x="287.02" y="10.16">
-<attribute name="OC_FARNELL" x="287.02" y="10.16" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MF" x="287.02" y="10.16" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MPN" x="287.02" y="10.16" size="1.778" layer="96" rot="R90" display="off"/>
+<instance part="R74" gate="G$1" x="284.48" y="2.54" rot="R270">
+<attribute name="OC_FARNELL" x="284.48" y="2.54" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="284.48" y="2.54" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="284.48" y="2.54" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="R75" gate="G$1" x="355.6" y="7.62">
 <attribute name="OC_FARNELL" x="355.6" y="7.62" size="1.778" layer="96" rot="R90" display="off"/>
@@ -18691,6 +18695,10 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 </instance>
 <instance part="JP4" gate="G$1" x="193.04" y="-33.02" rot="R180"/>
 <instance part="JP11" gate="G$1" x="269.24" y="-35.56" rot="R180"/>
+<instance part="GND52" gate="1" x="33.02" y="-15.24"/>
+<instance part="GND53" gate="1" x="33.02" y="60.96"/>
+<instance part="GND60" gate="1" x="281.94" y="68.58"/>
+<instance part="GND61" gate="1" x="284.48" y="-7.62"/>
 </instances>
 <busses>
 </busses>
@@ -18730,6 +18738,26 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <pinref part="JP11" gate="G$1" pin="3"/>
 <wire x1="261.62" y1="-35.56" x2="251.46" y2="-35.56" width="0.1524" layer="91"/>
 <label x="251.46" y="-35.56" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R65" gate="G$1" pin="2"/>
+<pinref part="GND52" gate="1" pin="GND"/>
+<wire x1="33.02" y1="-12.7" x2="33.02" y2="-7.62" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R52" gate="G$1" pin="2"/>
+<pinref part="GND53" gate="1" pin="GND"/>
+<wire x1="33.02" y1="63.5" x2="33.02" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R72" gate="G$1" pin="2"/>
+<pinref part="GND60" gate="1" pin="GND"/>
+<wire x1="281.94" y1="71.12" x2="281.94" y2="73.66" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R74" gate="G$1" pin="2"/>
+<pinref part="GND61" gate="1" pin="GND"/>
+<wire x1="284.48" y1="-5.08" x2="284.48" y2="-2.54" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+12V" class="0">
@@ -18908,20 +18936,6 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <pinref part="JP2" gate="G$1" pin="8"/>
 </segment>
 </net>
-<net name="N$5" class="0">
-<segment>
-<pinref part="R52" gate="G$1" pin="2"/>
-<pinref part="IC1" gate="A" pin="+IN"/>
-<wire x1="40.64" y1="81.28" x2="48.26" y2="81.28" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$9" class="0">
-<segment>
-<pinref part="R65" gate="G$1" pin="2"/>
-<pinref part="IC1" gate="B" pin="+IN"/>
-<wire x1="43.18" y1="5.08" x2="48.26" y2="5.08" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$17" class="0">
 <segment>
 <pinref part="R53" gate="G$1" pin="2"/>
@@ -19073,20 +19087,6 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <wire x1="213.36" y1="-38.1" x2="233.68" y2="-38.1" width="0.1524" layer="91"/>
 <label x="213.36" y="-38.1" size="1.778" layer="95"/>
 <pinref part="JP2" gate="G$1" pin="6"/>
-</segment>
-</net>
-<net name="N$72" class="0">
-<segment>
-<pinref part="R72" gate="G$1" pin="2"/>
-<pinref part="IC9" gate="A" pin="+IN"/>
-<wire x1="289.56" y1="86.36" x2="297.18" y2="86.36" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$73" class="0">
-<segment>
-<pinref part="R74" gate="G$1" pin="2"/>
-<pinref part="IC9" gate="B" pin="+IN"/>
-<wire x1="292.1" y1="10.16" x2="297.18" y2="10.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$74" class="0">
@@ -19270,8 +19270,12 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <net name="CV_LINA" class="0">
 <segment>
 <pinref part="R52" gate="G$1" pin="1"/>
-<wire x1="30.48" y1="81.28" x2="22.86" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="78.74" x2="33.02" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="81.28" x2="22.86" y2="81.28" width="0.1524" layer="91"/>
 <label x="22.86" y="81.28" size="1.778" layer="95"/>
+<pinref part="IC1" gate="A" pin="+IN"/>
+<wire x1="48.26" y1="81.28" x2="33.02" y2="81.28" width="0.1524" layer="91"/>
+<junction x="33.02" y="81.28"/>
 </segment>
 <segment>
 <pinref part="JP11" gate="G$1" pin="5"/>
@@ -19282,8 +19286,12 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <net name="CV_EXPA" class="0">
 <segment>
 <pinref part="R65" gate="G$1" pin="1"/>
+<wire x1="33.02" y1="2.54" x2="33.02" y2="5.08" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="5.08" x2="22.86" y2="5.08" width="0.1524" layer="91"/>
 <label x="22.86" y="5.08" size="1.778" layer="95"/>
+<pinref part="IC1" gate="B" pin="+IN"/>
+<wire x1="48.26" y1="5.08" x2="33.02" y2="5.08" width="0.1524" layer="91"/>
+<junction x="33.02" y="5.08"/>
 </segment>
 <segment>
 <pinref part="JP11" gate="G$1" pin="4"/>
@@ -19294,8 +19302,12 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <net name="CV_EXPB" class="0">
 <segment>
 <pinref part="R74" gate="G$1" pin="1"/>
-<wire x1="281.94" y1="10.16" x2="274.32" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="284.48" y1="7.62" x2="284.48" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="284.48" y1="10.16" x2="274.32" y2="10.16" width="0.1524" layer="91"/>
 <label x="271.78" y="10.16" size="1.778" layer="95"/>
+<pinref part="IC9" gate="B" pin="+IN"/>
+<wire x1="297.18" y1="10.16" x2="284.48" y2="10.16" width="0.1524" layer="91"/>
+<junction x="284.48" y="10.16"/>
 </segment>
 <segment>
 <pinref part="JP11" gate="G$1" pin="2"/>
@@ -19306,8 +19318,12 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <net name="CV_LINB" class="0">
 <segment>
 <pinref part="R72" gate="G$1" pin="1"/>
-<wire x1="279.4" y1="86.36" x2="271.78" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="281.94" y1="83.82" x2="281.94" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="281.94" y1="86.36" x2="271.78" y2="86.36" width="0.1524" layer="91"/>
 <label x="269.24" y="86.36" size="1.778" layer="95"/>
+<pinref part="IC9" gate="A" pin="+IN"/>
+<wire x1="297.18" y1="86.36" x2="281.94" y2="86.36" width="0.1524" layer="91"/>
+<junction x="281.94" y="86.36"/>
 </segment>
 <segment>
 <pinref part="JP11" gate="G$1" pin="1"/>
