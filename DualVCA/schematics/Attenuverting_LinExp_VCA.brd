@@ -4625,11 +4625,6 @@ design rules under a new name.</description>
 <attribute name="MPN" value="" x="76.2" y="67.818" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="76.2" y="67.818" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R24" library="Rebel" package="0603" value="10k" x="76.2" y="39.624" rot="R180">
-<attribute name="MF" value="" x="76.2" y="39.624" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MPN" value="" x="76.2" y="39.624" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="76.2" y="39.624" size="1.778" layer="27" rot="R180" display="off"/>
-</element>
 <element name="R28" library="Rebel" package="0603" value="10k" x="89.408" y="40.64" rot="R180">
 <attribute name="MF" value="" x="89.408" y="40.64" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MPN" value="" x="89.408" y="40.64" size="1.778" layer="27" rot="R180" display="off"/>
@@ -4709,11 +4704,6 @@ design rules under a new name.</description>
 <attribute name="MPN" value="" x="106.68" y="47.498" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="106.68" y="47.498" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R48" library="Rebel" package="0603" value="10k" x="102.616" y="43.942">
-<attribute name="MF" value="" x="102.616" y="43.942" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="" x="102.616" y="43.942" size="1.778" layer="27" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="102.616" y="43.942" size="1.778" layer="27" display="off"/>
-</element>
 <element name="R49" library="Rebel" package="0603" value="30k" x="106.426" y="52.07">
 <attribute name="MF" value="" x="106.426" y="52.07" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="106.426" y="52.07" size="1.778" layer="27" display="off"/>
@@ -4758,11 +4748,6 @@ design rules under a new name.</description>
 <attribute name="MF" value="" x="93.98" y="49.022" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="93.98" y="49.022" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="93.98" y="49.022" size="1.778" layer="27" display="off"/>
-</element>
-<element name="R57" library="Rebel" package="0603" value="10k" x="98.298" y="43.942" rot="R180">
-<attribute name="MF" value="" x="98.298" y="43.942" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MPN" value="" x="98.298" y="43.942" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="98.298" y="43.942" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R58" library="Rebel" package="0603" value="100k" x="92.71" y="82.042">
 <attribute name="MF" value="" x="92.71" y="82.042" size="1.778" layer="27" display="off"/>
@@ -4938,11 +4923,6 @@ design rules under a new name.</description>
 <attribute name="MF" value="" x="93.98" y="54.102" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="93.98" y="54.102" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="93.98" y="54.102" size="1.778" layer="27" display="off"/>
-</element>
-<element name="R9" library="Rebel" package="0603" value="10k" x="76.2" y="42.418" rot="R180">
-<attribute name="MF" value="" x="76.2" y="42.418" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MPN" value="" x="76.2" y="42.418" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="76.2" y="42.418" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R90" library="Rebel" package="0603" value="500" x="93.98" y="56.515">
 <attribute name="MF" value="" x="93.98" y="56.515" size="1.778" layer="27" display="off"/>
@@ -5468,11 +5448,6 @@ design rules under a new name.</description>
 <wire x1="88.304" y1="47.244" x2="88.304" y2="50.038" width="0" layer="19" extent="1-1"/>
 <wire x1="85.15" y1="49.911" x2="88.304" y2="50.038" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$26">
-<contactref element="R24" pad="2"/>
-<contactref element="R7" pad="1"/>
-<wire x1="75.35" y1="39.624" x2="90.004" y2="50.038" width="0" layer="19" extent="1-1"/>
-</signal>
 <signal name="N$49">
 <contactref element="R36" pad="1"/>
 <contactref element="C12" pad="2"/>
@@ -5504,11 +5479,6 @@ design rules under a new name.</description>
 <contactref element="R6" pad="2"/>
 <wire x1="77.177" y1="49.911" x2="79.95" y2="49.911" width="0" layer="19" extent="1-1"/>
 <wire x1="77.304" y1="47.244" x2="77.177" y2="49.911" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="N$18">
-<contactref element="R9" pad="2"/>
-<contactref element="R5" pad="1"/>
-<wire x1="75.35" y1="42.418" x2="75.477" y2="49.911" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$20">
 <contactref element="R10" pad="1"/>
@@ -5698,12 +5668,12 @@ design rules under a new name.</description>
 <wire x1="-26.275" y1="88.9" x2="114.808" y2="41.148" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="IN1">
-<contactref element="R48" pad="1"/>
-<contactref element="R57" pad="1"/>
 <contactref element="IC8" pad="2"/>
 <contactref element="IC8" pad="1"/>
-<wire x1="99.148" y1="43.942" x2="101.766" y2="43.942" width="0" layer="19" extent="1-1"/>
-<wire x1="97.222" y1="39.37" x2="99.148" y2="43.942" width="0" layer="19" extent="1-1"/>
+<contactref element="R54" pad="1"/>
+<contactref element="R45" pad="1"/>
+<wire x1="97.448" y1="46.228" x2="103.466" y2="46.482" width="0" layer="19" extent="1-1"/>
+<wire x1="97.222" y1="39.37" x2="97.448" y2="46.228" width="0" layer="19" extent="1-1"/>
 <wire x1="97.222" y1="38.1" x2="97.222" y2="39.37" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="CV_SUM+_B">
@@ -5739,11 +5709,6 @@ design rules under a new name.</description>
 <wire x1="101.766" y1="46.482" x2="102.676" y2="50.165" width="0" layer="19" extent="1-1"/>
 <wire x1="105.83" y1="47.498" x2="102.676" y2="50.165" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$43">
-<contactref element="R48" pad="2"/>
-<contactref element="R45" pad="1"/>
-<wire x1="103.466" y1="43.942" x2="103.466" y2="46.482" width="0" layer="19" extent="1-1"/>
-</signal>
 <signal name="N$44">
 <contactref element="IC6" pad="12"/>
 <contactref element="R49" pad="1"/>
@@ -5775,11 +5740,6 @@ design rules under a new name.</description>
 <contactref element="R56" pad="2"/>
 <wire x1="97.476" y1="50.165" x2="99.148" y2="46.228" width="0" layer="19" extent="1-1"/>
 <wire x1="94.83" y1="49.022" x2="97.476" y2="50.165" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="N$50">
-<contactref element="R57" pad="2"/>
-<contactref element="R54" pad="1"/>
-<wire x1="97.448" y1="43.942" x2="97.448" y2="46.228" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$52">
 <contactref element="R64" pad="1"/>
@@ -5849,13 +5809,13 @@ design rules under a new name.</description>
 <wire x1="85.51" y1="23.876" x2="80.264" y2="23.936" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="IN2">
-<contactref element="R24" pad="1"/>
-<contactref element="R9" pad="1"/>
 <contactref element="IC5" pad="2"/>
 <contactref element="IC5" pad="1"/>
-<wire x1="77.05" y1="39.624" x2="77.05" y2="42.418" width="0" layer="19" extent="1-1"/>
-<wire x1="80.204" y1="39.624" x2="77.05" y2="39.624" width="0" layer="19" extent="1-1"/>
+<contactref element="R7" pad="1"/>
+<contactref element="R5" pad="1"/>
+<wire x1="80.204" y1="39.624" x2="90.004" y2="50.038" width="0" layer="19" extent="1-1"/>
 <wire x1="80.204" y1="38.354" x2="80.204" y2="39.624" width="0" layer="19" extent="1-1"/>
+<wire x1="75.477" y1="49.911" x2="80.204" y2="39.624" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$97">
 <contactref element="R110" pad="1"/>
