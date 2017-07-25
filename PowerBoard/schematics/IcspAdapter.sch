@@ -269,16 +269,16 @@ W = angled&lt;p&gt;
 <wire x1="6.35" y1="1.905" x2="6.35" y2="-1.905" width="0.1524" layer="21"/>
 <wire x1="5.715" y1="2.54" x2="6.35" y2="1.905" width="0.1524" layer="21"/>
 <wire x1="6.35" y1="-1.905" x2="5.715" y2="-2.54" width="0.1524" layer="21"/>
-<pad name="1" x="-5.08" y="-1.27" drill="1.016" shape="round"/>
-<pad name="3" x="-2.54" y="-1.27" drill="1.016" shape="round"/>
-<pad name="5" x="0" y="-1.27" drill="1.016" shape="round"/>
-<pad name="7" x="2.54" y="-1.27" drill="1.016" shape="round"/>
-<pad name="9" x="5.08" y="-1.27" drill="1.016" shape="round"/>
-<pad name="2" x="-5.08" y="1.27" drill="1.016" shape="round"/>
-<pad name="4" x="-2.54" y="1.27" drill="1.016" shape="round"/>
-<pad name="6" x="0" y="1.27" drill="1.016" shape="round"/>
-<pad name="8" x="2.54" y="1.27" drill="1.016" shape="round"/>
-<pad name="10" x="5.08" y="1.27" drill="1.016" shape="round"/>
+<pad name="1" x="-5.08" y="-1.27" drill="1.016"/>
+<pad name="3" x="-2.54" y="-1.27" drill="1.016"/>
+<pad name="5" x="0" y="-1.27" drill="1.016"/>
+<pad name="7" x="2.54" y="-1.27" drill="1.016"/>
+<pad name="9" x="5.08" y="-1.27" drill="1.016"/>
+<pad name="2" x="-5.08" y="1.27" drill="1.016"/>
+<pad name="4" x="-2.54" y="1.27" drill="1.016"/>
+<pad name="6" x="0" y="1.27" drill="1.016"/>
+<pad name="8" x="2.54" y="1.27" drill="1.016"/>
+<pad name="10" x="5.08" y="1.27" drill="1.016"/>
 <text x="-5.588" y="-4.191" size="1.27" layer="21" ratio="10">1</text>
 <text x="-6.35" y="2.921" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="0" y="-4.191" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
@@ -317,11 +317,11 @@ W = angled&lt;p&gt;
 <wire x1="3.175" y1="-2.54" x2="1.905" y2="-2.54" width="0.1524" layer="21"/>
 <wire x1="1.905" y1="-2.54" x2="1.27" y2="-1.905" width="0.1524" layer="21"/>
 <pad name="1" x="-2.54" y="-1.27" drill="1.016"/>
-<pad name="3" x="0" y="-1.27" drill="1.016" shape="round"/>
-<pad name="5" x="2.54" y="-1.27" drill="1.016" shape="round"/>
-<pad name="2" x="-2.54" y="1.27" drill="1.016" shape="round"/>
-<pad name="4" x="0" y="1.27" drill="1.016" shape="round"/>
-<pad name="6" x="2.54" y="1.27" drill="1.016" shape="round"/>
+<pad name="3" x="0" y="-1.27" drill="1.016"/>
+<pad name="5" x="2.54" y="-1.27" drill="1.016"/>
+<pad name="2" x="-2.54" y="1.27" drill="1.016"/>
+<pad name="4" x="0" y="1.27" drill="1.016"/>
+<pad name="6" x="2.54" y="1.27" drill="1.016"/>
 <text x="-3.175" y="-4.191" size="1.27" layer="21" ratio="10">1</text>
 <text x="-3.81" y="2.921" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="4.064" y="0.635" size="1.27" layer="21" ratio="10">6</text>
@@ -8386,10 +8386,15 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="33.02" y="27.94" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="UART" gate="G$1" pin="6"/>
-<pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="152.4" y1="10.16" x2="88.9" y2="10.16" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="10.16" x2="88.9" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PC6(/RESET)"/>
+<pinref part="C1" gate="G$1" pin="2"/>
+<wire x1="101.6" y1="-2.54" x2="88.9" y2="-2.54" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="-2.54" x2="88.9" y2="0" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="1"/>
+<wire x1="88.9" y1="-2.54" x2="81.28" y2="-2.54" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="-2.54" x2="81.28" y2="0" width="0.1524" layer="91"/>
+<junction x="88.9" y="-2.54"/>
+<label x="91.44" y="-2.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -8609,16 +8614,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="35.56" y1="-48.26" x2="25.4" y2="-48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$21" class="0">
+<net name="N$11" class="0">
 <segment>
-<pinref part="IC1" gate="G$1" pin="PC6(/RESET)"/>
-<pinref part="C1" gate="G$1" pin="2"/>
-<wire x1="101.6" y1="-2.54" x2="88.9" y2="-2.54" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="-2.54" x2="88.9" y2="0" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="88.9" y1="-2.54" x2="81.28" y2="-2.54" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="-2.54" x2="81.28" y2="0" width="0.1524" layer="91"/>
-<junction x="88.9" y="-2.54"/>
+<pinref part="UART" gate="G$1" pin="6"/>
+<pinref part="C1" gate="G$1" pin="1"/>
+<wire x1="152.4" y1="10.16" x2="88.9" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="10.16" x2="88.9" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
