@@ -10393,33 +10393,33 @@ Copyright 2017 Rebel Technology</text>
 <part name="P+1" library="supply1" deviceset="+12V" device=""/>
 <part name="P-1" library="supply1" deviceset="-12V" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
+<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="IC2" library="adafruit" deviceset="QUAD_OPAMP" device="D"/>
-<part name="R7" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
+<part name="R7" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="+12V" device=""/>
 <part name="P-2" library="supply1" deviceset="-12V" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
-<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
+<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="P+3" library="supply1" deviceset="+12V" device=""/>
 <part name="P-3" library="supply1" deviceset="-12V" device=""/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
-<part name="R17" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
+<part name="R17" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
 <part name="R18" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="P+4" library="supply1" deviceset="+12V" device=""/>
 <part name="P-4" library="supply1" deviceset="-12V" device=""/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
-<part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R23" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
+<part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="R23" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="R24" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
