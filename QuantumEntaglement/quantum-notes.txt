@@ -155,6 +155,7 @@ todo:
 - pwm: add pwm on shape output
 - pwm: fix 
 - swap PWM and SHAPE pots
+- alignment: move jacks up to match bottom knobs in Euclidean layout, move dual pot to 1.75"
 
 try:
 - remove R10 - changes PWM bias
@@ -166,8 +167,66 @@ issues:
 - oscboard ramp is clipped: change output impedance?
 - summed ramp/tri is clipped
 - dual pot doesn't fit
-- alignment: move jacks up to match bottom knobs in Euclidean layout, move dual pot to 1.75"
 - FM and sync: do they work?
+
+PWM on waveforms
+- rising ramp should be pwm'd from the low end
+- perform PWM snubbing on unipolar waves
+
+changed resistors to 100k and 500k: max freq 833Hz
+fine tune goes from 200-520Hz, from 20-54Hz
+
+r1=10
+r3=22
+r4=10
+r2=70
+v2=10
+v2*(r4/(r2+r4))*((r1+r3)/r1)
+
+or: r4=5k1, r2=35k7
+or: r4=2k, r2=14k
+
+breadboard todo:
+- remove osc freq pull-up
+- test ranges with 100k to 10v
+- determine values for coarse range 0.1Hz to 20kHz, fine range 3v.
+
+linear FM 0-12v 10k pot direct to 1M resistor 2kHz->3kHz, 200Hz->300Hz
+
+hard sync: square wave by 10k to sync input
+2V no effect, 3v sync edge, 8v full sync
+tri/sine: no sync
+
+oscboard
+- remove R8 freq pull-up
+- remove R15 fm series
+- add 100n from pin 6 to gnd
+- remove R13 fm pull-up?
+
+with 1M pull-up to +12v
+0-12v through 100k: 1Hz to 3.0kHz 
+0-10v through 100k: 1Hz to 1.0kHz
+
+without pull-up, 0-12v through 100k: 460mHz to 1.7kHz
 
 -----------------------------------------------------------------
 
+PWM / snubber
+try DG418 analogue switch 
+or DG419 SPDT connecting inverting input between summing node and +4v.
+
+MAX4655–MAX4658 are medium-voltage CMOS analog switches with low on-resistance of 10Ω max, specifically designed to handle large switch currents. With a switch capability of up to 400mA peak current and 300mA continuous current.
+
+The MAX4564 is a low-voltage, dual-supply, SPDT analog switch designed to operate from dual ±1.8V to ±6V or single +1.8V to +12V supplies.
+
+The TS12A12511 is a bidirectional, single-channel, SPDT analog switch that can pass signals with swings of 0 to 12 V or –6 V to 6.
+
+The MAX317/MAX318/MAX319 are precision, CMOS, monolithic analog switches.
+
+-----------------------------------------------------------------
+
+Quantum Entanglement dual oscillators
+
+hard sync: use pot to set amount/severity of sync?
+
+-----------------------------------------------------------------
