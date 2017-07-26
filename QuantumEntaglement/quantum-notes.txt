@@ -38,7 +38,6 @@ crossfade with one (linearised) VCA:
 Sum signal A and B into VCA, sum VCA output with -B.
 Output will blend -A and B proportional to VCA CV.
 
-
 VCAs required:
 shape: 2 or 4 (probably 4)
 xmod: 2 or 4 (probably 2)
@@ -91,6 +90,11 @@ Ramp is 2/3rds of the positive supply. The Triangle is 1/3rd of the positive sup
 
 A series current limiting resistor must be added between pin 3 and the negative supply. Its value is calculated as Ree = (Vee - 7.2) / 0.008. (12 - 7.2)/0.008 = 600
 
+Output impedance
+All waveform outputs are short circuit protected and may be shorted continuously to any supply without damaging the device. Each output, however, has different drive capabilities.
+Although the triangle output can sink at least .4mA and source over several mA, care must be excercised in loading this output. Because the output has a finite impedance and drives the comparator, a change in load will change the frequency of the oscillator. Adding a 100k resistor to ground, for instance, could lower the frequency by 150/100k = 0.15% (2.5 cents) worst case. A load capacitance will act like a resistor with value 1/(2f*Cload) and require the same considerations as above. A continuous load no greater than 10k and/or 1000pF to ground is recommended.
+Since the sawtooth output is buffer isolated from the oscillator circuitry, it can sink at least .6mA and source over several mA with no effect on oscillator performance, and only negligible effect on sawtooth waveshape. Stray capacitance at this output greater than 40pF, however, will cause a small high frequency oscillation. A 100R resistor between the output and load is all that is required to isolate more than .01uF.
+ 
 -----------------------------------------------------------------
 
 A study of Sub-Oscillators
@@ -223,6 +227,16 @@ The TS12A12511 is a bidirectional, single-channel, SPDT analog switch that can p
 
 The MAX317/MAX318/MAX319 are precision, CMOS, monolithic analog switches.
 
+make before break analog switch:
+ADG620, 
+ALD4202M quad SPST +/-5v supply soic/dip (mouser £1.93 @144)
+TS5A3154 - Analogue Switch SPDT 1 Channel, 1.1 ohm, 1.65V to 5.5V, VSSOP, 8 Pins
+
+DG243
+
+TS5A3160 Make-Before-Break.
+The TS5A3160 device is a SPDT analog switch that is designed to operate from 1.65 V to 5.5 V.
+
 -----------------------------------------------------------------
 
 Quantum Entanglement dual oscillators
@@ -230,3 +244,8 @@ Quantum Entanglement dual oscillators
 hard sync: use pot to set amount/severity of sync?
 
 -----------------------------------------------------------------
+
+JFET switch PWM
+tri output: works well when waveform at -4v bias
+saw output: works well when waveform at +6v bias
+
