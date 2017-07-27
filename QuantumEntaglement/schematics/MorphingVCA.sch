@@ -18052,7 +18052,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
 <part name="GND49" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="10k">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
@@ -18063,17 +18063,17 @@ Source: Fairchild .. BAT54.pdf</description>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
 <part name="D1" library="diode" deviceset="BAT54A" device=""/>
-<part name="R16" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R16" library="Rebel" deviceset="R-EU_" device="0603" value="10k">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="5k1">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="R20" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R20" library="Rebel" deviceset="R-EU_" device="0603" value="10k">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
@@ -18084,22 +18084,22 @@ Source: Fairchild .. BAT54.pdf</description>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
 <part name="GND50" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="R21" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R21" library="Rebel" deviceset="R-EU_" device="0603" value="10k">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="10k">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="R23" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R23" library="Rebel" deviceset="R-EU_" device="0603" value="20k">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="R24" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R24" library="Rebel" deviceset="R-EU_" device="0603" value="10k">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
@@ -18110,26 +18110,127 @@ Source: Fairchild .. BAT54.pdf</description>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
 <part name="GND51" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="10k">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="10k">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="30k">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="10k">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
+<part name="IC10" library="ssm2164" deviceset="SSM2164" device="S">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="IC11" library="linear" deviceset="TL074" device="D">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="C4" library="resistor" deviceset="C-EU" device="C0603K" value="100p">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="R34" library="Rebel" deviceset="R-EU_" device="0603" value="30k">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="R35" library="Rebel" deviceset="R-EU_" device="0603" value="500">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="C8" library="resistor" deviceset="C-EU" device="C0603K" value="560p">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="GND52" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="R37" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="140K2" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="GND53" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="R40" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="GND54" library="supply1" deviceset="GND" device=""/>
+<part name="IC15" library="ssm2164" deviceset="SSM2164" device="S">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="R49" library="Rebel" deviceset="R-EU_" device="0603" value="30k">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="C10" library="resistor" deviceset="C-EU" device="C0603K" value="560p">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="R50" library="Rebel" deviceset="R-EU_" device="0603" value="500">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="GND57" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="GND58" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="R52" library="Rebel" deviceset="R-EU_" device="0603" value="30k">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="C11" library="resistor" deviceset="C-EU" device="C0603K" value="100p">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="IC16" library="linear" deviceset="TL074" device="D">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="R53" library="Rebel" deviceset="R-EU_" device="0603" value="560">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="D2" library="diode" deviceset="BAT54A" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -18439,10 +18540,10 @@ Copyright 2016 Rebel Technology</text>
 <attribute name="MPN" x="162.56" y="307.34" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="IC6" gate="A" x="180.34" y="327.66"/>
-<instance part="R51" gate="G$1" x="363.22" y="409.448" rot="R90">
-<attribute name="OC_FARNELL" x="363.22" y="409.448" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MF" x="363.22" y="409.448" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MPN" x="363.22" y="409.448" size="1.778" layer="96" rot="R90" display="off"/>
+<instance part="R51" gate="G$1" x="363.22" y="411.48" rot="R90">
+<attribute name="OC_FARNELL" x="363.22" y="411.48" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="363.22" y="411.48" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="363.22" y="411.48" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="D1" gate="G$1" x="276.86" y="358.14" rot="R90"/>
 <instance part="IC5" gate="C" x="363.22" y="386.08"/>
@@ -18483,11 +18584,11 @@ Copyright 2016 Rebel Technology</text>
 <attribute name="MF" x="279.4" y="325.12" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="MPN" x="279.4" y="325.12" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
-<instance part="GND51" gate="1" x="287.02" y="248.92"/>
-<instance part="R28" gate="G$1" x="287.02" y="259.08" rot="R270">
-<attribute name="OC_FARNELL" x="287.02" y="259.08" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MF" x="287.02" y="259.08" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MPN" x="287.02" y="259.08" size="1.778" layer="96" rot="R90" display="off"/>
+<instance part="GND51" gate="1" x="294.64" y="248.92"/>
+<instance part="R28" gate="G$1" x="271.78" y="289.56" rot="MR0">
+<attribute name="OC_FARNELL" x="271.78" y="289.56" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MF" x="271.78" y="289.56" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="271.78" y="289.56" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
 <instance part="IC9" gate="A" x="304.8" y="279.4"/>
 <instance part="R29" gate="G$1" x="271.78" y="281.94">
@@ -18500,11 +18601,105 @@ Copyright 2016 Rebel Technology</text>
 <attribute name="MF" x="304.8" y="266.7" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="MPN" x="304.8" y="266.7" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
-<instance part="R31" gate="G$1" x="279.4" y="276.86">
-<attribute name="OC_FARNELL" x="279.4" y="276.86" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MF" x="279.4" y="276.86" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MPN" x="279.4" y="276.86" size="1.778" layer="96" rot="R180" display="off"/>
+<instance part="R31" gate="G$1" x="294.64" y="259.08" rot="R90">
+<attribute name="OC_FARNELL" x="294.64" y="259.08" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="MF" x="294.64" y="259.08" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="MPN" x="294.64" y="259.08" size="1.778" layer="96" rot="R270" display="off"/>
 </instance>
+<instance part="R32" gate="G$1" x="88.9" y="568.96">
+<attribute name="OC_FARNELL" x="88.9" y="568.96" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="88.9" y="568.96" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="88.9" y="568.96" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="C4" gate="G$1" x="177.8" y="586.74" rot="R270">
+<attribute name="OC_FARNELL" x="177.8" y="586.74" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="177.8" y="586.74" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="177.8" y="586.74" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="R33" gate="G$1" x="137.16" y="571.5" rot="R180">
+<attribute name="OC_FARNELL" x="137.16" y="571.5" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="137.16" y="571.5" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="137.16" y="571.5" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="R34" gate="G$1" x="193.04" y="556.26">
+<attribute name="OC_FARNELL" x="193.04" y="556.26" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="193.04" y="556.26" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="193.04" y="556.26" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="R35" gate="G$1" x="203.2" y="548.64" rot="R90">
+<attribute name="OC_FARNELL" x="203.2" y="548.64" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="203.2" y="548.64" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="203.2" y="548.64" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="C8" gate="G$1" x="203.2" y="538.48">
+<attribute name="OC_FARNELL" x="203.2" y="538.48" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="203.2" y="538.48" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="203.2" y="538.48" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="GND52" gate="1" x="203.2" y="528.32"/>
+<instance part="R37" gate="G$1" x="172.72" y="556.26" rot="R180">
+<attribute name="OC_FARNELL" x="172.72" y="556.26" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MF" x="172.72" y="556.26" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="172.72" y="556.26" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
+<instance part="140K2" gate="G$1" x="182.88" y="548.64" rot="R90">
+<attribute name="OC_FARNELL" x="182.88" y="548.64" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="182.88" y="548.64" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="182.88" y="548.64" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="GND53" gate="1" x="182.88" y="528.32"/>
+<instance part="IC10" gate="D" x="218.44" y="556.26">
+<attribute name="OC_FARNELL" x="218.44" y="556.26" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="218.44" y="556.26" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="218.44" y="556.26" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="R40" gate="G$1" x="111.76" y="581.66">
+<attribute name="OC_FARNELL" x="111.76" y="581.66" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="111.76" y="581.66" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="111.76" y="581.66" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="GND54" gate="1" x="101.6" y="561.34"/>
+<instance part="IC11" gate="B" x="111.76" y="571.5"/>
+<instance part="IC11" gate="D" x="175.26" y="574.04"/>
+<instance part="R49" gate="G$1" x="337.82" y="508">
+<attribute name="OC_FARNELL" x="337.82" y="508" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="337.82" y="508" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="337.82" y="508" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="C10" gate="G$1" x="347.98" y="490.22">
+<attribute name="OC_FARNELL" x="347.98" y="490.22" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="347.98" y="490.22" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="347.98" y="490.22" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="R50" gate="G$1" x="347.98" y="500.38" rot="R90">
+<attribute name="OC_FARNELL" x="347.98" y="500.38" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="347.98" y="500.38" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="347.98" y="500.38" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="GND57" gate="1" x="347.98" y="480.06"/>
+<instance part="GND58" gate="1" x="381" y="500.38"/>
+<instance part="R52" gate="G$1" x="393.7" y="523.24">
+<attribute name="OC_FARNELL" x="393.7" y="523.24" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="393.7" y="523.24" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="393.7" y="523.24" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="C11" gate="G$1" x="393.7" y="533.4" rot="R270">
+<attribute name="OC_FARNELL" x="393.7" y="533.4" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="393.7" y="533.4" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="393.7" y="533.4" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="IC16" gate="C" x="391.16" y="510.54">
+<attribute name="OC_FARNELL" x="391.16" y="510.54" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="391.16" y="510.54" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="391.16" y="510.54" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="R53" gate="G$1" x="360.68" y="533.4" rot="R90">
+<attribute name="OC_FARNELL" x="360.68" y="533.4" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="360.68" y="533.4" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="360.68" y="533.4" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="D2" gate="G$1" x="274.32" y="480.06" rot="R90"/>
+<instance part="IC15" gate="C" x="360.68" y="508"/>
 </instances>
 <busses>
 </busses>
@@ -18879,9 +19074,36 @@ Copyright 2016 Rebel Technology</text>
 <wire x1="287.02" y1="299.72" x2="287.02" y2="302.26" width="0.1524" layer="91"/>
 </segment>
 <segment>
+<pinref part="GND52" gate="1" pin="GND"/>
+<pinref part="C8" gate="G$1" pin="2"/>
+<wire x1="203.2" y1="530.86" x2="203.2" y2="533.4" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND53" gate="1" pin="GND"/>
+<pinref part="140K2" gate="G$1" pin="1"/>
+<wire x1="182.88" y1="530.86" x2="182.88" y2="543.56" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND54" gate="1" pin="GND"/>
+<wire x1="101.6" y1="563.88" x2="101.6" y2="574.04" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="574.04" x2="104.14" y2="574.04" width="0.1524" layer="91"/>
+<pinref part="IC11" gate="B" pin="+IN"/>
+</segment>
+<segment>
+<pinref part="GND57" gate="1" pin="GND"/>
+<pinref part="C10" gate="G$1" pin="2"/>
+<wire x1="347.98" y1="482.6" x2="347.98" y2="485.14" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND58" gate="1" pin="GND"/>
+<wire x1="381" y1="502.92" x2="381" y2="513.08" width="0.1524" layer="91"/>
+<pinref part="IC16" gate="C" pin="+IN"/>
+<wire x1="383.54" y1="513.08" x2="381" y2="513.08" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R31" gate="G$1" pin="1"/>
 <pinref part="GND51" gate="1" pin="GND"/>
-<pinref part="R28" gate="G$1" pin="2"/>
-<wire x1="287.02" y1="251.46" x2="287.02" y2="254" width="0.1524" layer="91"/>
+<wire x1="294.64" y1="251.46" x2="294.64" y2="254" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$18" class="0">
@@ -19027,6 +19249,11 @@ Copyright 2016 Rebel Technology</text>
 <wire x1="149.86" y1="325.12" x2="124.46" y2="325.12" width="0.1524" layer="91"/>
 <label x="124.46" y="325.12" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="R22" gate="G$1" pin="1"/>
+<wire x1="266.7" y1="330.2" x2="254" y2="330.2" width="0.1524" layer="91"/>
+<label x="254" y="330.2" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="IN_A1" class="0">
 <segment>
@@ -19043,14 +19270,9 @@ Copyright 2016 Rebel Technology</text>
 </segment>
 <segment>
 <pinref part="R16" gate="G$1" pin="1"/>
-<wire x1="142.24" y1="330.2" x2="139.7" y2="330.2" width="0.1524" layer="91"/>
 <label x="124.46" y="330.2" size="1.778" layer="95"/>
-<wire x1="139.7" y1="330.2" x2="124.46" y2="330.2" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="330.2" x2="139.7" y2="281.94" width="0.1524" layer="91"/>
-<pinref part="R29" gate="G$1" pin="1"/>
+<wire x1="142.24" y1="330.2" x2="124.46" y2="330.2" width="0.1524" layer="91"/>
 <label x="254" y="281.94" size="1.778" layer="95"/>
-<wire x1="139.7" y1="281.94" x2="266.7" y2="281.94" width="0.1524" layer="91"/>
-<junction x="139.7" y="330.2"/>
 </segment>
 </net>
 <net name="IN_B1" class="0">
@@ -19612,6 +19834,11 @@ Copyright 2016 Rebel Technology</text>
 <wire x1="86.36" y1="447.04" x2="73.66" y2="447.04" width="0.1524" layer="91"/>
 <label x="71.12" y="447.04" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="R32" gate="G$1" pin="1"/>
+<wire x1="83.82" y1="568.96" x2="71.12" y2="568.96" width="0.1524" layer="91"/>
+<label x="68.58" y="568.96" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="LIN+_OUT_A" class="0">
 <segment>
@@ -19631,6 +19858,21 @@ Copyright 2016 Rebel Technology</text>
 <wire x1="220.98" y1="452.12" x2="312.42" y2="452.12" width="0.1524" layer="91"/>
 <wire x1="312.42" y1="452.12" x2="312.42" y2="441.96" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="IC10" gate="D" pin="CTRL"/>
+<wire x1="182.88" y1="574.04" x2="190.5" y2="574.04" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="574.04" x2="218.44" y2="574.04" width="0.1524" layer="91"/>
+<wire x1="218.44" y1="574.04" x2="218.44" y2="563.88" width="0.1524" layer="91"/>
+<pinref part="IC11" gate="D" pin="OUT"/>
+<pinref part="C4" gate="G$1" pin="1"/>
+<wire x1="190.5" y1="586.74" x2="180.34" y2="586.74" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="586.74" x2="190.5" y2="574.04" width="0.1524" layer="91"/>
+<junction x="190.5" y="574.04"/>
+<wire x1="218.44" y1="574.04" x2="360.68" y2="574.04" width="0.1524" layer="91"/>
+<wire x1="360.68" y1="574.04" x2="360.68" y2="538.48" width="0.1524" layer="91"/>
+<junction x="218.44" y="574.04"/>
+<pinref part="R53" gate="G$1" pin="2"/>
+</segment>
 </net>
 <net name="OFFSET_LIN" class="0">
 <segment>
@@ -19649,6 +19891,11 @@ Copyright 2016 Rebel Technology</text>
 <pinref part="IC7" gate="D" pin="+IN"/>
 <label x="148.336" y="454.66" size="1.778" layer="95"/>
 <wire x1="170.18" y1="454.66" x2="147.32" y2="454.66" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IC11" gate="D" pin="+IN"/>
+<label x="145.796" y="576.58" size="1.778" layer="95"/>
+<wire x1="167.64" y1="576.58" x2="144.78" y2="576.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="V_REF" class="0">
@@ -19671,6 +19918,11 @@ Copyright 2016 Rebel Technology</text>
 <pinref part="R61" gate="G$1" pin="2"/>
 <wire x1="157.48" y1="434.34" x2="170.18" y2="434.34" width="0.1524" layer="91"/>
 <label x="157.48" y="434.34" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R37" gate="G$1" pin="2"/>
+<wire x1="154.94" y1="556.26" x2="167.64" y2="556.26" width="0.1524" layer="91"/>
+<label x="154.94" y="556.26" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="EXP_POS_A" class="0">
@@ -19706,7 +19958,7 @@ Copyright 2016 Rebel Technology</text>
 <wire x1="363.22" y1="452.12" x2="355.6" y2="452.12" width="0.1524" layer="91"/>
 <pinref part="R38" gate="G$1" pin="1"/>
 <pinref part="IC14" gate="B" pin="OUT"/>
-<wire x1="363.22" y1="414.528" x2="363.22" y2="439.42" width="0.1524" layer="91"/>
+<wire x1="363.22" y1="416.56" x2="363.22" y2="439.42" width="0.1524" layer="91"/>
 <junction x="363.22" y="439.42"/>
 </segment>
 </net>
@@ -19840,14 +20092,28 @@ Copyright 2016 Rebel Technology</text>
 <label x="411.48" y="388.62" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R22" gate="G$1" pin="1"/>
-<wire x1="266.7" y1="330.2" x2="254" y2="330.2" width="0.1524" layer="91"/>
-<label x="254" y="330.2" size="1.778" layer="95"/>
+<pinref part="R52" gate="G$1" pin="2"/>
+<pinref part="C11" gate="G$1" pin="1"/>
+<wire x1="396.24" y1="533.4" x2="403.86" y2="533.4" width="0.1524" layer="91"/>
+<wire x1="403.86" y1="533.4" x2="403.86" y2="523.24" width="0.1524" layer="91"/>
+<pinref part="IC16" gate="C" pin="OUT"/>
+<wire x1="403.86" y1="523.24" x2="403.86" y2="510.54" width="0.1524" layer="91"/>
+<wire x1="398.78" y1="510.54" x2="403.86" y2="510.54" width="0.1524" layer="91"/>
+<wire x1="398.78" y1="523.24" x2="403.86" y2="523.24" width="0.1524" layer="91"/>
+<junction x="403.86" y="523.24"/>
+<junction x="403.86" y="510.54"/>
+<wire x1="416.56" y1="510.54" x2="403.86" y2="510.54" width="0.1524" layer="91"/>
+<label x="408.94" y="510.54" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R31" gate="G$1" pin="1"/>
-<wire x1="274.32" y1="276.86" x2="254" y2="276.86" width="0.1524" layer="91"/>
-<label x="254" y="276.86" size="1.778" layer="95"/>
+<pinref part="R24" gate="G$1" pin="1"/>
+<wire x1="274.32" y1="325.12" x2="254" y2="325.12" width="0.1524" layer="91"/>
+<label x="254" y="325.12" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R28" gate="G$1" pin="2"/>
+<wire x1="266.7" y1="289.56" x2="254" y2="289.56" width="0.1524" layer="91"/>
+<label x="254" y="289.56" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="IC2C_11" class="0">
@@ -19858,7 +20124,7 @@ Copyright 2016 Rebel Technology</text>
 <wire x1="276.86" y1="401.32" x2="276.86" y2="363.22" width="0.1524" layer="91"/>
 <pinref part="IC5" gate="C" pin="CTRL"/>
 <pinref part="R51" gate="G$1" pin="1"/>
-<wire x1="363.22" y1="404.368" x2="363.22" y2="401.32" width="0.1524" layer="91"/>
+<wire x1="363.22" y1="406.4" x2="363.22" y2="401.32" width="0.1524" layer="91"/>
 <junction x="363.22" y="401.32"/>
 </segment>
 </net>
@@ -19867,6 +20133,11 @@ Copyright 2016 Rebel Technology</text>
 <pinref part="D1" gate="G$1" pin="AA"/>
 <wire x1="274.32" y1="358.14" x2="267.208" y2="358.14" width="0.1524" layer="91"/>
 <label x="267.208" y="358.14" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="D2" gate="G$1" pin="AA"/>
+<wire x1="271.78" y1="480.06" x2="264.668" y2="480.06" width="0.1524" layer="91"/>
+<label x="264.668" y="480.06" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="VCA_IN" class="0">
@@ -19884,6 +20155,11 @@ Copyright 2016 Rebel Technology</text>
 <wire x1="190.5" y1="327.66" x2="205.74" y2="327.66" width="0.1524" layer="91"/>
 <junction x="190.5" y="327.66"/>
 <label x="195.58" y="327.66" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R49" gate="G$1" pin="1"/>
+<wire x1="332.74" y1="508" x2="314.96" y2="508" width="0.1524" layer="91"/>
+<label x="314.96" y="508" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$46" class="0">
@@ -19907,13 +20183,6 @@ Copyright 2016 Rebel Technology</text>
 <pinref part="R16" gate="G$1" pin="2"/>
 <wire x1="162.56" y1="330.2" x2="152.4" y2="330.2" width="0.1524" layer="91"/>
 <junction x="162.56" y="330.2"/>
-</segment>
-</net>
-<net name="N$52" class="0">
-<segment>
-<pinref part="R24" gate="G$1" pin="1"/>
-<wire x1="274.32" y1="325.12" x2="254" y2="325.12" width="0.1524" layer="91"/>
-<label x="254" y="325.12" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$27" class="0">
@@ -19946,9 +20215,9 @@ Copyright 2016 Rebel Technology</text>
 <wire x1="294.64" y1="266.7" x2="294.64" y2="276.86" width="0.1524" layer="91"/>
 <pinref part="R30" gate="G$1" pin="1"/>
 <wire x1="299.72" y1="266.7" x2="294.64" y2="266.7" width="0.1524" layer="91"/>
-<wire x1="294.64" y1="276.86" x2="284.48" y2="276.86" width="0.1524" layer="91"/>
-<junction x="294.64" y="276.86"/>
 <pinref part="R31" gate="G$1" pin="2"/>
+<wire x1="294.64" y1="264.16" x2="294.64" y2="266.7" width="0.1524" layer="91"/>
+<junction x="294.64" y="266.7"/>
 </segment>
 </net>
 <net name="N$53" class="0">
@@ -19956,7 +20225,8 @@ Copyright 2016 Rebel Technology</text>
 <pinref part="IC9" gate="A" pin="+IN"/>
 <pinref part="R28" gate="G$1" pin="1"/>
 <wire x1="297.18" y1="281.94" x2="287.02" y2="281.94" width="0.1524" layer="91"/>
-<wire x1="287.02" y1="281.94" x2="287.02" y2="264.16" width="0.1524" layer="91"/>
+<wire x1="287.02" y1="281.94" x2="287.02" y2="289.56" width="0.1524" layer="91"/>
+<wire x1="287.02" y1="289.56" x2="276.86" y2="289.56" width="0.1524" layer="91"/>
 <pinref part="R29" gate="G$1" pin="2"/>
 <wire x1="287.02" y1="281.94" x2="276.86" y2="281.94" width="0.1524" layer="91"/>
 <junction x="287.02" y="281.94"/>
@@ -19984,6 +20254,130 @@ Copyright 2016 Rebel Technology</text>
 <wire x1="314.96" y1="279.4" x2="330.2" y2="279.4" width="0.1524" layer="91"/>
 <junction x="314.96" y="279.4"/>
 <label x="320.04" y="279.4" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$50" class="0">
+<segment>
+<pinref part="R33" gate="G$1" pin="2"/>
+<wire x1="132.08" y1="571.5" x2="124.46" y2="571.5" width="0.1524" layer="91"/>
+<pinref part="R40" gate="G$1" pin="2"/>
+<wire x1="124.46" y1="571.5" x2="119.38" y2="571.5" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="581.66" x2="124.46" y2="581.66" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="581.66" x2="124.46" y2="571.5" width="0.1524" layer="91"/>
+<junction x="124.46" y="571.5"/>
+<pinref part="IC11" gate="B" pin="OUT"/>
+</segment>
+</net>
+<net name="N$56" class="0">
+<segment>
+<pinref part="C8" gate="G$1" pin="1"/>
+<pinref part="R35" gate="G$1" pin="1"/>
+<wire x1="203.2" y1="543.56" x2="203.2" y2="541.02" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="-10V2" class="0">
+<segment>
+<pinref part="R34" gate="G$1" pin="1"/>
+<wire x1="187.96" y1="556.26" x2="182.88" y2="556.26" width="0.1524" layer="91"/>
+<pinref part="R37" gate="G$1" pin="1"/>
+<wire x1="182.88" y1="556.26" x2="177.8" y2="556.26" width="0.1524" layer="91"/>
+<pinref part="140K2" gate="G$1" pin="2"/>
+<wire x1="182.88" y1="553.72" x2="182.88" y2="556.26" width="0.1524" layer="91"/>
+<junction x="182.88" y="556.26"/>
+</segment>
+</net>
+<net name="N$57" class="0">
+<segment>
+<pinref part="R34" gate="G$1" pin="2"/>
+<wire x1="198.12" y1="556.26" x2="203.2" y2="556.26" width="0.1524" layer="91"/>
+<pinref part="R35" gate="G$1" pin="2"/>
+<wire x1="203.2" y1="553.72" x2="203.2" y2="556.26" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="556.26" x2="213.36" y2="556.26" width="0.1524" layer="91"/>
+<pinref part="IC10" gate="D" pin="IN"/>
+<junction x="203.2" y="556.26"/>
+</segment>
+</net>
+<net name="IC2_1" class="0">
+<segment>
+<wire x1="233.68" y1="556.26" x2="231.14" y2="556.26" width="0.1524" layer="91"/>
+<pinref part="IC10" gate="D" pin="OUT"/>
+<wire x1="233.68" y1="556.26" x2="233.68" y2="523.24" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="571.5" x2="162.56" y2="571.5" width="0.1524" layer="91"/>
+<wire x1="162.56" y1="571.5" x2="162.56" y2="586.74" width="0.1524" layer="91"/>
+<pinref part="C4" gate="G$1" pin="2"/>
+<wire x1="162.56" y1="586.74" x2="172.72" y2="586.74" width="0.1524" layer="91"/>
+<pinref part="R33" gate="G$1" pin="1"/>
+<junction x="162.56" y="571.5"/>
+<wire x1="142.24" y1="571.5" x2="149.86" y2="571.5" width="0.1524" layer="91"/>
+<pinref part="IC11" gate="D" pin="-IN"/>
+<wire x1="149.86" y1="571.5" x2="162.56" y2="571.5" width="0.1524" layer="91"/>
+<junction x="149.86" y="571.5"/>
+<wire x1="233.68" y1="523.24" x2="149.86" y2="523.24" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="523.24" x2="149.86" y2="571.5" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$58" class="0">
+<segment>
+<pinref part="R32" gate="G$1" pin="2"/>
+<wire x1="93.98" y1="568.96" x2="99.06" y2="568.96" width="0.1524" layer="91"/>
+<pinref part="R40" gate="G$1" pin="1"/>
+<wire x1="99.06" y1="568.96" x2="104.14" y2="568.96" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="581.66" x2="99.06" y2="581.66" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="581.66" x2="99.06" y2="568.96" width="0.1524" layer="91"/>
+<junction x="99.06" y="568.96"/>
+<pinref part="IC11" gate="B" pin="-IN"/>
+</segment>
+</net>
+<net name="N$62" class="0">
+<segment>
+<pinref part="C10" gate="G$1" pin="1"/>
+<pinref part="R50" gate="G$1" pin="1"/>
+<wire x1="347.98" y1="492.76" x2="347.98" y2="495.3" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$63" class="0">
+<segment>
+<pinref part="R49" gate="G$1" pin="2"/>
+<wire x1="342.9" y1="508" x2="347.98" y2="508" width="0.1524" layer="91"/>
+<pinref part="IC15" gate="C" pin="IN"/>
+<pinref part="R50" gate="G$1" pin="2"/>
+<wire x1="347.98" y1="508" x2="355.6" y2="508" width="0.1524" layer="91"/>
+<wire x1="347.98" y1="505.46" x2="347.98" y2="508" width="0.1524" layer="91"/>
+<junction x="347.98" y="508"/>
+</segment>
+</net>
+<net name="N$64" class="0">
+<segment>
+<wire x1="383.54" y1="508" x2="378.46" y2="508" width="0.1524" layer="91"/>
+<wire x1="378.46" y1="508" x2="378.46" y2="523.24" width="0.1524" layer="91"/>
+<pinref part="R52" gate="G$1" pin="1"/>
+<wire x1="378.46" y1="523.24" x2="388.62" y2="523.24" width="0.1524" layer="91"/>
+<wire x1="378.46" y1="523.24" x2="378.46" y2="533.4" width="0.1524" layer="91"/>
+<pinref part="C11" gate="G$1" pin="2"/>
+<wire x1="378.46" y1="533.4" x2="388.62" y2="533.4" width="0.1524" layer="91"/>
+<pinref part="IC16" gate="C" pin="-IN"/>
+<wire x1="373.38" y1="508" x2="378.46" y2="508" width="0.1524" layer="91"/>
+<junction x="378.46" y="508"/>
+<junction x="378.46" y="523.24"/>
+<pinref part="IC15" gate="C" pin="OUT"/>
+</segment>
+</net>
+<net name="IC2C_1" class="0">
+<segment>
+<wire x1="360.68" y1="515.62" x2="360.68" y2="523.24" width="0.1524" layer="91"/>
+<pinref part="D2" gate="G$1" pin="K2"/>
+<wire x1="360.68" y1="523.24" x2="274.32" y2="523.24" width="0.1524" layer="91"/>
+<wire x1="274.32" y1="523.24" x2="274.32" y2="485.14" width="0.1524" layer="91"/>
+<pinref part="IC15" gate="C" pin="CTRL"/>
+<pinref part="R53" gate="G$1" pin="1"/>
+<wire x1="360.68" y1="528.32" x2="360.68" y2="523.24" width="0.1524" layer="91"/>
+<junction x="360.68" y="523.24"/>
+</segment>
+</net>
+<net name="N$52" class="0">
+<segment>
+<pinref part="R29" gate="G$1" pin="1"/>
+<wire x1="266.7" y1="281.94" x2="254" y2="281.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
