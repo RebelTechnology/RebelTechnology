@@ -11938,9 +11938,9 @@ Based on the following sources:
 <part name="LED4" library="Rebel" deviceset="LED" device="3MM"/>
 <part name="LED5" library="Rebel" deviceset="LED" device="3MM"/>
 <part name="LED6" library="Rebel" deviceset="LED" device="3MM"/>
-<part name="D1" library="diode" deviceset="DIODE-2CA|AC" device="SOT23"/>
-<part name="D2" library="diode" deviceset="DIODE-2CA|AC" device="SOT23"/>
-<part name="D3" library="diode" deviceset="DIODE-2CA|AC" device="SOT23"/>
+<part name="D1" library="diode" deviceset="DIODE-2CA|AC" device="SOT23" value="BAT54A"/>
+<part name="D2" library="diode" deviceset="DIODE-2CA|AC" device="SOT23" value="BAT54A"/>
+<part name="D3" library="diode" deviceset="DIODE-2CA|AC" device="SOT23" value="BAT54A"/>
 <part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="P+4" library="supply1" deviceset="+12V" device=""/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
@@ -11971,7 +11971,7 @@ Based on the following sources:
 <text x="-53.34" y="-246.38" size="3.81" layer="97">Open Source Hardware
 Published under the Gnu GPL v2
 Copyright 2017 Rebel Technology</text>
-<text x="-53.34" y="-223.52" size="5.08" layer="97">TriggerTone Rev03</text>
+<text x="-53.34" y="-223.52" size="5.08" layer="97">Tonic Rev03</text>
 </plain>
 <instances>
 <instance part="C1" gate="G$1" x="68.58" y="-233.68"/>
