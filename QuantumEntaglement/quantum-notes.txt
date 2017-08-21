@@ -249,3 +249,17 @@ JFET switch PWM
 tri output: works well when waveform at -4v bias
 saw output: works well when waveform at +6v bias
 
+-----------------------------------------------------------------
+
+Morphing VCA
+
+VCA_OUT = - (- (A1 + -A2)) = A1 - A2
+OUT_A1 = A1 = VCA_OUT + A2
+OUT_A2 = A2 = - VCA_OUT + A1
+true? or:
+VCA_OUT = - (A1 + -A2) = A2 - A1
+OUT_A1 = A1 = - ( VCA_OUT - A2 ) = A2 - VCA_OUT
+OUT_A2 = A2 = A1 + VCA_OUT
+
+
+-----------------------------------------------------------------
