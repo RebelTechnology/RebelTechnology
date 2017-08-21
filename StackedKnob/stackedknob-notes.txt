@@ -1,0 +1,169 @@
+
+-------------------------------------------------------
+
+Dual concentric / stacked knobs
+make drawings
+
+Shaft diameter 6mm / 3.5mm
+
+10mm brass inserts
+
+from top of shaft:
+23mm to panel
+20.6mm to nut
+8.8mm to top of bottom knob (with gap)
+
+top:
+Chia Shin CP-BuA-7
+- height shortened by 4mm
+  - total height 11.6mm
+  - inside 9mm
+- bottom narrowed by 0.8mm dia
+  - bottom 12.2mm dia
+  - taper 0.0641mm/mm
+  - top 11.46mm dia
+- to fit 3.5mm d-shaft
+
+bottom:
+Chia Shin CF-X5-MB7
+- add 8mm through hole
+- no spun aluminium inlay
+- to fit 6mm round shaft
+
+http://www.daviesmolding.com/Catalog/Series/Knobs/Control.aspx?KnobType=&KnobDiameter=0.5&MountingDiameter=&MountingType=&MaterialType=&SeriesID=1900
+http://www.chiashinknobs.com.tw/products/cp/cp-specifications-photos/CP-BuA-7.htm
+
+bottom:
+Davies 1105 but smaller
+Chia Shin CF-X5-MB7
+16mm dia
+12mm height
+http://www.chiashinknobs.com.tw//products/cp/cp-specifications-photos/CF-X5-MB7.htm
+
+
+
+The modifications are
+CF-X5: hole through centre, no metal insert, 6mm shaft size
+CP-BUA: reduced size, 3.5mm shaft size
+
+
+-------------------------------------------------------
+
+dual and single horizontal pots
+
+Bourns
+PTD902-2020K-B103 dual 10k lin, 20mm knurled (mouser £1.09 @100)
+PTD902-2015F-A103 dual 10k log (mouser, farnell)
+
+PTD901-2020K-B103 single 10k lin, 20 mm knurled (mouser £0.905 @100)
+PTD901-2025F-B103 single 10k lin, 25 mm knurled
+PTD901-2215K-B103 single 10k lin, centre detent, 15mm knurled
+2.5mm pin spacing, shaft 15F: 15mm flatted, 20K: 20mm knurled, M7 thread bushing
+
+PDB182-K430K-104A dual 100k log
+PDB182-K430K-503A dual 50k log
+5mm pin spacing, shaft 30K: 30mm knurled, M7 thread bushing
+
+PDB181-K220K-103B single 10k lin, 20mm knurled shaft (mouser £0.727 @100)
+
+Alpha Taiwan
+RV170F-10-15R1-B10K-0021
+
+Alpha substitute: RV09AF-40E1
+Dual RV16A01F-20
+RV16AE1F-20B2
+
+12, 16, 17, 24mm
+
+RV170F-10-15R1-B10K-0021
+RV16A01F-20-15R1-A10K
+
+Song Huei
+RK0951G
+RK0972–B10K L-20K: dual 10k lin, 9mm, 20mm knurled shaft, 2.5mm pin spacing, M7 bushing
+http://www.song-huei.com.tw/pdfimages/RK0972.pdf
+
+RK0952N-B-10K L-15-F 10k lin 9mm Song Huei similar to Alps RK09L1140
+
+ALPS RK09L have M9 threaded bushings
+
+BI Technologies / TT Electronics
+P0915N-EC15BR10K 10k lin vertical 15mm shaft similar to Alps RK09L1140
+P092C dual concentric horizontal
+
+-------------------------------------------------------
+
+Stacked dual concentric knobs
+http://www.buckeyeshapeform.com/catalog/products/?cid=1075
+
+------------------------------------------------
+
+Dual concentric pots
+http://www.smallbearelec.com/servlet/Detail?no=1213
+http://www.musikding.de/Alpha-Pot-9mm-100k-lin-dual-concentric
+http://www.banzaimusic.com/Alpha-9mm-Dual-Concentric/
+http://www.d-r.nl/WEBSHOP/contents/en-uk/d2_01.html
+http://smallbear-electronics.mybigcommerce.com/alpha-dual-gang-9mm-pc-mount-dual-concentric/
+($2.80 per pot, $1.70 per knob)
+
+Stacked knob
+http://www.banzaimusic.com/DC-Stacked-knob-Black.html
+
+Bourns PTH90 / PTJ90 available from Mouser
+PTJ90 available from Newark
+PTJ90 Series Dual Concentric Shaft Panel Control w/Push-Push Switch
+
+Alpha
+10k / 50k / 100k lin/log
+Alpha 9mm Pot 24 100k lin : 3RP/920AG R A1 B 100K
+http://www.alphapotentiometers.net/html/9mm_rot_pot_.html
+http://www.alpha-products.com/cd_catalog/new_catalogs/Pots/rotary/9mm/9mm%20rot%20pots_24.htm
+Also available with one (Pot 25) or two (Pot 26) dual pots
+
+-----------------------------------------------------------------------------------
+
+ALPHA RD912DF-40-25F-B10K-60009 arrived from Alpha via thonk
+shaft 25mm long, Smallbear right angles have shaft 20mm
+Knobs don't fit
+
+Shaft diameter 6mm / 3.5mm
+
+https://www.surplussales.com/ShaftHardware/Knobs-8.html
+
+Davis knob on top minus 4mm height
+
+https://www.tinkercad.com/things/8CCdGhZa63V
+https://www.don-audio.com/Concentric-Aluminum-Knob-Black
+
+chia shin cs9?
+
+http://www.chiashinknobs.com.tw/products/cs/cs-specifications-photos/CS326-KLN1920SBR.htm
+http://www.chiashinknobs.com.tw/products/cs/cs-specifications-photos/CS256-KN5700B.htm
+http://www.chiashinknobs.com.tw/products/cp/cp-specifications-photos/CF-W5AB-6-S.htm
+http://www.chiashinknobs.com.tw/products/cp/cp-specifications-photos/CR-GA.COM-7C6.htm
+http://www.chiashinknobs.com.tw/products/cs/cs-specifications-photos/CS288-KPN1309BU.htm
+
+CS326-KLN1920SBR
+CS256-KN5700B
+CS256-KBS500B
+CS288-KPN1309A
+CR-GA.COM-7C6
+CF-W5AB-6-S
+
+-----------------------------------------------------------------------------------
+
+Dual concentric knobs
+Davies 1914 knob bottom 
+0.75"/19mm dia, 0.5"/12.7mm tall, .19"/4.8mm mounting dia
+http://reports.daviesmolding.com/drawings/1914.pdf
+https://www.digikey.co.uk/product-detail/en/davies-molding-llc/1914-N/1722-1083-ND/6566306
+https://www.digikey.co.uk/product-detail/en/davies-molding-llc/1914/1722-1058-ND/6566281
+http://www.daviesmolding.com/Catalog/Series/Knobs/Control.aspx?SeriesID=1914
+
+Davies 1925 knob bottom 1.25"/38mm dia 
+
+
+http://multitron.co.uk/standard-components/knobs/
+Emailed enquiry 19/5 2017
+
+-----------------------------------------------------------------------------------

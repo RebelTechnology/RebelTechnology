@@ -180,11 +180,8 @@ PWM on waveforms
 changed resistors to 100k and 500k: max freq 833Hz
 fine tune goes from 200-520Hz, from 20-54Hz
 
-r1=10
-r3=22
-r4=10
-r2=70
-v2=10
+differential amplifier
+r1=10; r3=22; r4=10; r2=70; v2=10
 v2*(r4/(r2+r4))*((r1+r3)/r1)
 
 or: r4=5k1, r2=35k7
@@ -261,5 +258,8 @@ VCA_OUT = - (A1 + -A2) = A2 - A1
 OUT_A1 = A1 = - ( VCA_OUT - A2 ) = A2 - VCA_OUT
 OUT_A2 = A2 = A1 + VCA_OUT
 
+
+-----------------------------------------------------------------
+JFET gating with +10v to -4v pulse works okay.
 
 -----------------------------------------------------------------
