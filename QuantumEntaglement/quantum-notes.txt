@@ -247,6 +247,101 @@ tri output: works well when waveform at -4v bias
 saw output: works well when waveform at +6v bias
 
 JFET gating with +10v to -4v pulse works okay.
++5.8v to -2.6v
+
+
+JFET switch tri/saw at op amp positive in: doesn't switch out completely, 'floats' a bit
+
+JFET switch tri or saw before op amp negative in: works ok, slow to switch back on
+
+JFET switch tri or saw at op amp negative in to gnd: not much good
+
+open heart jack 2 tip connected to jack 3 tip?
+
+oscboard hard reset: bjt switch tri to -12v
+
+
+Switch comparison
+http://gaje.jp/2011/12/20/2473/
 
 -----------------------------------------------------------------
 
+peak on output waveform caused by sawtooth going negative at beginning of cycle
+
+try swapping tri/saw inputs and gains?
+
+-----------------------------------------------------------------
+
+http://www.muzines.co.uk/articles/the-spectrum-synthesiser/2624
+Uses CEM3340. Several sync options.
+
+-----------------------------------------------------------------
+
+REW harmonics RTA
+breadboard circuit with shape and PWM, 10/8/2017
+
+ramp output
+0% pwm
+2nd 18%, 4th 15%, 6th 9%
+3rd 17%, 5th 10%, 7th 8%
+50% pwm
+harmonics 2 4 6 8: 3.6%
+3rd 32%, 5th 20%, 7th 13%
+
+tri output
+0% pwm
+2nd 7%, 4th 6%, 6th 0%
+3rd 25%, 5th 4%, 7th 1%
+50% pwm
+2nd 24%, 4th 17%, 6th 10%
+3rd 22%, 5th 7%, 7th 7%
+
+-----------------------------------------------------------------
+
+breadboard todo:
+- test bjt inverting pulse
+- test jfet switching at op-amp output
+
+bjt pulse:
+10k pull-down to -12v too high, 1k produces +/-5v square from 10v input, non-inverted
+
+bjt pulse: -5v right to left, turns input off
+- on bottom end of ramp (inverted)
+- on top end of tri (non-inverted)
+
+ramp should be PWMd from left to right, tri doesn't care
+
+todo:
+- use op amp to produce inverted +/-5v pulse
+   works but moves wrong way for ramp
+- switch off inv input to second summing op amp
+   works with
+
+- invert and offset ramp in first op amp, switch with non-inverted BJT pulse
+ add +4v offset
+
+-----------------------------------------------------------------
+
+tri inv 51k/51k
+saw inv 100k/51k
+10v non-inv 160k/51k (or 100k/33k, or 70k/22k)
+
+-----------------------------------------------------------------
+
+differential amplifier
+r1=10; r3=10; r4=10; r2=22; v2=10
+v2*(r4/(r2+r4))*((r1+r3)/r1)
+
+-----------------------------------------------------------------
+
+option A): sum tri and ramp at negative input, half ramp level, add +4v offset
+- allows either saw or tri to be negated
+- falstad http://tinyurl.com/ydgeb5e6
+
+option B): sum +ramp*1.0 -tri*2.0, negate -tri*2.0
+- problem: varying impedance on tri output:"A continuous load no greater than 10k and/or 1000pF to ground is recommended."
+- falstad http://tinyurl.com/ybundn56
+
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
