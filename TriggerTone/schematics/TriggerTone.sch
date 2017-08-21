@@ -11891,7 +11891,7 @@ Based on the following sources:
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 <part name="P+5" library="supply1" deviceset="+12V" device=""/>
 <part name="IN_6" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="51k"/>
+<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="37k"/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
 <part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R34" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
@@ -11961,7 +11961,7 @@ Based on the following sources:
 <part name="Q11" library="transistor-small-signal" deviceset="BSS123" device=""/>
 <part name="Q12" library="transistor-small-signal" deviceset="BSS123" device=""/>
 <part name="Q13" library="transistor-small-signal" deviceset="BSS123" device=""/>
-<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="51k"/>
+<part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="37k"/>
 <part name="P-2" library="supply1" deviceset="-12V" device=""/>
 <part name="P+12" library="supply1" deviceset="+12V" device=""/>
 </parts>
