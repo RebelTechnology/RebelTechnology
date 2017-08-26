@@ -1,6 +1,7 @@
 
 -----------------------------------------------
 
+Genius
 MIDI interface with FM, AM, operators, envelopes and LFOs
 
 LFOs:

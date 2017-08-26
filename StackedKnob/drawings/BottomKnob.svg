@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -43,9 +43,9 @@
      id="namedview4"
      showgrid="false"
      inkscape:document-units="mm"
-     inkscape:zoom="0.68806464"
-     inkscape:cx="308.73305"
-     inkscape:cy="543.31601"
+     inkscape:zoom="1.1096015"
+     inkscape:cx="373.04726"
+     inkscape:cy="509.90993"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -115,38 +115,38 @@
        transform="matrix(1.4034807,0,0,0.98159094,-1570.8333,164.14102)" />
     <path
        style="fill:none;stroke:#000000;stroke-width:3.04794288;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.42079204;stroke-dasharray:none"
-       d="m -1054.0622,355.61931 38.3324,-66.44894 210.06052,0"
+       d="m -1054.0622,357.61931 38.3324,-66.44894 210.06052,0"
        id="path4157"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:3.04794288;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.41960784;stroke-dasharray:none"
-       d="m -1107.8579,385.20769 -67.8522,-69.94611 -151.8955,0"
+       d="m -1105.8579,389.20769 -67.8522,-69.94611 -151.8955,0"
        id="path4159"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
     <text
        xml:space="preserve"
        style="font-size:20.3769207px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-1327.8433"
-       y="308.51147"
+       x="-1325.8433"
+       y="312.51147"
        id="text4161"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4163"
-         x="-1327.8433"
-         y="308.51147">HOLE 8 mm dia</tspan></text>
+         x="-1325.8433"
+         y="312.51147">HOLE 6 mm dia</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20.3769207px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
        x="-1002.2278"
-       y="282.75037"
+       y="284.75037"
        id="text4161-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          x="-1002.2278"
-         y="282.75037"
-         id="tspan4186">RECESS 12.4 mm dia</tspan></text>
+         y="284.75037"
+         id="tspan4186">RECESS 10 mm dia</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20.3769207px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -175,5 +175,22 @@
          x="-1213.7135"
          y="943.58264"
          id="tspan4186-56">Based on Chia Shin CF-X5-MB7</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:3.04794288;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.41960784;stroke-dasharray:none"
+       d="m -1088.831,314.39292 -67.8522,-69.94611 -151.8955,0"
+       id="path4159-3"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:20.3769207px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="-1308.8165"
+       y="237.69672"
+       id="text4161-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4163-7"
+         x="-1308.8165"
+         y="237.69672">KNOB 16 mm dia</tspan></text>
   </g>
 </svg>
