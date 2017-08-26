@@ -27,3 +27,77 @@ EMS22Q31-B28-LS4 3v3 1/4" straight shaft (mouser £30.00 @10)
 EMS22Q51-C28-LS4 5v  1/4" flattened shaft
 
 -------------------------------------------------------
+
+RJS-KS01 pushbutton illuminated/non-illuminated
+Cap sizes range from 7.5mm to 12mm
+Single or bi-colour LED illumination
+-BL (illuminated) or -B: round caps, 9mm dia
+
+RJSKS01 – Qty 500pcs @ £0.29 each / Qty 1,000 pcs @ £0.245 each / Qty 2,000 pcs @ £0.23 each 
+
+aka BTS-KS01-BL
+http://www.switch.com.tw/product/illu-tact12.html
+http://www.bentex.com.hk/catalog/switches/tact/illuminated/html/ks01-b.shtml
+
+RJS-PB6146L
+height 17.3mm dia 7.0mm inside height apprx 10.5mm
+
+RJSPB614 –  Qty 500pcs @ £0.41 each / Qty 1,000 pcs @ £0.37 each / Qty 2,000 pcs @ £0.35 each
+
+-------------------------------------------------------
+
+Inputs/outputs
+- Balanced stereo in and out
+- HP out with level?
+- tempo sync trigger in and out (configurable multiplier)
+- din-sync?
+- midi clock?
+
+-------------------------------------------------------
+
+FXBOX: use precision rotary encoder eg Bourns EMS22A magnetic absolute encoder
+or stop-less continuous pot eg Vishay 357 or 601,
+piher st-15
+Bourns 6639S-1-103 Rotary Potentiometer, Precision, Continuous Turns, 10k
+10bit rotary encoder: https://www.sparkfun.com/products/11102
+sparkfun.com
+Rotary Encoder - 1024 P/R (Quadrature)
+COM-11102: This 1024 pulse per rotation rotary encoder outputs [gray code](http://en.wikipedia.org/wiki/Gray_code) which you can interpret using a microcontroller and
+
+Bourns ES14A0D 64PPR
+
+http://www.mouser.co.uk/ProductDetail/Omron-Automation-and-Safety/E6B2-CWZ6C-1000P-R-05M/?qs=sGAEpiMZZMsWp46O%252bq11WWbVub5WKJVvVT5yxMGOqVA%3d
+
+https://www.usdigital.com/products/ma3
+US Digital
+MA3 Miniature Absolute Magnetic Shaft Encoder
+The MA3 is a miniature rotary absolute shaft encoder that reports the shaft position over 360&deg;...
+
+Bourns EAW - Absolute Contacting Encoder, 8-bit parallel
+Honeywell     600EN128CBL 128 pulses
+Bourns EM14 32 or 64 pulses (edited)
+Bourns ENC1J or ENA Resolution to 256 PPR
+
+ENS : ball bearing
+Bourns EN series: £30-40
+ENS1J-B28-L00256L   256PPR, ball bearing, 1/4" shaft 7/8" long,  farnell £38
+
+Panasonic EVW smt resistive rotary position sensor
+
+https://www.bourns.com/pdfs/OnlinePotentiometerHandbook.pdf
+
+http://www.acptechnologies.com/acp-introduces-the-q16-rotary-potentiometer-switch-series/
+
+-------------------------------------------------------
+
+Absolute encoder/rotary position sensor:
+Panasonic EVW-AE4001B14 : 348 deg, possible to mount either side of PCB for 360 deg
+shaftless and stopless
+
+Piher N-15 endless rotation
+
+Piher N15TS-103A3030 (mouser £1.93 @100)
+
+Panasonic EVW-AE4001B14 (mouser £0.948 @100)
+
+-------------------------------------------------------
