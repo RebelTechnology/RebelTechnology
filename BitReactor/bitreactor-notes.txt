@@ -1,0 +1,13 @@
+
+On 16/08/17 13:49, Ryan Sarver wrote:
+Another potential update for the next version Reactor would be to add a trimmer to set the frequency range. I’m using the H11 optocoupler in a similar way for my delay and tremolo pedals and for both a trimmer is required to compensate for the variability of the H11s. I seem to remember us seeing some variation with the Reactors too. Not sure how much of a concern this really is for the modular version but could be useful anyway. If you get to the point where you want to do another production run, let me know and I can update the schematic/PCB.
+
+On 04/08/17 14:42, Ryan Sarver wrote:
+> Just wanted to let you know of a Bit Reactor improvement. For the
+> resistors that make up the R-2R ladder, which are currently 10k/20k
+> 1%, it'd be better to use 100k/200k with 0.1% tolerance. The larger
+> value ensures that the ON resistance of the analog switches (which is
+> in series with the resistors) is small enough in proportion to the
+> resistor value to not have any effect on the accuracy for high bit
+> depths. The tighter tolerance is theoretically necessary to have
+> enough precision at 8 bits.
