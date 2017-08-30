@@ -38,7 +38,7 @@ public:
       count = limit;
   }
   Entry* getNextEntry(float p){
-    uint16_t index = next - p*count;
+    uint16_t index = next - 1 - p*count;
     return successor[index % MAX_ENTRY_SIZE];
   }
   void reset(){
@@ -117,9 +117,12 @@ public:
   void generate(char* str, int words){
     Entry* ent = &entries[0];
     while(words--){
-      float p = rand()/RAND_MAX;
+      float p = (float)rand()/RAND_MAX;
       ent = ent->getNextEntry(p);
+      if(ent == NULL)
+	break;
       str = stpncpy(str, ent->str, ent->len);
+      str = stpcpy(str, " ");
     }
     *str = '\0';
   }
@@ -132,6 +135,6 @@ int main(int argc, char** argv){
   char dest[1024];
   MarkovChain markov;
   markov.learn(text, 16);
-  markov.generate(dest, 5);
+  markov.generate(dest, 8);
   puts(dest);
 }
