@@ -301,5 +301,112 @@ range +/- 1.07142857142857142857
 6mm pushbutton switches
 TL1105, Cap 1RWHT dia 4.82mm top/5.08mm bottom
 
+-------------------------------------------------------
+
+TriggerTone Rev03 b1
+ranges
+0: -2.8V
+-1: -1.55v
++1: 1.56v
++2: 1.58v
++4: 2.18V
++8: 2.18V
+
+tuning option 3:
+-12     -1V
++1 	0.083V
++2      0.166V
++4	0.333V
++8	0.666V
+
+manual adjust
+51k: -490mV to +740mV
+39k: -510mV to 1.06
+27k: -530mV to 1.49
+
+-------------------------------------------------------
+
+BSS123
+Rds(on) <= 6R (Vgs = 10v)
+Vgs max: +/-20V
+Id continous drain current: 150mA
+Vgs(to) Gate threshold voltage (Vds = Vgs, Id = 1mA): typ 2V
+
+-------------------------------------------------------
+
+THE JFET AS AN ANALOG SWITCH Electronics Help
+https://www.electronicsassignments.com/the-jfet-as-an-analog-switch-12016
+
+More on Semiconductor Switch
+http://gaje.jp/2011/12/20/2473/
+
+FET applications: Analog Switch
+http://www.circuitstoday.com/fet-applications
+
+-------------------------------------------------------
+
+
+-------------------------------------------------------
+
+Tonic video
+1) show basic function
+2) easily make (endless) good patterns
+3) interactive performance tool
+
+Our new Tonic module is an additive interval sequencer. It's a new concept in modular sequencing: effectively it turns trigger inputs into musical notes, into melodies.
+The module gives you one adjustable and five fixed intervals. 
+The fixed intervals are, from bottom to top:
+minus one semitone, plus two, plus four, plus eight and plus sixteen.
+So if you tune your oscillator to C, the buttons correspond to
+B, D, E, G sharp, then E.
+If you activate more than one interval, they add up.
+You can play whole tones from your root note up the scale by binary counting:
+all the way up to 30 semitones, two and a half octaves.
+Remember that the bottom interval drops the pitch by one semitone, so this gives you a fully chromatic range.
+The top interval is adjustable, from half an octave below to one octave above. The full range then is four octaves.
+
+Now we're going to feed it some triggers to do some sequencing!
+Each interval can be activated manually or with an incoming trigger.
+There's a gate output as well as the pitch CV output. The gate goes high when any of the intervals are active.
+
+I'm going to take two triggers out from the Stoicheia, our Euclidean trigger generator.
+One of them makes a simple rhythmic pattern like this:
+The other one sounds like this:
+Together the sound like this:
+You can then play around with the trigger sequences, their start positions, or what intervals they trigger.
+As you can hear there are three tones produced: one for each trigger, and one when they're both on at the same time. There's also the combination of both off, which we hear as a silence!
+For each trigger input we add, we will get twice as many possible combinations. We add one, we get 8 combinations.
+
+You can also easily do sustained notes by feeding in the output from something like a clock divider.
+
+Now I will use a different trigger for the envelope, so instead of triggering from the gate output of Tonic I will trigger directly from a Stoicheia.
+
+
+Tonic which takes a different approach to modular sequencing. Tonic is not a step sequencer, it doesn't have a fixed number of steps or a sequence length. Instead you can feed it any triggers you like and it will give you a tone sequence. 
+It has six trigger inputs, each one representing a musical interval.
+
+-------------------------------------------------------
+
+whole tone steps
+2, 4, 8, 16 semitones
+intevals add up
+binary count to 30
+bottom interval drops a semitone
+
+30 semitones range
+
+-------------------------------------------------------
+
+tuning:
+-1     -0.083V
++2      0.166V
++4	0.333V
++8	0.666V
++16	1.333V
+
+-------------------------------------------------------
+
+ToggleTone
+the LED should only be on when toggle is active
 
 -------------------------------------------------------
