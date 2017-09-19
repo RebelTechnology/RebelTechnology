@@ -11822,7 +11822,7 @@ Based on the following sources:
 <part name="C2" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="47u"/>
 <part name="OUT_CV" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="IN_1" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="V1" library="resistor" deviceset="R-TRIMM" device="64W"/>
+<part name="V1" library="resistor" deviceset="R-TRIMM" device="64W" value="B10k"/>
 <part name="R42" library="Rebel" deviceset="R-EU_" device="0603" value="51k"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
@@ -11846,7 +11846,7 @@ Based on the following sources:
 <part name="C5" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
 <part name="IN_2" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="V2" library="resistor" deviceset="R-TRIMM" device="64W"/>
+<part name="V2" library="resistor" deviceset="R-TRIMM" device="64W" value="B10k"/>
 <part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="51k"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
@@ -11857,7 +11857,7 @@ Based on the following sources:
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="P+1" library="supply1" deviceset="+12V" device=""/>
 <part name="IN_3" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="V3" library="resistor" deviceset="R-TRIMM" device="64W"/>
+<part name="V3" library="resistor" deviceset="R-TRIMM" device="64W" value="B10k"/>
 <part name="R9" library="Rebel" deviceset="R-EU_" device="0603" value="51k"/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
@@ -11868,7 +11868,7 @@ Based on the following sources:
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="+12V" device=""/>
 <part name="IN_4" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="V4" library="resistor" deviceset="R-TRIMM" device="64W"/>
+<part name="V4" library="resistor" deviceset="R-TRIMM" device="64W" value="B10k"/>
 <part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
@@ -11880,7 +11880,7 @@ Based on the following sources:
 <part name="P+3" library="supply1" deviceset="+12V" device=""/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="IN_5" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="V5" library="resistor" deviceset="R-TRIMM" device="64W"/>
+<part name="V5" library="resistor" deviceset="R-TRIMM" device="64W" value="B10k"/>
 <part name="R27" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
@@ -11964,7 +11964,7 @@ Based on the following sources:
 <part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="37k"/>
 <part name="P-2" library="supply1" deviceset="-12V" device=""/>
 <part name="P+12" library="supply1" deviceset="+12V" device=""/>
-<part name="V6" library="resistor" deviceset="R-TRIMM" device="64W"/>
+<part name="V6" library="resistor" deviceset="R-TRIMM" device="64W" value="B10k"/>
 <part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="1M"/>
 </parts>
 <sheets>
