@@ -1,137 +1,84 @@
-#include <stdint.h>
-#include <string.h> // stpncpy
+// g++ Markov.cpp -o markov
+
 #include <strings.h> // strncasecmp
 #include <stdio.h>  // puts
-#include <stdlib.h> // rand
 #include <time.h> // time
+#include "Markov.h"
 
-#define MAX_ENTRIES 256
-#define MAX_ENTRY_SIZE 16
+MarkovChain markov;
 
-class Token {
-public:
-  char* str;
-  size_t len;
-  bool matches(Token* other){
-    return len == other->len && strncasecmp(str, other->str, len) == 0;
-  }
-  void set(char* s, size_t l){
-    str = s;
-    len = l;
-  }
-  void advance(size_t steps, size_t l){
-    str += steps;
-    len = l;
-  }
-};
-
-class Entry : public Token {
-public:
-  Entry* successor[MAX_ENTRY_SIZE];
-  uint16_t count;
-  uint16_t next;
-  void addSuccessor(Entry* other, uint16_t limit){
-    successor[next++] = other;
-    if(next >= MAX_ENTRY_SIZE)
-      next = 0;
-    if(++count >= limit)
-      count = limit;
-  }
-  Entry* getNextEntry(float p){
-    uint16_t index = next - p*count;
-    return successor[index % MAX_ENTRY_SIZE];
-  }
-  void reset(){
-    count = 0;
-  }
-  void set(Token* tok){
-    str = tok->str;
-    len = tok->len;
-  }
-};
-
-class MarkovChain {
-public:
-  Entry entries[MAX_ENTRIES];
-  uint16_t entryCount;
-  // begins with one start entry
-  MarkovChain() : entryCount(1) {}
-    
-  int getMatchingEntry(Token* tok){
-    for(int i=0; i<entryCount; ++i){
-      if(entries[i].matches(tok))
-	return i;
+// generate a phrase that fits in dest with at least @words, ending if possible with a full stop
+int generate(char* dest, int len, int words, float chance){
+  Entry* entry = markov.first();
+  int pos = 0;
+  while(pos < len-12){
+    entry = markov.next(entry, chance);
+    if(!entry->isSeparator()){
+      sprintf(dest+pos++, " ");
     }
-    return -1;
-  }
-
-  Entry* processToken(Token& tok, Entry* prev, uint16_t limit){
-    int i = getMatchingEntry(&tok);
-    if(i < 0 && tok.len > 0 && entryCount < MAX_ENTRIES){
-      // add entry
-      i = entryCount;
-      entries[entryCount++].set(&tok);
+    if(pos + entry->len < len-1){
+      sprintf(dest+pos, "%.*s", entry->len, entry->str);
+      pos += entry->len;
     }
-    if(i >= 0 && prev != NULL){
-      prev->addSuccessor(&entries[i], limit);
-      prev = &entries[i];
-    }
-    return prev;
+    if(words-- <= 1 && entry->isStop())
+      break;
   }
-    
-  void addToken(Token* tok){
-    // add token as new entry if it is not already known    
-    if(tok->len > 0 && entryCount < MAX_ENTRIES && getMatchingEntry(tok) < 0)
-      entries[entryCount++].set(tok);
-  }
-
-  void learn(char* text, uint16_t limit){
-    Entry* prev = &entries[0]; // start entry
-    Token tok;
-    tok.str = text;
-    tok.len = 0;
-    while(tok.str[tok.len] != '\0'){
-      switch(tok.str[tok.len]){
-      case '.':
-      case ',':
-      case ':':
-      case ';':
-	// process word
-	prev = processToken(tok, prev, limit);
-	tok.advance(tok.len, 1);
-	// process delimiter
-	prev = processToken(tok, prev, limit);
-	tok.advance(1, 0);
-	break;
-      case ' ':
-	prev = processToken(tok, prev, limit);
-	tok.advance(tok.len+1, 0);
-	break;
-      default:
-	tok.len++;
-	break;
-      }
-    }
-  }
-
-  void generate(char* str, int words){
-    Entry* ent = &entries[0];
-    while(words--){
-      float p = rand()/RAND_MAX;
-      ent = ent->getNextEntry(p);
-      str = stpncpy(str, ent->str, ent->len);
-    }
-    *str = '\0';
-  }
-};
+  // if(!entry->isSeparator())
+  //   sprintf(dest+pos++, ".");
+  // fill in with up to 6 spaces
+  for(int i=0; i<6 && pos < len; ++i)
+    sprintf(dest+pos++, " ");
+  return pos;
+}
 
 int main(int argc, char** argv){
   srand(time(NULL));
-  // char* text = argv[1];  
-  char* text = (char*)"Now we will see something we could never see, before we could see something at all.";
-  char dest[1024];
-  MarkovChain markov;
-  markov.learn(text, 16);
-  markov.generate(dest, 5);
-  puts(dest);
+  char* text = (char*)
+    "IN THE BEGINNING, GOD CREATED THE HEAVENS AND THE EARTH. THE EARTH WAS WITHOUT FORM AND VOID, AND DARKNESS WAS OVER THE FACE OF THE DEEP. AND THE SPIRIT OF GOD WAS HOVERING OVER THE FACE OF THE WATERS. AND GOD SAID, LET THERE BE LIGHT, AND THERE WAS LIGHT. AND GOD SAW THAT THE LIGHT WAS GOOD. AND GOD SEPARATED THE LIGHT FROM THE DARKNESS. GOD CALLED THE LIGHT DAY, AND THE DARKNESS HE CALLED NIGHT. AND THERE WAS EVENING AND THERE WAS MORNING, THE FIRST DAY."; // 88 words, 460 chars.
+  int words = 88;
+  float chance = 0.0;
+  int limit = 16;
+  if(argc > 1)
+    words = atoi(argv[1]);
+  if(argc > 2)
+    chance = atof(argv[2]);
+  if(argc > 3)
+    limit = atoi(argv[3]);
+  if(argc > 4)
+    text = argv[4];
+  markov.learn(text, limit);
+  int size = 1024*4;
+  char dest[size];
+  
+  generate(dest, size, words, chance);
+  printf("%s", dest);
 }
+
+// int main(int argc, char** argv){
+//   srand(time(NULL));
+//   char* text = (char*)
+//     "IN THE BEGINNING, GOD CREATED THE HEAVENS AND THE EARTH. THE EARTH WAS WITHOUT FORM AND VOID, AND DARKNESS WAS OVER THE FACE OF THE DEEP. AND THE SPIRIT OF GOD WAS HOVERING OVER THE FACE OF THE WATERS. AND GOD SAID, LET THERE BE LIGHT, AND THERE WAS LIGHT. AND GOD SAW THAT THE LIGHT WAS GOOD. AND GOD SEPARATED THE LIGHT FROM THE DARKNESS. GOD CALLED THE LIGHT DAY, AND THE DARKNESS HE CALLED NIGHT. AND THERE WAS EVENING AND THERE WAS MORNING, THE FIRST DAY."; // 88 words, 460 chars.
+//   int words = 88;
+//   float chance = 0.1;
+//   int limit = 16;
+//   if(argc > 1)
+//     words = atoi(argv[1]);
+//   if(argc > 2)
+//     chance = atof(argv[2]);
+//   if(argc > 3)
+//     limit = atoi(argv[3]);
+//   if(argc > 4)
+//     text = argv[4];
+//   MarkovChain markov;
+//   markov.learn(text, limit);
+//   Entry* entry = markov.first();
+//   while(--words){
+//     entry = markov.next(entry, chance);
+//     if(!entry->isSeparator()){
+//       printf(" ");
+//     }
+//     printf("%.*s", entry->len, entry->str);
+//   }
+//   // markov.generate(dest, words, chance);
+//   // puts(dest);
+// }
