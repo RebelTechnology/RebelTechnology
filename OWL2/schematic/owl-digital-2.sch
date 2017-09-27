@@ -15555,6 +15555,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="JP4" gate="G$1" pin="1"/>
 <wire x1="261.62" y1="27.94" x2="261.62" y2="38.1" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="+3V16" gate="G$1" pin="+3V3"/>
+<wire x1="320.04" y1="-15.24" x2="317.5" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="-15.24" x2="317.5" y2="-10.16" width="0.1524" layer="91"/>
+<pinref part="X2" gate="-1" pin="S"/>
+</segment>
 </net>
 <net name="ADC4" class="0">
 <segment>
@@ -16130,14 +16136,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="228.6" y1="106.68" x2="238.76" y2="106.68" width="0.1524" layer="91"/>
 <label x="228.6" y="106.68" size="1.778" layer="95"/>
 <pinref part="IC8" gate="G$3" pin="PD7"/>
-</segment>
-</net>
-<net name="+3.3V" class="1">
-<segment>
-<pinref part="+3V16" gate="G$1" pin="+3V3"/>
-<wire x1="320.04" y1="-15.24" x2="317.5" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="317.5" y1="-15.24" x2="317.5" y2="-10.16" width="0.1524" layer="91"/>
-<pinref part="X2" gate="-1" pin="S"/>
 </segment>
 </net>
 </nets>
