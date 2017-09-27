@@ -13585,7 +13585,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND76" library="supply1" deviceset="GND" device=""/>
 <part name="C409" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="10u"/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="22R"/>
+<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND90" library="supply1" deviceset="GND" device=""/>
 <part name="BOOT" library="SparkFun" deviceset="SOLDERJUMPER" device="NO"/>
 <part name="+3V19" library="supply1" deviceset="+3V3" device=""/>
@@ -14349,8 +14349,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="IC4" gate="CS4271" pin="SDIN"/>
 </segment>
 <segment>
-<wire x1="238.76" y1="109.22" x2="223.52" y2="109.22" width="0.1524" layer="91"/>
-<label x="223.52" y="109.22" size="1.778" layer="95"/>
+<wire x1="238.76" y1="109.22" x2="226.06" y2="109.22" width="0.1524" layer="91"/>
+<label x="226.06" y="109.22" size="1.778" layer="95"/>
 <pinref part="IC8" gate="G$3" pin="PD6"/>
 </segment>
 </net>
@@ -15257,9 +15257,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="170.18" y="187.96" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="91.44" y1="132.08" x2="73.66" y2="132.08" width="0.1524" layer="91"/>
-<label x="76.2" y="132.08" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$1" pin="PA5"/>
+<wire x1="287.02" y1="147.32" x2="269.24" y2="147.32" width="0.1524" layer="91"/>
+<label x="271.78" y="147.32" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$3" pin="PB3"/>
 </segment>
 </net>
 <net name="VA" class="0">
@@ -15598,16 +15598,16 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="76.2" y="116.84" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SWO" class="0">
+<net name="GP11A" class="0">
 <segment>
 <wire x1="248.92" y1="38.1" x2="248.92" y2="27.94" width="0.1524" layer="91"/>
 <label x="248.92" y="27.94" size="1.778" layer="95" rot="R90"/>
 <pinref part="JP4" gate="G$1" pin="6"/>
 </segment>
 <segment>
-<pinref part="IC8" gate="G$3" pin="PB3"/>
-<wire x1="269.24" y1="147.32" x2="276.86" y2="147.32" width="0.1524" layer="91"/>
-<label x="271.78" y="147.32" size="1.778" layer="95"/>
+<wire x1="238.76" y1="88.9" x2="228.6" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="IC8" gate="G$3" pin="PC12"/>
+<label x="228.6" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="USB_ID" class="0">
@@ -15691,9 +15691,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="195.58" y="-10.16" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC8" gate="G$1" pin="PC15"/>
-<wire x1="73.66" y1="101.6" x2="88.9" y2="101.6" width="0.1524" layer="91"/>
-<label x="76.2" y="101.6" size="1.778" layer="95"/>
+<wire x1="73.66" y1="132.08" x2="88.9" y2="132.08" width="0.1524" layer="91"/>
+<label x="76.2" y="132.08" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$1" pin="PA5"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -16133,8 +16133,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="JP13" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<wire x1="228.6" y1="106.68" x2="238.76" y2="106.68" width="0.1524" layer="91"/>
-<label x="228.6" y="106.68" size="1.778" layer="95"/>
+<wire x1="226.06" y1="106.68" x2="238.76" y2="106.68" width="0.1524" layer="91"/>
+<label x="226.06" y="106.68" size="1.778" layer="95"/>
 <pinref part="IC8" gate="G$3" pin="PD7"/>
 </segment>
 </net>
@@ -16144,6 +16144,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <errors>
 <approved hash="104,1,401.32,33.02,IC2,V+,+5V,,,"/>
 <approved hash="104,1,401.32,17.78,IC2,V-,GND,,,"/>
+<approved hash="208,1,220.98,-60.96,+3V3,sup,,,,"/>
+<approved hash="208,1,243.84,-50.8,+3V3,sup,,,,"/>
 <approved hash="208,1,68.58,223.52,+3V3,sup,,,,"/>
 <approved hash="208,1,53.34,218.44,+3V3,out,,,,"/>
 <approved hash="208,1,345.44,165.1,+3V3,sup,,,,"/>
@@ -16169,6 +16171,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <approved hash="208,1,91.44,-45.72,+3V3,sup,,,,"/>
 <approved hash="208,1,99.06,-45.72,+3V3,sup,,,,"/>
 <approved hash="208,1,106.68,-45.72,+3V3,sup,,,,"/>
+<approved hash="208,1,261.62,27.94,+3V3,sup,,,,"/>
+<approved hash="208,1,317.5,-10.16,+3V3,sup,,,,"/>
 <approved hash="113,1,213.555,41.3173,JP1,,,,,"/>
 <approved hash="113,1,232.215,41.3173,JP3,,,,,"/>
 <approved hash="113,1,253.805,41.3173,JP4,,,,,"/>
