@@ -16919,8 +16919,6 @@ Copyright: Würth Elektronik</description>
 <part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="1M"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
-<part name="+3V31" library="supply1" deviceset="+3V3" device=""/>
-<part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="T1" library="transistor" deviceset="BC846" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="D2" library="diode" deviceset="BAT54S" device=""/>
@@ -17145,8 +17143,6 @@ Copyright: Würth Elektronik</description>
 <instance part="R2" gate="G$1" x="-58.42" y="83.82" rot="MR90"/>
 <instance part="GND2" gate="1" x="-58.42" y="73.66" rot="MR0"/>
 <instance part="GND3" gate="1" x="-48.26" y="73.66" rot="MR0"/>
-<instance part="+3V31" gate="G$1" x="-48.26" y="119.38"/>
-<instance part="R4" gate="G$1" x="-48.26" y="109.22" rot="MR90"/>
 <instance part="T1" gate="G$1" x="-50.8" y="91.44"/>
 <instance part="GND1" gate="1" x="-73.66" y="73.66" rot="MR0"/>
 <instance part="D2" gate="G$1" x="322.58" y="116.84" rot="R90"/>
@@ -17190,9 +17186,9 @@ Copyright: Würth Elektronik</description>
 <instance part="SW4" gate="1" x="-33.02" y="228.6"/>
 <instance part="GND7" gate="1" x="-30.48" y="215.9"/>
 <instance part="LED1" gate="G$1" x="50.8" y="96.52" rot="R90"/>
-<instance part="R9" gate="G$1" x="66.04" y="88.9" rot="MR0"/>
-<instance part="R10" gate="G$1" x="66.04" y="96.52" rot="MR0"/>
-<instance part="R11" gate="G$1" x="66.04" y="104.14" rot="MR0"/>
+<instance part="R9" gate="G$1" x="66.04" y="104.14" rot="MR0"/>
+<instance part="R10" gate="G$1" x="66.04" y="88.9" rot="MR0"/>
+<instance part="R11" gate="G$1" x="66.04" y="96.52" rot="MR0"/>
 <instance part="P+8" gate="1" x="43.18" y="101.6" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="40.64" y="104.14" size="1.778" layer="96" rot="MR180"/>
 </instance>
@@ -17599,7 +17595,7 @@ Copyright: Würth Elektronik</description>
 <segment>
 <pinref part="P5" gate="G$1" pin="2"/>
 <wire x1="302.26" y1="17.78" x2="314.96" y2="17.78" width="0.1524" layer="91"/>
-<label x="307.34" y="17.78" size="1.778" layer="95"/>
+<label x="304.8" y="17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC2" class="0">
@@ -17726,23 +17722,16 @@ Copyright: Würth Elektronik</description>
 <junction x="175.26" y="223.52"/>
 </segment>
 </net>
-<net name="TRIG_OUT" class="0">
-<segment>
-<pinref part="JP6" gate="G$1" pin="4"/>
-<wire x1="104.14" y1="15.24" x2="119.38" y2="15.24" width="0.1524" layer="91"/>
-<label x="106.68" y="15.24" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="236.22" y1="-10.16" x2="251.46" y2="-10.16" width="0.1524" layer="91"/>
-<label x="236.22" y="-10.16" size="1.778" layer="95"/>
-<pinref part="R12" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="EXTSPI_MOSI" class="0">
+<net name="EXTSPI_MOSI_ADC5" class="0">
 <segment>
 <pinref part="JP6" gate="G$1" pin="1"/>
 <wire x1="104.14" y1="7.62" x2="119.38" y2="7.62" width="0.1524" layer="91"/>
 <label x="106.68" y="7.62" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="P4" gate="G$1" pin="2"/>
+<wire x1="302.26" y1="-20.32" x2="320.04" y2="-20.32" width="0.1524" layer="91"/>
+<label x="304.8" y="-20.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="EXTSPI_CLK" class="0">
@@ -17771,7 +17760,7 @@ Copyright: Würth Elektronik</description>
 <pinref part="JP13" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="GP10_TRIG" class="0">
+<net name="GP10_TRIG_IN" class="0">
 <segment>
 <wire x1="129.54" y1="40.64" x2="129.54" y2="30.48" width="0.1524" layer="91"/>
 <label x="129.54" y="38.1" size="1.778" layer="95" rot="MR270"/>
@@ -17938,13 +17927,6 @@ Copyright: Würth Elektronik</description>
 <label x="134.62" y="142.24" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GP5_ADC5" class="0">
-<segment>
-<pinref part="P4" gate="G$1" pin="2"/>
-<wire x1="302.26" y1="-20.32" x2="320.04" y2="-20.32" width="0.1524" layer="91"/>
-<label x="307.34" y="-20.32" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="GP4_USART_RX" class="0">
 <segment>
 <pinref part="JP3" gate="G$1" pin="4"/>
@@ -17964,16 +17946,21 @@ Copyright: Würth Elektronik</description>
 <pinref part="JP8" gate="G$1" pin="4"/>
 </segment>
 <segment>
-<wire x1="71.12" y1="104.14" x2="91.44" y2="104.14" width="0.1524" layer="91"/>
-<label x="73.66" y="104.14" size="1.778" layer="95"/>
+<wire x1="71.12" y1="96.52" x2="91.44" y2="96.52" width="0.1524" layer="91"/>
+<label x="73.66" y="96.52" size="1.778" layer="95"/>
 <pinref part="R11" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="GP11" class="0">
+<net name="GP11_TRIG_OUT" class="0">
 <segment>
 <pinref part="JP8" gate="G$1" pin="1"/>
 <wire x1="132.08" y1="40.64" x2="132.08" y2="30.48" width="0.1524" layer="91"/>
 <label x="132.08" y="38.1" size="1.778" layer="95" rot="MR270"/>
+</segment>
+<segment>
+<wire x1="228.6" y1="-10.16" x2="251.46" y2="-10.16" width="0.1524" layer="91"/>
+<label x="228.6" y="-10.16" size="1.778" layer="95"/>
+<pinref part="R12" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="USB_D_ID" class="0">
@@ -18119,8 +18106,8 @@ Copyright: Würth Elektronik</description>
 <label x="106.68" y="0" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="71.12" y1="96.52" x2="91.44" y2="96.52" width="0.1524" layer="91"/>
-<label x="73.66" y="96.52" size="1.778" layer="95"/>
+<wire x1="71.12" y1="88.9" x2="91.44" y2="88.9" width="0.1524" layer="91"/>
+<label x="73.66" y="88.9" size="1.778" layer="95"/>
 <pinref part="R10" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -18131,12 +18118,12 @@ Copyright: Würth Elektronik</description>
 <label x="106.68" y="-2.54" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="71.12" y1="88.9" x2="91.44" y2="88.9" width="0.1524" layer="91"/>
-<label x="73.66" y="88.9" size="1.778" layer="95"/>
+<wire x1="71.12" y1="104.14" x2="91.44" y2="104.14" width="0.1524" layer="91"/>
+<label x="73.66" y="104.14" size="1.778" layer="95"/>
 <pinref part="R9" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="GP6_TRIG" class="0">
+<net name="GP6_TRIG_IN" class="0">
 <segment>
 <wire x1="104.14" y1="-17.78" x2="119.38" y2="-17.78" width="0.1524" layer="91"/>
 <label x="106.68" y="-17.78" size="1.778" layer="95"/>
@@ -18153,7 +18140,7 @@ Copyright: Würth Elektronik</description>
 <junction x="-30.48" y="203.2"/>
 </segment>
 </net>
-<net name="GP7_TRIG" class="0">
+<net name="GP7_TRIG_IN" class="0">
 <segment>
 <wire x1="119.38" y1="-20.32" x2="104.14" y2="-20.32" width="0.1524" layer="91"/>
 <label x="106.68" y="-20.32" size="1.778" layer="95"/>
@@ -18202,11 +18189,6 @@ Copyright: Würth Elektronik</description>
 <pinref part="P4" gate="G$1" pin="3"/>
 <pinref part="+3V37" gate="G$1" pin="+3V3"/>
 <wire x1="297.18" y1="-7.62" x2="297.18" y2="-12.7" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="+3V31" gate="G$1" pin="+3V3"/>
-<pinref part="R4" gate="G$1" pin="2"/>
-<wire x1="-48.26" y1="114.3" x2="-48.26" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="D2" gate="G$1" pin="C2"/>
@@ -18347,7 +18329,7 @@ Copyright: Würth Elektronik</description>
 <label x="279.4" y="233.68" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GP8_TRIG" class="0">
+<net name="GP8_TRIG_IN" class="0">
 <segment>
 <wire x1="121.92" y1="40.64" x2="121.92" y2="30.48" width="0.1524" layer="91"/>
 <label x="121.92" y="38.1" size="1.778" layer="95" rot="MR270"/>
@@ -18362,11 +18344,8 @@ Copyright: Würth Elektronik</description>
 <junction x="-33.02" y="99.06"/>
 <wire x1="-48.26" y1="99.06" x2="-33.02" y2="99.06" width="0.1524" layer="91"/>
 <label x="-27.94" y="99.06" size="1.778" layer="95"/>
-<pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="-48.26" y1="104.14" x2="-48.26" y2="99.06" width="0.1524" layer="91"/>
 <pinref part="T1" gate="G$1" pin="C"/>
 <wire x1="-48.26" y1="99.06" x2="-48.26" y2="96.52" width="0.1524" layer="91"/>
-<junction x="-48.26" y="99.06"/>
 <wire x1="-30.48" y1="99.06" x2="-15.24" y2="99.06" width="0.1524" layer="91"/>
 <junction x="-30.48" y="99.06"/>
 </segment>
@@ -18547,15 +18526,8 @@ Copyright: Würth Elektronik</description>
 <pinref part="LED1" gate="G$1" pin="CGREEN"/>
 <wire x1="55.88" y1="101.6" x2="58.42" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="101.6" x2="58.42" y2="104.14" width="0.1524" layer="91"/>
-<pinref part="R11" gate="G$1" pin="2"/>
-<wire x1="58.42" y1="104.14" x2="60.96" y2="104.14" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$16" class="0">
-<segment>
-<pinref part="LED1" gate="G$1" pin="CBLUE"/>
-<pinref part="R10" gate="G$1" pin="2"/>
-<wire x1="55.88" y1="96.52" x2="60.96" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="R9" gate="G$1" pin="2"/>
+<wire x1="60.96" y1="104.14" x2="58.42" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$17" class="0">
@@ -18563,7 +18535,7 @@ Copyright: Würth Elektronik</description>
 <pinref part="LED1" gate="G$1" pin="CRED"/>
 <wire x1="55.88" y1="91.44" x2="58.42" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="91.44" x2="58.42" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="R9" gate="G$1" pin="2"/>
+<pinref part="R10" gate="G$1" pin="2"/>
 <wire x1="60.96" y1="88.9" x2="58.42" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -18599,13 +18571,6 @@ Copyright: Würth Elektronik</description>
 <wire x1="266.7" y1="45.72" x2="261.62" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="DAC2" class="0">
-<segment>
-<pinref part="R17" gate="G$1" pin="2"/>
-<wire x1="251.46" y1="17.78" x2="236.22" y2="17.78" width="0.1524" layer="91"/>
-<label x="236.22" y="17.78" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="GP5_DAC1" class="0">
 <segment>
 <pinref part="JP3" gate="G$1" pin="5"/>
@@ -18616,6 +18581,25 @@ Copyright: Würth Elektronik</description>
 <pinref part="R18" gate="G$1" pin="2"/>
 <wire x1="251.46" y1="45.72" x2="236.22" y2="45.72" width="0.1524" layer="91"/>
 <label x="236.22" y="45.72" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="EXTSPI_CS_DAC2" class="0">
+<segment>
+<pinref part="JP6" gate="G$1" pin="4"/>
+<wire x1="104.14" y1="15.24" x2="119.38" y2="15.24" width="0.1524" layer="91"/>
+<label x="106.68" y="15.24" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R17" gate="G$1" pin="2"/>
+<wire x1="251.46" y1="17.78" x2="228.6" y2="17.78" width="0.1524" layer="91"/>
+<label x="228.6" y="17.78" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$16" class="0">
+<segment>
+<pinref part="R11" gate="G$1" pin="2"/>
+<pinref part="LED1" gate="G$1" pin="CBLUE"/>
+<wire x1="60.96" y1="96.52" x2="55.88" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
