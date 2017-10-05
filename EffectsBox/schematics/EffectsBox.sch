@@ -23767,13 +23767,11 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="SW7" library="Rebel" deviceset="KS01-BL" device=""/>
 <part name="SW8" library="Rebel" deviceset="KS01-BL" device=""/>
 <part name="P5" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
-<part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="P6" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="+3V8" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="P7" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
-<part name="+3V9" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="S2" library="Rebel" deviceset="SWITCH-SPST" device=""/>
 </parts>
@@ -23982,9 +23980,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="SW7" gate="G$1" x="208.28" y="-106.68"/>
 <instance part="SW8" gate="G$1" x="208.28" y="-129.54"/>
 <instance part="P5" gate="G$1" x="391.16" y="193.04" rot="R90"/>
-<instance part="+3V4" gate="G$1" x="391.16" y="205.74" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="391.16" y="208.28" size="1.778" layer="96" rot="MR180"/>
-</instance>
 <instance part="GND1" gate="1" x="391.16" y="180.34"/>
 <instance part="P6" gate="G$1" x="391.16" y="160.02" rot="R90"/>
 <instance part="+3V8" gate="G$1" x="391.16" y="172.72" smashed="yes" rot="MR0">
@@ -23992,9 +23987,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </instance>
 <instance part="GND10" gate="1" x="391.16" y="147.32"/>
 <instance part="P7" gate="G$1" x="391.16" y="127" rot="R90"/>
-<instance part="+3V9" gate="G$1" x="391.16" y="139.7" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="391.16" y="142.24" size="1.778" layer="96" rot="MR180"/>
-</instance>
 <instance part="GND11" gate="1" x="391.16" y="114.3"/>
 <instance part="S2" gate="1" x="93.98" y="-170.18"/>
 </instances>
@@ -24932,19 +24924,9 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="342.9" y1="104.14" x2="342.9" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="P5" gate="G$1" pin="3"/>
-<pinref part="+3V4" gate="G$1" pin="+3V3"/>
-<wire x1="391.16" y1="203.2" x2="391.16" y2="200.66" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="P6" gate="G$1" pin="3"/>
 <pinref part="+3V8" gate="G$1" pin="+3V3"/>
 <wire x1="391.16" y1="170.18" x2="391.16" y2="167.64" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="P7" gate="G$1" pin="3"/>
-<pinref part="+3V9" gate="G$1" pin="+3V3"/>
-<wire x1="391.16" y1="137.16" x2="391.16" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GP9_CLK" class="0">
@@ -24956,23 +24938,21 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </net>
 <net name="ADC5" class="0">
 <segment>
-<label x="403.86" y="193.04" size="1.778" layer="95"/>
-<wire x1="396.24" y1="193.04" x2="411.48" y2="193.04" width="0.1524" layer="91"/>
-<pinref part="P5" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="ADC6" class="0">
-<segment>
 <label x="403.86" y="160.02" size="1.778" layer="95"/>
 <wire x1="396.24" y1="160.02" x2="411.48" y2="160.02" width="0.1524" layer="91"/>
 <pinref part="P6" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="ADC7" class="0">
+<net name="N$3" class="0">
 <segment>
-<label x="403.86" y="127" size="1.778" layer="95"/>
-<wire x1="396.24" y1="127" x2="411.48" y2="127" width="0.1524" layer="91"/>
-<pinref part="P7" gate="G$1" pin="2"/>
+<pinref part="P5" gate="G$1" pin="3"/>
+<wire x1="391.16" y1="203.2" x2="391.16" y2="200.66" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="P7" gate="G$1" pin="3"/>
+<wire x1="391.16" y1="137.16" x2="391.16" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
