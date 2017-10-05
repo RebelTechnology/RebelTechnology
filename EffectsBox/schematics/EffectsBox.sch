@@ -23989,6 +23989,12 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="P7" gate="G$1" x="391.16" y="127" rot="R90"/>
 <instance part="GND11" gate="1" x="391.16" y="114.3"/>
 <instance part="S2" gate="1" x="93.98" y="-170.18"/>
+<instance part="SW3" gate="G$2" x="144.78" y="-106.68"/>
+<instance part="SW4" gate="G$2" x="144.78" y="-129.54"/>
+<instance part="SW5" gate="G$2" x="180.34" y="-106.68"/>
+<instance part="SW6" gate="G$2" x="180.34" y="-129.54"/>
+<instance part="SW7" gate="G$2" x="213.36" y="-106.68"/>
+<instance part="SW8" gate="G$2" x="213.36" y="-129.54"/>
 </instances>
 <busses>
 </busses>
