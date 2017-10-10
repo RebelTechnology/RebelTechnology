@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.7.0">
+<eagle version="8.3.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
@@ -15092,7 +15093,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="1K" library="Rebel" deviceset="R-EU_" device="0603" value="1k">
+<part name="R126" library="Rebel" deviceset="R-EU_" device="0603" value="1k">
 <attribute name="MF" value="MULTICOMP"/>
 <attribute name="MPN" value="MC0063W06031160K"/>
 <attribute name="OC_FARNELL" value="9330682"/>
@@ -15143,7 +15144,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="140K" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R123" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
@@ -15195,7 +15196,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="140K1" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R127" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
@@ -15427,7 +15428,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="1K1" library="Rebel" deviceset="R-EU_" device="0603" value="1k">
+<part name="R115" library="Rebel" deviceset="R-EU_" device="0603" value="1k">
 <attribute name="MF" value="MULTICOMP"/>
 <attribute name="MPN" value="MC0063W06031160K"/>
 <attribute name="OC_FARNELL" value="9330682"/>
@@ -15567,7 +15568,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="140K2" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R124" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
@@ -15609,7 +15610,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="140K3" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
+<part name="R125" library="Rebel" deviceset="R-EU_" device="0603" value="100k">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
@@ -15984,7 +15985,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <attribute name="MF" x="28.956" y="-259.08" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="28.956" y="-259.08" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="1K" gate="G$1" x="66.548" y="-271.78">
+<instance part="R126" gate="G$1" x="66.548" y="-271.78">
 <attribute name="OC_FARNELL" x="66.548" y="-271.78" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MF" x="66.548" y="-271.78" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="66.548" y="-271.78" size="1.778" layer="96" rot="R90" display="off"/>
@@ -16118,7 +16119,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <attribute name="MF" x="473.964" y="-264.16" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="473.964" y="-264.16" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="1K1" gate="G$1" x="511.048" y="-276.86">
+<instance part="R115" gate="G$1" x="511.048" y="-276.86">
 <attribute name="OC_FARNELL" x="511.048" y="-276.86" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MF" x="511.048" y="-276.86" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="511.048" y="-276.86" size="1.778" layer="96" rot="R90" display="off"/>
@@ -16567,7 +16568,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 </net>
 <net name="OUT_A" class="0">
 <segment>
-<pinref part="1K" gate="G$1" pin="2"/>
+<pinref part="R126" gate="G$1" pin="2"/>
 <wire x1="71.628" y1="-271.78" x2="78.232" y2="-271.78" width="0.1524" layer="91"/>
 <label x="78.486" y="-271.78" size="1.778" layer="95"/>
 </segment>
@@ -16933,7 +16934,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <pinref part="R28" gate="G$1" pin="2"/>
 <wire x1="51.054" y1="-259.08" x2="34.036" y2="-259.08" width="0.1524" layer="91"/>
 <wire x1="51.054" y1="-271.78" x2="61.468" y2="-271.78" width="0.1524" layer="91"/>
-<pinref part="1K" gate="G$1" pin="1"/>
+<pinref part="R126" gate="G$1" pin="1"/>
 <junction x="51.054" y="-271.78"/>
 </segment>
 </net>
@@ -17090,7 +17091,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <pinref part="R67" gate="G$1" pin="2"/>
 <wire x1="495.554" y1="-264.16" x2="479.044" y2="-264.16" width="0.1524" layer="91"/>
 <wire x1="495.554" y1="-276.86" x2="505.968" y2="-276.86" width="0.1524" layer="91"/>
-<pinref part="1K1" gate="G$1" pin="1"/>
+<pinref part="R115" gate="G$1" pin="1"/>
 <junction x="495.554" y="-276.86"/>
 </segment>
 </net>
@@ -17164,7 +17165,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 </net>
 <net name="OUT_B" class="0">
 <segment>
-<pinref part="1K1" gate="G$1" pin="2"/>
+<pinref part="R115" gate="G$1" pin="2"/>
 <wire x1="516.128" y1="-276.86" x2="522.732" y2="-276.86" width="0.1524" layer="91"/>
 <label x="522.986" y="-276.86" size="1.778" layer="95"/>
 </segment>
@@ -18376,7 +18377,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <attribute name="MF" x="142.24" y="93.98" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="142.24" y="93.98" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="140K1" gate="G$1" x="142.24" y="71.12" rot="R90">
+<instance part="R127" gate="G$1" x="142.24" y="71.12" rot="R90">
 <attribute name="OC_FARNELL" x="142.24" y="71.12" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MF" x="142.24" y="71.12" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="142.24" y="71.12" size="1.778" layer="96" rot="R90" display="off"/>
@@ -18423,7 +18424,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <attribute name="MF" x="127" y="-12.7" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="127" y="-12.7" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="140K" gate="G$1" x="127" y="-35.56" rot="R90">
+<instance part="R123" gate="G$1" x="127" y="-35.56" rot="R90">
 <attribute name="OC_FARNELL" x="127" y="-35.56" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MF" x="127" y="-35.56" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="127" y="-35.56" size="1.778" layer="96" rot="R90" display="off"/>
@@ -18492,7 +18493,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <attribute name="MF" x="403.86" y="96.52" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="403.86" y="96.52" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="140K3" gate="G$1" x="403.86" y="73.66" rot="R90">
+<instance part="R125" gate="G$1" x="403.86" y="73.66" rot="R90">
 <attribute name="OC_FARNELL" x="403.86" y="73.66" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MF" x="403.86" y="73.66" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="403.86" y="73.66" size="1.778" layer="96" rot="R90" display="off"/>
@@ -18534,7 +18535,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <attribute name="MF" x="388.62" y="-10.16" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="388.62" y="-10.16" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="140K2" gate="G$1" x="388.62" y="-33.02" rot="R90">
+<instance part="R124" gate="G$1" x="388.62" y="-33.02" rot="R90">
 <attribute name="OC_FARNELL" x="388.62" y="-33.02" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MF" x="388.62" y="-33.02" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="388.62" y="-33.02" size="1.778" layer="96" rot="R90" display="off"/>
@@ -18587,7 +18588,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 </segment>
 <segment>
 <pinref part="GND22" gate="1" pin="GND"/>
-<pinref part="140K1" gate="G$1" pin="1"/>
+<pinref part="R127" gate="G$1" pin="1"/>
 <wire x1="142.24" y1="60.96" x2="142.24" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -18597,7 +18598,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 </segment>
 <segment>
 <pinref part="GND14" gate="1" pin="GND"/>
-<pinref part="140K" gate="G$1" pin="1"/>
+<pinref part="R123" gate="G$1" pin="1"/>
 <wire x1="127" y1="-45.72" x2="127" y2="-40.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -18622,7 +18623,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 </segment>
 <segment>
 <pinref part="GND37" gate="1" pin="GND"/>
-<pinref part="140K3" gate="G$1" pin="1"/>
+<pinref part="R125" gate="G$1" pin="1"/>
 <wire x1="403.86" y1="63.5" x2="403.86" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -18632,7 +18633,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 </segment>
 <segment>
 <pinref part="GND35" gate="1" pin="GND"/>
-<pinref part="140K2" gate="G$1" pin="1"/>
+<pinref part="R124" gate="G$1" pin="1"/>
 <wire x1="388.62" y1="-43.18" x2="388.62" y2="-38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -18719,7 +18720,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <wire x1="152.4" y1="81.28" x2="142.24" y2="81.28" width="0.1524" layer="91"/>
 <pinref part="R61" gate="G$1" pin="1"/>
 <wire x1="142.24" y1="81.28" x2="142.24" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="140K1" gate="G$1" pin="2"/>
+<pinref part="R127" gate="G$1" pin="2"/>
 <wire x1="142.24" y1="76.2" x2="142.24" y2="81.28" width="0.1524" layer="91"/>
 <junction x="142.24" y="81.28"/>
 </segment>
@@ -18805,7 +18806,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <wire x1="137.16" y1="-25.4" x2="127" y2="-25.4" width="0.1524" layer="91"/>
 <pinref part="R37" gate="G$1" pin="1"/>
 <wire x1="127" y1="-25.4" x2="127" y2="-17.78" width="0.1524" layer="91"/>
-<pinref part="140K" gate="G$1" pin="2"/>
+<pinref part="R123" gate="G$1" pin="2"/>
 <wire x1="127" y1="-30.48" x2="127" y2="-25.4" width="0.1524" layer="91"/>
 <junction x="127" y="-25.4"/>
 </segment>
@@ -18908,7 +18909,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <wire x1="414.02" y1="83.82" x2="403.86" y2="83.82" width="0.1524" layer="91"/>
 <pinref part="R91" gate="G$1" pin="1"/>
 <wire x1="403.86" y1="83.82" x2="403.86" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="140K3" gate="G$1" pin="2"/>
+<pinref part="R125" gate="G$1" pin="2"/>
 <wire x1="403.86" y1="78.74" x2="403.86" y2="83.82" width="0.1524" layer="91"/>
 <junction x="403.86" y="83.82"/>
 </segment>
@@ -18956,7 +18957,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <wire x1="398.78" y1="-22.86" x2="388.62" y2="-22.86" width="0.1524" layer="91"/>
 <pinref part="R86" gate="G$1" pin="1"/>
 <wire x1="388.62" y1="-22.86" x2="388.62" y2="-15.24" width="0.1524" layer="91"/>
-<pinref part="140K2" gate="G$1" pin="2"/>
+<pinref part="R124" gate="G$1" pin="2"/>
 <wire x1="388.62" y1="-27.94" x2="388.62" y2="-22.86" width="0.1524" layer="91"/>
 <junction x="388.62" y="-22.86"/>
 </segment>
