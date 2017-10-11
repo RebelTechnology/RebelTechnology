@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -169,7 +169,7 @@
 <wire x1="59.6" y1="55.94" x2="0" y2="55.94" width="0.0254" layer="20"/>
 <wire x1="0" y1="55.94" x2="0" y2="0" width="0.0254" layer="20"/>
 <text x="59.2075" y="38.65" size="1.6764" layer="22" font="vector" rot="MR270">Rebel Technology</text>
-<text x="57.045" y="45.1" size="1.6764" layer="22" font="vector" rot="MR270">OWL Digital mk2 Rev03</text>
+<text x="57.045" y="45.1" size="1.6764" layer="22" font="vector" rot="MR270">OWL Digital mk2 Rev04</text>
 <text x="57.38" y="38.375" size="1.6764" layer="21" font="vector" rot="SR270">Rebel Technology</text>
 <text x="55.475" y="38.38" size="1.4224" layer="21" font="vector" rot="SR270">OWL Digital mk2</text>
 <wire x1="15.621" y1="17.526" x2="15.621" y2="12.954" width="0.254" layer="21"/>
@@ -1836,6 +1836,9 @@ design rules under a new name.
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="50mil"/>
+<param name="AutoGrid" value="1"/>
+<param name="Efforts" value="0"/>
+<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>
