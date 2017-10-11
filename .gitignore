@@ -29,7 +29,35 @@
 *.l#8
 *.l#9
 
+*.b##
+*.s##
+
+*.GBL
+*.GBO
+*.GBP
+*.GBS
+*.GML
+*.GTL
+*.GTO
+*.GTP
+*.GTS
+*.TXT
+*.GL[234567]
+*.dri
+*.gpi
+*.pro
+
 *.crf
+
+*.zip
+
+*~
+\#*\#
+
+*.o
+*.d
+*.dep
+*.lck
 
 Expander/firmware Keil/MDK-ARM/Expander/Expander_Expander.dep
 Expander/firmware/Drivers
@@ -43,11 +71,5 @@ Player/firmware/Drivers
 Player/firmware/Middlewares
 
 
-
-
-
-*.o
-*.dep
-*.lck
 BalancedIO/drawings/Jacks.svg
 VCAMatrix/schematics/VCAMatrix.brd
