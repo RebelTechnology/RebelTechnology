@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -17004,6 +17004,7 @@ Copyright: Würth Elektronik</description>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="U2" library="Rebel" deviceset="REG_S9V11F5" device=""/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
+<part name="GND19" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -17174,7 +17175,7 @@ Copyright: Würth Elektronik</description>
 <instance part="GND4" gate="1" x="-45.72" y="40.64"/>
 <instance part="GND11" gate="1" x="-10.16" y="40.64"/>
 <instance part="D1" gate="G$1" x="124.46" y="96.52"/>
-<instance part="J7" gate="G$1" x="-33.02" y="27.94" rot="R180"/>
+<instance part="J7" gate="G$1" x="-50.8" y="17.78"/>
 <instance part="SUPPLY2" gate="G$1" x="-40.64" y="30.48"/>
 <instance part="GND5" gate="1" x="-40.64" y="15.24"/>
 <instance part="J2" gate="G$1" x="-81.28" y="88.9" rot="MR0"/>
@@ -17240,6 +17241,7 @@ Copyright: Würth Elektronik</description>
 <instance part="GND17" gate="1" x="264.16" y="35.56" rot="MR0"/>
 <instance part="U2" gate="G$1" x="157.48" y="96.52"/>
 <instance part="GND18" gate="1" x="167.64" y="81.28"/>
+<instance part="GND19" gate="1" x="175.26" y="-40.64"/>
 </instances>
 <busses>
 </busses>
@@ -17450,12 +17452,6 @@ Copyright: Würth Elektronik</description>
 <junction x="-30.48" y="116.84"/>
 </segment>
 <segment>
-<pinref part="J7" gate="G$1" pin="PWR"/>
-<pinref part="GND5" gate="1" pin="GND"/>
-<wire x1="-35.56" y1="20.32" x2="-40.64" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="-40.64" y1="20.32" x2="-40.64" y2="17.78" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="R2" gate="G$1" pin="1"/>
 <pinref part="GND2" gate="1" pin="GND"/>
 <wire x1="-58.42" y1="76.2" x2="-58.42" y2="78.74" width="0.1524" layer="91"/>
@@ -17559,6 +17555,27 @@ Copyright: Würth Elektronik</description>
 <pinref part="GND18" gate="1" pin="GND"/>
 <pinref part="U2" gate="G$1" pin="GND"/>
 <wire x1="167.64" y1="83.82" x2="167.64" y2="86.36" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JP11" gate="G$1" pin="6"/>
+<pinref part="GND19" gate="1" pin="GND"/>
+<wire x1="175.26" y1="-25.4" x2="175.26" y2="-38.1" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="J7" gate="G$1" pin="GND"/>
+<pinref part="GND5" gate="1" pin="GND"/>
+<wire x1="-48.26" y1="20.32" x2="-40.64" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="-40.64" y1="20.32" x2="-40.64" y2="17.78" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="J4" gate="G$1" pin="4"/>
+<wire x1="266.7" y1="43.18" x2="264.16" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="264.16" y1="43.18" x2="264.16" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="J4" gate="G$1" pin="5"/>
+<wire x1="264.16" y1="40.64" x2="266.7" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="264.16" y1="38.1" x2="264.16" y2="40.64" width="0.1524" layer="91"/>
+<junction x="264.16" y="40.64"/>
+<pinref part="GND17" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -18346,24 +18363,10 @@ Copyright: Würth Elektronik</description>
 <wire x1="119.38" y1="96.52" x2="119.38" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="J7" gate="G$1" pin="GND"/>
-<wire x1="-40.64" y1="25.4" x2="-35.56" y2="25.4" width="0.1524" layer="91"/>
 <pinref part="SUPPLY2" gate="G$1" pin="+9V"/>
 <wire x1="-40.64" y1="25.4" x2="-40.64" y2="27.94" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="SW_OUT_L" class="0">
-<segment>
-<pinref part="X2" gate="G$1" pin="5"/>
-<wire x1="299.72" y1="236.22" x2="276.86" y2="236.22" width="0.1524" layer="91"/>
-<label x="279.4" y="236.22" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SW_OUT_R" class="0">
-<segment>
-<pinref part="X2" gate="G$1" pin="4"/>
-<wire x1="299.72" y1="233.68" x2="276.86" y2="233.68" width="0.1524" layer="91"/>
-<label x="279.4" y="233.68" size="1.778" layer="95"/>
+<pinref part="J7" gate="G$1" pin="PWR"/>
+<wire x1="-40.64" y1="25.4" x2="-48.26" y2="25.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GP8_TRIG_IN" class="0">
@@ -18577,17 +18580,6 @@ Copyright: Würth Elektronik</description>
 <wire x1="266.7" y1="-10.16" x2="261.62" y2="-10.16" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$18" class="0">
-<segment>
-<pinref part="J4" gate="G$1" pin="4"/>
-<wire x1="266.7" y1="43.18" x2="264.16" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="264.16" y1="43.18" x2="264.16" y2="40.64" width="0.1524" layer="91"/>
-<pinref part="J4" gate="G$1" pin="5"/>
-<wire x1="264.16" y1="40.64" x2="266.7" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="264.16" y1="38.1" x2="264.16" y2="40.64" width="0.1524" layer="91"/>
-<junction x="264.16" y="40.64"/>
-</segment>
-</net>
 <net name="N$20" class="0">
 <segment>
 <pinref part="J6" gate="G$1" pin="3"/>
@@ -18641,12 +18633,7 @@ Copyright: Würth Elektronik</description>
 <errors>
 <approved hash="106,1,165.1,-25.4,CS_VQ1,,,,,"/>
 <approved hash="106,1,104.14,12.7,EXTSPI_CLK,,,,,"/>
-<approved hash="106,1,104.14,15.24,EXTSPI_CS,,,,,"/>
 <approved hash="106,1,104.14,10.16,EXTSPI_MISO,,,,,"/>
-<approved hash="106,1,104.14,7.62,EXTSPI_MOSI,,,,,"/>
-<approved hash="106,1,104.14,-10.16,GP5,,,,,"/>
-<approved hash="106,1,129.54,40.64,GP10,,,,,"/>
-<approved hash="106,1,132.08,40.64,GP11,,,,,"/>
 </errors>
 </schematic>
 </drawing>
