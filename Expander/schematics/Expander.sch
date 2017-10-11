@@ -12226,17 +12226,17 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <instance part="LED15" gate="G$1" x="-71.12" y="-15.24"/>
 <instance part="LED16" gate="G$1" x="-76.2" y="-25.4"/>
 <instance part="P+8" gate="1" x="-116.84" y="0"/>
-<instance part="JP6" gate="A" x="22.86" y="-12.7"/>
-<instance part="JP7" gate="A" x="22.86" y="-33.02"/>
+<instance part="JP6" gate="A" x="22.86" y="12.7"/>
+<instance part="JP7" gate="A" x="22.86" y="-7.62"/>
 <instance part="JP8" gate="A" x="22.86" y="-53.34"/>
 <instance part="JP9" gate="A" x="22.86" y="-73.66"/>
-<instance part="JP10" gate="A" x="60.96" y="-12.7"/>
-<instance part="JP11" gate="A" x="60.96" y="-33.02"/>
+<instance part="JP10" gate="A" x="60.96" y="12.7"/>
+<instance part="JP11" gate="A" x="60.96" y="-7.62"/>
 <instance part="JP12" gate="A" x="60.96" y="-53.34"/>
 <instance part="JP13" gate="A" x="60.96" y="-73.66"/>
-<instance part="JP14" gate="A" x="91.44" y="-12.7"/>
-<instance part="P+5" gate="1" x="81.28" y="0"/>
-<instance part="GND63" gate="1" x="81.28" y="-22.86"/>
+<instance part="JP14" gate="A" x="22.86" y="-30.48"/>
+<instance part="P+5" gate="1" x="12.7" y="-17.78"/>
+<instance part="GND63" gate="1" x="12.7" y="-40.64"/>
 </instances>
 <busses>
 </busses>
@@ -12311,12 +12311,12 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <segment>
 <pinref part="JP14" gate="A" pin="2"/>
 <pinref part="P+5" gate="1" pin="+12V"/>
-<wire x1="88.9" y1="-10.16" x2="81.28" y2="-10.16" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="-10.16" x2="81.28" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="-27.94" x2="12.7" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="-27.94" x2="12.7" y2="-25.4" width="0.1524" layer="91"/>
 <pinref part="JP14" gate="A" pin="1"/>
-<wire x1="81.28" y1="-7.62" x2="81.28" y2="-2.54" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="-7.62" x2="81.28" y2="-7.62" width="0.1524" layer="91"/>
-<junction x="81.28" y="-7.62"/>
+<wire x1="12.7" y1="-25.4" x2="12.7" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="-25.4" x2="12.7" y2="-25.4" width="0.1524" layer="91"/>
+<junction x="12.7" y="-25.4"/>
 </segment>
 </net>
 <net name="TOP_GND" class="0">
@@ -12419,12 +12419,12 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <segment>
 <pinref part="JP14" gate="A" pin="4"/>
 <pinref part="GND63" gate="1" pin="GND"/>
-<wire x1="88.9" y1="-15.24" x2="81.28" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="-15.24" x2="81.28" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="-33.02" x2="12.7" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="-33.02" x2="12.7" y2="-38.1" width="0.1524" layer="91"/>
 <pinref part="JP14" gate="A" pin="3"/>
-<wire x1="88.9" y1="-12.7" x2="81.28" y2="-12.7" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="-12.7" x2="81.28" y2="-15.24" width="0.1524" layer="91"/>
-<junction x="81.28" y="-15.24"/>
+<wire x1="20.32" y1="-30.48" x2="12.7" y2="-30.48" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="-30.48" x2="12.7" y2="-33.02" width="0.1524" layer="91"/>
+<junction x="12.7" y="-33.02"/>
 </segment>
 </net>
 <net name="TOP_P1" class="0">
@@ -12435,8 +12435,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 </segment>
 <segment>
 <pinref part="JP6" gate="A" pin="1"/>
-<wire x1="20.32" y1="-7.62" x2="-5.08" y2="-7.62" width="0.1524" layer="91"/>
-<label x="-5.08" y="-7.62" size="1.778" layer="95"/>
+<wire x1="20.32" y1="17.78" x2="-5.08" y2="17.78" width="0.1524" layer="91"/>
+<label x="-5.08" y="17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TOP_P2" class="0">
@@ -12447,8 +12447,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 </segment>
 <segment>
 <pinref part="JP6" gate="A" pin="3"/>
-<wire x1="20.32" y1="-12.7" x2="-5.08" y2="-12.7" width="0.1524" layer="91"/>
-<label x="-5.08" y="-12.7" size="1.778" layer="95"/>
+<wire x1="20.32" y1="12.7" x2="-5.08" y2="12.7" width="0.1524" layer="91"/>
+<label x="-5.08" y="12.7" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TOP_P3" class="0">
@@ -12459,8 +12459,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 </segment>
 <segment>
 <pinref part="JP7" gate="A" pin="1"/>
-<wire x1="20.32" y1="-27.94" x2="-5.08" y2="-27.94" width="0.1524" layer="91"/>
-<label x="-5.08" y="-27.94" size="1.778" layer="95"/>
+<wire x1="20.32" y1="-2.54" x2="-5.08" y2="-2.54" width="0.1524" layer="91"/>
+<label x="-5.08" y="-2.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TOP_P4" class="0">
@@ -12471,8 +12471,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 </segment>
 <segment>
 <pinref part="JP7" gate="A" pin="3"/>
-<wire x1="20.32" y1="-33.02" x2="-5.08" y2="-33.02" width="0.1524" layer="91"/>
-<label x="-5.08" y="-33.02" size="1.778" layer="95"/>
+<wire x1="20.32" y1="-7.62" x2="-5.08" y2="-7.62" width="0.1524" layer="91"/>
+<label x="-5.08" y="-7.62" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TOP_P5" class="0">
@@ -12531,8 +12531,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 </segment>
 <segment>
 <pinref part="JP10" gate="A" pin="1"/>
-<wire x1="58.42" y1="-7.62" x2="38.1" y2="-7.62" width="0.1524" layer="91"/>
-<label x="38.1" y="-7.62" size="1.778" layer="95"/>
+<wire x1="58.42" y1="17.78" x2="38.1" y2="17.78" width="0.1524" layer="91"/>
+<label x="38.1" y="17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TOP_P10" class="0">
@@ -12543,8 +12543,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 </segment>
 <segment>
 <pinref part="JP10" gate="A" pin="3"/>
-<wire x1="58.42" y1="-12.7" x2="38.1" y2="-12.7" width="0.1524" layer="91"/>
-<label x="38.1" y="-12.7" size="1.778" layer="95"/>
+<wire x1="58.42" y1="12.7" x2="38.1" y2="12.7" width="0.1524" layer="91"/>
+<label x="38.1" y="12.7" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TOP_P11" class="0">
@@ -12555,8 +12555,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 </segment>
 <segment>
 <pinref part="JP11" gate="A" pin="1"/>
-<wire x1="58.42" y1="-27.94" x2="38.1" y2="-27.94" width="0.1524" layer="91"/>
-<label x="38.1" y="-27.94" size="1.778" layer="95"/>
+<wire x1="58.42" y1="-2.54" x2="38.1" y2="-2.54" width="0.1524" layer="91"/>
+<label x="38.1" y="-2.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TOP_P12" class="0">
@@ -12567,8 +12567,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 </segment>
 <segment>
 <pinref part="JP11" gate="A" pin="3"/>
-<wire x1="58.42" y1="-33.02" x2="38.1" y2="-33.02" width="0.1524" layer="91"/>
-<label x="38.1" y="-33.02" size="1.778" layer="95"/>
+<wire x1="58.42" y1="-7.62" x2="38.1" y2="-7.62" width="0.1524" layer="91"/>
+<label x="38.1" y="-7.62" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TOP_P13" class="0">
@@ -12628,8 +12628,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 </segment>
 <segment>
 <pinref part="JP6" gate="A" pin="2"/>
-<wire x1="20.32" y1="-10.16" x2="-5.08" y2="-10.16" width="0.1524" layer="91"/>
-<label x="-5.08" y="-10.16" size="1.778" layer="95"/>
+<wire x1="20.32" y1="15.24" x2="-5.08" y2="15.24" width="0.1524" layer="91"/>
+<label x="-5.08" y="15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TOP_LED2" class="0">
@@ -12641,8 +12641,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 </segment>
 <segment>
 <pinref part="JP6" gate="A" pin="4"/>
-<wire x1="20.32" y1="-15.24" x2="-5.08" y2="-15.24" width="0.1524" layer="91"/>
-<label x="-5.08" y="-15.24" size="1.778" layer="95"/>
+<wire x1="20.32" y1="10.16" x2="-5.08" y2="10.16" width="0.1524" layer="91"/>
+<label x="-5.08" y="10.16" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TOP_LED3" class="0">
@@ -12654,8 +12654,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 </segment>
 <segment>
 <pinref part="JP7" gate="A" pin="2"/>
-<wire x1="20.32" y1="-30.48" x2="-5.08" y2="-30.48" width="0.1524" layer="91"/>
-<label x="-5.08" y="-30.48" size="1.778" layer="95"/>
+<wire x1="20.32" y1="-5.08" x2="-5.08" y2="-5.08" width="0.1524" layer="91"/>
+<label x="-5.08" y="-5.08" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TOP_LED4" class="0">
@@ -12667,8 +12667,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 </segment>
 <segment>
 <pinref part="JP7" gate="A" pin="4"/>
-<wire x1="20.32" y1="-35.56" x2="-5.08" y2="-35.56" width="0.1524" layer="91"/>
-<label x="-5.08" y="-35.56" size="1.778" layer="95"/>
+<wire x1="20.32" y1="-10.16" x2="-5.08" y2="-10.16" width="0.1524" layer="91"/>
+<label x="-5.08" y="-10.16" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TOP_LED5" class="0">
@@ -12726,8 +12726,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <net name="TOP_LED9" class="0">
 <segment>
 <pinref part="JP10" gate="A" pin="2"/>
-<wire x1="58.42" y1="-10.16" x2="38.1" y2="-10.16" width="0.1524" layer="91"/>
-<label x="38.1" y="-10.16" size="1.778" layer="95"/>
+<wire x1="58.42" y1="15.24" x2="38.1" y2="15.24" width="0.1524" layer="91"/>
+<label x="38.1" y="15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="-132.08" y1="-73.66" x2="-40.64" y2="-73.66" width="0.1524" layer="91"/>
@@ -12739,8 +12739,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <net name="TOP_LED10" class="0">
 <segment>
 <pinref part="JP10" gate="A" pin="4"/>
-<wire x1="58.42" y1="-15.24" x2="38.1" y2="-15.24" width="0.1524" layer="91"/>
-<label x="38.1" y="-15.24" size="1.778" layer="95"/>
+<wire x1="58.42" y1="10.16" x2="38.1" y2="10.16" width="0.1524" layer="91"/>
+<label x="38.1" y="10.16" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="-132.08" y1="-71.12" x2="-45.72" y2="-71.12" width="0.1524" layer="91"/>
@@ -12752,8 +12752,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <net name="TOP_LED11" class="0">
 <segment>
 <pinref part="JP11" gate="A" pin="2"/>
-<wire x1="58.42" y1="-30.48" x2="38.1" y2="-30.48" width="0.1524" layer="91"/>
-<label x="38.1" y="-30.48" size="1.778" layer="95"/>
+<wire x1="58.42" y1="-5.08" x2="38.1" y2="-5.08" width="0.1524" layer="91"/>
+<label x="38.1" y="-5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="-132.08" y1="-68.58" x2="-50.8" y2="-68.58" width="0.1524" layer="91"/>
@@ -12765,8 +12765,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <net name="TOP_LED12" class="0">
 <segment>
 <pinref part="JP11" gate="A" pin="4"/>
-<wire x1="58.42" y1="-35.56" x2="38.1" y2="-35.56" width="0.1524" layer="91"/>
-<label x="38.1" y="-35.56" size="1.778" layer="95"/>
+<wire x1="58.42" y1="-10.16" x2="38.1" y2="-10.16" width="0.1524" layer="91"/>
+<label x="38.1" y="-10.16" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="-132.08" y1="-66.04" x2="-55.88" y2="-66.04" width="0.1524" layer="91"/>
