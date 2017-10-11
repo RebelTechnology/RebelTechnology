@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -2238,6 +2238,9 @@ design rules under a new name.
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="10mil"/>
+<param name="AutoGrid" value="1"/>
+<param name="Efforts" value="0"/>
+<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>
@@ -4350,7 +4353,7 @@ design rules under a new name.
 <signal name="LEDA_G">
 <contactref element="LED1" pad="P4"/>
 <contactref element="U1" pad="7"/>
-<via x="12" y="41.1" extent="1-16" drill="0.3048"/>
+<via x="12.1" y="41.1" extent="1-16" drill="0.3048"/>
 <wire x1="37.0822" y1="50.975" x2="35.225" y2="50.975" width="0.254" layer="16"/>
 <wire x1="35.225" y1="50.975" x2="34.05" y2="49.8" width="0.254" layer="16"/>
 <wire x1="34.05" y1="49.8" x2="29.45" y2="49.8" width="0.254" layer="16"/>
@@ -4359,9 +4362,9 @@ design rules under a new name.
 <wire x1="27.95" y1="44.4" x2="26.85" y2="43.3" width="0.254" layer="16"/>
 <wire x1="26.85" y1="43.3" x2="15.8" y2="43.3" width="0.254" layer="16"/>
 <wire x1="15.8" y1="43.3" x2="13.6" y2="41.1" width="0.254" layer="16"/>
-<wire x1="13.6" y1="41.1" x2="12" y2="41.1" width="0.254" layer="16"/>
+<wire x1="13.6" y1="41.1" x2="12.1" y2="41.1" width="0.254" layer="16"/>
 <wire x1="9.775" y1="41.86" x2="10.535" y2="41.1" width="0.254" layer="1"/>
-<wire x1="10.535" y1="41.1" x2="12" y2="41.1" width="0.254" layer="1"/>
+<wire x1="10.535" y1="41.1" x2="12.1" y2="41.1" width="0.254" layer="1"/>
 </signal>
 <signal name="LEDA_B">
 <contactref element="LED1" pad="P1"/>
