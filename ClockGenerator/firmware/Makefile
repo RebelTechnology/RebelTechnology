@@ -1,17 +1,13 @@
 TARGET = TripleClockGenerator
-# INSTALL_DIR = /Users/mars/arduino/arduino-0013
-# INSTALL_DIR = /Applications/Arduino.app/Contents/Resources/Java/
 INSTALL_DIR = /usr/share/arduino/
-# INSTALL_DIR = /cygdrive/c/WinAVR-20100110
-PORT ?= /dev/ttyUSB0
+PORT ?= usb
 # PORT = COM7
 # PORT = /dev/ttyS4
+# PORT ?= /dev/ttyUSB0
 PROGRAMMER = avrispv2
 F_CPU = 16000000
 # MCU = atmega328p
-# UPLOAD_RATE = 57600
-MCU = atmega168
-UPLOAD_RATE = 19200
+MCU ?= atmega328
 
 ARDUINO = $(INSTALL_DIR)/hardware/cores/arduino
 

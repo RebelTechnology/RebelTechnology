@@ -4,22 +4,16 @@
 #include "device.h"
 #include "Timer.h"
 #include "adc_freerunner.h"
-// #include "ContinuousController.h"
 
-#define GENERATOR_CONTROLLER_DELTA 0.001
 typedef uint16_t MasterClockTick;
 typedef uint16_t SubClockTick;
 
-const uint32_t FREQ_TICKS = 8160L*1000L/48;
+const uint32_t FREQ_TICKS = 8160L*1000L/(48*4);
 const MasterClockTick FREQ_MIN = 666;
+const MasterClockTick FREQ_DUTY_NOMINAL = 816;
 
 const SubClockTick B_MULTIPLIERS[] = { 48*8, 48*6, 48*4, 48*3, 48*2, 48*1, 48/2, 48/3, 48/4, 48/6, 48/8 };
 const SubClockTick C_MULTIPLIERS[] = { 48*24, 48*12, 48*8, 48*4, 48*2, 48*1, 48/2, 48/4, 48/8, 48/12, 48/24 };
-
-// #define FAST_MULTIPLIER        (F_CPU / (64*16ull))
-#define FAST_MULTIPLIER        (F_CPU / (64*64ull))
-#define MEDIUM_MULTIPLIER      (F_CPU / (64*256ull))
-#define SLOW_MULTIPLIER        (F_CPU / (64*4096ull))
 
 #define CLOCK_TYPE_A 1
 #define CLOCK_TYPE_B 2
@@ -131,11 +125,9 @@ MasterClock master;
 
 void setup(){
   cli();
-
   GENERATOR_OUTA_DDR |= _BV(GENERATOR_OUTA_PIN);
   GENERATOR_OUTB_DDR |= _BV(GENERATOR_OUTB_PIN);
   GENERATOR_OUTC_DDR |= _BV(GENERATOR_OUTC_PIN);
-
   OCR2A = 14;
   TCCR2A |= (1 << WGM21);
   // Set to CTC Mode
@@ -144,9 +136,7 @@ void setup(){
   // TCCR2B |= (1 << CS20); // prescalar 1
   TCCR2B |= (1 << CS21); // prescalar 8
   // TCCR2B |= (1 << CS22); // prescalar 64
-
   setup_adc();
-
   sei();
 }
 
@@ -167,7 +157,7 @@ void loop(){
   }
   a = getAnalogValue(GENERATOR_RATE_A_CONTROL)*2/3 + FREQ_MIN;
   uint32_t ticks = FREQ_TICKS / a;
-  uint16_t maxDuty = 816 / ticks;
+  uint16_t maxDuty = FREQ_DUTY_NOMINAL / ticks;
   master.setPeriod(ticks);
   clockA.setPeriod(48, maxDuty);
   clockB.setPeriod(B_MULTIPLIERS[b], maxDuty);
