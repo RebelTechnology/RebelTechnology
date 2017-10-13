@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -17076,6 +17076,8 @@ Copyright: Würth Elektronik</description>
 <part name="C24" library="resistor" deviceset="C-EU" device="C0603" value="10u"/>
 <part name="C25" library="resistor" deviceset="C-EU" device="C0603" value="10u"/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
+<part name="JP12" library="SparkFun" deviceset="M02" device="PTH"/>
+<part name="P+9" library="supply1" deviceset="+5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -17324,6 +17326,13 @@ Copyright: Würth Elektronik</description>
 <instance part="C24" gate="G$1" x="66.04" y="40.64" rot="R180"/>
 <instance part="C25" gate="G$1" x="71.12" y="40.64" rot="R180"/>
 <instance part="GND21" gate="1" x="68.58" y="35.56"/>
+<instance part="JP12" gate="G$1" x="142.24" y="40.64" smashed="yes">
+<attribute name="VALUE" x="139.7" y="35.56" size="1.778" layer="96"/>
+<attribute name="NAME" x="138.938" y="38.1" size="1.778" layer="95" rot="R90"/>
+</instance>
+<instance part="P+9" gate="1" x="152.4" y="50.8" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="152.4" y="53.34" size="1.778" layer="96" rot="MR180"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -17670,6 +17679,11 @@ Copyright: Würth Elektronik</description>
 <wire x1="68.58" y1="38.1" x2="66.04" y2="38.1" width="0.1524" layer="91"/>
 <junction x="68.58" y="38.1"/>
 </segment>
+<segment>
+<pinref part="U3" gate="MIC2005" pin="GND"/>
+<pinref part="GND101" gate="1" pin="GND"/>
+<wire x1="30.48" y1="40.64" x2="27.94" y2="40.64" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -17725,6 +17739,12 @@ Copyright: Würth Elektronik</description>
 <pinref part="P+5" gate="1" pin="+5V"/>
 <wire x1="30.48" y1="48.26" x2="27.94" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="48.26" x2="27.94" y2="50.8" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JP12" gate="G$1" pin="2"/>
+<pinref part="P+9" gate="1" pin="+5V"/>
+<wire x1="149.86" y1="43.18" x2="152.4" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="43.18" x2="152.4" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="ADC1" class="0">
@@ -18134,7 +18154,11 @@ Copyright: Würth Elektronik</description>
 <segment>
 <pinref part="JP10" gate="G$1" pin="4"/>
 <label x="167.64" y="35.56" size="1.778" layer="95" rot="MR270"/>
-<wire x1="167.64" y1="43.18" x2="167.64" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="43.18" x2="167.64" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="JP12" gate="G$1" pin="1"/>
+<wire x1="167.64" y1="40.64" x2="167.64" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="40.64" x2="167.64" y2="40.64" width="0.1524" layer="91"/>
+<junction x="167.64" y="40.64"/>
 </segment>
 </net>
 <net name="USB_D_D-" class="0">
@@ -18531,6 +18555,7 @@ Copyright: Würth Elektronik</description>
 <wire x1="144.78" y1="96.52" x2="157.48" y2="96.52" width="0.1524" layer="91"/>
 <junction x="144.78" y="96.52"/>
 <pinref part="U2" gate="G$1" pin="VIN"/>
+<label x="137.16" y="96.52" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="JP2" gate="G$1" pin="4"/>
@@ -18748,13 +18773,6 @@ Copyright: Würth Elektronik</description>
 <pinref part="LED1" gate="G$1" pin="CRED"/>
 <wire x1="55.88" y1="91.44" x2="58.42" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="91.44" x2="58.42" y2="88.9" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="TOP_GND" class="0">
-<segment>
-<pinref part="U3" gate="MIC2005" pin="GND"/>
-<pinref part="GND101" gate="1" pin="GND"/>
-<wire x1="30.48" y1="40.64" x2="27.94" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
