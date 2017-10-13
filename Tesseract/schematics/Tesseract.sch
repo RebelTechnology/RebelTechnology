@@ -6877,6 +6877,16 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <vertex x="-3.05" y="-2.475"/>
 </polygon>
 </package>
+<package name="SUB-MIN-SPDT">
+<pad name="2" x="0" y="0" drill="1.5"/>
+<pad name="3" x="0" y="2.54" drill="1.5"/>
+<pad name="1" x="0" y="-2.54" drill="1.5"/>
+<wire x1="-2.54" y1="4.064" x2="-2.54" y2="-4.064" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="-4.064" x2="2.54" y2="-4.064" width="0.127" layer="21"/>
+<wire x1="2.54" y1="-4.064" x2="2.54" y2="4.064" width="0.127" layer="21"/>
+<wire x1="2.54" y1="4.064" x2="-2.54" y2="4.064" width="0.127" layer="21"/>
+<circle x="0" y="0" radius="2.9972" width="0.127" layer="48"/>
+</package>
 </packages>
 <symbols>
 <symbol name="POT-ALPS-RK09L">
@@ -7012,6 +7022,19 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <rectangle x1="-1.651" y1="-2.54" x2="1.651" y2="-1.651" layer="94"/>
 <pin name="-" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
 <pin name="+" x="0" y="2.54" visible="off" length="short" direction="pas" rot="R270"/>
+</symbol>
+<symbol name="TOGGLE">
+<wire x1="0" y1="0" x2="2.54" y2="1.27" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="3.175" y2="-2.54" width="0.127" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="3.175" y2="2.54" width="0.1524" layer="94"/>
+<circle x="2.54" y="2.54" radius="0.3592" width="0.2032" layer="94"/>
+<circle x="2.54" y="-2.54" radius="0.3592" width="0.2032" layer="94"/>
+<circle x="0" y="0" radius="0.3592" width="0.2032" layer="94"/>
+<text x="-1.905" y="-6.35" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.54" y="3.81" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="P" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
+<pin name="S" x="5.08" y="-2.54" visible="off" length="short" direction="pas" rot="R180"/>
+<pin name="O" x="5.08" y="2.54" visible="off" length="short" direction="pas" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -9421,6 +9444,23 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <connects>
 <connect gate="G$1" pin="+" pad="+"/>
 <connect gate="G$1" pin="-" pad="-"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SUB-MIN-SPDT" prefix="SW">
+<gates>
+<gate name="G$1" symbol="TOGGLE" x="-2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="SUB-MIN-SPDT">
+<connects>
+<connect gate="G$1" pin="O" pad="1"/>
+<connect gate="G$1" pin="P" pad="2"/>
+<connect gate="G$1" pin="S" pad="3"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -24419,11 +24459,15 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="C5" library="rcl" deviceset="CPOL-EU" device="C" value="47u"/>
 <part name="LED1" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
 <part name="R36" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="SW3" library="Rebel" deviceset="SUB-MIN-SPDT" device=""/>
+<part name="SW4" library="Rebel" deviceset="SUB-MIN-SPDT" device=""/>
+<part name="GND62" library="supply1" deviceset="GND" device=""/>
+<part name="GND3" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="-66.04" y="-22.86" size="6.4516" layer="97" font="vector">Tesseract Rev02</text>
+<text x="-66.04" y="-22.86" size="6.4516" layer="97" font="vector">Tesseract Rev03</text>
 <text x="-66.04" y="-30.48" size="3.81" layer="97" font="vector">Copyright 2017 Rebel Technology</text>
 <text x="-66.04" y="-38.1" size="3.81" layer="97" font="vector">Published under the GNU GPL</text>
 <text x="231.14" y="261.62" size="1.778" layer="97">-10V</text>
@@ -24683,6 +24727,14 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="C5" gate="G$1" x="185.42" y="91.44"/>
 <instance part="LED1" gate="G$1" x="-58.42" y="198.12" rot="R90"/>
 <instance part="R36" gate="G$1" x="-40.64" y="139.7" rot="MR180"/>
+<instance part="SW3" gate="G$1" x="218.44" y="12.7" smashed="yes" rot="R90">
+<attribute name="NAME" x="219.075" y="11.43" size="1.778" layer="95"/>
+</instance>
+<instance part="SW4" gate="G$1" x="233.68" y="12.7" smashed="yes" rot="R90">
+<attribute name="NAME" x="234.315" y="11.43" size="1.778" layer="95"/>
+</instance>
+<instance part="GND62" gate="1" x="226.06" y="2.54"/>
+<instance part="GND3" gate="1" x="175.26" y="-40.64"/>
 </instances>
 <busses>
 </busses>
@@ -25023,6 +25075,22 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="GND59" gate="1" pin="GND"/>
 <wire x1="195.58" y1="83.82" x2="195.58" y2="86.36" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="GND62" gate="1" pin="GND"/>
+<wire x1="218.44" y1="7.62" x2="226.06" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="226.06" y1="7.62" x2="233.68" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="226.06" y1="5.08" x2="226.06" y2="7.62" width="0.1524" layer="91"/>
+<junction x="226.06" y="7.62"/>
+<pinref part="SW4" gate="G$1" pin="P"/>
+<wire x1="233.68" y1="10.16" x2="233.68" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="SW3" gate="G$1" pin="P"/>
+<wire x1="218.44" y1="10.16" x2="218.44" y2="7.62" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="ANG2" gate="G$1" pin="6"/>
+<pinref part="GND3" gate="1" pin="GND"/>
+<wire x1="175.26" y1="-25.4" x2="175.26" y2="-38.1" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -25185,34 +25253,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="C10" gate="G$1" pin="1"/>
 <wire x1="167.64" y1="195.58" x2="167.64" y2="208.28" width="0.1524" layer="91"/>
 <junction x="167.64" y="208.28"/>
-</segment>
-</net>
-<net name="EXTSPI_CS" class="0">
-<segment>
-<pinref part="EXTSPI" gate="G$1" pin="4"/>
-<wire x1="104.14" y1="15.24" x2="119.38" y2="15.24" width="0.1524" layer="91"/>
-<label x="106.68" y="15.24" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="EXTSPI_MOSI" class="0">
-<segment>
-<pinref part="EXTSPI" gate="G$1" pin="1"/>
-<wire x1="104.14" y1="7.62" x2="119.38" y2="7.62" width="0.1524" layer="91"/>
-<label x="106.68" y="7.62" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="EXTSPI_CLK" class="0">
-<segment>
-<pinref part="EXTSPI" gate="G$1" pin="3"/>
-<wire x1="104.14" y1="12.7" x2="119.38" y2="12.7" width="0.1524" layer="91"/>
-<label x="106.68" y="12.7" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="EXTSPI_MISO" class="0">
-<segment>
-<wire x1="104.14" y1="10.16" x2="119.38" y2="10.16" width="0.1524" layer="91"/>
-<label x="106.68" y="10.16" size="1.778" layer="95"/>
-<pinref part="EXTSPI" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="+12V" class="0">
@@ -25569,12 +25609,10 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <label x="129.54" y="38.1" size="1.778" layer="95" rot="MR270"/>
 <pinref part="TGP1-4" gate="G$1" pin="2"/>
 </segment>
-</net>
-<net name="GP8" class="0">
 <segment>
-<wire x1="121.92" y1="40.64" x2="121.92" y2="30.48" width="0.1524" layer="91"/>
-<label x="121.92" y="38.1" size="1.778" layer="95" rot="MR270"/>
-<pinref part="TGP1-4" gate="G$1" pin="5"/>
+<wire x1="231.14" y1="17.78" x2="231.14" y2="30.48" width="0.1524" layer="91"/>
+<label x="231.14" y="25.4" size="1.778" layer="95" rot="R90"/>
+<pinref part="SW4" gate="G$1" pin="O"/>
 </segment>
 </net>
 <net name="CV_REF" class="0">
@@ -25804,6 +25842,11 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="104.14" y1="-10.16" x2="119.38" y2="-10.16" width="0.1524" layer="91"/>
 <label x="106.68" y="-10.16" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="220.98" y1="17.78" x2="220.98" y2="30.48" width="0.1524" layer="91"/>
+<label x="220.98" y="25.4" size="1.778" layer="95" rot="R90"/>
+<pinref part="SW3" gate="G$1" pin="S"/>
+</segment>
 </net>
 <net name="GP4" class="0">
 <segment>
@@ -25811,12 +25854,10 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="104.14" y1="-7.62" x2="119.38" y2="-7.62" width="0.1524" layer="91"/>
 <label x="106.68" y="-7.62" size="1.778" layer="95"/>
 </segment>
-</net>
-<net name="GP3" class="0">
 <segment>
-<pinref part="LGP1-5" gate="G$1" pin="3"/>
-<wire x1="104.14" y1="-5.08" x2="119.38" y2="-5.08" width="0.1524" layer="91"/>
-<label x="106.68" y="-5.08" size="1.778" layer="95"/>
+<wire x1="215.9" y1="17.78" x2="215.9" y2="30.48" width="0.1524" layer="91"/>
+<label x="215.9" y="25.4" size="1.778" layer="95" rot="R90"/>
+<pinref part="SW3" gate="G$1" pin="O"/>
 </segment>
 </net>
 <net name="GP11" class="0">
@@ -25824,6 +25865,11 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="TGP1-4" gate="G$1" pin="1"/>
 <wire x1="132.08" y1="40.64" x2="132.08" y2="30.48" width="0.1524" layer="91"/>
 <label x="132.08" y="38.1" size="1.778" layer="95" rot="MR270"/>
+</segment>
+<segment>
+<wire x1="236.22" y1="30.48" x2="236.22" y2="17.78" width="0.1524" layer="91"/>
+<label x="236.22" y="25.4" size="1.778" layer="95" rot="R90"/>
+<pinref part="SW4" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="USB_D_ID" class="0">
@@ -26129,22 +26175,12 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </sheet>
 </sheets>
 <errors>
-<approved hash="104,1,325.12,256.54,IC2P,V+,+12V,,,"/>
-<approved hash="104,1,325.12,241.3,IC2P,V-,-12V,,,"/>
 <approved hash="104,1,182.88,259.08,IC3P,V+,+12V,,,"/>
 <approved hash="104,1,182.88,243.84,IC3P,V-,-12V,,,"/>
-<approved hash="104,1,45.72,256.54,IC5P,V+,+12V,,,"/>
-<approved hash="104,1,45.72,241.3,IC5P,V-,-12V,,,"/>
 <approved hash="106,1,165.1,-25.4,CS_VQ1,,,,,"/>
-<approved hash="106,1,104.14,12.7,EXTSPI_CLK,,,,,"/>
-<approved hash="106,1,104.14,15.24,EXTSPI_CS,,,,,"/>
-<approved hash="106,1,104.14,10.16,EXTSPI_MISO,,,,,"/>
-<approved hash="106,1,104.14,7.62,EXTSPI_MOSI,,,,,"/>
-<approved hash="106,1,104.14,-5.08,GP3,,,,,"/>
 <approved hash="106,1,104.14,-7.62,GP4,,,,,"/>
 <approved hash="106,1,104.14,-10.16,GP5,,,,,"/>
 <approved hash="106,1,121.92,40.64,GP8,,,,,"/>
-<approved hash="106,1,124.46,40.64,GP9,,,,,"/>
 <approved hash="106,1,129.54,40.64,GP10,,,,,"/>
 <approved hash="106,1,132.08,40.64,GP11,,,,,"/>
 <approved hash="106,1,162.56,40.64,USB_D_D+,,,,,"/>
