@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -21061,6 +21061,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="C21" gate="G$1" pin="2"/>
 <pinref part="C22" gate="G$1" pin="2"/>
 </segment>
+<segment>
+<pinref part="U3" gate="MIC2005" pin="GND"/>
+<pinref part="GND101" gate="1" pin="GND"/>
+<wire x1="-20.32" y1="35.56" x2="-22.86" y2="35.56" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -22760,13 +22765,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="533.4" y1="261.62" x2="533.4" y2="259.08" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="TOP_GND" class="0">
-<segment>
-<pinref part="U3" gate="MIC2005" pin="GND"/>
-<pinref part="GND101" gate="1" pin="GND"/>
-<wire x1="-20.32" y1="35.56" x2="-22.86" y2="35.56" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="USB_H_D-" class="0">
 <segment>
 <label x="124.46" y="-15.24" size="1.778" layer="95" rot="R90"/>
@@ -22816,20 +22814,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <approved hash="104,1,45.72,241.3,IC5P,V-,-12V,,,"/>
 <approved hash="104,1,454.66,248.92,IC6P,V+,+12V,,,"/>
 <approved hash="104,1,454.66,233.68,IC6P,V-,-12V,,,"/>
-<approved hash="106,1,121.92,-27.94,CS_VQ1,,,,,"/>
-<approved hash="106,1,60.96,12.7,EXTSPI_CS,,,,,"/>
-<approved hash="106,1,60.96,7.62,EXTSPI_MISO,,,,,"/>
-<approved hash="106,1,60.96,-20.32,GP6,,,,,"/>
-<approved hash="106,1,60.96,-22.86,GP7,,,,,"/>
-<approved hash="106,1,116.84,38.1,USB_ID,,,,,"/>
-<approved hash="113,1,121.92,42.5873,USB,,,,,"/>
 <approved hash="113,1,67.31,42.5873,ADC,,,,,"/>
-<approved hash="113,1,56.4727,-33.02,PWR,,,,,"/>
-<approved hash="113,1,56.4727,8.89,EXTSPI,,,,,"/>
-<approved hash="113,1,22.1827,39.5647,BOOT,,,,,"/>
-<approved hash="113,1,56.4727,-7.62,LGP1-5,,,,,"/>
-<approved hash="113,1,107.95,-32.4273,ANG1,,,,,"/>
-<approved hash="113,1,125.73,-32.4273,ANG2,,,,,"/>
 </errors>
 </schematic>
 </drawing>
