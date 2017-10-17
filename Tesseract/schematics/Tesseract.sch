@@ -26178,11 +26178,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <approved hash="104,1,182.88,259.08,IC3P,V+,+12V,,,"/>
 <approved hash="104,1,182.88,243.84,IC3P,V-,-12V,,,"/>
 <approved hash="106,1,165.1,-25.4,CS_VQ1,,,,,"/>
-<approved hash="106,1,104.14,-7.62,GP4,,,,,"/>
-<approved hash="106,1,104.14,-10.16,GP5,,,,,"/>
-<approved hash="106,1,121.92,40.64,GP8,,,,,"/>
-<approved hash="106,1,129.54,40.64,GP10,,,,,"/>
-<approved hash="106,1,132.08,40.64,GP11,,,,,"/>
 <approved hash="106,1,162.56,40.64,USB_D_D+,,,,,"/>
 <approved hash="106,1,165.1,40.64,USB_D_D-,,,,,"/>
 <approved hash="106,1,160.02,40.64,USB_D_ID,,,,,"/>
