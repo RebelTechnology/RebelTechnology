@@ -1,0 +1,21 @@
+
+-------------------------------------------------------
+
+project: Memory, CV and trigger recorder
+clock or ramp time base, in and out.
+DAC1 out normalled to time in.
+DAC2 to CV out
+CV in and knob summed to ADC.
+Trigger in and pushbutton on EXTI input.
+Time in both EXTI and ADC function.
+Time out multi from Time in.
+
+CV in/out range +-5v
+Time in/out range 0-10v
+
+Store sequence in flash when toggled to Stop mode.
+
+Mnemonic from Ancient Greek μνημονικός (mnēmonikós, “of memory”), from μνήμων (mnḗmōn, “remembering, mindful”) Μνήμων
+Anything (especially something in verbal form) used to help remember something.
+
+-------------------------------------------------------
