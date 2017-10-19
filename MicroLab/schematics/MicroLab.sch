@@ -18003,20 +18003,6 @@ Source: Fairchild .. BAT54.pdf</description>
 <wire x1="-40.64" y1="40.64" x2="-40.64" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SW_OUT_L" class="0">
-<segment>
-<pinref part="JOUT" gate="G$1" pin="5"/>
-<wire x1="299.72" y1="236.22" x2="276.86" y2="236.22" width="0.1524" layer="91"/>
-<label x="279.4" y="236.22" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SW_OUT_R" class="0">
-<segment>
-<pinref part="JOUT" gate="G$1" pin="4"/>
-<wire x1="299.72" y1="233.68" x2="276.86" y2="233.68" width="0.1524" layer="91"/>
-<label x="279.4" y="233.68" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="GP8_TRIG" class="0">
 <segment>
 <pinref part="SW2" gate="1" pin="S1"/>
