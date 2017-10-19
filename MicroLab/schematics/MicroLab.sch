@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -16908,6 +16908,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
+<part name="SW3" library="switch-omron" deviceset="10-XX" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -17159,6 +17160,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <instance part="R31" gate="G$1" x="231.14" y="213.36" rot="MR180"/>
 <instance part="R32" gate="G$1" x="231.14" y="157.48" rot="MR180"/>
 <instance part="R33" gate="G$1" x="-53.34" y="48.26" rot="MR180"/>
+<instance part="SW3" gate="1" x="-33.02" y="142.24"/>
 </instances>
 <busses>
 </busses>
