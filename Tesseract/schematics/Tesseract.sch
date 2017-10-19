@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -24284,7 +24284,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R13" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="R16" library="Rebel" deviceset="R-EU_" device="0603" value="5k6"/>
+<part name="R16" library="Rebel" deviceset="R-EU_" device="0603" value="4k3"/>
 <part name="PWR" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="P+8" library="supply1" deviceset="+5V" device=""/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
@@ -24306,7 +24306,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="CV_D" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="TR" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
-<part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="5k6"/>
+<part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="4k3"/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="IC4" library="adafruit" deviceset="QUAD_OPAMP" device="D" value="QUAD_OPAMPD"/>
@@ -24414,8 +24414,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="R17" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R27" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="5k6"/>
-<part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="5k6"/>
+<part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="4k3"/>
+<part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="4k3"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="R25" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="R20" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
@@ -24463,6 +24463,10 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="SW4" library="Rebel" deviceset="SUB-MIN-SPDT" device=""/>
 <part name="GND62" library="supply1" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
+<part name="C21" library="resistor" deviceset="C-EU" device="C0603" value="100p"/>
+<part name="GND4" library="supply1" deviceset="GND" device=""/>
+<part name="C22" library="resistor" deviceset="C-EU" device="C0603" value="100p"/>
+<part name="GND6" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -24735,6 +24739,16 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </instance>
 <instance part="GND62" gate="1" x="226.06" y="2.54"/>
 <instance part="GND3" gate="1" x="175.26" y="-40.64"/>
+<instance part="C21" gate="G$1" x="190.5" y="190.5" smashed="yes">
+<attribute name="NAME" x="194.564" y="190.881" size="1.778" layer="95"/>
+<attribute name="VALUE" x="194.564" y="188.341" size="1.778" layer="96"/>
+</instance>
+<instance part="GND4" gate="1" x="190.5" y="180.34" rot="MR0"/>
+<instance part="C22" gate="G$1" x="190.5" y="134.62" smashed="yes">
+<attribute name="NAME" x="194.564" y="135.001" size="1.778" layer="95"/>
+<attribute name="VALUE" x="194.564" y="132.461" size="1.778" layer="96"/>
+</instance>
+<instance part="GND6" gate="1" x="190.5" y="124.46" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -25090,6 +25104,16 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="ANG2" gate="G$1" pin="6"/>
 <pinref part="GND3" gate="1" pin="GND"/>
 <wire x1="175.26" y1="-25.4" x2="175.26" y2="-38.1" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND4" gate="1" pin="GND"/>
+<pinref part="C21" gate="G$1" pin="2"/>
+<wire x1="190.5" y1="182.88" x2="190.5" y2="185.42" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND6" gate="1" pin="GND"/>
+<pinref part="C22" gate="G$1" pin="2"/>
+<wire x1="190.5" y1="127" x2="190.5" y2="129.54" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -25920,6 +25944,9 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="190.5" y1="200.66" x2="190.5" y2="198.12" width="0.1524" layer="91"/>
 <pinref part="R18" gate="G$1" pin="2"/>
 <wire x1="190.5" y1="198.12" x2="187.96" y2="198.12" width="0.1524" layer="91"/>
+<pinref part="C21" gate="G$1" pin="1"/>
+<wire x1="190.5" y1="193.04" x2="190.5" y2="198.12" width="0.1524" layer="91"/>
+<junction x="190.5" y="198.12"/>
 </segment>
 </net>
 <net name="N$15" class="0">
@@ -25988,6 +26015,9 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="R20" gate="G$1" pin="2"/>
 <wire x1="190.5" y1="142.24" x2="187.96" y2="142.24" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="B" pin="+IN"/>
+<pinref part="C22" gate="G$1" pin="1"/>
+<wire x1="190.5" y1="137.16" x2="190.5" y2="142.24" width="0.1524" layer="91"/>
+<junction x="190.5" y="142.24"/>
 </segment>
 </net>
 <net name="N$32" class="0">
@@ -26175,8 +26205,12 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </sheet>
 </sheets>
 <errors>
+<approved hash="104,1,325.12,256.54,IC4P,V+,+12V,,,"/>
+<approved hash="104,1,325.12,241.3,IC4P,V-,-12V,,,"/>
 <approved hash="104,1,182.88,259.08,IC3P,V+,+12V,,,"/>
 <approved hash="104,1,182.88,243.84,IC3P,V-,-12V,,,"/>
+<approved hash="104,1,45.72,256.54,IC2P,V+,+12V,,,"/>
+<approved hash="104,1,45.72,241.3,IC2P,V-,-12V,,,"/>
 <approved hash="106,1,165.1,-25.4,CS_VQ1,,,,,"/>
 <approved hash="106,1,162.56,40.64,USB_D_D+,,,,,"/>
 <approved hash="106,1,165.1,40.64,USB_D_D-,,,,,"/>
@@ -26186,7 +26220,9 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <approved hash="113,1,110.49,45.1273,ADC,,,,,"/>
 <approved hash="113,1,99.6527,-30.48,PWR,,,,,"/>
 <approved hash="113,1,99.6527,11.43,EXTSPI,,,,,"/>
+<approved hash="113,1,99.6527,-17.9485,LGP6-7,,,,,"/>
 <approved hash="113,1,230.463,-21.3953,BOOT,,,,,"/>
+<approved hash="113,1,126.974,45.1273,TGP1-4,,,,,"/>
 <approved hash="113,1,99.6527,-5.08,LGP1-5,,,,,"/>
 <approved hash="113,1,151.13,-29.8873,ANG1,,,,,"/>
 <approved hash="113,1,168.91,-29.8873,ANG2,,,,,"/>
