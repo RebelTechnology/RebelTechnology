@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -26205,14 +26205,13 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </sheet>
 </sheets>
 <errors>
+<approved hash="104,1,325.12,256.54,IC4P,V+,+12V,,,"/>
+<approved hash="104,1,325.12,241.3,IC4P,V-,-12V,,,"/>
 <approved hash="104,1,182.88,259.08,IC3P,V+,+12V,,,"/>
 <approved hash="104,1,182.88,243.84,IC3P,V-,-12V,,,"/>
+<approved hash="104,1,45.72,256.54,IC2P,V+,+12V,,,"/>
+<approved hash="104,1,45.72,241.3,IC2P,V-,-12V,,,"/>
 <approved hash="106,1,165.1,-25.4,CS_VQ1,,,,,"/>
-<approved hash="106,1,104.14,-7.62,GP4,,,,,"/>
-<approved hash="106,1,104.14,-10.16,GP5,,,,,"/>
-<approved hash="106,1,121.92,40.64,GP8,,,,,"/>
-<approved hash="106,1,129.54,40.64,GP10,,,,,"/>
-<approved hash="106,1,132.08,40.64,GP11,,,,,"/>
 <approved hash="106,1,162.56,40.64,USB_D_D+,,,,,"/>
 <approved hash="106,1,165.1,40.64,USB_D_D-,,,,,"/>
 <approved hash="106,1,160.02,40.64,USB_D_ID,,,,,"/>
@@ -26221,7 +26220,9 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <approved hash="113,1,110.49,45.1273,ADC,,,,,"/>
 <approved hash="113,1,99.6527,-30.48,PWR,,,,,"/>
 <approved hash="113,1,99.6527,11.43,EXTSPI,,,,,"/>
+<approved hash="113,1,99.6527,-17.9485,LGP6-7,,,,,"/>
 <approved hash="113,1,230.463,-21.3953,BOOT,,,,,"/>
+<approved hash="113,1,126.974,45.1273,TGP1-4,,,,,"/>
 <approved hash="113,1,99.6527,-5.08,LGP1-5,,,,,"/>
 <approved hash="113,1,151.13,-29.8873,ANG1,,,,,"/>
 <approved hash="113,1,168.91,-29.8873,ANG2,,,,,"/>
