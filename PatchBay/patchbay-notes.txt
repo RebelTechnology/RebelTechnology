@@ -1,0 +1,8 @@
+--------------------------------------------------------------------------------
+
+Rev01 todo
+- put parts on solder side, descriptions on component side (to avoid seeing seeed label)
+- add arrows and boxes to show which 
+- fatten the tracks
+
+--------------------------------------------------------------------------------

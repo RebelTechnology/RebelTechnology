@@ -1,0 +1,414 @@
+-------------------------------------------------------
+
+PCB tabs: 9.906mm x 2.4130mm / .39" x .095"
+
+
+Clearance to caps .6" usb connector .5" from board edge.
+
+-------------------------------------------------------
+
+volume thumbwheel
+Piher PT15NH trimpot plus 5371 16mm thumbwheel
+
+Alpha RV100F-30-4K1B-B10K-B301 single linear 10k
+RV121F-30-009J-A50K-00K dual audio 50k
+
+Song huei R1001N12B1
+10mm Ultra Thin Micro
+
+F1001-GP dual gang, side adjust
+F-06N, F-09N
+
+Bourns 3352T-1-103LF
+
+Panasonic EVQ-WKA001 ENCODER EDGE DRIVE 3.65MM SMD
+
+HW-1001GS the thumb wheel potentiometer with switch
+
+Alps RK09K1110A2S Horizontal type H=6.5mm 15mm 10k linear
+
+-------------------------------------------------------
+
+Single supply quad op amp LM324
+
+-------------------------------------------------------
+
+todo:
+- slots for dc jack
+/ connect UART_TX / RX (GP2/GP3 also BOOT0/GP10?)
+/ connect GP3_LEDPWM
+/ connect GP8_TRIG
+
+-------------------------------------------------------
+
+OWL2 dimensions 59.6mm x 55.94mm
+Play: 58.74mm x 55.88
+
+Depth (measured on Tesseract, outside pins on back pcb to inside panel) 26mm.
+
+Gap between top case and top pcb: 10.5mm
+
+case:
+inside 28mm / 59.656mm / 56.753
+
+distance from left inside to
+- jack centre 18.415mm
+- expansion 36.83mm
+- dc jack 48.26mm
+distance from top inside to
+- jack centre 10.5+1.6+3.5 = 15.6mm
+- expi 10.5+1.6+2 = 14.1
+- expo 10.5-2 = 8.5
+- dc jack ?
+size
+- jack R2.9 / dia 5.8mm
+- expansion 2 x 13mm
+- dc jack ?
+
+-------------------------------------------------------
+
+expansion headers
+ideally should be .7mm from board edge to create 3mm distance from top and bottom mounting
+
+-------------------------------------------------------
+
+Rev01 changes/todo
+- centre negative DC input
+
+-------------------------------------------------------
+
+Name: OWL Play, OWL Micro
+      Microlab (also make a Minilab with USB Host and CV/Gate out)
+
+
+Microlab Inc. is a Sino-American global audio electronics manufacturer specializing in the research, development, and production of multimedia speakers, AV speakers, and peripheral products
+
+-------------------------------------------------------
+
+right angle 2mm pitch dual row
+MOLEX  87264-0652  Board-To-Board Connector, Right Angle, 2 mm, 6 Contacts, Receptacle, Milli-Grid 87264 Series
+mates with 87760-06
+
+TE Micro-Match
+2399693
+Board-To-Board Connector, 1.27 mm, 6 Contacts, Receptacle, Micro-MaTch Series, Through Hole, 2 Rows
+
+148696
+Board-To-Board Connector, Side Entry, 1.27 mm, 6 Contacts, Receptacle, Micro-MaTch Series
+
+87760-0816
+
+SAMTEC  MMS-104-01-L-DH
+
+SAMTEC	SQT-103-01-L-D-RA  6 pin double row right angle 2mm pitch
+(rs £1.93 each)
+
+Harwin M22-6550342R (mouser £0.454 @100) 6 pin double row right angle socket 2mm pitch SMT
+Harwin M22-2540305 (mouser £0.237 @100)  6 pin double row right angle header 2mm pitch PTH
+Harwin M22-5430605 same: SMT
+Harwin M80-8680622
+Hirose A3-6DA-2SV (mouser £0.535 @100) 6 pin double row right angle socket 2mm pitch PTH
+Hirose A3B-6PA-2DS (mouser £0.238 @100, rs £0.271 @1) 6 pin double row right angle pin header 2mm pitch PTH
+
+Toby
+Female headers 2mm pitch right angle
+Single row 5 contacts: B13a-1x5-BGC1-G
+Double row 6 contacts: B13a-2x3-BGB1-G (£0.110 @100) 6.7mm insulator height
+
+2mm Pitch Right Angle Mount Dual Row VALCON PCB Header
+LT2-06R2-R-040-028 (£0.120 @100) 3.9mm length 2mm body height
+
+Female header 2mm pitch right angle
+Double row 10 contacts: BL2-010-R720-55-2
+
+2.54mm
+SSW-103-02-G-D-RA double row 6 contacts (£0.640 @100)
+B07-2x5-AG1-G double row 10 contacts
+B07a-10-AGA1-G 
+
+-------------------------------------------------------
+
+caps: 2.2n / 4.7n 25/50V C0G 5%
+
+-------------------------------------------------------
+
+Rev01 Build 1 b1
+- use 10uF electrolytic for C16 and C19 ac-coupling instead of 1uF
+- bottom stereo jack collides with bottom pot left support leg
+- female headers very close to LEDs
+
+-------------------------------------------------------
+
+todo:
+- move exp connectors to centre and change to 2x3 pin
+- move top/bottom LEDs to middle of board, or remove
+- audio input filters?
+- switched USB/dc power
+- move pots 0.05" north
+- change to centre pos dc
+- change to non-threaded jacks
+ - e.g. Lumberg 1503 16, 1503 02, KLBR 4, MJ4435-R, MX-387GL, 1503 03, FC68131
+ - 1503 16 has 3mm nose (farnell £1.87 @100)
+ - 1503 19 4-pole (farnell £0.726 @100)
+- reduce top jack hole size
+
+- cut-outs for DC jack part
+
+--------------------------------------------------------------------------------
+
+Stereo jacks 3.5mm
+http://shogyo.com/product-category/connectors/audio-connectors/audio-connectors-audio-jacks/?filter_audio_standard=1304&filter_mono_or_stereo=1297
+
+--------------------------------------------------------------------------------
+
+ADC1 PC3   ADC3_IN13
+ADC2 PC2   ADC3_IN12
+ADC3 PC1   ADC3_IN11
+ADC4 PF10  ADC3_IN8
+
+from bottom clockwise:
+ADC2, ADC3, ADC4, ADC1
+
+--------------------------------------------------------------------------------
+
+change LED resistors to 150R
+(3.3-1.8)/150 = 10mA
+
+--------------------------------------------------------------------------------
+
+USB connector width 7.5mm height 3mm
+distance left edge 11mm/8mm bottom edge 4.5mm/1.5mm
+
+--------------------------------------------------------------------------------
+
+b1 green LEDs
+b2 red LEDs
+b3 yellow LEDs
+
+--------------------------------------------------------------------------------
+
+b3 noise
+before reset, 10mV div, 6mVpp noise on output. Running MCU, no patch: 22mVpp.
+Gain patch fixed at 1x gain: 30mVpp
+Codec bypass mode: 26mVpp
+With hp plugged in: 17mVpp
+audible whine on both channels
+
+with signal: audible aliasing
+
+gain = 0: 17mVpp
+no audible noise
+
+no clipping at Vin 1.25Vpp, Vout 0.448Vpp (gain 0.364x)
+
+FFT peaks:
+12.5kHz
+6.75kHz
+2.58
+2kHz
+1kHz
+
+on output
+12.8kHz -53.6dB
+26.6kHz -53.6dB
+37.2kHz smaller
+
+on cs_vref
+12.8kHz -48.8dB
+26.6kHz -48.8dB
+
+--------------------------------------------------------------------------------
+
+112kHz 600mV on ain
+
+--------------------------------------------------------------------------------
+
+MiniLab
+USB Host
+2x CV in/out
+1x Trigger in/out
+5x knobs
+patch change pushbutton and LEDs (press and turn knob 5)
+volume change (press and turn knob)
+
+USB A / Host connector
+Wurth 629104190121 short SMT
+Wurth 614104190121 short PTH
+
+todo:
+- connect trigger output to GPIO
+- connect 2x CV outputs to DACs
+- connect USB Host (with pwr sw?)
+- connect pushbuttons
+- rename pots and cv inputs / outputs
+- connect ADC5
+- remove LEDs
+- add RGB LED
+- move expander headers
+- slots for DC jack
+- illuminated pushbuttons?
+- add 4x patch select LEDs
+- add FUNCTION pushbutton top right: set volume, change patch et c
+
+--------------------------------------------------------------------------------
+
+semi-transparent case with die-cut, or laser cut, printed card
+Brother ScanNCut CM900
+http://www.brotherscanncut.co.uk/en_GB/scanncut-cm900
+Silhouette curio / cameo
+
+http://www.papershapers.co.uk/services/die-cutting
+http://www.yesprint.co.uk/print_finishing.html
+http://www.printingforless.com/Custom-Die-Cutting.html
+http://www.dynamicprint.co.uk/die-cutting.html
+
+http://www.papershapers.co.uk/services/laser-cutting
+
+--------------------------------------------------------------------------------
+
+b1
+nothing plugged in
+113kHz 666mVpp
+
+b2
+stereo plugged in/out
+80kHz 464mVpp
+
+b3
+nothing plugged in
+112kHz 640mVpp
+
+
+DC in a/b 50Hz 4Vpp when probe not grounded
+
+b3 removed C3 and C4:
+AINA same, AINB flat
+removed C18: both flat (less than 50mVpp noise)
+
+in bypass mode: LED noise bleeds through (all pots/LEDs)
+
+b3
+- fit C4 and C18 47nF
+- fit C3 220pF
+
+b1 
+- change op amp to MCP6024
+
+--------------------------------------------------------------------------------
+
+LM324 is a particularly crummy opamp for audio because it has a lot of crossover distortion in its totem-pole output stage. A common fix for this is to connect a "pull-up" resistor from output pin to the positive rail, effectively turning the opamp into a class A amplifier such that it is always sinking current at its output pin, meaning that the top half of the totem pole never turns on, making it much more linear (high fidelity in audio terms). Try a 10K resistor as a pull-up.
+
+--------------------------------------------------------------------------------
+
+LM324 datasheet p.13 Non-Inverting Amplifier
+The gain-frequency characteristic of the amplifier and its feedback network must be such that oscillation does not occur.
+
+--------------------------------------------------------------------------------
+
+LM358 not for audio
+https://www.electronicspoint.com/threads/lm358-not-for-audio.243233/
+The LM358 and its quad version the LM324 are intended for single supply rail
+operation and to use very little current. To save current, the IC has an
+unusual output stage compared to most other op-amps.
+
+A low current, dual op-amp that IS suitable for audio is the TL062 and its
+quad version the TL064. Supply current is less than 200uA per amplifier and
+operation right down to +/- 2 volts is OK.
+
+--------------------------------------------------------------------------------
+
+MCP6024 (used in OWL Pedal) (farnell £1.15 @100)
+LM6134 (farnell £2.61 @100)
+
+--------------------------------------------------------------------------------
+
+changed op amps
+test
+- codec bypass
+- gain patch fixed 1.0
+- gain patch parameter *2.0
+
+b3 -20 to -21dB at half gain (missing caps)
+SPL dB	THD %
+65.4	1.03
+65.5	.947
+65.2	.983
+
+b2 -20 to -21dB at half gain (pokey caps)
+SPL	THD
+65.4	.858
+65.3	.844
+64.4	.943
+
+b1 -16.8dB at 1/3 gain (lm358)
+SPL	THD
+58.7	47.6
+
+card -21dB at full gain
+SPL	THD
+25.6	1.065
+
+on mac, soundcard
+THD .007%
+
+b1
+THD .050%
+Distortion at 812.2Hz -98dBFS
+
+b3 with 47nF caps
+THD .374%
+Distortion at 812.2Hz -90.5dBFS
+
+b1 without LEDs, gain patch
+THD .013%
+Distortion at 49.8Hz -105.5dBFS
+with codec bypass on, noise can't be measured
+
+OWL Pedal
+THD .018%
+Distortion at 49.8Hz -94dBFS
+
+--------------------------------------------------------------------------------
+
+Microlab FX demo 
+
+Parameter D: dry/wet
+
+- BigJot Reverb
+  Room Size / Predelay / Decay
+
+- StereoPingPongDelay
+  Time / Feedback / Ratio
+  
+- Moog filter
+  Fc / Q / Drive
+
+- Stereo Frequency Shifter
+  Shift / Scalar / Spread
+
+- Phaser / Flanger
+
+--------------------------------------------------------------------------------
+
+b1: USB power not working (short VBUS to MCU pin?)
+
+--------------------------------------------------------------------------------
+
+JST FHA or FCH non-ZIF connector for FFC 0.5mm pitch
+
+JST FJ, FJ-K, FJ-L, MQ 2mm pitch board-to-board connectors (where to source?)
+Equivalent Molex 90783 is discontinued
+
+See Molex 4455 KK series right angle 5pin 2.54mm pc board connector, receptacle
+
+5 contacts Receptacle KK Series 2.54mm
+Molex 38-00-1335 (farnell £0.502 @150) 
+Molex 22-15-2056 (mouser £0.333 @100)
+Molex 22-17-5053
+
+--------------------------------------------------------------------------------
+
+minilab todo
+- add SD card slot
+
+--------------------------------------------------------------------------------

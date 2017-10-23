@@ -1,0 +1,168 @@
+
+-------------------------------------------------------
+
+Triple clock generator
+- A 0-240 BPM 
+- B div/mult x6
+- C div/mult 1/2/4/8/12/16/24
+
+-------------------------------------------------------
+
+Pot 9mm
+RK09L112003P 20k 1B lin horizontal with centre detent
+
+RK0971110909 20k 1B lin horizontal without detent 15mm shaft
+RK097111020N 50k 1B lin horizontal without detent 15mm shaft
+RK0971110D88 10k 1B lin horizontal with detent 20mm shaft
+RK0971110D57 10k 1B lin horizontal without detent 25mm shaft
+
+Pot 11mm
+RK11K1120A5T 10k 1B lin horizontal without detent 25mm shaft with bushing (mouser £0.615 @100)
+RK11K1120060 20k 1B lin horizontal with detent 22.50mm shaft with bushing
+
+want:
+9mm 10k linear pot, horizontal, with bushing, without detent, knurled or straight shaft (not slotted)
+
+Alpha (Taiwan) RD901F-20
+e.g. RD901F-20-15R-B10K-00L1 (mouser £3.06)
+
+https://www.thonk.co.uk/shop/alpha-9mm-pots-right-angle/
+£0.50
+
+-------------------------------------------------------
+
+641Hz toggle to 91
+fixed period 0: 1.7 to 1.9khz
+      	     1: 960Hz
+	     2: 640Hz
+	     4: 380Hz
+
+120 BPM: quarter notes at 2 Hz / 500ms
+
+240 BPM 4Hz 3 o'clock
+120 BPM 2Hz apprx 2 o'clock
+ 54 BPM 0.9Hz 12 o'clock
+ 31 BPM 0.53Hz 9 o'clock
+57600 BPM 960Hz 5 o'clock
+
+wanted range: 20 to 240 BPM, 0.33 to 4Hz
+480 to 5818 ticks
+(120 BPM in middle?)
+
+
+-------------------------------------------------------
+
+freq = 1920 / div, div = 1920 / freq
+
+Over 200 Prestissimo
+168 to 200 Presto
+120 to 168 Allegro
+108 to 120 Moderato
+76 to 108 Andante
+66 to 76 Adagio
+60 to 66 Larghetto
+40 to 60 Largo
+Below 40 Larghissimo
+
+Linear range 40 to 200 BPM, 120 BPM in centre 
+- quarternotes: 0.666Hz / 2Hz / 3.333Hz
+- sixteenths: 2.666Hz / 8Hz / 13.333Hz
+
+-------------------------------------------------------
+
+Phase:
+single counter at period / 24
+each output has clock multiplier
+a: 24
+b: 4 to 144
+c: 1 to 576 (no multiplier for div by 16)
+
+each clock: 
+     advance counter
+     on overflow, each output increments pos
+     if pos == mul : toggle and reset pos
+
+only aligns to 24 steps
+
+One master clock running at tempo*48
+two off conditions
+- 100ms handled by master clock interrupt
+- 50% handled by subclock
+
+-------------------------------------------------------
+
+PORT=/dev/ttyACM0 make flash
+
+-------------------------------------------------------
+
+delay A>B: 76uS A>C:144uS
+
+-------------------------------------------------------
+
+max duty cycle 38mS @200 BPM, 60mS @120 BPM, 190mS @40 BPM
+
+-------------------------------------------------------
+
+ticks t = 8160 / ( ( (x=[0-4095] * 2666) / 4095 + 666 ) * 48)
+
+48*t * (x*2666/4095 + 666) = 8160
+t * ( x * 80/123 + 666 ) = 170
+
+t * ( x * 80/123 + 666 ) = 170
+t = 170 / ( x * 2/3 + 666)
+FREQ_TICKS = 170*1000
+t = FREQ_TICKS / ( x * 2/3 + 666)
+
+(*1000: 255 to 50)
+
+-------------------------------------------------------
+
+duty = 100mS = 816 ticks
+tps = 8160
+d = 816/t (subclock ticks)
+d * (FREQ_TICKS / ( x * 2/3 + 666)) = 816
+d * FREQ_TICKS = 816 * ( x * 2/3 + 666)
+d = ( 544 * x + 543456 ) / FREQ_TICKS
+d ~= 3 * x + 3
+
+-------------------------------------------------------
+
+changed clock ratios to:
+A: 1 2 3 4 6 8
+B: 1 2 4 8 12 24
+
+-------------------------------------------------------
+
+TripleClock current draw
++12v 29mA
+-12v 0mA
++5v 12-19mA
+
+-------------------------------------------------------
+
+OCR = F_CPU / (freq * prescaler) - 1
+freq = F_CPU / ((OCR+1)*prescaler) = 133kHz theoretical
+
+-------------------------------------------------------
+
+12/10 2017 change from 1/4 notes to 1/16 notes
+
+OCR2A = 14: 3.333
+OCR2A = 7: high 5.882 low: 1.220 
+
+Linear range 40 to 200 BPM, 120 BPM in centre 
+- quarternotes: 0.666Hz / 2Hz / 3.333Hz
+- sixteenths: 2.666Hz / 8Hz / 13.333Hz
+
+min: 2.660Hz
+max: 13.1hz
+mid max-at-min 21.37hz
+mid max-at-max 105Hz (13.1*8 = 104.8)
+mid min-at-max 1.64hz (13.1/8 = 1.6375)
+bot max-at-min 64.1hz ( = 1.6375)
+bot max-at-max 312hz (13.1*24 = 314.4)
+bot min-at-max 546mHz (13.1/24 = 0.5458)
+
+current setup: master clock divided into 57 steps of 0.1830Hz
+
+-------------------------------------------------------

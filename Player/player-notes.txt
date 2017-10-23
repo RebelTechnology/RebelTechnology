@@ -69,4 +69,55 @@ Other functions:
  - Tuner
  
 -----------------------------------------------
- 
+
+Digital Bus: RX on pin 1, TX on pin 3
+
+todo: interrupt on IDLE (triggered when period of one byte with no data).
+
+baud rate auto detect (with 0x7f or 0x55)
+
+(microcontroller mode: bus with master and many slaves, sleep until address comes up)
+
+LIN local area interconnect mode: bus with master and many slaves, single wire
+LIN may be used also over the vehicle's battery power-line with a special LIN over DC powerline (DC-LIN) transceiver
+LIN is a broadcast serial network comprising 16 nodes (one master and typically up to 15 slaves)
+
+http://www.st.com/content/ccc/resource/technical/document/application_note/10/30/18/b5/90/bc/4c/73/CD00004273.pdf/files/CD00004273.pdf/jcr:content/translations/en.CD00004273.pdf
+
+-----------------------------------------------
+
+Digital Bus todo: DMA USART with IDLE flush
+https://stm32f4-discovery.net/2017/07/stm32-tutorial-efficiently-receive-uart-data-using-dma/
+
+-----------------------------------------------
+
+SPI2 OLED
+prescaler 8
+NSSPMode = SPI_NSS_PULSE_DISABLED
+
+SSD1309
+
+usb device
+midi_rx_usb_buffer / midi_tx_usb_buffer
+
+usb host
+__weak void USBH_MIDI_ReceiveCallback(USBH_HandleTypeDef *phost)
+__weak void USBH_MIDI_TransmitCallback(USBH_HandleTypeDef *phost)
+
+USB HOST
+PC9  PWR_EN
+PA10 PWR_FAULT (EXTI conflict with TR_IN_B on PC10)
+
+-----------------------------------------------
+
+todo:
+- remove top JP13 connecting USB_D_VBUS (always connected)
+- remove D2 / D5? what are they for? Replace with BAT54?
+- add USBH VBUS cap 100uF
+- change to F4 chip (same as OWL2)
+- change to TO220 LM7805 vreg
+/ change to JST PH digital bus / usart
+- N25Q128A13 replacement or remove
+
+-----------------------------------------------
+

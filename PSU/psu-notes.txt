@@ -1,0 +1,19 @@
+
+RMS values, unloaded
+-11.97v
++12.10v
++5.06v
+(+4.86v with one BitReactor)
+
+-12v rail: Vpp over 1s < 100mV
++12v rail: Vpp over 1s < 150mV
++5v rail:  Vpp over 1s < 380mV
+
+with BitReactor
+-12v rail: Vpp over 1s < 120mV
++12v rail: Vpp over 1s < 120mV
++5v rail:  Vpp over 1s < 200mV
+
+TipTop uZeus with Maplins transformer
+<40mVpp noise on all rails
+

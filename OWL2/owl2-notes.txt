@@ -1,0 +1,405 @@
+
+-----------------------------------------------------------------
+
+OWL Digital 2 Rev01 changes/todo:
+/ missing gnd / +3v3 on SWD header
+ - greenwire SWD pin 1 to +3v3 and SWD pin 3 to gnd
+/ CS_VQ1 not connected to IC1 pin 3
+ - greenwire IC1 pin 3 to IC4 pin 15
+- add labels to headers
+- change R401, C405, C406 component order: 100n closest to VD pin
+
+-----------------------------------------------------------------
+
+B2
+MCLK 24.5MHz
+
+VREF 2.5v
+XTO/XTI 2.5v
+VD 4.769v
+
+VD noise ~120mVpp, more with input signal applied
+
+-----------------------------------------------------------------
+
+USB connector ZX62RD-AB-5P8 top mount
+Don't use ZX62D-AB-5P8 bottom mount!
+Opposite orientation to Prism
+
+-----------------------------------------------------------------
+
+Codec tests, data copy
+
+output non-inverted unity gain
+clipping at 1.2v neg and 3.5v pos (2.3Vpp)
+
+VD noise ~110mVpp
+C406 gnd pin ~40mVpp
+
+with 100u electrolytic soldered across C406, VD noise ~70mVpp
+C406 gnd pin ~60mVpp
+
+VQ1 30mV, VREF ~70mV, +5v 30mV noise
+100uF cap from VREF to GND: VREF 32mV noise
+
+CS4271 datasheet says VQ1 decoupling should be no more than 1uF (we've got 1u film + 10u electrolytic)
+
+cutting track from 10uF to VQ1: VREF 40mV, VQ1 30mV noise
+VD: 100mV
+AOUTA: 250mV
+
+with DAC set (no rx>tx copy): AOUTA: 250mV
+
+pin 28: 70mV
+27 AOUTB- 250mV
+26 AOUTB+ 250mv
+25 AOUTA+ 250mV
+24 AOUTA- 250mV
+23 AMUTEC 65mV
+22 FILT+ 35mV
+21 AGND 40mV
+20 VA 60mV
+19 VREF/VQ3 40mV
+18 AINB 35mV
+17 AINA 50mV
+16 VREF/VQ2 40mV
+15 VQ1 30mV
+
+L3/C407 noise < 30mV, VA pin noise 60mV
+
+with 100n from VA to GND: VA noise 40mV
+AOUTA: 250mV
+
+changes todo:
+- disconnect C409 10uF from VQ1
+- connect C409 to VREF
+- move C408 100n close to VA pin
+- put C405 close to VD pin
+
+-----------------------------------------------------------------
+
+Measurements with Player input/output circuit
+Vpp with 0v input: 285mV
+Spectrum: signal at +14dB, noise at -60dB to -50dB with peak -43dB
+Clipping at +5.8v / -5.6v : 11.4Vpp
+Output 6.2v for DC input 5v
+
+-----------------------------------------------------------------
+
+changes todo:
+- single op amp LM321 in sot-23-5
+  0-5.5v supply
+  sources 5-60mA, sinks 10-160mA
+
+add 47uF electrolytic to +5v on analogue section
+
+-----------------------------------------------------------------
+
+100kHz
+CS_VREF 
+
+firmware:
+/ SDRAM
+/ cs4271
+
+-----------------------------------------------------------------
+
+OWL2 Rev02
+
+b1 b2 programmer connects
+b3 no connection
+
+b1 MCU missing pin
+
+-----------------------------------------------------------------
+
+Rev02 b2 firmware testing with Tesseract
+- draws 260mA on +12v, super bright LED
+- LED almost off at PERIOD=2000, draws 150mA on +12v
+
+LED:
+LED_R PA0/LGP1 TIM2_CH1
+LED_G PA1/LGP2 TIM5_CH2
+LED_B PB1/LGP6 TIM3_CH4
+
+CS_VQ1: 2.485V
+CS_VREF: 2.492V
+
+-----------------------------------------------------------------
+
+aout+ 248mVpp 2.45V
+aout- 240mVpp 2.45V
+
+cs_vq1 and cs_vref 60-80mVpp noise
++5v and +3v3 60-80mVpp noise
+
+ain_a and ain_b 90-110mVpp
+
+tesseract audio out: 350-450mVpp noise (fixed output or audio through)
+after reset, before program start: 180-220mVpp noise
+before Codec::start() : 350-450mVpp noise
+
+cs4272.c line 103 
+  // Release power down bit to start up codec
+  codec_write(CODEC_MODE_CTRL2_REG, CODEC_MODE_CTRL2_CTRL_PORT_EN);
+
+-----------------------------------------------------------------
+
+HAL_SAI_ERROR_LFSDET
+Late Frame synchronisation detection
+
+Late frame synchronization detection
+Flag LFSDET in the SAI_xSR register can be set only when the SAI audio block is defined
+as slave. The frame length, the frame polarity and the frame offset configuration are known
+in register SAI_xFRCR.
+If the external master does not send the FS signal at the expecting time (generating the
+signal too late), the flag LFSDET in the SAI_xSR register will be set and an interrupt is
+generated if bit LFSDETIE in the SAI_xIM register is set.
+The flag is cleared when bit CLFSDET is set in the SAI_xCLRFR register
+The late frame synchronisation detection flag is set when the error is detected, SAI needs to
+be resynchronized with the master (the four steps described above should be respected).
+This detection and flag assertion can detect glitches on the SCK clock in a noisy
+environment, detected by the state machine of the audio block. It could incorrectly shift the
+SAI audio block state machine from one state in the current audio frame, thus corrupting the
+frame.
+There is no corruption if the external master is not managing the audio data frame transfer in
+a continuous mode, which should not be the case for most application purposes. In this
+case, flag LFSDET will be set.
+Note: This flag is not asserted in AC’97 mode since the SAI audio block acts as a link controller
+and generates the FS signal even when declared as slave
+
+
+SAI Overrun error interrupt
+
+-----------------------------------------------------------------
+
+ADC 1 range (knob) 3.3V to 80mV
+knob in middle pos: 1.48V
+CV in 5Vpp 0V : 1.68Vpp 1.52V inverted
+CV in 10Vpp 0V : 3.32Vpp 1.52V inverted
+
+Audio out ramp: 10.3Vpp (0 to 10V)
+fixed value 500: -880mV
+sine in 10Vpp: 13.3Vpp (-6.6V to 6.7V inverted) -1.33x gain
+
+input clipping at > 14.2Vpp : output 18.6Vpp
+AIN 2.9Vpp (1.0V to 3.9V)
+AOUTA-/AOUTB- 2.52Vpp (1.16V to 3.68V)
+AOUTA+/AOUTB+ 2.52Vpp (1.16V to 3.68V inverted) 
+7.38x gain
+
+sine in 10Vpp
+
+input gain 0.2x
+output gain 7.38x
+
+overall gain -1.33x
+
+sine in 10Vpp
+AIN 2.02Vpp (1.46V to 3.48V) 0.2x gain
+AOUTA- 1.86Vpp (1.52V to 3.38V)
+audio out 13.3Vpp (-6.56V to 6.64V inverted) -1.33x gain
+
+full ramp (bipolar): 21.8Vpp with overshoot
+
+CS4271  
+ADC full scale input voltage typ 0.565xVA Vpp (2.85Vpp @5V) min 0.51xVA (2.5Vpp @5V)
+DAC full scale Differential Output Voltage 0.96xVA (4.8Vpp @5V)
+
+input gain should be 1/4, (100k/25k), output gain apprx 2 (9.4k/4k7)
+
+
+QuadFM R2, R404, R20
+
+Tesseract change R3 and R9 to 22k (22/100: 10Vpp input -> 2.2Vpp at codec)
+change R7, R404, R20 and R12 to 10k (10/4.7: 4.8Vpp at codec -> 10.2Vpp at output)
+
+with 10k/4k7 output resistors range is 10Vpp
+end-to-end gain is 0.75x
+
+-----------------------------------------------------------------
+
+2.45V cs_vref
+2.45V ain
+2.44V aout-
+2.44V aout+
+1.06V out
+
+-----------------------------------------------------------------
+
+codec crystal
+
+the datasheet says it needs a crystal with a 20pF capacitance and also 2x 40pF filter caps
+
+CL = (C1 * C2) / (C1 + C2) + Cstray
+
+ABM3-24.576MHZ-D2Y-T CRYSTAL, 24.576MHZ, 18PF, 5 X 3.2MM 30 ppm, 18 pF, ABM3
+
+18pF load:
+27pF caps + 4.5pF Cstray
+30pF caps + 3.0pF Cstray
+33pF caps + 1.5pF Cstray
+
+https://blog.adafruit.com/2012/01/24/choosing-the-right-crystal-and-caps-for-your-design/
+
+-----------------------------------------------------------------
+
+Tesseract / OWL2 b2:
+factory patches gain works
+dynamic patch loading works, messages works
+loader only works with 8kb static memory, crc fails with SDRAM
+
+./Src/usbd_midi.c:395 sometimes gets stuck on `while(midi_tx_lock);`
+
+-----------------------------------------------------------------
+
+micro USB AB connector:
+changed footprint to use smaller 0.6mm drill holes for back tabs, with 0.8mm radius milling circle
+(should be: 0.65 x 0.85 with R0.25)
+
+http://www.mouser.com/ds/2/185/ZX_catalog-939768.pdf
+
+-----------------------------------------------------------------
+
+Random dynamic program hardfault removed by adding . = ALIGN(8); to flash.ld
+
+-----------------------------------------------------------------
+
+t1 / t1 aligned flash and 1024 : not loading
+t2 / t2 old flash and 128      : hardfault
+t2 / t1 old flash and 1024     : works
+t1 / t2 aligned flash and 128  : hardfault/not loading
+
+b2
+t1 / t1 : no loading
+t1 / t2 : no loading
+t2 / t2 : hardfault
+t2 / t1 : hardfault
+
+fails when using 0xD0100000
+
+b3
+
+-----------------------------------------------------------------
+
+main.c
+SdramTiming.RowCycleDelay = 6; // errors/hardfaults at 2, works with 4 or 6
+
+-----------------------------------------------------------------
+
+ADC1 PC3   ADC3_IN13
+ADC2 PC2   ADC3_IN12
+ADC3 PC1   ADC3_IN11
+ADC4 PF10  ADC3_IN8
+
+Tesseract: B D C A / 2 4 3 1
+
+ADC Cube configuration: 
+Prescalar / 8, 12 bits, right align, Scan conv, Continuous, DMA Continuous, EOC at end of all conversions.
+Regular conversion launched by software.
+DMA Request Settings: Circular, memory increment, Data Width Half Word
+
+-----------------------------------------------------------------
+
+ClingWrap 1.0 on -g debug: CPU 154% Memory 776
+after cube firmware update: CPU: 139% Memory: 776
+no audible / visible dropouts
+
+Release -O2 firmware: CPU: 150% Memory: 776
+no audible / visible dropouts
+
+on debug:
+BigJotReverb CPU: 67% Memory: 273864
+FreeVerb CPU: 35% Memory: 50672
+CalfCompressor CPU: 67% Memory: 128 - glitches
+CalfReverb CPU: 148% Memory: 98560 - smooth
+ClingWrap 1.0 CPU: 139% Memory: 776 - smooth
+Gain CPU: 5% Memory: 16 - sometimes glitchy
+
+on release:
+Factory Gain: CPU: 4% Memory: 0
+BigJotReverb CPU: 66% Memory: 273864
+FreeVerb CPU: 34% Memory: 50672 - no fx?
+CalfCompressor CPU: 66% Memory: 128 - glitchy
+CalfReverb CPU: 144% Memory: 98560 - smooth
+ClingWrap 1.0 CPU: 135% Memory: 776 - smooth
+
+Convolution on debug (blocksize?):
+Device stats: CPU: 130% Memory: 93616
+Device stats: CPU: 125% Memory: 93616
+works
+
+with block size fix, debug:
+BitJotReverb 	CPU: 34% Stack: 464 Heap: 273864
+GVerb 		CPU: 31% Stack: 512 Heap: 873952
+PlateVerb 	CPU: 19% Stack: 412 Heap: 59048
+FreeVerb	CPU: 18% Stack: 404 Heap: 50672
+CalfReverb      CPU: 74% Stack: 712 Heap: 98560
+
+-----------------------------------------------------------------
+
+Cube firmware upgrade, missing:
+HAL_SDRAM_MspInit / DeInit
+HAL_FMC_MspInit / DeInit
+
+-----------------------------------------------------------------
+
+STM32F42xxx/43xxx
+Bootloader activation Pattern 5
+Boot0(pin) = 1, Boot1(pin) = 0 and BFB2(bit) = 0
+Boot0(pin) = 0, BFB2(bit) = 1 and both banks don’t contain valid code
+Boot0(pin) = 1, Boot1(pin) = 0 and BFB2(bit) = 1
+
+bootloader location 0x1FFF76DE
+id 0x70 or 0x90
+
+-----------------------------------------------------------------
+
+todo:
+- boot process usb dfu mode
+- nor flash i/o
+
+- QuadFM TLC5971 driver
+- toggle switch decoding
+
+-----------------------------------------------------------------
+
+NOR Flash
+N25Q128A13ESE40G 128 Mbit, 16M x 8bit, 108 MHz, SPI, WSOIC, No Longer Manufactured
+N25Q064A13ESE40E 64 Mbit, 512K x 16bit, 108 MHz, SPI, WSOIC, No Longer Manufactured
+N25Q032A13ESC40G 32 Mbit, 4M x 8bit, 108 MHz, SPI, NSOIC, Available until stock is exhausted
+S25FL164K0XMFI011 64 Mbit, 8M x 8bit, 108 MHz, SPI, SOIC
+S25FL132K0XMFI041 32 Mbit, 4M x 8bit, 108 MHz, SPI, SOIC
+S25FL116K0XMFI042
+S25FL116K0XMFI043
+S25FL116K0XMFI040 16 Mbit, 2M x 8bit, 108 MHz, SPI, SOIC
+S25FL216K0PMFI011 16 Mbit, 8K x 256Byte, 65 MHz, Serial, SOIC
+S25FL216K0PMFI010 16MBIT, SOIC-8
+S25FL116K0XMFI041 16 Mbit, 2M x 8bit, 108 MHz, SPI, SOIC
+  Command subset and footprint compatible with S25FL016K
+
+S25FL132K0XMFI013 32 Mbit, 4M x 8bit, 108MHz, SPI, SOIC (farnell 0.572 @10, until stock is exhausted)
+S25FL132K0XMFI011 32 Mbit, 4M x 8bit, 108MHz, SPI, SOIC (farnell 0.904 each, US stock)
+
+S25FL132 ... FI01 for 8-lead SO 208mil
+S25FL164 ... FI01 for 8-lead SO 208mil
+
+http://www.cypress.com/products/serial-nor-flash-memory
+looks like the ...K0XMFI and K0XMFV are end-of-life, replaced by K0XMFA and K0XMFB
+
+-----------------------------------------------------------------
+
+James todo list:
+- NOR flash driver S25FL132K0XMFI013
+- LED driver TLC5971
+- toggle decoder
+
+-----------------------------------------------------------------
+
+PA11 TIM1 CH4 PWM USB_H_D-
+PD12 TIM4_CH1 PWM GP25
+PD13 TIM4_CH2 PWM GP24
+PB8  TIM4_CH3 PWM GP9
+PB9  TIM4_CH4 PWM GP8
+
+-----------------------------------------------------------------

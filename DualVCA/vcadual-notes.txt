@@ -1,0 +1,8 @@
+---------------------------------------------------------------------------------
+
+Dual bipolar VCA with attenuverting linear and exponential CV
+
+todo: 
+- add attenuverters to CV inputs
+
+---------------------------------------------------------------------------------

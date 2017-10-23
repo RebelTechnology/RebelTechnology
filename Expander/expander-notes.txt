@@ -1,0 +1,185 @@
+
+-------------------------------------------------------
+
+MAX11300
+PIXI, 20-Port Programmable Mixed-Signal I/O with 12-Bit ADC, 12-Bit DAC, Analog Switches, and GPIO
+
+A DAC-configured output port can drive up to 25mA
+The PIXI port driver voltage supply operates from a wide -12.0V to +12.0V.
+ADC Absolute Input Voltage Ranges
+0 to +10V
+-5 to +5V
+-10V to 0V
+DAC Output Voltage Ranges
+0 to +10V
+-5 to +5V
+-10V to 0V
+1.8V to 5.0V Compatible Serial Interface
+20MHz SPI/QSPI-Compatible
+
+Input resistance: 100k
+DAC noise 3.8mVpp
+
+-------------------------------------------------------
+
+Build one:
+- using 680R in/out resistors instead of 560R
+- using 3k3 led Riref instead of 2k2 (Iout < 16mA) R26
+
+5v rail is 5.11v (MAX11300 AVDD takes 4.75v to 5.25v)
+
+todo: move power connector?
+
+-------------------------------------------------------
+
+TLC5946
+Riref = 42.5*(Viref / Iout), Viref=1.20V
+Iout=20mA, Riref = 51V/0.02A = 2550R
+Iout = 51V/Riref
+RIREF must be between 1.275 kΩ (typ) and 12.75 kΩ (typ)
+With Riref=2k2, Iout < 24mA
+
+30MHz transfer rate, 15MHz when XHALF=L
+GSCLK max 33MHz
+
+--------------------------------------------------------------------------------
+
+bit bang copy-through working, apprx 5ms refresh rate
+
+--------------------------------------------------------------------------------
+
+STM32F100CBT6B
+
+--------------------------------------------------------------------------------
+
+USART
+USART1 alternate function requires remapping
+
+header PH 2mm pitch: rx gnd tx
+
+OSM header: rx tx
+
+--------------------------------------------------------------------------------
+
+Overheating / over power:
+- change/remove normalling to leave outputs floating
+- change output resistors to 1k
+- change iref resistor to 3k3 R26
+
+--------------------------------------------------------------------------------
+
++12v: 180mA without front, 220mA with a few LEDs (reset), 250mA running
+
+--------------------------------------------------------------------------------
+
+- pull TLC BLANK high to start with all LEDs off
+
+--------------------------------------------------------------------------------
+
+The MAX11300 integrates one internal and two external
+temperature sensors. The external sensors are diode-
+connected transistors, typically a low-cost, easily mount-
+ed 2N3904 NPN type, that replace conventional thermis-
+tors or thermocouples.
+
+A diode-connected transistor is a method of creating a two-terminal rectifying device (a diode) out of a three-terminal transistor. A characteristic of diode-connected transistors is that they are always in the saturation region for MOSFETs and in the active region for BJTs.
+A diode-connected transistor is made by
+- connecting the base and collector of a BJT
+- connecting the drain and source of a JFET
+- connecting the gate and drain of a MOSFET
+
+--------------------------------------------------------------------------------
+
+Rev01 changes / todo:
+- add PowerPad thermal pad to TLC5946
+- move power connector?
+
+--------------------------------------------------------------------------------
+
+b1 +12v 30mA (outputs working, no leds)
+
+b2 +12v 210mA (James)
+
+b3 +12v 30mA (outputs working, no leds)
+
+--------------------------------------------------------------------------------
+
+Expander + OWL Quad Panning with 4ms VCA Matrix
+
+--------------------------------------------------------------------------------
+
+b3:
+Crosstalk when one DAC is at 0v and the other is at +10v.
+Almost 2VPP triangular peak at 150uS interval.
+Constant when MCU interrupted.
+same after adding _REF decoupling caps (apprx 12.5kHz)
+
+b1:
+no crosstalk?
+300mV sine when all 16 outputs configured as DAC apprx 12uS period.
+(increasing amplitude when configuring last 4 ports)
+With 20ch configured DAC_5TO5 sine is 520mV (centred on gnd when DAC value is 0).
+Same with DAC_0TO10
+Constant when MCU interrupted.
+
+300mV blips on CH1 as DAC
+
+
+--------------------------------------------------------------------------------
+
+MAX11300GCM+ (farnell 2527933 £4.63 @100)
+
+--------------------------------------------------------------------------------
+
+MAX11300 EVKIT 
+ADC_INT_REF: 4.7uF to gnd (test point: 2.5v nom, 2.494 min, 2.506 max)
+             datasheet: 4.7uF to 10uF bypass capacitor
+ADC_EXT_REF: 4.7uF to gnd, optional 2.5v ref
+DAC_EXT_REF: 4.7uF to gnd, optional 2.5v ref
+
+ADC Internal Voltage Reference Output. Connect a bypass capacitor at this pin (4.7µF
+to 10µF)
+
+todo: solder 3x 4u7 caps to back of C3/C1 and wire to MAX pins 10/11/12
+      (or at least pin 10 ADC_INT_REF)
+
+--------------------------------------------------------------------------------
+
+FTDI TTL-232R
+black	gnd	5	gnd
+brown	cts
+red	vcc
+orange	tx	3	rx
+yellow	rx	2	tx
+green	rts
+
+Bus Pinout
+top RX
+mid GND
+bot TX
+
+--------------------------------------------------------------------------------
+
+todo: protection diodes on bus inputs and outputs (zener?)
+
+--------------------------------------------------------------------------------
+
+MAX11300PMB1 PMod
+
+The MAX11300PMB1 board itself generates positive voltages from
+3.3V on pins 6 and 12 with an on-board DC-DC converter.
+
+
+CS   MOSI MISO SCLK  GND +3v3
+INTB    -    - CNVTB GND +3v3
+
+--------------------------------------------------------------------------------
+
+MAX11311: 12-channel PIXI
+
+MAX11300PMB1 Peripheral Module
+http://pdfserv.maximintegrated.com/en/an/UG5795.pdf
+https://datasheets.maximintegrated.com/en/ds/MAX11300PMB1.pdf
+
+--------------------------------------------------------------------------------
+

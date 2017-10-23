@@ -216,4 +216,20 @@ Q compensation:
 
 --------------------------------------------------------------------------------
 
+email to Jake Rothman 13/10
+The ladder filter should be made with 2164 integrators and should have voltage controlled (exponential) resonance.
+I'd like to use pole mixing to produce HP as well as LP outputs [1].
+In addition to the core filter (requiring 5 VCA sections) I'd like an additional linear FM input (+1 VCA), and a linear VC cross-fade between LP and HP outputs which would use another +2 VCA sections. So the whole design requires 8 VCAs, or 2x quad 2164s.
+The cross fade would work by summing the outputs +LP and -HP, putting it through a VCA, and summing the output with +HP. So if the VCA is fully off, the output is simply +HP. If it is fully on, the phase-inverted -HP cancels out against +HP and LP remains. Since the VCAs are exponential, two are required for linearisation [2].
+All inputs, audio and CV, should be 10Vpp, 100k impedance (min), outputs 1k (max). Power supply +/-12v.
+inputs:
+    audio signal
+    exp cutoff Fc (1V/oct)
+    resonance Q
+    lin cutoff Fc
+    crossfade LP/HP
+The production version will be SMT, but I think all components will also be available in DIP for development and testing. I've got some V2164 DIPs that I can send you. For op-amps, we usually use TL074 and/or NE5532.
+I think the work should proceed in two parts: first the basic filter circuit, then the crossfade and linear FM.
+If you think this all sounds realistic then I'd just need a rough estimate from you for drafting a design for the first part. Then we can proceed step by step: building, testing, tuning. At the end I'd just need a schematic of the working design, and we'll do the layout here.
 
+--------------------------------------------------------------------------------

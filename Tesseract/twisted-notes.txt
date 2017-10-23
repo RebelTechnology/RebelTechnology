@@ -1,0 +1,5 @@
+
+Twisted Water	phaser/flanger		blue
+Air 		reverb			white
+Fire 		distortion/overdrive	red
+Time 		delay			black

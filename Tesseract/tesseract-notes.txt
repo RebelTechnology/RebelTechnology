@@ -1,0 +1,189 @@
+
+--------------------------------------------------------------------------------
+
+http://hypersolid.milosz.ca/
+
+--------------------------------------------------------------------------------
+
+4x ADC (sum CV and pot)
+4x CV input 0-10v or +/-5v
+1x trigger input
+2x audio in +/-5v
+2x audio out +/-5v
+1x RGB LED
+1x bus uart TX/RX/GND
+
+--------------------------------------------------------------------------------
+
+Rev 01 changes / todo
+/ C17 and C105 too small, should be 5mm
+/ C17 and C105 too close to fets
+/ change C14 to 47uF
+/ change LED resistors
+/ move pot B (middle top) north
+/ rename pots
+
+--------------------------------------------------------------------------------
+
+with OWL2 b3: leftmost pot, adc b, max 1245 not 4095
+
+--------------------------------------------------------------------------------
+
+Light pipe
+LPC040CTP  Light Pipe  (farnell £0.28 @100)
+10.16 mm (0.40") round 4.83mm dia exterior, 4.32mm dia interior
+
+RTN250 LED clip 8.38 mm x 5.08 mm
+
+--------------------------------------------------------------------------------
+
+- Distortion: clingwrap
+- Reverb: BigJot / GVerb / PlateVerb
+- Delay
+- Chaos
+
+--------------------------------------------------------------------------------
+
+trigger input GP7 / PB2
+PB2 / GPIO_EXTI2 / BOOT1
+
+clock output (trigger default):
+PB8 / TIM4_CH3 PWM / GP9
+
+--------------------------------------------------------------------------------
+
+ADC1 PC3   ADC3_IN13
+ADC2 PC2   ADC3_IN12
+ADC3 PC1   ADC3_IN11
+ADC4 PF10  ADC3_IN8
+
+Tesseract: B D C A / 2 4 3 1
+
+--------------------------------------------------------------------------------
+
+Toggles:
+Toggle A left
+/ GP3 A3 PA2
+GP4 A4  PA3
+GP5 A5 PA4
+Toggle B right
+GP10 / GP11
+A12 PC12
+A13 PG9
+GP10 - A14
+GP11 - A13
+GP13 - B18
+SWO - A12 - PB3
+
+LED: GP1 GP2 GP6
+Push input: GP7 A7 PB2 (EXTI conflicts with PA2 / GP3)
+
+todo: 
+- add serial USART3
+- toggles on PA3, PA4, PC12, PG9 (PC12 was: PB3/SWO)
+
+ USART1 PA10 / PA9 : USBH ID / USBH VBUS
+ USART3 PC10 / PC11 : B13 / B14 (plus PB12 USART3_CK in synchronous mode)
+
+--------------------------------------------------------------------------------
+
+- EffectsBox
+- Tesseract
+- Player
+
+audio outputs and inputs ranges
+- Player 18vpp
+- Tesseract 12vpp
+- Prism 12vpp
+- EffectsBox 12vpp
+- MiniLab
+
+CS4271  
+ADC full scale input voltage typ 0.565xVA Vpp (2.85Vpp @5V) min 0.51xVA (2.5Vpp @5V)
+DAC full scale Differential Output Voltage 0.96xVA (4.8Vpp @5V)
+
+--------------------------------------------------------------------------------
+
+http://www.tij.co.jp/product/jp/PCM1690/datasheet/application_and_implementation
+Lowpass Filter and Differential-to-Single-Ended Converter for DAC Outputs
+These circuits are second-order Butterworth filters using a multiple feedback (MFB) circuit arrangement that reduces sensitivity to passive component variations over frequency and temperature. 
+
+Tesseract: try replacing C10 and C13 with single capacitor (half value) across footprints (bridging differential inputs)
+
+"When a low-pass filter undergoes the transformation process, the capacitor ends up at half the original value"
+http://www.ti.com/lit/an/slyt343/slyt343.pdf
+
+--------------------------------------------------------------------------------
+
+Audio output filter MFB (Multiple feedback filter, differential to single ended amplifier)
+
+Quality factor
+Q = 0.70222039893603
+Damping ratio
+ζ = 0.71202716519996
+
+R1 = 3.6kΩ
+R2 = 24kΩ
+R3 = 9.1kΩ
+C1 = 2nF
+C2 = 100pF
+fc = 24081.238379888[Hz]
+Gpk = -2.5277777777778
+Q = 0.7048437245016
+ζ = 0.70937710391556
+
+R1 = 5.6kΩ
+R2 = 15kΩ
+R3 = 13kΩ
+C1 = 0.001uF
+C2 = 100pF
+fc = 36041.497386709[Hz]
+Gpk = -2.3214285714286
+Q = 0.70292582222052
+ζ = 0.71131260823584
+
+R1 = 8.2kΩ
+R2 = 20kΩ
+R3 = 20kΩ
+C1 = 0.001uF
+C2 = 100pF
+Cut-off frequency
+fc = 25164.606052244[Hz]
+Gain at f=0Hz
+Gpk = -2.4390243902439[times] (7.7443228656053)[dB]
+Quality factor
+Q = 0.71238123113683
+Damping ratio
+ζ = 0.70187138311054
+
+R1 = 3.9kΩ
+R2 = 10kΩ
+R3 = 9.1kΩ
+C1 = 0.002uF
+C2 = 200pF
+Cut-off frequency
+fc = 26379.674946647[Hz]
+Gain at f=0Hz
+Gpk = -2.3333333333333[times] (7.3595357058919)[dB]
+Quality factor
+Q = 0.71090823860165
+Damping ratio
+ζ = 0.70332565139981
+
+gain = -R3/R1
+
+R1 = 3.9kΩ
+R2 = 10kΩ
+R3 = 10kΩ
+C1 = 0.002uF
+C2 = 200pF
+Cut-off frequency
+fc = 25164.606052244[Hz]
+Gain at f=0Hz
+Gpk = -2.5641025641026[times] (8.17870785947)[dB]
+Quality factor
+Q = 0.69285858846386
+Damping ratio
+ζ = 0.72164797885894
+
+--------------------------------------------------------------------------------
