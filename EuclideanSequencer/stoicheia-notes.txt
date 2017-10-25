@@ -1,0 +1,74 @@
+
+--------------------------------------------------------------------------------
+
+knob positions
+
+length, 1 to 16
+clock	value
+7	1
+8	2
+9	3
+9.30	4
+10	5
+10.30	6
+11	7
+12	8
+12.30	9
+1	10
+1.30	11
+2	12
+3	13
+3.30	14
+4	15
+5	16
+
+rotation, -7 to 8
+(same as clock -8)
+clock   value
+7	-7
+9	-5
+12	0
+3	5
+5	8
+
+--------------------------------------------------------------------------------
+
+Tuxgraphics programming header
+GND-SCK-Miso-Mosi-Reset
+
+SCK	PB5	19
+MISO	PB4	18
+MOSI	PB3	17
+RESET	PC6	1
+
+add VCC to make 6-pin header
+
+--------------------------------------------------------------------------------
+
+workshop shopping list
+farnell LR0204 resistors
+100R
+100K
+10K
+1K
+1M
+51K
+120K
+
+--------------------------------------------------------------------------------
+
+May 2015 issues
+- octogon pads fuct
+- track missing between reset (pin 1) and R3
+- 4 builds failed
+
+--------------------------------------------------------------------------------
+
+The best ideas are not always the new ones.
+In the third century BCE, the Greek mathematician Euclid devised a way to determine the largest common denominator of any two integers. As it turns out, his method is the same as what people have used to divide beats into rhythms. Across the globe, from ancient to modern times; the rhythms that pervade human existence can be generated using the same, simple algorithm.
+Its generative formula can be written E(m, n), and the cultural and historical range it covers is nothing short of breathtaking. From Brazilian Samba and Bossa-Nova, to Bulgarian folk dances, the thirteenth century Persian drum patterns, to the complex poly-rhythms of West and Central Africa. 
+Of course, Euclid's work can be applied to more than just music. A scientist named Bjorklund applied it to nuclear physics, to optimise the operation of the SNS particle accelerator, and also proved the efficiency of his algorithm.
+Then, in 2005, a Professor of Computer Science, Godfried Toussaint, linked up the dots and presented in a research paper the connection between the work of Euclid, Bjorklund, and musical rhythms.
+We have based our implementation on the work of these great minds.
+
+--------------------------------------------------------------------------------

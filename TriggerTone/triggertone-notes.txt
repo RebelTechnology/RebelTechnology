@@ -57,7 +57,7 @@ http://www.tellun.com/motm/diy/tln862/TLN-862.html
 -------------------------------------------------------
 
 Names:
-diapason, tones, tonus (Latin), tonos (Greek), unison, diapente (P5)
+diapason, tones, tonus (Latin), tonos (Greek), unison, diapente (P5), dyad (single interval)
 tonic, tonality
 Tonic, Supertonic
 
@@ -407,6 +407,11 @@ tuning:
 -------------------------------------------------------
 
 ToggleTone
-the LED should only be on when toggle is active
+- the LED should only be on when toggle is active, or removed
+- change R20 1k output resistor to 100R
+
+TriggerTone
+- change LED resistors to 2k2 or 2k
+- change 1k output resistor to 100R
 
 -------------------------------------------------------

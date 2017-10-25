@@ -1,0 +1,140 @@
+------------------------------------------------------------------
+
+Ordered Rev01 from Seeed studios 4/11 2014
+
+------------------------------------------------------------------
+
+Rev 01 todo: 
+/ turn 4x inputs and normalled inputs around so that Input 1 is at the top
+ (for Rev01, mount connectors on the component side)
+- add footprint for resistor to change pot response curve to logarithmic (with jumper?)
+/ change (buffered) input resistors from 100k to 1k
+/ add 100k input pull-downs to avoid floating ins?
+  Or: add 5-pin ground connector.
+  Or: cable that grounds the 4 input normals against pin 3.
+- align jacks or change to thonkiconn
+- reduce width to <50mm
+- reduce height to <100mm
+
+------------------------------------------------------------------
+
+order molex connectors
+MOLEX-53048-0310
+MOLEX-53048-0510
+crimp housings
+MOLEX-51021-0300
+MOLEX-51021-0500
+
+get straight vertical 5way and 3way connectors
+
+------------------------------------------------------------------
+
+todo:
+- copy power circuit from panning mixer
+- change to JST PH connectors
+- polyester AC coupling caps e.g.
+  WIMA SMDTC03100QA00KP00, SMDTC03100KA00KP00
+- change to non-inverting op amp gain stage
+
+------------------------------------------------------------------
+
+Headphone amp
+RC4560 
+Dual Audio Operational Amplifier
+
+------------------------------------------------------------------
+
+log pot resistor 2k2
+headphone input resistor 22k
+10k/10k
+
+------------------------------------------------------------------
+
+Rev03 changes:
+/ show orientation of IC3
+- need 16V 22uF electrolytics
+
+------------------------------------------------------------------
+
+A Low-Cost Near-Constant Impedance Signal Mixer for Analogue Synthesizers
+Neil Johnson
+http://www.milton.arachsys.com/nj71/pdf/new_mixer.pdf
+
+------------------------------------------------------------------
+
+in 3v, 12 o'clock gain, out 1.34v (gain 0.45x)
+in 3v, full gain, out 5.8v (gain 1.93x)
+       bus out b: 5.4v (relative gain 0.93x)
+
+in 3v, full gain, hp out 1.36v (gain 0.45x)
+       bus hp out b: 1.24v (relative gain 0.91x)
+
+3 o'clock: 1x
+
+input signal < -11.8v causes fold-back spike in output.
+
+output +/-10v (-10.2v to 11.2v, 21.4Vpp)
+
+------------------------------------------------------------------
+
+3.5mm Stereo jack: TruConnect PJ-301DM from Rapid
+
+RC4560 op amp cheaper from Mouser
+
+------------------------------------------------------------------
+
+Mix 05 Send/Return
+2x Dry / Wet knobs
+2x send jacks
+2x return jacks
+
+------------------------------------------------------------------
+
++12v 19.15mA idle, up to 40mA full blast hp
+-12v 20.56mA idle, up to 40mA full blast hp
+
+------------------------------------------------------------------
+
+Headphone Mixer
+2 in, 2 out, stereo hp out, volume knob
+
+------------------------------------------------------------------
+
+Headphone Slice
+2 in, stereo hp out, line out, volume
+
+------------------------------------------------------------------
+
+Send Slice
+4 pots 1 out, 4 into 1 mixer (without input jacks)
+
+------------------------------------------------------------------
+
+Return Slice
+with panning mixer design: SimpleReturnSlice.sch
+with headphone output and crossfading inputs: ComplexReturnSlice.sch
+stereo 2in / 2out mix: ReturnSlice.sch
+
+------------------------------------------------------------------
+
+Slices
+- Balanced inputs and outputs
+- Piezo input slice
+- Send 4x
+- Return 2x
+- Headphone and line output
+- Crossfade 2x gain, 1x xfade, 2 in (stereo?)
+
+Put Return slice before mixer to mix into bus and use hp out.
+
+------------------------------------------------------------------
+
+Crossfade Slice
+http://electricdruid.net/single-vca-crossfader/
+
+------------------------------------------------------------------
+
+Font for Mix titles: Caviar Dreams
+for labels: Helvetica
+
+------------------------------------------------------------------

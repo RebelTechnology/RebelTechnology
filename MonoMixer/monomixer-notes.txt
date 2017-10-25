@@ -1,0 +1,33 @@
+
+---------------------------------------------------------
+
+If the bus was stereo, it could be used as a 4x insert
+
+---------------------------------------------------------
+
+Unity gain at 3 o'clock
+
+Attenuated bus outputs are unity gain at fully clockwise
+
+---------------------------------------------------------
+
+Gain
+
+in 3v, 9 o'clock gain, out 0.54v (gain 0.18x)
+in 3v, 12 o'clock gain, out 1.31v (gain 0.44x)
+in 3v, 3 o'clock gain, out 3.00v (gain 1.00x)
+in 3v, full gain, out 5.8v (gain 1.93x)
+
+3 o'clock: 1x
+
+input signal < -11.6v causes fold-back spike in output.
+
+output +/-10v (max 20.6Vpp)
+
+---------------------------------------------------------
+
+Power
+
++/-12v 10-12mA depending on level of input signal (max 13.8mA measured)
+
+---------------------------------------------------------

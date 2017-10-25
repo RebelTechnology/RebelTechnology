@@ -1,0 +1,27 @@
+
+-------------------------------------------------------
+
+TLC - can't hand solder heat pad
+
+Rev01 changes/todo
+- move C14 north to clear female pinheader
+- better component spacing?
+
+-------------------------------------------------------
+
+http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/electronic-circuits/matrix-keypad-scan-decode
+
+-------------------------------------------------------
+
+TLC59711, TLC5971 compatible parts
+
+todo:
+- power VCC from 12v or connect VCC, VREG and 3v3
+- connect power pad to gnd
+
+order TSSOP SMT adaptor and test with breadboard
+note: connect gnd pad
+
+-------------------------------------------------------
+
+

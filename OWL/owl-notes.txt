@@ -1,0 +1,89 @@
+-----------------------------------------------------------------
+
+Theremin Bollards / rack OWL
+
+David wants 5 OWLs in one rack.
+Will 4 be enough?
+
+1 set of 4 rotary encoders, push-buttons to select which unit, LCD screen show current settings
+rotary push-encoder to select/edit patch
+(similar to lexicon MX300 stereo or MX400 dual-stereo)
+
+1 ui processor: lcd, encoders, routing
+(spark photon?)
+run extra patch in ui processor?
+
+Flexible routing:
+Dual SP4T Analog Switch
+TS3A5017 is a dual single-pole quadruple-throw (4:1) analog switch that is
+designed to operate from 2.3 V to 3.6 V.
+
+NLAS3699 Dual DPDT Ultra-Low RON Switch
+Single Supply Operation 1.65 to 3.6 V VCC
+
+TS3A26746E 2 X 2 Crosspoint Switch for Audio Applications
+
+Dual 4ch muxes
+The CD4052B is a differential 4-Channel multiplexer having
+two binary control inputs, A and B, and an inhibit input. The
+two binary input signals select 1 of 4 pairs of channels to be
+turned on and connect the analog inputs to the outputs.
+CD4052B (farnell £0.171 @100)
+
+HEF4052BT
+
+The DG408 Single 8-Channel, and DG409 Differential
+4-Channel monolithic CMOS analog multiplexers are drop-in
+replacements for the popular DG508A and DG509A series
+devices. They each include an array of eight analog
+switches, a TTL/CMOS compatible digital decode circuit for
+channel selection, a voltage reference for logic thresholds
+and an ENABLE input for device selection when several
+multiplexers are present. Audio Switching Systems.
+
+The TS3A5017 is a dual single-pole quadruple-throw
+analog switch that is designed to operate from
+2.3 V to 3.6 V. This device can handle both digital
+and analog signals, and signals up to V+ can be
+transmitted in either direction.
+
+The TS5A3357 is a high-performance, single-pole, triple-throw (SP3T) analog
+switch designed to operate from 1.65 V to 5.5 V. It offers low ON-state resistance
+and low I/O capacitance for very low signal distortion. The break-before-make
+feature allows transfer of a signal from one port to another with minimal signal
+distortion. This device also offers a low charge injection, which makes it suitable
+for high-performance audio and data acquisition systems.
+
+balanced inputs and outputs
+4 in / 4 out (two stereo pairs?) dual xlr / trs
+
+USB Midi input (internal hub?)
+
+assignable expression pedal input?
+
+power supply
+balanced line driver THAT1200 requires +-3v to +-18v (THAT1646 min +-4v, DRV13x min +-4.5v)
+
+-----------------------------------------------------------------
+
+or:
+2x OWLs, 4 in / out, 8 knobs
+(no lcd, encoders, or ui processor)
+
+-----------------------------------------------------------------
+
+5GTH pushbutton
+switch cap 1IS11-15.0
+15mm tall fully illuminated clear transparent
+or 1IS16 frosted white
+or 1IS11-16.0 16mm tall
+or even 1SS06-15.0 solid white
+
+-----------------------------------------------------------------
+
+ADC Cube configuration: 
+Prescalar / 8, 12 bits, right align, Scan conv, Continuous, DMA Continuous, EOC at end of all conversions.
+Regular conversion launched by software.
+DMA Request Settings: Circular, memory increment, Data Width Half Word
+
+-----------------------------------------------------------------

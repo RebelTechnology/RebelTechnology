@@ -1,0 +1,33 @@
+
+a knob to set the range, an output jack, and a jack for igor.
+
+I think we could include an input jack as well, so you can optionally
+plug a signal in (CV or audio) and have it attenuated by the FSR.
+
+Igor goes from over 1M down to tens of Ohms when pressed. 
+
+I'm just thinking, would two knobs be useful? One to adjust the width of the 'Igor range' (ie resistance in parallel), and one to adjust where the range happens (ie resistance in series)... Then the user could 'zero in' on the sweetspot... Not sure if this is overdoing it.
+
+So stereo minijack is OK? (Only ring and tip connected).
+
+----------------
+
+not much of a brain really, which is probably apt right?
+
+The 1503_09 stereo jack (X1) connects to Igor, so that the FSR forms a voltage divider with R8.
+When the FSR resistance is low this more or less turns off the non-inverted path of the signal (going into R8), which would otherwise cancel out the inverted path (going into R6).
+It might look strange but it's just a trick really to make sure that the output goes up when Igor is pressed, and to avoid sending the signal through the FSR itself.
+
+The transfer function is probably somewhat dependent on the input impedance, which is not great, but based on the resistor divider alone I think it should be
+Vin - Vin * Rfsr / (Rfsr+R8)
+
+If nothing is plugged into the IN1 jack then the pot sets a Vin level between 0 and apprx 6v (there's a mistake at the switched IN1 signal, should be half of 12v and gnd, not 12v and -12v).
+
+You can see a plot here where y is output voltage and x is FSR resistance. V1 is the input voltage.
+https://www.desmos.com/calculator/q9ourjfnx8
+
+If you turn R8 down to about 5k it looks alright.
+
+I'm hoping the 1/x response will work well with the non-linear FSR, for a nice smooth control.
+
+----------------
