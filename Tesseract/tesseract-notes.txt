@@ -187,3 +187,15 @@ Damping ratio
 ζ = 0.72164797885894
 
 --------------------------------------------------------------------------------
+
+Controls:
+Width Height Depth Colour
+Time Space Mix Shape
+
+left toggle: soft/medium/hard
+right toggle: reverb/delay/distort
+              air/water/fire
+
+PingPongDelay: soft fade between taps/musical ratios
+
+--------------------------------------------------------------------------------
