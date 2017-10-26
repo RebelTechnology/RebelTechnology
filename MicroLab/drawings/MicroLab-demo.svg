@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 744.09449 1052.3622"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="MicroLab-demo.svg">
+  <defs
+     id="defs4">
+    <g
+       id="potgrading" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.77735899"
+     inkscape:cx="392.9492"
+     inkscape:cy="580.37476"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="mm"
+     inkscape:window-width="1680"
+     inkscape:window-height="1000"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,4.7244096e-6)">
+    <g
+       transform="matrix(-1,0,0,1,736.2232,-432.36292)"
+       id="g4163">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75472444;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 414.23541,670.77442 43.63656,-17.758 15.17086,9.57853 51.84497,-17.89135 48.20533,17.93466 19.90936,-9.87386 41.45991,18.01002 0,79.085 -10.63123,0 0,74.92677 10.63123,0 0,79.79632 c 0,0 -0.38831,10.63091 -61.48005,10.63091 l -48.6792,0 c 0,0 0,0 -48.67919,0 -61.09177,0 -61.38855,-10.63091 -61.38855,-10.63091 l 0,-79.79632 10.63122,0 0,-74.92677 -10.63122,0 z"
+         id="path4165"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccccccccccscscccccc" />
+    </g>
+    <g
+       id="g4849"
+       style="fill:none;stroke:#000000;stroke-width:0.05"
+       transform="matrix(-3.5433071,0,0,3.5433071,319.23107,228.90877)">
+      <path
+         id="path4861"
+         style="fill:none;stroke:#000000"
+         d="m 30.3,18.225 c -2.612901,0 -4.737597,2.115556 -4.737597,4.727735 0,2.135913 1.421033,3.945767 3.365068,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 C 35.027741,20.34019 32.912198,18.225 30.3,18.225 z"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path4911"
+         style="fill:none;stroke:#000000"
+         d="m 11.25,31.56 c -2.6129013,0 -4.7375971,2.115556 -4.7375971,4.727735 0,2.135913 1.421033,3.945767 3.3650681,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 C 15.977741,33.67519 13.862198,31.56 11.25,31.56 z"
+         inkscape:connector-curvature="0" />
+      <g
+         id="g4913"
+         transform="translate(11.25,36.31)"
+         style="stroke:#000000" />
+      <path
+         id="path4961"
+         style="fill:none;stroke:#000000"
+         d="m 49.35,31.56 c -2.612901,0 -4.737597,2.115556 -4.737597,4.727735 0,2.135913 1.421033,3.945767 3.365068,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 C 54.077741,33.67519 51.962198,31.56 49.35,31.56 z"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path5011"
+         style="fill:none;stroke:#000000"
+         d="m 30.3,46.8 c -2.612901,0 -4.737597,2.115556 -4.737597,4.727735 0,2.135913 1.421033,3.945767 3.365068,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 C 35.027741,48.91519 32.912198,46.8 30.3,46.8 z"
+         inkscape:connector-curvature="0" />
+      <circle
+         id="circle5061"
+         style="fill:none;stroke:#000000"
+         r="4"
+         cy="54.09"
+         cx="11.25"
+         sodipodi:cx="11.25"
+         sodipodi:cy="54.09"
+         sodipodi:rx="4"
+         sodipodi:ry="4"
+         d="m 15.25,54.09 c 0,2.209139 -1.790861,4 -4,4 -2.209139,0 -4,-1.790861 -4,-4 0,-2.209139 1.790861,-4 4,-4 2.209139,0 4,1.790861 4,4 z"
+         transform="matrix(0.62732919,0,0,0.62732919,4.1925467,20.157764)" />
+      <circle
+         id="circle5063"
+         style="fill:none;stroke:#000000"
+         r="4"
+         cy="54.09"
+         cx="49.349998"
+         sodipodi:cx="49.349998"
+         sodipodi:cy="54.09"
+         sodipodi:rx="4"
+         sodipodi:ry="4"
+         d="m 53.349998,54.09 c 0,2.209139 -1.790861,4 -4,4 -2.209139,0 -4,-1.790861 -4,-4 0,-2.209139 1.790861,-4 4,-4 2.209139,0 4,1.790861 4,4 z"
+         transform="matrix(0.62732919,0,0,0.62732919,18.391304,20.157764)" />
+      <circle
+         id="circle5065"
+         style="fill:none;stroke:#000000"
+         r="3.25"
+         cy="21.07"
+         cx="11.25"
+         sodipodi:cx="11.25"
+         sodipodi:cy="21.07"
+         sodipodi:rx="3.25"
+         sodipodi:ry="3.25"
+         d="m 14.5,21.07 c 0,1.794925 -1.455075,3.25 -3.25,3.25 C 9.4550746,24.32 8,22.864925 8,21.07 c 0,-1.794926 1.4550746,-3.25 3.25,-3.25 1.794925,0 3.25,1.455074 3.25,3.25 z" />
+      <circle
+         id="circle5067"
+         style="fill:none;stroke:#000000"
+         r="3.25"
+         cy="21.07"
+         cx="49.349998"
+         sodipodi:cx="49.349998"
+         sodipodi:cy="21.07"
+         sodipodi:rx="3.25"
+         sodipodi:ry="3.25"
+         d="m 52.599998,21.07 c 0,1.794925 -1.455074,3.25 -3.25,3.25 -1.794925,0 -3.25,-1.455075 -3.25,-3.25 0,-1.794926 1.455075,-3.25 3.25,-3.25 1.794926,0 3.25,1.455074 3.25,3.25 z" />
+    </g>
+    <g
+       id="g7227"
+       transform="translate(-19.595118,-97.433727)">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.6645382px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 121.35701,178.97635 74.67842,0 0,-10.62992 70.86614,0 0,10.62992 21.1957,0 -0.002,38.70709 c 5.3181,0 26.63705,0 31.95515,0 l 0,-38.70709 21.53138,0 0,32.59843 7.9e-4,0 3.9e-4,35.43307 -5e-4,0 -5e-4,0 0,21.25827 -10.62912,0 0,10.63109 -64.05151,0 0,10.63074 -70.86614,0 0,-10.63074 -64.04866,4e-4 0,-10.63149 -10.63003,0 5.8e-4,-56.69129 -3.1e-4,-1e-4 z"
+         id="path7229"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccccccccccccccccccccccccc" />
+    </g>
+    <g
+       id="g7315"
+       transform="translate(-19.592588,322.56736)">
+      <g
+         transform="translate(0,20)"
+         id="g7223">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.6645382px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 121.35404,178.9763 74.68139,0.002 0,-10.63066 70.86614,0 0,10.62992 74.67888,0 -10e-6,99.92091 -74.67887,0 0,10.63074 -70.86614,0 0,-10.63074 -74.68139,0 z"
+           id="rect4192"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccccccccccc" />
+      </g>
+    </g>
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:0.34087202;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path7321"
+       sodipodi:cx="149.96722"
+       sodipodi:cy="67.15564"
+       sodipodi:rx="4.8376527"
+       sodipodi:ry="4.6515889"
+       d="m 154.80488,67.15564 a 4.8376527,4.6515889 0 1 1 -9.67531,0 4.8376527,4.6515889 0 1 1 9.67531,0 z"
+       transform="matrix(2.1973625,0,0,2.2852198,-150.11739,-16.652273)" />
+    <path
+       transform="matrix(2.2339374,0,0,2.3240459,-155.07218,417.3327)"
+       d="m 154.80488,67.15564 a 4.8376527,4.6515889 0 1 1 -9.67531,0 4.8376527,4.6515889 0 1 1 9.67531,0 z"
+       sodipodi:ry="4.6515889"
+       sodipodi:rx="4.8376527"
+       sodipodi:cy="67.15564"
+       sodipodi:cx="149.96722"
+       id="path7352"
+       style="fill:none;stroke:#000000;stroke-width:0.34087202;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:type="arc" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-opacity:1"
+       d="m 118.77497,154.18047 29.40944,0 0,11.33696 -29.40944,0 z"
+       id="rect3126"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="137.29599"
+       y="398.63153"
+       id="text3653"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3655"
+         x="137.29599"
+         y="398.63153">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="205.54349"
+       y="352.36212"
+       id="text3657"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3659"
+         x="205.54349"
+         y="352.36212">B</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="272.1044"
+       y="398.55939"
+       id="text3661"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3663"
+         x="272.1044"
+         y="398.55939">C</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="205.1579"
+       y="452.90448"
+       id="text3665"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3667"
+         x="205.1579"
+         y="452.90448">D</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="124.5719"
+       y="328.07062"
+       id="text3669"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3671"
+         x="124.5719"
+         y="328.07062"
+         style="font-size:16px">CV in</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="259.91006"
+       y="328.84174"
+       id="text3673"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3675"
+         x="259.91006"
+         y="328.84174">TR in</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="134.98251"
+       y="443.35864"
+       id="text3677"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3679"
+         x="134.98251"
+         y="443.35864">T1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="271.09189"
+       y="443.74426"
+       id="text3681"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3683"
+         x="271.09189"
+         y="443.74426">T2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="260.83737"
+       y="133.92636"
+       id="text3685"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3687"
+         x="260.83737"
+         y="133.92636">9v DC</tspan><tspan
+         sodipodi:role="line"
+         x="260.83737"
+         y="153.92636"
+         id="tspan3689" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="156.23303"
+       y="159.82768"
+       id="text3691"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3693"
+         x="156.23303"
+         y="159.82768">Stereo In 3.5mm</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="118.88419"
+       y="179.1855"
+       id="text3695"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3697"
+         x="118.88419"
+         y="179.1855">USB Micro</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3711"
+       y="599.8277"
+       x="156.23303"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"><tspan
+         y="599.8277"
+         x="156.23303"
+         id="tspan3713"
+         sodipodi:role="line">Stereo Out 3.5mm</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="419.71704"
+       y="86.534027"
+       id="text3715"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3717"
+         x="419.71704"
+         y="86.534027">Red Case : <tspan
+   style="font-weight:bold"
+   id="tspan3775">Ping Pong Delay</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="106.53403"
+         id="tspan3785" /><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="126.53403"
+         id="tspan3719">A: Tempo Adjust</tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="146.53403"
+         id="tspan3721">B: Feedback</tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="166.53403"
+         id="tspan3723">C: Tempo Ratio</tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="186.53403"
+         id="tspan3725">D: Dry / Wet</tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="206.53403"
+         id="tspan3727">T1: Hold</tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="226.53403"
+         id="tspan3731">T2: Tap Tempo</tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="246.53403"
+         id="tspan3729" /><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="266.53403"
+         id="tspan3733">Use Tap Tempo to match track,</tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="286.53403"
+         id="tspan3737">then change Tempo Ratio for</tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="306.53403"
+         id="tspan3741">musical ratio e.g. 1/1 in the</tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="326.53403"
+         id="tspan3743">middle, 1/4 fully CCW, 4/1 CW.</tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="346.53403"
+         id="tspan3753" /><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="366.53403"
+         id="tspan3747">Press Hold to loop current audio</tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="386.53403"
+         id="tspan3751">(100% feedback, no input)</tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="406.53403"
+         id="tspan3755" /><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="426.53403"
+         id="tspan3789" /><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="446.53403"
+         id="tspan3791" /><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="466.53403"
+         id="tspan3793" /><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="486.53403"
+         id="tspan3757">White Case : <tspan
+   style="font-weight:bold"
+   id="tspan3773">Moog Filter</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="506.53403"
+         id="tspan3787" /><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="526.53406"
+         id="tspan3759">A: Cutoff Frequency</tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="546.53406"
+         id="tspan3761">B: Resonance</tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="566.53406"
+         id="tspan3763">C: Drive</tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="586.53406"
+         id="tspan3765">D: Dry / Wet</tspan><tspan
+         sodipodi:role="line"
+         x="419.71704"
+         y="606.53406"
+         id="tspan3769">T1: Cut</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="93.062927"
+       y="734.91492"
+       id="text3777"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3779"
+         x="93.062927"
+         y="734.91492">DC Supply is centre negative 7.5V to 9V, 250mA.</tspan><tspan
+         sodipodi:role="line"
+         x="93.062927"
+         y="754.91492"
+         id="tspan3781">The red unit can be USB powered, the white unit requires external DC.</tspan><tspan
+         sodipodi:role="line"
+         x="93.062927"
+         y="774.91492"
+         id="tspan3797" /><tspan
+         sodipodi:role="line"
+         x="93.062927"
+         y="794.91492"
+         id="tspan3799">The two units have slightly different input circuits, one has better THD than the other!</tspan><tspan
+         sodipodi:role="line"
+         x="93.062927"
+         y="814.91492"
+         id="tspan3783" /></text>
+  </g>
+</svg>
