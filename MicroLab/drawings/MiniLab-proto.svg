@@ -30,11 +30,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.3356539"
-     inkscape:cx="255.03945"
-     inkscape:cy="984.75058"
+     inkscape:zoom="1.3109637"
+     inkscape:cx="269.72041"
+     inkscape:cy="352.20851"
      inkscape:document-units="mm"
-     inkscape:current-layer="g4163"
+     inkscape:current-layer="layer1"
      showgrid="false"
      units="mm"
      inkscape:window-width="1680"
@@ -324,7 +324,7 @@
        sodipodi:nodetypes="ccccc"
        inkscape:connector-curvature="0"
        id="path6620"
-       d="m 366.97678,860.81806 50.41243,0 0,10.94177 -50.41243,0 z"
+       d="m 366.97678,913.96767 50.41243,0 0,10.94177 -50.41243,0 z"
        style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.80078739;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
   </g>
 </svg>
