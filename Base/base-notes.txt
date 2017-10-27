@@ -335,18 +335,38 @@ We also make an 84HP 19" rack mount case. Which one were you interested in?
 
 They are all mains powered with 110/220V compatible PSU, with bus boards and +5v supply.
 
-42HP and 60HP: +12v 800mA, -12v 500mA.
-104HP: +12v 1500mA, -12v 800mA
+42HP and 60HP: +12v 666mA, -12v 400mA.
+104HP: +12v 1333mA, -12v 666mA
 
-The +5v supply takes its power from +12v.
+The +5v supply takes its power from +12v and shouldn't exceed 500mA per bus board.
 
 Prices are
 
-Rebel Base 42HP: £125.00
+Rebel Base 42HP: £125.00 / 80
 
-Rebel Base 60HP: £150.00
+Rebel Base 60HP: £160.00 / 100
 
-Rebel Base 104HP: £235.00
+Rebel Base 104HP: £250.00 / 160
+
+--------------------------------------------------------------------------
+
+changes to add lip
+Base60:
+- ends 1mm up
+- sides 17mm up
+- holes 1mm up (should be: sides 16mm up, ends and holes 0mm up)
+- sides 2mm out (Base60 first test: 2mm out. Measured: 1.2mm too far.)
+- holes 1.4mm out
+
+Base48:
+- sides 16mm up
+- sides 1mm out
+- holes 1.4mm out
+
+Base104:
+- new bus boards won't fit?
+- change to 2x bus boards
+- add balanced io
 
 --------------------------------------------------------------------------
 
