@@ -26608,6 +26608,10 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="P5" library="Rebel" deviceset="POT-ALPS_RK09L12D0A1W" device=""/>
 <part name="P7" library="Rebel" deviceset="POT-ALPS_RK09L12D0A1W" device=""/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
+<part name="C23" library="resistor" deviceset="C-EU" device="C0603" value="100p"/>
+<part name="GND38" library="supply1" deviceset="GND" device=""/>
+<part name="C24" library="resistor" deviceset="C-EU" device="C0603" value="100p"/>
+<part name="GND39" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -26888,6 +26892,16 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="P7" gate="GA" x="236.22" y="210.82" rot="R90"/>
 <instance part="P7" gate="GB" x="236.22" y="154.94" rot="R90"/>
 <instance part="GND37" gate="1" x="132.08" y="261.62" rot="MR0"/>
+<instance part="C23" gate="G$1" x="195.58" y="152.4" smashed="yes" rot="R180">
+<attribute name="NAME" x="197.104" y="155.321" size="1.778" layer="95"/>
+<attribute name="VALUE" x="197.104" y="150.241" size="1.778" layer="96"/>
+</instance>
+<instance part="GND38" gate="1" x="195.58" y="144.78" rot="MR0"/>
+<instance part="C24" gate="G$1" x="195.58" y="208.28" smashed="yes" rot="R180">
+<attribute name="NAME" x="197.104" y="211.201" size="1.778" layer="95"/>
+<attribute name="VALUE" x="197.104" y="206.121" size="1.778" layer="96"/>
+</instance>
+<instance part="GND39" gate="1" x="195.58" y="200.66" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -27230,6 +27244,16 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="132.08" y1="266.7" x2="132.08" y2="264.16" width="0.1524" layer="91"/>
 <pinref part="P7" gate="G$3" pin="P$1"/>
 <junction x="121.92" y="266.7"/>
+</segment>
+<segment>
+<pinref part="GND38" gate="1" pin="GND"/>
+<pinref part="C23" gate="G$1" pin="1"/>
+<wire x1="195.58" y1="147.32" x2="195.58" y2="149.86" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND39" gate="1" pin="GND"/>
+<pinref part="C24" gate="G$1" pin="1"/>
+<wire x1="195.58" y1="203.2" x2="195.58" y2="205.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -27745,6 +27769,9 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="195.58" y1="218.44" x2="195.58" y2="215.9" width="0.1524" layer="91"/>
 <pinref part="R18" gate="G$1" pin="2"/>
 <wire x1="195.58" y1="215.9" x2="193.04" y2="215.9" width="0.1524" layer="91"/>
+<pinref part="C24" gate="G$1" pin="2"/>
+<wire x1="195.58" y1="213.36" x2="195.58" y2="215.9" width="0.1524" layer="91"/>
+<junction x="195.58" y="215.9"/>
 </segment>
 </net>
 <net name="N$15" class="0">
@@ -27813,6 +27840,9 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="R20" gate="G$1" pin="2"/>
 <wire x1="195.58" y1="160.02" x2="193.04" y2="160.02" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="B" pin="+IN"/>
+<pinref part="C23" gate="G$1" pin="2"/>
+<wire x1="195.58" y1="157.48" x2="195.58" y2="160.02" width="0.1524" layer="91"/>
+<junction x="195.58" y="160.02"/>
 </segment>
 </net>
 <net name="N$32" class="0">
