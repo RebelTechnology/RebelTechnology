@@ -1,0 +1,75 @@
+--------------------------------------------------------------------
+
+Title: φορέω, Φορέω
+Transcribed: Phoreo
+Meaning: repeated, times
+http://www.perseus.tufts.edu/hopper/morph?l=fore%2Fw&la=greek&can=fore%2Fw0&prior=foi=tos
+
+φοῖτος: a repeated going
+http://www.perseus.tufts.edu/hopper/morph?l=foi%3Dtos&la=greek&can=foi%3Dtos0&prior=eu)ana/pneustos
+
+--------------------------------------------------------------------
+
+build 1 changes todo:
+- wire top left jack pin to middle left jack normal
+- wire middle left jack pin to bottom left jack normal
+- swap op-amp pins 2/3, 5/6, 9/10
+
+--------------------------------------------------------------------
+
+todo:
+- determine actual timer speed and counter overflow
+(with prescalar 1 and 16 bits: 65kHz, overflowing every second)
+(with prescalar 8, 16 bits: 8kHz, overflowing every 8 seconds)
+(with prescalar 1, 32 bits: 65kHz, overflowing every 18 hours)
+- determine computation overheads with 16 or 32 bits
+
+65kHz timer, 32 bit:
+- propagation delay (duration) 15 to 25uS
+- tracking (duration) up to 20kHz (with jitter)
+
+--------------------------------------------------------------------
+
+Phoreo is a triple function trigger and gate processor. It simultaneously performs pulse width modulation, clock multiplication and trigger repetition, with individual inputs, outputs and voltage control.
+
+Pulse width modulation is performed as a ratio of the input trigger rate, and is adjustable from 0 to 100 percent.
+
+Multiplication also operates on the input trigger rate, multiplying it by a factor from 1 to 16.
+
+Repetition generates a burst of triggers, at the rate of the multiplier, with repetitions from 1 to 16.
+
+Each function has two knobs for manual and CV level, and three jacks for trigger input, CV input and trigger output.
+
+Pulse width modulation carries through to the outputs of the other two functions, and the three trigger inputs are normalled from top to bottom. 
+
+When multiply and repeat are combined, Phoreo makes an excellent burst generator, perfect for drum rolls, flams and fills. The repeater gives you precise control over burst length, while the multiplier easily moves from quarter notes, to thirds, to eights, to everything in between and lots more beyond. Go on, give us a snare rush!
+
+Phoreo is also extremely useful for its many clock, trigger and gate utility functions, such as master clock doubling, clock modulation, and for triggering and clocking fast sequences. It even works as a square wave overtone generator with PWM, tracking audio input signals up to 20kHz.
+
+Phoreo perfectly complements Stoicheia, Logoi, Klasmata and Chronos, completing our Euclidean series of trigger processors.
+
+--------------------------------------------------------------------
+
+deploy:
+connect programmer with gnd (grey) to top, +5v to bottom pin, pogo pins
+make flash
+
+--------------------------------------------------------------------
+
+ADC inputs (white prototype)
+Fully CCW 4.6v, CW -25mV
+difference 0.4v
+5v in 4096 steps, 0.8192 steps per millivolt = 328 steps for 0.4v
+4096-328 = 3768
+
+--------------------------------------------------------------------
+
+atmega168p has a different device signature but is compatible.
+Change Makefile to
+MCU = atmega168p
+
+---------------------------------------------------------------------------------------
+
+Front panel logo is wrong: Rebel Tech should be Rebel Technology
+
+---------------------------------------------------------------------------------------

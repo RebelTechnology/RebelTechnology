@@ -1,0 +1,79 @@
+--------------------------------------------------------------------------------
+
+Neutrik jacks
+NMJ6HCD2 stereo : wide body TRS
+
+NRJ6HM-1 : narrow TRS, metal thread
+NRJ3HF-1 : narrow TRS, not switched
+
+NCJ9FI-H : Combo
+
+--------------------------------------------------------------------------------
+
+Component horizontal offsets for panel cutouts
+HeadphoneSlice
+
+Pot Bourns PTD902
+- centre 6mm from PCB
+
+stereo minijack right angle
+SWITCHCRAFT 35RAPC4BH3 
+LUMBERG 1503 17
+PRO SIGNAL MJ-352W-0
+- centre 3.5mm from PCB
+- cut out dia measured: 5.8mm
+
+Jack Neutrik NMJ6HCD2
+- centre 8.14mm from PCB
+
+Jack Neutrik NRJ6HM-1
+- centre 6.5mm from PCB
+- cut out dia 10mm
+- Eagle footprint centre offset 0.88mm
+
+Jack Neutrik NRJ3HF-1 / NRJ6HF-1
+- centre 6.5mm from PCB
+- cut out dia 11.2mm
+
+Pot: 	 	     0.0
+Mono jack:	     
+Stereo minijack:     6.0 - 3.50 =  2.5mm,   .0984251968"
+NMJ6HCD2 1/4":	     6.0 - 8.14 = -2.14mm, -.0842519685"
+NRJ6HM 1/4":	     6.0 - 6.50 = -0.50mm, -.0196850393"
+
+--------------------------------------------------------------------------------
+
+Pot right angle:
+Transform / Rotate 90 degrees
+Transform / Move Horizontal 0.951 Vertical 0.951
+
+M7XP0.75
+
+Scale 77% 
+
+Headphone Slice: prototype M7 right angle
+
+--------------------------------------------------------------------------------
+
+SendSlice Rev01
+Build 1: R11 22k instead of 20k
+
+changes / todo:
+- input connectors upside down
+
+Unity gain at apprx 2 o'clock
+
+ReturnSlice Rev01
+0.9x gain at fully CW 5 o'clock
+
+HeadphoneSlice Rev01
+0.44x gain at fully CW 5 o'clock with bus
+phase inverted
+0.90x gain with bus disconnected
+
+--------------------------------------------------------------------------------
+
+Headphone/Output Slice Rev02:
+- bus connections: 2 connectors parallelled to allow daisy chaining, ie connecting several output slices to the same mixer bus.
+
+--------------------------------------------------------------------------------

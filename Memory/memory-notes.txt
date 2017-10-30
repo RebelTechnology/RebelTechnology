@@ -19,3 +19,17 @@ Mnemonic from Ancient Greek μνημονικός (mnēmonikós, “of memory”)
 Anything (especially something in verbal form) used to help remember something.
 
 -------------------------------------------------------
+
+Memory is a new project for a CV and trigger recorder. It is very similar in implementation to TapTempo / Chronos.
+
+The user should be able to record knob movements and button presses, or incoming CV and triggers.
+A toggle switches between record, overdub (record and playback) and playback modes.
+Another toggle switches between two playback synchronisation methods (clock and ramp) and stop.
+
+The inputs and outputs are: sync, trigger and cv (total six jacks).
+
+The controls are: CV, trigger, quantize, 2x mode toggles.
+
+Quantize operates on the output timing of the trigger and CV, and functions a bit like sample and hold, with adjustable granularity. At fully clockwise the playback will happen at max speed (ie sampling rate). Turning it the quantize locks the outputs first at 128ths of the recorded period, then 64ths, 32ths, 16ths, 12ths, 8ths, et c.
+
+-------------------------------------------------------

@@ -1,0 +1,6 @@
+
+the way we test the CV inputs on Logoi is as follows:
+1) connect a clock to the bottom left input, and turn all knobs fully counter clockwise.
+2) connect a CV signal (another clock will do) to the divider CV input (top left)
+3) turn up the left CV attenuator (lower left knob) - you should now see the divider output LED (left) change
+4) repeat for right side (easiest with toggle in the down position)

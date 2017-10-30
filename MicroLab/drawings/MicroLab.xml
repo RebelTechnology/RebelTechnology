@@ -7,8 +7,8 @@
   <pot x="0.00" y="0.5"/>
 
   <!-- pushbuttons -->
-  <hole x="-0.75" y="0.4" radius="4.00"/>
-  <hole x="0.75" y="0.4" radius="4.00"/>
+  <hole x="-0.75" y="0.4" radius="2.5"/>
+  <hole x="0.75" y="0.4" radius="2.5"/>
 
   <!-- jacks -->
   <hole x="-0.75" y="1.7" radius="3.25"/>

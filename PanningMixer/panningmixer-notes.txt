@@ -1,0 +1,169 @@
+
+-----------------------------------------------------------------------------------
+
+Product/project
+DEX 4:2 panning mixer
+6hp 4in, stereo headphones out
+dual concentric knobs for gain and pan
+ 0
+ 0
+ 0
+ 0
+o o
+ o  > stereo hp out
+o o
+
+MFOS Stereo panning mixer with integrated headphone amp
+http://www.musicfromouterspace.com/index.php?MAINTAB=SYNTHDIY&VPW=1229&VPH=716
+
+Multi-mode VCA
+http://www.sdiy.org/richardc64/mmvca/index.html
+
+-----------------------------------------------------------------------------------
+
+todo:
+- add (normal) in and out expansions on JST PH 2mm
+- specify pot values
+- log pot adjustment?
+- specify ac coupling capacitor type, e.g.
+  WIMA SMDTC03100QA00KP00, SMDTC03100KA00KP00
+
+C1210 1uF 16V ECPU1C105MA5 Panasonic Stacked Metallized Plastic Film Chip Capacitor
+(no piezo effect, low impedance, high noise absorption due to low ESR, low distortion, no change in capacitance due to DC bias
+
+-----------------------------------------------------------------------------------
+
+Once you're done with the layouts, do you fancy simulating the circuit to work out the optimal component values? Or do it arithmetically?
+
+We'd want, for an input signal 5Vpp and the pots in full on position:
+- 10Vpp output
+- no clipping (max 20-22Vpp signals internally)
+
+-----------------------------------------------------------------------------------
+
+Use RC4560 op amp
+
+-----------------------------------------------------------------------------------
+
+Rev01 changes / todo
+- turn stereo jack and move idc connector
+- use 1206 10uF ceramic caps instead of electrolytics
+
+-----------------------------------------------------------------------------------
+
+Pot adjustments in drawing
+turn each -90 degrees, move all -4.385px horizontal +4.385px vertical
+
+-----------------------------------------------------------------------------------
+
+Alpha RD912DF‐20 Dual concentric
+
+ALPHA RD912DF-40-25F-B100K Vertical dual concentric / dual shaft
+ALPHA RD912DF-40-25F-B100K 9011 (aliexpress.com $8.50-$10.50/piece)
+
+(requested quote from alphastat.de 2/12/2016)
+
+-----------------------------------------------------------------------------------
+
+DualPanningMixer Rev01
+/ fix label on C15
+/ wrong footprint for 47uF, change to 10uF
+/ add non-switched output bus with output resistors
+/ move solder jumpers
+/ renumber parts
+
+build 1:
+- change 20k to 22k
+- change 120k to 100k
+- dnp 10pF
+
+5v in
+full gain, mid pan 1.8Vpp (gain 0.36x)
+full gain, full pan 2.4Vpp (gain 0.48x)
+3 o'clock gain, full pan 1.40Vpp
+12 o'clock gain, full pan 0.8Vpp
+
+600mVpp noise?
+clipping at 2.6Vpp out / 5Vpp in
+
+changes: R3, R7 and R13 : 10k
+5v in
+full gain, mid pan 6.0Vpp (gain 1.2x)
+full gain, full pan 7.8Vpp (gain 1.5x)
+unity gain at 4 o'clock mid pan
+unity gain at 3:15 o'clock full pan
+clipping with unity gain at apprx 15Vpp
+
+todo 10k: R801, R10, R11, R19, R22, R21, R26, R25, R30
+
+changes: R108 R208 30k?
+
+5v in
+full gain, full pan, hp out 2.8Vpp (gain 0.56x)
+
+-----------------------------------------------------------------------------------
+
+power consumption?
+
++12v 19.15mA idle, up to 38mA full blast (hp one side short)
+-12v 20.56mA idle, up to 38mA full blast
+
+-----------------------------------------------------------------------------------
+
+spec:
+output gain 0 to 2x
+Headphone gain 0.25 times output
+
+22k feedback resistor R35 and R36
+measured gain full pan fully clockwise 1.6x (4dB gain), 3 o'clock 0.88x, 12 o'clock 0.38x
+measured gain mid pan fully clockwise 1.22x (1.7dB gain), 3 o'clock 0.66x
+headphone 0.33x output
+
+headphone jack: tip=left, ring=right
+
+-----------------------------------------------------------------------------------
+
+ALPHA RD912DF-40-25F-B10K-60009 arrived from Alpha via thonk
+shaft 25mm long, Smallbear right angles have shaft 20mm
+Knobs don't fit
+
+Shaft diameter 6mm / 3.5mm
+
+https://www.surplussales.com/ShaftHardware/Knobs-8.html
+
+Davis knob on top minus 4mm height
+
+https://www.tinkercad.com/things/8CCdGhZa63V
+https://www.don-audio.com/Concentric-Aluminum-Knob-Black
+
+chia shin cs9?
+
+http://www.chiashinknobs.com.tw/products/cs/cs-specifications-photos/CS326-KLN1920SBR.htm
+http://www.chiashinknobs.com.tw/products/cs/cs-specifications-photos/CS256-KN5700B.htm
+http://www.chiashinknobs.com.tw/products/cp/cp-specifications-photos/CF-W5AB-6-S.htm
+http://www.chiashinknobs.com.tw/products/cp/cp-specifications-photos/CR-GA.COM-7C6.htm
+http://www.chiashinknobs.com.tw/products/cs/cs-specifications-photos/CS288-KPN1309BU.htm
+
+CS326-KLN1920SBR
+CS256-KN5700B
+CS256-KBS500B
+CS288-KPN1309A
+CR-GA.COM-7C6
+CF-W5AB-6-S
+
+-----------------------------------------------------------------------------------
+
+Dual concentric knobs
+Davies 1914 knob bottom 
+0.75"/19mm dia, 0.5"/12.7mm tall, .19"/4.8mm mounting dia
+http://reports.daviesmolding.com/drawings/1914.pdf
+https://www.digikey.co.uk/product-detail/en/davies-molding-llc/1914-N/1722-1083-ND/6566306
+https://www.digikey.co.uk/product-detail/en/davies-molding-llc/1914/1722-1058-ND/6566281
+http://www.daviesmolding.com/Catalog/Series/Knobs/Control.aspx?SeriesID=1914
+
+Davies 1925 knob bottom 1.25"/38mm dia 
+
+http://multitron.co.uk/standard-components/knobs/
+Emailed enquiry 19/5 2017
+
+-----------------------------------------------------------------------------------

@@ -31,10 +31,10 @@
      units="mm"
      showgrid="false"
      inkscape:zoom="1.7563421"
-     inkscape:cx="89.468507"
-     inkscape:cy="824.70471"
+     inkscape:cx="143.35327"
+     inkscape:cy="826.96148"
      inkscape:window-width="1680"
-     inkscape:window-height="1000"
+     inkscape:window-height="1002"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -767,13 +767,13 @@
      xml:space="preserve"
      style="font-size:2.82222223px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
      x="4.0900412"
-     y="89.268837"
+     y="89.616837"
      id="text4013"
      sodipodi:linespacing="125%"><tspan
        sodipodi:role="line"
        id="tspan4015"
        x="4.0900412"
-       y="89.268837">fm</tspan></text>
+       y="89.616837">fm</tspan></text>
   <text
      xml:space="preserve"
      style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -935,4 +935,32 @@
      id="path4100"
      d="m 20.646847,111.34687 c 8.324285,2.77256 8.606132,1.84838 9.28125,0"
      style="fill:none;stroke:#000000;stroke-width:0.28222224px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+  <text
+     xml:space="preserve"
+     style="font-size:2.82222223px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica LT Std;-inkscape-font-specification:Helvetica LT Std"
+     x="14.598111"
+     y="89.56337"
+     id="text3182"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3184"
+       x="14.598111"
+       y="89.56337">1v/oct</tspan></text>
+  <path
+     sodipodi:nodetypes="cc"
+     inkscape:connector-curvature="0"
+     id="path3186"
+     d="m 20.646847,86.146513 c 8.324285,2.772569 8.606132,1.848379 9.28125,0"
+     style="fill:none;stroke:#000000;stroke-width:0.28222224px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+  <text
+     sodipodi:linespacing="125%"
+     id="text3188"
+     y="89.56337"
+     x="29.273672"
+     style="font-size:2.82222223px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica LT Std;-inkscape-font-specification:Helvetica LT Std"
+     xml:space="preserve"><tspan
+       y="89.56337"
+       x="29.273672"
+       id="tspan3190"
+       sodipodi:role="line">1v/oct</tspan></text>
 </svg>

@@ -1,0 +1,567 @@
+
+Illuminated buttons
+http://www.ultracabs.co.uk/illuminated-round-pushbuttons-11-c.asp
+http://www.theretropit.com/product_info.php?cPath=32&products_id=71
+http://na.suzohapp.com/pushbuttons/rbm730sfxx.htm
+
+Arcade buttons
+http://www.gremlinsolutions.co.uk/arcadebuttons.php
+http://www.arcadeworlduk.com
+
+Vandal resistant halo button
+http://www.rapidonline.com/Electronic-Components/IP67-Halo-illuminated-vandal-resistant-switches-81479
+http://uk.rs-online.com/web/p/push-button-switches/7295498/
+http://uk.farnell.com/schurter/1241-6624-1121000/switch-vr-msm19-red-ring/dp/1637564
+
+Sanwa OBSF-30 $1.86 each
+https://store.djtechtools.com/arcade-buttons.html
+
+
+---------------------------------------------------------------------------------------
+
+Sanwa
+HAPP
+Seimitsu
+
+http://www.slagcoin.com/joystick/attributes_brands.html#BUTTONS
+
+Sanwa OBSF-30
+Seimitsu PS-14-G PS-15
+
+Ordered buttons from Arcade World (same as gremlin solutions) 26/11 2012
+http://www.arcadeworlduk.com/
+
+todo: compare Seimitsu PS-15, arcade world gold leaf, illuminated.
+
+---------------------------------------------------------------------------------------
+
+Minimal Tap Tempo
+- only tap tempo and trigger to wave conversion with simple multimec style pushbutton
+  one trigger input, three wave outputs, one button 
+  4x jacks, button, 6hp
+
+- trigger recorder with simple pushbutton
+  trigger input and output, 3-pos rec/play/pause switch, one button
+  addressable and syncable with 0-5v cv/sync input and output
+  4x jacks, switch, button, 6hp
+
+- cv recorder with simple knob
+  cv input and output, 3-pos, knob
+
+---------------------------------------------------------------------------------------
+
+todo:
+/ check STM32 part and footprint
+- check single colour switch wiring
+- update resistor and capacitor footprints
+/ add uart
+/ add i2c
+/ connect trigger and button input to hardware interrupts - any gpio?
+/ add jumper or switch for waveform select
+/ change to low-noise 3v3 regulator NCP702
+/ change 10uF caps to 4mm diameter
+/ change second output to buffer op-amp
+- check voltage scaling / bias
+- prototype software on OWL
+- change to smt pushbutton
+- order sample sub-min toggle switches
+
+sub miniature toggle switch on-off-on
+2MS3T2B2M2RE
+50-1143
+MS-621C
+2MS3T1B4M2QES
+5-6437630-5 (on)-off-(on) for double/half speed, FTG0904 (mouser £3.37)
+
+2MS3	    T1    B2/B4    M2
+on-off-on   long  non-thd  pins
+
+MC2MS3T2B2M2RE (cpc £0.69 @10)
+2MS3T1B4M2QES (rs £0.83 @100) (due 30/1 2015)
+
+2MS3T2B3M1QES (threaded, solder tags, not pins) (rs £1.03 @50)
+
+MC2MS3T2B2M2RE (ebay go4products £1.34 @10)
+
+NKK Switches G Series Ultra-Miniature Fully Illuminated Toggle Switch
+
+---------------------------------------------------------------------------------------
+
+PB6/7	USART1 / I2C1
+PB10/11 USART2 / I2C2
+PB4/5	SPI1
+PA1	pot (ADC1_IN1)
+PA6/7	button
+PB8/9	left toggle
+PA9/10  right toggle (USART1)
+PB0	trigger out (TIM13_CH1 remapped)
+PB1	trigger in
+
+PB4	NJTRST
+PA15 	JTDI
+PA6	SPI1_MOSI
+PA7	SPI1_MISO
+PA9	USART1_TX
+PA10	USART1_RX
+PB8	I2C1_SCL
+PB9	I2C1_SDA
+PB6	I2C1_SCL / USART1_TX
+PB7 	I2C1_SDA / USART1_RX
+PB10 	I2C2_SCL / USART3_TX
+PB11 	I2C2_SDA / USART3_RX
+note: I2C2 is not present on low-density value line devices.
+
+---------------------------------------------------------------------------------------
+
+Use Window Manager to reset if hung
+
+---------------------------------------------------------------------------------------
+
+MCU STM32F100CB
+
+STM32F100CB 8KB 24MHz (farnell £1.98 @100)
+Mainstream Value line, ARM Cortex-M3 MCU with 128 Kbytes Flash, 24 MHz CPU, 8KB SRAM, 84-byte backup data
+
+pin compatible
+STM32F303CC 40KB 72MHz (farnell £4.36 @100)
+
+---------------------------------------------------------------------------------------
+
+3v3 regulator NCP702
+
+---------------------------------------------------------------------------------------
+
+Pushbutton Multimec 
+5GTH93582 Red
+5GTH93561 White
+5GTH93542 Yellow
+5GTH93522 Green
+5GTH93501 Blue
+
+Clear Cap 1IS11
+
+---------------------------------------------------------------------------------------
+
+Ordered 5 pcb's from Seeed 30/7
+Received 11/8
+
+---------------------------------------------------------------------------------------
+
+series:
+Tap Tempo			Tip Tap / Tapper
+Trigger recorder, ticker tape	Tic Tac
+CV recorder	  	 	Zic Zac
+CV and Trigger recorder		Recorder
+Markov CV generator		Dr M
+Arpeggiator
+Pattern sequencer
+Random generator		Mersenne
+Looper
+
+---------------------------------------------------------------------------------------
+
+best LQFP-64 specs:
+STM32F373RC  Analog and DSP with FPU ARM Cortex-M4 MCU with 256 KBytes Flash, 72 MHz CPU, MPU, 16-bit ADC comparators, 32kB SRAM, 3x DAC
+STM32F405RG  2x DAC, 192kB SRAM
+
+LQFP-48
+STM32F303CC  Analog and DSP with FPU ARM Cortex-M4 MCU with 256 Kbytes Flash, 72 MHz CPU, MPU, CCM, 12-bit ADC 5 MSPS, PGA, comparators, 2x DAC, 40kB SRAM, 8kB CCM
+STM32F303CB 128kB Flash
+
+The STM32F30xx and STM32F1xx families are pin-to-pin compatible. All peripherals share 
+the same pins in the two families, but there are some minor differences between packages. 
+
+The bootloader strategy has changed in the STM32F30xx and BOOT1 is not necessary anymore.
+ 
+The migration from STM32F1 to STM32F30xx has no impact on the pinout, except that the 
+user gains additional GPIOs for his application.
+
+The ADCs have also internal channels: 
+Temperature sensor connected to ADC1 channel 16
+VBAT/2 connected to ADC1 channel 17
+Voltage reference VREFINT connected to the 4 ADCs channel 18
+VOPAMP1 connected to ADC1 channel 15
+VOPAMP2 connected to ADC2 channel 17
+VREFOPAMP3 connected to ADC3 channel 17
+VREFOPAMP4 connected to ADC4 channel 17
+
+---------------------------------------------------------------------------------------
+
+Rev02 board changes
+/ LED footprint too small - remove
+/ correct output buffer resistor values / standard values (using 51k instead of 50k for R402)
+/ swap button and pot to avoid springy board issues
+/ normal trigger input jack to pulse output
+/ change trigger input to PA2 (separate EXTI line)
+/ thonkiconn footprint: smaller holes, closer together
+
+frontpanel changes
+/ move toggle switch hole 6mm up (moved 0.25inches = 6.35mm)
+/ increase toggle hole diameter to 4.6mm
+
+frontpanel centre (y=0) is at board layout y=1.95
+
+---------------------------------------------------------------------------------------
+
+PM0056 Programming manual
+STM32F10xxx/20xxx/21xxx/L1xxxx
+Cortex-M3 programming manual
+CD00228163.pdf
+
+---------------------------------------------------------------------------------------
+
+DAC 
+MCP4822 12bit dual
+DAC124S085 12bit quad MSOP10 (farnell £3.33 @100
+DAC122S085 12bit dual MSOP10 (farnell £1.36)
+LTC2635 12bit quad 400kSPS 10MSOP (farnell £4.54 @100)
+
+---------------------------------------------------------------------------------------
+
+TapTempo Rev03 errors / changes
+- cut normalled track from trigger output to trigger input
+- tie trigger input normal to gnd
+
+---------------------------------------------------------------------------------------
+
+build Rev02 with encoder Alps EC12E2420802
+left/right encoder pins to PB4/PB5 (JP3)
+
+---------------------------------------------------------------------------------------
+
+name: Synchronicity
+or: Chronos
+
+---------------------------------------------------------------------------------------
+
+PB8 (reverse mode toggle) pull-up not working
+
+---------------------------------------------------------------------------------------
+
+Added LPF RC-filter on button input for debouncing.
+R=1k, C=100n, Fc=1592Hz, Period=628uS
+
+---------------------------------------------------------------------------------------
+
+Ordered Rev04 from Seeed studios 4/11 2014
+
+---------------------------------------------------------------------------------------
+
+Ordered panels from Screencraft 13/11 2014
+Chronos
+Stellated dodecahedron
+
+---------------------------------------------------------------------------------------
+
+to buy:
+- 2k 0603 resistors
+- mini spdt toggles
+
+---------------------------------------------------------------------------------------
+
+Rev04 changes
+- change programming header to Andrew's non-zif 5-pin ffc
+- red, not blue pcb?
+- enig instead of hasl?
+
+- big bug: inverting op-amp on output causes 0v to -5.6v ramp
+  add offset input: 4k3 resistor (ideally 4285R) from -12v (IC3 pin 4) to inverting input (IC3 pin 6)
+  todo: change to non-inverting amp 2x gain
+
+summing inverting op-amp
+-v*Rf/Ri, -12v*2k/r=-5.6v, r=12*2000/5.6=4285R
+
+---------------------------------------------------------------------------------------
+
+Ordered stencil from PCB Train 26/11
+uploaded TapTempoMiniRev04.zip
+paid £47.00 by paypal
+
+---------------------------------------------------------------------------------------
+
+Subminiature toggle switches spdt on-off-on
+from eBay seller, Dear Sir:
+I will order the "2MS3T2B2M2QES" and the "2MS1T2B2M2QES" to the factory on tomorrow, But ususally need 30~45days lead time waiting.
+That is means, the first (1000pcs + 1000pcs) lots will come about on 2015/01/15 .
+You can search them from my store after that date.
+Sorry, I have not them now.
+Chiang
+2014/11/27 pm2237 Taiwan
+
+---------------------------------------------------------------------------------------
+
+Subminiature toggle switches spdt on-off-on
+
+WMSP3 by Grayhill and E-Switch
+1 / T1 long acuator
+B4 / A1 4.5mm bushing
+M2 pcb mounting
+
+Grayhill 34DWMSP31B4M2QT
+E-switch 200AWMSP3T1A1M2QE
+
+---------------------------------------------------------------------------------------
+
+build 1, R502=2k R503=1k
+
+vdda: 3.32v
+DAC2 at 4095: 2.8v
+DAC2 at 3500: 2.8v
+DAC1 at 4095: 3.23v
+
+build 2:
+output 5.56vpp
+DAC2 at 0: -102mV
+DAC2 at 3450: -5.54v
+DAC2 at 4095: -5.53v
+
+build 1, R502=10k R503=5k1
+DAC2 at 0: 6.04v
+DAC2 at 4095: 0.0v
+DAC2 at 810: 5.0v
+
+---------------------------------------------------------------------------------------
+
+DAC2 output problem: inverting op-amp impedance of 1k is too low, minimum 5k (with buffer).
+
+---------------------------------------------------------------------------------------
+
+maximum DAC excursion 0.2 to 3.1v (VDDA=3.3v)
+corresponding to input value 248 to 3846
+
+DAC1 effective range 95-4000: (-2.42, 2.50)
+balanced zero-centred 160-4000 (-2.4, 2.4)
+
+---------------------------------------------------------------------------------------
+
+(without shorting the outputs)
++5v < 20mA
++12v < 20mA
+-12v < 5mA
+
+---------------------------------------------------------------------------------------
+
+changes to Rev
+- R502 changed from 2k to 10k
+- R503 changed from 1k to 5k1
+- add 20k resistor between
+
+---------------------------------------------------------------------------------------
+
+- LED resistor R101 should be 1k, not 150R?
+
+---------------------------------------------------------------------------------------
+
+changes todo:
+- change 3.3v reg to 12v tolerant
+- change bias circuit
+- put all smt on back
+
+- add waveform pot
+- add second button, toggle, and trigger input/output
+
+one tap tempo with adjustable shape bipolar lfo 
+one with adjustable speed unipolar output
+both tempo synced
+
+---------------------------------------------------------------------------------------
+
+TapTempoMk2
+Dual tap tempo + LFO
+
+TapTempo.svg
+
+- change vreg to +12v tolerant (TLV1117-33 max 15v in)
+/ change vreg to run off 12v (two diodes?)
+- change to 2x5 pin power header
+/ diode input protection instead of fuses
+/ all components on back - or double board
+/ non-inverting output for unipolar lfo
+/ LM4041 voltage reference for bipolar lfo
+- filter caps on DAC outputs
+/ change to smaller crystal
+/ check that PA8 is valid PWM output for available TIM (PA6: TIM3->CCR1)
+/ change to picoblade programming header
+- edit push button switch part to not use supply nets
+
+- sallen-key second order output filters?
+
+Power / vreg TLV1117-33
+drops 12-0.6-3.3 = 8.1V, @20mA = 162mW
+
+-------------------------------------------------------
+
+Sallen-Key filter calculators
+http://www.analog.com/designtools/en/filterwizard/
+http://sim.okawa-denshi.jp/en/OPstool.php
+
+-------------------------------------------------------
+
+TapTempo10HP
+todo:
+- connect binary / unary toggles
+
+-------------------------------------------------------
+
+TapTempo Rev05 / Mk2
+- pin PB15 not connected to PUSH2 pushbutton pin
+
+greenwire outside of R16 to PB15 (MCU pin 28)
+
+-------------------------------------------------------
+
+TIM2 Prescaler=1 180Hz 26uS
+TIM2 Prescaler=0 Period=65535 365Hz
+TIM2 Prescaler=0 Period=32767 735Hz
+TIM2 Prescaler=0 Period=1000 24kHz
+TIM2 Prescaler=1 Period=3000 4kHz
+TIM2 Prescaler=0 Period=2000 12kHz
+
+
+TIM2 Prescaler=0 Period=2000
+- Main loop: 26uS (76uS interrupted) @ 12kHz
+- clock: 24uS @ 12kHz
+
+-------------------------------------------------------
+
+changed ADC channels to 71.5 cycle sampling time
+changed ADC prescalar to 8 (3MHz)
+3Mhz/71.5 = apprx 42kHz sampling rate
+
+-------------------------------------------------------
+
+add 'pingable' LFO mode in off position:
+incoming trigger starts once cycle at previous speed and previously selected shape
+
+-------------------------------------------------------
+
+todo: 
+- fix bipolar reference and range
+- update sine and tri tables
+
+-------------------------------------------------------
+
+Note that the speed knob controls both tap tempo and LFO.
+If the LFO is synchronised to an external signal then turning the knob will adjust the period of the LFO, but immediately on receiving another tirgger it will reset to the external rate. This is particularly useful with the free-running bipolar LFO to adjust the phase, or starting position, of the output wave, by momentarily speeding it up or down, similar to how a record spinning on a turntable can be nudged into phase.
+
+
+-------------------------------------------------------
+
+optimised mode -O2 
+TIM2 Prescaler=0 Period=1000
+- Main loop: 8.2uS (up to 30uS interrupted) @ 32 to 100kHz
+- clock: 2.4uS @ 24kHz
+
+steady with lots of interrupts (low priority)
+
+main loop at 8-30kHz with super fast high priority interrupts, clock at 20-24kHz
+
+DAC outputs swinging at apprx 500Hz
+
+-------------------------------------------------------
+
+DAC TIM6 prescalar 0 period 32768: 24Mhz/32768 = 732Hz
+TIM6 prescalar 0 period 12000: 2kHz
+
+-------------------------------------------------------
+
+ADC DMA working without ADC global interrupt
+
+-------------------------------------------------------
+
+CS_VREF = DMM -9.93, scope -9.84V to -9.96V 
+
+LM4040:
+Rs = (Vs - Vr) / (Il +Iq)
+Vr (reverse breakdown voltage) = 10v
+Vs (supply voltage) = 12v
+Il (load current) = 0.5mA (20k to virtual gnd)
+Il (load current) = 1.47mA (6k8 to virtual gnd)
+Iq (device current) = 110uA to 10mA
+
+Rs(min) = (Vs(max) - Vout) / (Il(min) + Iq(max))
+        = (11V-10V) / (0.5mA + 15mA)) = 64R
+Rs(max) = (Vs(min) - Vout) / (Il(max) + Iq(min))
+	= (13V-10V) / (0.5mA + 0.110mA) = (13-10)/((0.5+.11)/1000) = 4918R
+	= (13V-10V) / (1.47mA + 0.110mA) = (13-10)/((1.47+.11)/1000) = 1898R
+
+-------------------------------------------------------
+
+Unipolar: 0.12V to 9.60V
+
+Bipolar: -7.44V to 1.20V
+	 pre buffer: 2.76V to 0.80V
+	 gain -3.3, bias gain -0.165
+
+at 0: 1.28V, at 4095: -7.44V
+
+apparent max excursion at DAC 3420: 2.75V
+
+-------------------------------------------------------
+
+APB1 clock, 4 cycles to move DMA data to DAC
+STM32F100 max DAC sampling rate: 2.4Msps, STM32F103 4.5Msps
+
+-------------------------------------------------------
+
+DAC buffer ON
+DAC_OUT min/max 0.2V to VDDA-0.2
+It corresponds to 12-bit input
+code (0x0E0) to (0xF1C) at
+VREF+ = 3.6 V and (0x155) and
+(0xEAB) at VREF+ = 2.4 V
+
+DAC buffer OFF
+DAC_OUT min/max 0.005V to VREF+-1LSB
+Ro impedance 15k max
+
+-------------------------------------------------------
+
+generate sine wavetable
+Tools/sine.c
+
+measured bipolar DAC output range effective values [20 - 3460]
+
+./sine 4096 20 3460 180 > ../Source/sinewave.h 
+./tri 4096 20 3460 180 > ../Source/trianglewave.h
+
+midpoint 1816
+
+-------------------------------------------------------
+
+mk2 Rev 05 changes / todo
+/ pin PB15 connected to PUSH2 pushbutton pin
+/ R22 change to 6k8
+/ changed to mosfet input protection
+
+-------------------------------------------------------
+
+mk2 Rev 05 current draw
++12v 48-61mA
+-12v 14mA
+
+-------------------------------------------------------
+
+1+( log(4095) - log(10) ) / 4095
+
+-------------------------------------------------------
+
+TapTempo mkII
+
+-------------------------------------------------------
+
+sub-miniature toggle
+
+Salecom TS4A-TE1CR-H
+http://www.jprelec.co.uk/store.asp/c=1038/Salecom-TS40-T-Subminiature-PCB-Toggle-Switch
+bushing 5.59mm, toggle 5.79mm, housing 8.60mm
+
+Taiway 2MS3T2B2M2RE
+http://uk.farnell.com/multicomp/2ms3t2b2m2re/switch-pcb-spdt-vert/dp/9472975
+2MS3 SP On-Off-On, T2 5.33 high, B2 bushing 5.59 high flat, M2 PC thru-hole
+
+Taiway 2MS3T1B4M2QES
+http://uk.rs-online.com/web/p/toggle-switches/7347224/
+2MS3 SP On-Off-On, T1 9.40 high, B4 5.59 high, 
+
+-------------------------------------------------------

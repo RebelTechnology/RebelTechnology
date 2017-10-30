@@ -1,0 +1,34 @@
+--------------------------------------------------------------------------------
+
+resonator Murata
+CSTCE16M0V53-R0
+or CSTCE16M0V53??-R0
+
+--------------------------------------------------------------------------------
+
+To protect the device from voltages above VCC and below GND, the AVR has internal
+clamping diodes on the I/O pins (see Figure 1). The diodes are connected from the pins
+to VCC and GND and keep all input signals within the AVR’s operating voltage (see Figure
+2). Any voltage higher than VCC + 0.5V will be forced down to VCC + 0.5V (0.5V is the
+voltage drop over the diode) and any voltage below GND - 0.5V will be forced up to
+GND - 0.5V.
+By adding a large resistor in series, these diodes can be used to convert a high voltage
+sinus signal down to a low voltage square wave signal, with amplitude within the AVR’s
+operating voltage ± 0.5V. The diodes will thus clamp the high voltage signal down to the
+AVR’s operating voltage
+The series input resistor is a 1 MΩ resistor. It is not recommended that the clamping
+diodes are conducting more than maximum 1 mA and 1 MΩ will then allow a maximum
+voltage of approximately 1,000V. 
+
+10V/xR=1mA, x=10k
+
+--------------------------------------------------------------------------------
+
+change 22M resistors to two series 10M?
+
+--------------------------------------------------------------------------------
+
+pot: knobless tall trimmer pots
+http://www.thonk.co.uk/shop/ttpots/
+
+--------------------------------------------------------------------------------

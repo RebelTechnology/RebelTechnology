@@ -1,0 +1,33 @@
+
+--------------------------------------------------------------------------
+
+Balanced Output Rev02
+- voltage divider, assuming 1k output and 1/3 gain: R1, R2, R3 and R4 = 1k
+
+note from 1646 / 1606 datasheet p6:
+Both devices must be driven from a low impedance source, preferably directly from opamp outputs, to maintain the specified performance.
+
+--------------------------------------------------------------------------
+
+
+Balanced IO Rev with Mix 02/01
+1k/1k resistors
+5Vpp euro out
+3.2Vpp balanced out (single ended)
+gain .64
+1/(2+1)*2 = 0.66
+
+straight input header (no resistor divider)
+1.2Vpp in 2.44Vpp out (single ended
+
+changed to 1k R1/R3 and 220R R2/R4
+5Vpp euro out
+1Vpp balanced out (single ended)
+gain 0.2
+.22/(2+.22)*2 = 0.198
+
+--------------------------------------------------------------------------
+
+A signal at +4 dBu is equivalent to a sine wave signal with a peak amplitude of approximately 1.736 volts, or any general signal at approximately 1.228 Vrms
+
+--------------------------------------------------------------------------

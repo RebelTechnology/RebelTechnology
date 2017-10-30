@@ -1,0 +1,533 @@
+
+---------------------------------------------------------------------------------
+
+Getting started with the STM32F7 Discovery board
+
+http://arttools.blogspot.co.uk/2015/08/getting-started-with-stm32f7-discovery.html
+
+For optimal performance the linker settings should be configured to make the code use the ART accelerated ITCM flash access at 0x0020000 instead of the normal, slow, flash access at 0x0800000. When the linker was configured this way the ST onboard USB flash loader refused to load code into flash, but stlink utility worked.
+
+---------------------------------------------------------------------------------
+
+Description of the USB Host Dynamic Switch application.
+This application is a part of the USB Host Library package using STM32Cube firmware. It describes how to use dynamically switch, on the same port, between available USB host applications on the STM32F746xx devices.
+
+The STM32F7xx devices can reach a maximum clock frequency of 216MHz but as this application uses SDRAM, the system clock is limited to 200MHz. Indeed proper functioning of the SDRAM is only guaranteed at a maximum system clock frequency of 200MHz.
+
+---------------------------------------------------------------------------------
+
+STM32F746VET6
+
+High-performance and DSP with FPU, ARM Cortex-M7 MCU with 512 Kbytes Flash, 216 MHz CPU, Art Accelerator, L1 cache, TFT
+
+STM32F745 same as F746 without TFT
+STM32F74xVE 512kB FLASH
+STM32F74xVE 1024kB FLASH
+
+---------------------------------------------------------------------------------
+
+SSD1331 Iref calculation
+R1 = (VCC - 3 - VSS) / Iref = (12-3)v/10uA = 0.9M
+Recommended range for IREF = 10uA +/- 2uA 
+With R1 = 1M, Iref = 9uA.
+
+---------------------------------------------------------------------------------
+
+Prism Rev01 changes and notes:
+- buy electrolytic caps
+- change tantalum cap footprint
+- MCU package: small depressed dot identifies pin 1
+- change 47uF cap footprint or change value to 22uF or get 5mm 47uF caps
+- D3 wrong way round
+- change R801 oled Rref to 1M
+- change 1u elec (C413, C303) to 10u elec
+
+prototype build 1:
+- OLED_CS PA15 appears damaged, shorting to gnd
+- replaced PA15 with PC11 greenwire
+- turn D3 around
+
+use SPI3: 
+ PC12 MOSI AF6
+ PC11 MISO (use as CS)
+ PB3 SCK AF6 (same pin as SPI1, different AF) 
+- cut track PA7 to OLED_MOSI
+- greenwire PC12 to OLED_MOSI
+code:
+- change OLED_CS from PA15 to PC11
+- change OLED SPI from SPI1 to SPI3
+- change OLED_MOSI from PA7 to PC12
+- change OLED_MOSI and OLED_SCK from AF5 to AF6
+
+---------------------------------------------------------------------------------
+
+Getting started with STM32F746G-DISCO
+and gcc arm
+http://www.carminenoviello.com/en/2015/07/13/started-stm32f746g-disco/
+
+---------------------------------------------------------------------------------
+
+Useful examples
+
+Libraries/STM32Cube_FW_F7_V1.3.0/Projects/STM32756G_EVAL/Applications/FatFs/FatFs_RAMDisk_RTOS/
+Libraries/STM32Cube_FW_F7_V1.3.0/Projects/STM32756G_EVAL/Applications/PolarSSL/SSL_Server/
+Libraries/STM32Cube_FW_F7_V1.3.0/Projects/STM32756G_EVAL/Applications/LwIP/LwIP_HTTP_Server_Socket_RTOS/
+Libraries/STM32Cube_FW_F7_V1.3.0/Projects/STM32756G_EVAL/Applications/USB_Host/MSC_RTOS/
+Libraries/STM32Cube_FW_F7_V1.3.0/Projects/STM32746G-Discovery/Applications/USB_Host/MSC_RTOS/
+
+---------------------------------------------------------------------------------
+
+OLED_MOSI  PA7
+OLED_CS    PA15
+OLED_RST   PA6
+OLED_DC    PC10
+
+---------------------------------------------------------------------------------
+
+DMA STM32F4 with external SRAM and SSD1963 on FSMC
+
+https://my.st.com/public/STe2ecommunities/mcu/Lists/cortex_mx_stm32/Flat.aspx?RootFolder=https%3a%2f%2fmy%2est%2ecom%2fpublic%2fSTe2ecommunities%2fmcu%2fLists%2fcortex_mx_stm32%2fDMA%20STM32F4%20with%20external%20SRAM%20and%20SSD1963%20on%20FSMC&FolderCTID=0x01200200770978C69A1141439FE559EB459D7580009C4E14902C3CDE46A77F0FFD06506F5B&currentviews=3051
+
+---------------------------------------------------------------------------------
+
+CMSIS RTOS links
+https://developer.mbed.org/handbook/CMSIS-RTOS
+
+Developing Applications on STM32Cube with RTOS
+http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00105262.pdf
+
+---------------------------------------------------------------------------------
+
+Lightweight USB Device driver for STM32F4
+https://github.com/mlu/cortal_dendrites/tree/master/cortex_m/usblib
+
+---------------------------------------------------------------------------------
+
+CS4271 Arduino driver
+https://github.com/delsauce/ArduinoDueHiFi/blob/master/examples/Passthrough/Passthrough.ino
+
+---------------------------------------------------------------------------------
+
+screen connected to photon (oledadapter firmware) works. 10mA at 12v.
+
++3v3 gnd cs rst dc sck mosi
+         a2 a0  a1 a3  a5
+
+---------------------------------------------------------------------------------
+
+ADCREF 11.18v (+12v)
+
+VQ1: 7.12v, ADCREF input: 6.76v 
+
++3v3: 3.3v
++5v: 7.67v
+-12v: nc
+VCC: 7.02v
+ADC0 / ADC1: 3.62v
+
+CVA input: 9.61v
+CVB input: 8.58v
+INL / INR: 9.18v
+OUTL / OUTR: 11.29
+CS_VREF: 8.44v
+ADCREF: 11.18v
+
+powering both VCCs only (6.98v):
++3v3: 3.3v
++5v: 5.0v
+ADCREF: 0.656v
+CS_VREF: 0.620v
+
+D3 wrong way round, no -12v
+
+MCLK output at 12.25MHz apprx 3.3Vpp
+LRCK, SCLK, SDIN, SDOUT all low
+
+SPI2 clockspeed too high, CS4272 max is 6MHz
+SPI2 datasize must be 8bit, not 4bit
+-> LRCK at 48kHz
+
+rxcount = 0, txcount != 0
+
+---------------------------------------------------------------------------------
+
+cs4271
+nothing on SDIN, data on SDOUT
+
+DMA2_Stream4_IRQHandler memory to peripheral triggers
+hdma_sai1_b.State = HAL_DMA_STATE_ERROR
+
+DMA2_Stream1_IRQHandler peripheral to memory
+
+(gdb) call codec_write(1, 1 | (1<<3) | (1<<5))
+(gdb) call codec_write(6, (1<<4))
+no error on sai1_b
+
+Note:
+Due to internal resynchronization stages, PCLK APB frequency must be higher than twice
+the bit rate clock frequency.
+
+---------------------------------------------------------------------------------
+
+PE6, CS_SDIN,  SAI1_SD_A, DMA2 Stream 1 Channel 0, TX, Mem to periph
+
+PE3, CS_SDOUT, SAI1_SD_B, DMA2 Stream 4 Channel 1, RX, Periph to mem
+
+---------------------------------------------------------------------------------
+
+oled screen todo:
+- add +12v power switch
+- breakout board for 96x96 with 12v
+- determine where noise comes from
+- disable cs hpf
+- test
+  - nor flash
+  - encoders
+  - adc
+  - usart
+
+---------------------------------------------------------------------------------
+
+call HAL_SAI_DMAStop(&hsai_BlockTx)
+call HAL_SAI_Transmit_DMA(&hsai_BlockTx, (uint8_t*)codec.rxbuf, 1024)
+
+// i2s
+call codec_write(0x01, (1<<3) | (1<<5) | 1)
+call codec_write(0x06, (1<<4) | (1<<1) | 1) 
+// left justified
+call codec_write(0x01, (1<<3) | (1<<5))
+call codec_write(0x06, (1<<1) | 1) 
+
+---------------------------------------------------------------------------------
+
+add high side switch for +12v OLED supply
+p-channel high side load switch
+
+---------------------------------------------------------------------------------
+
+bit banging oled gives SCK speed apprx 2.8MHz
+
+---------------------------------------------------------------------------------
+
+mcot096096 screen total length 39.5mm
+
+Rapid Online 10% midas displays discount ends Feb 29
+
+---------------------------------------------------------------------------------
+
+codec.txbuf
+call memset(codec.txbuf, 0xff, 1024*4)
+outputs 9.11v dc
+call memset(codec.txbuf, 0, 1024*4)
+outputs 0v dc
+
+rxbuf 0x800000, 8388608 for max input 
+0x7fffff for min input
+0xdecd02 for mid
+
+min rxbuf[0] near -1.5v
+
+p (float)(int32_t)(codec.rxbuf[0]<<8)/ 2147483648.0f
+
+b1:
+400kHz signal on CS_VREF
+
+---------------------------------------------------------------------------------
+ 
+Micron Serial NOR Flash QSPI
+N25Q128A13
+Max SPI speed 108Mhz
+
+---------------------------------------------------------------------------------
+
+high side switch for +12v supply to OLED 
+Smart High-Side NMOS-Power Switch
+ITS41k0S
+Current controlled input
+SOT223-4
+
+using mosfets in load switching applications:
+http://www.onsemi.com/pub_link/Collateral/AND9093-D.PDF
+
+---------------------------------------------------------------------------------
+
+MCOT096096AY
+Diode 2.7v (eagle package: SMB, matches SOD123?)
+
+---------------------------------------------------------------------------------
+
+b3, build 3
+negative input -> positive output 4.56vpp
+clips at zero
+
+---------------------------------------------------------------------------------
+
+call codec_write(0x01, (1<<3) | (1<<5))
+call codec_write(0x06, (1<<1) | 1) 
+folds in positive
+
+call codec_write(0x01, (1<<3) | (1<<5))
+folds in negative
+
+call codec_write(0x06, (1<<1) | 1) 
+double fold?
+   0v >> 0.6v
+-4.2v >> 9v
+  +2v >> 0.2v
++2.1v >> 0.6v
+  +9v >> 0.2v
+
+Seems CS4271 ADC samples are signed, DAC are unsigned.
+Prism audio outputs are not zero biased. Offset +4.7v
+
+call codec.set(0xffffff): 9.33v
+call codec.set(0x0): 0v
+
+---------------------------------------------------------------------------------
+
+input: 12vpp
+
+Aout-   1.8Vavg 1.4Vpp
+Aout+   3.0Vavg 1.5Vpp
+R602  > 2.4Vavg 1.0Vpp
+R605  > 2.4Vavg 1.0Vpp
+opamp > 4.8Vavg 10.1Vpp
+R604  > 4.8Vavg 10.1Vpp
+
+call codec.set(0)
+Aout-   2.42Vavg
+Aout+   2.42Vavg
+diff 0.00v
+
+call codec.set(0xffffff)
+Aout-   1.87Vavg
+Aout+   3.03Vavg
+diff 1.16v
+
+call codec.set(0x7fffff)
+Aout-   1.29Vavg
+Aout+   3.63Vavg
+diff 2.34v
+
+---------------------------------------------------------------------------------
+
+call codec_write(0x01, (1<<3) | (1<<5)|1)
+
+min: 0x824198
+max: 0x7efd57
+
+call codec.set(0) : 0v
+call codec.set(0xffffff) : 0v
+call codec.set(0x7fffff) : 9.32v
+call codec.set(0x800000) : -9.32v
+
+---------------------------------------------------------------------------------
+
+encoder3 working, adcvalues[0] reading from right CV
+
+---------------------------------------------------------------------------------
+
+build notes: D3 wrong way round
+
+---------------------------------------------------------------------------------
+
++12v: 280mA black screen, 290mA white screen
+
+---------------------------------------------------------------------------------
+
+096x096 screen
+SEPS114A driver
+slower rate SPI: 25ns instead of 15ns
+For the max SPI rating on the MCOT096096AY-RGBM, the datasheets states that this is 5Mhz.
+
+pin 7 PSEL should be connected to VDD pins 6 and/or 8
+SDI and SDO swapped in footprint
+
+---------------------------------------------------------------------------------
+
+Encoders
+Alpha PEC11L low profile, 15 or 20 PPR
+PEC11L-4015F-S0020 no detents 15mm Flatted Switch 20 PPR (mouser £0.81 @100)
+PEC11L-4115F-S0020 20 detents 15mm Flatted Switch 20 PPR (mouser £0.81 @100)
+http://www.mouser.com/ds/2/54/PEC11L-74340.pdf
+
+Alpha PEC11R regular size, 2.6mm slots/holes
+http://www.farnell.com/datasheets/1909741.pdf
+
+Alps EC11 no threads 
+Alps EC12 12 or 24 PPR
+
+// bushing no switch
+EC12E2430804 20mm no detent 24 PPR
+EC12E2430803 25mm no detent 24 PPR
+EC12E2420802 20mm 24 detents 24 PPR
+EC12E2420801 25mm 24 detents 24 PPR
+no alps encoders with bushing and switch?
+
+---------------------------------------------------------------------------------
+
+Board stacker headers / strips
+http://www.farnell.com/datasheets/1801421.pdf
+http://www.toby.co.uk/content/catalogue/series.aspx?id=4&category=83
+http://www.toby.co.uk/content/catalogue/products.aspx?series=FBS1-xxR-xxx-xxx-xxx
+http://www.toby.co.uk/datasheets/section4/DW-xx-xx-xx-x-xxx-xxx-xx.pdf?revDate=28102015090418
+http://www.toby.co.uk/content/catalogue/products.aspx?series=FTHS-xxR+Series
+
+---------------------------------------------------------------------------------
+
+Prism top board:
+- tantalum cap + not visible (on pad)
+- using 10uF instead of 2u2 and 4u7
+
+---------------------------------------------------------------------------------
+
+power in dynamic run mode (peripherals off)
+STM32F746/756: 105mA @ 200MHz, 525uA/MHz
+STM32F427/429:  44mA @ 180MHz, 244uA/MHz
+
+(from http://empa.com/dokumanlar/STM32F7-Series.pdf)
+
+STM32F745: sub line to offer more cost optimized variant when TFT isn’t required
+
+---------------------------------------------------------------------------------
+
+Prism Rev03
+Change processor to STM32F427VGTx (has SAI) with 8MHz crystal clocked at 168MHz.
+
+180Mhz can't generate 48MHz clocks (for usb?)
+
+higher capacity STM32F429 and STM32F427 sometimes cheaper on Farnell:
+http://uk.farnell.com/webapp/wcs/stores/servlet/Search?catalogId=15001&langId=44&storeId=10151&categoryId=700000004185&st=STM32F42&pageSize=25&showResults=true&aa=true&pf=111868526,113170849
+
+---------------------------------------------------------------------------------
+
+Digital Bus
+
+115200 baud serial
+4 byte packets
+0x00 to 0x0f : USB midi (3 bytes)
+0x10         : parameter (8bit id, 16bit value)
+
+---------------------------------------------------------------------------------
+
+SW1: PE10 (top encoder push)
+SW2: PB9  (bottom encoder push)
+
+---------------------------------------------------------------------------------
+
+PEC11L-4215F-S0015  30 detents, 15PPR, 15mm, switch, flatted
+PEC11L-4015F-S0020  no detents, 20PPR, 15mm, switch, flatted
+
+---------------------------------------------------------------------------------
+
+Transparent Davies knob Chia Shin CP-BuA-T
+
+Requested knobs from Chia Shin
+1000x CP-BU1-7 White knob 6mm d-shaft set screw - no indicator line
+
+---------------------------------------------------------------------------------
+
+NOR SPI file system
+https://github.com/pellepl/spiffs/
+
+---------------------------------------------------------------------------------
+
+changing to F4 firmware
+
+STM32CubeF4 download link not available from ST
+Downloaded with
+curl -c http://www.st.com/content/ccc/resource/technical/software/firmware/06/64/ba/10/2e/ab/47/c8/stm32cubef4.zip/files/stm32cubef4.zip/jcr:content/translations/en.stm32cubef4.zip
+
+Generated new code from STM32CubeMX
+
+---------------------------------------------------------------------------------
+
+set HSE_VALUE in stm32f4_hal_conf.h
+update clock settings in main.cpp SystemClock_Config()
+
+---------------------------------------------------------------------------------
+
+13/6 2016
+firmwareM4 working with Rev02 board / STM32F4 processor and SEPS114A screen
+codec timeout
+
+---------------------------------------------------------------------------------
+
+Prism Rev02 (marked Miniscope Rev01)
+
+- SPI2 pin out changed
+SPI2_MOSI / CS_SDA changed from PC1 to PC3
+CS_SCL still PB10
+CS_CS soft PB4 (SPI_NSS changed from PB4 to PB12)
+
+---------------------------------------------------------------------------------
+
+1.647V ADCREF
+1.980 CS_VREF (varies with audio input voltage +-100mV)
+
+op amps get hot
+
+---------------------------------------------------------------------------------
+
+MIDI USB
+copying parts from OwlWare and stm32f7discovery_midi_synth
+  hpcd_USB_OTG_HS.Init.dev_endpoints = 6; // instead of 11
+
+---------------------------------------------------------------------------------
+
+USBD_LL_Transmit doesn't appear to work when called from interrupt
+
+---------------------------------------------------------------------------------
+
+OLED MCOT096096AY-RGBM
+probably UG-9696TDDCG02
+1.10” Full Color Display
+
+---------------------------------------------------------------------------------
+
+PMod PmodOLEDrgb 96x64
+https://reference.digilentinc.com/_media/reference/pmod/pmodoledrgb/pmodoledrgb_sch.pdf
+
+---------------------------------------------------------------------------------
+
+USB connector ZX62D-AB-5P8 bottom mount!
+Don't use ZX62RD-AB-5P8 top mount
+Opposite to OWL and OWL2
+
+---------------------------------------------------------------------------------
+
+todo:
+- N25Q128A13 replacement or remove
+- C14 non-C0G
+- change to STM32F4 MCU
+/ screen 096x096 SEPS114A
+- change to JST PH digital bus / usart
+
+---------------------------------------------------------------------------------
+
+Prism OLED
+SPI1_TX > DMA2 Stream 3
+changed to DMA2 Stream 5
+
+prescaler 32: 2.625Mbit / s
+
+SPI2 > Codec
+
+ MCOT096064 max recommended SPI speed 6.6MHz
+ MCOT096096AY-RGBM max 5MHz
+
+CS_SDOUT PE3 SAI1_SD_B ADC peripheral->memory
+DAC memory->peripheral
+
+CS_SDA PC1 SPI2_MOSI
+CS_SCK PB10 SPI2_SCK
+
+---------------------------------------------------------------------------------
+
+OpenWare 23/10/2017
+- screen scrambled
+- audioCallback never called
+- works with Bollard firmware in RebelTechnology/Prism/firmwareM7
+
+---------------------------------------------------------------------------------
+
