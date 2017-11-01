@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -26541,7 +26541,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="SW5" library="Rebel" deviceset="PB6146L" device=""/>
 <part name="SW6" library="Rebel" deviceset="PB6146L" device=""/>
 <part name="SW7" library="Rebel" deviceset="KS01-BL" device=""/>
-<part name="SW8" library="Rebel" deviceset="KS01-BL" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="P6" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="+3V8" library="supply1" deviceset="+3V3" device=""/>
@@ -26601,7 +26600,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="JP9" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
 <part name="R40" library="Rebel" deviceset="R-EU_" device="0603" value="680R"/>
-<part name="R41" library="Rebel" deviceset="R-EU_" device="0603" value="680R"/>
 <part name="R42" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
@@ -26807,7 +26805,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="SW5" gate="G$1" x="165.1" y="-149.86"/>
 <instance part="SW6" gate="G$1" x="177.8" y="-149.86"/>
 <instance part="SW7" gate="G$1" x="218.44" y="-149.86"/>
-<instance part="SW8" gate="G$1" x="231.14" y="-149.86"/>
 <instance part="GND1" gate="1" x="12.7" y="195.58"/>
 <instance part="P6" gate="G$1" x="391.16" y="160.02" rot="R90"/>
 <instance part="+3V8" gate="G$1" x="391.16" y="172.72" smashed="yes" rot="MR0">
@@ -26821,7 +26818,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="SW5" gate="G$2" x="165.1" y="-121.92"/>
 <instance part="SW6" gate="G$2" x="177.8" y="-121.92"/>
 <instance part="SW7" gate="G$2" x="218.44" y="-121.92"/>
-<instance part="SW8" gate="G$2" x="231.14" y="-121.92"/>
 <instance part="R8" gate="G$1" x="20.32" y="218.44" rot="R270"/>
 <instance part="SJ1" gate="1" x="20.32" y="205.74" rot="R90"/>
 <instance part="GND32" gate="1" x="20.32" y="195.58"/>
@@ -26877,7 +26873,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="JP9" gate="G$1" x="111.76" y="17.78" rot="MR270"/>
 <instance part="GND33" gate="1" x="241.3" y="-144.78"/>
 <instance part="R40" gate="G$1" x="218.44" y="-111.76" rot="MR270"/>
-<instance part="R41" gate="G$1" x="231.14" y="-111.76" rot="MR270"/>
 <instance part="R42" gate="G$1" x="60.96" y="-147.32" rot="MR270"/>
 <instance part="GND34" gate="1" x="60.96" y="-162.56"/>
 <instance part="GND36" gate="1" x="50.8" y="33.02"/>
@@ -27199,10 +27194,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </segment>
 <segment>
 <pinref part="GND33" gate="1" pin="GND"/>
-<pinref part="SW8" gate="G$1" pin="S"/>
 <wire x1="231.14" y1="-142.24" x2="241.3" y2="-142.24" width="0.1524" layer="91"/>
-<wire x1="231.14" y1="-144.78" x2="231.14" y2="-142.24" width="0.1524" layer="91"/>
-<junction x="231.14" y="-142.24"/>
 <pinref part="SW7" gate="G$1" pin="S"/>
 <wire x1="218.44" y1="-142.24" x2="218.44" y2="-144.78" width="0.1524" layer="91"/>
 <wire x1="231.14" y1="-142.24" x2="218.44" y2="-142.24" width="0.1524" layer="91"/>
@@ -28333,12 +28325,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="132.08" y1="12.7" x2="132.08" y2="-2.54" width="0.1524" layer="91"/>
 <label x="132.08" y="10.16" size="1.778" layer="95" rot="R270"/>
 </segment>
-<segment>
-<pinref part="SW8" gate="G$2" pin="C"/>
-<wire x1="231.14" y1="-127" x2="231.14" y2="-132.08" width="0.1524" layer="91"/>
-<wire x1="231.14" y1="-132.08" x2="251.46" y2="-132.08" width="0.1524" layer="91"/>
-<label x="233.68" y="-132.08" size="1.778" layer="95"/>
-</segment>
 </net>
 <net name="B19_S2A" class="0">
 <segment>
@@ -28415,11 +28401,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </net>
 <net name="A14_SW8_BTN" class="0">
 <segment>
-<wire x1="231.14" y1="-180.34" x2="231.14" y2="-154.94" width="0.1524" layer="91"/>
-<label x="231.14" y="-180.34" size="1.778" layer="95" rot="R90"/>
-<pinref part="SW8" gate="G$1" pin="P"/>
-</segment>
-<segment>
 <wire x1="129.54" y1="40.64" x2="129.54" y2="30.48" width="0.1524" layer="91"/>
 <label x="129.54" y="38.1" size="1.778" layer="95" rot="MR270"/>
 <pinref part="TGP1-4" gate="G$1" pin="2"/>
@@ -28437,13 +28418,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <label x="132.08" y="38.1" size="1.778" layer="95" rot="MR270"/>
 </segment>
 </net>
-<net name="N$38" class="0">
-<segment>
-<pinref part="SW8" gate="G$2" pin="A"/>
-<pinref part="R41" gate="G$1" pin="2"/>
-<wire x1="231.14" y1="-119.38" x2="231.14" y2="-116.84" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="B10_SW7_LED" class="0">
 <segment>
 <wire x1="218.44" y1="-93.98" x2="218.44" y2="-106.68" width="0.1524" layer="91"/>
@@ -28457,11 +28431,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </segment>
 </net>
 <net name="B13_SW8_LED" class="0">
-<segment>
-<wire x1="231.14" y1="-93.98" x2="231.14" y2="-106.68" width="0.1524" layer="91"/>
-<label x="231.14" y="-104.14" size="1.778" layer="95" rot="R90"/>
-<pinref part="R41" gate="G$1" pin="1"/>
-</segment>
 <segment>
 <pinref part="JP12" gate="G$1" pin="4"/>
 <wire x1="129.54" y1="12.7" x2="129.54" y2="-2.54" width="0.1524" layer="91"/>
