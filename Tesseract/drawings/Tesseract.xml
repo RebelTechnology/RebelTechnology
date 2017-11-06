@@ -7,7 +7,8 @@
   <pot x="0.0" y="0.15"/>
 
   <!-- leds -->
-  <hole x="0.00" y="0.9" radius="2.16"/>
+  <!-- <hole x="0.00" y="0.9" radius="2.16"/> -->
+  <rect x="0.00" y="0.9" width="4.00" height="8.00"/>
 
   <!-- switches -->
   <hole x="-0.95" y="-0.75" radius="2.4"/>
