@@ -22,15 +22,16 @@
 
   <!-- leds -->
   <!-- correct -->
-  <!-- <rect x="-0.9" y="-0.35" width="5" height="5"/> -->
-  <!-- <rect x="-0.3" y="-0.10" width="5" height="5"/> -->
-  <!-- <rect x="0.3" y="-0.10" width="5" height="5"/> -->
-  <!-- <rect x="0.9" y="-0.35" width="5" height="5"/> -->
+  <rect x="-0.9" y="-0.35" width="5" height="5"/>
+  <rect x="-0.3" y="-0.10" width="5" height="5"/>
+  <rect x="0.3" y="-0.10" width="5" height="5"/>
+  <rect x="0.9" y="-0.35" width="5" height="5"/>
+
   <!-- rev02 -->
-  <rect x="-1.125" y="-0.35" width="5" height="5"/>
-  <rect x="-0.375" y="-.21220473" width="5" height="5"/>
-  <rect x="0.375" y="-.21220473" width="5" height="5"/>
-  <rect x="1.125" y="-0.35" width="5" height="5"/>
+  <!-- <rect x="-1.125" y="-0.35" width="5" height="5"/> -->
+  <!-- <rect x="-0.375" y="-.21220473" width="5" height="5"/> -->
+  <!-- <rect x="0.375" y="-.21220473" width="5" height="5"/> -->
+  <!-- <rect x="1.125" y="-0.35" width="5" height="5"/> -->
 
   <!-- jacks -->
   <hole x="-1.25" y="-1.25" radius="3.25"/>
