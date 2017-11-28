@@ -2366,7 +2366,7 @@ design rules under a new name.
 <attribute name="VALUE" x="64.05" y="54.95" size="1.27" layer="27" rot="R270"/>
 <attribute name="OC_FARNELL" value="2253831" x="64.45" y="48.95" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="IC8" library="Rebel" package="QFP50P2200X2200X160-144N" value="STM32F439ZLQFP144" x="78" y="70.5" smashed="yes" rot="R225">
+<element name="IC8" library="Rebel" package="QFP50P2200X2200X160-144N" value="STM32F427Z" x="78" y="70.5" smashed="yes" rot="R225">
 <attribute name="NAME" x="76.96790625" y="85.294471875" size="1" layer="25" font="vector" ratio="10" rot="SR0"/>
 <attribute name="VALUE" x="72.019146875" y="84.634921875" size="2.0828" layer="27" ratio="10" rot="SR225"/>
 <attribute name="OC_FARNELL" value="2484975" x="78" y="70.5" size="1.778" layer="27" rot="R225" display="off"/>

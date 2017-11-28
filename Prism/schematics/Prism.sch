@@ -8244,7 +8244,7 @@ Source: AVX .. aphvc.pdf</description>
 <text x="-4.064" y="46.482" size="1.778" layer="95">&gt;NAME</text>
 <text x="-5.334" y="-48.26" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
-<symbol name="STM32F439V_B">
+<symbol name="STM32F42X/43XV_B">
 <description>STM32F746VGT6</description>
 <wire x1="-12.7" y1="-45.72" x2="-12.7" y2="45.72" width="0.254" layer="94"/>
 <wire x1="-12.7" y1="45.72" x2="12.7" y2="45.72" width="0.254" layer="94"/>
@@ -10845,11 +10845,11 @@ Source: AVX .. aphvc.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="STM32F439V(100PIN)">
+<deviceset name="STM32F42XV/43XV(100PIN)">
 <description>STM32F746VGT6</description>
 <gates>
 <gate name="A" symbol="STM32F746VGT6" x="-43.18" y="-2.54"/>
-<gate name="B" symbol="STM32F439V_B" x="0" y="-2.54"/>
+<gate name="B" symbol="STM32F42X/43XV_B" x="0" y="-2.54"/>
 </gates>
 <devices>
 <device name="" package="QFP50P1600X1600X160-100N">
@@ -14866,7 +14866,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V21" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
-<part name="U1" library="Rebel" deviceset="STM32F439V(100PIN)" device=""/>
+<part name="U1" library="Rebel" deviceset="STM32F42XV/43XV(100PIN)" device="" value="STM32F427V(100PIN)"/>
 <part name="CN1" library="Rebel" deviceset="CON-JST-1X03" device="PH-TH"/>
 <part name="C18" library="Rebel" deviceset="C-EU" device="C0603" value="47n"/>
 <part name="C25" library="Rebel" deviceset="C-EU" device="C0603" value="47n"/>

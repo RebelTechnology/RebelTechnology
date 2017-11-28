@@ -8065,7 +8065,7 @@ Source: AVX .. aphvc.pdf</description>
 <pin name="2" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="3" x="-2.54" y="-2.54" visible="pad" length="short" direction="pas" function="dot"/>
 </symbol>
-<symbol name="STM32F439Z_A">
+<symbol name="STM32F42X/43XZ_A">
 <pin name="PE2" x="15.24" y="-20.32" length="middle" rot="R180"/>
 <pin name="PE3" x="15.24" y="-22.86" length="middle" rot="R180"/>
 <pin name="PE4" x="15.24" y="-25.4" length="middle" rot="R180"/>
@@ -8121,7 +8121,7 @@ Source: AVX .. aphvc.pdf</description>
 <text x="-5.08" y="30.48" size="1.27" layer="95">&gt;NAME</text>
 <text x="-5.08" y="33.02" size="1.27" layer="96">&gt;Value</text>
 </symbol>
-<symbol name="STM32F439Z_C">
+<symbol name="STM32F42X/43XZ_C">
 <pin name="PC7" x="15.24" y="-35.56" length="middle" rot="R180"/>
 <pin name="PC8" x="15.24" y="-38.1" length="middle" rot="R180"/>
 <pin name="PC9" x="15.24" y="-40.64" length="middle" rot="R180"/>
@@ -8177,7 +8177,7 @@ Source: AVX .. aphvc.pdf</description>
 <text x="-5.08" y="30.48" size="1.27" layer="95">&gt;NAME</text>
 <text x="-5.08" y="33.02" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
-<symbol name="STM32F439Z_B">
+<symbol name="STM32F42X/43XZ_B">
 <pin name="PF11" x="15.24" y="-17.78" length="middle" rot="R180"/>
 <pin name="PF12" x="15.24" y="-20.32" length="middle" rot="R180"/>
 <pin name="VSS2" x="-15.24" y="-35.56" length="middle"/>
@@ -10680,11 +10680,11 @@ Source: AVX .. aphvc.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="STM32F439Z" prefix="IC">
+<deviceset name="STM32F42XZ/43XZ(144PIN)" prefix="IC">
 <gates>
-<gate name="G$1" symbol="STM32F439Z_A" x="-48.26" y="0"/>
-<gate name="G$2" symbol="STM32F439Z_B" x="0" y="0"/>
-<gate name="G$3" symbol="STM32F439Z_C" x="45.72" y="0"/>
+<gate name="G$1" symbol="STM32F42X/43XZ_A" x="-48.26" y="0"/>
+<gate name="G$2" symbol="STM32F42X/43XZ_B" x="0" y="0"/>
+<gate name="G$3" symbol="STM32F42X/43XZ_C" x="45.72" y="0"/>
 </gates>
 <devices>
 <device name="LQFP144" package="QFP50P2200X2200X160-144N">
@@ -13524,7 +13524,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 </part>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="+3V21" library="supply1" deviceset="+3V3" device=""/>
-<part name="IC8" library="Rebel" deviceset="STM32F439Z" device="LQFP144">
+<part name="IC8" library="Rebel" deviceset="STM32F42XZ/43XZ(144PIN)" device="LQFP144" value="STM32F427Z">
 <attribute name="OC_FARNELL" value="2484975"/>
 </part>
 <part name="GND105" library="supply1" deviceset="GND" device=""/>
