@@ -14973,14 +14973,14 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 </net>
 <net name="OLED_MOSI" class="0">
 <segment>
-<wire x1="73.66" y1="119.38" x2="91.44" y2="119.38" width="0.1524" layer="91"/>
-<label x="76.2" y="119.38" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$1" pin="PC1"/>
-</segment>
-<segment>
 <wire x1="170.18" y1="5.08" x2="147.32" y2="5.08" width="0.1524" layer="91"/>
 <label x="147.32" y="5.08" size="1.778" layer="95"/>
 <pinref part="X4" gate="-14" pin="1"/>
+</segment>
+<segment>
+<wire x1="238.76" y1="88.9" x2="218.44" y2="88.9" width="0.1524" layer="91"/>
+<label x="218.44" y="88.9" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$3" pin="PC12"/>
 </segment>
 </net>
 <net name="OLED_SCK" class="0">
@@ -15045,19 +15045,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <pinref part="IC8" gate="G$1" pin="PC13"/>
 </segment>
 </net>
-<net name="FLASH_SDI" class="0">
-<segment>
-<pinref part="IC9" gate="N25Q128A13" pin="DQ0"/>
-<wire x1="229.87" y1="10.16" x2="213.36" y2="10.16" width="0.1524" layer="91"/>
-<label x="213.36" y="10.16" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="43.18" y1="96.52" x2="25.4" y2="96.52" width="0.1524" layer="91"/>
-<label x="25.4" y="96.52" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$1" pin="PF9"/>
-</segment>
-</net>
-<net name="FLASH_SDO" class="0">
+<net name="FLASH_MISO" class="0">
 <segment>
 <pinref part="IC9" gate="N25Q128A13" pin="DQ1"/>
 <wire x1="229.87" y1="5.08" x2="213.36" y2="5.08" width="0.1524" layer="91"/>
@@ -15124,9 +15112,9 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <pinref part="IC4" gate="CS4271" pin="SDIN"/>
 </segment>
 <segment>
-<wire x1="88.9" y1="76.2" x2="73.66" y2="76.2" width="0.1524" layer="91"/>
-<label x="76.2" y="76.2" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$1" pin="PB2"/>
+<wire x1="238.76" y1="109.22" x2="223.52" y2="109.22" width="0.1524" layer="91"/>
+<label x="223.52" y="109.22" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$3" pin="PD6"/>
 </segment>
 </net>
 <net name="CS_SCL" class="0">
@@ -16928,9 +16916,9 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <junction x="529.59" y="191.77"/>
 </segment>
 <segment>
-<wire x1="238.76" y1="93.98" x2="218.44" y2="93.98" width="0.1524" layer="91"/>
-<label x="218.44" y="93.98" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$3" pin="PC10"/>
+<wire x1="238.76" y1="119.38" x2="218.44" y2="119.38" width="0.1524" layer="91"/>
+<label x="218.44" y="119.38" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$3" pin="PD2"/>
 </segment>
 </net>
 <net name="TR_OUT_A" class="0">
@@ -16940,21 +16928,21 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <wire x1="570.23" y1="240.03" x2="554.99" y2="240.03" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="238.76" y1="88.9" x2="218.44" y2="88.9" width="0.1524" layer="91"/>
-<label x="218.44" y="88.9" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$3" pin="PC12"/>
+<pinref part="IC8" gate="G$3" pin="PD4"/>
+<wire x1="238.76" y1="114.3" x2="218.44" y2="114.3" width="0.1524" layer="91"/>
+<label x="218.44" y="114.3" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TR_OUT_B" class="0">
 <segment>
-<pinref part="IC8" gate="G$3" pin="PD2"/>
-<wire x1="238.76" y1="119.38" x2="220.98" y2="119.38" width="0.1524" layer="91"/>
-<label x="220.98" y="119.38" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="R701" gate="G$1" pin="2"/>
 <label x="554.99" y="179.07" size="1.778" layer="95"/>
 <wire x1="570.23" y1="179.07" x2="554.99" y2="179.07" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="238.76" y1="116.84" x2="218.44" y2="116.84" width="0.1524" layer="91"/>
+<label x="218.44" y="116.84" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$3" pin="PD3"/>
 </segment>
 </net>
 <net name="ENC2_SW" class="0">
@@ -17040,6 +17028,18 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <wire x1="424.18" y1="259.08" x2="411.48" y2="259.08" width="0.1524" layer="91"/>
 <wire x1="411.48" y1="259.08" x2="411.48" y2="248.92" width="0.1524" layer="91"/>
 <junction x="411.48" y="259.08"/>
+</segment>
+</net>
+<net name="FLASH_MOSI" class="0">
+<segment>
+<wire x1="43.18" y1="96.52" x2="25.4" y2="96.52" width="0.1524" layer="91"/>
+<label x="25.4" y="96.52" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$1" pin="PF9"/>
+</segment>
+<segment>
+<pinref part="IC9" gate="N25Q128A13" pin="DQ0"/>
+<wire x1="229.87" y1="10.16" x2="213.36" y2="10.16" width="0.1524" layer="91"/>
+<label x="213.36" y="10.16" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
