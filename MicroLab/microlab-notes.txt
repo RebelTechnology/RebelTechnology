@@ -409,6 +409,10 @@ Molex 22-17-5053
 --------------------------------------------------------------------------------
 
 minilab todo
-- add SD card slot
+- add SD card slot?
+- reverse USB connector or put on top
+- hw pull-down on power enable
+- power selection circuit usb/dc (with single op amp comparator and mosfet)
+- add pull-downs on audio inputs?
 
 --------------------------------------------------------------------------------

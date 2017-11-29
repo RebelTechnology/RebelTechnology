@@ -13650,7 +13650,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="C36" library="Rebel" deviceset="C-EU" device="C1206" value="10u"/>
 <part name="C37" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
-<part name="U$3" library="Rebel" deviceset="INDUCTOR" device="" value="1uH">
+<part name="L1" library="Rebel" deviceset="INDUCTOR" device="" value="1uH">
 <attribute name="OC_FARNELL" value="2288736"/>
 </part>
 <part name="C38" library="Rebel" deviceset="C-EU" device="C1206" value="10u"/>
@@ -14014,7 +14014,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <instance part="C36" gate="G$1" x="154.94" y="304.8" rot="R180"/>
 <instance part="C37" gate="G$1" x="419.1" y="142.24"/>
 <instance part="GND6" gate="1" x="419.1" y="132.08"/>
-<instance part="U$3" gate="G$1" x="408.94" y="147.32" rot="R180">
+<instance part="L1" gate="G$1" x="408.94" y="147.32" rot="R180">
 <attribute name="OC_FARNELL" x="408.94" y="147.32" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="C38" gate="G$1" x="429.26" y="142.24"/>
@@ -15250,7 +15250,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <wire x1="419.1" y1="147.32" x2="429.26" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="C38" gate="G$1" pin="1"/>
 <wire x1="429.26" y1="144.78" x2="429.26" y2="147.32" width="0.1524" layer="91"/>
-<pinref part="U$3" gate="G$1" pin="1"/>
+<pinref part="L1" gate="G$1" pin="1"/>
 <wire x1="416.56" y1="147.32" x2="419.1" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="P+6" gate="1" pin="+5V"/>
 <wire x1="429.26" y1="147.32" x2="429.26" y2="152.4" width="0.1524" layer="91"/>
@@ -16881,7 +16881,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <wire x1="393.7" y1="147.32" x2="386.08" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="393.7" y1="101.6" x2="398.78" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="398.78" y1="101.6" x2="398.78" y2="147.32" width="0.1524" layer="91"/>
-<pinref part="U$3" gate="G$1" pin="2"/>
+<pinref part="L1" gate="G$1" pin="2"/>
 <wire x1="401.32" y1="147.32" x2="398.78" y2="147.32" width="0.1524" layer="91"/>
 <junction x="398.78" y="147.32"/>
 <pinref part="C408" gate="G$1" pin="1"/>
