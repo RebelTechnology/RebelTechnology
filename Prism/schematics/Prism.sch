@@ -16329,15 +16329,13 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="353.06" y="20.32" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="QSPI_NCS" class="0">
+<net name="FLASH_NCS" class="0">
 <segment>
 <pinref part="IC9" gate="N25Q128A13" pin="S#"/>
 <wire x1="222.25" y1="5.08" x2="243.84" y2="5.08" width="0.1524" layer="91"/>
-<label x="248.92" y="5.08" size="1.778" layer="95"/>
-<wire x1="243.84" y1="5.08" x2="261.62" y2="5.08" width="0.1524" layer="91"/>
+<label x="226.06" y="5.08" size="1.778" layer="95"/>
 <wire x1="243.84" y1="5.08" x2="243.84" y2="10.16" width="0.1524" layer="91"/>
 <pinref part="R901" gate="G$1" pin="2"/>
-<junction x="243.84" y="5.08"/>
 </segment>
 <segment>
 <wire x1="254" y1="137.16" x2="271.78" y2="137.16" width="0.1524" layer="91"/>
@@ -16345,64 +16343,52 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="U1" gate="B" pin="PB6"/>
 </segment>
 </net>
-<net name="QSPI_D2" class="0">
+<net name="FLASH_W" class="0">
 <segment>
 <pinref part="IC9" gate="N25Q128A13" pin="VPP/W#/DQ2"/>
 <wire x1="222.25" y1="15.24" x2="236.22" y2="15.24" width="0.1524" layer="91"/>
 <label x="226.06" y="15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="99.06" y1="139.7" x2="81.28" y2="139.7" width="0.1524" layer="91"/>
-<label x="81.28" y="139.7" size="1.778" layer="95"/>
-<pinref part="U1" gate="A" pin="PE2"/>
+<pinref part="U1" gate="B" pin="PB7"/>
+<wire x1="254" y1="139.7" x2="271.78" y2="139.7" width="0.1524" layer="91"/>
+<label x="259.08" y="139.7" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="QSPI_D0" class="0">
+<net name="FLASH_MOSI" class="0">
 <segment>
 <pinref part="IC9" gate="N25Q128A13" pin="DQ0"/>
 <wire x1="179.07" y1="15.24" x2="165.1" y2="15.24" width="0.1524" layer="91"/>
 <label x="165.1" y="15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="218.44" y1="132.08" x2="200.66" y2="132.08" width="0.1524" layer="91"/>
-<label x="200.66" y="132.08" size="1.778" layer="95"/>
-<pinref part="U1" gate="B" pin="PD11"/>
+<wire x1="134.62" y1="142.24" x2="152.4" y2="142.24" width="0.1524" layer="91"/>
+<label x="139.7" y="142.24" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PE14"/>
 </segment>
 </net>
-<net name="QSPI_D1" class="0">
+<net name="FLASH_MISO" class="0">
 <segment>
 <pinref part="IC9" gate="N25Q128A13" pin="DQ1"/>
 <wire x1="179.07" y1="10.16" x2="165.1" y2="10.16" width="0.1524" layer="91"/>
 <label x="165.1" y="10.16" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="218.44" y1="129.54" x2="200.66" y2="129.54" width="0.1524" layer="91"/>
-<label x="200.66" y="129.54" size="1.778" layer="95"/>
-<pinref part="U1" gate="B" pin="PD12"/>
+<pinref part="U1" gate="A" pin="PE13"/>
+<wire x1="134.62" y1="139.7" x2="152.4" y2="139.7" width="0.1524" layer="91"/>
+<label x="139.7" y="139.7" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="QSPI_CLK" class="0">
-<segment>
-<pinref part="IC9" gate="N25Q128A13" pin="C"/>
-<wire x1="179.07" y1="5.08" x2="165.1" y2="5.08" width="0.1524" layer="91"/>
-<label x="165.1" y="5.08" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="134.62" y1="121.92" x2="152.4" y2="121.92" width="0.1524" layer="91"/>
-<label x="139.7" y="121.92" size="1.778" layer="95"/>
-<pinref part="U1" gate="A" pin="PB2"/>
-</segment>
-</net>
-<net name="QSPI_D3" class="0">
-<segment>
-<wire x1="218.44" y1="127" x2="200.66" y2="127" width="0.1524" layer="91"/>
-<label x="200.66" y="127" size="1.778" layer="95"/>
-<pinref part="U1" gate="B" pin="PD13"/>
-</segment>
+<net name="FLASH_HOLD" class="0">
 <segment>
 <pinref part="IC9" gate="N25Q128A13" pin="HOLD#/DQ3"/>
 <wire x1="222.25" y1="10.16" x2="236.22" y2="10.16" width="0.1524" layer="91"/>
 <label x="226.06" y="10.16" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="B" pin="PD8"/>
+<wire x1="218.44" y1="139.7" x2="200.66" y2="139.7" width="0.1524" layer="91"/>
+<label x="200.66" y="139.7" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CS_LRCK" class="0">
@@ -17555,10 +17541,16 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="53.34" y1="251.46" x2="53.34" y2="254" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="CS_MCLK" class="0">
+<net name="FLASH_SCK" class="0">
 <segment>
-<pinref part="IC4" gate="CS4271" pin="MCLK"/>
-<wire x1="355.6" y1="116.84" x2="340.36" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="139.7" x2="81.28" y2="139.7" width="0.1524" layer="91"/>
+<label x="81.28" y="139.7" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PE2"/>
+</segment>
+<segment>
+<pinref part="IC9" gate="N25Q128A13" pin="C"/>
+<wire x1="179.07" y1="5.08" x2="165.1" y2="5.08" width="0.1524" layer="91"/>
+<label x="165.1" y="5.08" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
@@ -17722,6 +17714,62 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="102,1,104.14,289.56,GND,TOP_GND,,,,"/>
+<approved hash="102,1,124.46,289.56,GND,TOP_GND,,,,"/>
+<approved hash="102,1,83.82,289.56,GND,TOP_GND,,,,"/>
+<approved hash="102,1,73.66,327.66,+12V,TOP_+12V,,,,"/>
+<approved hash="102,1,93.98,289.56,GND,TOP_GND,,,,"/>
+<approved hash="102,1,124.46,327.66,VCC,TOP_VCC,,,,"/>
+<approved hash="102,1,22.86,289.56,GND,TOP_GND,,,,"/>
+<approved hash="102,1,15.24,289.56,GND,TOP_GND,,,,"/>
+<approved hash="102,1,53.34,289.56,GND,TOP_GND,,,,"/>
+<approved hash="102,1,48.26,289.56,GND,TOP_GND,,,,"/>
+<approved hash="102,1,53.34,233.68,GND,TOP_GND,,,,"/>
+<approved hash="102,1,48.26,233.68,GND,TOP_GND,,,,"/>
+<approved hash="102,1,15.24,233.68,GND,TOP_GND,,,,"/>
+<approved hash="102,1,22.86,233.68,GND,TOP_GND,,,,"/>
+<approved hash="102,1,48.26,320.04,GND,TOP_GND,,,,"/>
+<approved hash="102,1,48.26,261.62,GND,TOP_GND,,,,"/>
+<approved hash="102,1,177.8,325.12,+12V,TOP_+12V,,,,"/>
+<approved hash="102,1,170.18,325.12,+3V3,TOP_+3V3,,,,"/>
+<approved hash="102,1,172.72,233.68,GND,TOP_GND,,,,"/>
+<approved hash="102,1,203.2,297.18,GND,TOP_GND,,,,"/>
+<approved hash="102,1,160.02,289.56,GND,TOP_GND,,,,"/>
+<approved hash="102,1,152.4,289.56,GND,TOP_GND,,,,"/>
+<approved hash="102,1,205.74,279.4,GND,TOP_GND,,,,"/>
+<approved hash="102,1,213.36,279.4,GND,TOP_GND,,,,"/>
+<approved hash="102,1,215.9,254,GND,TOP_GND,,,,"/>
+<approved hash="102,1,208.28,236.22,GND,TOP_GND,,,,"/>
+<approved hash="102,1,203.2,236.22,GND,TOP_GND,,,,"/>
+<approved hash="102,1,142.24,246.38,GND,TOP_GND,,,,"/>
+<approved hash="102,1,198.12,236.22,GND,TOP_GND,,,,"/>
+<approved hash="102,1,195.58,281.94,+3V3,TOP_+3V3,,,,"/>
+<approved hash="102,1,203.2,325.12,+3V3,TOP_+3V3,,,,"/>
+<approved hash="102,3,22.86,73.66,GND,MID_GND,,,,"/>
+<approved hash="102,3,129.54,73.66,GND,MID_GND,,,,"/>
+<approved hash="102,3,129.54,45.72,GND,MID_GND,,,,"/>
+<approved hash="102,3,76.2,73.66,GND,MID_GND,,,,"/>
+<approved hash="102,3,76.2,45.72,GND,MID_GND,,,,"/>
+<approved hash="102,3,22.86,45.72,GND,MID_GND,,,,"/>
+<approved hash="102,3,162.56,63.5,GND,MID_GND,,,,"/>
+<approved hash="104,2,347.98,271.78,IC3P,V+,+12V,,,"/>
+<approved hash="104,2,347.98,256.54,IC3P,V-,-12V,,,"/>
+<approved hash="104,2,477.52,114.3,IC6P,V+,+12V,,,"/>
+<approved hash="104,2,477.52,99.06,IC6P,V-,-12V,,,"/>
+<approved hash="104,2,281.94,228.6,IC5P,V+,+12V,,,"/>
+<approved hash="104,2,281.94,213.36,IC5P,V-,-12V,,,"/>
+<approved hash="113,2,43.9632,11.6925,USB1,,,,,"/>
+<approved hash="113,3,181.017,74.7353,JP1,,,,,"/>
+<approved hash="113,2,468.037,21.3953,JP2,,,,,"/>
+<approved hash="113,1,23.5373,206.815,JP5,,,,,"/>
+<approved hash="113,2,371.517,18.8553,JP4,,,,,"/>
+<approved hash="113,1,117.517,214.435,JP11,,,,,"/>
+<approved hash="113,2,330.877,16.3153,JP12,,,,,"/>
+<approved hash="113,1,79.4173,208.085,JP10,,,,,"/>
+<approved hash="113,2,427.397,20.1253,JP9,,,,,"/>
+<approved hash="113,2,40.4029,31.6188,CN1,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>
