@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -20143,6 +20143,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="USB_H" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="C21" library="resistor" deviceset="C-EU" device="C0603" value="10u"/>
 <part name="C22" library="resistor" deviceset="C-EU" device="C0603" value="10u"/>
+<part name="R21" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
+<part name="GND64" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -20536,6 +20538,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </instance>
 <instance part="C21" gate="G$1" x="15.24" y="38.1"/>
 <instance part="C22" gate="G$1" x="20.32" y="38.1"/>
+<instance part="R21" gate="G$1" x="-25.4" y="20.32" smashed="yes" rot="MR90">
+<attribute name="NAME" x="-24.13" y="21.3614" size="1.778" layer="95" rot="MR180"/>
+<attribute name="VALUE" x="-24.13" y="18.542" size="1.778" layer="96" rot="MR180"/>
+</instance>
+<instance part="GND64" gate="1" x="-25.4" y="10.16"/>
 </instances>
 <busses>
 </busses>
@@ -21065,6 +21072,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="U3" gate="MIC2005" pin="GND"/>
 <pinref part="GND101" gate="1" pin="GND"/>
 <wire x1="-20.32" y1="35.56" x2="-22.86" y2="35.56" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND64" gate="1" pin="GND"/>
+<pinref part="R21" gate="G$1" pin="1"/>
+<wire x1="-25.4" y1="12.7" x2="-25.4" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -22093,7 +22105,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="R39" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="GP6_SW6" class="0">
+<net name="GP6_SW6_L" class="0">
 <segment>
 <wire x1="60.96" y1="-48.26" x2="76.2" y2="-48.26" width="0.1524" layer="91"/>
 <label x="63.5" y="-48.26" size="1.778" layer="95"/>
@@ -22613,7 +22625,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="U1" gate="G$1" pin="OUTR0"/>
 </segment>
 </net>
-<net name="GP7_SW7" class="0">
+<net name="GP7_SW6_H" class="0">
 <segment>
 <wire x1="76.2" y1="-50.8" x2="60.96" y2="-50.8" width="0.1524" layer="91"/>
 <label x="63.5" y="-50.8" size="1.778" layer="95"/>
@@ -22729,8 +22741,12 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <net name="USB_H_PWR_EN" class="0">
 <segment>
 <pinref part="U3" gate="MIC2005" pin="EN"/>
-<wire x1="-20.32" y1="27.94" x2="-48.26" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="27.94" x2="-25.4" y2="27.94" width="0.1524" layer="91"/>
 <label x="-48.26" y="27.94" size="1.778" layer="95"/>
+<pinref part="R21" gate="G$1" pin="2"/>
+<wire x1="-25.4" y1="27.94" x2="-48.26" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="-25.4" y1="25.4" x2="-25.4" y2="27.94" width="0.1524" layer="91"/>
+<junction x="-25.4" y="27.94"/>
 </segment>
 <segment>
 <wire x1="116.84" y1="10.16" x2="116.84" y2="-15.24" width="0.1524" layer="91"/>
