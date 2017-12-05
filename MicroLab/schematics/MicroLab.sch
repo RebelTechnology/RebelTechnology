@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -16638,7 +16638,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="C14" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
 <part name="JOUT" library="con-lumberg" deviceset="1503_09" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
-<part name="POT_A1" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
+<part name="POT_C" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="IC6" library="linear" deviceset="LM324" device="D"/>
 <part name="C16" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="1u"/>
 <part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
@@ -16656,12 +16656,12 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
-<part name="POT_A2" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
+<part name="POT_D" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
-<part name="POT_A3" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
+<part name="POT_A" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
-<part name="POT_A4" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
+<part name="POT_B" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="+3V7" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="JIN" library="con-lumberg" deviceset="1503_09" device=""/>
@@ -16722,7 +16722,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <sheets>
 <sheet>
 <plain>
-<text x="-66.04" y="-22.86" size="6.4516" layer="97" font="vector">Play Rev01</text>
+<text x="-66.04" y="-22.86" size="6.4516" layer="97" font="vector">MicroLab Rev02</text>
 <text x="-66.04" y="-30.48" size="3.81" layer="97" font="vector">Copyright 2017 Rebel Technology</text>
 <text x="-66.04" y="-38.1" size="3.81" layer="97" font="vector">Published under the GNU GPL</text>
 </plain>
@@ -16834,9 +16834,9 @@ Source: Fairchild .. BAT54.pdf</description>
 </instance>
 <instance part="C17" gate="G$1" x="147.32" y="91.44"/>
 <instance part="C14" gate="G$1" x="185.42" y="91.44"/>
-<instance part="JOUT" gate="G$1" x="304.8" y="233.68"/>
-<instance part="GND3" gate="1" x="297.18" y="220.98"/>
-<instance part="POT_A1" gate="G$1" x="297.18" y="193.04" rot="R90"/>
+<instance part="JOUT" gate="G$1" x="299.72" y="198.12"/>
+<instance part="GND3" gate="1" x="292.1" y="185.42"/>
+<instance part="POT_C" gate="G$1" x="292.1" y="157.48" rot="R90"/>
 <instance part="IC6" gate="A" x="50.8" y="205.74" rot="MR180"/>
 <instance part="IC6" gate="B" x="50.8" y="160.02" rot="MR180"/>
 <instance part="IC6" gate="C" x="200.66" y="203.2" rot="MR180"/>
@@ -16862,20 +16862,20 @@ Source: Fairchild .. BAT54.pdf</description>
 <instance part="R4" gate="G$1" x="238.76" y="193.04" rot="MR270"/>
 <instance part="GND8" gate="1" x="238.76" y="177.8" rot="MR0"/>
 <instance part="IC6" gate="P" x="218.44" y="86.36"/>
-<instance part="+3V1" gate="G$1" x="297.18" y="208.28"/>
-<instance part="GND10" gate="1" x="297.18" y="180.34" rot="MR0"/>
-<instance part="POT_A2" gate="G$1" x="297.18" y="154.94" rot="R90"/>
-<instance part="+3V2" gate="G$1" x="297.18" y="170.18"/>
-<instance part="GND12" gate="1" x="297.18" y="142.24" rot="MR0"/>
-<instance part="POT_A3" gate="G$1" x="297.18" y="116.84" rot="R90"/>
-<instance part="GND14" gate="1" x="297.18" y="104.14" rot="MR0"/>
-<instance part="POT_A4" gate="G$1" x="297.18" y="81.28" rot="R90"/>
-<instance part="+3V7" gate="G$1" x="297.18" y="96.52"/>
-<instance part="GND17" gate="1" x="297.18" y="68.58" rot="MR0"/>
-<instance part="POT_A1" gate="G$2" x="33.02" y="35.56"/>
-<instance part="POT_A2" gate="G$2" x="43.18" y="35.56"/>
-<instance part="POT_A3" gate="G$2" x="53.34" y="35.56"/>
-<instance part="POT_A4" gate="G$2" x="63.5" y="35.56"/>
+<instance part="+3V1" gate="G$1" x="292.1" y="172.72"/>
+<instance part="GND10" gate="1" x="292.1" y="144.78" rot="MR0"/>
+<instance part="POT_D" gate="G$1" x="292.1" y="119.38" rot="R90"/>
+<instance part="+3V2" gate="G$1" x="292.1" y="134.62"/>
+<instance part="GND12" gate="1" x="292.1" y="106.68" rot="MR0"/>
+<instance part="POT_A" gate="G$1" x="292.1" y="81.28" rot="R90"/>
+<instance part="GND14" gate="1" x="292.1" y="68.58" rot="MR0"/>
+<instance part="POT_B" gate="G$1" x="292.1" y="45.72" rot="R90"/>
+<instance part="+3V7" gate="G$1" x="292.1" y="60.96"/>
+<instance part="GND17" gate="1" x="292.1" y="33.02" rot="MR0"/>
+<instance part="POT_C" gate="G$2" x="33.02" y="35.56"/>
+<instance part="POT_D" gate="G$2" x="43.18" y="35.56"/>
+<instance part="POT_A" gate="G$2" x="53.34" y="35.56"/>
+<instance part="POT_B" gate="G$2" x="63.5" y="35.56"/>
 <instance part="JIN" gate="G$1" x="-50.8" y="200.66" rot="MR0"/>
 <instance part="GND1" gate="1" x="-40.64" y="187.96" rot="MR0"/>
 <instance part="SW1" gate="1" x="-7.62" y="91.44"/>
@@ -16905,7 +16905,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <instance part="P+5" gate="G$1" x="-38.1" y="20.32"/>
 <instance part="GND32" gate="1" x="-38.1" y="5.08"/>
 <instance part="J2" gate="G$1" x="-55.88" y="88.9" rot="MR0"/>
-<instance part="J3" gate="G$1" x="271.78" y="129.54" rot="MR0"/>
+<instance part="J3" gate="G$1" x="266.7" y="93.98" rot="MR0"/>
 <instance part="R21" gate="G$1" x="63.5" y="96.52"/>
 <instance part="R22" gate="G$1" x="63.5" y="81.28"/>
 <instance part="R28" gate="G$1" x="63.5" y="88.9"/>
@@ -16917,14 +16917,14 @@ Source: Fairchild .. BAT54.pdf</description>
 <instance part="R37" gate="G$1" x="-22.86" y="109.22" rot="MR90"/>
 <instance part="Q901" gate="G$1" x="-25.4" y="91.44"/>
 <instance part="GND40" gate="1" x="-48.26" y="73.66" rot="MR0"/>
-<instance part="D2" gate="G$1" x="322.58" y="116.84" rot="R90"/>
-<instance part="+3V8" gate="G$1" x="322.58" y="132.08"/>
-<instance part="GND41" gate="1" x="322.58" y="104.14" rot="MR0"/>
-<instance part="R29" gate="G$1" x="281.94" y="142.24" rot="MR270"/>
-<instance part="GND42" gate="1" x="281.94" y="119.38" rot="MR0"/>
-<instance part="R30" gate="G$1" x="289.56" y="132.08" rot="MR180"/>
-<instance part="P+7" gate="1" x="281.94" y="154.94" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="279.4" y="157.48" size="1.778" layer="96" rot="MR180"/>
+<instance part="D2" gate="G$1" x="317.5" y="81.28" rot="R90"/>
+<instance part="+3V8" gate="G$1" x="317.5" y="96.52"/>
+<instance part="GND41" gate="1" x="317.5" y="68.58" rot="MR0"/>
+<instance part="R29" gate="G$1" x="276.86" y="106.68" rot="MR270"/>
+<instance part="GND42" gate="1" x="276.86" y="83.82" rot="MR0"/>
+<instance part="R30" gate="G$1" x="284.48" y="96.52" rot="MR180"/>
+<instance part="P+7" gate="1" x="276.86" y="119.38" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="274.32" y="121.92" size="1.778" layer="96" rot="MR180"/>
 </instance>
 <instance part="P+2" gate="1" x="218.44" y="104.14" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="215.9" y="106.68" size="1.778" layer="96" rot="MR180"/>
@@ -16959,10 +16959,10 @@ Source: Fairchild .. BAT54.pdf</description>
 <wire x1="53.34" y1="27.94" x2="63.5" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="63.5" y1="27.94" x2="63.5" y2="30.48" width="0.1524" layer="91"/>
 <junction x="53.34" y="27.94"/>
-<pinref part="POT_A1" gate="G$2" pin="P$1"/>
-<pinref part="POT_A2" gate="G$2" pin="P$1"/>
-<pinref part="POT_A3" gate="G$2" pin="P$1"/>
-<pinref part="POT_A4" gate="G$2" pin="P$1"/>
+<pinref part="POT_C" gate="G$2" pin="P$1"/>
+<pinref part="POT_D" gate="G$2" pin="P$1"/>
+<pinref part="POT_A" gate="G$2" pin="P$1"/>
+<pinref part="POT_B" gate="G$2" pin="P$1"/>
 </segment>
 <segment>
 <pinref part="PWR" gate="G$1" pin="2"/>
@@ -17031,8 +17031,8 @@ Source: Fairchild .. BAT54.pdf</description>
 <segment>
 <pinref part="JOUT" gate="G$1" pin="1"/>
 <pinref part="GND3" gate="1" pin="GND"/>
-<wire x1="299.72" y1="228.6" x2="297.18" y2="228.6" width="0.1524" layer="91"/>
-<wire x1="297.18" y1="228.6" x2="297.18" y2="223.52" width="0.1524" layer="91"/>
+<wire x1="294.64" y1="193.04" x2="292.1" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="292.1" y1="193.04" x2="292.1" y2="187.96" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R26" gate="G$1" pin="2"/>
@@ -17066,24 +17066,24 @@ Source: Fairchild .. BAT54.pdf</description>
 <wire x1="238.76" y1="180.34" x2="238.76" y2="187.96" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT_A1" gate="G$1" pin="1"/>
+<pinref part="POT_C" gate="G$1" pin="1"/>
 <pinref part="GND10" gate="1" pin="GND"/>
-<wire x1="297.18" y1="182.88" x2="297.18" y2="185.42" width="0.1524" layer="91"/>
+<wire x1="292.1" y1="147.32" x2="292.1" y2="149.86" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT_A2" gate="G$1" pin="1"/>
+<pinref part="POT_D" gate="G$1" pin="1"/>
 <pinref part="GND12" gate="1" pin="GND"/>
-<wire x1="297.18" y1="144.78" x2="297.18" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="292.1" y1="109.22" x2="292.1" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT_A3" gate="G$1" pin="1"/>
+<pinref part="POT_A" gate="G$1" pin="1"/>
 <pinref part="GND14" gate="1" pin="GND"/>
-<wire x1="297.18" y1="106.68" x2="297.18" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="292.1" y1="71.12" x2="292.1" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT_A4" gate="G$1" pin="1"/>
+<pinref part="POT_B" gate="G$1" pin="1"/>
 <pinref part="GND17" gate="1" pin="GND"/>
-<wire x1="297.18" y1="71.12" x2="297.18" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="292.1" y1="35.56" x2="292.1" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND1" gate="1" pin="GND"/>
@@ -17171,13 +17171,13 @@ Source: Fairchild .. BAT54.pdf</description>
 <segment>
 <pinref part="D2" gate="G$1" pin="A1"/>
 <pinref part="GND41" gate="1" pin="GND"/>
-<wire x1="322.58" y1="106.68" x2="322.58" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="71.12" x2="317.5" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="J3" gate="G$1" pin="5"/>
 <pinref part="GND42" gate="1" pin="GND"/>
-<wire x1="276.86" y1="127" x2="281.94" y2="127" width="0.1524" layer="91"/>
-<wire x1="281.94" y1="127" x2="281.94" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="91.44" x2="276.86" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="276.86" y1="91.44" x2="276.86" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="218.44" y1="73.66" x2="218.44" y2="78.74" width="0.1524" layer="91"/>
@@ -17239,7 +17239,7 @@ Source: Fairchild .. BAT54.pdf</description>
 </segment>
 <segment>
 <pinref part="R29" gate="G$1" pin="1"/>
-<wire x1="281.94" y1="152.4" x2="281.94" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="276.86" y1="116.84" x2="276.86" y2="111.76" width="0.1524" layer="91"/>
 <pinref part="P+7" gate="1" pin="+5V"/>
 </segment>
 <segment>
@@ -17264,9 +17264,9 @@ Source: Fairchild .. BAT54.pdf</description>
 <label x="114.3" y="38.1" size="1.778" layer="95" rot="R270"/>
 </segment>
 <segment>
-<pinref part="POT_A1" gate="G$1" pin="2"/>
-<wire x1="302.26" y1="193.04" x2="314.96" y2="193.04" width="0.1524" layer="91"/>
-<label x="307.34" y="193.04" size="1.778" layer="95"/>
+<pinref part="POT_C" gate="G$1" pin="2"/>
+<wire x1="297.18" y1="157.48" x2="309.88" y2="157.48" width="0.1524" layer="91"/>
+<label x="302.26" y="157.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC4" class="0">
@@ -17276,9 +17276,9 @@ Source: Fairchild .. BAT54.pdf</description>
 <label x="106.68" y="38.1" size="1.778" layer="95" rot="R270"/>
 </segment>
 <segment>
-<pinref part="POT_A4" gate="G$1" pin="2"/>
-<wire x1="302.26" y1="81.28" x2="314.96" y2="81.28" width="0.1524" layer="91"/>
-<label x="307.34" y="81.28" size="1.778" layer="95"/>
+<pinref part="POT_B" gate="G$1" pin="2"/>
+<wire x1="297.18" y1="45.72" x2="309.88" y2="45.72" width="0.1524" layer="91"/>
+<label x="302.26" y="45.72" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC2" class="0">
@@ -17288,9 +17288,9 @@ Source: Fairchild .. BAT54.pdf</description>
 <label x="111.76" y="38.1" size="1.778" layer="95" rot="R270"/>
 </segment>
 <segment>
-<pinref part="POT_A2" gate="G$1" pin="2"/>
-<wire x1="302.26" y1="154.94" x2="314.96" y2="154.94" width="0.1524" layer="91"/>
-<label x="307.34" y="154.94" size="1.778" layer="95"/>
+<pinref part="POT_D" gate="G$1" pin="2"/>
+<wire x1="297.18" y1="119.38" x2="309.88" y2="119.38" width="0.1524" layer="91"/>
+<label x="302.26" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC3" class="0">
@@ -17300,9 +17300,9 @@ Source: Fairchild .. BAT54.pdf</description>
 <label x="109.22" y="38.1" size="1.778" layer="95" rot="R270"/>
 </segment>
 <segment>
-<pinref part="POT_A3" gate="G$1" pin="2"/>
-<wire x1="302.26" y1="116.84" x2="320.04" y2="116.84" width="0.1524" layer="91"/>
-<label x="307.34" y="116.84" size="1.778" layer="95"/>
+<pinref part="POT_A" gate="G$1" pin="2"/>
+<wire x1="297.18" y1="81.28" x2="314.96" y2="81.28" width="0.1524" layer="91"/>
+<label x="302.26" y="81.28" size="1.778" layer="95"/>
 <pinref part="D2" gate="G$1" pin="C1A2"/>
 </segment>
 </net>
@@ -17318,8 +17318,8 @@ Source: Fairchild .. BAT54.pdf</description>
 </segment>
 <segment>
 <pinref part="JOUT" gate="G$1" pin="3"/>
-<wire x1="299.72" y1="238.76" x2="276.86" y2="238.76" width="0.1524" layer="91"/>
-<label x="279.4" y="238.76" size="1.778" layer="95"/>
+<wire x1="294.64" y1="203.2" x2="271.78" y2="203.2" width="0.1524" layer="91"/>
+<label x="274.32" y="203.2" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="IN_L" class="0">
@@ -17366,8 +17366,8 @@ Source: Fairchild .. BAT54.pdf</description>
 </segment>
 <segment>
 <pinref part="JOUT" gate="G$1" pin="2"/>
-<wire x1="299.72" y1="231.14" x2="276.86" y2="231.14" width="0.1524" layer="91"/>
-<label x="279.4" y="231.14" size="1.778" layer="95"/>
+<wire x1="294.64" y1="195.58" x2="271.78" y2="195.58" width="0.1524" layer="91"/>
+<label x="274.32" y="195.58" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$39" class="0">
@@ -17852,19 +17852,19 @@ Source: Fairchild .. BAT54.pdf</description>
 <wire x1="149.86" y1="-22.86" x2="149.86" y2="-25.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT_A1" gate="G$1" pin="3"/>
+<pinref part="POT_C" gate="G$1" pin="3"/>
 <pinref part="+3V1" gate="G$1" pin="+3V3"/>
-<wire x1="297.18" y1="205.74" x2="297.18" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="292.1" y1="170.18" x2="292.1" y2="165.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT_A2" gate="G$1" pin="3"/>
+<pinref part="POT_D" gate="G$1" pin="3"/>
 <pinref part="+3V2" gate="G$1" pin="+3V3"/>
-<wire x1="297.18" y1="167.64" x2="297.18" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="292.1" y1="132.08" x2="292.1" y2="127" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT_A4" gate="G$1" pin="3"/>
+<pinref part="POT_B" gate="G$1" pin="3"/>
 <pinref part="+3V7" gate="G$1" pin="+3V3"/>
-<wire x1="297.18" y1="93.98" x2="297.18" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="292.1" y1="58.42" x2="292.1" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="+3V4" gate="G$1" pin="+3V3"/>
@@ -17874,7 +17874,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <segment>
 <pinref part="D2" gate="G$1" pin="C2"/>
 <pinref part="+3V8" gate="G$1" pin="+3V3"/>
-<wire x1="322.58" y1="129.54" x2="322.58" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="93.98" x2="317.5" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -18066,15 +18066,15 @@ Source: Fairchild .. BAT54.pdf</description>
 <segment>
 <pinref part="J3" gate="G$1" pin="4"/>
 <pinref part="R29" gate="G$1" pin="2"/>
-<wire x1="276.86" y1="129.54" x2="281.94" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="281.94" y1="129.54" x2="281.94" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="93.98" x2="276.86" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="276.86" y1="93.98" x2="276.86" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$25" class="0">
 <segment>
-<pinref part="POT_A3" gate="G$1" pin="3"/>
-<wire x1="294.64" y1="132.08" x2="297.18" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="297.18" y1="132.08" x2="297.18" y2="124.46" width="0.1524" layer="91"/>
+<pinref part="POT_A" gate="G$1" pin="3"/>
+<wire x1="289.56" y1="96.52" x2="292.1" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="292.1" y1="96.52" x2="292.1" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="R30" gate="G$1" pin="2"/>
 </segment>
 </net>
@@ -18082,7 +18082,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <segment>
 <pinref part="R30" gate="G$1" pin="1"/>
 <pinref part="J3" gate="G$1" pin="3"/>
-<wire x1="276.86" y1="132.08" x2="284.48" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="96.52" x2="279.4" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$29" class="0">
