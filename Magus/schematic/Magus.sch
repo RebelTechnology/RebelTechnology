@@ -14475,23 +14475,23 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="GND120" library="supply1" deviceset="GND" device=""/>
 <part name="R40" library="Rebel" deviceset="R-EU_" device="0603" value="2k2"/>
 <part name="GND121" library="supply1" deviceset="GND" device=""/>
-<part name="LED17" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
-<part name="LED18" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
-<part name="LED19" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
-<part name="LED20" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
-<part name="LED21" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
-<part name="LED22" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
-<part name="LED23" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
-<part name="LED24" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
-<part name="LED25" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
-<part name="LED26" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
-<part name="LED27" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
-<part name="LED28" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="LED1" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="LED2" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="LED3" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="LED4" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="LED5" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="LED6" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="LED7" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="LED8" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="LED9" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="LED10" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="LED11" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="LED12" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
 <part name="P+23" library="supply1" deviceset="+12V" device=""/>
-<part name="LED29" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
-<part name="LED30" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
-<part name="LED31" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
-<part name="LED32" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="LED13" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="LED14" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="LED15" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
+<part name="LED16" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
 <part name="OUTR" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="OUTL" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
@@ -14872,23 +14872,23 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="GND120" gate="1" x="119.38" y="48.26"/>
 <instance part="R40" gate="G$1" x="119.38" y="-22.86" rot="MR270"/>
 <instance part="GND121" gate="1" x="119.38" y="-33.02"/>
-<instance part="LED17" gate="G$1" x="226.06" y="180.34"/>
-<instance part="LED18" gate="G$1" x="248.92" y="180.34"/>
-<instance part="LED19" gate="G$1" x="271.78" y="180.34"/>
-<instance part="LED20" gate="G$1" x="294.64" y="180.34"/>
-<instance part="LED21" gate="G$1" x="226.06" y="142.24"/>
-<instance part="LED22" gate="G$1" x="248.92" y="142.24"/>
-<instance part="LED23" gate="G$1" x="271.78" y="142.24"/>
-<instance part="LED24" gate="G$1" x="294.64" y="142.24"/>
-<instance part="LED25" gate="G$1" x="226.06" y="101.6"/>
-<instance part="LED26" gate="G$1" x="248.92" y="101.6"/>
-<instance part="LED27" gate="G$1" x="271.78" y="101.6"/>
-<instance part="LED28" gate="G$1" x="294.64" y="101.6"/>
+<instance part="LED1" gate="G$1" x="226.06" y="180.34"/>
+<instance part="LED2" gate="G$1" x="248.92" y="180.34"/>
+<instance part="LED3" gate="G$1" x="271.78" y="180.34"/>
+<instance part="LED4" gate="G$1" x="294.64" y="180.34"/>
+<instance part="LED5" gate="G$1" x="226.06" y="142.24"/>
+<instance part="LED6" gate="G$1" x="248.92" y="142.24"/>
+<instance part="LED7" gate="G$1" x="271.78" y="142.24"/>
+<instance part="LED8" gate="G$1" x="294.64" y="142.24"/>
+<instance part="LED9" gate="G$1" x="226.06" y="101.6"/>
+<instance part="LED10" gate="G$1" x="248.92" y="101.6"/>
+<instance part="LED11" gate="G$1" x="271.78" y="101.6"/>
+<instance part="LED12" gate="G$1" x="294.64" y="101.6"/>
 <instance part="P+23" gate="1" x="317.5" y="127" rot="MR0"/>
-<instance part="LED29" gate="G$1" x="226.06" y="63.5"/>
-<instance part="LED30" gate="G$1" x="248.92" y="63.5"/>
-<instance part="LED31" gate="G$1" x="271.78" y="63.5"/>
-<instance part="LED32" gate="G$1" x="294.64" y="63.5"/>
+<instance part="LED13" gate="G$1" x="226.06" y="63.5"/>
+<instance part="LED14" gate="G$1" x="248.92" y="63.5"/>
+<instance part="LED15" gate="G$1" x="271.78" y="63.5"/>
+<instance part="LED16" gate="G$1" x="294.64" y="63.5"/>
 <instance part="OUTR" gate="G$1" x="-241.3" y="-63.5"/>
 <instance part="OUTL" gate="G$1" x="-241.3" y="-35.56"/>
 <instance part="GND31" gate="1" x="-248.92" y="-45.72"/>
@@ -15701,7 +15701,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="LED1_R" class="0">
 <segment>
-<pinref part="LED17" gate="G$1" pin="CGREEN"/>
+<pinref part="LED1" gate="G$1" pin="CGREEN"/>
 <wire x1="231.14" y1="175.26" x2="231.14" y2="162.56" width="0.1524" layer="91"/>
 <label x="231.14" y="162.56" size="1.778" layer="95" rot="R90"/>
 </segment>
@@ -15715,7 +15715,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="254" y1="175.26" x2="254" y2="162.56" width="0.1524" layer="91"/>
 <label x="254" y="162.56" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED18" gate="G$1" pin="CGREEN"/>
+<pinref part="LED2" gate="G$1" pin="CGREEN"/>
 </segment>
 <segment>
 <pinref part="U3" gate="TLC5946" pin="OUT3"/>
@@ -15727,7 +15727,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="276.86" y1="175.26" x2="276.86" y2="162.56" width="0.1524" layer="91"/>
 <label x="276.86" y="162.56" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED19" gate="G$1" pin="CGREEN"/>
+<pinref part="LED3" gate="G$1" pin="CGREEN"/>
 </segment>
 <segment>
 <pinref part="U3" gate="TLC5946" pin="OUT5"/>
@@ -15739,7 +15739,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="299.72" y1="175.26" x2="299.72" y2="162.56" width="0.1524" layer="91"/>
 <label x="299.72" y="162.56" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED20" gate="G$1" pin="CGREEN"/>
+<pinref part="LED4" gate="G$1" pin="CGREEN"/>
 </segment>
 <segment>
 <pinref part="U3" gate="TLC5946" pin="OUT7"/>
@@ -15749,7 +15749,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="LED5_R" class="0">
 <segment>
-<pinref part="LED21" gate="G$1" pin="CGREEN"/>
+<pinref part="LED5" gate="G$1" pin="CGREEN"/>
 <wire x1="231.14" y1="137.16" x2="231.14" y2="124.46" width="0.1524" layer="91"/>
 <label x="231.14" y="124.46" size="1.778" layer="95" rot="R90"/>
 </segment>
@@ -15763,7 +15763,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="254" y1="137.16" x2="254" y2="124.46" width="0.1524" layer="91"/>
 <label x="254" y="124.46" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED22" gate="G$1" pin="CGREEN"/>
+<pinref part="LED6" gate="G$1" pin="CGREEN"/>
 </segment>
 <segment>
 <pinref part="U3" gate="TLC5946" pin="OUT11"/>
@@ -15775,7 +15775,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="276.86" y1="137.16" x2="276.86" y2="124.46" width="0.1524" layer="91"/>
 <label x="276.86" y="124.46" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED23" gate="G$1" pin="CGREEN"/>
+<pinref part="LED7" gate="G$1" pin="CGREEN"/>
 </segment>
 <segment>
 <pinref part="U3" gate="TLC5946" pin="OUT13"/>
@@ -15787,7 +15787,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="299.72" y1="137.16" x2="299.72" y2="124.46" width="0.1524" layer="91"/>
 <label x="299.72" y="124.46" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED24" gate="G$1" pin="CGREEN"/>
+<pinref part="LED8" gate="G$1" pin="CGREEN"/>
 </segment>
 <segment>
 <pinref part="U3" gate="TLC5946" pin="OUT15"/>
@@ -15797,7 +15797,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="LED9_R" class="0">
 <segment>
-<pinref part="LED25" gate="G$1" pin="CGREEN"/>
+<pinref part="LED9" gate="G$1" pin="CGREEN"/>
 <wire x1="231.14" y1="96.52" x2="231.14" y2="83.82" width="0.1524" layer="91"/>
 <label x="231.14" y="83.82" size="1.778" layer="95" rot="R90"/>
 </segment>
@@ -15811,7 +15811,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="254" y1="96.52" x2="254" y2="83.82" width="0.1524" layer="91"/>
 <label x="254" y="83.82" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED26" gate="G$1" pin="CGREEN"/>
+<pinref part="LED10" gate="G$1" pin="CGREEN"/>
 </segment>
 <segment>
 <pinref part="U3" gate="TLC5946" pin="OUT2"/>
@@ -15823,7 +15823,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="276.86" y1="96.52" x2="276.86" y2="83.82" width="0.1524" layer="91"/>
 <label x="276.86" y="83.82" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED27" gate="G$1" pin="CGREEN"/>
+<pinref part="LED11" gate="G$1" pin="CGREEN"/>
 </segment>
 <segment>
 <pinref part="U3" gate="TLC5946" pin="OUT4"/>
@@ -15835,7 +15835,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="299.72" y1="96.52" x2="299.72" y2="83.82" width="0.1524" layer="91"/>
 <label x="299.72" y="83.82" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED28" gate="G$1" pin="CGREEN"/>
+<pinref part="LED12" gate="G$1" pin="CGREEN"/>
 </segment>
 <segment>
 <pinref part="U3" gate="TLC5946" pin="OUT6"/>
@@ -15845,7 +15845,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="LED13_R" class="0">
 <segment>
-<pinref part="LED29" gate="G$1" pin="CGREEN"/>
+<pinref part="LED13" gate="G$1" pin="CGREEN"/>
 <wire x1="231.14" y1="58.42" x2="231.14" y2="45.72" width="0.1524" layer="91"/>
 <label x="231.14" y="45.72" size="1.778" layer="95" rot="R90"/>
 </segment>
@@ -15859,7 +15859,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="254" y1="58.42" x2="254" y2="45.72" width="0.1524" layer="91"/>
 <label x="254" y="45.72" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED30" gate="G$1" pin="CGREEN"/>
+<pinref part="LED14" gate="G$1" pin="CGREEN"/>
 </segment>
 <segment>
 <pinref part="U3" gate="TLC5946" pin="OUT10"/>
@@ -15871,7 +15871,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="276.86" y1="58.42" x2="276.86" y2="45.72" width="0.1524" layer="91"/>
 <label x="276.86" y="45.72" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED31" gate="G$1" pin="CGREEN"/>
+<pinref part="LED15" gate="G$1" pin="CGREEN"/>
 </segment>
 <segment>
 <pinref part="U3" gate="TLC5946" pin="OUT12"/>
@@ -15883,7 +15883,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="299.72" y1="58.42" x2="299.72" y2="45.72" width="0.1524" layer="91"/>
 <label x="299.72" y="45.72" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED32" gate="G$1" pin="CGREEN"/>
+<pinref part="LED16" gate="G$1" pin="CGREEN"/>
 </segment>
 <segment>
 <pinref part="U3" gate="TLC5946" pin="OUT14"/>
@@ -15893,7 +15893,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="LED1_G" class="0">
 <segment>
-<pinref part="LED17" gate="G$1" pin="CBLUE"/>
+<pinref part="LED1" gate="G$1" pin="CBLUE"/>
 <wire x1="226.06" y1="162.56" x2="226.06" y2="175.26" width="0.1524" layer="91"/>
 <label x="226.06" y="162.56" size="1.778" layer="95" rot="R90"/>
 </segment>
@@ -15907,7 +15907,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="248.92" y1="162.56" x2="248.92" y2="175.26" width="0.1524" layer="91"/>
 <label x="248.92" y="162.56" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED18" gate="G$1" pin="CBLUE"/>
+<pinref part="LED2" gate="G$1" pin="CBLUE"/>
 </segment>
 <segment>
 <label x="177.8" y="93.98" size="1.778" layer="95"/>
@@ -15919,7 +15919,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="271.78" y1="162.56" x2="271.78" y2="175.26" width="0.1524" layer="91"/>
 <label x="271.78" y="162.56" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED19" gate="G$1" pin="CBLUE"/>
+<pinref part="LED3" gate="G$1" pin="CBLUE"/>
 </segment>
 <segment>
 <label x="177.8" y="86.36" size="1.778" layer="95"/>
@@ -15931,7 +15931,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="294.64" y1="162.56" x2="294.64" y2="175.26" width="0.1524" layer="91"/>
 <label x="294.64" y="162.56" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED20" gate="G$1" pin="CBLUE"/>
+<pinref part="LED4" gate="G$1" pin="CBLUE"/>
 </segment>
 <segment>
 <label x="177.8" y="83.82" size="1.778" layer="95"/>
@@ -15941,7 +15941,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="LED5_G" class="0">
 <segment>
-<pinref part="LED21" gate="G$1" pin="CBLUE"/>
+<pinref part="LED5" gate="G$1" pin="CBLUE"/>
 <wire x1="226.06" y1="124.46" x2="226.06" y2="137.16" width="0.1524" layer="91"/>
 <label x="226.06" y="124.46" size="1.778" layer="95" rot="R90"/>
 </segment>
@@ -15955,7 +15955,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="248.92" y1="124.46" x2="248.92" y2="137.16" width="0.1524" layer="91"/>
 <label x="248.92" y="124.46" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED22" gate="G$1" pin="CBLUE"/>
+<pinref part="LED6" gate="G$1" pin="CBLUE"/>
 </segment>
 <segment>
 <label x="177.8" y="73.66" size="1.778" layer="95"/>
@@ -15967,7 +15967,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="271.78" y1="124.46" x2="271.78" y2="137.16" width="0.1524" layer="91"/>
 <label x="271.78" y="124.46" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED23" gate="G$1" pin="CBLUE"/>
+<pinref part="LED7" gate="G$1" pin="CBLUE"/>
 </segment>
 <segment>
 <label x="177.8" y="68.58" size="1.778" layer="95"/>
@@ -15979,7 +15979,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="294.64" y1="124.46" x2="294.64" y2="137.16" width="0.1524" layer="91"/>
 <label x="294.64" y="124.46" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED24" gate="G$1" pin="CBLUE"/>
+<pinref part="LED8" gate="G$1" pin="CBLUE"/>
 </segment>
 <segment>
 <label x="177.8" y="63.5" size="1.778" layer="95"/>
@@ -15989,7 +15989,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="LED9_G" class="0">
 <segment>
-<pinref part="LED25" gate="G$1" pin="CBLUE"/>
+<pinref part="LED9" gate="G$1" pin="CBLUE"/>
 <wire x1="226.06" y1="83.82" x2="226.06" y2="96.52" width="0.1524" layer="91"/>
 <label x="226.06" y="83.82" size="1.778" layer="95" rot="R90"/>
 </segment>
@@ -16003,7 +16003,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="248.92" y1="83.82" x2="248.92" y2="96.52" width="0.1524" layer="91"/>
 <label x="248.92" y="83.82" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED26" gate="G$1" pin="CBLUE"/>
+<pinref part="LED10" gate="G$1" pin="CBLUE"/>
 </segment>
 <segment>
 <label x="177.8" y="96.52" size="1.778" layer="95"/>
@@ -16015,7 +16015,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="271.78" y1="83.82" x2="271.78" y2="96.52" width="0.1524" layer="91"/>
 <label x="271.78" y="83.82" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED27" gate="G$1" pin="CBLUE"/>
+<pinref part="LED11" gate="G$1" pin="CBLUE"/>
 </segment>
 <segment>
 <label x="177.8" y="91.44" size="1.778" layer="95"/>
@@ -16027,7 +16027,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="294.64" y1="83.82" x2="294.64" y2="96.52" width="0.1524" layer="91"/>
 <label x="294.64" y="83.82" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED28" gate="G$1" pin="CBLUE"/>
+<pinref part="LED12" gate="G$1" pin="CBLUE"/>
 </segment>
 <segment>
 <label x="177.8" y="88.9" size="1.778" layer="95"/>
@@ -16037,7 +16037,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="LED13_G" class="0">
 <segment>
-<pinref part="LED29" gate="G$1" pin="CBLUE"/>
+<pinref part="LED13" gate="G$1" pin="CBLUE"/>
 <wire x1="226.06" y1="45.72" x2="226.06" y2="58.42" width="0.1524" layer="91"/>
 <label x="226.06" y="45.72" size="1.778" layer="95" rot="R90"/>
 </segment>
@@ -16051,7 +16051,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="248.92" y1="45.72" x2="248.92" y2="58.42" width="0.1524" layer="91"/>
 <label x="248.92" y="45.72" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED30" gate="G$1" pin="CBLUE"/>
+<pinref part="LED14" gate="G$1" pin="CBLUE"/>
 </segment>
 <segment>
 <label x="177.8" y="76.2" size="1.778" layer="95"/>
@@ -16063,7 +16063,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="271.78" y1="45.72" x2="271.78" y2="58.42" width="0.1524" layer="91"/>
 <label x="271.78" y="45.72" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED31" gate="G$1" pin="CBLUE"/>
+<pinref part="LED15" gate="G$1" pin="CBLUE"/>
 </segment>
 <segment>
 <label x="177.8" y="71.12" size="1.778" layer="95"/>
@@ -16075,7 +16075,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="294.64" y1="45.72" x2="294.64" y2="58.42" width="0.1524" layer="91"/>
 <label x="294.64" y="45.72" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED32" gate="G$1" pin="CBLUE"/>
+<pinref part="LED16" gate="G$1" pin="CBLUE"/>
 </segment>
 <segment>
 <label x="177.8" y="66.04" size="1.778" layer="95"/>
@@ -16085,7 +16085,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="LED1_B" class="0">
 <segment>
-<pinref part="LED17" gate="G$1" pin="CRED"/>
+<pinref part="LED1" gate="G$1" pin="CRED"/>
 <wire x1="220.98" y1="175.26" x2="220.98" y2="162.56" width="0.1524" layer="91"/>
 <label x="220.98" y="162.56" size="1.778" layer="95" rot="R90"/>
 </segment>
@@ -16099,7 +16099,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="243.84" y1="175.26" x2="243.84" y2="162.56" width="0.1524" layer="91"/>
 <label x="243.84" y="162.56" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED18" gate="G$1" pin="CRED"/>
+<pinref part="LED2" gate="G$1" pin="CRED"/>
 </segment>
 <segment>
 <label x="177.8" y="12.7" size="1.778" layer="95"/>
@@ -16111,7 +16111,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="266.7" y1="175.26" x2="266.7" y2="162.56" width="0.1524" layer="91"/>
 <label x="266.7" y="162.56" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED19" gate="G$1" pin="CRED"/>
+<pinref part="LED3" gate="G$1" pin="CRED"/>
 </segment>
 <segment>
 <label x="177.8" y="5.08" size="1.778" layer="95"/>
@@ -16123,7 +16123,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="289.56" y1="175.26" x2="289.56" y2="162.56" width="0.1524" layer="91"/>
 <label x="289.56" y="162.56" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED20" gate="G$1" pin="CRED"/>
+<pinref part="LED4" gate="G$1" pin="CRED"/>
 </segment>
 <segment>
 <label x="177.8" y="2.54" size="1.778" layer="95"/>
@@ -16133,7 +16133,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="LED5_B" class="0">
 <segment>
-<pinref part="LED21" gate="G$1" pin="CRED"/>
+<pinref part="LED5" gate="G$1" pin="CRED"/>
 <wire x1="220.98" y1="137.16" x2="220.98" y2="124.46" width="0.1524" layer="91"/>
 <label x="220.98" y="124.46" size="1.778" layer="95" rot="R90"/>
 </segment>
@@ -16147,7 +16147,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="243.84" y1="137.16" x2="243.84" y2="124.46" width="0.1524" layer="91"/>
 <label x="243.84" y="124.46" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED22" gate="G$1" pin="CRED"/>
+<pinref part="LED6" gate="G$1" pin="CRED"/>
 </segment>
 <segment>
 <label x="177.8" y="-7.62" size="1.778" layer="95"/>
@@ -16159,7 +16159,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="266.7" y1="137.16" x2="266.7" y2="124.46" width="0.1524" layer="91"/>
 <label x="266.7" y="124.46" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED23" gate="G$1" pin="CRED"/>
+<pinref part="LED7" gate="G$1" pin="CRED"/>
 </segment>
 <segment>
 <label x="177.8" y="-12.7" size="1.778" layer="95"/>
@@ -16171,7 +16171,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="289.56" y1="137.16" x2="289.56" y2="124.46" width="0.1524" layer="91"/>
 <label x="289.56" y="124.46" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED24" gate="G$1" pin="CRED"/>
+<pinref part="LED8" gate="G$1" pin="CRED"/>
 </segment>
 <segment>
 <label x="177.8" y="-17.78" size="1.778" layer="95"/>
@@ -16181,7 +16181,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="LED9_B" class="0">
 <segment>
-<pinref part="LED25" gate="G$1" pin="CRED"/>
+<pinref part="LED9" gate="G$1" pin="CRED"/>
 <wire x1="220.98" y1="96.52" x2="220.98" y2="83.82" width="0.1524" layer="91"/>
 <label x="220.98" y="83.82" size="1.778" layer="95" rot="R90"/>
 </segment>
@@ -16195,7 +16195,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="243.84" y1="96.52" x2="243.84" y2="83.82" width="0.1524" layer="91"/>
 <label x="243.84" y="83.82" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED26" gate="G$1" pin="CRED"/>
+<pinref part="LED10" gate="G$1" pin="CRED"/>
 </segment>
 <segment>
 <label x="177.8" y="15.24" size="1.778" layer="95"/>
@@ -16207,7 +16207,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="266.7" y1="96.52" x2="266.7" y2="83.82" width="0.1524" layer="91"/>
 <label x="266.7" y="83.82" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED27" gate="G$1" pin="CRED"/>
+<pinref part="LED11" gate="G$1" pin="CRED"/>
 </segment>
 <segment>
 <label x="177.8" y="10.16" size="1.778" layer="95"/>
@@ -16219,7 +16219,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="289.56" y1="96.52" x2="289.56" y2="83.82" width="0.1524" layer="91"/>
 <label x="289.56" y="83.82" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED28" gate="G$1" pin="CRED"/>
+<pinref part="LED12" gate="G$1" pin="CRED"/>
 </segment>
 <segment>
 <label x="177.8" y="7.62" size="1.778" layer="95"/>
@@ -16229,7 +16229,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="LED13_B" class="0">
 <segment>
-<pinref part="LED29" gate="G$1" pin="CRED"/>
+<pinref part="LED13" gate="G$1" pin="CRED"/>
 <wire x1="220.98" y1="58.42" x2="220.98" y2="45.72" width="0.1524" layer="91"/>
 <label x="220.98" y="45.72" size="1.778" layer="95" rot="R90"/>
 </segment>
@@ -16243,7 +16243,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="243.84" y1="58.42" x2="243.84" y2="45.72" width="0.1524" layer="91"/>
 <label x="243.84" y="45.72" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED30" gate="G$1" pin="CRED"/>
+<pinref part="LED14" gate="G$1" pin="CRED"/>
 </segment>
 <segment>
 <label x="177.8" y="-5.08" size="1.778" layer="95"/>
@@ -16255,7 +16255,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="266.7" y1="58.42" x2="266.7" y2="45.72" width="0.1524" layer="91"/>
 <label x="266.7" y="45.72" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED31" gate="G$1" pin="CRED"/>
+<pinref part="LED15" gate="G$1" pin="CRED"/>
 </segment>
 <segment>
 <label x="177.8" y="-10.16" size="1.778" layer="95"/>
@@ -16267,7 +16267,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="289.56" y1="58.42" x2="289.56" y2="45.72" width="0.1524" layer="91"/>
 <label x="289.56" y="45.72" size="1.778" layer="95" rot="R90"/>
-<pinref part="LED32" gate="G$1" pin="CRED"/>
+<pinref part="LED16" gate="G$1" pin="CRED"/>
 </segment>
 <segment>
 <label x="177.8" y="-15.24" size="1.778" layer="95"/>
@@ -16849,17 +16849,17 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="LED_PWR" class="0">
 <segment>
-<pinref part="LED29" gate="G$1" pin="A"/>
+<pinref part="LED13" gate="G$1" pin="A"/>
 <wire x1="226.06" y1="66.04" x2="226.06" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="226.06" y1="71.12" x2="248.92" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="248.92" y1="71.12" x2="271.78" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="LED31" gate="G$1" pin="A"/>
+<pinref part="LED15" gate="G$1" pin="A"/>
 <wire x1="271.78" y1="71.12" x2="271.78" y2="66.04" width="0.1524" layer="91"/>
 <junction x="248.92" y="71.12"/>
 <wire x1="294.64" y1="66.04" x2="294.64" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="LED32" gate="G$1" pin="A"/>
+<pinref part="LED16" gate="G$1" pin="A"/>
 <wire x1="271.78" y1="71.12" x2="294.64" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="LED30" gate="G$1" pin="A"/>
+<pinref part="LED14" gate="G$1" pin="A"/>
 <wire x1="248.92" y1="66.04" x2="248.92" y2="71.12" width="0.1524" layer="91"/>
 <junction x="248.92" y="71.12"/>
 <junction x="271.78" y="71.12"/>
@@ -16869,17 +16869,17 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="307.34" y1="109.22" x2="307.34" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="307.34" y1="71.12" x2="294.64" y2="71.12" width="0.1524" layer="91"/>
 <junction x="294.64" y="71.12"/>
-<pinref part="LED25" gate="G$1" pin="A"/>
+<pinref part="LED9" gate="G$1" pin="A"/>
 <wire x1="226.06" y1="104.14" x2="226.06" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="226.06" y1="109.22" x2="248.92" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="248.92" y1="109.22" x2="271.78" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="LED27" gate="G$1" pin="A"/>
+<pinref part="LED11" gate="G$1" pin="A"/>
 <wire x1="271.78" y1="109.22" x2="271.78" y2="104.14" width="0.1524" layer="91"/>
 <junction x="248.92" y="109.22"/>
 <wire x1="294.64" y1="104.14" x2="294.64" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="LED28" gate="G$1" pin="A"/>
+<pinref part="LED12" gate="G$1" pin="A"/>
 <wire x1="271.78" y1="109.22" x2="294.64" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="LED26" gate="G$1" pin="A"/>
+<pinref part="LED10" gate="G$1" pin="A"/>
 <wire x1="248.92" y1="104.14" x2="248.92" y2="109.22" width="0.1524" layer="91"/>
 <junction x="248.92" y="109.22"/>
 <junction x="271.78" y="109.22"/>
@@ -16887,34 +16887,34 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <junction x="294.64" y="109.22"/>
 <wire x1="307.34" y1="119.38" x2="307.34" y2="149.86" width="0.1524" layer="91"/>
 <junction x="307.34" y="119.38"/>
-<pinref part="LED21" gate="G$1" pin="A"/>
+<pinref part="LED5" gate="G$1" pin="A"/>
 <wire x1="226.06" y1="144.78" x2="226.06" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="226.06" y1="149.86" x2="248.92" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="248.92" y1="149.86" x2="271.78" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="LED23" gate="G$1" pin="A"/>
+<pinref part="LED7" gate="G$1" pin="A"/>
 <wire x1="271.78" y1="149.86" x2="271.78" y2="144.78" width="0.1524" layer="91"/>
 <junction x="248.92" y="149.86"/>
 <wire x1="294.64" y1="144.78" x2="294.64" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="LED24" gate="G$1" pin="A"/>
+<pinref part="LED8" gate="G$1" pin="A"/>
 <wire x1="271.78" y1="149.86" x2="294.64" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="LED22" gate="G$1" pin="A"/>
+<pinref part="LED6" gate="G$1" pin="A"/>
 <wire x1="248.92" y1="144.78" x2="248.92" y2="149.86" width="0.1524" layer="91"/>
 <junction x="271.78" y="149.86"/>
 <wire x1="307.34" y1="149.86" x2="294.64" y2="149.86" width="0.1524" layer="91"/>
 <junction x="294.64" y="149.86"/>
 <wire x1="307.34" y1="149.86" x2="307.34" y2="187.96" width="0.1524" layer="91"/>
 <junction x="307.34" y="149.86"/>
-<pinref part="LED17" gate="G$1" pin="A"/>
+<pinref part="LED1" gate="G$1" pin="A"/>
 <wire x1="226.06" y1="182.88" x2="226.06" y2="187.96" width="0.1524" layer="91"/>
 <wire x1="226.06" y1="187.96" x2="248.92" y2="187.96" width="0.1524" layer="91"/>
 <wire x1="248.92" y1="187.96" x2="271.78" y2="187.96" width="0.1524" layer="91"/>
-<pinref part="LED19" gate="G$1" pin="A"/>
+<pinref part="LED3" gate="G$1" pin="A"/>
 <wire x1="271.78" y1="187.96" x2="271.78" y2="182.88" width="0.1524" layer="91"/>
 <junction x="248.92" y="187.96"/>
 <wire x1="294.64" y1="182.88" x2="294.64" y2="187.96" width="0.1524" layer="91"/>
-<pinref part="LED20" gate="G$1" pin="A"/>
+<pinref part="LED4" gate="G$1" pin="A"/>
 <wire x1="271.78" y1="187.96" x2="294.64" y2="187.96" width="0.1524" layer="91"/>
-<pinref part="LED18" gate="G$1" pin="A"/>
+<pinref part="LED2" gate="G$1" pin="A"/>
 <wire x1="248.92" y1="182.88" x2="248.92" y2="187.96" width="0.1524" layer="91"/>
 <junction x="248.92" y="187.96"/>
 <junction x="271.78" y="187.96"/>

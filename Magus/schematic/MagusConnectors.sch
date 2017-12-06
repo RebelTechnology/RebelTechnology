@@ -3183,16 +3183,16 @@ Based on the datasheets for the following products.&lt;br&gt;
 <parts>
 <part name="GND158" library="supply1" deviceset="GND" device=""/>
 <part name="GND159" library="supply1" deviceset="GND" device=""/>
-<part name="JP13" library="jumper" deviceset="JP1Q" device=""/>
+<part name="JP2" library="jumper" deviceset="JP1Q" device=""/>
 <part name="GND163" library="supply1" deviceset="GND" device=""/>
-<part name="C28" library="Rebel" deviceset="C-EU" device="C1206" value="10u"/>
+<part name="C1" library="Rebel" deviceset="C-EU" device="C1206" value="10u"/>
 <part name="P+13" library="supply1" deviceset="+5V" device=""/>
 <part name="X1" library="con-usb-3" deviceset="USB" device="-A-H"/>
 <part name="X3" library="con-usb-3" deviceset="USB" device="-B-H"/>
-<part name="JP3" library="pinhead" deviceset="PINHD-2X4" device=""/>
+<part name="JP1" library="pinhead" deviceset="PINHD-2X4" device=""/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
-<part name="D3" library="diode" deviceset="BAT54S" device=""/>
-<part name="D4" library="diode" deviceset="BAT54S" device=""/>
+<part name="D1" library="diode" deviceset="BAT54S" device=""/>
+<part name="D2" library="diode" deviceset="BAT54S" device=""/>
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
@@ -3202,27 +3202,27 @@ Based on the datasheets for the following products.&lt;br&gt;
 <sheet>
 <plain>
 <text x="5.08" y="119.38" size="3.048" layer="97" font="vector">Magus Rev01</text>
-<text x="5.08" y="114.3" size="3.048" layer="97" font="vector">Copyright Rebel Technology 2017</text>
-<text x="5.08" y="109.22" size="3.048" layer="97" font="vector">Published under the GNU GPL v2</text>
+<text x="5.08" y="114.3" size="3.048" layer="97" font="vector">Copyright 2017 Rebel Technology</text>
+<text x="5.08" y="109.22" size="3.048" layer="97" font="vector">Published under the GNU GPL</text>
 </plain>
 <instances>
 <instance part="GND158" gate="1" x="53.34" y="78.74"/>
 <instance part="GND159" gate="1" x="53.34" y="35.56"/>
-<instance part="JP13" gate="A" x="43.18" y="45.72" smashed="yes" rot="R270">
+<instance part="JP2" gate="A" x="43.18" y="45.72" smashed="yes" rot="R270">
 <attribute name="NAME" x="40.64" y="43.18" size="1.778" layer="95"/>
 <attribute name="VALUE" x="38.1" y="41.275" size="1.778" layer="96"/>
 </instance>
 <instance part="GND163" gate="1" x="25.4" y="78.74"/>
-<instance part="C28" gate="G$1" x="25.4" y="88.9"/>
+<instance part="C1" gate="G$1" x="25.4" y="88.9"/>
 <instance part="P+13" gate="1" x="22.86" y="7.62" smashed="yes">
 <attribute name="VALUE" x="20.32" y="7.62" size="1.778" layer="96"/>
 </instance>
 <instance part="X1" gate="G$1" x="58.42" y="91.44"/>
 <instance part="X3" gate="G$1" x="58.42" y="43.18"/>
-<instance part="JP3" gate="A" x="35.56" y="10.16"/>
+<instance part="JP1" gate="A" x="35.56" y="10.16"/>
 <instance part="GND26" gate="1" x="48.26" y="2.54"/>
-<instance part="D3" gate="G$1" x="20.32" y="93.98" rot="MR90"/>
-<instance part="D4" gate="G$1" x="5.08" y="45.72" rot="MR90"/>
+<instance part="D1" gate="G$1" x="20.32" y="93.98" rot="MR90"/>
+<instance part="D2" gate="G$1" x="5.08" y="45.72" rot="MR90"/>
 <instance part="P+1" gate="1" x="20.32" y="104.14"/>
 <instance part="GND1" gate="1" x="20.32" y="78.74"/>
 <instance part="P+2" gate="1" x="5.08" y="55.88"/>
@@ -3234,7 +3234,7 @@ Based on the datasheets for the following products.&lt;br&gt;
 <net name="N$50" class="0">
 <segment>
 <wire x1="50.8" y1="45.72" x2="55.88" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="JP13" gate="A" pin="2"/>
+<pinref part="JP2" gate="A" pin="2"/>
 <pinref part="X3" gate="G$1" pin="VBUS"/>
 </segment>
 </net>
@@ -3249,7 +3249,7 @@ Based on the datasheets for the following products.&lt;br&gt;
 <segment>
 <wire x1="33.02" y1="10.16" x2="5.08" y2="10.16" width="0.1524" layer="91"/>
 <label x="5.08" y="10.16" size="1.778" layer="95"/>
-<pinref part="JP3" gate="A" pin="5"/>
+<pinref part="JP1" gate="A" pin="5"/>
 </segment>
 </net>
 <net name="EXT_USB_D_D-" class="0">
@@ -3263,20 +3263,20 @@ Based on the datasheets for the following products.&lt;br&gt;
 <segment>
 <wire x1="33.02" y1="12.7" x2="5.08" y2="12.7" width="0.1524" layer="91"/>
 <label x="5.08" y="12.7" size="1.778" layer="95"/>
-<pinref part="JP3" gate="A" pin="3"/>
+<pinref part="JP1" gate="A" pin="3"/>
 </segment>
 </net>
 <net name="EXT_USB_D_VBUS" class="0">
 <segment>
-<pinref part="JP13" gate="A" pin="1"/>
+<pinref part="JP2" gate="A" pin="1"/>
 <wire x1="35.56" y1="45.72" x2="7.62" y2="45.72" width="0.1524" layer="91"/>
 <label x="10.16" y="45.72" size="1.778" layer="95"/>
-<pinref part="D4" gate="G$1" pin="C1A2"/>
+<pinref part="D2" gate="G$1" pin="C1A2"/>
 </segment>
 <segment>
 <wire x1="33.02" y1="15.24" x2="5.08" y2="15.24" width="0.1524" layer="91"/>
 <label x="5.08" y="15.24" size="1.778" layer="95"/>
-<pinref part="JP3" gate="A" pin="1"/>
+<pinref part="JP1" gate="A" pin="1"/>
 </segment>
 </net>
 <net name="EXT_USB_H_VBUS" class="0">
@@ -3285,15 +3285,15 @@ Based on the datasheets for the following products.&lt;br&gt;
 <label x="27.94" y="93.98" size="1.778" layer="95"/>
 <wire x1="25.4" y1="93.98" x2="22.86" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="91.44" x2="25.4" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="C28" gate="G$1" pin="1"/>
+<pinref part="C1" gate="G$1" pin="1"/>
 <pinref part="X1" gate="G$1" pin="VBUS"/>
-<pinref part="D3" gate="G$1" pin="C1A2"/>
+<pinref part="D1" gate="G$1" pin="C1A2"/>
 <junction x="25.4" y="93.98"/>
 </segment>
 <segment>
 <wire x1="66.04" y1="15.24" x2="40.64" y2="15.24" width="0.1524" layer="91"/>
 <label x="45.72" y="15.24" size="1.778" layer="95"/>
-<pinref part="JP3" gate="A" pin="2"/>
+<pinref part="JP1" gate="A" pin="2"/>
 </segment>
 </net>
 <net name="EXT_USB_H_D-" class="0">
@@ -3305,7 +3305,7 @@ Based on the datasheets for the following products.&lt;br&gt;
 <segment>
 <wire x1="66.04" y1="12.7" x2="40.64" y2="12.7" width="0.1524" layer="91"/>
 <label x="45.72" y="12.7" size="1.778" layer="95"/>
-<pinref part="JP3" gate="A" pin="4"/>
+<pinref part="JP1" gate="A" pin="4"/>
 </segment>
 </net>
 <net name="EXT_USB_H_D+" class="0">
@@ -3317,24 +3317,24 @@ Based on the datasheets for the following products.&lt;br&gt;
 <segment>
 <wire x1="66.04" y1="10.16" x2="40.64" y2="10.16" width="0.1524" layer="91"/>
 <label x="45.72" y="10.16" size="1.778" layer="95"/>
-<pinref part="JP3" gate="A" pin="6"/>
+<pinref part="JP1" gate="A" pin="6"/>
 </segment>
 </net>
 <net name="+5V" class="0">
 <segment>
-<pinref part="D3" gate="G$1" pin="C2"/>
+<pinref part="D1" gate="G$1" pin="C2"/>
 <pinref part="P+1" gate="1" pin="+5V"/>
 <wire x1="20.32" y1="101.6" x2="20.32" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="D4" gate="G$1" pin="C2"/>
+<pinref part="D2" gate="G$1" pin="C2"/>
 <pinref part="P+2" gate="1" pin="+5V"/>
 <wire x1="5.08" y1="53.34" x2="5.08" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="P+13" gate="1" pin="+5V"/>
 <wire x1="22.86" y1="2.54" x2="22.86" y2="5.08" width="0.1524" layer="91"/>
-<pinref part="JP3" gate="A" pin="7"/>
+<pinref part="JP1" gate="A" pin="7"/>
 <wire x1="33.02" y1="7.62" x2="25.4" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="7.62" x2="25.4" y2="2.54" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="2.54" x2="22.86" y2="2.54" width="0.1524" layer="91"/>
@@ -3342,12 +3342,12 @@ Based on the datasheets for the following products.&lt;br&gt;
 </net>
 <net name="GND" class="0">
 <segment>
-<pinref part="D3" gate="G$1" pin="A1"/>
+<pinref part="D1" gate="G$1" pin="A1"/>
 <pinref part="GND1" gate="1" pin="GND"/>
 <wire x1="20.32" y1="81.28" x2="20.32" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="D4" gate="G$1" pin="A1"/>
+<pinref part="D2" gate="G$1" pin="A1"/>
 <pinref part="GND2" gate="1" pin="GND"/>
 <wire x1="5.08" y1="38.1" x2="5.08" y2="40.64" width="0.1524" layer="91"/>
 </segment>
@@ -3366,10 +3366,10 @@ Based on the datasheets for the following products.&lt;br&gt;
 <segment>
 <pinref part="GND163" gate="1" pin="GND"/>
 <wire x1="25.4" y1="81.28" x2="25.4" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="C28" gate="G$1" pin="2"/>
+<pinref part="C1" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<pinref part="JP3" gate="A" pin="8"/>
+<pinref part="JP1" gate="A" pin="8"/>
 <pinref part="GND26" gate="1" pin="GND"/>
 <wire x1="40.64" y1="7.62" x2="48.26" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="7.62" x2="48.26" y2="5.08" width="0.1524" layer="91"/>
