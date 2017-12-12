@@ -15856,16 +15856,18 @@ naming: grid - package width</description>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="J1" library="neutrik_jacks" deviceset="NEUTRIK_NRJ6HF" device="STD"/>
 <part name="J2" library="neutrik_jacks" deviceset="NEUTRIK_NRJ6HF" device="STD"/>
-<part name="J3" library="neutrik_jacks" deviceset="NEUTRIK_NRJ6HF" device="STD"/>
 <part name="J4" library="neutrik_jacks" deviceset="NEUTRIK_NRJ6HF" device="STD"/>
+<part name="J3" library="neutrik_jacks" deviceset="NEUTRIK_NRJ6HF" device="STD"/>
 <part name="UART" library="Rebel" deviceset="CON-JST-1X03" device="PH-TH"/>
-<part name="U$2" library="Rebel" deviceset="REG_S9V11F5" device=""/>
+<part name="IC3" library="Rebel" deviceset="REG_S9V11F5" device=""/>
 <part name="GND5" library="supply1" deviceset="GNDA" device=""/>
 <part name="GND17" library="supply1" deviceset="GNDA" device=""/>
 <part name="GND18" library="supply1" deviceset="GNDA" device=""/>
 <part name="IN3" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
 <part name="GND35" library="supply1" deviceset="GNDA" device=""/>
+<part name="IN4" library="SparkFun" deviceset="M02" device="PTH"/>
+<part name="IN5" library="SparkFun" deviceset="M02" device="PTH"/>
 </parts>
 <sheets>
 <sheet>
@@ -16004,16 +16006,18 @@ naming: grid - package width</description>
 <instance part="GND34" gate="1" x="15.24" y="35.56" rot="MR0"/>
 <instance part="J1" gate="J" x="-45.72" y="101.6"/>
 <instance part="J2" gate="J" x="-45.72" y="55.88"/>
-<instance part="J3" gate="J" x="360.68" y="162.56" rot="R180"/>
-<instance part="J4" gate="J" x="360.68" y="83.82" rot="R180"/>
+<instance part="J4" gate="J" x="360.68" y="162.56" rot="R180"/>
+<instance part="J3" gate="J" x="360.68" y="83.82" rot="R180"/>
 <instance part="UART" gate="G$1" x="195.58" y="81.28"/>
-<instance part="U$2" gate="G$1" x="71.12" y="177.8"/>
+<instance part="IC3" gate="G$1" x="71.12" y="177.8"/>
 <instance part="GND5" gate="1" x="-10.16" y="81.28"/>
 <instance part="GND17" gate="1" x="-33.02" y="35.56"/>
 <instance part="GND18" gate="1" x="-10.16" y="35.56"/>
 <instance part="IN3" gate="G$1" x="2.54" y="-5.08" rot="R180"/>
 <instance part="GND22" gate="1" x="-7.62" y="-12.7" rot="MR0"/>
 <instance part="GND35" gate="1" x="-12.7" y="-12.7"/>
+<instance part="IN4" gate="G$1" x="5.08" y="-5.08" rot="R180"/>
+<instance part="IN5" gate="G$1" x="5.08" y="-22.86" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -16140,8 +16144,11 @@ naming: grid - package width</description>
 <segment>
 <pinref part="IN2" gate="G$1" pin="2"/>
 <pinref part="GND23" gate="1" pin="GND"/>
-<wire x1="-5.08" y1="-25.4" x2="-7.62" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="-25.4" x2="-7.62" y2="-25.4" width="0.1524" layer="91"/>
 <wire x1="-7.62" y1="-25.4" x2="-7.62" y2="-27.94" width="0.1524" layer="91"/>
+<pinref part="IN5" gate="G$1" pin="2"/>
+<junction x="-2.54" y="-25.4"/>
+<wire x1="-2.54" y1="-25.4" x2="-5.08" y2="-25.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND28" gate="1" pin="GND"/>
@@ -16182,15 +16189,18 @@ naming: grid - package width</description>
 <wire x1="15.24" y1="38.1" x2="15.24" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="G$1" pin="GND"/>
+<pinref part="IC3" gate="G$1" pin="GND"/>
 <pinref part="GND25" gate="1" pin="GND"/>
 <wire x1="81.28" y1="147.32" x2="81.28" y2="165.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IN3" gate="G$1" pin="2"/>
 <pinref part="GND22" gate="1" pin="GND"/>
-<wire x1="-5.08" y1="-7.62" x2="-7.62" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="-7.62" x2="-7.62" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="-7.62" y1="-7.62" x2="-7.62" y2="-10.16" width="0.1524" layer="91"/>
+<pinref part="IN4" gate="G$1" pin="2"/>
+<junction x="-2.54" y="-7.62"/>
+<wire x1="-2.54" y1="-7.62" x2="-5.08" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -16223,7 +16233,7 @@ naming: grid - package width</description>
 <wire x1="96.52" y1="177.8" x2="96.52" y2="182.88" width="0.1524" layer="91"/>
 <junction x="96.52" y="177.8"/>
 <pinref part="C17" gate="G$1" pin="+"/>
-<pinref part="U$2" gate="G$1" pin="VOUT"/>
+<pinref part="IC3" gate="G$1" pin="VOUT"/>
 </segment>
 </net>
 <net name="PA3" class="0">
@@ -16398,7 +16408,7 @@ naming: grid - package width</description>
 <wire x1="63.5" y1="177.8" x2="63.5" y2="182.88" width="0.1524" layer="91"/>
 <pinref part="P+9" gate="1" pin="+12V"/>
 <pinref part="C19" gate="G$1" pin="1"/>
-<pinref part="U$2" gate="G$1" pin="VIN"/>
+<pinref part="IC3" gate="G$1" pin="VIN"/>
 </segment>
 <segment>
 <pinref part="PWR" gate="G$1" pin="1"/>
@@ -16591,19 +16601,22 @@ naming: grid - package width</description>
 <wire x1="347.98" y1="154.94" x2="347.98" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="353.06" y1="154.94" x2="347.98" y2="154.94" width="0.1524" layer="91"/>
 <pinref part="GND11" gate="1" pin="GNDA"/>
-<pinref part="J3" gate="J" pin="S"/>
+<pinref part="J4" gate="J" pin="S"/>
 </segment>
 <segment>
 <pinref part="GND15" gate="1" pin="GNDA"/>
 <wire x1="353.06" y1="76.2" x2="347.98" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="347.98" y1="76.2" x2="347.98" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="J4" gate="J" pin="S"/>
+<pinref part="J3" gate="J" pin="S"/>
 </segment>
 <segment>
 <pinref part="IN2" gate="G$1" pin="1"/>
 <pinref part="GND24" gate="1" pin="GNDA"/>
-<wire x1="-5.08" y1="-22.86" x2="-12.7" y2="-22.86" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="-22.86" x2="-12.7" y2="-22.86" width="0.1524" layer="91"/>
 <wire x1="-12.7" y1="-22.86" x2="-12.7" y2="-27.94" width="0.1524" layer="91"/>
+<pinref part="IN5" gate="G$1" pin="1"/>
+<junction x="-2.54" y="-22.86"/>
+<wire x1="-2.54" y1="-22.86" x2="-5.08" y2="-22.86" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R300" gate="G$1" pin="1"/>
@@ -16648,8 +16661,11 @@ naming: grid - package width</description>
 <segment>
 <pinref part="IN3" gate="G$1" pin="1"/>
 <pinref part="GND35" gate="1" pin="GNDA"/>
-<wire x1="-5.08" y1="-5.08" x2="-12.7" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="-5.08" x2="-12.7" y2="-5.08" width="0.1524" layer="91"/>
 <wire x1="-12.7" y1="-5.08" x2="-12.7" y2="-10.16" width="0.1524" layer="91"/>
+<pinref part="IN4" gate="G$1" pin="1"/>
+<junction x="-2.54" y="-5.08"/>
+<wire x1="-2.54" y1="-5.08" x2="-5.08" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$18" class="0">
@@ -16663,7 +16679,7 @@ naming: grid - package width</description>
 <pinref part="C7" gate="G$1" pin="2"/>
 <wire x1="317.5" y1="167.64" x2="317.5" y2="160.02" width="0.1524" layer="91"/>
 <junction x="317.5" y="160.02"/>
-<pinref part="J3" gate="J" pin="R"/>
+<pinref part="J4" gate="J" pin="R"/>
 </segment>
 </net>
 <net name="N$19" class="0">
@@ -16677,7 +16693,7 @@ naming: grid - package width</description>
 <pinref part="C8" gate="G$1" pin="2"/>
 <wire x1="266.7" y1="167.64" x2="266.7" y2="165.1" width="0.1524" layer="91"/>
 <junction x="266.7" y="165.1"/>
-<pinref part="J3" gate="J" pin="T"/>
+<pinref part="J4" gate="J" pin="T"/>
 </segment>
 </net>
 <net name="N$8" class="0">
@@ -16707,7 +16723,7 @@ naming: grid - package width</description>
 <wire x1="345.44" y1="81.28" x2="353.06" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="320.04" y1="88.9" x2="320.04" y2="81.28" width="0.1524" layer="91"/>
 <junction x="320.04" y="81.28"/>
-<pinref part="J4" gate="J" pin="R"/>
+<pinref part="J3" gate="J" pin="R"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -16721,7 +16737,7 @@ naming: grid - package width</description>
 <pinref part="C4" gate="G$1" pin="2"/>
 <wire x1="269.24" y1="88.9" x2="269.24" y2="86.36" width="0.1524" layer="91"/>
 <junction x="269.24" y="86.36"/>
-<pinref part="J4" gate="J" pin="T"/>
+<pinref part="J3" gate="J" pin="T"/>
 </segment>
 </net>
 <net name="N$4" class="0">
