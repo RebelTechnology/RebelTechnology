@@ -1,4 +1,4 @@
-<module type="6hp">
+<module type="6hp" grading="none">
 
   <!-- offset x:0.6 y:1.225 -->
 
@@ -18,10 +18,10 @@
 
   <!-- pots -->
   <!-- todo: change <hole> to <pot> but without markings -->
-  <!-- <hole x="0.15" y="0.45" radius="4.75"/> -->
-  <!-- <hole x="-0.15" y="-0.15" radius="4.75"/> -->
-  <pot x="0.15" y="0.65"/>
-  <pot x="-0.15" y="-0.1"/>
+  <hole x="0.15" y="0.65" radius="3.5"/>
+  <hole x="-0.15" y="-0.1" radius="3.5"/>
+  <pot x="0.15" y="0.65" type="M7"/>
+  <pot x="-0.15" y="-0.1" type="M7"/>
 
   <!-- leds -->
   <!-- <hole x="0.5" y="-0.425" radius="1.5"/> -->
