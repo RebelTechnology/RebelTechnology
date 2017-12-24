@@ -416,3 +416,15 @@ minilab todo
 - add pull-downs on audio inputs?
 
 --------------------------------------------------------------------------------
+
+Battery size 18650
+rechargable 3.7V or 1.5V up to 3Ah+, e.g. Ansmann 3.6V / 2.6Ah @ £9.35 each
+size 18350 3.7V / 800mAh
+
+or connector JST XHP-3: GND / NTC / PLUS
+
+max charge voltage typically 4.2V
+
+Panasonic CGR 18650 CG 2.25Ah
+
+--------------------------------------------------------------------------------

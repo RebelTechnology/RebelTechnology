@@ -346,7 +346,7 @@ SDI and SDO swapped in footprint
 ---------------------------------------------------------------------------------
 
 Encoders
-Alpha PEC11L low profile, 15 or 20 PPR
+Bourns PEC11L low profile, 15 or 20 PPR
 PEC11L-4015F-S0020 no detents 15mm Flatted Switch 20 PPR (mouser £0.81 @100)
 PEC11L-4115F-S0020 20 detents 15mm Flatted Switch 20 PPR (mouser £0.81 @100)
 http://www.mouser.com/ds/2/54/PEC11L-74340.pdf
