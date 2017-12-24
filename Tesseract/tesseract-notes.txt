@@ -198,4 +198,9 @@ right toggle: reverb/delay/distort
 
 PingPongDelay: soft fade between taps/musical ratios
 
+toggles:
+Hi    Space
+Mid    Time
+Lo     Warp
+
 --------------------------------------------------------------------------------
