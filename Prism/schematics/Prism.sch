@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -14590,8 +14590,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="R901" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
-<part name="R602" library="Rebel" deviceset="R-EU_" device="0603" value="4k3"/>
-<part name="R605" library="Rebel" deviceset="R-EU_" device="0603" value="4k3"/>
+<part name="R602" library="Rebel" deviceset="R-EU_" device="0603" value="5k6"/>
+<part name="R605" library="Rebel" deviceset="R-EU_" device="0603" value="5k6"/>
 <part name="R603" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="R606" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="C601" library="Rebel" deviceset="C-EU" device="C0603" value="1n C0G"/>
@@ -14632,8 +14632,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="+12V" device=""/>
 <part name="P-1" library="supply1" deviceset="-12V" device=""/>
-<part name="R609" library="Rebel" deviceset="R-EU_" device="0603" value="4k3"/>
-<part name="R612" library="Rebel" deviceset="R-EU_" device="0603" value="4k3"/>
+<part name="R609" library="Rebel" deviceset="R-EU_" device="0603" value="5k6"/>
+<part name="R612" library="Rebel" deviceset="R-EU_" device="0603" value="5k6"/>
 <part name="R610" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="R613" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="C607" library="Rebel" deviceset="C-EU" device="C0603" value="1n C0G"/>
@@ -14808,8 +14808,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="R300" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND77" library="supply1" deviceset="GND" device=""/>
-<part name="C13" library="Rebel" deviceset="C-EU" device="C0603" value="2u2 C0G"/>
-<part name="C14" library="Rebel" deviceset="C-EU" device="C0603" value="2u2 C0G"/>
+<part name="C13" library="Rebel" deviceset="C-EU" device="C0603" value="2u2"/>
+<part name="C14" library="Rebel" deviceset="C-EU" device="C0603" value="2u2"/>
 <part name="GND78" library="supply1" deviceset="GND" device=""/>
 <part name="GND79" library="supply1" deviceset="GND" device=""/>
 <part name="GND80" library="supply1" deviceset="GND" device=""/>
