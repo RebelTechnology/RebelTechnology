@@ -3,7 +3,7 @@
   <!-- oled screen -->
   <!-- MCOT128064BY 128x64 -->
   <!-- active area -->
-  <rect x="0.0" y="0.95" width="35.052" height="17.516"/>
+  <!-- <rect x="0.0" y="0.95" width="35.052" height="17.516"/> -->
   <!-- viewing area -->
   <rect x="0.0" y="0.95" width="37.052" height="19.516"/>
   <!-- outline dimensions -->
@@ -24,23 +24,23 @@
   <!-- <hole x="1.5" y="-0.05" radius="3.5"/> -->
 
   <!-- leds -->
-  <hole x="-1.75" y="-0.80" radius="1.5"/>
-  <hole x="-1.25" y="-0.80" radius="1.5"/>
-  <hole x="-0.75" y="-0.80" radius="1.5"/>
-  <hole x="-0.25" y="-0.80" radius="1.5"/>
-  <hole x="0.25" y="-0.80" radius="1.5"/>
-  <hole x="0.75" y="-0.80" radius="1.5"/>
-  <hole x="1.25" y="-0.80" radius="1.5"/>
-  <hole x="1.75" y="-0.80" radius="1.5"/>
+  <rect x="-1.75" y="-0.80" width="3" height="3"/>
+  <rect x="-1.25" y="-0.80" width="3" height="3"/>
+  <rect x="-0.75" y="-0.80" width="3" height="3"/>
+  <rect x="-0.25" y="-0.80" width="3" height="3"/>
+  <rect x="0.25" y="-0.80" width="3" height="3"/>
+  <rect x="0.75" y="-0.80" width="3" height="3"/>
+  <rect x="1.25" y="-0.80" width="3" height="3"/>
+  <rect x="1.75" y="-0.80" width="3" height="3"/>
 
-  <hole x="-1.75" y="-1.90" radius="1.5"/>
-  <hole x="-1.25" y="-1.90" radius="1.5"/>
-  <hole x="-0.75" y="-1.90" radius="1.5"/>
-  <hole x="-0.25" y="-1.90" radius="1.5"/>
-  <hole x="0.25" y="-1.90" radius="1.5"/>
-  <hole x="0.75" y="-1.90" radius="1.5"/>
-  <hole x="1.25" y="-1.90" radius="1.5"/>
-  <hole x="1.75" y="-1.90" radius="1.5"/>
+  <rect x="-1.75" y="-1.90" width="3" height="3"/>
+  <rect x="-1.25" y="-1.90" width="3" height="3"/>
+  <rect x="-0.75" y="-1.90" width="3" height="3"/>
+  <rect x="-0.25" y="-1.90" width="3" height="3"/>
+  <rect x="0.25" y="-1.90" width="3" height="3"/>
+  <rect x="0.75" y="-1.90" width="3" height="3"/>
+  <rect x="1.25" y="-1.90" width="3" height="3"/>
+  <rect x="1.75" y="-1.90" width="3" height="3"/>
 
   <!-- jacks -->
   <hole x="-1.75" y="1.75" radius="3.25"/>
