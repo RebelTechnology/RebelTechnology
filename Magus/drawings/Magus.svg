@@ -31,8 +31,8 @@
      units="mm"
      showgrid="false"
      inkscape:zoom="7.1762364"
-     inkscape:cx="496.55078"
-     inkscape:cy="918.13716"
+     inkscape:cx="482.75634"
+     inkscape:cy="910.9317"
      inkscape:window-width="1615"
      inkscape:window-height="1026"
      inkscape:window-x="65"
@@ -377,11 +377,11 @@
      sodipodi:nodetypes="ccccccccc"
      inkscape:connector-curvature="0"
      id="path16004"
-     d="m 135.06668,31.25718 3,0 0,2.019675 2.00001,0 -2.00001,8.078701 -3,0 -2,-8.078701 2,0 z"
+     d="m 135.06668,31.25718 3,0 0,2.019675 2.00001,0 -2.00001,9.079145 -3,0 -2,-9.079145 2,0 z"
      style="fill:none;stroke:#ff0000;stroke-width:0.05;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <path
      style="fill:none;stroke:#ff0000;stroke-width:0.05;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="m 146.35556,31.25718 c 0,-1 3,-1 3,0 l 0,2.019675 2.00001,0 -2.00001,8.078701 -3,0 -2,-8.078701 2,0 z"
+     d="m 146.35556,31.25718 c 0,-1 3,-1 3,0 l 0,2.019675 2.00001,0 -2.00001,9.079145 -3,0 -2,-9.079145 2,0 z"
      id="path11415"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="ssccccccs" />
