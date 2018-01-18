@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -27155,7 +27155,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R13" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
-<part name="R16" library="Rebel" deviceset="R-EU_" device="0603" value="4k3"/>
+<part name="R16" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="PWR" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="P+8" library="supply1" deviceset="+5V" device=""/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
@@ -27167,7 +27167,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="OUT_L" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="OUT_R" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="P1" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
-<part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="4k3"/>
+<part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND49" library="supply1" deviceset="GND" device=""/>
 <part name="P-10" library="supply1" deviceset="-12V" device=""/>
@@ -27211,8 +27211,8 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="R17" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R27" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
-<part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="4k3"/>
-<part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="4k3"/>
+<part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
+<part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="R25" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="R20" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
@@ -27237,7 +27237,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <attribute name="OC_FARNELL" value="1843725"/>
 </part>
 <part name="C3" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C1" library="Rebel" deviceset="C-EU" device="C0603" value="100n 16v"/>
+<part name="C1" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
 <part name="GND57" library="supply1" deviceset="GND" device=""/>
 <part name="GND58" library="supply1" deviceset="GND" device=""/>
@@ -27289,7 +27289,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="U1" library="Rebel" deviceset="REG_S9V11F5" device=""/>
-<part name="C15" library="Rebel" deviceset="C-EU" device="C0603" value="100n 16v"/>
+<part name="C15" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="R38" library="resistor" deviceset="R-EU_" device="R0603" value="2k7"/>
@@ -27332,11 +27332,11 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="GND126" library="supply1" deviceset="GND" device=""/>
 <part name="+3V9" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND125" library="supply1" deviceset="GND" device=""/>
-<part name="C29" library="Rebel" deviceset="C-EU" device="C0603" value="100n 16V"/>
+<part name="C29" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND41" library="supply1" deviceset="GND" device=""/>
 <part name="C31" library="Rebel" deviceset="CPOL-EU" device="SMCA" value="4u7 16V Tantalum"/>
 <part name="C32" library="Rebel" deviceset="C-EU" device="C1206" value="10u"/>
-<part name="C30" library="Rebel" deviceset="C-EU" device="C1206" value="10u 16V"/>
+<part name="C30" library="Rebel" deviceset="C-EU" device="C1206" value="10u"/>
 </parts>
 <sheets>
 <sheet>
