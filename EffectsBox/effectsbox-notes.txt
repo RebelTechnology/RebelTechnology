@@ -101,3 +101,21 @@ Piher N15TS-103A3030 (mouser £1.93 @100)
 Panasonic EVW-AE4001B14 (mouser £0.948 @100)
 
 -------------------------------------------------------
+
+Rev01 changes / todo
+- MCP1416 supply voltage range: 4.5 to 18v. Change to 5v VDD.
+
+-------------------------------------------------------
+
+Bourns EM14A0D-C24-L064N (mouser £21.65) 64 PPR
+EM14 - 14 mm Rotary Optical Encoder w/Switch
+
+Bourns ES14A0D-E28-L064N (mouser £49.49) 64PPR 
+ES14 - 14 mm Rotary Optical Encoder
+
+Bourns ENS1J-B28-L00256L (mouser £38.75) 256 PPR, ball bearing
+EN - Rotary Optical Encoder
+
++5v supply voltage
+
+-------------------------------------------------------
