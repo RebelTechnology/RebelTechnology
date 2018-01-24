@@ -430,6 +430,20 @@ Panasonic CGR 18650 CG 2.25Ah
 --------------------------------------------------------------------------------
 
 MiniLab USB Host -
-plugging in 
+plugging in adds 50 percentage points cpu load
 
 --------------------------------------------------------------------------------
+
+Rev02
+	GP7 SW1 A7 PB2 EXTI2
+	GP8 SW2 A17 PB9 EXTI9
+added 	GP9 SW3 A16 PB8 EXTI8
+
+todo:
+- remove R37 (use internal pull-up, test first)
+
+LEDs
+A6 PB1 TIM3_CH4 PWM3
+A2 PA1 TIM5_CH2 PWM2
+A1 PA0 TIM2_CH1 PWM1
+
