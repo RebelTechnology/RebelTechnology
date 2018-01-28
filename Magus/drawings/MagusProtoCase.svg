@@ -31,9 +31,9 @@
      inkscape:document-units="mm"
      units="mm"
      showgrid="false"
-     inkscape:zoom="0.99167061"
+     inkscape:zoom="0.61128298"
      inkscape:cx="364.96063"
-     inkscape:cy="533.26776"
+     inkscape:cy="267.51973"
      inkscape:window-width="1615"
      inkscape:window-height="1026"
      inkscape:window-x="65"
@@ -46,327 +46,307 @@
        id="potgrading" />
   </defs>
   <g
-     style="fill:none;stroke:#ff0000;stroke-width:0.05"
+     style="fill:none;stroke:#000000;stroke-width:0.05"
      id="g8443"
      transform="translate(54.349999,84.250001)">
-    <circle
-       cx="7.5"
-       cy="3"
-       r="1.6"
-       id="circle8447" />
-    <circle
-       cx="7.5"
-       cy="125.5"
-       r="1.6"
-       id="circle8449" />
-    <circle
-       cx="93.860001"
-       cy="3"
-       r="1.6"
-       id="circle8451" />
-    <circle
-       cx="93.860001"
-       cy="125.5"
-       r="1.6"
-       id="circle8453" />
     <rect
        x="32.124001"
        y="30.362"
        width="37.051998"
        height="19.516001"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8455" />
     <circle
        cx="12.55"
        cy="40.119999"
        r="3.75"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8457" />
     <circle
        cx="88.75"
        cy="40.119999"
        r="3.75"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8459" />
     <circle
        cx="12.55"
        cy="65.519997"
        r="3.75"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8461" />
     <circle
        cx="37.950001"
        cy="65.519997"
        r="3.75"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8463" />
     <circle
        cx="63.349998"
        cy="65.519997"
        r="3.75"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8465" />
     <circle
        cx="88.75"
        cy="65.519997"
        r="3.75"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8467" />
     <rect
        x="4.6999998"
        y="83.07"
        width="3"
        height="3"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8469" />
     <rect
        x="17.4"
        y="83.07"
        width="3"
        height="3"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8471" />
     <rect
        x="30.1"
        y="83.07"
        width="3"
        height="3"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8473" />
     <rect
        x="42.799999"
        y="83.07"
        width="3"
        height="3"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8475" />
     <rect
        x="55.5"
        y="83.07"
        width="3"
        height="3"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8477" />
     <rect
        x="68.199997"
        y="83.07"
        width="3"
        height="3"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8479" />
     <rect
        x="80.900002"
        y="83.07"
        width="3"
        height="3"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8481" />
     <rect
        x="93.599998"
        y="83.07"
        width="3"
        height="3"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8483" />
     <rect
        x="4.6999998"
        y="111.01"
        width="3"
        height="3"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8485" />
     <rect
        x="17.4"
        y="111.01"
        width="3"
        height="3"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8487" />
     <rect
        x="30.1"
        y="111.01"
        width="3"
        height="3"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8489" />
     <rect
        x="42.799999"
        y="111.01"
        width="3"
        height="3"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8491" />
     <rect
        x="55.5"
        y="111.01"
        width="3"
        height="3"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8493" />
     <rect
        x="68.199997"
        y="111.01"
        width="3"
        height="3"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8495" />
     <rect
        x="80.900002"
        y="111.01"
        width="3"
        height="3"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8497" />
     <rect
        x="93.599998"
        y="111.01"
        width="3"
        height="3"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="rect8499" />
     <circle
        cx="6.1999998"
        cy="19.799999"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8501" />
     <circle
        cx="18.9"
        cy="19.799999"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8503" />
     <circle
        cx="31.6"
        cy="19.799999"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8505" />
     <circle
        cx="44.299999"
        cy="19.799999"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8507" />
     <circle
        cx="57"
        cy="19.799999"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8509" />
     <circle
        cx="69.699997"
        cy="19.799999"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8511" />
     <circle
        cx="82.400002"
        cy="19.799999"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8513" />
     <circle
        cx="95.099998"
        cy="19.799999"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8515" />
     <circle
        cx="6.1999998"
        cy="92.190002"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8517" />
     <circle
        cx="18.9"
        cy="92.190002"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8519" />
     <circle
        cx="31.6"
        cy="92.190002"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8521" />
     <circle
        cx="44.299999"
        cy="92.190002"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8523" />
     <circle
        cx="57"
        cy="92.190002"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8525" />
     <circle
        cx="69.699997"
        cy="92.190002"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8527" />
     <circle
        cx="82.400002"
        cy="92.190002"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8529" />
     <circle
        cx="95.099998"
        cy="92.190002"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8531" />
     <circle
        cx="6.1999998"
        cy="104.89"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8533" />
     <circle
        cx="18.9"
        cy="104.89"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8535" />
     <circle
        cx="31.6"
        cy="104.89"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8537" />
     <circle
        cx="44.299999"
        cy="104.89"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8539" />
     <circle
        cx="57"
        cy="104.89"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8541" />
     <circle
        cx="69.699997"
        cy="104.89"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8543" />
     <circle
        cx="82.400002"
        cy="104.89"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8545" />
     <circle
        cx="95.099998"
        cy="104.89"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#000000"
        id="circle8547" />
   </g>
   <path
@@ -377,7 +357,7 @@
      sodipodi:nodetypes="ccccccccccccccccccccc" />
   <text
      xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:125%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:125%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
      x="-7.282825"
      y="63.714703"
      id="text4294"
@@ -385,11 +365,11 @@
        sodipodi:role="line"
        id="tspan4296"
        x="-7.282825"
-       y="63.714703">Top and bottom 2mm</tspan><tspan
+       y="63.714703">Top and bottom 2mm black</tspan><tspan
        sodipodi:role="line"
        x="-7.282825"
        y="67.242477"
-       id="tspan4298">Sides 3mm</tspan></text>
+       id="tspan4298">Sides 3mm black frost</tspan></text>
   <path
      sodipodi:nodetypes="ccccccccccccccccccccc"
      inkscape:connector-curvature="0"
@@ -404,7 +384,7 @@
      style="fill:none;stroke:#000000;stroke-width:0.05" />
   <path
      style="fill:none;stroke:#000000;stroke-width:0.05"
-     d="m 40.5,60 33.25,0 0,2 -1.738195,0 -1.738194,1.5 24.745833,8.5 c 0,0 0.814088,-10 9.980556,-10 9.16647,0 9.98056,10 9.98056,10 l 24.74583,-8.5 -1.7382,-1.5 -1.73819,0 0,-2 33.25,0 0,-7.705888 3,0 0,-16.588178 -3,-7e-5 0,-7.705888 -33.25,2.4e-5 0,-2.000024 -62.5,0 0,2 -33.25,0 0,7.705888 -3,-6e-5 0,16.588238 3,7e-5 z"
+     d="m 40.5,60 33.25,0 0,2 -1.738195,0 -1.17375,2.064444 L 95.019444,72 c 0,0 0.814088,-10 9.980556,-10 9.16647,0 9.98056,10 9.98056,10 L 139.16195,64.064444 137.98819,62 136.25,62 l 0,-2 33.25,0 0,-7.705888 3,0 0,-16.588178 -3,-7e-5 0,-7.705888 -33.25,2.4e-5 0,-2.000024 -62.5,0 0,2 -33.25,0 0,7.705888 -3,-6e-5 0,16.588238 3,7e-5 z"
      id="path4315"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cccccczccccccccccccccccccccc" />
@@ -429,4 +409,10 @@
      d="M 135.00001,255 149,255 l 0,6 -13.99999,0 z"
      id="path4324"
      inkscape:connector-curvature="0" />
+  <path
+     sodipodi:nodetypes="ccccccccccccccccccccc"
+     inkscape:connector-curvature="0"
+     id="path4326"
+     d="m 37.5,272.00002 36.35,0 0,3 62.3,0 0,-3 36.35,0 0,38.84998 -3,-2.5e-4 0,67.3 3,2.5e-4 0,38.85 -36.35,0 0,-3 -62.3,0 0,3 -36.35,0 0,-38.85 3,2.5e-4 0,-67.3 -3,-2.5e-4 z"
+     style="fill:none;stroke:#000000;stroke-width:0.05" />
 </svg>
