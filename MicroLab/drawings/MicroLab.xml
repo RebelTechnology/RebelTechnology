@@ -7,9 +7,9 @@
   <pot x="0.00" y="0.55"/>
 
   <!-- pushbuttons -->
-  <hole x="-0.75" y="0.4" radius="2.5"/>
-  <hole x="0.75" y="0.4" radius="2.5"/>
-  <hole x="-0.7475" y="2.075" radius="2.5"/>
+  <hole x="-0.75" y="0.4" radius="2.75"/>
+  <hole x="0.75" y="0.4" radius="2.75"/>
+  <hole x="-0.7475" y="2.075" radius="2.75"/>
 
   <!-- led -->
   <rect x="0.0" y="1.1" width="8" height="5"/>
