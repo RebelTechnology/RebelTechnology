@@ -13,7 +13,7 @@
    viewBox="0 0 210 297"
    id="svg5743"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="BellaModular.svg">
+   sodipodi:docname="BelaModular.svg">
   <metadata
      id="metadata5999">
     <rdf:RDF>
@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -31,9 +31,9 @@
      inkscape:document-units="mm"
      units="mm"
      showgrid="false"
-     inkscape:zoom="0.87817105"
-     inkscape:cx="600.08344"
-     inkscape:cy="669.98141"
+     inkscape:zoom="1.7563421"
+     inkscape:cx="356.87225"
+     inkscape:cy="704.70471"
      inkscape:window-width="1680"
      inkscape:window-height="1000"
      inkscape:window-x="0"
@@ -790,7 +790,7 @@
        d="m 58.950001,108.7 c 0,1.79492 -1.455075,3.25 -3.25,3.25 -1.794926,0 -3.25,-1.45508 -3.25,-3.25 0,-1.79493 1.455074,-3.25 3.25,-3.25 1.794925,0 3.25,1.45507 3.25,3.25 z" />
   </g>
   <g
-     transform="translate(111.25862,33.866666)"
+     transform="translate(105.779,33.866666)"
      style="fill:none;stroke:#ff0000;stroke-width:0.05"
      id="g3233">
     <rect
@@ -1350,11 +1350,11 @@
        style="fill:none;stroke:#ff0000"
        id="circle3447" />
     <rect
-       x="9.0500002"
+       x="34.450375"
        y="94.974998"
        width="7"
        height="14.75"
-       style="fill:none;stroke:#ff0000"
+       style="fill:none;stroke:#ff0000;stroke-width:0.05"
        id="rect3449" />
     <circle
        sodipodi:ry="3.25"
@@ -1366,7 +1366,8 @@
        cy="70.599998"
        r="3.25"
        style="fill:none;stroke:#ff0000"
-       id="circle3451" />
+       id="circle3451"
+       transform="translate(25.400382,0)" />
     <circle
        sodipodi:ry="3.25"
        sodipodi:rx="3.25"
@@ -1377,7 +1378,8 @@
        cy="70.599998"
        r="3.25"
        style="fill:none;stroke:#ff0000"
-       id="circle3453" />
+       id="circle3453"
+       transform="translate(25.400382,0)" />
     <circle
        sodipodi:ry="3.25"
        sodipodi:rx="3.25"
@@ -1388,7 +1390,8 @@
        cy="70.599998"
        r="3.25"
        style="fill:none;stroke:#ff0000"
-       id="circle3455" />
+       id="circle3455"
+       transform="translate(-25.399619,0)" />
     <circle
        sodipodi:ry="3.25"
        sodipodi:rx="3.25"
@@ -1399,7 +1402,8 @@
        cy="70.599998"
        r="3.25"
        style="fill:none;stroke:#ff0000"
-       id="circle3457" />
+       id="circle3457"
+       transform="translate(-25.399619,0)" />
     <circle
        sodipodi:ry="3.25"
        sodipodi:rx="3.25"
@@ -1410,7 +1414,8 @@
        cy="83.300003"
        r="3.25"
        style="fill:none;stroke:#ff0000"
-       id="circle3459" />
+       id="circle3459"
+       transform="translate(25.400382,0)" />
     <circle
        sodipodi:ry="3.25"
        sodipodi:rx="3.25"
@@ -1421,7 +1426,8 @@
        cy="83.300003"
        r="3.25"
        style="fill:none;stroke:#ff0000"
-       id="circle3461" />
+       id="circle3461"
+       transform="translate(25.400382,0)" />
     <circle
        sodipodi:ry="3.25"
        sodipodi:rx="3.25"
@@ -1432,7 +1438,8 @@
        cy="83.300003"
        r="3.25"
        style="fill:none;stroke:#ff0000"
-       id="circle3463" />
+       id="circle3463"
+       transform="translate(-25.399619,0)" />
     <circle
        sodipodi:ry="3.25"
        sodipodi:rx="3.25"
@@ -1443,7 +1450,8 @@
        cy="83.300003"
        r="3.25"
        style="fill:none;stroke:#ff0000"
-       id="circle3465" />
+       id="circle3465"
+       transform="translate(-25.399619,0)" />
     <circle
        sodipodi:ry="3.25"
        sodipodi:rx="3.25"
@@ -1454,7 +1462,8 @@
        cy="96"
        r="3.25"
        style="fill:none;stroke:#ff0000"
-       id="circle3467" />
+       id="circle3467"
+       transform="translate(-25.399619,0)" />
     <circle
        sodipodi:ry="3.25"
        sodipodi:rx="3.25"
@@ -1465,7 +1474,8 @@
        cy="96"
        r="3.25"
        style="fill:none;stroke:#ff0000"
-       id="circle3469" />
+       id="circle3469"
+       transform="translate(-25.399619,0)" />
     <circle
        sodipodi:ry="3.25"
        sodipodi:rx="3.25"
@@ -1476,7 +1486,8 @@
        cy="108.7"
        r="3.25"
        style="fill:none;stroke:#ff0000"
-       id="circle3471" />
+       id="circle3471"
+       transform="translate(-25.399619,0)" />
     <circle
        sodipodi:ry="3.25"
        sodipodi:rx="3.25"
@@ -1487,7 +1498,8 @@
        cy="108.7"
        r="3.25"
        style="fill:none;stroke:#ff0000"
-       id="circle3473" />
+       id="circle3473"
+       transform="translate(-25.399619,0)" />
   </g>
   <text
      xml:space="preserve"
@@ -1548,35 +1560,35 @@
   <text
      xml:space="preserve"
      style="font-size:2.82222223px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="118.95641"
+     x="138.87714"
      y="112.05744"
      id="text6248-3"
      sodipodi:linespacing="125%"><tspan
        sodipodi:role="line"
        id="tspan6250-6"
-       x="118.95641"
+       x="138.87714"
        y="112.05744">Trigger</tspan></text>
   <text
      xml:space="preserve"
      style="font-size:2.82222223px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="146.90404"
+     x="116.02477"
      y="111.83016"
      id="text6252-7"
      sodipodi:linespacing="125%"><tspan
        sodipodi:role="line"
        id="tspan6254-5"
-       x="146.90404"
+       x="116.02477"
        y="111.83016">CV</tspan></text>
   <text
      xml:space="preserve"
      style="font-size:2.82222223px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="146.90433"
+     x="116.02505"
      y="137.62268"
      id="text6256-3"
      sodipodi:linespacing="125%"><tspan
        sodipodi:role="line"
        id="tspan6258-5"
-       x="146.90433"
+       x="116.02505"
        y="137.62268">CV</tspan></text>
   <text
      xml:space="preserve"
@@ -1604,24 +1616,24 @@
   <text
      xml:space="preserve"
      style="font-size:2.82222223px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="117.23671"
+     x="137.15744"
      y="147.47185"
      id="text6366"
      sodipodi:linespacing="125%"><tspan
        sodipodi:role="line"
-       x="117.23671"
+       x="137.15744"
        y="147.47185"
        id="tspan6370">USB Host</tspan></text>
   <text
      sodipodi:linespacing="125%"
      id="text6374"
      y="40.211521"
-     x="127.05205"
+     x="121.5724"
      style="font-size:2.82222223px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
      xml:space="preserve"><tspan
        style="font-size:3.95111132px"
        y="40.211521"
-       x="127.05205"
+       x="121.5724"
        sodipodi:role="line"
        id="tspan6378">Expander</tspan></text>
 </svg>
