@@ -28,9 +28,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.97139871"
-     inkscape:cx="389.83037"
-     inkscape:cy="536.7126"
+     inkscape:zoom="1.3737652"
+     inkscape:cx="407.16951"
+     inkscape:cy="684.06846"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -245,22 +245,5 @@
          x="527.29456"
          y="296.58896"
          id="tspan6550">5mm opal</tspan></text>
-    <path
-       sodipodi:nodetypes="ccccccccc"
-       inkscape:connector-curvature="0"
-       id="path6554"
-       d="m 648.4252,308.26771 11.33859,0 0,7.79528 1.77164,0 -2.12597,27.63779 -10.62994,0 -2.12597,-27.63779 1.77165,0 z"
-       style="fill:none;stroke:#000000;stroke-width:0.17716534;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <text
-       sodipodi:linespacing="125%"
-       id="text6574"
-       y="296.58896"
-       x="633.29456"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:125%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         id="tspan6576"
-         y="296.58896"
-         x="633.29456"
-         sodipodi:role="line">3mm opal</tspan></text>
   </g>
 </svg>

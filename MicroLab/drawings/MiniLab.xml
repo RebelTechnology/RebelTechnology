@@ -27,10 +27,10 @@
   <pot x="0.00" y="0.55"/>
 
   <!-- pushbuttons -->
-  <hole x="-1.70" y="0.4" radius="2.5"/>
-  <hole x="-0.75" y="0.4" radius="2.5"/>
-  <hole x="0.75" y="0.4" radius="2.5"/>
-  <hole x="1.70" y="0.4" radius="2.5"/>
+  <hole x="-1.70" y="0.4" radius="2.75"/>
+  <hole x="-0.75" y="0.4" radius="2.75"/>
+  <hole x="0.75" y="0.4" radius="2.75"/>
+  <hole x="1.70" y="0.4" radius="2.75"/>
 
   <!-- LED -->
   <rect x="0.0" y="1.4" width="5" height="8"/>
