@@ -18311,18 +18311,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="-38.1" y1="-274.32" x2="-53.34" y2="-274.32" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="A2_UART_RX" class="0">
-<segment>
-<pinref part="LGP1-5" gate="G$1" pin="4"/>
-<wire x1="114.3" y1="-205.74" x2="129.54" y2="-205.74" width="0.1524" layer="91"/>
-<label x="116.84" y="-205.74" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="220.98" y1="15.24" x2="251.46" y2="15.24" width="0.1524" layer="91"/>
-<label x="233.68" y="15.24" size="1.778" layer="95"/>
-<pinref part="BUS1" gate="G$1" pin="1"/>
-</segment>
-</net>
 <net name="A3_UART_TX" class="0">
 <segment>
 <pinref part="LGP1-5" gate="G$1" pin="3"/>
@@ -18671,18 +18659,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <junction x="-279.4" y="93.98"/>
 </segment>
 </net>
-<net name="A4_OLED_RST" class="0">
-<segment>
-<pinref part="LGP1-5" gate="G$1" pin="2"/>
-<wire x1="114.3" y1="-210.82" x2="129.54" y2="-210.82" width="0.1524" layer="91"/>
-<label x="116.84" y="-210.82" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="-175.26" y1="93.98" x2="-198.12" y2="93.98" width="0.1524" layer="91"/>
-<label x="-198.12" y="93.98" size="1.778" layer="95"/>
-<pinref part="X6" gate="-9" pin="1"/>
-</segment>
-</net>
 <net name="A16_TLC_XLAT" class="0">
 <segment>
 <wire x1="134.62" y1="-134.62" x2="134.62" y2="-154.94" width="0.1524" layer="91"/>
@@ -18787,6 +18763,30 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="-175.26" y1="83.82" x2="-198.12" y2="83.82" width="0.1524" layer="91"/>
 <label x="-198.12" y="83.82" size="1.778" layer="95"/>
 <pinref part="X6" gate="-13" pin="1"/>
+</segment>
+</net>
+<net name="A4_UART_RX" class="0">
+<segment>
+<pinref part="LGP1-5" gate="G$1" pin="2"/>
+<wire x1="114.3" y1="-210.82" x2="129.54" y2="-210.82" width="0.1524" layer="91"/>
+<label x="116.84" y="-210.82" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="220.98" y1="15.24" x2="251.46" y2="15.24" width="0.1524" layer="91"/>
+<label x="233.68" y="15.24" size="1.778" layer="95"/>
+<pinref part="BUS1" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="A2_OLED_RST" class="0">
+<segment>
+<pinref part="LGP1-5" gate="G$1" pin="4"/>
+<wire x1="114.3" y1="-205.74" x2="129.54" y2="-205.74" width="0.1524" layer="91"/>
+<label x="116.84" y="-205.74" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="-175.26" y1="93.98" x2="-198.12" y2="93.98" width="0.1524" layer="91"/>
+<label x="-198.12" y="93.98" size="1.778" layer="95"/>
+<pinref part="X6" gate="-9" pin="1"/>
 </segment>
 </net>
 </nets>
