@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -28221,18 +28221,6 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <junction x="172.72" y="226.06"/>
 </segment>
 </net>
-<net name="A22_OLED_NCS" class="0">
-<segment>
-<pinref part="EXTSPI" gate="G$1" pin="4"/>
-<wire x1="81.28" y1="-7.62" x2="96.52" y2="-7.62" width="0.1524" layer="91"/>
-<label x="83.82" y="-7.62" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="332.74" y1="30.48" x2="309.88" y2="30.48" width="0.1524" layer="91"/>
-<label x="309.88" y="30.48" size="1.778" layer="95"/>
-<pinref part="X4" gate="-8" pin="1"/>
-</segment>
-</net>
 <net name="A16_SW1_LED" class="0">
 <segment>
 <pinref part="R23" gate="G$1" pin="1"/>
@@ -28243,13 +28231,6 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <wire x1="124.46" y1="55.88" x2="124.46" y2="45.72" width="0.1524" layer="91"/>
 <label x="124.46" y="53.34" size="1.778" layer="95" rot="MR270"/>
 <pinref part="TGP1-4" gate="G$1" pin="4"/>
-</segment>
-</net>
-<net name="A24_SW6_LED" class="0">
-<segment>
-<pinref part="R32" gate="G$1" pin="1"/>
-<wire x1="177.8" y1="-93.98" x2="177.8" y2="-106.68" width="0.1524" layer="91"/>
-<label x="177.8" y="-104.14" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="+12V" class="0">
@@ -28784,7 +28765,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <pinref part="SW2" gate="G$1" pin="P"/>
 </segment>
 </net>
-<net name="A7_SW3_BTN" class="0">
+<net name="A7_SW4_BTN" class="0">
 <segment>
 <wire x1="96.52" y1="-43.18" x2="81.28" y2="-43.18" width="0.1524" layer="91"/>
 <label x="83.82" y="-43.18" size="1.778" layer="95"/>
@@ -29071,7 +29052,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <label x="165.1" y="-104.14" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="B5_SW4_BTN" class="0">
+<net name="B5_SW3_BTN" class="0">
 <segment>
 <wire x1="111.76" y1="-33.02" x2="121.92" y2="-33.02" width="0.1524" layer="91"/>
 <label x="114.3" y="-33.02" size="1.778" layer="95"/>
@@ -29143,16 +29124,11 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <label x="63.5" y="55.88" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="B15_ADC5" class="0">
+<net name="B15" class="0">
 <segment>
 <pinref part="JP12" gate="G$1" pin="6"/>
 <wire x1="124.46" y1="12.7" x2="124.46" y2="-2.54" width="0.1524" layer="91"/>
 <label x="124.46" y="10.16" size="1.778" layer="95" rot="R270"/>
-</segment>
-<segment>
-<label x="373.38" y="172.72" size="1.778" layer="95"/>
-<wire x1="370.84" y1="172.72" x2="386.08" y2="172.72" width="0.1524" layer="91"/>
-<pinref part="P6" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="B14_OLED_RS" class="0">
@@ -29247,11 +29223,16 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <label x="134.62" y="10.16" size="1.778" layer="95" rot="R270"/>
 </segment>
 </net>
-<net name="A14_SW8_BTN" class="0">
+<net name="A14_SW6_LED" class="0">
 <segment>
 <wire x1="129.54" y1="55.88" x2="129.54" y2="45.72" width="0.1524" layer="91"/>
 <label x="129.54" y="53.34" size="1.778" layer="95" rot="MR270"/>
 <pinref part="TGP1-4" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<pinref part="R32" gate="G$1" pin="1"/>
+<wire x1="177.8" y1="-93.98" x2="177.8" y2="-106.68" width="0.1524" layer="91"/>
+<label x="177.8" y="-104.14" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="A13_SW7_BTN" class="0">
@@ -29278,11 +29259,16 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <label x="137.16" y="10.16" size="1.778" layer="95" rot="R270"/>
 </segment>
 </net>
-<net name="B13" class="0">
+<net name="B13_OLED_NCS" class="0">
 <segment>
 <pinref part="JP12" gate="G$1" pin="4"/>
 <wire x1="129.54" y1="12.7" x2="129.54" y2="-2.54" width="0.1524" layer="91"/>
 <label x="129.54" y="10.16" size="1.778" layer="95" rot="R270"/>
+</segment>
+<segment>
+<wire x1="332.74" y1="30.48" x2="309.88" y2="30.48" width="0.1524" layer="91"/>
+<label x="309.88" y="30.48" size="1.778" layer="95"/>
+<pinref part="X4" gate="-8" pin="1"/>
 </segment>
 </net>
 <net name="A25_OLED_MOSI" class="0">
@@ -29336,10 +29322,24 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <wire x1="332.74" y1="-2.54" x2="320.04" y2="-2.54" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="A22_ADC5" class="0">
+<segment>
+<pinref part="EXTSPI" gate="G$1" pin="4"/>
+<wire x1="81.28" y1="-7.62" x2="96.52" y2="-7.62" width="0.1524" layer="91"/>
+<label x="83.82" y="-7.62" size="1.778" layer="95"/>
+</segment>
+<segment>
+<label x="373.38" y="172.72" size="1.778" layer="95"/>
+<wire x1="370.84" y1="172.72" x2="386.08" y2="172.72" width="0.1524" layer="91"/>
+<pinref part="P6" gate="G$1" pin="2"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
 <errors>
+<approved hash="101,1,332.74,40.64,X4-4,1,,,,"/>
+<approved hash="101,1,332.74,12.7,X4-15,1,,,,"/>
 <approved hash="104,1,187.96,276.86,IC3P,V+,+12V,,,"/>
 <approved hash="104,1,187.96,261.62,IC3P,V-,-12V,,,"/>
 <approved hash="104,1,50.8,274.32,IC2P,V+,+12V,,,"/>
@@ -29348,15 +29348,20 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <approved hash="208,1,147.32,-45.72,+5V,sup,,,,"/>
 <approved hash="208,1,195.58,106.68,+5V,sup,,,,"/>
 <approved hash="208,1,180.34,101.6,+5V,out,,,,"/>
+<approved hash="106,1,132.08,12.7,B12,,,,,"/>
+<approved hash="106,1,124.46,12.7,B15,,,,,"/>
 <approved hash="106,1,167.64,-48.26,CS_VQ1,,,,,"/>
 <approved hash="106,1,162.56,40.64,USB_D_D+,,,,,"/>
 <approved hash="106,1,165.1,40.64,USB_D_D-,,,,,"/>
 <approved hash="106,1,160.02,40.64,USB_D_ID,,,,,"/>
 <approved hash="106,1,167.64,40.64,USB_D_VBUS,,,,,"/>
 <approved hash="113,1,165.1,45.1273,USB,,,,,"/>
+<approved hash="113,1,110.49,60.3673,ADC,,,,,"/>
 <approved hash="113,1,76.7927,-53.34,PWR,,,,,"/>
 <approved hash="113,1,76.7927,-11.43,EXTSPI,,,,,"/>
 <approved hash="113,1,76.7927,-40.8085,LGP6-7,,,,,"/>
+<approved hash="113,1,215.223,42.1047,BOOT,,,,,"/>
+<approved hash="113,1,126.974,60.3673,TGP1-4,,,,,"/>
 <approved hash="113,1,76.7927,-27.94,LGP1-5,,,,,"/>
 <approved hash="113,1,153.67,-52.7473,ANG1,,,,,"/>
 <approved hash="113,1,171.45,-52.7473,ANG2,,,,,"/>
