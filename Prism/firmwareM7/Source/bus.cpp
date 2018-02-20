@@ -16,7 +16,7 @@
 // static uint8_t busframe[4];
 MidiWriter writer;
 static DigitalBusStreamReader bus;
-static SerialBuffer<256> bus_tx_buf;
+static SerialBuffer<1024> bus_tx_buf;
 static MidiReader midi;
 bool DIGITAL_BUS_PROPAGATE_MIDI = 0;
 bool DIGITAL_BUS_ENABLE_BUS = 0;
@@ -40,6 +40,35 @@ void midiSendPC(uint8_t ch, uint8_t pc){
 
 extern "C" {
 
+    void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
+    int size = huart->TxXferSize; // - huart->TxXferCount;
+    bus_tx_buf.incrementReadHead(size);
+    if(bus_tx_buf.notEmpty())
+      HAL_UART_Transmit_IT(huart, bus_tx_buf.getReadHead(), bus_tx_buf.getContiguousReadCapacity());
+  }
+  // void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+  //   // what is the correct size if IDLE interrupts?
+  //   // int size = huart->RxXferSize - huart->RxXferCount;
+  //   int size = huart->RxXferSize - huart->hdmarx->Instance->NDTR;
+  //   bus_rx_buf.incrementWriteHead(size);
+  //   initiateBusRead();
+  // }
+  void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart){
+    error(RUNTIME_ERROR, "uart error");    
+    bus.reset();
+    bus_tx_buf.reset();
+  }
+
+  void serial_write(uint8_t* data, uint16_t size){
+    bus_tx_buf.push(data, size);
+    extern UART_HandleTypeDef huart1;
+    UART_HandleTypeDef *huart = &huart1;
+    /* Check that a Tx process is not already ongoing */
+    if(huart->gState == HAL_UART_STATE_READY) 
+      HAL_UART_Transmit_IT(huart, bus_tx_buf.getReadHead(), bus_tx_buf.getContiguousReadCapacity());
+  }
+
+#if 0
 void USART1_IRQHandler(void){
   extern UART_HandleTypeDef huart1;
   UART_HandleTypeDef *huart = &huart1;
@@ -56,12 +85,16 @@ void USART1_IRQHandler(void){
     }
     /* UART in mode Transmitter ------------------------------------------------*/
     if(((isrflags & USART_ISR_TXE) != RESET)){  // && ((cr1its & USART_CR1_TXEIE) != RESET)){
+      bus_tx_buf.incrementReadHead(huart->TxXferSize);
       if(bus_tx_buf.notEmpty()){
-        huart->Instance->TDR = bus_tx_buf.pull(); // (uint8_t)(*huart->pTxBuffPtr++ & (uint8_t)0xFFU);
+	HAL_UART_Transmit_IT(huart, bus_tx_buf.getReadHead(), bus_tx_buf.getContiguousReadCapacity());
+        // huart->Instance->TDR = bus_tx_buf.pull(); // (uint8_t)(*huart->pTxBuffPtr++ & (uint8_t)0xFFU);
+
 	// USART_SendData(USART_PERIPH, bus_tx_buf.pull());
       }else{
 	/* Disable the UART Transmit Data Register Empty Interrupt */
-	CLEAR_BIT(huart->Instance->CR1, USART_CR1_TXEIE);
+	__HAL_UART_DISABLE_IT(huart, UART_IT_TXE);
+	// CLEAR_BIT(huart->Instance->CR1, USART_CR1_TXEIE);
 	// USART_ITConfig(USART_PERIPH, USART_IT_TXE, DISABLE);
       }
     }
@@ -103,26 +136,16 @@ void USART1_IRQHandler(void){
 
   void serial_write(uint8_t* data, uint16_t size){
     bus_tx_buf.push(data, size);
-    /* Enable the UART Transmit Data Register Empty Interrupt */
     extern UART_HandleTypeDef huart1;
-    SET_BIT(huart1.Instance->CR1, USART_CR1_TXEIE);
-    // USART_ITConfig(USART_PERIPH, USART_IT_TXE, ENABLE);
+    UART_HandleTypeDef *huart = &huart1;
+    /* Check that a Tx process is not already ongoing */
+    if(huart->gState == HAL_UART_STATE_READY)
+      HAL_UART_Transmit_IT(huart, bus_tx_buf.getReadHead(), bus_tx_buf.getContiguousReadCapacity());
+
+    // __HAL_UART_ENABLE_IT(huart, UART_IT_TXE);
+    // SET_BIT(huart1.Instance->CR1, USART_CR1_TXEIE);
   }
-
-  // void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart){
-  //   error(UART_ERROR, "uart error");
-  //   bus.reset();
-  //   rxbuf.reset();
-  // }
-
-  // void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
-  //   rxbuf.incrementWriteHead(4);
-  //   __HAL_UART_FLUSH_DRREGISTER(huart);
-  //   serial_read(rxbuf.getWriteHead(), 4);
-  // }
-
-  // void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
-  // }
+#endif 
 }
 
 uint8_t* bus_deviceid(){
@@ -135,15 +158,19 @@ void bus_setup(){
   // serial_setup(USART_BAUDRATE);
   // bus.sendReset();
 
+#if 0 // todo: all message RX and error diagnostics is temporarily disabled!
   extern UART_HandleTypeDef huart1;
   UART_HandleTypeDef *huart = &huart1;
   /* Enable the UART Parity Error Interrupt */
-  SET_BIT(huart->Instance->CR1, USART_CR1_PEIE);
+  // SET_BIT(huart->Instance->CR1, USART_CR1_PEIE);
+  __HAL_UART_ENABLE_IT(huart, UART_IT_PE);
+
   /* Enable the UART Error Interrupt: (Frame error, noise error, overrun error) */
   // SET_BIT(huart->Instance->CR3, USART_CR3_EIE);
   /* Enable the UART Data Register not empty Interrupt */
-  SET_BIT(huart->Instance->CR1, USART_CR1_RXNEIE);
-
+  // SET_BIT(huart->Instance->CR1, USART_CR1_RXNEIE);
+  __HAL_UART_ENABLE_IT(huart, UART_IT_RXNE);
+#endif
   // serial_read(rxbuf.getWriteHead(), 4);
 }
 
@@ -152,7 +179,7 @@ void bus_setup(){
 int bus_status(){
   bus.process();
   static uint32_t lastpolled = 0;
-  if(osKernelSysTick() > lastpolled + BUS_IDLE_INTERVAL){
+  if(DIGITAL_BUS_ENABLE_BUS && osKernelSysTick() > lastpolled + BUS_IDLE_INTERVAL){
     bus.connected();
     lastpolled = osKernelSysTick();
   }

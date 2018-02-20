@@ -21,6 +21,8 @@
 #define PROGRAM_ERROR       0x60
 #define CONFIG_ERROR        0x70
 #define UART_ERROR          0x80
+#define USB_ERROR           0x90
+#define RUNTIME_ERROR       0xa0
 
 #ifdef __cplusplus
 }
