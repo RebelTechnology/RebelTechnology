@@ -8,19 +8,24 @@ extern "C" uint32_t HAL_GetTick();
 #define MAX_PRESET     11
 #define MANUAL_PRESET (MAX_PRESET+1)
 
+#define PRESET_MODE 1
+#define PRESET_MODE 1
+
+#define GREY 0xAAAA
+
 class PresetDisplayPatch : public Patch {
 private:
   const int SEND_RATE = 357;
-  const int OWL_A_CH = 1;
-  const int OWL_B_CH = 2;
-  const int OWL_C_CH = 3;
-  const int OWL_D_CH = 4;
+  const int OWL_A_CH = 0;
+  const int OWL_B_CH = 1;
+  const int OWL_C_CH = 2;
+  const int OWL_D_CH = 3;
   int counter;
   int preset0, preset1;
   int debounceDelay = 0;
   int size = 4; // 5;
 #ifdef SSD1331
-  uint16_t x = 14;
+  uint16_t x = 10;
   uint16_t y = 8;
 #else
   uint16_t x = 30;
@@ -28,8 +33,11 @@ private:
 #endif
   int16_t hspace = -10;
   int16_t vspace = 46;
-  uint16_t bg = GREEN;
+  uint16_t bg = BLACK;
   uint16_t fg = WHITE;
+
+  // char presetnames[][8] = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "Pass", "Man"};
+  
 public:
   PresetDisplayPatch(){
   }
@@ -55,7 +63,7 @@ public:
     midiSendCC(OWL_D_CH, PATCH_PARAMETER_E, preset1);
   }
   void encoderChanged(uint8_t encoder, int32_t dir){
-    // if(abs(dir) < 3)
+    // if(abs(dir) < 2)
     //   return;
     static int last = 0;
     int now = HAL_GetTick();
@@ -72,9 +80,9 @@ public:
       setParameterValue(PARAMETER_A, preset0*4096/MANUAL_PRESET);
       counter = 0;
     }else if(encoder == 1){
-      if(dir > 0)
+      if(dir > 1)
 	preset1 = min(MAX_PRESET, preset1+1);
-      else if(dir < 0)
+      else if(dir < 1)
 	preset1 = max(1, preset1-1);
       midiSendCC(OWL_C_CH, PATCH_PARAMETER_E, preset1*127/MANUAL_PRESET);
       midiSendCC(OWL_D_CH, PATCH_PARAMETER_E, preset1*127/MANUAL_PRESET);
@@ -101,16 +109,34 @@ public:
     }
   }
   void processAudio(AudioBuffer& samples){
-    bg = GREEN;
+    static bool sw1_en = false;
+    static bool sw2_en = false;
     if(sw1()){
-      fg = BLACK;
-      bg = WHITE;
-      reset();
+      if(!sw1_en){
+	midiSendCC(OWL_A_CH, PATCH_BUTTON, 127);
+	sw1_en = true;
+	bg = BLUE;
+      }
     }else{
-      fg = WHITE;
+      if(sw1_en){
+	midiSendCC(OWL_A_CH, PATCH_BUTTON, 127);
+	sw1_en = false;
+	bg = BLACK;
+      }
     }
-    if(sw2())
-      bg = BLUE;
+    if(sw2()){
+      if(!sw2_en){
+	midiSendCC(OWL_C_CH, PATCH_BUTTON, 127);
+	sw2_en = true;
+	bg = BLUE;
+      }
+    }else{
+      if(sw2_en){
+	midiSendCC(OWL_C_CH, PATCH_BUTTON, 127);
+	sw2_en = false;
+	bg = BLACK;
+      }
+    }
     screen.fill(bg);
 
     int preset = max(1, min(MANUAL_PRESET, round(getParameterValue(PARAMETER_A)*MANUAL_PRESET)));
