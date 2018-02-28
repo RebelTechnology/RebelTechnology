@@ -3374,8 +3374,8 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="USB" library="SparkFun" package="1X05" value="" x="44.5325" y="79.3275" locked="yes" smashed="yes" rot="MR180">
-<attribute name="VALUE" x="43.2625" y="82.5025" size="1.27" layer="28" rot="MR180"/>
+<element name="USB" library="SparkFun" package="1X05" value="" x="41.9925" y="79.3275" locked="yes" smashed="yes" rot="MR180">
+<attribute name="VALUE" x="40.7225" y="82.5025" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="ADC" library="SparkFun" package="1X04" value="" x="3.4325" y="79.3275" locked="yes" smashed="yes" rot="MR180">
 <attribute name="VALUE" x="2.1625" y="82.5025" size="1.27" layer="28" rot="MR180"/>
@@ -4599,7 +4599,6 @@ design rules under a new name.</description>
 <wire x1="41.9" y1="39.52" x2="41.9" y2="64.86" width="0.204" layer="16"/>
 <wire x1="41.9" y1="64.86" x2="41.87" y2="64.89" width="0.204" layer="16"/>
 <wire x1="41.9" y1="39.52" x2="41.87" y2="39.49" width="0.204" layer="16"/>
-<wire x1="41.87" y1="64.89" x2="41.87" y2="90.29" width="0.204" layer="16"/>
 <wire x1="23.98" y1="97.09" x2="23.98" y2="95.57" width="0.254" layer="1"/>
 <wire x1="23.98" y1="95.57" x2="24.6" y2="94.95" width="0.254" layer="1"/>
 <wire x1="24.6" y1="94.95" x2="40.9" y2="94.95" width="0.254" layer="1"/>
@@ -4639,6 +4638,10 @@ design rules under a new name.</description>
 <wire x1="35.6" y1="8.83" x2="35.62" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="35.62" y1="8.85" x2="35.62" y2="10.72" width="0.3048" layer="1"/>
 <wire x1="35.62" y1="10.72" x2="35.7" y2="10.8" width="0.3048" layer="1"/>
+<wire x1="41.87" y1="90.29" x2="41.87" y2="81.92" width="0.204" layer="16"/>
+<wire x1="41.87" y1="81.92" x2="40.45" y2="80.5" width="0.204" layer="16"/>
+<wire x1="40.45" y1="80.5" x2="40.45" y2="66.31" width="0.204" layer="16"/>
+<wire x1="40.45" y1="66.31" x2="41.87" y2="64.89" width="0.204" layer="16"/>
 </signal>
 <signal name="N$3">
 <contactref element="R2" pad="1"/>
