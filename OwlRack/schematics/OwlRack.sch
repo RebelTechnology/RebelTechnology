@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -15868,6 +15868,8 @@ naming: grid - package width</description>
 <part name="GND35" library="supply1" deviceset="GNDA" device=""/>
 <part name="IN4" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="IN5" library="SparkFun" deviceset="M02" device="PTH"/>
+<part name="AUDIO_IN" library="Rebel" deviceset="CON-JST-1X03" device="PH-TH"/>
+<part name="GND36" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -16018,6 +16020,8 @@ naming: grid - package width</description>
 <instance part="GND35" gate="1" x="-12.7" y="-12.7"/>
 <instance part="IN4" gate="G$1" x="5.08" y="-5.08" rot="R180"/>
 <instance part="IN5" gate="G$1" x="5.08" y="-22.86" rot="R180"/>
+<instance part="AUDIO_IN" gate="G$1" x="132.08" y="116.84"/>
+<instance part="GND36" gate="1" x="139.7" y="114.3"/>
 </instances>
 <busses>
 </busses>
@@ -16202,6 +16206,11 @@ naming: grid - package width</description>
 <junction x="-2.54" y="-7.62"/>
 <wire x1="-2.54" y1="-7.62" x2="-5.08" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="AUDIO_IN" gate="G$1" pin="2"/>
+<pinref part="GND36" gate="1" pin="GND"/>
+<wire x1="129.54" y1="116.84" x2="139.7" y2="116.84" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -16307,8 +16316,11 @@ naming: grid - package width</description>
 <label x="106.68" y="50.8" size="1.778" layer="95"/>
 <wire x1="96.52" y1="45.72" x2="96.52" y2="50.8" width="0.1524" layer="91"/>
 <junction x="96.52" y="50.8"/>
-<wire x1="96.52" y1="50.8" x2="116.84" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="50.8" x2="124.46" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="C14" gate="G$1" pin="1"/>
+<wire x1="124.46" y1="50.8" x2="124.46" y2="114.3" width="0.1524" layer="91"/>
+<pinref part="AUDIO_IN" gate="G$1" pin="3"/>
+<wire x1="124.46" y1="114.3" x2="129.54" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="L_IN_B" class="0">
@@ -16323,8 +16335,11 @@ naming: grid - package width</description>
 <wire x1="96.52" y1="96.52" x2="91.44" y2="96.52" width="0.1524" layer="91"/>
 <junction x="96.52" y="96.52"/>
 <pinref part="R503" gate="G$1" pin="2"/>
-<wire x1="96.52" y1="96.52" x2="116.84" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="96.52" x2="121.92" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="C13" gate="G$1" pin="1"/>
+<wire x1="121.92" y1="96.52" x2="121.92" y2="119.38" width="0.1524" layer="91"/>
+<pinref part="AUDIO_IN" gate="G$1" pin="1"/>
+<wire x1="121.92" y1="119.38" x2="129.54" y2="119.38" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="USB_ID_B" class="0">
