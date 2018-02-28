@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -13656,7 +13656,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="JP3" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="JP4" library="SparkFun" deviceset="M06" device="SIP"/>
 <part name="JP7" library="SparkFun" deviceset="M05" device="PTH"/>
-<part name="JP8" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="JP10" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="JP2" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="JP5" library="SparkFun" deviceset="M06" device="SIP"/>
@@ -13702,6 +13701,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="+3V16" library="supply1" deviceset="+3V3" device=""/>
 <part name="X2" library="con-molex" deviceset="53?-05" device="048"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
+<part name="JP15" library="SparkFun" deviceset="M05" device="PTH"/>
 </parts>
 <sheets>
 <sheet>
@@ -13845,7 +13845,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="JP3" gate="G$1" x="233.68" y="45.72" rot="MR270"/>
 <instance part="JP4" gate="G$1" x="256.54" y="43.18" rot="MR270"/>
 <instance part="JP7" gate="G$1" x="274.32" y="45.72" rot="R270"/>
-<instance part="JP8" gate="G$1" x="187.96" y="-15.24"/>
 <instance part="JP10" gate="G$1" x="185.42" y="-35.56"/>
 <instance part="JP2" gate="G$1" x="185.42" y="-63.5"/>
 <instance part="JP5" gate="G$1" x="243.84" y="-60.96" smashed="yes" rot="MR90">
@@ -13909,6 +13908,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="X2" gate="-4" x="322.58" y="-22.86"/>
 <instance part="X2" gate="-5" x="322.58" y="-25.4"/>
 <instance part="GND8" gate="1" x="266.7" y="-71.12"/>
+<instance part="JP15" gate="G$1" x="185.42" y="-15.24"/>
 </instances>
 <busses>
 </busses>
@@ -15628,7 +15628,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="193.04" y1="-12.7" x2="200.66" y2="-12.7" width="0.1524" layer="91"/>
 <label x="195.58" y="-12.7" size="1.778" layer="95"/>
-<pinref part="JP8" gate="G$1" pin="3"/>
+<pinref part="JP15" gate="G$1" pin="4"/>
 </segment>
 </net>
 <net name="A24" class="0">
@@ -15640,7 +15640,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="193.04" y1="-15.24" x2="200.66" y2="-15.24" width="0.1524" layer="91"/>
 <label x="195.58" y="-15.24" size="1.778" layer="95"/>
-<pinref part="JP8" gate="G$1" pin="2"/>
+<pinref part="JP15" gate="G$1" pin="3"/>
 </segment>
 </net>
 <net name="A25" class="0">
@@ -15652,7 +15652,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="193.04" y1="-17.78" x2="200.66" y2="-17.78" width="0.1524" layer="91"/>
 <label x="195.58" y="-17.78" size="1.778" layer="95"/>
-<pinref part="JP8" gate="G$1" pin="1"/>
+<pinref part="JP15" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="FLASH_MOSI" class="0">
@@ -15681,9 +15681,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="A22" class="0">
 <segment>
-<pinref part="JP8" gate="G$1" pin="4"/>
 <wire x1="193.04" y1="-10.16" x2="200.66" y2="-10.16" width="0.1524" layer="91"/>
 <label x="195.58" y="-10.16" size="1.778" layer="95"/>
+<pinref part="JP15" gate="G$1" pin="5"/>
 </segment>
 <segment>
 <wire x1="73.66" y1="132.08" x2="88.9" y2="132.08" width="0.1524" layer="91"/>
@@ -16143,6 +16143,18 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="IC8" gate="G$1" pin="PC1"/>
 <wire x1="73.66" y1="119.38" x2="83.82" y2="119.38" width="0.1524" layer="91"/>
 <label x="76.2" y="119.38" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="VBAT" class="0">
+<segment>
+<wire x1="193.04" y1="-20.32" x2="200.66" y2="-20.32" width="0.1524" layer="91"/>
+<label x="195.58" y="-20.32" size="1.778" layer="95"/>
+<pinref part="JP15" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<wire x1="33.02" y1="129.54" x2="43.18" y2="129.54" width="0.1524" layer="91"/>
+<pinref part="IC8" gate="G$1" pin="VBAT"/>
+<label x="33.02" y="129.54" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
