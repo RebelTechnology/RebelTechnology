@@ -387,6 +387,14 @@ S25FL164 ... FI01 for 8-lead SO 208mil
 http://www.cypress.com/products/serial-nor-flash-memory
 looks like the ...K0XMFI and K0XMFV are end-of-life, replaced by K0XMFA and K0XMFB
 
+Cypress in production:
+S25FL064L  64Mb 108Mhz soic-8
+S25FL128L 128Mb 133MHz soic-8
+S25FL256L 256Mb 133MHz soic-16
+
+S25FL064LABMFI013 (mouser £0.709 @100 on order)
+S25FL064LABMFI010 (mouser £0.709 @100 lead time 20 weeks)
+
 -----------------------------------------------------------------
 
 James todo list:

@@ -49,7 +49,6 @@ wanted range: 20 to 240 BPM, 0.33 to 4Hz
 480 to 5818 ticks
 (120 BPM in middle?)
 
-
 -------------------------------------------------------
 
 freq = 1920 / div, div = 1920 / freq
@@ -128,8 +127,8 @@ d ~= 3 * x + 3
 -------------------------------------------------------
 
 changed clock ratios to:
-A: 1 2 3 4 6 8
-B: 1 2 4 8 12 24
+B: 1 2 3 4 6 8
+C: 1 2 4 8 12 24
 
 -------------------------------------------------------
 
@@ -164,5 +163,17 @@ bot max-at-max 312hz (13.1*24 = 314.4)
 bot min-at-max 546mHz (13.1/24 = 0.5458)
 
 current setup: master clock divided into 57 steps of 0.1830Hz
+
+-------------------------------------------------------
+
+CLK
+pots
+PTD901-2020K-B103
+PTD901-2015K-B103
+
+-------------------------------------------------------
+
+CLK is a triple clock generator. It comprises of a master clock and two dual function multiplier/dividers. Turn clockwise to multiply, anti-clockwise to divide. The outputs are always perfectly synced. Use it to feed several trigger sequencers or to directly generate instant 'four on the floor' style patterns.
+
 
 -------------------------------------------------------

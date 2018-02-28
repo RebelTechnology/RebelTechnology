@@ -414,6 +414,7 @@ minilab todo
 - hw pull-down on power enable
 - power selection circuit usb/dc (with single op amp comparator and mosfet)
 - add pull-downs on audio inputs?
+- fix USB Host pin assignments (shift up from USB ID pin)
 
 --------------------------------------------------------------------------------
 
@@ -447,3 +448,8 @@ A6 PB1 TIM3_CH4 PWM3
 A2 PA1 TIM5_CH2 PWM2
 A1 PA0 TIM2_CH1 PWM1
 
+--------------------------------------------------------------------------------
+
+5x8mm light pipe
+
+--------------------------------------------------------------------------------

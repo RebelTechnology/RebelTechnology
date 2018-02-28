@@ -1,0 +1,81 @@
+
+-------------------------------------------------------
+
+27/9 2017
+racks
+Jake
+outdoor use
+ip65 - 67
+water/dustproof box
+
+open theremin digital tuning
+
+back of unit - add two fine tune TRS jacks.
+
+balanced inputs from Theremins
+
+bigger knobs on fine tune
+coarse and fine adjust
+
+preset adjust interface
+
+transpose -3 octaves
+
+order for 2x to US 1x to Kuala Lumpur 4x lightning company
+
+-------------------------------------------------------
+
+Theremin Bollards OWL Rack Rev03
+- balanced input
+- balanced outputs
+- JST bus connection
+
+-------------------------------------------------------
+
+Balanced inputs on OwlRack Rev03:
+TRS input, route T to left, R to right input.
+DNP right connector
+Bridge T normal connection
+
+-------------------------------------------------------
+
+Digital Tuning:
+- Prism monitors inputs from two theremins
+- each output goes to inverting op amp output stage
+- override with manual tuning
+
+-------------------------------------------------------
+
+Bollards Aux
+
+gnd
+pot a
+pow w
+pot b
++9v
+
+distance between Bourns 901 pots: 2.2in
+
+-------------------------------------------------------
+
+Neutrik NRJ6HF balanced jacks cutout 11.2mm dia 
+
+parts back:
+NRJ6HF balanced jacks
+NC5FD-LX-BAG 5-pole
+
+parts front:
+Bourns PTD901 cutout
+Bourns PEC11L low profile encoder with push
+Neutrik NAUSB-W (or Bourns CP30111 B>A Gender Change Feedthrough Socket
+
+-------------------------------------------------------
+
+Wifi interface for digital tuning, configuration, firmware upgrades
+
+-------------------------------------------------------
+
+Holt broadcast joggle case
+1RUx250mm
+front height 43.7 width 482.6mm
+back height 37.1 width 442.0mm
