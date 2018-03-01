@@ -147,6 +147,26 @@ http://www.eecs.qmul.ac.uk/~simond/pub/2007/jnmr07.pdf
 
 http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.332.989&rep=rep1&type=pdf
 
+
+
+http://mziccard.me/2015/05/28/beats-detection-algorithms-1/
+
+https://github.com/mziccard/scala-audio-file
+FilterBPMDetector
+
+First, the algorithm applies to sampled data a biquad low-pass filter (implemented by the class BiquadFilter). Filtered audio data are divided into windows of samples (whose dimension is the sample frequency, i.e. 1s). A peak detection algorithm is applied to each window and identifies as peaks all values above a certain threshold. For each peak the distance in number of samples between it and its neighbouring peaks is stored (10 neighbours are considered). For each distance between peaks the algorithm counts how many times it has been detected across all windows in the song. Once all windows are processed the algorithm has built a map distanceHistogram where for each possible distance its number of occurrences is stored:
+distanceHistogram(distance) = count
+For each distance a theoretical tempo can be computed according to the following equation:
+theoreticalTempo=60/(distance/sampleRate)
+Here the algorithm builds on the assumption that the actual tempo of the song lies in the interval [90, 180]. Any bigger theoretical tempo is divided by 2 until it falls in the interval. Similarly, any smaller tempo is multiplied by 2. By converting each distance to the corresponding theoretical tempo a map tempoHistogram is built where each tempo is associated the sum of occurrences of all distances that lead to it:
+tempoHistogram(tempo) = count
+The algorithm computes the tempoHistogram map and selects as the track’s tempo the one with the highest count.
+
+Seven Band Graphic Equalizer MSGEQ7
+The seven band graphic equalizer IC is a CMOS chip that divides the audio spectrum into seven bands,. 63Hz, 160Hz, 400Hz, 1kHz, 2.5kHz, 6.25kHz and. 16kHz. The seven frequencies are peak detected and multiplexed to the output to provide a DC repre- sentation of the amplitude of each band.
+
+
+http://damian.pecke.tt/beat-detection-on-the-arduino
+
 -------------------------------------------------------
 
-Triple Clock Generator

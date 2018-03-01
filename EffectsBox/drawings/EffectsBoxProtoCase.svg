@@ -209,5 +209,38 @@
        cx="140.44"
        cy="-153"
        r="6" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:125%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="183.06168"
+       y="-14.207167"
+       id="text7803"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7805"
+         x="183.06168"
+         y="-14.207167">TIME</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:125%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="182.77641"
+       y="-39.926758"
+       id="text7807"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7809"
+         x="182.77641"
+         y="-39.926758">EQ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:125%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="182.89493"
+       y="-64.217499"
+       id="text7811"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7813"
+         x="182.89493"
+         y="-64.217499">GAIN</tspan></text>
   </g>
 </svg>
