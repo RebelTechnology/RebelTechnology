@@ -14729,6 +14729,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
 <part name="ANG3" library="SparkFun" deviceset="M06" device="SIP"/>
 <part name="USB1" library="SparkFun" deviceset="M05" device="PTH"/>
+<part name="LGP6-1" library="SparkFun" deviceset="M02" device="PTH"/>
 </parts>
 <sheets>
 <sheet>
@@ -15144,28 +15145,28 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <attribute name="VALUE" x="111.76" y="-124.46" size="1.778" layer="96" rot="R270"/>
 <attribute name="NAME" x="119.38" y="-123.698" size="1.778" layer="95"/>
 </instance>
-<instance part="PWR" gate="G$1" x="106.68" y="-233.68" smashed="yes" rot="MR180">
-<attribute name="VALUE" x="104.14" y="-226.06" size="1.778" layer="96" rot="MR180"/>
-<attribute name="NAME" x="103.378" y="-231.14" size="1.778" layer="95" rot="MR270"/>
+<instance part="PWR" gate="G$1" x="83.82" y="-233.68" smashed="yes" rot="MR180">
+<attribute name="VALUE" x="81.28" y="-226.06" size="1.778" layer="96" rot="MR180"/>
+<attribute name="NAME" x="80.518" y="-231.14" size="1.778" layer="95" rot="MR270"/>
 </instance>
-<instance part="P+2" gate="1" x="116.84" y="-228.6" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="116.84" y="-226.06" size="1.778" layer="96" rot="MR180"/>
+<instance part="P+2" gate="1" x="93.98" y="-228.6" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="93.98" y="-226.06" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="+3V3" gate="G$1" x="124.46" y="-228.6" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="124.46" y="-226.06" size="1.778" layer="96" rot="MR180"/>
+<instance part="+3V3" gate="G$1" x="101.6" y="-228.6" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="101.6" y="-226.06" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="GND8" gate="1" x="116.84" y="-241.3" rot="MR0"/>
-<instance part="EXTSPI" gate="G$1" x="109.22" y="-193.04" smashed="yes">
-<attribute name="VALUE" x="104.14" y="-200.66" size="1.778" layer="96"/>
-<attribute name="NAME" x="103.378" y="-195.58" size="1.778" layer="95" rot="R90"/>
+<instance part="GND8" gate="1" x="93.98" y="-241.3" rot="MR0"/>
+<instance part="EXTSPI" gate="G$1" x="86.36" y="-193.04" smashed="yes">
+<attribute name="VALUE" x="81.28" y="-200.66" size="1.778" layer="96"/>
+<attribute name="NAME" x="80.518" y="-195.58" size="1.778" layer="95" rot="R90"/>
 </instance>
-<instance part="LGP6-7" gate="G$1" x="106.68" y="-223.52" smashed="yes">
-<attribute name="VALUE" x="104.14" y="-228.6" size="1.778" layer="96"/>
-<attribute name="NAME" x="103.378" y="-226.06" size="1.778" layer="95" rot="R90"/>
+<instance part="LGP6-7" gate="G$1" x="83.82" y="-223.52" smashed="yes">
+<attribute name="VALUE" x="81.28" y="-228.6" size="1.778" layer="96"/>
+<attribute name="NAME" x="80.518" y="-226.06" size="1.778" layer="95" rot="R90"/>
 </instance>
-<instance part="LGP1-5" gate="G$1" x="106.68" y="-208.28" smashed="yes">
-<attribute name="VALUE" x="104.14" y="-218.44" size="1.778" layer="96"/>
-<attribute name="NAME" x="103.378" y="-213.36" size="1.778" layer="95" rot="R90"/>
+<instance part="LGP1-5" gate="G$1" x="83.82" y="-208.28" smashed="yes">
+<attribute name="VALUE" x="81.28" y="-218.44" size="1.778" layer="96"/>
+<attribute name="NAME" x="80.518" y="-213.36" size="1.778" layer="95" rot="R90"/>
 </instance>
 <instance part="ANG1" gate="G$1" x="160.02" y="-233.68" smashed="yes" rot="MR90">
 <attribute name="VALUE" x="149.86" y="-238.76" size="1.778" layer="96" rot="MR90"/>
@@ -15217,6 +15218,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </instance>
 <instance part="USB1" gate="G$1" x="137.16" y="-165.1" smashed="yes" rot="MR270">
 <attribute name="VALUE" x="147.32" y="-162.56" size="1.778" layer="96" rot="MR270"/>
+</instance>
+<instance part="LGP6-1" gate="G$1" x="119.38" y="-213.36" smashed="yes">
+<attribute name="VALUE" x="116.84" y="-218.44" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -16281,62 +16285,62 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="USB_H_D-" class="0">
 <segment>
-<wire x1="167.64" y1="-172.72" x2="167.64" y2="-198.12" width="0.1524" layer="91"/>
-<label x="167.64" y="-198.12" size="1.778" layer="95" rot="R90"/>
-<pinref part="ANG4" gate="G$1" pin="1"/>
-</segment>
-<segment>
 <wire x1="-165.1" y1="12.7" x2="-182.88" y2="12.7" width="0.1524" layer="91"/>
 <label x="-177.8" y="12.7" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="4"/>
 </segment>
-</net>
-<net name="USB_H_D+" class="0">
-<segment>
-<wire x1="165.1" y1="-172.72" x2="165.1" y2="-198.12" width="0.1524" layer="91"/>
-<label x="165.1" y="-198.12" size="1.778" layer="95" rot="R90"/>
-<pinref part="ANG4" gate="G$1" pin="2"/>
-</segment>
-<segment>
-<wire x1="-165.1" y1="10.16" x2="-182.88" y2="10.16" width="0.1524" layer="91"/>
-<label x="-177.8" y="10.16" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="6"/>
-</segment>
-</net>
-<net name="USB_D_D+" class="0">
-<segment>
-<pinref part="USB" gate="G$1" pin="2"/>
-<wire x1="177.8" y1="-134.62" x2="177.8" y2="-149.86" width="0.1524" layer="91"/>
-<label x="177.8" y="-137.16" size="1.778" layer="95" rot="MR270"/>
-</segment>
-<segment>
-<wire x1="-190.5" y1="10.16" x2="-213.36" y2="10.16" width="0.1524" layer="91"/>
-<label x="-213.36" y="10.16" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="5"/>
-</segment>
-</net>
-<net name="USB_D_D-" class="0">
 <segment>
 <pinref part="USB" gate="G$1" pin="3"/>
 <wire x1="180.34" y1="-134.62" x2="180.34" y2="-149.86" width="0.1524" layer="91"/>
 <label x="180.34" y="-137.16" size="1.778" layer="95" rot="MR270"/>
 </segment>
+</net>
+<net name="USB_H_D+" class="0">
+<segment>
+<wire x1="-165.1" y1="10.16" x2="-182.88" y2="10.16" width="0.1524" layer="91"/>
+<label x="-177.8" y="10.16" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="6"/>
+</segment>
+<segment>
+<pinref part="USB" gate="G$1" pin="2"/>
+<wire x1="177.8" y1="-134.62" x2="177.8" y2="-149.86" width="0.1524" layer="91"/>
+<label x="177.8" y="-137.16" size="1.778" layer="95" rot="MR270"/>
+</segment>
+</net>
+<net name="USB_D_D+" class="0">
+<segment>
+<wire x1="-190.5" y1="10.16" x2="-213.36" y2="10.16" width="0.1524" layer="91"/>
+<label x="-213.36" y="10.16" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="5"/>
+</segment>
+<segment>
+<wire x1="165.1" y1="-172.72" x2="165.1" y2="-198.12" width="0.1524" layer="91"/>
+<label x="165.1" y="-198.12" size="1.778" layer="95" rot="R90"/>
+<pinref part="ANG4" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="USB_D_D-" class="0">
 <segment>
 <wire x1="-190.5" y1="12.7" x2="-213.36" y2="12.7" width="0.1524" layer="91"/>
 <label x="-213.36" y="12.7" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="3"/>
 </segment>
+<segment>
+<wire x1="167.64" y1="-172.72" x2="167.64" y2="-198.12" width="0.1524" layer="91"/>
+<label x="167.64" y="-198.12" size="1.778" layer="95" rot="R90"/>
+<pinref part="ANG4" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="USB_D_VBUS" class="0">
-<segment>
-<pinref part="USB" gate="G$1" pin="4"/>
-<wire x1="182.88" y1="-134.62" x2="182.88" y2="-149.86" width="0.1524" layer="91"/>
-<label x="182.88" y="-137.16" size="1.778" layer="95" rot="MR270"/>
-</segment>
 <segment>
 <wire x1="-190.5" y1="15.24" x2="-213.36" y2="15.24" width="0.1524" layer="91"/>
 <label x="-213.36" y="15.24" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="1"/>
+</segment>
+<segment>
+<wire x1="160.02" y1="-172.72" x2="160.02" y2="-198.12" width="0.1524" layer="91"/>
+<label x="160.02" y="-198.12" size="1.778" layer="95" rot="R90"/>
+<pinref part="ANG4" gate="G$1" pin="4"/>
 </segment>
 </net>
 <net name="USB_H_PWR_EN" class="0">
@@ -16355,16 +16359,16 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <junction x="218.44" y="-91.44"/>
 </segment>
 </net>
-<net name="USB_H_PWR_FAULT" class="0">
-<segment>
-<wire x1="154.94" y1="-198.12" x2="154.94" y2="-172.72" width="0.1524" layer="91"/>
-<label x="154.94" y="-198.12" size="1.778" layer="95" rot="R90"/>
-<pinref part="ANG4" gate="G$1" pin="6"/>
-</segment>
+<net name="B13_USB_H_PWR_FAULT" class="0">
 <segment>
 <pinref part="U9" gate="MIC2005" pin="FAULT"/>
 <wire x1="254" y1="-91.44" x2="281.94" y2="-91.44" width="0.1524" layer="91"/>
 <label x="256.54" y="-91.44" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="USB1" gate="G$1" pin="1"/>
+<wire x1="142.24" y1="-172.72" x2="142.24" y2="-200.66" width="0.1524" layer="91"/>
+<label x="142.24" y="-200.66" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="ENC1_A" class="0">
@@ -16583,8 +16587,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </segment>
 <segment>
 <pinref part="EXTSPI" gate="G$1" pin="3"/>
-<wire x1="114.3" y1="-190.5" x2="129.54" y2="-190.5" width="0.1524" layer="91"/>
-<label x="116.84" y="-190.5" size="1.778" layer="95"/>
+<wire x1="91.44" y1="-190.5" x2="109.22" y2="-190.5" width="0.1524" layer="91"/>
+<label x="93.98" y="-190.5" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="228.6" y1="-180.34" x2="243.84" y2="-180.34" width="0.1524" layer="91"/>
@@ -16600,8 +16604,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </segment>
 <segment>
 <pinref part="EXTSPI" gate="G$1" pin="4"/>
-<wire x1="114.3" y1="-187.96" x2="129.54" y2="-187.96" width="0.1524" layer="91"/>
-<label x="116.84" y="-187.96" size="1.778" layer="95"/>
+<wire x1="91.44" y1="-187.96" x2="109.22" y2="-187.96" width="0.1524" layer="91"/>
+<label x="93.98" y="-187.96" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SPI_A_MISO" class="0">
@@ -16611,8 +16615,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="-116.84" y="78.74" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="114.3" y1="-193.04" x2="129.54" y2="-193.04" width="0.1524" layer="91"/>
-<label x="116.84" y="-193.04" size="1.778" layer="95"/>
+<wire x1="91.44" y1="-193.04" x2="109.22" y2="-193.04" width="0.1524" layer="91"/>
+<label x="93.98" y="-193.04" size="1.778" layer="95"/>
 <pinref part="EXTSPI" gate="G$1" pin="2"/>
 </segment>
 <segment>
@@ -17602,8 +17606,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <pinref part="PWR" gate="G$1" pin="2"/>
 <pinref part="GND8" gate="1" pin="GND"/>
-<wire x1="114.3" y1="-233.68" x2="116.84" y2="-233.68" width="0.1524" layer="91"/>
-<wire x1="116.84" y1="-233.68" x2="116.84" y2="-238.76" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="-233.68" x2="93.98" y2="-233.68" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="-233.68" x2="93.98" y2="-238.76" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND12" gate="1" pin="GND"/>
@@ -17711,7 +17715,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <pinref part="P+2" gate="1" pin="+5V"/>
 <pinref part="PWR" gate="G$1" pin="1"/>
-<wire x1="114.3" y1="-231.14" x2="116.84" y2="-231.14" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="-231.14" x2="93.98" y2="-231.14" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="P+4" gate="1" pin="+5V"/>
@@ -18204,11 +18208,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="USB_H_VBUS" class="0">
 <segment>
-<wire x1="160.02" y1="-172.72" x2="160.02" y2="-198.12" width="0.1524" layer="91"/>
-<label x="160.02" y="-198.12" size="1.778" layer="95" rot="R90"/>
-<pinref part="ANG4" gate="G$1" pin="4"/>
-</segment>
-<segment>
 <pinref part="U9" gate="MIC2005" pin="VOUT"/>
 <label x="256.54" y="-76.2" size="1.778" layer="95"/>
 <wire x1="254" y1="-76.2" x2="271.78" y2="-76.2" width="0.1524" layer="91"/>
@@ -18217,6 +18216,11 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="-165.1" y1="15.24" x2="-182.88" y2="15.24" width="0.1524" layer="91"/>
 <label x="-177.8" y="15.24" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="2"/>
+</segment>
+<segment>
+<pinref part="USB" gate="G$1" pin="4"/>
+<wire x1="182.88" y1="-134.62" x2="182.88" y2="-149.86" width="0.1524" layer="91"/>
+<label x="182.88" y="-137.16" size="1.778" layer="95" rot="MR270"/>
 </segment>
 </net>
 <net name="A13_ENC_NCS" class="0">
@@ -18314,8 +18318,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <net name="A3_UART_TX" class="0">
 <segment>
 <pinref part="LGP1-5" gate="G$1" pin="3"/>
-<wire x1="114.3" y1="-208.28" x2="129.54" y2="-208.28" width="0.1524" layer="91"/>
-<label x="116.84" y="-208.28" size="1.778" layer="95"/>
+<wire x1="91.44" y1="-208.28" x2="109.22" y2="-208.28" width="0.1524" layer="91"/>
+<label x="93.98" y="-208.28" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="220.98" y1="20.32" x2="251.46" y2="20.32" width="0.1524" layer="91"/>
@@ -18325,8 +18329,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="GP7_ENC_CNG_RDY" class="0">
 <segment>
-<wire x1="129.54" y1="-223.52" x2="114.3" y2="-223.52" width="0.1524" layer="91"/>
-<label x="116.84" y="-223.52" size="1.778" layer="95"/>
+<wire x1="114.3" y1="-223.52" x2="91.44" y2="-223.52" width="0.1524" layer="91"/>
+<label x="93.98" y="-223.52" size="1.778" layer="95"/>
 <pinref part="LGP6-7" gate="G$1" pin="1"/>
 </segment>
 <segment>
@@ -18338,9 +18342,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <net name="+3V3" class="0">
 <segment>
 <pinref part="+3V3" gate="G$1" pin="+3V3"/>
-<wire x1="124.46" y1="-236.22" x2="124.46" y2="-231.14" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="-236.22" x2="101.6" y2="-231.14" width="0.1524" layer="91"/>
 <pinref part="PWR" gate="G$1" pin="3"/>
-<wire x1="114.3" y1="-236.22" x2="124.46" y2="-236.22" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="-236.22" x2="101.6" y2="-236.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="+3V5" gate="G$1" pin="+3V3"/>
@@ -18555,16 +18559,16 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="U8" gate="TLC5946" pin="GSCLK"/>
 </segment>
 <segment>
-<wire x1="114.3" y1="-220.98" x2="129.54" y2="-220.98" width="0.1524" layer="91"/>
-<label x="116.84" y="-220.98" size="1.778" layer="95"/>
+<wire x1="91.44" y1="-220.98" x2="114.3" y2="-220.98" width="0.1524" layer="91"/>
+<label x="93.98" y="-220.98" size="1.778" layer="95"/>
 <pinref part="LGP6-7" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="A5_OLED_CS" class="0">
 <segment>
 <pinref part="LGP1-5" gate="G$1" pin="1"/>
-<wire x1="114.3" y1="-213.36" x2="129.54" y2="-213.36" width="0.1524" layer="91"/>
-<label x="116.84" y="-213.36" size="1.778" layer="95"/>
+<wire x1="91.44" y1="-213.36" x2="109.22" y2="-213.36" width="0.1524" layer="91"/>
+<label x="93.98" y="-213.36" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="-175.26" y1="96.52" x2="-198.12" y2="96.52" width="0.1524" layer="91"/>
@@ -18575,35 +18579,13 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <net name="A1_OLED_DC" class="0">
 <segment>
 <pinref part="LGP1-5" gate="G$1" pin="5"/>
-<wire x1="114.3" y1="-203.2" x2="129.54" y2="-203.2" width="0.1524" layer="91"/>
-<label x="116.84" y="-203.2" size="1.778" layer="95"/>
+<wire x1="91.44" y1="-203.2" x2="109.22" y2="-203.2" width="0.1524" layer="91"/>
+<label x="93.98" y="-203.2" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="-175.26" y1="91.44" x2="-198.12" y2="91.44" width="0.1524" layer="91"/>
 <label x="-198.12" y="91.44" size="1.778" layer="95"/>
 <pinref part="X6" gate="-10" pin="1"/>
-</segment>
-</net>
-<net name="A14_TLC_BLANK" class="0">
-<segment>
-<wire x1="139.7" y1="-134.62" x2="139.7" y2="-154.94" width="0.1524" layer="91"/>
-<label x="139.7" y="-137.16" size="1.778" layer="95" rot="MR270"/>
-<pinref part="ANG3" gate="G$1" pin="3"/>
-</segment>
-<segment>
-<wire x1="134.62" y1="-5.08" x2="101.6" y2="-5.08" width="0.1524" layer="91"/>
-<label x="101.6" y="-5.08" size="1.778" layer="95"/>
-<pinref part="U8" gate="TLC5946" pin="BLANK"/>
-</segment>
-<segment>
-<wire x1="134.62" y1="76.2" x2="101.6" y2="76.2" width="0.1524" layer="91"/>
-<label x="101.6" y="76.2" size="1.778" layer="95"/>
-<pinref part="U7" gate="TLC5946" pin="BLANK"/>
-</segment>
-<segment>
-<pinref part="U3" gate="TLC5946" pin="BLANK"/>
-<wire x1="134.62" y1="157.48" x2="101.6" y2="157.48" width="0.1524" layer="91"/>
-<label x="101.6" y="157.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A17_TLC_MODE" class="0">
@@ -18684,8 +18666,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <net name="SPI_A_MOSI" class="0">
 <segment>
 <pinref part="EXTSPI" gate="G$1" pin="1"/>
-<wire x1="114.3" y1="-195.58" x2="129.54" y2="-195.58" width="0.1524" layer="91"/>
-<label x="116.84" y="-195.58" size="1.778" layer="95"/>
+<wire x1="91.44" y1="-195.58" x2="109.22" y2="-195.58" width="0.1524" layer="91"/>
+<label x="93.98" y="-195.58" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U1" gate="-SERIAL" pin="DIN"/>
@@ -18693,11 +18675,71 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="-116.84" y="86.36" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="A12_SPI_B_MOSI" class="0">
+<net name="B15" class="0">
 <segment>
-<pinref part="ANG3" gate="G$1" pin="1"/>
-<wire x1="144.78" y1="-134.62" x2="144.78" y2="-154.94" width="0.1524" layer="91"/>
-<label x="144.78" y="-137.16" size="1.778" layer="95" rot="MR270"/>
+<wire x1="137.16" y1="-172.72" x2="137.16" y2="-182.88" width="0.1524" layer="91"/>
+<label x="137.16" y="-182.88" size="1.778" layer="95" rot="R90"/>
+<pinref part="USB1" gate="G$1" pin="3"/>
+</segment>
+</net>
+<net name="B16_TLC_BLANK" class="0">
+<segment>
+<wire x1="134.62" y1="-172.72" x2="134.62" y2="-193.04" width="0.1524" layer="91"/>
+<label x="134.62" y="-193.04" size="1.778" layer="95" rot="R90"/>
+<pinref part="USB1" gate="G$1" pin="4"/>
+</segment>
+<segment>
+<wire x1="134.62" y1="-5.08" x2="101.6" y2="-5.08" width="0.1524" layer="91"/>
+<label x="101.6" y="-5.08" size="1.778" layer="95"/>
+<pinref part="U8" gate="TLC5946" pin="BLANK"/>
+</segment>
+<segment>
+<wire x1="134.62" y1="76.2" x2="101.6" y2="76.2" width="0.1524" layer="91"/>
+<label x="101.6" y="76.2" size="1.778" layer="95"/>
+<pinref part="U7" gate="TLC5946" pin="BLANK"/>
+</segment>
+<segment>
+<pinref part="U3" gate="TLC5946" pin="BLANK"/>
+<wire x1="134.62" y1="157.48" x2="101.6" y2="157.48" width="0.1524" layer="91"/>
+<label x="101.6" y="157.48" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="B17" class="0">
+<segment>
+<wire x1="132.08" y1="-172.72" x2="132.08" y2="-182.88" width="0.1524" layer="91"/>
+<label x="132.08" y="-182.88" size="1.778" layer="95" rot="R90"/>
+<pinref part="USB1" gate="G$1" pin="5"/>
+</segment>
+</net>
+<net name="A4_UART_RX" class="0">
+<segment>
+<pinref part="LGP1-5" gate="G$1" pin="2"/>
+<wire x1="91.44" y1="-210.82" x2="109.22" y2="-210.82" width="0.1524" layer="91"/>
+<label x="93.98" y="-210.82" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="220.98" y1="15.24" x2="251.46" y2="15.24" width="0.1524" layer="91"/>
+<label x="233.68" y="15.24" size="1.778" layer="95"/>
+<pinref part="BUS1" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="A2_OLED_RST" class="0">
+<segment>
+<pinref part="LGP1-5" gate="G$1" pin="4"/>
+<wire x1="91.44" y1="-205.74" x2="109.22" y2="-205.74" width="0.1524" layer="91"/>
+<label x="93.98" y="-205.74" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="-175.26" y1="93.98" x2="-198.12" y2="93.98" width="0.1524" layer="91"/>
+<label x="-198.12" y="93.98" size="1.778" layer="95"/>
+<pinref part="X6" gate="-9" pin="1"/>
+</segment>
+</net>
+<net name="B4_SPI_B_MOSI" class="0">
+<segment>
+<wire x1="127" y1="-210.82" x2="142.24" y2="-210.82" width="0.1524" layer="91"/>
+<pinref part="LGP6-1" gate="G$1" pin="2"/>
+<label x="129.54" y="-210.82" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U3" gate="TLC5946" pin="SIN"/>
@@ -18710,39 +18752,11 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="X6" gate="-14" pin="1"/>
 </segment>
 </net>
-<net name="B14_SPI_B_MISO" class="0">
+<net name="B5_SPI_B_CLK" class="0">
 <segment>
-<wire x1="139.7" y1="-172.72" x2="139.7" y2="-193.04" width="0.1524" layer="91"/>
-<label x="139.7" y="-193.04" size="1.778" layer="95" rot="R90"/>
-<pinref part="USB1" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="B15" class="0">
-<segment>
-<wire x1="137.16" y1="-172.72" x2="137.16" y2="-182.88" width="0.1524" layer="91"/>
-<label x="137.16" y="-182.88" size="1.778" layer="95" rot="R90"/>
-<pinref part="USB1" gate="G$1" pin="3"/>
-</segment>
-</net>
-<net name="B16" class="0">
-<segment>
-<wire x1="134.62" y1="-172.72" x2="134.62" y2="-182.88" width="0.1524" layer="91"/>
-<label x="134.62" y="-182.88" size="1.778" layer="95" rot="R90"/>
-<pinref part="USB1" gate="G$1" pin="4"/>
-</segment>
-</net>
-<net name="B17" class="0">
-<segment>
-<wire x1="132.08" y1="-172.72" x2="132.08" y2="-182.88" width="0.1524" layer="91"/>
-<label x="132.08" y="-182.88" size="1.778" layer="95" rot="R90"/>
-<pinref part="USB1" gate="G$1" pin="5"/>
-</segment>
-</net>
-<net name="B13_SPI_B_CLK" class="0">
-<segment>
-<wire x1="142.24" y1="-172.72" x2="142.24" y2="-193.04" width="0.1524" layer="91"/>
-<label x="142.24" y="-193.04" size="1.778" layer="95" rot="R90"/>
-<pinref part="USB1" gate="G$1" pin="1"/>
+<wire x1="127" y1="-213.36" x2="142.24" y2="-213.36" width="0.1524" layer="91"/>
+<pinref part="LGP6-1" gate="G$1" pin="1"/>
+<label x="129.54" y="-213.36" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="134.62" y1="88.9" x2="101.6" y2="88.9" width="0.1524" layer="91"/>
@@ -18765,28 +18779,17 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="X6" gate="-13" pin="1"/>
 </segment>
 </net>
-<net name="A4_UART_RX" class="0">
+<net name="B14" class="0">
 <segment>
-<pinref part="LGP1-5" gate="G$1" pin="2"/>
-<wire x1="114.3" y1="-210.82" x2="129.54" y2="-210.82" width="0.1524" layer="91"/>
-<label x="116.84" y="-210.82" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="220.98" y1="15.24" x2="251.46" y2="15.24" width="0.1524" layer="91"/>
-<label x="233.68" y="15.24" size="1.778" layer="95"/>
-<pinref part="BUS1" gate="G$1" pin="1"/>
+<pinref part="USB1" gate="G$1" pin="2"/>
+<wire x1="139.7" y1="-172.72" x2="139.7" y2="-182.88" width="0.1524" layer="91"/>
+<label x="139.7" y="-182.88" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="A2_OLED_RST" class="0">
+<net name="USB_D_ID" class="0">
 <segment>
-<pinref part="LGP1-5" gate="G$1" pin="4"/>
-<wire x1="114.3" y1="-205.74" x2="129.54" y2="-205.74" width="0.1524" layer="91"/>
-<label x="116.84" y="-205.74" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="-175.26" y1="93.98" x2="-198.12" y2="93.98" width="0.1524" layer="91"/>
-<label x="-198.12" y="93.98" size="1.778" layer="95"/>
-<pinref part="X6" gate="-9" pin="1"/>
+<wire x1="162.56" y1="-172.72" x2="162.56" y2="-198.12" width="0.1524" layer="91"/>
+<label x="162.56" y="-198.12" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 </nets>
