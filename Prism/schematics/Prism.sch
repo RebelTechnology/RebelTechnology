@@ -14658,8 +14658,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="OUTL" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
-<part name="ENCA" library="Rebel" deviceset="EC12E2424407" device=""/>
-<part name="ENCB" library="Rebel" deviceset="EC12E2424407" device=""/>
+<part name="ENC1" library="Rebel" deviceset="EC12E2424407" device=""/>
+<part name="ENC2" library="Rebel" deviceset="EC12E2424407" device=""/>
 <part name="R501" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
 <part name="R504" library="Rebel" deviceset="R-EU_" device="0603" value="22k"/>
 <part name="R505" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
@@ -14876,11 +14876,11 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <plain>
 </plain>
 <instances>
-<instance part="ENCA" gate="G$1" x="35.56" y="307.34"/>
-<instance part="ENCB" gate="G$1" x="35.56" y="251.46"/>
-<instance part="ENCA" gate="G$2" x="35.56" y="322.58" rot="R270"/>
-<instance part="ENCA" gate="G$3" x="53.34" y="307.34"/>
-<instance part="ENCB" gate="G$2" x="35.56" y="266.7" rot="R270"/>
+<instance part="ENC1" gate="G$1" x="35.56" y="307.34"/>
+<instance part="ENC2" gate="G$1" x="35.56" y="251.46"/>
+<instance part="ENC1" gate="G$2" x="35.56" y="322.58" rot="R270"/>
+<instance part="ENC1" gate="G$3" x="53.34" y="307.34"/>
+<instance part="ENC2" gate="G$2" x="35.56" y="266.7" rot="R270"/>
 <instance part="IC7" gate="G$1" x="104.14" y="322.58"/>
 <instance part="R122" gate="G$1" x="104.14" y="297.18" rot="R90"/>
 <instance part="R121" gate="G$1" x="116.84" y="314.96" rot="R90"/>
@@ -14909,7 +14909,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="GND88" gate="1" x="48.26" y="317.5"/>
 <instance part="JP5" gate="G$1" x="25.4" y="210.82" rot="R180"/>
 <instance part="JP11" gate="G$1" x="121.92" y="215.9" rot="R180"/>
-<instance part="ENCB" gate="G$3" x="53.34" y="251.46"/>
+<instance part="ENC2" gate="G$3" x="53.34" y="251.46"/>
 <instance part="GND9" gate="1" x="48.26" y="259.08"/>
 <instance part="JP10" gate="G$1" x="81.28" y="210.82" rot="R180"/>
 <instance part="U$1" gate="G$1" x="172.72" y="261.62"/>
@@ -14974,12 +14974,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="15.24" y1="289.56" x2="15.24" y2="292.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="ENCA" gate="G$3" pin="P$1"/>
+<pinref part="ENC1" gate="G$3" pin="P$1"/>
 <pinref part="GND69" gate="1" pin="GND"/>
 <wire x1="53.34" y1="289.56" x2="53.34" y2="302.26" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="ENCA" gate="G$1" pin="C"/>
+<pinref part="ENC1" gate="G$1" pin="C"/>
 <pinref part="GND70" gate="1" pin="GND"/>
 <wire x1="45.72" y1="307.34" x2="48.26" y2="307.34" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="307.34" x2="48.26" y2="289.56" width="0.1524" layer="91"/>
@@ -14995,13 +14995,13 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="22.86" y1="233.68" x2="22.86" y2="236.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="ENCB" gate="G$1" pin="C"/>
+<pinref part="ENC2" gate="G$1" pin="C"/>
 <pinref part="GND72" gate="1" pin="GND"/>
 <wire x1="45.72" y1="251.46" x2="48.26" y2="251.46" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="251.46" x2="48.26" y2="233.68" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="ENCA" gate="G$2" pin="S"/>
+<pinref part="ENC1" gate="G$2" pin="S"/>
 <pinref part="GND88" gate="1" pin="GND"/>
 <wire x1="40.64" y1="322.58" x2="48.26" y2="322.58" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="322.58" x2="48.26" y2="320.04" width="0.1524" layer="91"/>
@@ -15017,13 +15017,13 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="JP11" gate="G$1" pin="3"/>
 </segment>
 <segment>
-<pinref part="ENCB" gate="G$2" pin="S"/>
+<pinref part="ENC2" gate="G$2" pin="S"/>
 <pinref part="GND9" gate="1" pin="GND"/>
 <wire x1="40.64" y1="266.7" x2="48.26" y2="266.7" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="266.7" x2="48.26" y2="261.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="ENCB" gate="G$3" pin="P$1"/>
+<pinref part="ENC2" gate="G$3" pin="P$1"/>
 <pinref part="GND71" gate="1" pin="GND"/>
 <wire x1="53.34" y1="246.38" x2="53.34" y2="233.68" width="0.1524" layer="91"/>
 </segment>
@@ -15228,7 +15228,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="99.06" y="218.44" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="ENCB" gate="G$2" pin="P"/>
+<pinref part="ENC2" gate="G$2" pin="P"/>
 <wire x1="30.48" y1="266.7" x2="0" y2="266.7" width="0.1524" layer="91"/>
 <label x="0" y="266.7" size="1.778" layer="95"/>
 </segment>
@@ -15302,7 +15302,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="TOP_SWENC_B" class="0">
 <segment>
-<pinref part="ENCA" gate="G$1" pin="B"/>
+<pinref part="ENC1" gate="G$1" pin="B"/>
 <pinref part="C1" gate="G$1" pin="2"/>
 <wire x1="25.4" y1="302.26" x2="22.86" y2="302.26" width="0.1524" layer="91"/>
 <wire x1="22.86" y1="302.26" x2="22.86" y2="299.72" width="0.1524" layer="91"/>
@@ -15318,7 +15318,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="TOP_SWENC_A" class="0">
 <segment>
-<pinref part="ENCA" gate="G$1" pin="A"/>
+<pinref part="ENC1" gate="G$1" pin="A"/>
 <pinref part="C2" gate="G$1" pin="2"/>
 <wire x1="25.4" y1="312.42" x2="15.24" y2="312.42" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="312.42" x2="15.24" y2="299.72" width="0.1524" layer="91"/>
@@ -15334,7 +15334,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="TOP_ENC_B" class="0">
 <segment>
-<pinref part="ENCB" gate="G$1" pin="B"/>
+<pinref part="ENC2" gate="G$1" pin="B"/>
 <pinref part="C3" gate="G$1" pin="2"/>
 <wire x1="25.4" y1="246.38" x2="22.86" y2="246.38" width="0.1524" layer="91"/>
 <wire x1="22.86" y1="246.38" x2="22.86" y2="243.84" width="0.1524" layer="91"/>
@@ -15350,7 +15350,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="TOP_ENC_A" class="0">
 <segment>
-<pinref part="ENCB" gate="G$1" pin="A"/>
+<pinref part="ENC2" gate="G$1" pin="A"/>
 <pinref part="C4" gate="G$1" pin="2"/>
 <wire x1="25.4" y1="256.54" x2="15.24" y2="256.54" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="256.54" x2="15.24" y2="243.84" width="0.1524" layer="91"/>
@@ -15377,7 +15377,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </net>
 <net name="TOP_SW1" class="0">
 <segment>
-<pinref part="ENCA" gate="G$2" pin="P"/>
+<pinref part="ENC1" gate="G$2" pin="P"/>
 <wire x1="30.48" y1="322.58" x2="0" y2="322.58" width="0.1524" layer="91"/>
 <label x="0" y="322.58" size="1.778" layer="95"/>
 </segment>

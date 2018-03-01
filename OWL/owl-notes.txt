@@ -87,3 +87,12 @@ Regular conversion launched by software.
 DMA Request Settings: Circular, memory increment, Data Width Half Word
 
 -----------------------------------------------------------------
+
+OpenWare OwlPedal Feb 2018
+
+add EXTI config for button
+add LED config
+
+set volume : 120 appears to be unity gain
+
+-----------------------------------------------------------------

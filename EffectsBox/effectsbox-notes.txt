@@ -119,3 +119,34 @@ EN - Rotary Optical Encoder
 +5v supply voltage
 
 -------------------------------------------------------
+
+BPM detection
+
+https://aubio.org/
+
+http://www.vamp-plugins.org/download.html
+
+https://code.soundsoftware.ac.uk/projects/beatroot-vamp
+https://code.soundsoftware.ac.uk/projects/beatroot
+
+Aubio Beat Tracker
+Time → Tempo
+Estimate the musical tempo and track beat positions.
+
+https://aubio.org/doc/0.4.0/
+https://aubio.org/doc/0.4.0/tempo_8h.html
+https://github.com/aubio/aubio/tree/master/src/tempo
+
+https://github.com/cjcliffe/beatdetektor/blob/master/js/beatdetektor.js
+https://github.com/cjcliffe/beatdetektor/tree/master/cpp
+
+
+https://github.com/adamstark/BTrack
+
+http://www.eecs.qmul.ac.uk/~simond/pub/2007/jnmr07.pdf
+
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.332.989&rep=rep1&type=pdf
+
+-------------------------------------------------------
+
+Triple Clock Generator

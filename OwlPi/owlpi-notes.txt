@@ -1,0 +1,189 @@
+
+----------------------------------------------------------------
+
+BCM2835 processor, 512Mbyte of RAM, 4Gbyte eMMC Flash
+
+67.6x30mm board which fits into a standard DDR2 SODIMM 
+
+----------------------------------------------------------------
+
+unit cost of around $30 in batches of 100
+
+----------------------------------------------------------------
+
+The PAM2306 is a dual step-down current-mode, DC-DC converter
+
+The PAM2306 supports a range of input voltages from 2.5V to 5.5V, allowing the use of a single Li+/Li-polymer cell, multiple Alkaline/NiMH cell, USB, and other standard power sources. The dual output voltages are available for 3.3V, 2.8V, 2.5V, 1.8V, 1.5V, 1.2V or adjustable.
+
+input: 5v
+outputs: 3v3 and 1v8
+
+on io board
+
+----------------------------------------------------------------
+
+The AP7115 is a 150mA, fixed output voltage, low dropout linear regulator. 
+
+The device includes pass element, error amplifier, band gap reference, current-limit and thermal shutdown circuit. The characteristics of low dropout voltage and low quiescent current make it suitable for use in battery powered devices.
+
+input: 3v3
+output: 2v5 (DAC_2V5)
+
+on io board
+
+----------------------------------------------------------------
+
+KLM4G1FEAC
+Flash Card 4G-byte 5V MultiMedia Card FBGA
+eMMC multimediacard
+
+on module
+
+----------------------------------------------------------------
+
+NC7SB3157P6X
+Analogue Switch SPDT, 1.65/5.5V, 10R, 250MHZ
+for eMMC disable
+
+on module
+
+
+----------------------------------------------------------------
+
+BCM2835 ARM Peripherals pdf p.119
+
+The PCM audio interface is an APB peripheral providing input and output of telephony or high quality serial audio streams. It supports many classic PCM formats including I2S.
+The PCM audio interface has 4 interface signals; PCM_CLK - bit clock.
+PCM_FS - frame sync signal. PCM_DIN - serial data input. PCM_DOUT - serial data output.
+PCM is a serial format with a single bit data_in and single bit data_out. Data is always serialised MS-bit first.
+The frame sync signal (PCM_FS) is used to delimit the serial data into individual frames. The length of the frame and the size and position of the frame sync are fully programmable.
+Frames can contain 1 or 2 audio/data channels in each direction. Each channel can be between 8 and 32 bits wide and can be positioned anywhere within the frame as long as the two channels don’t overlap. The channel format is separately programmable for transmit and receive directions.
+
+The PCM_CLK can be asynchronous to the bus APB clock and can be logically inverted if required.
+The direction of the PCM_CLK and PCM_FS signals can be individually selected, allowing the interface to act as a master or slave device.
+
+The PCM audio interface contains separate transmit and receive FIFOs. Note that if the frame contains two data channels, they must share the same FIFO and so the channel data will be interleaved. The block can be driven using simple polling, an interrupt based method or direct DMA control.
+
+Normally PCM output signals change on the rising edge of PCM_CLK and input signals are sampled on its falling edge. The frame sync is considered as a data signal and sampled in the same way.
+The front end of the PCM audio interface is run off the PCM_CLK and the PCM signals are timed against this clock. However, the polarity of the PCM_CLK can be physically inverted, in which case the edges are reversed.
+In clock master mode (CLKM=0), the PCM_CLK is an output and is driven from the PCM_MCLK clock input.
+In clock slave mode (CLKM=1), the PCM_CLK is an input, supplied by some external clock source.
+
+In frame sync master mode (FSM=0), the PCM_FS is internally generated and is treated as a data output that changes on the positive edge of the clock. The length and polarity of the frame sync is fully programmable and it can be used as a standard frame sync signal, or as an L-R signal for I2S.
+In frame sync slave mode (FSM=1), the PCM_FS is treated as a data input and is sampled on the negative edge of PCM_CLK. The first clock of a frame is taken as the first clock period where PCM_FS is sampled as a 1 following a period or periods where it was previously a 0. The PCM audio interface locks onto the incoming frame sync and uses this to indicate where the data channels are positioned. The precise timing at the start of frame is shown in Figure 8-3.
+
+Note that in frame sync slave mode there are two synchronising methods. The legacy method is used when the frame length = 0. In this case the internal frame logic has to detect the incoming PCM_FS signal and reset the internal frame counter at the start of every frame. The logic relies on the PCM_FS to indicate the length of the frame and so can cope with adjacent frames of different lengths. However, this creates a short timing path that will corrupt the PCM_DOUT for one specific frame/channel setting.
+
+The preferred method is to set the frame length to the expected length. Here the incoming PCM_FS is used to resynchronise the internal frame counter and this eliminates the short timing path.
+
+----------------------------------------------------------------
+
+C library for Broadcom BCM 2835 as used in Raspberry Pi
+http://www.airspayce.com/mikem/bcm2835/
+
+----------------------------------------------------------------
+
+This is a tutorial on bare-metal [OS] development on the Raspberry Pi
+
+http://wiki.osdev.org/ARM_RaspberryPi_Tutorial_C
+
+----------------------------------------------------------------
+
+Raspberry PI barebones kernel
+https://github.com/ztane/rpi-barebones
+
+----------------------------------------------------------------
+
+Step01 – Bare Metal Programming in C Pt1
+http://www.valvers.com/embedded-linux/raspberry-pi/step01-bare-metal-programming-in-cpt1
+
+----------------------------------------------------------------
+
+I2S Audio Support for Raspberry Pi
+http://blog.koalo.de/2013/05/i2s-support-for-raspberry-pi.html
+
+----------------------------------------------------------------
+
+brcm,pins = <28 29 30 31>;
+
+SPI SCK -> BCLK -> P5-03 PCM_CLK 
+SPI MOSI -> DACDAT -> P5-06 PCM_DOUT
+SPI MISO -> ADCDAT -> P5-05 PCM_DIN
+SPI SS -> LRC -> P5-04 PCM_FS 
+
+SCL -> P1-05 SCL
+SDA -> P1-03 SDA
+
+----------------------------------------------------------------
+
+RPi BCM2835 GPIOs
+http://elinux.org/RPi_BCM2835_GPIOs
+
+PCM_CLK		GPIO28 / GPIO18
+PCM_FS		GPIO29 / GPIO19
+PCM_DIN		GPIO30 / GPIO20
+PCM_DOUT	GPIO31 / GPIO21
+
+SPI0_CE1_N	GPIO07
+SPI0_CE0_N	GPIO08
+SPI0_MISO	GPIO09
+SPI0_MOSI	GPIO10
+SPI0_SCLK	GPIO11
+
+TXD0/1		GPIO14
+RXD0/1		GPIO15
+RTS0/1		GPIO17
+CTS0/1		GPIO16
+
+SDA1		GPIO2
+SCL1		GPIO3
+
+SDA0		GPIO0/GPIO28
+SCL0		GPIO1/GPIO29
+
+----------------------------------------------------------------
+
+requirements:
+- 1.8v / 3.3v power
+- I2S / codec
+- JTAG
+- USART
+- 4x / 5x ADC (add 12-bit ADC chip)
+- 2x switch/gpio
+
+----------------------------------------------------------------
+
+http://www.mikroe.com/add-on-boards/audio-voice/audio-codec-proto/
+
+----------------------------------------------------------------
+
+RPi BCM2835 GPIOs
+http://elinux.org/RPi_BCM2835_GPIOs
+
+----------------------------------------------------------------
+
+GPIO Electrical Specifications
+Raspberry Pi input and output pin voltage and current capability
+
+http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications
+
+----------------------------------------------------------------
+
+Adafruit 4 Channel I2C 12-Bit Analogue to Digital Converter (ADC)
+https://www.modmypi.com/adafruit-4-channel-i2c-12-bit-adc
+
+----------------------------------------------------------------
+
+MCP3208 8ch 12bit ADC, 2.7-5.5v, 100kSPS, SOIC-16
+MCP3204 4ch
+
+AD7924 4ch 12bit ADC, 1MSPS
+AD7888 12BIT ADC, 8CH, SERIAL, 16TSSOP, 125kSPS (farnell £4.73 @100)
+ADS7844 12BIT ADC, 8CH, SMD, 7844, QSOP20, 200kSPS (farnell £3.79 @100)
+
+----------------------------------------------------------------
+
+Raspberry Pi Serial Communication (UART / I2C / SPI)
+http://jeffskinnerbox.wordpress.com/2012/12/05/raspberry-pi-serial-communication/
+
+----------------------------------------------------------------

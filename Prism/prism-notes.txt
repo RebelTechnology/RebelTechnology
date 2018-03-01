@@ -531,3 +531,29 @@ OpenWare 23/10/2017
 
 ---------------------------------------------------------------------------------
 
+Prism Rev04
+b1, b2, b3 working (8MHz crystal setting fixes USB)
+
+---------------------------------------------------------------------------------
+
+Hot bar soldering station
+Aoyue 8011 Hot Bar Soldering Station £3,106.23
+https://www.pcb-soldering.co.uk/aoyue-8011-automated-hot-bar-soldering-system.html
+
+http://www.amadamiyachieurope.com/products/hot-bar/
+
+PULSED-HEAT HOT-BAR REFLOW SOLDERING
+A high-quality Selective Soldering Technique
+http://uk.rs-online.com/webdocs/09bc/0900766b809bceae.pdf
+
+Hot-Bar Soldering
+Attaching Flex Circuits Directly To Rigid Boards
+http://www.flexdude.com/Back%20Issues/FCN11-00A.PDF
+
+SUNKKO 301 Omnipotent Working Stand
+
+AOYUE 8001 Hot Bar Soldering Station
+http://www.aoyue3d.com/en/pro/default.asp?id=92
+
+---------------------------------------------------------------------------------
+
