@@ -15888,9 +15888,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="236.22" y="30.48" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<wire x1="269.24" y1="124.46" x2="279.4" y2="124.46" width="0.1524" layer="91"/>
-<label x="271.78" y="124.46" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$3" pin="PG10"/>
+<wire x1="228.6" y1="119.38" x2="238.76" y2="119.38" width="0.1524" layer="91"/>
+<label x="228.6" y="119.38" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$3" pin="PD2"/>
 </segment>
 </net>
 <net name="A13" class="0">
@@ -16032,9 +16032,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="248.92" y="2.54" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<wire x1="269.24" y1="83.82" x2="279.4" y2="83.82" width="0.1524" layer="91"/>
-<label x="271.78" y="83.82" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$3" pin="PC7"/>
+<wire x1="269.24" y1="81.28" x2="279.4" y2="81.28" width="0.1524" layer="91"/>
+<label x="271.78" y="81.28" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$3" pin="PC8"/>
 </segment>
 </net>
 <net name="B8" class="0">
@@ -16196,7 +16196,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <approved hash="113,1,232.215,41.3173,JP3,,,,,"/>
 <approved hash="113,1,253.805,41.3173,JP4,,,,,"/>
 <approved hash="113,1,275.785,41.3173,JP7,,,,,"/>
-<approved hash="113,1,189.823,-12.5053,JP8,,,,,"/>
 <approved hash="113,1,189.823,-34.0953,JP10,,,,,"/>
 <approved hash="113,1,189.823,-62.0353,JP2,,,,,"/>
 <approved hash="113,1,245.11,-58.9026,JP5,,,,,"/>
@@ -16206,6 +16205,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <approved hash="113,1,230.945,13.3773,JP12,,,,,"/>
 <approved hash="113,1,210.625,13.3773,JP9,,,,,"/>
 <approved hash="113,1,212.683,-36.6353,JP13,,,,,"/>
+<approved hash="113,1,189.823,-13.7753,JP15,,,,,"/>
 </errors>
 </schematic>
 </drawing>
