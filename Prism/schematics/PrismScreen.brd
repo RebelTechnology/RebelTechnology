@@ -172,6 +172,8 @@
 <text x="3.555" y="44.735" size="1.6764" layer="21" font="vector">Rebel Technology</text>
 <text x="27.94" y="44.45" size="1.6764" layer="22" font="vector" rot="MR0">Rebel Technology</text>
 <text x="27.94" y="42.545" size="1.6764" layer="22" font="vector" rot="MR0">Prism Top Rev04</text>
+<dimension x1="0.9525" y1="68.67" x2="0.9525" y2="0.635" x3="-1.27" y3="34.6525" textsize="1.27" layer="47"/>
+<dimension x1="29.365" y1="68.67" x2="0.9525" y2="68.67" x3="15.15875" y3="71.12" textsize="1.27" layer="47"/>
 </plain>
 <libraries>
 <library name="Rebel">
