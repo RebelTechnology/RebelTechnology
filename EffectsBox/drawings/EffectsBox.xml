@@ -15,8 +15,8 @@
   <pot x="0.0" y="-0.25"/>
   
   <!-- toggles -->
-  <hole x="-1.00" y="0.00" radius="2.4"/>
-  <hole x="-1.00" y="-0.50" radius="2.4"/>
+  <hole x="-1.00" y="0.00" radius="3.1"/>
+  <hole x="-1.00" y="-0.50" radius="3.1"/>
 
   <!-- buttons -->
   <hole x="1.0" y="-0.25" radius="4.60"/>
