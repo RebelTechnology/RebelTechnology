@@ -175,5 +175,4 @@ PTD901-2015K-B103
 
 CLK is a triple clock generator. It comprises of a master clock and two dual function multiplier/dividers. Turn clockwise to multiply, anti-clockwise to divide. The outputs are always perfectly synced. Use it to feed several trigger sequencers or to directly generate instant 'four on the floor' style patterns.
 
-
 -------------------------------------------------------
