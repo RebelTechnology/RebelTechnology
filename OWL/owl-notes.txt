@@ -95,4 +95,50 @@ add LED config
 
 set volume : 120 appears to be unity gain
 
+
+OwlWare
+DMA_MemoryDataSize_HalfWord, DMA_PeripheralDataSize_HalfWord
+I2S_DataFormat_24b
+WM8731_FORMAT_I2S
+WM8731_IWL_16BIT
+
+
+works with input signal 1.56Vpp,
+split16: min/max -0.99 0.00
+
+memcpy works with bs*2*3*sizeof(int32)
+
+split24/comb24 Gain perfect with HAL_I2SEx_TransmitReceive_DMA Size=170 (128*3/2)
+min/max 0.00 1.99
+min/max 0.00 0.00
+SimpleSine terrible
+
+
+works: Size=768, memcpy: pv->audio_blocksize*4*6
+works: Size=768, memcpy: pv->audio_blocksize*4*4
+
+works: Size=512, memcpy: pv->audio_blocksize*2*6
+works: Size=512, memcpy: pv->audio_blocksize*2*4
+
+works: Size=512, memcpy 1024 (not 768)
+
+
+fixed double callback in I2SEx library
+
+OwlWare firmware works with split/comb24 as well as 16. 
+	comb16 doesn't need saturation
+        split/comb 24 performs slightly ~1% worse. needs saturation.
+
+OpenWare firmware works the same
+ SimpleSine full range output gain = 0.92 2.84Vpp left 1.6Vpp right (same on codec outputs)
+ (slight clip on bottom of sine)
+
+-----------------------------------------------------------------
+
+OwlBoot:
+- configured from MicroLab / OWL2 setup
+- USB wrong for STM32F40
+
+OpenWare OwlPedal firmware not working with classic bootloader
+
 -----------------------------------------------------------------

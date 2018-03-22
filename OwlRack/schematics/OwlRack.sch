@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -15763,21 +15763,21 @@ naming: grid - package width</description>
 <part name="JP8" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="JP11" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="JP12" library="SparkFun" deviceset="M04" device="PTH"/>
-<part name="R508" library="Rebel" deviceset="R-EU_" device="0204/7" value="91R"/>
-<part name="R503" library="Rebel" deviceset="R-EU_" device="0204/7" value="91R"/>
+<part name="R508" library="Rebel" deviceset="R-EU_" device="0204/7" value="100R"/>
+<part name="R503" library="Rebel" deviceset="R-EU_" device="0204/7" value="100R"/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="P+6" library="supply1" deviceset="+12V" device=""/>
 <part name="P-1" library="supply1" deviceset="-12V" device=""/>
-<part name="R501" library="Rebel" deviceset="R-EU_" device="0204/7" value="10k"/>
-<part name="R504" library="Rebel" deviceset="R-EU_" device="0204/7" value="10k"/>
-<part name="R505" library="Rebel" deviceset="R-EU_" device="0204/7" value="10k"/>
-<part name="R502" library="Rebel" deviceset="R-EU_" device="0204/7" value="10k"/>
+<part name="R501" library="Rebel" deviceset="R-EU_" device="0204/7" value="100k"/>
+<part name="R504" library="Rebel" deviceset="R-EU_" device="0204/7" value="100k"/>
+<part name="R505" library="Rebel" deviceset="R-EU_" device="0204/7" value="DNP"/>
+<part name="R502" library="Rebel" deviceset="R-EU_" device="0204/7" value="100k"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
-<part name="R506" library="Rebel" deviceset="R-EU_" device="0204/7" value="10k"/>
-<part name="R509" library="Rebel" deviceset="R-EU_" device="0204/7" value="10k"/>
-<part name="R510" library="Rebel" deviceset="R-EU_" device="0204/7" value="10k"/>
-<part name="R507" library="Rebel" deviceset="R-EU_" device="0204/7" value="10k"/>
+<part name="R506" library="Rebel" deviceset="R-EU_" device="0204/7" value="100k"/>
+<part name="R509" library="Rebel" deviceset="R-EU_" device="0204/7" value="100k"/>
+<part name="R510" library="Rebel" deviceset="R-EU_" device="0204/7" value="DNP"/>
+<part name="R507" library="Rebel" deviceset="R-EU_" device="0204/7" value="100k"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="IC5" library="linear" deviceset="NE5532" device="N" value="NE5532N"/>
 <part name="IC2" library="ic-package" deviceset="DIL8" device="" value="THAT1646"/>

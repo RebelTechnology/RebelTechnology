@@ -103,7 +103,8 @@ Panasonic EVW-AE4001B14 (mouser £0.948 @100)
 -------------------------------------------------------
 
 Rev01 changes / todo
-- MCP1416 supply voltage range: 4.5 to 18v. Change to 5v VDD.
+- MCP1416 supply voltage range: 4.5 to 18v. Change MCP1416 VDD from 3.3v to 5v.
+- add 5-pin encoder headers
 
 -------------------------------------------------------
 
@@ -148,7 +149,6 @@ http://www.eecs.qmul.ac.uk/~simond/pub/2007/jnmr07.pdf
 http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.332.989&rep=rep1&type=pdf
 
 
-
 http://mziccard.me/2015/05/28/beats-detection-algorithms-1/
 
 https://github.com/mziccard/scala-audio-file
@@ -165,8 +165,34 @@ The algorithm computes the tempoHistogram map and selects as the track’s tempo
 Seven Band Graphic Equalizer MSGEQ7
 The seven band graphic equalizer IC is a CMOS chip that divides the audio spectrum into seven bands,. 63Hz, 160Hz, 400Hz, 1kHz, 2.5kHz, 6.25kHz and. 16kHz. The seven frequencies are peak detected and multiplexed to the output to provide a DC repre- sentation of the amplitude of each band.
 
-
 http://damian.pecke.tt/beat-detection-on-the-arduino
+
+
+http://mykal.free.fr/synthesis/detectrythm.pdf
+https://github.com/giuliomoro/gmOwlPatches/commit/fdfc1c2e9beecca72ee1a7cb09e6cae9d3a87896
 
 -------------------------------------------------------
 
+power consumption, James' firmware, no balanced io: 220mA @ 7.5V DC
+with io connected: 400mA, 12v reading 8.50V, -12v at -5.8V.
+with input disconnected: 380mA
+
+With MiniDC2 strip board:
+-11.4 / +12.3 / +5v
+220mA @ 7.5V
++12v regulator latches / shorts when not enough inrush supply
+
+-------------------------------------------------------
+
+Encoders
+ENC1 A/B  TIM4_CH1/2
+ENC2 A/B  TIM2_CH1/2
+
+SW1_6_PWM TIM11_CH1
+SW7_PWM   TIM1_CH1
+
+OLED 	  SPI5
+
+toggles TSW1_A/B / TSW2_A/B
+
+-------------------------------------------------------

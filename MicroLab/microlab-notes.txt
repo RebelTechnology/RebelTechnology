@@ -453,3 +453,16 @@ A1 PA0 TIM2_CH1 PWM1
 5x8mm light pipe
 
 --------------------------------------------------------------------------------
+
+MiniLab todo
+- swap USB HS and FS (host / device) to use DMA IP on Host
+
+--------------------------------------------------------------------------------
+
+exti/exto extension interconnect
+use RJ11/RJ25 6P6C connectors?
+
+
+change PC7 USB_HOST_FAULT to use other GPIO to free up I2S3 clock out
+
+--------------------------------------------------------------------------------

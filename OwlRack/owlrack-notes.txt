@@ -75,7 +75,3 @@ Wifi interface for digital tuning, configuration, firmware upgrades
 
 -------------------------------------------------------
 
-Holt broadcast joggle case
-1RUx250mm
-front height 43.7 width 482.6mm
-back height 37.1 width 442.0mm
