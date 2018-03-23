@@ -12,7 +12,7 @@
    height="297mm"
    viewBox="0 0 210 297"
    id="svg5399"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="BelaCore.svg">
   <metadata
      id="metadata5655">
@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -31,13 +31,13 @@
      inkscape:document-units="mm"
      units="mm"
      showgrid="false"
-     inkscape:zoom="2.5371829"
-     inkscape:cx="-27.687276"
-     inkscape:cy="638.74932"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:zoom="1.7940592"
+     inkscape:cx="8.7528381"
+     inkscape:cy="817.61374"
+     inkscape:window-width="1615"
+     inkscape:window-height="1026"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg5399" />
   <defs
@@ -707,12 +707,12 @@
   </g>
   <path
      style="fill:none;stroke:#ff0000;stroke-width:0.05;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-     d="m 44.077834,59.245097 c -2.126764,0 -3.850737,1.724437 -3.850737,3.851039 0,2.126605 1.723973,3.850436 3.850737,3.850436 2.126756,0 3.850738,-1.723831 3.850738,-3.850436 0,-2.126602 -1.723982,-3.851039 -3.850738,-3.851039 z"
+     d="m 44.077834,61.245097 c -2.126764,0 -3.850737,1.724437 -3.850737,3.851039 0,2.126605 1.723973,3.850436 3.850737,3.850436 2.126756,0 3.850738,-1.723831 3.850738,-3.850436 0,-2.126602 -1.723982,-3.851039 -3.850738,-3.851039 z"
      id="path6118-0"
      inkscape:connector-curvature="0" />
   <path
      style="fill:none;stroke:#ff0000;stroke-width:0.05;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-     d="m 18.741834,59.245097 c -2.126763,0 -3.850737,1.724437 -3.850737,3.851039 0,2.126605 1.723974,3.850436 3.850737,3.850436 2.126756,0 3.850737,-1.723831 3.850737,-3.850436 0,-2.126602 -1.723981,-3.851039 -3.850737,-3.851039 z"
+     d="m 18.741834,61.245097 c -2.126763,0 -3.850737,1.724437 -3.850737,3.851039 0,2.126605 1.723974,3.850436 3.850737,3.850436 2.126756,0 3.850737,-1.723831 3.850737,-3.850436 0,-2.126602 -1.723981,-3.851039 -3.850737,-3.851039 z"
      id="path6118-0-4"
      inkscape:connector-curvature="0" />
 </svg>
