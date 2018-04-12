@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -180,12 +180,6 @@
 <text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 </symbol>
-<symbol name="+5V">
-<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
-<text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<pin name="+5V" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
-</symbol>
 <symbol name="+12V">
 <wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
@@ -202,25 +196,24 @@
 <text x="-2.54" y="-2.54" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
 <pin name="-12V" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 </symbol>
+<symbol name="+3V3">
+<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="+3V3" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
+<symbol name="+5V">
+<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="+5V" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="GND" prefix="GND">
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="GND" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="+5V" prefix="P+">
-<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
-<gates>
-<gate name="1" symbol="+5V" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -247,6 +240,32 @@
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="-12V" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="+3V3" prefix="+3V3">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="+3V3" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="+5V" prefix="P+">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="1" symbol="+5V" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -821,6 +840,24 @@ type 0204, grid 7.5 mm</description>
 <wire x1="-1.016" y1="0.9144" x2="1.016" y2="0.9144" width="0.1524" layer="21"/>
 <wire x1="-1.016" y1="-0.9144" x2="1.016" y2="-0.9144" width="0.1524" layer="21"/>
 </package>
+<package name="PB6146L">
+<pad name="P1" x="-2.54" y="2.54" drill="0.8"/>
+<pad name="PL1" x="-2.54" y="0" drill="0.8"/>
+<pad name="P3" x="-2.54" y="-2.54" drill="0.8"/>
+<pad name="P4" x="2.54" y="-2.54" drill="0.8"/>
+<pad name="PL2" x="2.54" y="0" drill="0.8"/>
+<pad name="P2" x="2.54" y="2.54" drill="0.8"/>
+<wire x1="-2.54" y1="2.54" x2="-2.54" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="-2.54" x2="2.54" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="2.54" y1="-2.54" x2="2.54" y2="2.54" width="0.127" layer="21"/>
+<wire x1="2.54" y1="2.54" x2="-2.54" y2="2.54" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="3.81" x2="3.81" y2="3.81" width="0.127" layer="49"/>
+<wire x1="3.81" y1="3.81" x2="3.81" y2="-3.81" width="0.127" layer="49"/>
+<wire x1="3.81" y1="-3.81" x2="-3.81" y2="-3.81" width="0.127" layer="49"/>
+<wire x1="-3.81" y1="-3.81" x2="-3.81" y2="3.81" width="0.127" layer="49"/>
+<circle x="0" y="0" radius="3.556" width="0.127" layer="49"/>
+<hole x="0" y="2.54" drill="0.7"/>
+</package>
 <package name="C025-024X044">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
 grid 2.5 mm, outline 2.4 x 4.4 mm</description>
@@ -836,8 +873,8 @@ grid 2.5 mm, outline 2.4 x 4.4 mm</description>
 <wire x1="0.3302" y1="0.762" x2="0.3302" y2="-0.762" width="0.3048" layer="21"/>
 <wire x1="1.27" y1="0" x2="0.3302" y2="0" width="0.1524" layer="51"/>
 <wire x1="-1.27" y1="0" x2="-0.3048" y2="0" width="0.1524" layer="51"/>
-<pad name="1" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-1.27" y="0" drill="0.8128"/>
+<pad name="2" x="1.27" y="0" drill="0.8128"/>
 <text x="-1.778" y="1.397" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-1.778" y="-2.667" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -860,8 +897,8 @@ grid 2.5 mm, outline 2.5 x 5 mm</description>
 <wire x1="-0.254" y1="0" x2="-0.254" y2="-0.762" width="0.254" layer="21"/>
 <wire x1="-0.254" y1="0" x2="-0.381" y2="0" width="0.1524" layer="21"/>
 <wire x1="-0.381" y1="0" x2="-0.762" y2="0" width="0.1524" layer="51"/>
-<pad name="1" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-1.27" y="0" drill="0.8128"/>
+<pad name="2" x="1.27" y="0" drill="0.8128"/>
 <text x="-2.286" y="1.524" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-2.286" y="-2.794" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -884,8 +921,8 @@ grid 2.5 mm, outline 3 x 5 mm</description>
 <wire x1="-0.254" y1="0" x2="-0.254" y2="-0.762" width="0.254" layer="21"/>
 <wire x1="-0.254" y1="0" x2="-0.381" y2="0" width="0.1524" layer="21"/>
 <wire x1="-0.381" y1="0" x2="-0.762" y2="0" width="0.1524" layer="51"/>
-<pad name="1" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-1.27" y="0" drill="0.8128"/>
+<pad name="2" x="1.27" y="0" drill="0.8128"/>
 <text x="-2.286" y="1.905" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-2.286" y="-3.048" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -908,8 +945,8 @@ grid 2.5 mm, outline 4 x 5 mm</description>
 <wire x1="-0.254" y1="0" x2="-0.254" y2="-0.762" width="0.254" layer="21"/>
 <wire x1="-0.254" y1="0" x2="-0.381" y2="0" width="0.1524" layer="21"/>
 <wire x1="-0.381" y1="0" x2="-0.762" y2="0" width="0.1524" layer="51"/>
-<pad name="1" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-1.27" y="0" drill="0.8128"/>
+<pad name="2" x="1.27" y="0" drill="0.8128"/>
 <text x="-2.286" y="2.159" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-2.286" y="-3.429" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -932,8 +969,8 @@ grid 2.5 mm, outline 5 x 5 mm</description>
 <wire x1="-0.254" y1="0" x2="-0.254" y2="-0.762" width="0.254" layer="21"/>
 <wire x1="-0.254" y1="0" x2="-0.381" y2="0" width="0.1524" layer="21"/>
 <wire x1="-0.381" y1="0" x2="-0.762" y2="0" width="0.1524" layer="51"/>
-<pad name="1" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-1.27" y="0" drill="0.8128"/>
+<pad name="2" x="1.27" y="0" drill="0.8128"/>
 <text x="-2.286" y="2.54" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-2.286" y="-3.81" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -956,8 +993,8 @@ grid 2.5 mm, outline 6 x 5 mm</description>
 <wire x1="-0.254" y1="0" x2="-0.254" y2="-0.762" width="0.254" layer="21"/>
 <wire x1="-0.254" y1="0" x2="-0.381" y2="0" width="0.1524" layer="21"/>
 <wire x1="-0.381" y1="0" x2="-0.762" y2="0" width="0.1524" layer="51"/>
-<pad name="1" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-1.27" y="0" drill="0.8128"/>
+<pad name="2" x="1.27" y="0" drill="0.8128"/>
 <text x="-2.286" y="3.048" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-2.032" y="-2.413" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -983,9 +1020,9 @@ grid 2.5 mm + 5 mm, outline 2.4 x 7 mm</description>
 <wire x1="0.3302" y1="0.762" x2="0.3302" y2="-0.762" width="0.3048" layer="21"/>
 <wire x1="1.27" y1="0" x2="0.3302" y2="0" width="0.1524" layer="51"/>
 <wire x1="-1.27" y1="0" x2="-0.3048" y2="0" width="0.1524" layer="51"/>
-<pad name="1" x="-3.81" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
-<pad name="3" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-3.81" y="0" drill="0.8128"/>
+<pad name="2" x="-1.27" y="0" drill="0.8128"/>
+<pad name="3" x="1.27" y="0" drill="0.8128"/>
 <text x="-3.81" y="1.397" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.81" y="-2.667" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1018,9 +1055,9 @@ grid 2.5 + 5 mm, outline 2.5 x 7.5 mm</description>
 <wire x1="2.286" y1="0" x2="2.794" y2="0" width="0.1524" layer="21"/>
 <wire x1="2.794" y1="0" x2="3.302" y2="0" width="0.1524" layer="51"/>
 <wire x1="0.762" y1="0" x2="0.381" y2="0" width="0.1524" layer="51"/>
-<pad name="1" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
-<pad name="3" x="3.81" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-1.27" y="0" drill="0.8128"/>
+<pad name="3" x="3.81" y="0" drill="0.8128"/>
+<pad name="2" x="1.27" y="0" drill="0.8128"/>
 <text x="-2.159" y="1.651" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-2.159" y="-2.794" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1053,9 +1090,9 @@ grid 2.5 + 5 mm, outline 3.5 x 7.5 mm</description>
 <wire x1="2.286" y1="0" x2="2.794" y2="0" width="0.1524" layer="21"/>
 <wire x1="2.794" y1="0" x2="3.302" y2="0" width="0.1524" layer="51"/>
 <wire x1="2.286" y1="0" x2="1.778" y2="0" width="0.1524" layer="51"/>
-<pad name="1" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
-<pad name="3" x="3.81" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-1.27" y="0" drill="0.8128"/>
+<pad name="3" x="3.81" y="0" drill="0.8128"/>
+<pad name="2" x="1.27" y="0" drill="0.8128"/>
 <text x="-2.286" y="2.159" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-2.286" y="-3.302" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1088,9 +1125,9 @@ grid 2.5 + 5 mm, outline 4.5 x 7.5 mm</description>
 <wire x1="2.794" y1="0" x2="3.302" y2="0" width="0.1524" layer="51"/>
 <wire x1="0.381" y1="0" x2="0.762" y2="0" width="0.1524" layer="51"/>
 <wire x1="2.286" y1="0" x2="1.778" y2="0" width="0.1524" layer="51"/>
-<pad name="1" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
-<pad name="3" x="3.81" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-1.27" y="0" drill="0.8128"/>
+<pad name="3" x="3.81" y="0" drill="0.8128"/>
+<pad name="2" x="1.27" y="0" drill="0.8128"/>
 <text x="-2.286" y="2.667" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-2.286" y="-3.81" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1123,9 +1160,9 @@ grid 2.5 + 5 mm, outline 5.5 x 7.5 mm</description>
 <wire x1="2.286" y1="0" x2="2.794" y2="0" width="0.1524" layer="21"/>
 <wire x1="2.794" y1="0" x2="3.302" y2="0" width="0.1524" layer="51"/>
 <wire x1="0.381" y1="0" x2="0.762" y2="0" width="0.1524" layer="51"/>
-<pad name="1" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
-<pad name="3" x="3.81" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-1.27" y="0" drill="0.8128"/>
+<pad name="3" x="3.81" y="0" drill="0.8128"/>
+<pad name="2" x="1.27" y="0" drill="0.8128"/>
 <text x="-2.286" y="3.175" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-2.032" y="-2.286" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1146,8 +1183,8 @@ grid 5 mm, outline 2.4 x 4.4 mm</description>
 <wire x1="0.3302" y1="0" x2="0.3302" y2="-0.762" width="0.3048" layer="21"/>
 <wire x1="1.27" y1="0" x2="0.3302" y2="0" width="0.1524" layer="21"/>
 <wire x1="-1.27" y1="0" x2="-0.3048" y2="0" width="0.1524" layer="21"/>
-<pad name="1" x="-2.54" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-2.54" y="0" drill="0.8128"/>
+<pad name="2" x="2.54" y="0" drill="0.8128"/>
 <text x="-2.159" y="1.397" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-2.159" y="-2.667" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <rectangle x1="2.159" y1="-0.381" x2="2.54" y2="0.381" layer="51"/>
@@ -1170,8 +1207,8 @@ grid 5 mm, outline 2.5 x 7.5 mm</description>
 <wire x1="3.429" y1="-1.27" x2="3.683" y2="-1.016" width="0.1524" layer="21" curve="90"/>
 <wire x1="-3.683" y1="-1.016" x2="-3.429" y2="-1.27" width="0.1524" layer="21" curve="90"/>
 <wire x1="-3.683" y1="1.016" x2="-3.429" y2="1.27" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-2.54" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-2.54" y="0" drill="0.8128"/>
+<pad name="2" x="2.54" y="0" drill="0.8128"/>
 <text x="-3.429" y="1.651" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.429" y="-2.794" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1192,8 +1229,8 @@ grid 5 mm, outline 4.5 x 7.5 mm</description>
 <wire x1="3.429" y1="-2.286" x2="3.683" y2="-2.032" width="0.1524" layer="21" curve="90"/>
 <wire x1="-3.683" y1="-2.032" x2="-3.429" y2="-2.286" width="0.1524" layer="21" curve="90"/>
 <wire x1="-3.683" y1="2.032" x2="-3.429" y2="2.286" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-2.54" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-2.54" y="0" drill="0.8128"/>
+<pad name="2" x="2.54" y="0" drill="0.8128"/>
 <text x="-3.556" y="2.667" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.556" y="-3.81" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1214,8 +1251,8 @@ grid 5 mm, outline 3 x 7.5 mm</description>
 <wire x1="3.429" y1="-1.524" x2="3.683" y2="-1.27" width="0.1524" layer="21" curve="90"/>
 <wire x1="-3.683" y1="-1.27" x2="-3.429" y2="-1.524" width="0.1524" layer="21" curve="90"/>
 <wire x1="-3.683" y1="1.27" x2="-3.429" y2="1.524" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-2.54" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-2.54" y="0" drill="0.8128"/>
+<pad name="2" x="2.54" y="0" drill="0.8128"/>
 <text x="-3.556" y="1.905" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.556" y="-3.048" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1236,8 +1273,8 @@ grid 5 mm, outline 5 x 7.5 mm</description>
 <wire x1="3.429" y1="-2.54" x2="3.683" y2="-2.286" width="0.1524" layer="21" curve="90"/>
 <wire x1="-3.683" y1="-2.286" x2="-3.429" y2="-2.54" width="0.1524" layer="21" curve="90"/>
 <wire x1="-3.683" y1="2.286" x2="-3.429" y2="2.54" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-2.54" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-2.54" y="0" drill="0.8128"/>
+<pad name="2" x="2.54" y="0" drill="0.8128"/>
 <text x="-3.429" y="2.921" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.175" y="-2.159" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1258,8 +1295,8 @@ grid 5 mm, outline 5.5 x 7.5 mm</description>
 <wire x1="3.429" y1="-2.794" x2="3.683" y2="-2.54" width="0.1524" layer="21" curve="90"/>
 <wire x1="-3.683" y1="-2.54" x2="-3.429" y2="-2.794" width="0.1524" layer="21" curve="90"/>
 <wire x1="-3.683" y1="2.54" x2="-3.429" y2="2.794" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-2.54" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-2.54" y="0" drill="0.8128"/>
+<pad name="2" x="2.54" y="0" drill="0.8128"/>
 <text x="-3.429" y="3.175" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.302" y="-2.286" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1280,8 +1317,8 @@ grid 5 mm, outline 7.5 x 7.5 mm</description>
 <wire x1="3.429" y1="-3.683" x2="3.683" y2="-3.429" width="0.1524" layer="21" curve="90"/>
 <wire x1="-3.683" y1="-3.429" x2="-3.429" y2="-3.683" width="0.1524" layer="21" curve="90"/>
 <wire x1="-3.683" y1="3.429" x2="-3.429" y2="3.683" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-2.54" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-2.54" y="0" drill="0.8128"/>
+<pad name="2" x="2.54" y="0" drill="0.8128"/>
 <text x="-3.429" y="4.064" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.175" y="-2.921" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1306,8 +1343,8 @@ Horizontal, grid 5 mm, outline 7.5 x 7.5 mm</description>
 <wire x1="3.175" y1="7.62" x2="3.683" y2="7.112" width="0.1524" layer="21" curve="-90"/>
 <wire x1="-2.54" y1="0" x2="-2.54" y2="0.254" width="0.508" layer="51"/>
 <wire x1="2.54" y1="0" x2="2.54" y2="0.254" width="0.508" layer="51"/>
-<pad name="1" x="-2.54" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-2.54" y="0" drill="0.8128"/>
+<pad name="2" x="2.54" y="0" drill="0.8128"/>
 <text x="-3.302" y="8.001" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.175" y="3.175" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <rectangle x1="-2.794" y1="0.127" x2="-2.286" y2="0.508" layer="51"/>
@@ -1330,8 +1367,8 @@ grid 7.5 mm, outline 3.2 x 10.3 mm</description>
 <wire x1="-0.508" y1="0" x2="-0.508" y2="-0.889" width="0.4064" layer="21"/>
 <wire x1="0.508" y1="0.889" x2="0.508" y2="0" width="0.4064" layer="21"/>
 <wire x1="0.508" y1="0" x2="0.508" y2="-0.889" width="0.4064" layer="21"/>
-<pad name="1" x="-3.81" y="0" drill="0.9144" shape="octagon"/>
-<pad name="2" x="3.81" y="0" drill="0.9144" shape="octagon"/>
+<pad name="1" x="-3.81" y="0" drill="0.9144"/>
+<pad name="2" x="3.81" y="0" drill="0.9144"/>
 <text x="-4.826" y="1.905" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-4.826" y="-3.048" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1352,8 +1389,8 @@ grid 7.5 mm, outline 4.2 x 10.3 mm</description>
 <wire x1="-2.159" y1="0" x2="-2.159" y2="-1.27" width="0.4064" layer="21"/>
 <wire x1="-1.27" y1="1.27" x2="-1.27" y2="0" width="0.4064" layer="21"/>
 <wire x1="-1.27" y1="0" x2="-1.27" y2="-1.27" width="0.4064" layer="21"/>
-<pad name="1" x="-3.81" y="0" drill="0.9144" shape="octagon"/>
-<pad name="2" x="3.81" y="0" drill="0.9144" shape="octagon"/>
+<pad name="1" x="-3.81" y="0" drill="0.9144"/>
+<pad name="2" x="3.81" y="0" drill="0.9144"/>
 <text x="-4.699" y="2.413" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-0.635" y="-1.651" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1374,8 +1411,8 @@ grid 7.5 mm, outline 5.2 x 10.6 mm</description>
 <wire x1="-2.159" y1="0" x2="-2.159" y2="-1.27" width="0.4064" layer="21"/>
 <wire x1="-1.27" y1="1.27" x2="-1.27" y2="0" width="0.4064" layer="21"/>
 <wire x1="-1.27" y1="0" x2="-1.27" y2="-1.27" width="0.4064" layer="21"/>
-<pad name="1" x="-3.81" y="0" drill="0.9144" shape="octagon"/>
-<pad name="2" x="3.81" y="0" drill="0.9144" shape="octagon"/>
+<pad name="1" x="-3.81" y="0" drill="0.9144"/>
+<pad name="2" x="3.81" y="0" drill="0.9144"/>
 <text x="-4.826" y="2.921" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-0.635" y="-2.032" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1396,8 +1433,8 @@ grid 10.2 mm, outline 4.3 x 13.3 mm</description>
 <wire x1="6.096" y1="-2.032" x2="6.604" y2="-1.524" width="0.1524" layer="21" curve="90"/>
 <wire x1="-6.604" y1="-1.524" x2="-6.096" y2="-2.032" width="0.1524" layer="21" curve="90"/>
 <wire x1="-6.604" y1="1.524" x2="-6.096" y2="2.032" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-5.08" y="0" drill="1.016" shape="octagon"/>
-<pad name="2" x="5.08" y="0" drill="1.016" shape="octagon"/>
+<pad name="1" x="-5.08" y="0" drill="1.016"/>
+<pad name="2" x="5.08" y="0" drill="1.016"/>
 <text x="-6.096" y="2.413" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-1.524" y="-1.651" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1418,8 +1455,8 @@ grid 10.2 mm, outline 5.4 x 13.3 mm</description>
 <wire x1="6.096" y1="-2.54" x2="6.604" y2="-2.032" width="0.1524" layer="21" curve="90"/>
 <wire x1="-6.604" y1="-2.032" x2="-6.096" y2="-2.54" width="0.1524" layer="21" curve="90"/>
 <wire x1="-6.604" y1="2.032" x2="-6.096" y2="2.54" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-5.08" y="0" drill="1.016" shape="octagon"/>
-<pad name="2" x="5.08" y="0" drill="1.016" shape="octagon"/>
+<pad name="1" x="-5.08" y="0" drill="1.016"/>
+<pad name="2" x="5.08" y="0" drill="1.016"/>
 <text x="-6.096" y="2.921" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-1.524" y="-1.905" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1440,8 +1477,8 @@ grid 10.2 mm, outline 6.4 x 13.3 mm</description>
 <wire x1="6.096" y1="-3.048" x2="6.604" y2="-2.54" width="0.1524" layer="21" curve="90"/>
 <wire x1="-6.604" y1="-2.54" x2="-6.096" y2="-3.048" width="0.1524" layer="21" curve="90"/>
 <wire x1="-6.604" y1="2.54" x2="-6.096" y2="3.048" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-5.08" y="0" drill="1.016" shape="octagon"/>
-<pad name="2" x="5.08" y="0" drill="1.016" shape="octagon"/>
+<pad name="1" x="-5.08" y="0" drill="1.016"/>
+<pad name="2" x="5.08" y="0" drill="1.016"/>
 <text x="-6.096" y="3.429" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-1.524" y="-2.032" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1468,9 +1505,9 @@ grid 10.2 mm + 15.2 mm, outline 6.2 x 18.4 mm</description>
 <wire x1="11.176" y1="-3.048" x2="7.112" y2="-3.048" width="0.1524" layer="21"/>
 <wire x1="7.112" y1="3.048" x2="11.176" y2="3.048" width="0.1524" layer="21"/>
 <wire x1="11.684" y1="2.54" x2="11.684" y2="-2.54" width="0.1524" layer="21"/>
-<pad name="1" x="-5.08" y="0" drill="1.016" shape="octagon"/>
-<pad name="2" x="5.08" y="0" drill="1.016" shape="octagon"/>
-<pad name="3" x="10.033" y="0" drill="1.016" shape="octagon"/>
+<pad name="1" x="-5.08" y="0" drill="1.016"/>
+<pad name="2" x="5.08" y="0" drill="1.016"/>
+<pad name="3" x="10.033" y="0" drill="1.016"/>
 <text x="-5.969" y="3.429" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-1.524" y="-2.286" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1491,8 +1528,8 @@ grid 15 mm, outline 5.4 x 18.3 mm</description>
 <wire x1="8.509" y1="-2.54" x2="9.017" y2="-2.032" width="0.1524" layer="21" curve="90"/>
 <wire x1="-9.017" y1="-2.032" x2="-8.509" y2="-2.54" width="0.1524" layer="21" curve="90"/>
 <wire x1="-9.017" y1="2.032" x2="-8.509" y2="2.54" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-7.493" y="0" drill="1.016" shape="octagon"/>
-<pad name="2" x="7.493" y="0" drill="1.016" shape="octagon"/>
+<pad name="1" x="-7.493" y="0" drill="1.016"/>
+<pad name="2" x="7.493" y="0" drill="1.016"/>
 <text x="-8.382" y="2.921" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.429" y="-2.032" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1513,8 +1550,8 @@ grid 15 mm, outline 6.4 x 18.3 mm</description>
 <wire x1="8.509" y1="-3.048" x2="9.017" y2="-2.54" width="0.1524" layer="21" curve="90"/>
 <wire x1="-9.017" y1="-2.54" x2="-8.509" y2="-3.048" width="0.1524" layer="21" curve="90"/>
 <wire x1="-9.017" y1="2.54" x2="-8.509" y2="3.048" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-7.493" y="0" drill="1.016" shape="octagon"/>
-<pad name="2" x="7.493" y="0" drill="1.016" shape="octagon"/>
+<pad name="1" x="-7.493" y="0" drill="1.016"/>
+<pad name="2" x="7.493" y="0" drill="1.016"/>
 <text x="-8.509" y="3.429" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.429" y="-2.032" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1535,8 +1572,8 @@ grid 15 mm, outline 7.2 x 18.3 mm</description>
 <wire x1="8.509" y1="-3.556" x2="9.017" y2="-3.048" width="0.1524" layer="21" curve="90"/>
 <wire x1="-9.017" y1="-3.048" x2="-8.509" y2="-3.556" width="0.1524" layer="21" curve="90"/>
 <wire x1="-9.017" y1="3.048" x2="-8.509" y2="3.556" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-7.493" y="0" drill="1.016" shape="octagon"/>
-<pad name="2" x="7.493" y="0" drill="1.016" shape="octagon"/>
+<pad name="1" x="-7.493" y="0" drill="1.016"/>
+<pad name="2" x="7.493" y="0" drill="1.016"/>
 <text x="-8.509" y="3.937" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.429" y="-2.286" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1557,8 +1594,8 @@ grid 15 mm, outline 8.4 x 18.3 mm</description>
 <wire x1="8.509" y1="-4.064" x2="9.017" y2="-3.556" width="0.1524" layer="21" curve="90"/>
 <wire x1="-9.017" y1="-3.556" x2="-8.509" y2="-4.064" width="0.1524" layer="21" curve="90"/>
 <wire x1="-9.017" y1="3.556" x2="-8.509" y2="4.064" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-7.493" y="0" drill="1.016" shape="octagon"/>
-<pad name="2" x="7.493" y="0" drill="1.016" shape="octagon"/>
+<pad name="1" x="-7.493" y="0" drill="1.016"/>
+<pad name="2" x="7.493" y="0" drill="1.016"/>
 <text x="-8.509" y="4.445" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.429" y="-2.54" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1579,8 +1616,8 @@ grid 15 mm, outline 9.1 x 18.2 mm</description>
 <wire x1="8.509" y1="-4.445" x2="9.017" y2="-3.937" width="0.1524" layer="21" curve="90"/>
 <wire x1="-9.017" y1="-3.937" x2="-8.509" y2="-4.445" width="0.1524" layer="21" curve="90"/>
 <wire x1="-9.017" y1="3.937" x2="-8.509" y2="4.445" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-7.493" y="0" drill="1.016" shape="octagon"/>
-<pad name="2" x="7.493" y="0" drill="1.016" shape="octagon"/>
+<pad name="1" x="-7.493" y="0" drill="1.016"/>
+<pad name="2" x="7.493" y="0" drill="1.016"/>
 <text x="-8.509" y="4.826" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.429" y="-2.54" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1601,8 +1638,8 @@ grid 22.5 mm, outline 6.2 x 26.8 mm</description>
 <wire x1="-13.335" y1="2.54" x2="-12.827" y2="3.048" width="0.1524" layer="21" curve="-90"/>
 <wire x1="-9.652" y1="0" x2="-7.62" y2="0" width="0.1524" layer="21"/>
 <wire x1="-6.731" y1="0" x2="9.652" y2="0" width="0.1524" layer="21"/>
-<pad name="1" x="-11.303" y="0" drill="1.016" shape="octagon"/>
-<pad name="2" x="11.303" y="0" drill="1.016" shape="octagon"/>
+<pad name="1" x="-11.303" y="0" drill="1.016"/>
+<pad name="2" x="11.303" y="0" drill="1.016"/>
 <text x="-12.7" y="3.429" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-5.08" y="-2.54" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1623,8 +1660,8 @@ grid 22.5 mm, outline 7.4 x 26.8 mm</description>
 <wire x1="-13.335" y1="3.048" x2="-12.827" y2="3.556" width="0.1524" layer="21" curve="-90"/>
 <wire x1="-9.652" y1="0" x2="-7.62" y2="0" width="0.1524" layer="21"/>
 <wire x1="-6.731" y1="0" x2="9.652" y2="0" width="0.1524" layer="21"/>
-<pad name="1" x="-11.303" y="0" drill="1.016" shape="octagon"/>
-<pad name="2" x="11.303" y="0" drill="1.016" shape="octagon"/>
+<pad name="1" x="-11.303" y="0" drill="1.016"/>
+<pad name="2" x="11.303" y="0" drill="1.016"/>
 <text x="-12.827" y="3.937" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-5.08" y="-2.54" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1645,8 +1682,8 @@ grid 22.5 mm, outline 8.7 x 26.8 mm</description>
 <wire x1="-13.335" y1="3.81" x2="-12.827" y2="4.318" width="0.1524" layer="21" curve="-90"/>
 <wire x1="-9.652" y1="0" x2="-7.62" y2="0" width="0.1524" layer="21"/>
 <wire x1="-6.731" y1="0" x2="9.652" y2="0" width="0.1524" layer="21"/>
-<pad name="1" x="-11.303" y="0" drill="1.016" shape="octagon"/>
-<pad name="2" x="11.303" y="0" drill="1.016" shape="octagon"/>
+<pad name="1" x="-11.303" y="0" drill="1.016"/>
+<pad name="2" x="11.303" y="0" drill="1.016"/>
 <text x="-12.827" y="4.699" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-5.08" y="-2.54" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1667,8 +1704,8 @@ grid 22.5 mm, outline 10.8 x 26.8 mm</description>
 <wire x1="-13.335" y1="4.826" x2="-12.827" y2="5.334" width="0.1524" layer="21" curve="-90"/>
 <wire x1="-9.652" y1="0" x2="-7.62" y2="0" width="0.1524" layer="21"/>
 <wire x1="-6.731" y1="0" x2="9.652" y2="0" width="0.1524" layer="21"/>
-<pad name="1" x="-11.303" y="0" drill="1.016" shape="octagon"/>
-<pad name="2" x="11.303" y="0" drill="1.016" shape="octagon"/>
+<pad name="1" x="-11.303" y="0" drill="1.016"/>
+<pad name="2" x="11.303" y="0" drill="1.016"/>
 <text x="-12.954" y="5.715" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-5.08" y="-2.54" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1689,8 +1726,8 @@ grid 22.5 mm, outline 11.3 x 26.8 mm</description>
 <wire x1="-13.335" y1="5.08" x2="-12.827" y2="5.588" width="0.1524" layer="21" curve="-90"/>
 <wire x1="-9.652" y1="0" x2="-7.62" y2="0" width="0.1524" layer="21"/>
 <wire x1="-6.731" y1="0" x2="9.652" y2="0" width="0.1524" layer="21"/>
-<pad name="1" x="-11.303" y="0" drill="1.016" shape="octagon"/>
-<pad name="2" x="11.303" y="0" drill="1.016" shape="octagon"/>
+<pad name="1" x="-11.303" y="0" drill="1.016"/>
+<pad name="2" x="11.303" y="0" drill="1.016"/>
 <text x="-12.954" y="5.969" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-5.08" y="-2.54" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1711,8 +1748,8 @@ grid 27.5 mm, outline 9.3 x 31.6 mm</description>
 <wire x1="-15.748" y1="4.064" x2="-15.24" y2="4.572" width="0.1524" layer="21" curve="-90"/>
 <wire x1="-11.557" y1="0" x2="-7.62" y2="0" width="0.1524" layer="21"/>
 <wire x1="-6.731" y1="0" x2="11.557" y2="0" width="0.1524" layer="21"/>
-<pad name="1" x="-13.716" y="0" drill="1.1938" shape="octagon"/>
-<pad name="2" x="13.716" y="0" drill="1.1938" shape="octagon"/>
+<pad name="1" x="-13.716" y="0" drill="1.1938"/>
+<pad name="2" x="13.716" y="0" drill="1.1938"/>
 <text x="-15.24" y="4.953" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-5.08" y="-2.54" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1733,8 +1770,8 @@ grid 27.5 mm, outline 11.3 x 31.6 mm</description>
 <wire x1="-15.748" y1="5.08" x2="-15.24" y2="5.588" width="0.1524" layer="21" curve="-90"/>
 <wire x1="-11.557" y1="0" x2="-7.62" y2="0" width="0.1524" layer="21"/>
 <wire x1="-6.731" y1="0" x2="11.557" y2="0" width="0.1524" layer="21"/>
-<pad name="1" x="-13.716" y="0" drill="1.1938" shape="octagon"/>
-<pad name="2" x="13.716" y="0" drill="1.1938" shape="octagon"/>
+<pad name="1" x="-13.716" y="0" drill="1.1938"/>
+<pad name="2" x="13.716" y="0" drill="1.1938"/>
 <text x="-15.24" y="5.969" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-5.08" y="-2.54" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1755,8 +1792,8 @@ grid 27.5 mm, outline 13.4 x 31.6 mm</description>
 <wire x1="-15.748" y1="6.096" x2="-15.24" y2="6.604" width="0.1524" layer="21" curve="-90"/>
 <wire x1="-11.557" y1="0" x2="-7.62" y2="0" width="0.1524" layer="21"/>
 <wire x1="-6.731" y1="0" x2="11.557" y2="0" width="0.1524" layer="21"/>
-<pad name="1" x="-13.716" y="0" drill="1.1938" shape="octagon"/>
-<pad name="2" x="13.716" y="0" drill="1.1938" shape="octagon"/>
+<pad name="1" x="-13.716" y="0" drill="1.1938"/>
+<pad name="2" x="13.716" y="0" drill="1.1938"/>
 <text x="-15.24" y="6.985" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-5.08" y="-2.54" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1777,8 +1814,8 @@ grid 27.5 mm, outline 20.5 x 31.6 mm</description>
 <wire x1="-15.748" y1="9.652" x2="-15.24" y2="10.16" width="0.1524" layer="21" curve="-90"/>
 <wire x1="-11.557" y1="0" x2="-7.62" y2="0" width="0.1524" layer="21"/>
 <wire x1="-6.731" y1="0" x2="11.557" y2="0" width="0.1524" layer="21"/>
-<pad name="1" x="-13.716" y="0" drill="1.1938" shape="octagon"/>
-<pad name="2" x="13.716" y="0" drill="1.1938" shape="octagon"/>
+<pad name="1" x="-13.716" y="0" drill="1.1938"/>
+<pad name="2" x="13.716" y="0" drill="1.1938"/>
 <text x="-15.24" y="10.541" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-5.08" y="-4.318" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1795,8 +1832,8 @@ grid 32.5 mm, outline 13.7 x 37.4 mm</description>
 <wire x1="-18.542" y1="6.731" x2="-18.542" y2="-6.731" width="0.1524" layer="21"/>
 <wire x1="-18.542" y1="-6.731" x2="18.542" y2="-6.731" width="0.1524" layer="21"/>
 <wire x1="18.542" y1="6.731" x2="-18.542" y2="6.731" width="0.1524" layer="21"/>
-<pad name="1" x="-16.256" y="0" drill="1.1938" shape="octagon"/>
-<pad name="2" x="16.256" y="0" drill="1.1938" shape="octagon"/>
+<pad name="1" x="-16.256" y="0" drill="1.1938"/>
+<pad name="2" x="16.256" y="0" drill="1.1938"/>
 <text x="-18.2372" y="7.0612" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-10.8458" y="-2.8702" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1813,8 +1850,8 @@ grid 32.5 mm, outline 16.2 x 37.4 mm</description>
 <wire x1="-18.542" y1="8.001" x2="-18.542" y2="-8.001" width="0.1524" layer="21"/>
 <wire x1="-18.542" y1="-8.001" x2="18.542" y2="-8.001" width="0.1524" layer="21"/>
 <wire x1="18.542" y1="8.001" x2="-18.542" y2="8.001" width="0.1524" layer="21"/>
-<pad name="1" x="-16.256" y="0" drill="1.1938" shape="octagon"/>
-<pad name="2" x="16.256" y="0" drill="1.1938" shape="octagon"/>
+<pad name="1" x="-16.256" y="0" drill="1.1938"/>
+<pad name="2" x="16.256" y="0" drill="1.1938"/>
 <text x="-18.3642" y="8.3312" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-10.8458" y="-2.8702" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1831,8 +1868,8 @@ grid 32.5 mm, outline 18.2 x 37.4 mm</description>
 <wire x1="-18.542" y1="9.017" x2="-18.542" y2="-9.017" width="0.1524" layer="21"/>
 <wire x1="-18.542" y1="-9.017" x2="18.542" y2="-9.017" width="0.1524" layer="21"/>
 <wire x1="18.542" y1="9.017" x2="-18.542" y2="9.017" width="0.1524" layer="21"/>
-<pad name="1" x="-16.256" y="0" drill="1.1938" shape="octagon"/>
-<pad name="2" x="16.256" y="0" drill="1.1938" shape="octagon"/>
+<pad name="1" x="-16.256" y="0" drill="1.1938"/>
+<pad name="2" x="16.256" y="0" drill="1.1938"/>
 <text x="-18.3642" y="9.3472" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-10.8458" y="-2.8702" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1853,8 +1890,8 @@ grid 37.5 mm, outline 19.2 x 41.8 mm</description>
 <wire x1="-20.828" y1="8.001" x2="-20.32" y2="8.509" width="0.1524" layer="21" curve="-90"/>
 <wire x1="-16.002" y1="0" x2="-7.62" y2="0" width="0.1524" layer="21"/>
 <wire x1="-6.731" y1="0" x2="16.002" y2="0" width="0.1524" layer="21"/>
-<pad name="1" x="-18.796" y="0" drill="1.3208" shape="octagon"/>
-<pad name="2" x="18.796" y="0" drill="1.3208" shape="octagon"/>
+<pad name="1" x="-18.796" y="0" drill="1.3208"/>
+<pad name="2" x="18.796" y="0" drill="1.3208"/>
 <text x="-20.447" y="8.89" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-5.08" y="-2.54" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1875,8 +1912,8 @@ grid 37.5 mm, outline 20.3 x 41.8 mm</description>
 <wire x1="-20.828" y1="9.652" x2="-20.32" y2="10.16" width="0.1524" layer="21" curve="-90"/>
 <wire x1="-16.002" y1="0" x2="-7.62" y2="0" width="0.1524" layer="21"/>
 <wire x1="-6.731" y1="0" x2="16.002" y2="0" width="0.1524" layer="21"/>
-<pad name="1" x="-18.796" y="0" drill="1.3208" shape="octagon"/>
-<pad name="2" x="18.796" y="0" drill="1.3208" shape="octagon"/>
+<pad name="1" x="-18.796" y="0" drill="1.3208"/>
+<pad name="2" x="18.796" y="0" drill="1.3208"/>
 <text x="-20.32" y="10.541" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-5.08" y="-2.54" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1897,8 +1934,8 @@ grid 5 mm, outline 3.5 x 7.5 mm</description>
 <wire x1="3.429" y1="-1.778" x2="3.683" y2="-1.524" width="0.1524" layer="21" curve="90"/>
 <wire x1="-3.683" y1="-1.524" x2="-3.429" y2="-1.778" width="0.1524" layer="21" curve="90"/>
 <wire x1="-3.683" y1="1.524" x2="-3.429" y2="1.778" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-2.54" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
+<pad name="1" x="-2.54" y="0" drill="0.8128"/>
+<pad name="2" x="2.54" y="0" drill="0.8128"/>
 <text x="-3.556" y="2.159" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.556" y="-3.429" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1919,8 +1956,8 @@ grid 37.5 mm, outline 15.5 x 41.8 mm</description>
 <wire x1="-20.828" y1="7.112" x2="-20.32" y2="7.62" width="0.1524" layer="21" curve="-90"/>
 <wire x1="-16.002" y1="0" x2="-7.62" y2="0" width="0.1524" layer="21"/>
 <wire x1="-6.731" y1="0" x2="16.002" y2="0" width="0.1524" layer="21"/>
-<pad name="1" x="-18.796" y="0" drill="1.3208" shape="octagon"/>
-<pad name="2" x="18.796" y="0" drill="1.3208" shape="octagon"/>
+<pad name="1" x="-18.796" y="0" drill="1.3208"/>
+<pad name="2" x="18.796" y="0" drill="1.3208"/>
 <text x="-20.447" y="8.001" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-5.08" y="-2.54" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1941,8 +1978,8 @@ grid 7.5 mm, outline 6.3 x 10.6 mm</description>
 <wire x1="-2.159" y1="0" x2="-2.159" y2="-1.27" width="0.4064" layer="21"/>
 <wire x1="-1.27" y1="1.27" x2="-1.27" y2="0" width="0.4064" layer="21"/>
 <wire x1="-1.27" y1="0" x2="-1.27" y2="-1.27" width="0.4064" layer="21"/>
-<pad name="1" x="-3.81" y="0" drill="0.9144" shape="octagon"/>
-<pad name="2" x="3.81" y="0" drill="0.9144" shape="octagon"/>
+<pad name="1" x="-3.81" y="0" drill="0.9144"/>
+<pad name="2" x="3.81" y="0" drill="0.9144"/>
 <text x="-4.826" y="3.429" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-0.635" y="-2.54" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1963,8 +2000,8 @@ grid 27.5 mm, outline 15.4 x 31.6 mm</description>
 <wire x1="-15.748" y1="7.112" x2="-15.24" y2="7.62" width="0.1524" layer="21" curve="-90"/>
 <wire x1="-11.557" y1="0" x2="-7.62" y2="0" width="0.1524" layer="21"/>
 <wire x1="-6.731" y1="0" x2="11.557" y2="0" width="0.1524" layer="21"/>
-<pad name="1" x="-13.716" y="0" drill="1.1938" shape="octagon"/>
-<pad name="2" x="13.716" y="0" drill="1.1938" shape="octagon"/>
+<pad name="1" x="-13.716" y="0" drill="1.1938"/>
+<pad name="2" x="13.716" y="0" drill="1.1938"/>
 <text x="-15.24" y="8.001" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-5.08" y="-2.54" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
 </package>
@@ -1985,27 +2022,10 @@ grid 27.5 mm, outline 17.3 x 31.6 mm</description>
 <wire x1="-15.748" y1="8.001" x2="-15.24" y2="8.509" width="0.1524" layer="21" curve="-90"/>
 <wire x1="-11.557" y1="0" x2="-7.62" y2="0" width="0.1524" layer="21"/>
 <wire x1="-6.731" y1="0" x2="11.557" y2="0" width="0.1524" layer="21"/>
-<pad name="1" x="-13.716" y="0" drill="1.1938" shape="octagon"/>
-<pad name="2" x="13.716" y="0" drill="1.1938" shape="octagon"/>
+<pad name="1" x="-13.716" y="0" drill="1.1938"/>
+<pad name="2" x="13.716" y="0" drill="1.1938"/>
 <text x="-15.24" y="8.89" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="-5.08" y="-2.54" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
-</package>
-<package name="PB6146L">
-<pad name="P1" x="-2.54" y="2.54" drill="0.8"/>
-<pad name="PL1" x="-2.54" y="0" drill="0.8"/>
-<pad name="P3" x="-2.54" y="-2.54" drill="0.8"/>
-<pad name="P4" x="2.54" y="-2.54" drill="0.8"/>
-<pad name="PL2" x="2.54" y="0" drill="0.8"/>
-<pad name="P2" x="2.54" y="2.54" drill="0.8"/>
-<wire x1="-2.54" y1="2.54" x2="-2.54" y2="-2.54" width="0.127" layer="21"/>
-<wire x1="-2.54" y1="-2.54" x2="2.54" y2="-2.54" width="0.127" layer="21"/>
-<wire x1="2.54" y1="-2.54" x2="2.54" y2="2.54" width="0.127" layer="21"/>
-<wire x1="2.54" y1="2.54" x2="-2.54" y2="2.54" width="0.127" layer="21"/>
-<wire x1="-3.81" y1="3.81" x2="3.81" y2="3.81" width="0.127" layer="49"/>
-<wire x1="3.81" y1="3.81" x2="3.81" y2="-3.81" width="0.127" layer="49"/>
-<wire x1="3.81" y1="-3.81" x2="-3.81" y2="-3.81" width="0.127" layer="49"/>
-<wire x1="-3.81" y1="-3.81" x2="-3.81" y2="3.81" width="0.127" layer="49"/>
-<circle x="0" y="0" radius="3.556" width="0.127" layer="49"/>
 </package>
 </packages>
 <symbols>
@@ -2922,7 +2942,7 @@ grid 27.5 mm, outline 17.3 x 31.6 mm</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="PB6146L">
+<deviceset name="PB6146L" prefix="SW">
 <gates>
 <gate name="G$1" symbol="TS" x="0" y="0"/>
 <gate name="G$2" symbol="LED" x="10.16" y="2.54"/>
@@ -7475,7 +7495,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <part name="R501" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R500" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
-<part name="R503" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
+<part name="R503" library="Rebel" deviceset="R-EU_" device="0603" value="43k"/>
 <part name="R504" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R505" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="P-6" library="supply1" deviceset="-12V" device=""/>
@@ -7486,14 +7506,14 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <part name="R601" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R600" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
-<part name="R603" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
+<part name="R603" library="Rebel" deviceset="R-EU_" device="0603" value="43k"/>
 <part name="R604" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R605" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="GND41" library="supply1" deviceset="GND" device=""/>
 <part name="R701" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R700" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
-<part name="R703" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
+<part name="R703" library="Rebel" deviceset="R-EU_" device="0603" value="43k"/>
 <part name="R704" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R705" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="GND45" library="supply1" deviceset="GND" device=""/>
@@ -7501,7 +7521,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <part name="R801" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R800" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND47" library="supply1" deviceset="GND" device=""/>
-<part name="R803" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
+<part name="R803" library="Rebel" deviceset="R-EU_" device="0603" value="43k"/>
 <part name="R804" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R805" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R904" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
@@ -7600,12 +7620,6 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <part name="C3" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
-<part name="P+5" library="supply1" deviceset="+5V" device=""/>
-<part name="P+6" library="supply1" deviceset="+5V" device=""/>
-<part name="P+7" library="supply1" deviceset="+5V" device=""/>
-<part name="P+8" library="supply1" deviceset="+5V" device=""/>
-<part name="P+9" library="supply1" deviceset="+5V" device=""/>
-<part name="P+10" library="supply1" deviceset="+5V" device=""/>
 <part name="SW1" library="Rebel" deviceset="PB6146L" device=""/>
 <part name="SW2" library="Rebel" deviceset="PB6146L" device=""/>
 <part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
@@ -7613,11 +7627,29 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="20k"/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
+<part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
+<part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
+<part name="P+10" library="supply1" deviceset="+5V" device=""/>
+<part name="P+2" library="supply1" deviceset="+5V" device=""/>
+<part name="P+5" library="supply1" deviceset="+5V" device=""/>
+<part name="P+6" library="supply1" deviceset="+5V" device=""/>
+<part name="P+7" library="supply1" deviceset="+12V" device=""/>
+<part name="GND15" library="supply1" deviceset="GND" device=""/>
+<part name="C4" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="P+8" library="supply1" deviceset="+12V" device=""/>
+<part name="GND16" library="supply1" deviceset="GND" device=""/>
+<part name="C5" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="GND19" library="supply1" deviceset="GND" device=""/>
+<part name="C6" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
+<part name="GND20" library="supply1" deviceset="GND" device=""/>
+<part name="C7" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="-12.7" y="-15.24" size="6.4516" layer="97" font="vector">Bela Expander Rev02</text>
+<text x="-12.7" y="-15.24" size="6.4516" layer="97" font="vector">Bela Expander Rev03</text>
 <text x="-12.7" y="-22.86" size="3.81" layer="97" font="vector">Copyright 2017 Rebel Technology</text>
 <text x="142.24" y="182.88" size="1.778" layer="97">+10V</text>
 </plain>
@@ -7779,24 +7811,6 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <instance part="C3" gate="G$1" x="411.48" y="180.34" rot="R270"/>
 <instance part="GND2" gate="1" x="419.1" y="200.66" rot="MR270"/>
 <instance part="GND5" gate="1" x="419.1" y="180.34" rot="MR270"/>
-<instance part="P+5" gate="1" x="139.7" y="137.16" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="137.16" y="139.7" size="1.778" layer="96" rot="MR180"/>
-</instance>
-<instance part="P+6" gate="1" x="50.8" y="137.16" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="48.26" y="139.7" size="1.778" layer="96" rot="MR180"/>
-</instance>
-<instance part="P+7" gate="1" x="299.72" y="109.22" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="297.18" y="111.76" size="1.778" layer="96" rot="MR180"/>
-</instance>
-<instance part="P+8" gate="1" x="299.72" y="185.42" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="297.18" y="187.96" size="1.778" layer="96" rot="MR180"/>
-</instance>
-<instance part="P+9" gate="1" x="299.72" y="33.02" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="297.18" y="35.56" size="1.778" layer="96" rot="MR180"/>
-</instance>
-<instance part="P+10" gate="1" x="299.72" y="-40.64" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="297.18" y="-38.1" size="1.778" layer="96" rot="MR180"/>
-</instance>
 <instance part="SW1" gate="G$1" x="10.16" y="175.26"/>
 <instance part="SW1" gate="G$2" x="53.34" y="182.88"/>
 <instance part="SW2" gate="G$1" x="25.4" y="175.26"/>
@@ -7806,6 +7820,32 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <instance part="R2" gate="G$1" x="58.42" y="106.68" rot="MR90"/>
 <instance part="GND9" gate="1" x="58.42" y="91.44" rot="MR0"/>
 <instance part="GND13" gate="1" x="17.78" y="157.48" rot="MR0"/>
+<instance part="+3V1" gate="G$1" x="139.7" y="137.16"/>
+<instance part="+3V2" gate="G$1" x="50.8" y="137.16"/>
+<instance part="P+10" gate="1" x="299.72" y="33.02" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="297.18" y="35.56" size="1.778" layer="96" rot="MR180"/>
+</instance>
+<instance part="P+2" gate="1" x="299.72" y="109.22" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="297.18" y="111.76" size="1.778" layer="96" rot="MR180"/>
+</instance>
+<instance part="P+5" gate="1" x="299.72" y="-40.64" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="297.18" y="-38.1" size="1.778" layer="96" rot="MR180"/>
+</instance>
+<instance part="P+6" gate="1" x="299.72" y="185.42" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="297.18" y="187.96" size="1.778" layer="96" rot="MR180"/>
+</instance>
+<instance part="P+7" gate="1" x="83.82" y="86.36"/>
+<instance part="GND15" gate="1" x="83.82" y="68.58"/>
+<instance part="C4" gate="G$1" x="83.82" y="78.74"/>
+<instance part="P+8" gate="1" x="-5.08" y="86.36"/>
+<instance part="GND16" gate="1" x="-5.08" y="68.58"/>
+<instance part="C5" gate="G$1" x="-5.08" y="78.74"/>
+<instance part="GND19" gate="1" x="68.58" y="91.44"/>
+<instance part="C6" gate="G$1" x="68.58" y="101.6"/>
+<instance part="+3V3" gate="G$1" x="68.58" y="109.22"/>
+<instance part="GND20" gate="1" x="157.48" y="91.44"/>
+<instance part="C7" gate="G$1" x="157.48" y="101.6"/>
+<instance part="+3V4" gate="G$1" x="157.48" y="109.22"/>
 </instances>
 <busses>
 </busses>
@@ -8122,46 +8162,52 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <wire x1="17.78" y1="160.02" x2="17.78" y2="162.56" width="0.1524" layer="91"/>
 <junction x="17.78" y="162.56"/>
 </segment>
+<segment>
+<pinref part="GND15" gate="1" pin="GND"/>
+<pinref part="C4" gate="G$1" pin="2"/>
+<wire x1="83.82" y1="71.12" x2="83.82" y2="73.66" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND16" gate="1" pin="GND"/>
+<pinref part="C5" gate="G$1" pin="2"/>
+<wire x1="-5.08" y1="71.12" x2="-5.08" y2="73.66" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND19" gate="1" pin="GND"/>
+<pinref part="C6" gate="G$1" pin="2"/>
+<wire x1="68.58" y1="93.98" x2="68.58" y2="96.52" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND20" gate="1" pin="GND"/>
+<pinref part="C7" gate="G$1" pin="2"/>
+<wire x1="157.48" y1="93.98" x2="157.48" y2="96.52" width="0.1524" layer="91"/>
+</segment>
 </net>
-<net name="+5V" class="0">
+<net name="+3V3" class="0">
 <segment>
 <pinref part="R906" gate="G$1" pin="2"/>
 <wire x1="50.8" y1="132.08" x2="50.8" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="P+6" gate="1" pin="+5V"/>
-</segment>
-<segment>
-<pinref part="D500" gate="G$1" pin="C2"/>
-<pinref part="P+8" gate="1" pin="+5V"/>
-<wire x1="294.64" y1="180.34" x2="299.72" y2="180.34" width="0.1524" layer="91"/>
-<wire x1="299.72" y1="180.34" x2="299.72" y2="182.88" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="D600" gate="G$1" pin="C2"/>
-<wire x1="294.64" y1="104.14" x2="299.72" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="299.72" y1="104.14" x2="299.72" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="P+7" gate="1" pin="+5V"/>
-</segment>
-<segment>
-<pinref part="D700" gate="G$1" pin="C2"/>
-<wire x1="294.64" y1="27.94" x2="299.72" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="P+9" gate="1" pin="+5V"/>
-<wire x1="299.72" y1="27.94" x2="299.72" y2="30.48" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="D800" gate="G$1" pin="C2"/>
-<wire x1="294.64" y1="-45.72" x2="299.72" y2="-45.72" width="0.1524" layer="91"/>
-<wire x1="299.72" y1="-45.72" x2="299.72" y2="-43.18" width="0.1524" layer="91"/>
-<pinref part="P+10" gate="1" pin="+5V"/>
+<pinref part="+3V2" gate="G$1" pin="+3V3"/>
 </segment>
 <segment>
 <pinref part="R26" gate="G$1" pin="2"/>
 <wire x1="139.7" y1="132.08" x2="139.7" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="P+5" gate="1" pin="+5V"/>
+<pinref part="+3V1" gate="G$1" pin="+3V3"/>
 </segment>
 <segment>
 <wire x1="142.24" y1="-30.48" x2="121.92" y2="-30.48" width="0.1524" layer="91"/>
 <label x="121.92" y="-30.48" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="19"/>
+</segment>
+<segment>
+<pinref part="C6" gate="G$1" pin="1"/>
+<wire x1="68.58" y1="104.14" x2="68.58" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="+3V3" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="C7" gate="G$1" pin="1"/>
+<wire x1="157.48" y1="104.14" x2="157.48" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="+3V4" gate="G$1" pin="+3V3"/>
 </segment>
 </net>
 <net name="+12V" class="0">
@@ -8197,6 +8243,16 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <wire x1="403.86" y1="200.66" x2="406.4" y2="200.66" width="0.1524" layer="91"/>
 <junction x="403.86" y="200.66"/>
 <pinref part="IC1" gate="P" pin="V+"/>
+</segment>
+<segment>
+<pinref part="C4" gate="G$1" pin="1"/>
+<pinref part="P+7" gate="1" pin="+12V"/>
+<wire x1="83.82" y1="81.28" x2="83.82" y2="83.82" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C5" gate="G$1" pin="1"/>
+<pinref part="P+8" gate="1" pin="+12V"/>
+<wire x1="-5.08" y1="81.28" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="-12V" class="0">
@@ -8980,19 +9036,6 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <pinref part="SW2" gate="G$2" pin="C"/>
 </segment>
 </net>
-<net name="LED_PWM_A" class="0">
-<segment>
-<pinref part="R3" gate="G$1" pin="1"/>
-<wire x1="53.34" y1="162.56" x2="53.34" y2="160.02" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="160.02" x2="38.1" y2="160.02" width="0.1524" layer="91"/>
-<label x="38.1" y="160.02" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP1" gate="A" pin="15"/>
-<wire x1="142.24" y1="-25.4" x2="121.92" y2="-25.4" width="0.1524" layer="91"/>
-<label x="121.92" y="-25.4" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="LED3" class="0">
 <segment>
 <pinref part="SW1" gate="G$2" pin="A"/>
@@ -9019,17 +9062,52 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <label x="38.1" y="195.58" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="LED_PWM_B" class="0">
+<net name="LED_PWM_DRIVE" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="16"/>
 <wire x1="149.86" y1="-25.4" x2="172.72" y2="-25.4" width="0.1524" layer="91"/>
 <label x="160.02" y="-25.4" size="1.778" layer="95"/>
 </segment>
 <segment>
+<pinref part="R3" gate="G$1" pin="1"/>
 <pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="38.1" y1="154.94" x2="68.58" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="154.94" x2="53.34" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="154.94" x2="68.58" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="68.58" y1="154.94" x2="68.58" y2="162.56" width="0.1524" layer="91"/>
-<label x="38.1" y="154.94" size="1.778" layer="95"/>
+<label x="27.94" y="154.94" size="1.778" layer="95"/>
+<wire x1="53.34" y1="162.56" x2="53.34" y2="154.94" width="0.1524" layer="91"/>
+<junction x="53.34" y="154.94"/>
+</segment>
+</net>
+<net name="+5V" class="0">
+<segment>
+<pinref part="JP1" gate="A" pin="15"/>
+<wire x1="142.24" y1="-25.4" x2="121.92" y2="-25.4" width="0.1524" layer="91"/>
+<label x="121.92" y="-25.4" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="D500" gate="G$1" pin="C2"/>
+<wire x1="294.64" y1="180.34" x2="299.72" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="299.72" y1="180.34" x2="299.72" y2="182.88" width="0.1524" layer="91"/>
+<pinref part="P+6" gate="1" pin="+5V"/>
+</segment>
+<segment>
+<pinref part="D600" gate="G$1" pin="C2"/>
+<wire x1="294.64" y1="104.14" x2="299.72" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="299.72" y1="104.14" x2="299.72" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="P+2" gate="1" pin="+5V"/>
+</segment>
+<segment>
+<pinref part="D700" gate="G$1" pin="C2"/>
+<wire x1="294.64" y1="27.94" x2="299.72" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="P+10" gate="1" pin="+5V"/>
+<wire x1="299.72" y1="27.94" x2="299.72" y2="30.48" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="D800" gate="G$1" pin="C2"/>
+<wire x1="294.64" y1="-45.72" x2="299.72" y2="-45.72" width="0.1524" layer="91"/>
+<wire x1="299.72" y1="-45.72" x2="299.72" y2="-43.18" width="0.1524" layer="91"/>
+<pinref part="P+5" gate="1" pin="+5V"/>
 </segment>
 </net>
 </nets>
@@ -9041,7 +9119,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <approved hash="104,1,403.86,198.12,IC1P,V+,+12V,,,"/>
 <approved hash="104,1,403.86,182.88,IC1P,V-,-12V,,,"/>
 <approved hash="113,1,146.008,-17.6488,JP1,,,,,"/>
-<approved hash="113,1,96.2829,177.669,USBD,,,,,"/>
+<approved hash="113,1,96.2829,177.669,USBH,,,,,"/>
 </errors>
 </schematic>
 </drawing>
