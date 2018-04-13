@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -15423,32 +15423,32 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND44" library="supply1" deviceset="GND" device=""/>
 <part name="GND38" library="supply1" deviceset="GND" device=""/>
-<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="C16" library="Rebel" deviceset="C-EU" device="C0603" value="3.6n"/>
+<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="910R"/>
+<part name="C16" library="Rebel" deviceset="C-EU" device="C0603" value="2n7 C0G"/>
 <part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="DAC2" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="5k4"/>
 <part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
-<part name="R34" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="C18" library="Rebel" deviceset="C-EU" device="C0603" value="3.6n"/>
+<part name="R34" library="Rebel" deviceset="R-EU_" device="0603" value="910R"/>
+<part name="C18" library="Rebel" deviceset="C-EU" device="C0603" value="2n7 C0G"/>
 <part name="R35" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="DAC3" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="R36" library="Rebel" deviceset="R-EU_" device="0603" value="5k4"/>
 <part name="R37" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
-<part name="R38" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="C19" library="Rebel" deviceset="C-EU" device="C0603" value="3.6n"/>
+<part name="R38" library="Rebel" deviceset="R-EU_" device="0603" value="910R"/>
+<part name="C19" library="Rebel" deviceset="C-EU" device="C0603" value="2n7 C0G"/>
 <part name="R39" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="DAC4" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="R40" library="Rebel" deviceset="R-EU_" device="0603" value="5k4"/>
 <part name="R41" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
-<part name="R42" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="C20" library="Rebel" deviceset="C-EU" device="C0603" value="3.6n"/>
+<part name="R42" library="Rebel" deviceset="R-EU_" device="0603" value="910R"/>
+<part name="C20" library="Rebel" deviceset="C-EU" device="C0603" value="2n7 C0G"/>
 <part name="T1" library="transistor" deviceset="BC846" device=""/>
 <part name="R43" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
 <part name="R44" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
@@ -15482,8 +15482,8 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="GND64" library="supply1" deviceset="GND" device=""/>
 <part name="GND66" library="supply1" deviceset="GND" device=""/>
 <part name="GND67" library="supply1" deviceset="GND" device=""/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="620R"/>
-<part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="620R"/>
+<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
 <part name="P+9" library="supply1" deviceset="+5V" device=""/>
 <part name="GND70" library="supply1" deviceset="GND" device=""/>
 <part name="JP2" library="pinhead" deviceset="PINHD-2X10" device=""/>
@@ -15504,8 +15504,8 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="R17" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="R18" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="C8" library="resistor" deviceset="C-EU" device="C0603" value="100p"/>
-<part name="C10" library="resistor" deviceset="C-EU" device="C0603" value="0.82n"/>
-<part name="C14" library="resistor" deviceset="C-EU" device="C0603" value="0.82n"/>
+<part name="C10" library="resistor" deviceset="C-EU" device="C0603" value="1n C0G"/>
+<part name="C14" library="resistor" deviceset="C-EU" device="C0603" value="1n C0G"/>
 <part name="R21" library="Rebel" deviceset="R-EU_" device="0603" value="15k"/>
 <part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="15k"/>
 <part name="R23" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
@@ -15515,8 +15515,8 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="R53" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="R54" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="C15" library="resistor" deviceset="C-EU" device="C0603" value="100p"/>
-<part name="C21" library="resistor" deviceset="C-EU" device="C0603" value="0.82n"/>
-<part name="C22" library="resistor" deviceset="C-EU" device="C0603" value="0.82n"/>
+<part name="C21" library="resistor" deviceset="C-EU" device="C0603" value="1n C0G"/>
+<part name="C22" library="resistor" deviceset="C-EU" device="C0603" value="1n C0G"/>
 <part name="R55" library="Rebel" deviceset="R-EU_" device="0603" value="15k"/>
 <part name="P-7" library="supply1" deviceset="-12V" device=""/>
 <part name="P+7" library="supply1" deviceset="+12V" device=""/>
