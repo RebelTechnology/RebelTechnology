@@ -15419,7 +15419,7 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="Q3" library="transistor" deviceset="BC846" device=""/>
 <part name="R27" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="DAC1" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="5k4"/>
+<part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="5k36"/>
 <part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND44" library="supply1" deviceset="GND" device=""/>
 <part name="GND38" library="supply1" deviceset="GND" device=""/>
@@ -15427,7 +15427,7 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="C16" library="Rebel" deviceset="C-EU" device="C0603" value="2n7 C0G"/>
 <part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="DAC2" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="5k4"/>
+<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="5k36"/>
 <part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
@@ -15435,7 +15435,7 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="C18" library="Rebel" deviceset="C-EU" device="C0603" value="2n7 C0G"/>
 <part name="R35" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="DAC3" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R36" library="Rebel" deviceset="R-EU_" device="0603" value="5k4"/>
+<part name="R36" library="Rebel" deviceset="R-EU_" device="0603" value="5k36"/>
 <part name="R37" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
@@ -15443,7 +15443,7 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="C19" library="Rebel" deviceset="C-EU" device="C0603" value="2n7 C0G"/>
 <part name="R39" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="DAC4" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R40" library="Rebel" deviceset="R-EU_" device="0603" value="5k4"/>
+<part name="R40" library="Rebel" deviceset="R-EU_" device="0603" value="5k36"/>
 <part name="R41" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
