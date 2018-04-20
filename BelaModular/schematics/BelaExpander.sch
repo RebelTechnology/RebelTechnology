@@ -7612,8 +7612,8 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <part name="USBH" library="pinhead" deviceset="PINHD-1X4" device=""/>
 <part name="X3" library="con-kycon" deviceset="KUSBVX" device=""/>
 <part name="IC1" library="linear" deviceset="TL074" device="D" value="TL074D"/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
 <part name="P-1" library="supply1" deviceset="-12V" device=""/>
 <part name="P+3" library="supply1" deviceset="+12V" device=""/>
 <part name="C2" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
