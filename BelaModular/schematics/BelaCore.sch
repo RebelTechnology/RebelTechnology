@@ -15482,8 +15482,8 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="GND64" library="supply1" deviceset="GND" device=""/>
 <part name="GND66" library="supply1" deviceset="GND" device=""/>
 <part name="GND67" library="supply1" deviceset="GND" device=""/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
-<part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
+<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="390R"/>
+<part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="390R"/>
 <part name="P+9" library="supply1" deviceset="+5V" device=""/>
 <part name="GND70" library="supply1" deviceset="GND" device=""/>
 <part name="JP2" library="pinhead" deviceset="PINHD-2X10" device=""/>
@@ -15583,9 +15583,8 @@ P9_11* P9_12
 P9_13* P9_14
        P9_16
 *only use for (non-PWM) LED or buttons</text>
-<text x="457.2" y="226.06" size="1.778" layer="97">20mA = 
-165R for 3.3V
-250R for 5V</text>
+<text x="444.5" y="226.06" size="1.778" layer="97">Red: (3.3-1.7)/390 = 4.1mA
+Yellow: (5-1.9)/390 = 7.9mA</text>
 </plain>
 <instances>
 <instance part="GND36" gate="1" x="12.7" y="228.6"/>
