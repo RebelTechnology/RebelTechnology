@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -15419,36 +15419,36 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="Q3" library="transistor" deviceset="BC846" device=""/>
 <part name="R27" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="DAC1" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="5k4"/>
+<part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="5k36"/>
 <part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND44" library="supply1" deviceset="GND" device=""/>
 <part name="GND38" library="supply1" deviceset="GND" device=""/>
-<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="C16" library="Rebel" deviceset="C-EU" device="C0603" value="3.6n"/>
+<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="910R"/>
+<part name="C16" library="Rebel" deviceset="C-EU" device="C0603" value="2n7 C0G"/>
 <part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="DAC2" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="5k4"/>
+<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="5k36"/>
 <part name="R33" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
-<part name="R34" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="C18" library="Rebel" deviceset="C-EU" device="C0603" value="3.6n"/>
+<part name="R34" library="Rebel" deviceset="R-EU_" device="0603" value="910R"/>
+<part name="C18" library="Rebel" deviceset="C-EU" device="C0603" value="2n7 C0G"/>
 <part name="R35" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="DAC3" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R36" library="Rebel" deviceset="R-EU_" device="0603" value="5k4"/>
+<part name="R36" library="Rebel" deviceset="R-EU_" device="0603" value="5k36"/>
 <part name="R37" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
-<part name="R38" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="C19" library="Rebel" deviceset="C-EU" device="C0603" value="3.6n"/>
+<part name="R38" library="Rebel" deviceset="R-EU_" device="0603" value="910R"/>
+<part name="C19" library="Rebel" deviceset="C-EU" device="C0603" value="2n7 C0G"/>
 <part name="R39" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="DAC4" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="R40" library="Rebel" deviceset="R-EU_" device="0603" value="5k4"/>
+<part name="R40" library="Rebel" deviceset="R-EU_" device="0603" value="5k36"/>
 <part name="R41" library="Rebel" deviceset="R-EU_" device="0603" value="2k7"/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
-<part name="R42" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="C20" library="Rebel" deviceset="C-EU" device="C0603" value="3.6n"/>
+<part name="R42" library="Rebel" deviceset="R-EU_" device="0603" value="910R"/>
+<part name="C20" library="Rebel" deviceset="C-EU" device="C0603" value="2n7 C0G"/>
 <part name="T1" library="transistor" deviceset="BC846" device=""/>
 <part name="R43" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
 <part name="R44" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
@@ -15482,8 +15482,8 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="GND64" library="supply1" deviceset="GND" device=""/>
 <part name="GND66" library="supply1" deviceset="GND" device=""/>
 <part name="GND67" library="supply1" deviceset="GND" device=""/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="620R"/>
-<part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="620R"/>
+<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="390R"/>
+<part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="390R"/>
 <part name="P+9" library="supply1" deviceset="+5V" device=""/>
 <part name="GND70" library="supply1" deviceset="GND" device=""/>
 <part name="JP2" library="pinhead" deviceset="PINHD-2X10" device=""/>
@@ -15503,9 +15503,9 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="IC1" library="linear" deviceset="NE5532" device="D"/>
 <part name="R17" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="R18" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
-<part name="C8" library="resistor" deviceset="C-EU" device="C0603" value="100p"/>
-<part name="C10" library="resistor" deviceset="C-EU" device="C0603" value="0.82n"/>
-<part name="C14" library="resistor" deviceset="C-EU" device="C0603" value="0.82n"/>
+<part name="C8" library="resistor" deviceset="C-EU" device="C0603" value="100p C0G"/>
+<part name="C10" library="resistor" deviceset="C-EU" device="C0603" value="1n C0G"/>
+<part name="C14" library="resistor" deviceset="C-EU" device="C0603" value="1n C0G"/>
 <part name="R21" library="Rebel" deviceset="R-EU_" device="0603" value="15k"/>
 <part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="15k"/>
 <part name="R23" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
@@ -15514,9 +15514,9 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="GND57" library="supply1" deviceset="GND" device=""/>
 <part name="R53" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="R54" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
-<part name="C15" library="resistor" deviceset="C-EU" device="C0603" value="100p"/>
-<part name="C21" library="resistor" deviceset="C-EU" device="C0603" value="0.82n"/>
-<part name="C22" library="resistor" deviceset="C-EU" device="C0603" value="0.82n"/>
+<part name="C15" library="resistor" deviceset="C-EU" device="C0603" value="100p C0G"/>
+<part name="C21" library="resistor" deviceset="C-EU" device="C0603" value="1n C0G"/>
+<part name="C22" library="resistor" deviceset="C-EU" device="C0603" value="1n C0G"/>
 <part name="R55" library="Rebel" deviceset="R-EU_" device="0603" value="15k"/>
 <part name="P-7" library="supply1" deviceset="-12V" device=""/>
 <part name="P+7" library="supply1" deviceset="+12V" device=""/>
@@ -15583,9 +15583,8 @@ P9_11* P9_12
 P9_13* P9_14
        P9_16
 *only use for (non-PWM) LED or buttons</text>
-<text x="457.2" y="226.06" size="1.778" layer="97">20mA = 
-165R for 3.3V
-250R for 5V</text>
+<text x="444.5" y="226.06" size="1.778" layer="97">Red: (3.3-1.7)/390 = 4.1mA
+Yellow: (5-1.9)/390 = 7.9mA</text>
 </plain>
 <instances>
 <instance part="GND36" gate="1" x="12.7" y="228.6"/>
@@ -15814,7 +15813,7 @@ P9_13* P9_14
 <instance part="U1" gate="ANALOGOUT" x="533.4" y="73.66"/>
 <instance part="U1" gate="AUDIOOUT" x="515.62" y="40.64"/>
 <instance part="JP4" gate="A" x="441.96" y="132.08"/>
-<instance part="R5" gate="G$1" x="162.56" y="218.44" rot="MR180"/>
+<instance part="R5" gate="G$1" x="147.32" y="218.44" rot="MR180"/>
 <instance part="R7" gate="G$1" x="187.96" y="198.12" rot="MR180"/>
 <instance part="R16" gate="G$1" x="116.84" y="203.2" rot="MR180"/>
 <instance part="R9" gate="G$1" x="116.84" y="193.04" rot="MR180"/>
@@ -15822,33 +15821,21 @@ P9_13* P9_14
 <instance part="IC1" gate="A" x="165.1" y="198.12" rot="MR180"/>
 <instance part="R17" gate="G$1" x="147.32" y="203.2" rot="MR180"/>
 <instance part="R18" gate="G$1" x="147.32" y="193.04" rot="MR180"/>
-<instance part="C8" gate="G$1" x="162.56" y="208.28" smashed="yes" rot="R90">
-<attribute name="NAME" x="159.004" y="211.201" size="1.778" layer="95"/>
-<attribute name="VALUE" x="166.624" y="211.201" size="1.778" layer="96"/>
-</instance>
+<instance part="C8" gate="G$1" x="162.56" y="208.28" rot="R90"/>
 <instance part="C10" gate="G$1" x="124.46" y="187.96"/>
 <instance part="C14" gate="G$1" x="132.08" y="187.96"/>
-<instance part="R21" gate="G$1" x="139.7" y="185.42" smashed="yes" rot="MR90">
-<attribute name="NAME" x="140.97" y="186.4614" size="1.778" layer="95" rot="MR180"/>
-<attribute name="VALUE" x="140.97" y="183.642" size="1.778" layer="96" rot="MR180"/>
-</instance>
-<instance part="R22" gate="G$1" x="162.56" y="162.56" rot="MR180"/>
+<instance part="R21" gate="G$1" x="139.7" y="185.42" rot="MR90"/>
+<instance part="R22" gate="G$1" x="147.32" y="162.56" rot="MR180"/>
 <instance part="R23" gate="G$1" x="187.96" y="142.24" rot="MR180"/>
 <instance part="R51" gate="G$1" x="116.84" y="147.32" rot="MR180"/>
 <instance part="R52" gate="G$1" x="116.84" y="137.16" rot="MR180"/>
 <instance part="GND57" gate="1" x="132.08" y="116.84" rot="MR0"/>
 <instance part="R53" gate="G$1" x="147.32" y="147.32" rot="MR180"/>
 <instance part="R54" gate="G$1" x="147.32" y="137.16" rot="MR180"/>
-<instance part="C15" gate="G$1" x="162.56" y="152.4" smashed="yes" rot="R90">
-<attribute name="NAME" x="159.004" y="155.321" size="1.778" layer="95"/>
-<attribute name="VALUE" x="166.624" y="155.321" size="1.778" layer="96"/>
-</instance>
+<instance part="C15" gate="G$1" x="162.56" y="152.4" rot="R90"/>
 <instance part="C21" gate="G$1" x="124.46" y="132.08"/>
 <instance part="C22" gate="G$1" x="132.08" y="132.08"/>
-<instance part="R55" gate="G$1" x="139.7" y="129.54" smashed="yes" rot="MR90">
-<attribute name="NAME" x="140.97" y="130.5814" size="1.778" layer="95" rot="MR180"/>
-<attribute name="VALUE" x="140.97" y="127.762" size="1.778" layer="96" rot="MR180"/>
-</instance>
+<instance part="R55" gate="G$1" x="139.7" y="129.54" rot="MR90"/>
 <instance part="IC1" gate="B" x="165.1" y="142.24" rot="MR180"/>
 <instance part="P-7" gate="1" x="182.88" y="238.76"/>
 <instance part="P+7" gate="1" x="182.88" y="274.32"/>
@@ -17693,7 +17680,7 @@ P9_13* P9_14
 <wire x1="177.8" y1="218.44" x2="177.8" y2="208.28" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="2"/>
 <wire x1="177.8" y1="208.28" x2="177.8" y2="198.12" width="0.1524" layer="91"/>
-<wire x1="167.64" y1="218.44" x2="177.8" y2="218.44" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="218.44" x2="177.8" y2="218.44" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="A" pin="OUT"/>
 <wire x1="177.8" y1="198.12" x2="172.72" y2="198.12" width="0.1524" layer="91"/>
 <junction x="177.8" y="198.12"/>
@@ -17705,7 +17692,7 @@ P9_13* P9_14
 <net name="N$41" class="0">
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="132.08" y1="218.44" x2="157.48" y2="218.44" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="218.44" x2="142.24" y2="218.44" width="0.1524" layer="91"/>
 <pinref part="R17" gate="G$1" pin="1"/>
 <pinref part="R16" gate="G$1" pin="2"/>
 <wire x1="142.24" y1="203.2" x2="132.08" y2="203.2" width="0.1524" layer="91"/>
@@ -17761,7 +17748,7 @@ P9_13* P9_14
 <wire x1="177.8" y1="162.56" x2="177.8" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="R22" gate="G$1" pin="2"/>
 <wire x1="177.8" y1="152.4" x2="177.8" y2="142.24" width="0.1524" layer="91"/>
-<wire x1="167.64" y1="162.56" x2="177.8" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="162.56" x2="177.8" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="177.8" y1="142.24" x2="172.72" y2="142.24" width="0.1524" layer="91"/>
 <junction x="177.8" y="142.24"/>
 <pinref part="C15" gate="G$1" pin="2"/>
@@ -17773,7 +17760,7 @@ P9_13* P9_14
 <net name="N$32" class="0">
 <segment>
 <pinref part="R22" gate="G$1" pin="1"/>
-<wire x1="132.08" y1="162.56" x2="157.48" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="162.56" x2="142.24" y2="162.56" width="0.1524" layer="91"/>
 <pinref part="R53" gate="G$1" pin="1"/>
 <pinref part="R51" gate="G$1" pin="2"/>
 <wire x1="142.24" y1="147.32" x2="132.08" y2="147.32" width="0.1524" layer="91"/>
