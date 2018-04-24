@@ -15325,7 +15325,7 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="R501" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R500" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
-<part name="R503" library="Rebel" deviceset="R-EU_" device="0603" value="43k"/>
+<part name="R503" library="Rebel" deviceset="R-EU_" device="0603" value="41k2"/>
 <part name="R504" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R505" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="P-6" library="supply1" deviceset="-12V" device=""/>
@@ -15336,14 +15336,14 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="R601" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R600" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
-<part name="R603" library="Rebel" deviceset="R-EU_" device="0603" value="43k"/>
+<part name="R603" library="Rebel" deviceset="R-EU_" device="0603" value="41k2"/>
 <part name="R604" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R605" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="GND41" library="supply1" deviceset="GND" device=""/>
 <part name="R701" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R700" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
-<part name="R703" library="Rebel" deviceset="R-EU_" device="0603" value="43k"/>
+<part name="R703" library="Rebel" deviceset="R-EU_" device="0603" value="41k2"/>
 <part name="R704" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R705" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="GND45" library="supply1" deviceset="GND" device=""/>
@@ -15351,7 +15351,7 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="R801" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R800" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND47" library="supply1" deviceset="GND" device=""/>
-<part name="R803" library="Rebel" deviceset="R-EU_" device="0603" value="43k"/>
+<part name="R803" library="Rebel" deviceset="R-EU_" device="0603" value="41k2"/>
 <part name="R804" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R805" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R904" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
