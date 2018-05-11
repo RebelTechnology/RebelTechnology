@@ -1,10 +1,16 @@
 /**
   ******************************************************************************
-  * File Name          : main.h
-  * Description        : This file contains the common defines of the application
+  * @file           : main.h
+  * @brief          : Header for main.c file.
+  *                   This file contains the common defines of the application.
   ******************************************************************************
+  ** This notice applies to any and all portions of this file
+  * that are not between comment pairs USER CODE BEGIN and
+  * USER CODE END. Other portions of this file, whether 
+  * inserted by the user or by software development tools
+  * are owned by their respective copyright owners.
   *
-  * COPYRIGHT(c) 2017 STMicroelectronics
+  * COPYRIGHT(c) 2018 STMicroelectronics
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -30,10 +36,12 @@
   *
   ******************************************************************************
   */
+
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MAIN_H
-#define __MAIN_H
-  /* Includes ------------------------------------------------------------------*/
+#ifndef __MAIN_H__
+#define __MAIN_H__
+
+/* Includes ------------------------------------------------------------------*/
 
 /* USER CODE BEGIN Includes */
 
@@ -53,12 +61,15 @@
 #define LED1_GPIO_Port GPIOA
 #define PUSH1_Pin GPIO_PIN_7
 #define PUSH1_GPIO_Port GPIOA
+#define PUSH1_EXTI_IRQn EXTI9_5_IRQn
 #define TR1_Pin GPIO_PIN_0
 #define TR1_GPIO_Port GPIOB
 #define TEMPO1_Pin GPIO_PIN_1
 #define TEMPO1_GPIO_Port GPIOB
+#define TEMPO1_EXTI_IRQn EXTI1_IRQn
 #define PUSH2_Pin GPIO_PIN_15
 #define PUSH2_GPIO_Port GPIOB
+#define PUSH2_EXTI_IRQn EXTI15_10_IRQn
 #define LED2_Pin GPIO_PIN_8
 #define LED2_GPIO_Port GPIOA
 #define SW2A_Pin GPIO_PIN_9
@@ -69,21 +80,33 @@
 #define TR2_GPIO_Port GPIOB
 #define TEMPO2_Pin GPIO_PIN_5
 #define TEMPO2_GPIO_Port GPIOB
+#define TEMPO2_EXTI_IRQn EXTI9_5_IRQn
 #define SW1A_Pin GPIO_PIN_8
 #define SW1A_GPIO_Port GPIOB
 #define SW1B_Pin GPIO_PIN_9
 #define SW1B_GPIO_Port GPIOB
+
+/* ########################## Assert Selection ############################## */
+/**
+  * @brief Uncomment the line below to expanse the "assert_param" macro in the 
+  *        HAL drivers code
+  */
+ #define USE_FULL_ASSERT    1U 
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
 
-/**
-  * @}
-  */ 
+#ifdef __cplusplus
+ extern "C" {
+#endif
+void _Error_Handler(char *, int);
 
-/**
-  * @}
-*/ 
+#define Error_Handler() _Error_Handler(__FILE__, __LINE__)
+#ifdef __cplusplus
+}
+#endif
 
-#endif /* __MAIN_H */
+#endif /* __MAIN_H__ */
+
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
