@@ -4,8 +4,13 @@
   * Description        : This file provides code for the MSP Initialization 
   *                      and de-Initialization codes.
   ******************************************************************************
+  ** This notice applies to any and all portions of this file
+  * that are not between comment pairs USER CODE BEGIN and
+  * USER CODE END. Other portions of this file, whether 
+  * inserted by the user or by software development tools
+  * are owned by their respective copyright owners.
   *
-  * COPYRIGHT(c) 2017 STMicroelectronics
+  * COPYRIGHT(c) 2018 STMicroelectronics
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -40,7 +45,7 @@ extern DMA_HandleTypeDef hdma_dac_ch1;
 
 extern DMA_HandleTypeDef hdma_dac_ch2;
 
-extern void Error_Handler(void);
+extern void _Error_Handler(char *, int);
 /* USER CODE BEGIN 0 */
 
 /* USER CODE END 0 */
@@ -102,8 +107,8 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-    /* Peripheral DMA init*/
-  
+    /* ADC1 DMA Init */
+    /* ADC1 Init */
     hdma_adc1.Instance = DMA1_Channel1;
     hdma_adc1.Init.Direction = DMA_PERIPH_TO_MEMORY;
     hdma_adc1.Init.PeriphInc = DMA_PINC_DISABLE;
@@ -114,7 +119,7 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     hdma_adc1.Init.Priority = DMA_PRIORITY_LOW;
     if (HAL_DMA_Init(&hdma_adc1) != HAL_OK)
     {
-      Error_Handler();
+      _Error_Handler(__FILE__, __LINE__);
     }
 
     __HAL_LINKDMA(hadc,DMA_Handle,hdma_adc1);
@@ -143,12 +148,12 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
     */
     HAL_GPIO_DeInit(GPIOA, ADC1_Pin|ADC2_Pin);
 
-    /* Peripheral DMA DeInit*/
+    /* ADC1 DMA DeInit */
     HAL_DMA_DeInit(hadc->DMA_Handle);
-  }
   /* USER CODE BEGIN ADC1_MspDeInit 1 */
 
   /* USER CODE END ADC1_MspDeInit 1 */
+  }
 
 }
 
@@ -172,8 +177,8 @@ void HAL_DAC_MspInit(DAC_HandleTypeDef* hdac)
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-    /* Peripheral DMA init*/
-  
+    /* DAC DMA Init */
+    /* DAC_CH1 Init */
     hdma_dac_ch1.Instance = DMA1_Channel3;
     hdma_dac_ch1.Init.Direction = DMA_MEMORY_TO_PERIPH;
     hdma_dac_ch1.Init.PeriphInc = DMA_PINC_DISABLE;
@@ -184,13 +189,14 @@ void HAL_DAC_MspInit(DAC_HandleTypeDef* hdac)
     hdma_dac_ch1.Init.Priority = DMA_PRIORITY_LOW;
     if (HAL_DMA_Init(&hdma_dac_ch1) != HAL_OK)
     {
-      Error_Handler();
+      _Error_Handler(__FILE__, __LINE__);
     }
 
     __HAL_AFIO_REMAP_TIM67DACDMA_ENABLE();
 
     __HAL_LINKDMA(hdac,DMA_Handle1,hdma_dac_ch1);
 
+    /* DAC_CH2 Init */
     hdma_dac_ch2.Instance = DMA1_Channel4;
     hdma_dac_ch2.Init.Direction = DMA_MEMORY_TO_PERIPH;
     hdma_dac_ch2.Init.PeriphInc = DMA_PINC_DISABLE;
@@ -201,14 +207,14 @@ void HAL_DAC_MspInit(DAC_HandleTypeDef* hdac)
     hdma_dac_ch2.Init.Priority = DMA_PRIORITY_LOW;
     if (HAL_DMA_Init(&hdma_dac_ch2) != HAL_OK)
     {
-      Error_Handler();
+      _Error_Handler(__FILE__, __LINE__);
     }
 
     __HAL_AFIO_REMAP_TIM67DACDMA_ENABLE();
 
     __HAL_LINKDMA(hdac,DMA_Handle2,hdma_dac_ch2);
 
-    /* Peripheral interrupt init */
+    /* DAC interrupt Init */
     HAL_NVIC_SetPriority(TIM6_DAC_IRQn, 2, 0);
     HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
   /* USER CODE BEGIN DAC_MspInit 1 */
@@ -235,11 +241,11 @@ void HAL_DAC_MspDeInit(DAC_HandleTypeDef* hdac)
     */
     HAL_GPIO_DeInit(GPIOA, DAC1_Pin|DAC2_Pin);
 
-    /* Peripheral DMA DeInit*/
+    /* DAC DMA DeInit */
     HAL_DMA_DeInit(hdac->DMA_Handle1);
     HAL_DMA_DeInit(hdac->DMA_Handle2);
 
-    /* Peripheral interrupt DeInit*/
+    /* DAC interrupt DeInit */
   /* USER CODE BEGIN DAC:TIM6_DAC_IRQn disable */
     /**
     * Uncomment the line below to disable the "TIM6_DAC_IRQn" interrupt
@@ -248,10 +254,10 @@ void HAL_DAC_MspDeInit(DAC_HandleTypeDef* hdac)
     /* HAL_NVIC_DisableIRQ(TIM6_DAC_IRQn); */
   /* USER CODE END DAC:TIM6_DAC_IRQn disable */
 
-  }
   /* USER CODE BEGIN DAC_MspDeInit 1 */
 
   /* USER CODE END DAC_MspDeInit 1 */
+  }
 
 }
 
@@ -293,7 +299,7 @@ void HAL_TIM_OC_MspInit(TIM_HandleTypeDef* htim_oc)
   /* USER CODE END TIM2_MspInit 0 */
     /* Peripheral clock enable */
     __HAL_RCC_TIM2_CLK_ENABLE();
-    /* Peripheral interrupt init */
+    /* TIM2 interrupt Init */
     HAL_NVIC_SetPriority(TIM2_IRQn, 10, 0);
     HAL_NVIC_EnableIRQ(TIM2_IRQn);
   /* USER CODE BEGIN TIM2_MspInit 1 */
@@ -313,7 +319,7 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
   /* USER CODE END TIM6_MspInit 0 */
     /* Peripheral clock enable */
     __HAL_RCC_TIM6_CLK_ENABLE();
-    /* Peripheral interrupt init */
+    /* TIM6 interrupt Init */
     HAL_NVIC_SetPriority(TIM6_DAC_IRQn, 2, 0);
     HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
   /* USER CODE BEGIN TIM6_MspInit 1 */
@@ -404,13 +410,12 @@ void HAL_TIM_OC_MspDeInit(TIM_HandleTypeDef* htim_oc)
     /* Peripheral clock disable */
     __HAL_RCC_TIM2_CLK_DISABLE();
 
-    /* Peripheral interrupt DeInit*/
+    /* TIM2 interrupt DeInit */
     HAL_NVIC_DisableIRQ(TIM2_IRQn);
-
-  }
   /* USER CODE BEGIN TIM2_MspDeInit 1 */
 
   /* USER CODE END TIM2_MspDeInit 1 */
+  }
 
 }
 
@@ -425,7 +430,7 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
     /* Peripheral clock disable */
     __HAL_RCC_TIM6_CLK_DISABLE();
 
-    /* Peripheral interrupt DeInit*/
+    /* TIM6 interrupt DeInit */
   /* USER CODE BEGIN TIM6:TIM6_DAC_IRQn disable */
     /**
     * Uncomment the line below to disable the "TIM6_DAC_IRQn" interrupt
@@ -434,10 +439,10 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
     /* HAL_NVIC_DisableIRQ(TIM6_DAC_IRQn); */
   /* USER CODE END TIM6:TIM6_DAC_IRQn disable */
 
-  }
   /* USER CODE BEGIN TIM6_MspDeInit 1 */
 
   /* USER CODE END TIM6_MspDeInit 1 */
+  }
 
 }
 
