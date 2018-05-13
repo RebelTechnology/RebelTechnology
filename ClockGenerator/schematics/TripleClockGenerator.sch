@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="9.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
@@ -14864,7 +14865,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="Q1" library="transistor-npn" deviceset="2N3904" device=""/>
 <part name="R1" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
-<part name="R3" library="rcl" deviceset="R-EU_" device="0204/7" value="100"/>
+<part name="R3" library="rcl" deviceset="R-EU_" device="0204/7" value="100R"/>
 <part name="R2" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
@@ -14873,7 +14874,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <part name="P+9" library="supply1" deviceset="+12V" device=""/>
 <part name="Q2" library="transistor-npn" deviceset="2N3904" device=""/>
 <part name="R5" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
-<part name="R7" library="rcl" deviceset="R-EU_" device="0204/7" value="100"/>
+<part name="R7" library="rcl" deviceset="R-EU_" device="0204/7" value="100R"/>
 <part name="R6" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
@@ -14897,7 +14898,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <part name="R12" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="Q3" library="transistor-npn" deviceset="2N3904" device=""/>
 <part name="R13" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
-<part name="R15" library="rcl" deviceset="R-EU_" device="0204/7" value="100"/>
+<part name="R15" library="rcl" deviceset="R-EU_" device="0204/7" value="100R"/>
 <part name="R14" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
@@ -14932,6 +14933,10 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <sheets>
 <sheet>
 <plain>
+<text x="-43.18" y="-22.86" size="3.048" layer="97">Open Source Hardware
+Published under the GNU GPL
+Copyright 2018 Rebel Technology</text>
+<text x="-43.18" y="-5.08" size="3.556" layer="97">CLK TripleClockGenerator Rev04</text>
 </plain>
 <instances>
 <instance part="IC1" gate="G$1" x="55.88" y="45.72"/>
@@ -15419,7 +15424,6 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <pinref part="R9" gate="G$1" pin="1"/>
 <pinref part="LED1" gate="G$1" pin="C"/>
 <junction x="63.5" y="-38.1"/>
-<pinref part="LED1" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$30" class="0">
@@ -15427,7 +15431,6 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <pinref part="R10" gate="G$1" pin="1"/>
 <pinref part="LED2" gate="G$1" pin="C"/>
 <junction x="137.16" y="-38.1"/>
-<pinref part="LED2" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="ADC2" class="0">
@@ -15493,7 +15496,6 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <pinref part="R12" gate="G$1" pin="1"/>
 <pinref part="LED3" gate="G$1" pin="C"/>
 <junction x="210.82" y="-38.1"/>
-<pinref part="LED3" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$22" class="0">
@@ -15619,4 +15621,10 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 </sheets>
 </schematic>
 </drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+</compatibility>
 </eagle>
