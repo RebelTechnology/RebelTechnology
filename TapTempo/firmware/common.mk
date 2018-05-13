@@ -4,7 +4,7 @@ BIN=$(BUILD)/TapTempo.bin
 
 # Tool path
 TOOLROOT ?= ~/bin/gcc-arm-none-eabi-7-2017-q4-major/bin
-STLINK = ~/bin
+STLINK = /home/mars/bin
 
 # Tools
 CC=$(TOOLROOT)/arm-none-eabi-gcc
