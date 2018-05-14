@@ -502,6 +502,11 @@ todo:
 - change to STM32F4 MCU
 / screen 096x096 SEPS114A
 - change to JST PH digital bus / usart
+- change R3 to 10k
+- add feedback caps in audio input
+- change to single cap in differential outputs e.g. C601/C603 half the value 1n/2
+- add 100nF cap across NRST
+- change C11 to 100nF X7R
 
 ---------------------------------------------------------------------------------
 
@@ -557,3 +562,4 @@ http://www.aoyue3d.com/en/pro/default.asp?id=92
 
 ---------------------------------------------------------------------------------
 
+use TIM3_CH1 PWM output

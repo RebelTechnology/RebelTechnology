@@ -462,7 +462,14 @@ MiniLab todo
 exti/exto extension interconnect
 use RJ11/RJ25 6P6C connectors?
 
-
 change PC7 USB_HOST_FAULT to use other GPIO to free up I2S3 clock out
+
+--------------------------------------------------------------------------------
+
+todo:
+- change to use single cap with 1/2F in differential output filter
+- add feedback cap to input circuit
+- test different op amps
+- use single TIM for RGB LED
 
 --------------------------------------------------------------------------------
