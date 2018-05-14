@@ -83,7 +83,7 @@ Il (load current) = 4.40mA (4x 10k + 4x 100k)
 Iq (device current) = 110uA to 10mA
 
 Rs(min) = (Vs(max) - Vout) / (Il(min) + Iq(max))
-        = (11V-10V) / (4.36mA + 15mA)) = 51R
+        = (11V-10V) / (4.36mA + 15mA) = 51R
 Rs(max) = (Vs(min) - Vout) / (Il(max) + Iq(min))
 	= (13V-10V) / (4.40mA + 0.110mA) = (13-10)/((4.4+.11)/1000) = 154R
 

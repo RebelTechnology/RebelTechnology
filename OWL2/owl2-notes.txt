@@ -395,6 +395,9 @@ S25FL256L 256Mb 133MHz soic-16
 S25FL064LABMFI013 (mouser £0.709 @100 on order)
 S25FL064LABMFI010 (mouser £0.709 @100 lead time 20 weeks)
 
+
+S25FL064LABMFV013
+
 -----------------------------------------------------------------
 
 James todo list:
@@ -409,5 +412,28 @@ PD12 TIM4_CH1 PWM GP25
 PD13 TIM4_CH2 PWM GP24
 PB8  TIM4_CH3 PWM GP9
 PB9  TIM4_CH4 PWM GP8
+
+-----------------------------------------------------------------
+
+order 100x from contract-production.co.uk
+
+out of stock:
+- usb connectors, use ZX62R-B-5P(30) instead
+- CS4271-CZZ - available from Avnet
+
+
+https://www.avnet.com/shop/apac/products/cirrus-logic/cs4271-czz-3074457345629916027
+
+-----------------------------------------------------------------
+
+BOOT0, pin 138, BOOT/A15, 10k pull down, solder jumper to +3v3
+BOOT1/PB2, pin 48, A7
+
+
+Find BOOT0 pin and set it to HIGH
+Find PB2 (BOOT1) pin and set it LOW
+Reset device
+
+Activated with pins BOOT0=1 and BOOT1=0 at startup
 
 -----------------------------------------------------------------
