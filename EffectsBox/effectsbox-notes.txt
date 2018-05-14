@@ -44,6 +44,9 @@ height 17.3mm dia 7.0mm inside height apprx 10.5mm
 
 RJSPB614 –  Qty 500pcs @ £0.41 each / Qty 1,000 pcs @ £0.37 each / Qty 2,000 pcs @ £0.35 each
 
+
+PB6146L-12 bi-colour red/yellow LED pushbuttons
+
 -------------------------------------------------------
 
 Inputs/outputs
@@ -171,6 +174,10 @@ http://damian.pecke.tt/beat-detection-on-the-arduino
 http://mykal.free.fr/synthesis/detectrythm.pdf
 https://github.com/giuliomoro/gmOwlPatches/commit/fdfc1c2e9beecca72ee1a7cb09e6cae9d3a87896
 
+Try this BPM beat counter
+https://github.com/teragonaudio/BeatCounter
+http://teragonaudio.com/BeatCounter.html
+
 -------------------------------------------------------
 
 power consumption, James' firmware, no balanced io: 220mA @ 7.5V DC
@@ -181,6 +188,7 @@ With MiniDC2 strip board:
 -11.4 / +12.3 / +5v
 220mA @ 7.5V
 +12v regulator latches / shorts when not enough inrush supply
+without OWL: 80mA @7.5V
 
 -------------------------------------------------------
 
@@ -194,5 +202,43 @@ SW7_PWM   TIM1_CH1
 OLED 	  SPI5
 
 toggles TSW1_A/B / TSW2_A/B
+
+-------------------------------------------------------
+
+Hanging in HAL_Delay(), uwTick not incrementing.
+
+Changing timebase to TIM14: Hardfaults on HAL_Delay
+
+SysTick_Handler called three times, then hangs no HAL_Delay()
+
+#3  0x080002bc in __udivmoddi4 ()
+
+-------------------------------------------------------
+
+Eliminating:
+/ HAL version 1.19/1.21
+/ rtos
+/ usb
+/ exti
+/ openware
+- graphics
+-> culprit: OLED_DMA
+
+-------------------------------------------------------
+
+P6 A22 dry/wet
+
+adc values
+0 / 1 / 2 : low / mid / high
+3 P4      : time
+4 P6	  : dry/wet       A22
+
+-------------------------------------------------------
+
+B13 : PC10 : OLED_CS?
+A22 : PA5  : ADC5? OLED_CS
+
+PF1/ADC4 only on ADC3_IN8
+PA5/ADC5 only on ADC1_IN5 and ADC2_IN5
 
 -------------------------------------------------------
