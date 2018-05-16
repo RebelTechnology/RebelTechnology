@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="7" fill="1" visible="yes" active="yes"/>
@@ -10246,14 +10246,14 @@ Source: http://www.zetex.com/3.0/pdf/ZXSC300.pdf</description>
 <vertex x="0" y="-0.225" curve="90"/>
 <vertex x="-0.37" y="-0.595" curve="90"/>
 </polygon>
-<polygon width="0" layer="1">
+<polygon width="0.01" layer="1">
 <vertex x="-0.95" y="1.225"/>
 <vertex x="-0.8" y="1.375"/>
 <vertex x="-0.27" y="1.375"/>
 <vertex x="-0.27" y="0.475"/>
 <vertex x="-0.95" y="0.475"/>
 </polygon>
-<polygon width="0" layer="1">
+<polygon width="0.01" layer="1">
 <vertex x="0.8" y="1.375"/>
 <vertex x="0.27" y="1.375"/>
 <vertex x="0.27" y="0.475"/>
@@ -10552,105 +10552,105 @@ Source: http://www.zetex.com/3.0/pdf/ZXSC300.pdf</description>
 <wire x1="9.95" y1="1.55" x2="9.95" y2="2.9" width="0.127" layer="21"/>
 <wire x1="9.75" y1="-0.5" x2="-9.75" y2="-0.5" width="0.127" layer="21"/>
 <wire x1="-9.95" y1="1.55" x2="-9.95" y2="2.9" width="0.127" layer="21"/>
-<polygon width="0" layer="19">
+<polygon width="0.01" layer="19">
 <vertex x="-8.05" y="0"/>
 <vertex x="-7.2" y="0"/>
 <vertex x="-7.2" y="1.85"/>
 <vertex x="-7.7" y="1.85"/>
 <vertex x="-8.05" y="1.85"/>
 </polygon>
-<polygon width="0" layer="19">
+<polygon width="0.01" layer="19">
 <vertex x="-5.5" y="0"/>
 <vertex x="-4.65" y="0"/>
 <vertex x="-4.65" y="1.85"/>
 <vertex x="-5.25" y="1.85"/>
 <vertex x="-5.5" y="1.85"/>
 </polygon>
-<polygon width="0" layer="19">
+<polygon width="0.01" layer="19">
 <vertex x="-3" y="0"/>
 <vertex x="-2.1" y="0"/>
 <vertex x="-2.1" y="1.85"/>
 <vertex x="-2.85" y="1.85"/>
 <vertex x="-3" y="1.85"/>
 </polygon>
-<polygon width="0" layer="19">
+<polygon width="0.01" layer="19">
 <vertex x="-0.45" y="0"/>
 <vertex x="0.45" y="0"/>
 <vertex x="0.45" y="1.85"/>
 <vertex x="-0.2" y="1.85"/>
 <vertex x="-0.45" y="1.85"/>
 </polygon>
-<polygon width="0" layer="19">
+<polygon width="0.01" layer="19">
 <vertex x="2.1" y="0"/>
 <vertex x="3" y="0"/>
 <vertex x="3" y="1.85"/>
 <vertex x="2.35" y="1.85"/>
 <vertex x="2.1" y="1.85"/>
 </polygon>
-<polygon width="0" layer="19">
+<polygon width="0.01" layer="19">
 <vertex x="4.65" y="0"/>
 <vertex x="5.5" y="0"/>
 <vertex x="5.5" y="1.85"/>
 <vertex x="4.9" y="1.85"/>
 <vertex x="4.65" y="1.85"/>
 </polygon>
-<polygon width="0" layer="19">
+<polygon width="0.01" layer="19">
 <vertex x="7.15" y="0"/>
 <vertex x="8.1" y="0"/>
 <vertex x="8.1" y="1.85"/>
 <vertex x="7.65" y="1.85"/>
 <vertex x="7.15" y="1.85"/>
 </polygon>
-<polygon width="0" layer="19">
+<polygon width="0.01" layer="19">
 <vertex x="-9.35" y="-5.1"/>
 <vertex x="-8.45" y="-5.1"/>
 <vertex x="-8.45" y="1.85"/>
 <vertex x="-8.95" y="1.85"/>
 <vertex x="-9.35" y="1.85"/>
 </polygon>
-<polygon width="0" layer="19">
+<polygon width="0.01" layer="19">
 <vertex x="-6.8" y="-5.1"/>
 <vertex x="-5.9" y="-5.1"/>
 <vertex x="-5.9" y="1.85"/>
 <vertex x="-6.4" y="1.85"/>
 <vertex x="-6.8" y="1.85"/>
 </polygon>
-<polygon width="0" layer="19">
+<polygon width="0.01" layer="19">
 <vertex x="-4.25" y="-5.1"/>
 <vertex x="-3.35" y="-5.1"/>
 <vertex x="-3.35" y="1.85"/>
 <vertex x="-3.9" y="1.85"/>
 <vertex x="-4.25" y="1.85"/>
 </polygon>
-<polygon width="0" layer="19">
+<polygon width="0.01" layer="19">
 <vertex x="-1.7" y="-5.1"/>
 <vertex x="-0.8" y="-5.1"/>
 <vertex x="-0.8" y="1.85"/>
 <vertex x="-1.4" y="1.85"/>
 <vertex x="-1.7" y="1.85"/>
 </polygon>
-<polygon width="0" layer="19">
+<polygon width="0.01" layer="19">
 <vertex x="0.8" y="-5.1"/>
 <vertex x="1.75" y="-5.1"/>
 <vertex x="1.75" y="1.85"/>
 <vertex x="1.4" y="1.85"/>
 <vertex x="0.8" y="1.85"/>
 </polygon>
-<polygon width="0" layer="19">
+<polygon width="0.01" layer="19">
 <vertex x="3.35" y="-5.1"/>
 <vertex x="4.25" y="-5.1"/>
 <vertex x="4.25" y="1.85"/>
 <vertex x="3.6" y="1.85"/>
 <vertex x="3.35" y="1.85"/>
 </polygon>
-<polygon width="0" layer="19">
+<polygon width="0.01" layer="19">
 <vertex x="5.9" y="-5.1"/>
 <vertex x="6.8" y="-5.1"/>
 <vertex x="6.8" y="1.85"/>
 <vertex x="6.25" y="1.85"/>
 <vertex x="5.9" y="1.85"/>
 </polygon>
-<polygon width="0" layer="19">
+<polygon width="0.01" layer="19">
 <vertex x="8.45" y="-5.1"/>
 <vertex x="9.35" y="-5.1"/>
 <vertex x="9.35" y="1.85"/>
