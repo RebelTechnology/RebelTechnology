@@ -1,0 +1,23 @@
+--------------------------------------------------------------------------------------------------------
+
+Fees 
+
+--Client agrees to pay Supplier  800 British Pounds via Paypal in two instalments--one on signing of this agreement via email signature, and one on delivery of the two working units by September 3, 2018 to Los Angeles (Client will pay shipping).
+
+--------------------------------------------------------------------------------------------------------
+
+The essential function of the machine is to provide 5 different generative musical sounds and patterns: 
+
+    Mode 1--a traditional synth sound, could be one major key and the relative minor, like C and A minor.  More keys would be good to have, but not essential.  And then random generation of notes and note lengths within that, with occasional rests.
+
+    Mode 2--4 bongo sounds in repeating constrained  rhythmic patterns.
+
+    Mode 3--Outer space sounds--theremin type elements with portamento, kind of along the classic outer space sounds--basically oscillator sounding. 
+
+    Mode 4--the chord unit, again could be major key and relative minor, with at least 4 voices, but I guess more, and the usual variations--inversions etc.  As for the chords, at least  the root chord, major 7th, 6th, 9th, sus4, diminished, augmented,perhaps the 7th.  . The progression would just be random number based, with constraints as needed, i.e compatible progressions, if possible circle of fifths would be good.  Chords will also be constrained with random lengths of 2 to 5 seconds, and should have moderate echo. 
+
+    Mode 5-- nature sounds-programmers choice creation of sounds as listed in the brochure.
+
+The machine’s overall mood will be one of calmness and relaxation as indicated in the brochure.
+
+--------------------------------------------------------------------------------------------------------
