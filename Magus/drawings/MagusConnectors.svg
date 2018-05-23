@@ -32,14 +32,14 @@
      units="mm"
      showgrid="false"
      inkscape:zoom="2.9894213"
-     inkscape:cx="396.85039"
+     inkscape:cx="397.35216"
      inkscape:cy="949.3331"
      inkscape:window-width="1920"
      inkscape:window-height="1016"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g6872" />
+     inkscape:current-layer="svg6866" />
   <defs
      id="defs6869">
     <g
@@ -161,5 +161,5 @@
        y="48.978649"
        x="89.835808"
        id="tspan46"
-       sodipodi:role="line">OUT</tspan></text>
+       sodipodi:role="line">MIDI</tspan></text>
 </svg>
