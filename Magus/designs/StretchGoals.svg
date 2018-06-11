@@ -17,7 +17,7 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="StretchGoals.svg"
-   inkscape:export-filename="C:\cygwin64\home\mars\devel\RebelTechnology\Magus\designs\StretchGoals.png"
+   inkscape:export-filename="/home/mars/devel/RebelTechnology/Magus/designs/StretchGoals.png"
    inkscape:export-xdpi="92.230003"
    inkscape:export-ydpi="92.230003">
   <defs
@@ -585,16 +585,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.91608842"
-     inkscape:cx="364.75866"
-     inkscape:cy="560.29105"
+     inkscape:zoom="1.2955447"
+     inkscape:cx="262.19423"
+     inkscape:cy="615.57085"
      inkscape:document-units="px"
      inkscape:current-layer="g4368"
      showgrid="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="657"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-width="1615"
+     inkscape:window-height="1026"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -712,6 +712,17 @@
            style="fill:#008000"
            inkscape:connector-curvature="0" />
       </g>
+      <g
+         inkscape:label="Layer 1"
+         id="g4318"
+         transform="matrix(2.0173832,0,0,2.0173832,-173.84995,-539.79527)"
+         style="fill:#008000">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:#008000"
+           d="m 197.67968,534.31563 c -0.275,-0.004 -1.4618,-1.77844 -2.63734,-3.9442 l -2.13734,-3.93775 0.55401,-0.554 c 0.3047,-0.30471 1.12368,-0.55401 1.81995,-0.55401 l 1.26594,0 0.63639,2.00509 0.63639,2.00508 5.06447,-5.54133 c 2.78546,-3.04773 6.00307,-6.04366 7.15024,-6.6576 l 2.08576,-1.11627 -4.20944,4.78218 c -2.3152,2.6302 -5.45136,6.74803 -6.96924,9.15073 -1.51788,2.4027 -2.98479,4.36564 -3.25979,4.36208 z"
+           id="path4320" />
+      </g>
     </g>
     <g
        id="g4321"
@@ -823,13 +834,24 @@
          id="text4376"
          y="583.43896"
          x="70.658386"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.5px;line-height:100%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#666666;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.5px;line-height:100%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;line-height:100%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#666666;"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;line-height:100%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;"
            y="583.43896"
            x="70.658386"
            id="tspan4378"
            sodipodi:role="line">28K</tspan></text>
+      <g
+         inkscape:label="Layer 1"
+         id="g4318-3"
+         transform="matrix(2.0173832,0,0,2.0173832,-172.80101,-486.50234)"
+         style="fill:#008000">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:#008000"
+           d="m 197.67968,534.31563 c -0.275,-0.004 -1.4618,-1.77844 -2.63734,-3.9442 l -2.13734,-3.93775 0.55401,-0.554 c 0.3047,-0.30471 1.12368,-0.55401 1.81995,-0.55401 l 1.26594,0 0.63639,2.00509 0.63639,2.00508 5.06447,-5.54133 c 2.78546,-3.04773 6.00307,-6.04366 7.15024,-6.6576 l 2.08576,-1.11627 -4.20944,4.78218 c -2.3152,2.6302 -5.45136,6.74803 -6.96924,9.15073 -1.51788,2.4027 -2.98479,4.36564 -3.25979,4.36208 z"
+           id="path4320-6" />
+      </g>
     </g>
     <path
        style="opacity:0.98000004;fill:#faed23;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -862,13 +884,24 @@
          id="text4390"
          y="583.43896"
          x="90.658386"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.5px;line-height:100%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#666666;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.5px;line-height:100%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;line-height:100%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#666666;"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;line-height:100%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;"
            y="583.43896"
            x="90.658386"
            id="tspan4392"
-           sodipodi:role="line">32K</tspan></text>
+           sodipodi:role="line">31.4K</tspan></text>
+      <g
+         inkscape:label="Layer 1"
+         id="g4318-7"
+         transform="matrix(2.0173832,0,0,2.0173832,-169.08837,-488.12479)"
+         style="fill:#008000">
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:#008000"
+           d="m 197.67968,534.31563 c -0.275,-0.004 -1.4618,-1.77844 -2.63734,-3.9442 l -2.13734,-3.93775 0.55401,-0.554 c 0.3047,-0.30471 1.12368,-0.55401 1.81995,-0.55401 l 1.26594,0 0.63639,2.00509 0.63639,2.00508 5.06447,-5.54133 c 2.78546,-3.04773 6.00307,-6.04366 7.15024,-6.6576 l 2.08576,-1.11627 -4.20944,4.78218 c -2.3152,2.6302 -5.45136,6.74803 -6.96924,9.15073 -1.51788,2.4027 -2.98479,4.36564 -3.25979,4.36208 z"
+           id="path4320-5" />
+      </g>
     </g>
   </g>
 </svg>

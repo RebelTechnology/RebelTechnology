@@ -18,8 +18,8 @@
    inkscape:version="0.91 r13725"
    sodipodi:docname="DeliverySchedule.svg"
    inkscape:export-filename="/home/mars/devel/RebelTechnology/Magus/designs/DeliverySchedule.png"
-   inkscape:export-xdpi="101.3"
-   inkscape:export-ydpi="101.3">
+   inkscape:export-xdpi="103.48"
+   inkscape:export-ydpi="103.48">
   <defs
      id="defs9370">
     <g
@@ -2885,10 +2885,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="323.55434"
-     inkscape:cy="663.1338"
+     inkscape:cx="192.09552"
+     inkscape:cy="616.37711"
      inkscape:document-units="mm"
-     inkscape:current-layer="g5863"
+     inkscape:current-layer="g5536"
      showgrid="false"
      inkscape:window-width="1615"
      inkscape:window-height="1026"
@@ -4054,54 +4054,6 @@
            width="100%"
            height="100%" />
       </g>
-      <g
-         id="g13914"
-         style="fill:#1c355c;fill-opacity:1"
-         transform="matrix(1.25,0,0,1.25,-70.952758,-36.318902)">
-        <use
-           id="use13916"
-           y="540"
-           x="229.75781"
-           xlink:href="#glyph5-9"
-           width="100%"
-           height="100%" />
-      </g>
-      <g
-         id="g13918"
-         style="fill:#1c355c;fill-opacity:1"
-         transform="matrix(1.25,0,0,1.25,-70.952758,-36.318902)">
-        <use
-           id="use13920"
-           y="540"
-           x="237.58594"
-           xlink:href="#glyph5-10"
-           width="100%"
-           height="100%" />
-      </g>
-      <g
-         id="g13922"
-         style="fill:#1c355c;fill-opacity:1"
-         transform="matrix(1.25,0,0,1.25,-70.952758,-36.318902)">
-        <use
-           id="use13924"
-           y="540"
-           x="243.05859"
-           xlink:href="#glyph5-11"
-           width="100%"
-           height="100%" />
-      </g>
-      <g
-         id="g13926"
-         style="fill:#1c355c;fill-opacity:1"
-         transform="matrix(1.25,0,0,1.25,-70.952758,-36.318902)">
-        <use
-           id="use13928"
-           y="540"
-           x="252.83203"
-           xlink:href="#glyph5-11"
-           width="100%"
-           height="100%" />
-      </g>
     </g>
     <g
        transform="matrix(1.25,0,0,1.25,-2.9527575,-36.318902)"
@@ -4295,54 +4247,6 @@
            y="559.5"
            x="162.79688"
            xlink:href="#glyph5-7"
-           width="100%"
-           height="100%" />
-      </g>
-      <g
-         id="g14022"
-         style="fill:#1c355c;fill-opacity:1"
-         transform="matrix(1.25,0,0,1.25,-70.952758,-36.318902)">
-        <use
-           id="use14024"
-           y="559.5"
-           x="227.625"
-           xlink:href="#glyph5-9"
-           width="100%"
-           height="100%" />
-      </g>
-      <g
-         id="g14026"
-         style="fill:#1c355c;fill-opacity:1"
-         transform="matrix(1.25,0,0,1.25,-70.952758,-36.318902)">
-        <use
-           id="use14028"
-           y="559.5"
-           x="235.45312"
-           xlink:href="#glyph5-10"
-           width="100%"
-           height="100%" />
-      </g>
-      <g
-         id="g14030"
-         style="fill:#1c355c;fill-opacity:1"
-         transform="matrix(1.25,0,0,1.25,-70.952758,-36.318902)">
-        <use
-           id="use14032"
-           y="559.5"
-           x="240.92578"
-           xlink:href="#glyph5-11"
-           width="100%"
-           height="100%" />
-      </g>
-      <g
-         id="g14034"
-         style="fill:#1c355c;fill-opacity:1"
-         transform="matrix(1.25,0,0,1.25,-70.952758,-36.318902)">
-        <use
-           id="use14036"
-           y="559.5"
-           x="250.69922"
-           xlink:href="#glyph5-11"
            width="100%"
            height="100%" />
       </g>
