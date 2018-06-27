@@ -17315,7 +17315,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <sheets>
 <sheet>
 <plain>
-<text x="-66.04" y="-22.86" size="6.4516" layer="97" font="vector">MicroLab Rev03</text>
+<text x="-66.04" y="-22.86" size="6.4516" layer="97" font="vector">Alchemist Rev03</text>
 <text x="-66.04" y="-30.48" size="3.81" layer="97" font="vector">Copyright 2017 Rebel Technology</text>
 <text x="-66.04" y="-38.1" size="3.81" layer="97" font="vector">Published under the GNU GPL</text>
 </plain>

@@ -181,10 +181,10 @@
 <wire x1="58.42" y1="1.2065" x2="58.42" y2="60.0075" width="0.0254" layer="20"/>
 <text x="56.4525" y="27.825" size="1.016" layer="22" font="vector" rot="SMR0" align="bottom-right">5v</text>
 <text x="52.86" y="32.5275" size="1.016" layer="22" font="vector" rot="SMR0" align="bottom-right">gnd</text>
-<text x="18.1325" y="22.9225" size="1.9304" layer="21" font="vector">MicroLab Rev02</text>
+<text x="18.1325" y="22.9225" size="1.9304" layer="21" font="vector">Alchemist Rev03</text>
 <text x="17.045" y="25.76" size="1.9304" layer="21" font="vector">Rebel Technology</text>
 <text x="41.7925" y="39.015" size="1.9304" layer="22" font="vector" rot="MR0">Rebel Technology</text>
-<text x="41.78" y="37.0075" size="1.9304" layer="22" font="vector" rot="MR0">MicroLab Rev03</text>
+<text x="41.78" y="37.0075" size="1.9304" layer="22" font="vector" rot="MR0">Alchemist Rev03</text>
 <text x="52.76" y="34.9075" size="1.016" layer="22" font="vector" rot="SMR0" align="bottom-right">3v3</text>
 <text x="58.035" y="27.825" size="1.016" layer="21" font="vector" rot="SR0" align="bottom-right">5v</text>
 <dimension x1="25.4635" y1="60.0075" x2="25.4" y2="1.27" x3="-2.509590625" y3="30.63875" textsize="1.778" layer="47" dtype="vertical"/>
