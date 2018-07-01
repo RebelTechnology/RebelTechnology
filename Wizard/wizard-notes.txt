@@ -40,13 +40,13 @@ Wizard  todo
 - hw pull-down on power enable
 - power selection circuit usb/dc (with single op amp comparator and mosfet)
 - add pull-downs on audio inputs?
-- fix USB Host pin assignments (shift up from USB ID pin)
+/ fix USB Host pin assignments (shift up from USB ID pin)
 - swap USB HS and FS (host / device) to use DMA IP on Host
-- connect SW5 to EXTI
+/ connect SW5
 - add SD card slot?
 / change expansion headers to JST PH
 / cut-outs for DC jack part
-- change to 22R audio output resistance
+/ change to 22R audio output resistance
 
 --------------------------------------------------------------------------------
 
@@ -58,9 +58,11 @@ SW4	PB2	A7
 
 A23	PF7
 A24	PF8
-
+A25	PF9	SW5
 
 
 changed USBH_PWR_EN to B9 PC8
 changed USBH_PWR_FAULT to B8 PC6
 changed ADC5 to A23 PF7
+
+connected SW5 to A25
