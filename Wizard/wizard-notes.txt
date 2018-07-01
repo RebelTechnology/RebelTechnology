@@ -1,0 +1,66 @@
+
+--------------------------------------------------------------------------------
+
+MiniLab
+USB Host
+2x CV in/out
+1x Trigger in/out
+5x knobs
+patch change pushbutton and LEDs (press and turn knob 5)
+volume change (press and turn knob)
+
+USB A / Host connector
+Wurth 629104190121 short SMT
+Wurth 614104190121 short PTH
+
+todo:
+- connect trigger output to GPIO
+- connect 2x CV outputs to DACs
+- connect USB Host (with pwr sw?)
+- connect pushbuttons
+- rename pots and cv inputs / outputs
+- connect ADC5
+- remove LEDs
+- add RGB LED
+- move expander headers
+- slots for DC jack
+- illuminated pushbuttons?
+- add 4x patch select LEDs
+- add FUNCTION pushbutton top right: set volume, change patch et c
+
+--------------------------------------------------------------------------------
+
+MiniLab USB Host -
+plugging in adds 50 percentage points cpu load
+
+--------------------------------------------------------------------------------
+
+Wizard  todo
+/ reverse USB connector or put on top
+- hw pull-down on power enable
+- power selection circuit usb/dc (with single op amp comparator and mosfet)
+- add pull-downs on audio inputs?
+- fix USB Host pin assignments (shift up from USB ID pin)
+- swap USB HS and FS (host / device) to use DMA IP on Host
+- connect SW5 to EXTI
+- add SD card slot?
+/ change expansion headers to JST PH
+/ cut-outs for DC jack part
+- change to 22R audio output resistance
+
+--------------------------------------------------------------------------------
+
+Triggers
+SW1	PB9	A17
+SW2	PD2	A14
+SW3	PB1	A6
+SW4	PB2	A7
+
+A23	PF7
+A24	PF8
+
+
+
+changed USBH_PWR_EN to B9 PC8
+changed USBH_PWR_FAULT to B8 PC6
+changed ADC5 to A23 PF7
