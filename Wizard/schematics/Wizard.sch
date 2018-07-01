@@ -18585,23 +18585,16 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <junction x="175.26" y="223.52"/>
 </segment>
 </net>
-<net name="A25_ADC5" class="0">
+<net name="A23_ADC5" class="0">
 <segment>
-<pinref part="JP6" gate="G$1" pin="1"/>
-<wire x1="104.14" y1="7.62" x2="119.38" y2="7.62" width="0.1524" layer="91"/>
-<label x="106.68" y="7.62" size="1.778" layer="95"/>
+<pinref part="JP6" gate="G$1" pin="3"/>
+<wire x1="104.14" y1="12.7" x2="119.38" y2="12.7" width="0.1524" layer="91"/>
+<label x="106.68" y="12.7" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="P4" gate="G$1" pin="2"/>
 <wire x1="302.26" y1="-20.32" x2="320.04" y2="-20.32" width="0.1524" layer="91"/>
 <label x="304.8" y="-20.32" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="A23" class="0">
-<segment>
-<pinref part="JP6" gate="G$1" pin="3"/>
-<wire x1="104.14" y1="12.7" x2="119.38" y2="12.7" width="0.1524" layer="91"/>
-<label x="106.68" y="12.7" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A24" class="0">
@@ -19461,7 +19454,19 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <wire x1="58.42" y1="91.44" x2="58.42" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$18" class="0">
+<net name="USB_H_ID" class="0">
+<segment>
+<label x="187.96" y="7.62" size="1.778" layer="95" rot="R90"/>
+<pinref part="JP14" gate="G$1" pin="3"/>
+<wire x1="187.96" y1="33.02" x2="187.96" y2="7.62" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="A23_SW5" class="0">
+<segment>
+<pinref part="JP6" gate="G$1" pin="1"/>
+<wire x1="104.14" y1="7.62" x2="119.38" y2="7.62" width="0.1524" layer="91"/>
+<label x="106.68" y="7.62" size="1.778" layer="95"/>
+</segment>
 <segment>
 <pinref part="SW5" gate="1" pin="S"/>
 <wire x1="-86.36" y1="200.66" x2="-86.36" y2="203.2" width="0.1524" layer="91"/>
@@ -19471,13 +19476,6 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <wire x1="-83.82" y1="200.66" x2="-83.82" y2="203.2" width="0.1524" layer="91"/>
 <junction x="-83.82" y="203.2"/>
 <label x="-81.28" y="203.2" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="USB_H_ID" class="0">
-<segment>
-<label x="187.96" y="7.62" size="1.778" layer="95" rot="R90"/>
-<pinref part="JP14" gate="G$1" pin="3"/>
-<wire x1="187.96" y1="33.02" x2="187.96" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
