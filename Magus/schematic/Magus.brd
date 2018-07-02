@@ -5503,8 +5503,7 @@ design rules under a new name.
 <signal name="B14">
 <contactref element="USB1" pad="3"/>
 </signal>
-<signal name="B15_TLC_BLANK">
-<contactref element="USB1" pad="4"/>
+<signal name="B12_TLC_BLANK">
 <contactref element="U8" pad="2"/>
 <contactref element="U7" pad="2"/>
 <contactref element="U3" pad="2"/>
@@ -5530,10 +5529,11 @@ design rules under a new name.
 <wire x1="71.9376" y1="47.9624" x2="72.579" y2="47.9624" width="0.254" layer="1"/>
 <wire x1="71.9" y1="48" x2="77.85" y2="48" width="0.204" layer="16"/>
 <wire x1="77.85" y1="48" x2="78.2" y2="48.35" width="0.204" layer="16"/>
-<wire x1="78.2" y1="48.35" x2="78.2" y2="83.45" width="0.204" layer="16"/>
-<wire x1="78.2" y1="83.45" x2="77.5" y2="84.15" width="0.204" layer="16"/>
-<wire x1="77.5" y1="84.15" x2="75.43" y2="84.15" width="0.204" layer="16"/>
-<wire x1="75.43" y1="84.15" x2="74.16" y2="85.42" width="0.204" layer="16"/>
+<wire x1="78.2" y1="48.35" x2="78.2" y2="64.4" width="0.204" layer="16"/>
+<contactref element="USB1" pad="1"/>
+<wire x1="78.2" y1="64.4" x2="75.438" y2="67.162" width="0.204" layer="16"/>
+<wire x1="75.438" y1="76.522" x2="74.16" y2="77.8" width="0.204" layer="16"/>
+<wire x1="75.438" y1="67.162" x2="75.438" y2="76.522" width="0.204" layer="16"/>
 </signal>
 <signal name="B16">
 <contactref element="USB1" pad="5"/>
@@ -5645,6 +5645,9 @@ design rules under a new name.
 <contactref element="USB1" pad="2"/>
 </signal>
 <signal name="USB_D_ID">
+</signal>
+<signal name="B15">
+<contactref element="USB1" pad="4"/>
 </signal>
 </signals>
 </board>
