@@ -7335,6 +7335,26 @@ Sourced: &lt;a href="http://www.st.com/stonline/products/literature/ds/14771/stm
 <wire x1="2.286" y1="2.794" x2="2.54" y2="2.54" width="0.127" layer="21"/>
 <text x="-3.81" y="1.27" size="1.27" layer="25" rot="R90">&gt;NAME</text>
 </package>
+<package name="CON-JST_PH_5W">
+<pad name="P1" x="0" y="0" drill="0.8" shape="long" rot="R90"/>
+<pad name="P2" x="-2" y="0" drill="0.8" shape="long" rot="R90"/>
+<pad name="P3" x="-4" y="0" drill="0.8" shape="long" rot="R90"/>
+<pad name="P4" x="-6" y="0" drill="0.8" shape="long" rot="R90"/>
+<pad name="P5" x="-8" y="0" drill="0.8" shape="long" rot="R90"/>
+<wire x1="-10" y1="0" x2="-10" y2="6.5" width="0.127" layer="21"/>
+<wire x1="2" y1="0" x2="2" y2="6.5" width="0.127" layer="21"/>
+<wire x1="-10" y1="6.5" x2="2" y2="6.5" width="0.127" layer="21"/>
+<wire x1="-10" y1="0" x2="-10" y2="-1.5" width="0.127" layer="21"/>
+<wire x1="-10" y1="-1.5" x2="-9" y2="-1.5" width="0.127" layer="21"/>
+<wire x1="1" y1="-1.5" x2="2" y2="-1.5" width="0.127" layer="21"/>
+<wire x1="2" y1="-1.5" x2="2" y2="0" width="0.127" layer="21"/>
+<wire x1="-10" y1="0" x2="-9" y2="0" width="0.127" layer="21"/>
+<wire x1="-9" y1="0" x2="1" y2="0" width="0.127" layer="21"/>
+<wire x1="1" y1="0" x2="2" y2="0" width="0.127" layer="21"/>
+<wire x1="-9" y1="-1.5" x2="-9" y2="0" width="0.127" layer="21"/>
+<wire x1="1" y1="-1.5" x2="1" y2="0" width="0.127" layer="21"/>
+<text x="-7" y="7" size="1.27" layer="21">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="R-EU">
@@ -7655,6 +7675,29 @@ Sourced: &lt;a href="http://www.st.com/stonline/products/literature/ds/14771/stm
 <wire x1="20.32" y1="-10.16" x2="20.32" y2="2.54" width="0.254" layer="94"/>
 <wire x1="20.32" y1="2.54" x2="0" y2="2.54" width="0.254" layer="94"/>
 <text x="5.08" y="5.08" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="CON-5W">
+<pin name="-1" x="5.08" y="0" length="middle" rot="R180"/>
+<pin name="-2" x="5.08" y="-2.54" length="middle" rot="R180"/>
+<pin name="-3" x="5.08" y="-5.08" length="middle" rot="R180"/>
+<pin name="-4" x="5.08" y="-7.62" length="middle" rot="R180"/>
+<pin name="-5" x="5.08" y="-10.16" length="middle" rot="R180"/>
+<circle x="0" y="-10.16" radius="0.508" width="0.254" layer="94"/>
+<circle x="0" y="-10.16" radius="0.254" width="0.254" layer="94"/>
+<circle x="0" y="-7.62" radius="0.254" width="0.254" layer="94"/>
+<circle x="0" y="-7.62" radius="0.508" width="0.254" layer="94"/>
+<circle x="0" y="-5.08" radius="0.508" width="0.254" layer="94"/>
+<circle x="0" y="-2.54" radius="0.508" width="0.254" layer="94"/>
+<circle x="0" y="0" radius="0.508" width="0.254" layer="94"/>
+<wire x1="-0.254" y1="0" x2="0.254" y2="0" width="0.508" layer="94"/>
+<wire x1="-0.254" y1="-2.54" x2="0.254" y2="-2.54" width="0.508" layer="94"/>
+<wire x1="-0.254" y1="-5.08" x2="0.254" y2="-5.08" width="0.508" layer="94"/>
+<wire x1="-0.254" y1="-7.62" x2="0.254" y2="-7.62" width="0.508" layer="94"/>
+<wire x1="-0.254" y1="-10.16" x2="0.254" y2="-10.16" width="0.508" layer="94"/>
+<circle x="0" y="-5.08" radius="0.254" width="0.254" layer="94"/>
+<circle x="0" y="-2.54" radius="0.254" width="0.254" layer="94"/>
+<circle x="0" y="0" radius="0.254" width="0.254" layer="94"/>
+<text x="-2.54" y="2.54" size="1.778" layer="95">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -10287,6 +10330,25 @@ Sourced: &lt;a href="http://www.st.com/stonline/products/literature/ds/14771/stm
 <connect gate="G$1" pin="GND" pad="GND"/>
 <connect gate="G$1" pin="VIN" pad="VIN"/>
 <connect gate="G$1" pin="VOUT" pad="VOUT"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="CON-JST_PH_5W">
+<gates>
+<gate name="G$1" symbol="CON-5W" x="-5.08" y="5.08"/>
+</gates>
+<devices>
+<device name="" package="CON-JST_PH_5W">
+<connects>
+<connect gate="G$1" pin="-1" pad="P1"/>
+<connect gate="G$1" pin="-2" pad="P2"/>
+<connect gate="G$1" pin="-3" pad="P3"/>
+<connect gate="G$1" pin="-4" pad="P4"/>
+<connect gate="G$1" pin="-5" pad="P5"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -14596,7 +14658,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="R63" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R64" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R65" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
-<part name="JP19" library="SparkFun" deviceset="M03" device="PTH"/>
+<part name="PSEL" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="P+8" library="supply1" deviceset="+5V" device=""/>
 <part name="C79" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
@@ -14742,6 +14804,11 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="R71" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
 <part name="R72" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
 <part name="P+13" library="supply1" deviceset="+5V" device=""/>
+<part name="GND34" library="supply1" deviceset="GND" device=""/>
+<part name="CON_PWR" library="Rebel" deviceset="CON-JST_PH_5W" device=""/>
+<part name="P+16" library="supply1" deviceset="+12V" device=""/>
+<part name="P-1" library="supply1" deviceset="-12V" device=""/>
+<part name="P+17" library="supply1" deviceset="+5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -15018,7 +15085,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="R63" gate="G$1" x="40.64" y="144.78" rot="MR270"/>
 <instance part="R64" gate="G$1" x="40.64" y="165.1" rot="MR270"/>
 <instance part="R65" gate="G$1" x="40.64" y="185.42" rot="MR270"/>
-<instance part="JP19" gate="G$1" x="330.2" y="119.38" rot="R180"/>
+<instance part="PSEL" gate="G$1" x="330.2" y="119.38" rot="R180"/>
 <instance part="P+8" gate="1" x="312.42" y="127" smashed="yes">
 <attribute name="VALUE" x="314.96" y="129.54" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -15243,6 +15310,13 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="R72" gate="G$1" x="241.3" y="-35.56" rot="MR0"/>
 <instance part="P+13" gate="1" x="251.46" y="-22.86" smashed="yes">
 <attribute name="VALUE" x="248.92" y="-22.86" size="1.778" layer="96"/>
+</instance>
+<instance part="GND34" gate="1" x="-269.24" y="2.54"/>
+<instance part="CON_PWR" gate="G$1" x="-259.08" y="20.32" rot="MR0"/>
+<instance part="P+16" gate="1" x="-266.7" y="30.48"/>
+<instance part="P-1" gate="1" x="-276.86" y="2.54"/>
+<instance part="P+17" gate="1" x="-274.32" y="30.48" smashed="yes">
+<attribute name="VALUE" x="-276.86" y="30.48" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -16851,7 +16925,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="248.92" y1="66.04" x2="248.92" y2="71.12" width="0.1524" layer="91"/>
 <junction x="248.92" y="71.12"/>
 <junction x="271.78" y="71.12"/>
-<pinref part="JP19" gate="G$1" pin="2"/>
+<pinref part="PSEL" gate="G$1" pin="2"/>
 <wire x1="322.58" y1="119.38" x2="307.34" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="307.34" y1="119.38" x2="307.34" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="307.34" y1="109.22" x2="307.34" y2="71.12" width="0.1524" layer="91"/>
@@ -17750,6 +17824,16 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="220.98" y1="-33.02" x2="231.14" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="231.14" y1="-33.02" x2="231.14" y2="-43.18" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="CON_PWR" gate="G$1" pin="-2"/>
+<pinref part="GND34" gate="1" pin="GND"/>
+<wire x1="-264.16" y1="17.78" x2="-269.24" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="-269.24" y1="17.78" x2="-269.24" y2="12.7" width="0.1524" layer="91"/>
+<pinref part="CON_PWR" gate="G$1" pin="-4"/>
+<wire x1="-269.24" y1="12.7" x2="-269.24" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="-264.16" y1="12.7" x2="-269.24" y2="12.7" width="0.1524" layer="91"/>
+<junction x="-269.24" y="12.7"/>
+</segment>
 </net>
 <net name="+5V" class="1">
 <segment>
@@ -17774,7 +17858,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="-40.64" y1="17.78" x2="-40.64" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="JP19" gate="G$1" pin="3"/>
+<pinref part="PSEL" gate="G$1" pin="3"/>
 <pinref part="P+8" gate="1" pin="+5V"/>
 <wire x1="322.58" y1="116.84" x2="312.42" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="312.42" y1="116.84" x2="312.42" y2="124.46" width="0.1524" layer="91"/>
@@ -17807,6 +17891,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="P+13" gate="1" pin="+5V"/>
 <wire x1="241.3" y1="-30.48" x2="251.46" y2="-30.48" width="0.1524" layer="91"/>
 <wire x1="251.46" y1="-30.48" x2="251.46" y2="-25.4" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="CON_PWR" gate="G$1" pin="-1"/>
+<pinref part="P+17" gate="1" pin="+5V"/>
+<wire x1="-264.16" y1="20.32" x2="-274.32" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="-274.32" y1="20.32" x2="-274.32" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="CS_VREF" class="0">
@@ -17868,7 +17958,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="-254" y1="106.68" x2="-246.38" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="JP19" gate="G$1" pin="1"/>
+<pinref part="PSEL" gate="G$1" pin="1"/>
 <wire x1="322.58" y1="121.92" x2="317.5" y2="121.92" width="0.1524" layer="91"/>
 <pinref part="P+23" gate="1" pin="+12V"/>
 <wire x1="317.5" y1="121.92" x2="317.5" y2="124.46" width="0.1524" layer="91"/>
@@ -17911,6 +18001,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="-284.48" y1="58.42" x2="-279.4" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="U4" gate="G$1" pin="VIN"/>
 </segment>
+<segment>
+<pinref part="CON_PWR" gate="G$1" pin="-3"/>
+<pinref part="P+16" gate="1" pin="+12V"/>
+<wire x1="-264.16" y1="15.24" x2="-266.7" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="-266.7" y1="15.24" x2="-266.7" y2="27.94" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="-12V" class="0">
 <segment>
@@ -17951,6 +18047,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="P-7" gate="1" pin="-12V"/>
 <wire x1="-121.92" y1="104.14" x2="-104.14" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="-104.14" y1="104.14" x2="-104.14" y2="101.6" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="CON_PWR" gate="G$1" pin="-5"/>
+<pinref part="P-1" gate="1" pin="-12V"/>
+<wire x1="-264.16" y1="10.16" x2="-276.86" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="-276.86" y1="10.16" x2="-276.86" y2="5.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
