@@ -14737,6 +14737,11 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="AUDIO_IN" library="Rebel" deviceset="CON-JST-1X03" device="PH-TH"/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
 <part name="AUDIO_OUT" library="Rebel" deviceset="CON-JST-1X03" device="PH-TH"/>
+<part name="BUS3" library="Rebel" deviceset="CON-JST-1X03" device="PH-TH"/>
+<part name="GND32" library="supply1" deviceset="GND" device=""/>
+<part name="R71" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
+<part name="R72" library="Rebel" deviceset="R-EU_" device="0603" value="220R"/>
+<part name="P+13" library="supply1" deviceset="+5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -15232,6 +15237,13 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="AUDIO_IN" gate="G$1" x="-236.22" y="-185.42"/>
 <instance part="GND29" gate="1" x="-248.92" y="-193.04"/>
 <instance part="AUDIO_OUT" gate="G$1" x="43.18" y="-205.74"/>
+<instance part="BUS3" gate="G$1" x="218.44" y="-33.02" rot="R180"/>
+<instance part="GND32" gate="1" x="231.14" y="-45.72"/>
+<instance part="R71" gate="G$1" x="236.22" y="-30.48" rot="MR0"/>
+<instance part="R72" gate="G$1" x="241.3" y="-35.56" rot="MR0"/>
+<instance part="P+13" gate="1" x="251.46" y="-22.86" smashed="yes">
+<attribute name="VALUE" x="248.92" y="-22.86" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -17732,6 +17744,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="GND29" gate="1" pin="GND"/>
 <wire x1="-248.92" y1="-185.42" x2="-248.92" y2="-190.5" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="BUS3" gate="G$1" pin="2"/>
+<pinref part="GND32" gate="1" pin="GND"/>
+<wire x1="220.98" y1="-33.02" x2="231.14" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="231.14" y1="-33.02" x2="231.14" y2="-43.18" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+5V" class="1">
 <segment>
@@ -17783,6 +17801,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="-198.12" y1="2.54" x2="-198.12" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="7"/>
 <wire x1="-198.12" y1="7.62" x2="-190.5" y2="7.62" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R71" gate="G$1" pin="1"/>
+<pinref part="P+13" gate="1" pin="+5V"/>
+<wire x1="241.3" y1="-30.48" x2="251.46" y2="-30.48" width="0.1524" layer="91"/>
+<wire x1="251.46" y1="-30.48" x2="251.46" y2="-25.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="CS_VREF" class="0">
@@ -18365,6 +18389,11 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="233.68" y="20.32" size="1.778" layer="95"/>
 <pinref part="BUS1" gate="G$1" pin="3"/>
 </segment>
+<segment>
+<pinref part="R72" gate="G$1" pin="1"/>
+<wire x1="246.38" y1="-35.56" x2="264.16" y2="-35.56" width="0.1524" layer="91"/>
+<label x="248.92" y="-35.56" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="A7_ENC_CNG_RDY" class="0">
 <segment>
@@ -18872,6 +18901,20 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="220.98" y1="-5.08" x2="251.46" y2="-5.08" width="0.1524" layer="91"/>
 <label x="233.68" y="-5.08" size="1.778" layer="95"/>
 <pinref part="BUS2" gate="G$1" pin="3"/>
+</segment>
+</net>
+<net name="N$14" class="0">
+<segment>
+<pinref part="BUS3" gate="G$1" pin="3"/>
+<pinref part="R71" gate="G$1" pin="2"/>
+<wire x1="231.14" y1="-30.48" x2="220.98" y2="-30.48" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$25" class="0">
+<segment>
+<pinref part="BUS3" gate="G$1" pin="1"/>
+<pinref part="R72" gate="G$1" pin="2"/>
+<wire x1="220.98" y1="-35.56" x2="236.22" y2="-35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
