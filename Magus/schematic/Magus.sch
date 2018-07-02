@@ -14809,6 +14809,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="P+16" library="supply1" deviceset="+12V" device=""/>
 <part name="P-1" library="supply1" deviceset="-12V" device=""/>
 <part name="P+17" library="supply1" deviceset="+5V" device=""/>
+<part name="BOOT" library="SparkFun" deviceset="M02" device="PTH"/>
+<part name="+3V6" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -15318,6 +15320,10 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="P+17" gate="1" x="-274.32" y="30.48" smashed="yes">
 <attribute name="VALUE" x="-276.86" y="30.48" size="1.778" layer="96"/>
 </instance>
+<instance part="BOOT" gate="G$1" x="210.82" y="-124.46" smashed="yes" rot="R180">
+<attribute name="VALUE" x="213.36" y="-119.38" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="+3V6" gate="G$1" x="198.12" y="-116.84"/>
 </instances>
 <busses>
 </busses>
@@ -18624,6 +18630,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="+3V4" gate="G$1" pin="+3V3"/>
 <wire x1="281.94" y1="-149.86" x2="281.94" y2="-152.4" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="BOOT" gate="G$1" pin="1"/>
+<pinref part="+3V6" gate="G$1" pin="+3V3"/>
+<wire x1="203.2" y1="-124.46" x2="198.12" y2="-124.46" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="-124.46" x2="198.12" y2="-119.38" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="ENC1_SW" class="0">
 <segment>
@@ -18966,6 +18978,11 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="137.16" y1="-134.62" x2="137.16" y2="-157.48" width="0.1524" layer="91"/>
 <label x="137.16" y="-157.48" size="1.778" layer="95" rot="R90"/>
 </segment>
+<segment>
+<pinref part="BOOT" gate="G$1" pin="2"/>
+<wire x1="203.2" y1="-127" x2="190.5" y2="-127" width="0.1524" layer="91"/>
+<label x="190.5" y="-127" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="A14" class="0">
 <segment>
@@ -19017,6 +19034,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="BUS3" gate="G$1" pin="1"/>
 <pinref part="R72" gate="G$1" pin="2"/>
 <wire x1="220.98" y1="-35.56" x2="236.22" y2="-35.56" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$26" class="0">
+<segment>
+<pinref part="USB" gate="G$1" pin="1"/>
+<wire x1="175.26" y1="-134.62" x2="175.26" y2="-152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
