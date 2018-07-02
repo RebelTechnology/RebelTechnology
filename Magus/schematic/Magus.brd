@@ -176,6 +176,8 @@
 <dimension x1="1" y1="102" x2="99" y2="102" x3="50" y3="105.41" textsize="1.778" layer="47"/>
 <text x="94.488" y="33.02" size="1.27" layer="21">12V</text>
 <text x="84.201" y="32.893" size="1.27" layer="21">5V</text>
+<text x="97.663" y="53.213" size="1.4224" layer="22" font="vector" rot="MR0">-12V</text>
+<text x="94.488" y="53.721" size="1.016" layer="21" font="vector">-12V</text>
 </plain>
 <libraries>
 <library name="linear">
@@ -2048,7 +2050,9 @@ design rules under a new name.
 <attribute name="OC_FARNELL" value="1843725" x="-23.93" y="89.62" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="93.345" y="53.975" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="BUS1" library="Rebel" package="JST-B3B-PH-KL" value="" x="2.794" y="83.439" rot="MR90"/>
+<element name="BUS1" library="Rebel" package="JST-B3B-PH-KL" value="" x="2.794" y="83.439" smashed="yes" rot="MR90">
+<attribute name="NAME" x="5.695" y="83.439" size="1.27" layer="26" font="vector" rot="MR90" align="bottom-center"/>
+</element>
 <element name="C32" library="Rebel" package="C0603" value="4u7" x="50.3" y="67.3" smashed="yes" rot="R90">
 <attribute name="NAME" x="50.738" y="70.15" size="0.9" layer="25" font="vector" rot="R90" align="bottom-center"/>
 </element>
@@ -2109,7 +2113,7 @@ design rules under a new name.
 <element name="C20" library="Rebel" package="C0603" value="100n" x="37.25" y="74.6" smashed="yes" rot="R225">
 <attribute name="NAME" x="34.9611875" y="73.788815625" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="X2" library="con-molex" package="53048-05" value="53048-05" x="16.6" y="61.45" smashed="yes" rot="MR270">
+<element name="X1" library="con-molex" package="53048-05" value="53048-05" x="16.6" y="61.45" smashed="yes" rot="MR270">
 <attribute name="MF" value="MOLEX" x="7.2" y="69.6" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="MPN" value="53048-0510" x="7.2" y="69.6" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="14.9" y="57.275" size="1.27" layer="26" rot="MR180"/>
@@ -2142,14 +2146,18 @@ design rules under a new name.
 <element name="C21" library="Rebel" package="C0603" value="100n" x="13.462" y="61.468" smashed="yes">
 <attribute name="NAME" x="13.716" y="59.817" size="0.9" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="BUS2" library="Rebel" package="JST-B3B-PH-KL" value="" x="88.1" y="85.8" rot="MR0"/>
+<element name="BUS2" library="Rebel" package="JST-B3B-PH-KL" value="" x="88.1" y="85.8" smashed="yes" rot="MR0">
+<attribute name="NAME" x="88.1" y="82.224" size="1.27" layer="26" font="vector" rot="MR0" align="bottom-center"/>
+</element>
 <element name="AUDIO_IN" library="Rebel" package="JST-B3B-PH-KL" value="" x="11.9" y="100.711" smashed="yes" rot="MR0">
 <attribute name="NAME" x="11.9" y="96.881" size="1.27" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="AUDIO_OUT" library="Rebel" package="JST-B3B-PH-KL" value="" x="88.1" y="100.711" smashed="yes" rot="MR0">
 <attribute name="NAME" x="88.1" y="96.881" size="1.27" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
-<element name="BUS3" library="Rebel" package="JST-B3B-PH-KL" value="" x="2.54" y="60.96" rot="MR90"/>
+<element name="BUS3" library="Rebel" package="JST-B3B-PH-KL" value="" x="2.54" y="60.96" smashed="yes" rot="MR90">
+<attribute name="NAME" x="5.568" y="60.96" size="1.27" layer="26" font="vector" rot="MR90" align="bottom-center"/>
+</element>
 <element name="R71" library="Rebel" package="0603" value="220R" x="5.08" y="67.31" rot="R270"/>
 <element name="R72" library="Rebel" package="0603" value="220R" x="2.54" y="67.31" rot="R270"/>
 <element name="CON_PWR" library="Rebel" package="CON-JST_PH_5W" value="CON-JST_PH_5W" x="86.36" y="36.449" rot="MR0"/>
@@ -2540,7 +2548,7 @@ design rules under a new name.
 <contactref element="U2" pad="16"/>
 <contactref element="C19" pad="2"/>
 <contactref element="C20" pad="2"/>
-<contactref element="X2" pad="3"/>
+<contactref element="X1" pad="3"/>
 <via x="35.85" y="74.9" extent="1-16" drill="0.3048"/>
 <wire x1="29.8" y1="83.5" x2="29.50208125" y2="83.5" width="0.254" layer="1"/>
 <wire x1="29.50208125" y1="83.5" x2="28.601040625" y2="84.401040625" width="0.254" layer="1"/>
@@ -5338,7 +5346,7 @@ design rules under a new name.
 <wire x1="37.4" y1="75.4" x2="37.75208125" y2="75.4" width="0.254" layer="1"/>
 <wire x1="37.75208125" y1="75.4" x2="37.851040625" y2="75.201040625" width="0.254" layer="1"/>
 <wire x1="28" y1="82.6" x2="28" y2="82.5979125" width="0.254" layer="1"/>
-<contactref element="X2" pad="1"/>
+<contactref element="X1" pad="1"/>
 <via x="27.027" y="83.954" extent="1-16" drill="0.3048"/>
 <wire x1="27.027" y1="83.954" x2="26.9" y2="83.6979125" width="0.3048" layer="1"/>
 <wire x1="26.9" y1="83.6979125" x2="27.39895625" y2="83.19895625" width="0.3048" layer="1"/>
@@ -5420,7 +5428,7 @@ design rules under a new name.
 <wire x1="78" y1="75.9" x2="49.08" y2="75.9" width="0.204" layer="15"/>
 </signal>
 <signal name="ENC_SWDIO">
-<contactref element="X2" pad="4"/>
+<contactref element="X1" pad="4"/>
 <contactref element="U2" pad="23"/>
 <wire x1="28.3" y1="77.2" x2="17.67" y2="77.2" width="0.254" layer="1"/>
 <wire x1="17.67" y1="77.2" x2="15.35" y2="74.88" width="0.254" layer="1"/>
@@ -5431,7 +5439,7 @@ design rules under a new name.
 <wire x1="16.65" y1="62.7" x2="17.85" y2="62.7" width="0.254" layer="1"/>
 </signal>
 <signal name="ENC_SWCLK">
-<contactref element="X2" pad="2"/>
+<contactref element="X1" pad="2"/>
 <contactref element="U2" pad="24"/>
 <wire x1="20.2" y1="60.8" x2="19.6" y2="60.2" width="0.254" layer="1"/>
 <wire x1="19.6" y1="60.2" x2="17.85" y2="60.2" width="0.254" layer="1"/>
@@ -5442,7 +5450,7 @@ design rules under a new name.
 <wire x1="20.2" y1="74.6" x2="20.2" y2="60.8" width="0.254" layer="1"/>
 </signal>
 <signal name="B13_ENC_NRST">
-<contactref element="X2" pad="5"/>
+<contactref element="X1" pad="5"/>
 <contactref element="U2" pad="4"/>
 <wire x1="36.9" y1="78.8" x2="34.798" y2="78.8" width="0.204" layer="1"/>
 <wire x1="34.798" y1="78.8" x2="31.45" y2="78.8" width="0.254" layer="1"/>
