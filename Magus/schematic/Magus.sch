@@ -16344,7 +16344,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="ANG4" gate="G$1" pin="4"/>
 </segment>
 </net>
-<net name="USB_H_PWR_EN" class="0">
+<net name="B8_USBH_PWR_EN" class="0">
 <segment>
 <wire x1="157.48" y1="-172.72" x2="157.48" y2="-198.12" width="0.1524" layer="91"/>
 <label x="157.48" y="-198.12" size="1.778" layer="95" rot="R90"/>
@@ -16360,16 +16360,16 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <junction x="218.44" y="-91.44"/>
 </segment>
 </net>
-<net name="B13_USB_H_PWR_FAULT" class="0">
+<net name="B9_USBH_PWR_FAULT" class="0">
 <segment>
 <pinref part="U9" gate="MIC2005" pin="FAULT"/>
 <wire x1="254" y1="-91.44" x2="281.94" y2="-91.44" width="0.1524" layer="91"/>
 <label x="256.54" y="-91.44" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="USB1" gate="G$1" pin="1"/>
-<wire x1="142.24" y1="-172.72" x2="142.24" y2="-200.66" width="0.1524" layer="91"/>
-<label x="142.24" y="-200.66" size="1.778" layer="95" rot="R90"/>
+<pinref part="ANG4" gate="G$1" pin="6"/>
+<wire x1="154.94" y1="-172.72" x2="154.94" y2="-198.12" width="0.1524" layer="91"/>
+<label x="154.94" y="-200.66" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="ENC1_A" class="0">
@@ -18676,14 +18676,14 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="-116.84" y="86.36" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="B15" class="0">
+<net name="B14" class="0">
 <segment>
 <wire x1="137.16" y1="-172.72" x2="137.16" y2="-182.88" width="0.1524" layer="91"/>
 <label x="137.16" y="-182.88" size="1.778" layer="95" rot="R90"/>
 <pinref part="USB1" gate="G$1" pin="3"/>
 </segment>
 </net>
-<net name="B16_TLC_BLANK" class="0">
+<net name="B15_TLC_BLANK" class="0">
 <segment>
 <wire x1="134.62" y1="-172.72" x2="134.62" y2="-193.04" width="0.1524" layer="91"/>
 <label x="134.62" y="-193.04" size="1.778" layer="95" rot="R90"/>
@@ -18705,7 +18705,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="101.6" y="157.48" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="B17" class="0">
+<net name="B16" class="0">
 <segment>
 <wire x1="132.08" y1="-172.72" x2="132.08" y2="-182.88" width="0.1524" layer="91"/>
 <label x="132.08" y="-182.88" size="1.778" layer="95" rot="R90"/>
@@ -18780,7 +18780,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="X6" gate="-13" pin="1"/>
 </segment>
 </net>
-<net name="B14" class="0">
+<net name="B13" class="0">
 <segment>
 <pinref part="USB1" gate="G$1" pin="2"/>
 <wire x1="139.7" y1="-172.72" x2="139.7" y2="-182.88" width="0.1524" layer="91"/>

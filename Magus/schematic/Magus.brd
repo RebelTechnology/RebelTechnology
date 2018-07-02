@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="0.0125" altunitdist="inch" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="InnerTop" color="10" fill="1" visible="yes" active="yes"/>
@@ -4205,12 +4205,12 @@ design rules under a new name.
 <wire x1="80.82" y1="54.98" x2="80.83" y2="54.99" width="0.204" layer="15"/>
 <contactref element="ANG4" pad="4"/>
 <wire x1="80.83" y1="54.99" x2="79.57" y2="56.25" width="0.254" layer="15"/>
-<wire x1="79.57" y1="56.25" x2="76.05" y2="56.25" width="0.254" layer="15"/>
-<wire x1="76.05" y1="56.25" x2="75.4" y2="56.9" width="0.254" layer="15"/>
-<wire x1="75.4" y1="56.9" x2="75.4" y2="63.88" width="0.254" layer="15"/>
-<wire x1="75.4" y1="63.88" x2="74.16" y2="65.12" width="0.254" layer="15"/>
+<wire x1="79.57" y1="56.25" x2="73.51" y2="56.25" width="0.254" layer="15"/>
+<wire x1="73.51" y1="56.25" x2="72.86" y2="56.9" width="0.254" layer="15"/>
+<wire x1="72.86" y1="56.9" x2="72.86" y2="63.88" width="0.254" layer="15"/>
+<wire x1="72.86" y1="63.88" x2="74.16" y2="65.12" width="0.254" layer="15"/>
 </signal>
-<signal name="USB_H_PWR_EN">
+<signal name="B8_USBH_PWR_EN">
 <contactref element="U9" pad="3"/>
 <contactref element="R70" pad="1"/>
 <wire x1="87.95" y1="60.4" x2="89.65" y2="60.4" width="0.254" layer="1"/>
@@ -4223,17 +4223,17 @@ design rules under a new name.
 <wire x1="84.2" y1="64.3" x2="77.52" y2="64.3" width="0.204" layer="1"/>
 <wire x1="77.52" y1="64.3" x2="74.16" y2="67.66" width="0.204" layer="1"/>
 </signal>
-<signal name="B13_USB_H_PWR_FAULT">
+<signal name="B9_USBH_PWR_FAULT">
 <contactref element="U9" pad="4"/>
 <wire x1="85.65" y1="60.4" x2="85.65" y2="62.2" width="0.204" layer="1"/>
 <wire x1="85.65" y1="62.2" x2="84" y2="63.85" width="0.204" layer="1"/>
 <wire x1="84" y1="63.85" x2="77.35" y2="63.85" width="0.204" layer="1"/>
-<wire x1="77.35" y1="63.85" x2="74.8" y2="66.4" width="0.204" layer="1"/>
+<wire x1="74.8" y1="66.4" x2="77.35" y2="63.85" width="0.204" layer="1"/>
 <wire x1="74.8" y1="66.4" x2="73.5" y2="66.4" width="0.204" layer="1"/>
 <wire x1="73.5" y1="66.4" x2="72.9" y2="67" width="0.204" layer="1"/>
-<contactref element="USB1" pad="1"/>
-<wire x1="72.9" y1="67" x2="72.9" y2="76.54" width="0.204" layer="1"/>
-<wire x1="72.9" y1="76.54" x2="74.16" y2="77.8" width="0.204" layer="1"/>
+<contactref element="ANG4" pad="6"/>
+<wire x1="72.9" y1="67" x2="72.9" y2="68.94" width="0.204" layer="1"/>
+<wire x1="72.9" y1="68.94" x2="74.16" y2="70.2" width="0.204" layer="1"/>
 </signal>
 <signal name="ENC1_A">
 <contactref element="ENC1" pad="PINA"/>
@@ -5500,10 +5500,10 @@ design rules under a new name.
 <wire x1="57.1" y1="83.5" x2="55.85" y2="82.25" width="0.204" layer="15"/>
 <wire x1="66.55" y1="84.3" x2="66.55" y2="100.7" width="0.204" layer="15"/>
 </signal>
-<signal name="B15">
+<signal name="B14">
 <contactref element="USB1" pad="3"/>
 </signal>
-<signal name="B16_TLC_BLANK">
+<signal name="B15_TLC_BLANK">
 <contactref element="USB1" pad="4"/>
 <contactref element="U8" pad="2"/>
 <contactref element="U7" pad="2"/>
@@ -5535,7 +5535,7 @@ design rules under a new name.
 <wire x1="77.5" y1="84.15" x2="75.43" y2="84.15" width="0.204" layer="16"/>
 <wire x1="75.43" y1="84.15" x2="74.16" y2="85.42" width="0.204" layer="16"/>
 </signal>
-<signal name="B17">
+<signal name="B16">
 <contactref element="USB1" pad="5"/>
 </signal>
 <signal name="A4_UART_RX">
@@ -5641,7 +5641,7 @@ design rules under a new name.
 <wire x1="42.1" y1="79.7" x2="48.35" y2="79.7" width="0.204" layer="15"/>
 <wire x1="48.35" y1="79.7" x2="50.25" y2="77.8" width="0.204" layer="15"/>
 </signal>
-<signal name="B14">
+<signal name="B13">
 <contactref element="USB1" pad="2"/>
 </signal>
 <signal name="USB_D_ID">
