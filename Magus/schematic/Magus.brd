@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="8.7.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.05" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="0.0125" altunitdist="inch" altunit="inch"/>
@@ -1403,10 +1404,11 @@ design rules under a new name.
 <param name="slThermalsForVias" value="0"/>
 <param name="dpMaxLengthDifference" value="10mm"/>
 <param name="dpGapFactor" value="2.5"/>
-<param name="checkGrid" value="0"/>
 <param name="checkAngle" value="0"/>
 <param name="checkFont" value="1"/>
 <param name="checkRestrict" value="0"/>
+<param name="checkStop" value="0"/>
+<param name="checkValues" value="0"/>
 <param name="useDiameter" value="13"/>
 <param name="maxErrors" value="999999"/>
 </designrules>
@@ -1722,49 +1724,49 @@ design rules under a new name.
 <element name="C101" library="Rebel" package="CPOL-5" value="100u 10v" x="78.9" y="68.95" smashed="yes" rot="R90">
 <attribute name="NAME" x="78.9" y="65.856" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="C1" library="Rebel" package="C0603" value="100n" x="13.5" y="64.5" smashed="yes">
+<element name="C1" library="Rebel" package="C0603" value="10n" x="13.5" y="64.5" smashed="yes">
 <attribute name="NAME" x="13.7" y="63.588" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="C2" library="Rebel" package="C0603" value="100n" x="10" y="64.5" smashed="yes" rot="R180">
+<element name="C2" library="Rebel" package="C0603" value="10n" x="10" y="64.5" smashed="yes" rot="R180">
 <attribute name="NAME" x="10" y="63.638" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="C3" library="Rebel" package="C0603" value="100n" x="89.6" y="64.5" smashed="yes">
+<element name="C3" library="Rebel" package="C0603" value="10n" x="89.6" y="64.5" smashed="yes">
 <attribute name="NAME" x="89.6" y="63.638" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="C4" library="Rebel" package="C0603" value="100n" x="86.5" y="64.5" smashed="yes" rot="R180">
+<element name="C4" library="Rebel" package="C0603" value="10n" x="86.5" y="64.5" smashed="yes" rot="R180">
 <attribute name="NAME" x="86.5" y="63.488" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="U9" library="James" package="SOT23-6" value="MIC2005" x="86.8" y="59.45" smashed="yes" rot="R90">
+<attribute name="NAME" x="86.053" y="61.152" size="0.9" layer="25" font="vector"/>
 <attribute name="OC_FARNELL" value="2509882" x="73.75" y="-116.45" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="89.472" y="58.053" size="1.016" layer="27" ratio="10" rot="R90"/>
-<attribute name="NAME" x="86.053" y="61.152" size="0.9" layer="25" font="vector"/>
 </element>
 <element name="ENC3" library="Rebel" package="EC12E2424407" value="EC12E2424407" x="11.9" y="48.45" locked="yes"/>
 <element name="ENC4" library="Rebel" package="EC12E2424407" value="EC12E2424407" x="37.3" y="48.45" locked="yes"/>
-<element name="C44" library="Rebel" package="C0603" value="100n" x="13.5" y="39" smashed="yes">
+<element name="C44" library="Rebel" package="C0603" value="10n" x="13.5" y="39" smashed="yes">
 <attribute name="NAME" x="13.5" y="38.038" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="C45" library="Rebel" package="C0603" value="100n" x="10" y="39" smashed="yes" rot="R180">
+<element name="C45" library="Rebel" package="C0603" value="10n" x="10" y="39" smashed="yes" rot="R180">
 <attribute name="NAME" x="10" y="38.088" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="C46" library="Rebel" package="C0603" value="100n" x="39" y="39" smashed="yes">
+<element name="C46" library="Rebel" package="C0603" value="10n" x="39" y="39" smashed="yes">
 <attribute name="NAME" x="39" y="38.138" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="C70" library="Rebel" package="C0603" value="100n" x="35.5" y="39" smashed="yes" rot="R180">
+<element name="C70" library="Rebel" package="C0603" value="10n" x="35.5" y="39" smashed="yes" rot="R180">
 <attribute name="NAME" x="35.5" y="38.138" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="ENC5" library="Rebel" package="EC12E2424407" value="EC12E2424407" x="62.7" y="48.45" locked="yes"/>
 <element name="ENC6" library="Rebel" package="EC12E2424407" value="EC12E2424407" x="88.1" y="48.45" locked="yes"/>
-<element name="C71" library="Rebel" package="C0603" value="100n" x="64.5" y="39" smashed="yes">
+<element name="C71" library="Rebel" package="C0603" value="10n" x="64.5" y="39" smashed="yes">
 <attribute name="NAME" x="64.5" y="38.138" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="C72" library="Rebel" package="C0603" value="100n" x="61" y="39" smashed="yes" rot="R180">
+<element name="C72" library="Rebel" package="C0603" value="10n" x="61" y="39" smashed="yes" rot="R180">
 <attribute name="NAME" x="61" y="38.138" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="C73" library="Rebel" package="C0603" value="100n" x="90" y="39" smashed="yes">
+<element name="C73" library="Rebel" package="C0603" value="10n" x="90" y="39" smashed="yes">
 <attribute name="NAME" x="90" y="38.138" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="C74" library="Rebel" package="C0603" value="100n" x="86.5" y="39" smashed="yes" rot="R180">
+<element name="C74" library="Rebel" package="C0603" value="10n" x="86.5" y="39" smashed="yes" rot="R180">
 <attribute name="NAME" x="86.5" y="38.138" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="R21" library="Rebel" package="0603" value="1k" x="25.5" y="98" smashed="yes" rot="R270">
@@ -1866,11 +1868,11 @@ design rules under a new name.
 <attribute name="NAME" x="60.5" y="84.162" size="0.9" layer="25" font="vector" align="bottom-center"/>
 </element>
 <element name="X6" library="con-hirose" package="FH12-24S-0.5SH" value="FH12-24S-0.5SH" x="50" y="81" locked="yes" smashed="yes">
-<attribute name="OC_NEWARK" value="34M6170" x="50" y="74.5" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="FH12-24S-0.5SH(55)" x="50" y="74.5" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="50" y="74.5" size="1.778" layer="27" display="off"/>
-<attribute name="OC_FARNELL" value="1324552" x="50" y="74.5" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="FH12-24S-0.5SH(55)" x="50" y="74.5" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="57.8024" y="82.345" size="0.9" layer="25"/>
+<attribute name="OC_FARNELL" value="1324552" x="50" y="74.5" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="34M6170" x="50" y="74.5" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="43.7524" y="80.6742" size="1.27" layer="27"/>
 </element>
 <element name="C80" library="Rebel" package="C0603" value="100n 16V" x="57.7" y="86.5" smashed="yes" rot="R180">
@@ -2015,13 +2017,13 @@ design rules under a new name.
 <attribute name="VALUE" x="98.794" y="61.046" size="0.4064" layer="28" font="vector" rot="MR90"/>
 </element>
 <element name="Q3" library="transistor-small-signal" package="SOT23" value="BSS84" x="96.3475" y="70.3275" smashed="yes" rot="R270">
-<attribute name="OC_FARNELL" value="1779264" x="-16.8025" y="115.4775" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="97.2025" y="72.6825" size="0.9" layer="25" rot="R270"/>
+<attribute name="OC_FARNELL" value="1779264" x="-16.8025" y="115.4775" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="93.1725" y="72.2325" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="Q4" library="transistor-small-signal" package="SOT23" value="BSS123" x="96.52" y="52.07" smashed="yes" rot="R270">
-<attribute name="OC_FARNELL" value="1843725" x="-23.93" y="89.62" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="97.415" y="50.475" size="0.9" layer="25"/>
+<attribute name="OC_FARNELL" value="1843725" x="-23.93" y="89.62" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="93.345" y="53.975" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="BUS1" library="Rebel" package="JST-B3B-PH-KL" value="" x="24.55" y="85.8" rot="MR0"/>
@@ -2089,11 +2091,11 @@ design rules under a new name.
 <attribute name="NAME" x="34.9611875" y="73.788815625" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="X2" library="con-molex" package="53048-05" value="53048-05" x="16.6" y="61.45" smashed="yes" rot="MR270">
-<attribute name="OC_NEWARK" value="57H4722" x="7.2" y="69.6" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="MPN" value="53048-0510" x="7.2" y="69.6" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="MF" value="MOLEX" x="7.2" y="69.6" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="OC_FARNELL" value="9732926" x="7.2" y="69.6" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="MPN" value="53048-0510" x="7.2" y="69.6" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="14.9" y="57.275" size="1.27" layer="26" rot="MR180"/>
+<attribute name="OC_FARNELL" value="9732926" x="7.2" y="69.6" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="OC_NEWARK" value="57H4722" x="7.2" y="69.6" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="20.35" y="65.075" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="R5" library="Rebel" package="0603" value="10k" x="28.65" y="72.45" smashed="yes" rot="R90">
@@ -5645,90 +5647,6 @@ design rules under a new name.
 <signal name="USB_D_ID">
 </signal>
 </signals>
-<errors>
-<approved hash="5,1,74a55f98b1897d26"/>
-<approved hash="5,1,c7a6ec98bd897125"/>
-<approved hash="5,1,56a07d98bd897123"/>
-<approved hash="5,1,b8af9398b989752c"/>
-<approved hash="5,1,0ba92098bd89712a"/>
-<approved hash="5,1,9aaab198bd897129"/>
-<approved hash="5,1,6d544698c1890dd7"/>
-<approved hash="5,1,4f536498bd8971d0"/>
-<approved hash="5,1,de5cf598bd8971df"/>
-<approved hash="5,1,515e7a98b98975dd"/>
-<approved hash="5,1,20580b98b98975db"/>
-<approved hash="5,1,f74fdc98bd8971cc"/>
-<approved hash="5,1,46496d98bd8971ca"/>
-<approved hash="5,1,d94af298b98975c9"/>
-<approved hash="5,1,a8748398b98975f7"/>
-<approved hash="5,1,ae72c74484810656"/>
-<approved hash="5,1,a06c2c74899aee63"/>
-<approved hash="5,1,3b3593485c810f1d"/>
-<approved hash="5,1,f527b87481963724"/>
-<approved hash="5,1,a412cd88a7993791"/>
-<approved hash="5,1,172c7e88a39933af"/>
-<approved hash="5,1,862fef88a39933ac"/>
-<approved hash="5,1,602b0988bf992fa8"/>
-<approved hash="5,1,d326ba88a39933a5"/>
-<approved hash="5,1,42202b88a39933a3"/>
-<approved hash="5,1,cd23a488a79937a0"/>
-<approved hash="5,1,af38c688a39933bb"/>
-<approved hash="5,1,1e3a7788a39933b9"/>
-<approved hash="5,1,8935e088af993fb6"/>
-<approved hash="5,1,f8379188af993fb4"/>
-<approved hash="5,1,26cb4e88a3993248"/>
-<approved hash="5,1,97c6ff88a3993245"/>
-<approved hash="5,1,00c06888bf992e43"/>
-<approved hash="5,1,71c219895f98ce41"/>
-<approved hash="5,1,cd476bfd39a1e950"/>
-<approved hash="5,1,42721564a3820a3f"/>
-<approved hash="5,1,71494ac0c45f8a3f"/>
-<approved hash="5,1,d67a00c052d5f2a6"/>
-<approved hash="5,1,1243c4f996ec369f"/>
-<approved hash="5,1,6e97d8e4fcf13c4b"/>
-<approved hash="5,1,d67a03c4fd9828a6"/>
-<approved hash="5,1,1d57aba68ffa4f40"/>
-<approved hash="5,1,eea48b967eecdc4a"/>
-<approved hash="5,1,2b438df9dfa50f54"/>
-<approved hash="5,1,259beea510f9db47"/>
-<approved hash="5,1,1243c7fd39a1ec9f"/>
-<approved hash="5,1,c75801a925f5954f"/>
-<approved hash="5,1,6e97dba925f5904b"/>
-<approved hash="5,1,cf5008eef6b2318c"/>
-<approved hash="5,1,1054a4eef6b23443"/>
-<approved hash="5,1,9e1d26e1d8ade078"/>
-<approved hash="5,1,538394bd6ae1ad5f"/>
-<approved hash="5,1,fa4c4ebd6ae1a85b"/>
-<approved hash="5,1,4008c86f42f0147f"/>
-<approved hash="5,1,857f430c6719d7a3"/>
-<approved hash="5,1,134d9b6f67751495"/>
-<approved hash="5,1,c5ae33146101e172"/>
-<approved hash="5,1,9dbd254c0110cfaa"/>
-<approved hash="5,1,3bac67ad43cbe061"/>
-<approved hash="5,1,024b322d287a6061"/>
-<approved hash="5,1,abac0b16594a8fbb"/>
-<approved hash="5,1,12bbb44a901640ac"/>
-<approved hash="5,1,9d4942f4218d7e47"/>
-<approved hash="5,1,a666f9e4b3341247"/>
-<approved hash="5,1,3cae7a14284918b8"/>
-<approved hash="5,1,83b9c748e315d1af"/>
-<approved hash="5,1,acc1ccb8a6b93e7e"/>
-<approved hash="5,1,1fff7fb8a2b93a40"/>
-<approved hash="5,1,8efceeb8a2b93a43"/>
-<approved hash="5,1,68f808b8beb92647"/>
-<approved hash="5,1,dbf5bbb8a2b93a4a"/>
-<approved hash="5,1,4af32ab8a2b93a4c"/>
-<approved hash="5,1,c5f0a5b8a6b93e4f"/>
-<approved hash="5,1,a7ebc7b8a2b93a54"/>
-<approved hash="5,1,16e976b8a2b93a56"/>
-<approved hash="5,1,81e6e1b8aeb93659"/>
-<approved hash="5,1,f0e490b8aeb9365b"/>
-<approved hash="5,1,56a3811d7f41a87f"/>
-<approved hash="5,1,2e184fb8a2b93ba7"/>
-<approved hash="5,1,9f15feb8a2b93baa"/>
-<approved hash="5,1,081369b8beb927ac"/>
-<approved hash="5,1,791118b95eb8c7ae"/>
-</errors>
 </board>
 </drawing>
 </eagle>

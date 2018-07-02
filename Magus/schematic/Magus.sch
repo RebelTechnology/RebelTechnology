@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="8.7.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
@@ -14504,16 +14505,16 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="GND56" library="supply1" deviceset="GND" device=""/>
 <part name="C101" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="100u 10v"/>
 <part name="GND62" library="supply1" deviceset="GND" device=""/>
-<part name="C1" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C2" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C1" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
+<part name="C2" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
 <part name="GND65" library="supply1" deviceset="GND" device=""/>
 <part name="GND68" library="supply1" deviceset="GND" device=""/>
 <part name="GND69" library="supply1" deviceset="GND" device=""/>
 <part name="GND64" library="supply1" deviceset="GND" device=""/>
 <part name="GND104" library="supply1" deviceset="GND" device=""/>
 <part name="GND124" library="supply1" deviceset="GND" device=""/>
-<part name="C3" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C4" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C3" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
+<part name="C4" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
 <part name="GND128" library="supply1" deviceset="GND" device=""/>
 <part name="GND132" library="supply1" deviceset="GND" device=""/>
 <part name="GND133" library="supply1" deviceset="GND" device=""/>
@@ -14525,32 +14526,32 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="P+9" library="supply1" deviceset="+12V" device=""/>
 <part name="ENC3" library="Rebel" deviceset="EC12E2424407" device=""/>
 <part name="ENC4" library="Rebel" deviceset="EC12E2424407" device=""/>
-<part name="C44" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C45" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C44" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
+<part name="C45" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
 <part name="GND164" library="supply1" deviceset="GND" device=""/>
 <part name="GND165" library="supply1" deviceset="GND" device=""/>
 <part name="GND166" library="supply1" deviceset="GND" device=""/>
 <part name="GND167" library="supply1" deviceset="GND" device=""/>
 <part name="GND168" library="supply1" deviceset="GND" device=""/>
 <part name="GND169" library="supply1" deviceset="GND" device=""/>
-<part name="C46" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C70" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C46" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
+<part name="C70" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
 <part name="GND170" library="supply1" deviceset="GND" device=""/>
 <part name="GND171" library="supply1" deviceset="GND" device=""/>
 <part name="GND172" library="supply1" deviceset="GND" device=""/>
 <part name="GND173" library="supply1" deviceset="GND" device=""/>
 <part name="ENC5" library="Rebel" deviceset="EC12E2424407" device=""/>
 <part name="ENC6" library="Rebel" deviceset="EC12E2424407" device=""/>
-<part name="C71" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C72" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C71" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
+<part name="C72" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
 <part name="GND174" library="supply1" deviceset="GND" device=""/>
 <part name="GND175" library="supply1" deviceset="GND" device=""/>
 <part name="GND176" library="supply1" deviceset="GND" device=""/>
 <part name="GND177" library="supply1" deviceset="GND" device=""/>
 <part name="GND178" library="supply1" deviceset="GND" device=""/>
 <part name="GND179" library="supply1" deviceset="GND" device=""/>
-<part name="C73" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C74" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C73" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
+<part name="C74" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
 <part name="GND180" library="supply1" deviceset="GND" device=""/>
 <part name="GND181" library="supply1" deviceset="GND" device=""/>
 <part name="GND182" library="supply1" deviceset="GND" device=""/>
