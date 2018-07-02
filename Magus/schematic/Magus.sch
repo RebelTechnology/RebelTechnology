@@ -16580,7 +16580,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="U2" gate="G$1" pin="PF1"/>
 </segment>
 </net>
-<net name="SPI_A_CLK" class="0">
+<net name="A23_SPIA_CLK" class="0">
 <segment>
 <pinref part="U1" gate="-SERIAL" pin="SCLK"/>
 <wire x1="-121.92" y1="83.82" x2="-104.14" y2="83.82" width="0.1524" layer="91"/>
@@ -16597,7 +16597,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="U2" gate="G$1" pin="PA5"/>
 </segment>
 </net>
-<net name="PIXI_NCS" class="0">
+<net name="A22_PIXI_NCS" class="0">
 <segment>
 <pinref part="U1" gate="-SERIAL" pin="!CS!"/>
 <wire x1="-121.92" y1="81.28" x2="-104.14" y2="81.28" width="0.1524" layer="91"/>
@@ -16609,7 +16609,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="93.98" y="-187.96" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SPI_A_MISO" class="0">
+<net name="A24_SPIA_MISO" class="0">
 <segment>
 <pinref part="U1" gate="-SERIAL" pin="DOUT"/>
 <wire x1="-121.92" y1="78.74" x2="-104.14" y2="78.74" width="0.1524" layer="91"/>
@@ -18328,7 +18328,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="BUS1" gate="G$1" pin="3"/>
 </segment>
 </net>
-<net name="GP7_ENC_CNG_RDY" class="0">
+<net name="A7_ENC_CNG_RDY" class="0">
 <segment>
 <wire x1="114.3" y1="-223.52" x2="91.44" y2="-223.52" width="0.1524" layer="91"/>
 <label x="93.98" y="-223.52" size="1.778" layer="95"/>
@@ -18543,7 +18543,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="U2" gate="G$1" pin="NRST"/>
 </segment>
 </net>
-<net name="GP6_TLC_GSCLK" class="0">
+<net name="A6_TLC_GSCLK" class="0">
 <segment>
 <wire x1="134.62" y1="93.98" x2="101.6" y2="93.98" width="0.1524" layer="91"/>
 <label x="101.6" y="93.98" size="1.778" layer="95"/>
@@ -18664,7 +18664,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="U8" gate="TLC5946" pin="XLAT"/>
 </segment>
 </net>
-<net name="SPI_A_MOSI" class="0">
+<net name="A25_SPIA_MOSI" class="0">
 <segment>
 <pinref part="EXTSPI" gate="G$1" pin="1"/>
 <wire x1="91.44" y1="-195.58" x2="109.22" y2="-195.58" width="0.1524" layer="91"/>
