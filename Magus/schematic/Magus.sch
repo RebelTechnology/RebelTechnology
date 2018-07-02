@@ -14734,6 +14734,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="BUS2" library="Rebel" deviceset="CON-JST-1X03" device="PH-TH"/>
+<part name="AUDIO_IN" library="Rebel" deviceset="CON-JST-1X03" device="PH-TH"/>
+<part name="GND29" library="supply1" deviceset="GND" device=""/>
+<part name="AUDIO_OUT" library="Rebel" deviceset="CON-JST-1X03" device="PH-TH"/>
 </parts>
 <sheets>
 <sheet>
@@ -15226,6 +15229,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="+3V4" gate="G$1" x="281.94" y="-147.32"/>
 <instance part="GND26" gate="1" x="231.14" y="-15.24"/>
 <instance part="BUS2" gate="G$1" x="218.44" y="-7.62" rot="R180"/>
+<instance part="AUDIO_IN" gate="G$1" x="-236.22" y="-185.42"/>
+<instance part="GND29" gate="1" x="-248.92" y="-193.04"/>
+<instance part="AUDIO_OUT" gate="G$1" x="43.18" y="-205.74"/>
 </instances>
 <busses>
 </busses>
@@ -17720,6 +17726,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="231.14" y1="-7.62" x2="231.14" y2="-12.7" width="0.1524" layer="91"/>
 <pinref part="BUS2" gate="G$1" pin="2"/>
 </segment>
+<segment>
+<pinref part="AUDIO_IN" gate="G$1" pin="2"/>
+<wire x1="-238.76" y1="-185.42" x2="-248.92" y2="-185.42" width="0.1524" layer="91"/>
+<pinref part="GND29" gate="1" pin="GND"/>
+<wire x1="-248.92" y1="-185.42" x2="-248.92" y2="-190.5" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+5V" class="1">
 <segment>
@@ -17939,6 +17951,11 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="-190.5" y1="-170.18" x2="-195.58" y2="-170.18" width="0.1524" layer="91"/>
 <junction x="-190.5" y="-170.18"/>
 <pinref part="IC2" gate="A" pin="-IN"/>
+<pinref part="AUDIO_IN" gate="G$1" pin="1"/>
+<wire x1="-238.76" y1="-182.88" x2="-243.84" y2="-182.88" width="0.1524" layer="91"/>
+<wire x1="-243.84" y1="-182.88" x2="-243.84" y2="-160.02" width="0.1524" layer="91"/>
+<wire x1="-243.84" y1="-160.02" x2="-190.5" y2="-160.02" width="0.1524" layer="91"/>
+<junction x="-190.5" y="-160.02"/>
 </segment>
 </net>
 <net name="INL" class="0">
@@ -17992,6 +18009,11 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="-190.5" y1="-220.98" x2="-195.58" y2="-220.98" width="0.1524" layer="91"/>
 <junction x="-190.5" y="-220.98"/>
 <pinref part="IC2" gate="B" pin="-IN"/>
+<pinref part="AUDIO_IN" gate="G$1" pin="3"/>
+<wire x1="-238.76" y1="-187.96" x2="-243.84" y2="-187.96" width="0.1524" layer="91"/>
+<wire x1="-243.84" y1="-187.96" x2="-243.84" y2="-210.82" width="0.1524" layer="91"/>
+<wire x1="-243.84" y1="-210.82" x2="-190.5" y2="-210.82" width="0.1524" layer="91"/>
+<junction x="-190.5" y="-210.82"/>
 </segment>
 </net>
 <net name="INR" class="0">
@@ -18111,6 +18133,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <junction x="30.48" y="-170.18"/>
 <pinref part="IC1" gate="A" pin="OUT"/>
 <pinref part="R16" gate="G$1" pin="2"/>
+<pinref part="AUDIO_OUT" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="-203.2" x2="30.48" y2="-203.2" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="-203.2" x2="30.48" y2="-182.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$18" class="0">
@@ -18182,6 +18207,10 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <junction x="30.48" y="-254"/>
 <pinref part="IC1" gate="B" pin="OUT"/>
 <pinref part="R17" gate="G$1" pin="2"/>
+<pinref part="AUDIO_OUT" gate="G$1" pin="3"/>
+<wire x1="40.64" y1="-208.28" x2="30.48" y2="-208.28" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="-208.28" x2="30.48" y2="-241.3" width="0.1524" layer="91"/>
+<junction x="30.48" y="-241.3"/>
 </segment>
 </net>
 <net name="N$1" class="0">
