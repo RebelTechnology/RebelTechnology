@@ -16669,7 +16669,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="5O" library="Rebel" deviceset="CON-JST_PH_5W" device=""/>
-<part name="3I" library="Rebel" deviceset="CON-JST_PH_3W" device=""/>
+<part name="AUDIO_IN" library="Rebel" deviceset="CON-JST_PH_3W" device=""/>
 <part name="R1" library="resistor" deviceset="R-EU_" device="R0603" value="22k"/>
 <part name="R2" library="resistor" deviceset="R-EU_" device="R0603" value="22k"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
@@ -16677,7 +16677,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="P+4" library="supply1" deviceset="+12V" device=""/>
 <part name="P-1" library="supply1" deviceset="-12V" device=""/>
-<part name="3I1" library="Rebel" deviceset="CON-JST_PH_3W" device=""/>
+<part name="AUDIO_OUT" library="Rebel" deviceset="CON-JST_PH_3W" device=""/>
 <part name="C6" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
@@ -16721,8 +16721,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <sheets>
 <sheet>
 <plain>
-<text x="5.08" y="119.38" size="3.048" layer="97" font="vector">Magus Rev01</text>
-<text x="5.08" y="114.3" size="3.048" layer="97" font="vector">Copyright 2017 Rebel Technology</text>
+<text x="5.08" y="119.38" size="3.048" layer="97" font="vector">Magus Connectors Rev02</text>
+<text x="5.08" y="114.3" size="3.048" layer="97" font="vector">Copyright 2018 Rebel Technology</text>
 <text x="5.08" y="109.22" size="3.048" layer="97" font="vector">Published under the GNU GPL</text>
 </plain>
 <instances>
@@ -16791,7 +16791,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <instance part="GND18" gate="1" x="177.8" y="17.78"/>
 <instance part="GND23" gate="1" x="177.8" y="-22.86"/>
 <instance part="5O" gate="G$1" x="109.22" y="55.88" rot="MR0"/>
-<instance part="3I" gate="G$1" x="137.16" y="96.52" rot="MR0"/>
+<instance part="AUDIO_IN" gate="G$1" x="137.16" y="96.52" rot="MR0"/>
 <instance part="R1" gate="G$1" x="127" y="99.06" rot="R180"/>
 <instance part="R2" gate="G$1" x="127" y="91.44" rot="R180"/>
 <instance part="GND2" gate="1" x="134.62" y="83.82" rot="MR0"/>
@@ -16799,7 +16799,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <instance part="GND3" gate="1" x="99.06" y="38.1"/>
 <instance part="P+4" gate="1" x="91.44" y="60.96"/>
 <instance part="P-1" gate="1" x="91.44" y="40.64"/>
-<instance part="3I1" gate="G$1" x="132.08" y="22.86"/>
+<instance part="AUDIO_OUT" gate="G$1" x="132.08" y="22.86"/>
 <instance part="C6" gate="G$1" x="5.08" y="-43.18" rot="R180"/>
 <instance part="GND4" gate="1" x="22.86" y="-53.34"/>
 <instance part="GND5" gate="1" x="5.08" y="-53.34"/>
@@ -17065,7 +17065,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="177.8" y1="5.08" x2="177.8" y2="-20.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="3I" gate="G$1" pin="-2"/>
+<pinref part="AUDIO_IN" gate="G$1" pin="-2"/>
 <pinref part="GND2" gate="1" pin="GND"/>
 <wire x1="137.16" y1="93.98" x2="134.62" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="134.62" y1="93.98" x2="134.62" y2="86.36" width="0.1524" layer="91"/>
@@ -17260,7 +17260,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <pinref part="C4" gate="G$1" pin="1"/>
 <wire x1="134.62" y1="40.64" x2="149.86" y2="40.64" width="0.1524" layer="91"/>
 <label x="137.16" y="40.64" size="1.778" layer="95"/>
-<pinref part="3I1" gate="G$1" pin="-1"/>
+<pinref part="AUDIO_OUT" gate="G$1" pin="-1"/>
 <wire x1="132.08" y1="22.86" x2="134.62" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="134.62" y1="22.86" x2="134.62" y2="40.64" width="0.1524" layer="91"/>
 </segment>
@@ -17270,7 +17270,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="134.62" y1="0" x2="149.86" y2="0" width="0.1524" layer="91"/>
 <pinref part="C5" gate="G$1" pin="1"/>
 <label x="137.16" y="0" size="1.778" layer="95"/>
-<pinref part="3I1" gate="G$1" pin="-3"/>
+<pinref part="AUDIO_OUT" gate="G$1" pin="-3"/>
 <wire x1="132.08" y1="17.78" x2="134.62" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="134.62" y1="17.78" x2="134.62" y2="0" width="0.1524" layer="91"/>
 </segment>
@@ -17381,13 +17381,13 @@ In this library the device names are the same as the pin names of the symbols, t
 <net name="N$5" class="0">
 <segment>
 <pinref part="R2" gate="G$1" pin="1"/>
-<pinref part="3I" gate="G$1" pin="-3"/>
+<pinref part="AUDIO_IN" gate="G$1" pin="-3"/>
 <wire x1="132.08" y1="91.44" x2="137.16" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$6" class="0">
 <segment>
-<pinref part="3I" gate="G$1" pin="-1"/>
+<pinref part="AUDIO_IN" gate="G$1" pin="-1"/>
 <wire x1="137.16" y1="96.52" x2="134.62" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="134.62" y1="96.52" x2="134.62" y2="99.06" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="1"/>
