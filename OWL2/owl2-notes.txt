@@ -395,7 +395,6 @@ S25FL256L 256Mb 133MHz soic-16
 S25FL064LABMFI013 (mouser £0.709 @100 on order)
 S25FL064LABMFI010 (mouser £0.709 @100 lead time 20 weeks)
 
-
 S25FL064LABMFV013
 
 -----------------------------------------------------------------
@@ -437,3 +436,13 @@ Reset device
 Activated with pins BOOT0=1 and BOOT1=0 at startup
 
 -----------------------------------------------------------------
+
+NOR FLASH alternative part from Simon Norris / Contract Production
+
+https://www.rutronik24.com/product/eon/en25qh64a-104hip/6551305.html
+EN25QH64A-104HIP
+SOP8 instead of SO8W
+EN25QH32B-104GIP2B, EN25QH32A-104HIP, EN25QH128A-104HIP2T
+
+-----------------------------------------------------------------
+

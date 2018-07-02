@@ -21,3 +21,27 @@ The essential function of the machine is to provide 5 different generative music
 The machine’s overall mood will be one of calmness and relaxation as indicated in the brochure.
 
 --------------------------------------------------------------------------------------------------------
+
+Timescales
+10 July		Audio samples
+15 August	Deliver 1st working unit
+3 Sept 		Deliver 2nd working unit
+3 Sept 		Payment 2nd part £400
+8 Sept		Festival start
+
+Make a set of building blocks:
+- sound generators & envelopes
+- filters & effects
+- sequencers:
+ Stoicheia - euclidean sequencer
+ Phoreo - clock multiplier and trigger repeater
+ Logoi - clock divider and counter
+ Tonic - pitch generator
+
+With these building blocks in Gen we can prototype generative works on the modular.
+
+Parameters to be determined, e.g.
+- pace
+- intensity
+- mood
+- dissonance

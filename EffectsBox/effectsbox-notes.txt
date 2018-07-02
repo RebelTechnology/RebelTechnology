@@ -209,7 +209,7 @@ Hanging in HAL_Delay(), uwTick not incrementing.
 
 Changing timebase to TIM14: Hardfaults on HAL_Delay
 
-SysTick_Handler called three times, then hangs no HAL_Delay()
+SysTick_Handler called three times, then hangs on HAL_Delay()
 
 #3  0x080002bc in __udivmoddi4 ()
 
