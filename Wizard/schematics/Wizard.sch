@@ -17593,7 +17593,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="1k / 1k33"/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="GND40" library="supply1" deviceset="GND" device=""/>
-<part name="JP13" library="SparkFun" deviceset="M03" device="PTH"/>
+<part name="BOOT" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="+3V34" library="supply1" deviceset="+3V3" device=""/>
 <part name="R7" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="R15" library="Rebel" deviceset="R-EU_" device="0603" value="560R / 634R"/>
@@ -17752,7 +17752,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <part name="C24" library="resistor" deviceset="C-EU" device="C0603" value="10u"/>
 <part name="C25" library="resistor" deviceset="C-EU" device="C0603" value="10u"/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
-<part name="JP12" library="SparkFun" deviceset="M02" device="PTH"/>
+<part name="VBUS" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="P+9" library="supply1" deviceset="+5V" device=""/>
 <part name="SW5" library="switch-omron" deviceset="10-XX" device=""/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
@@ -17799,7 +17799,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <instance part="R22" gate="G$1" x="165.1" y="198.12" rot="MR180"/>
 <instance part="GND26" gate="1" x="154.94" y="218.44" rot="MR0"/>
 <instance part="GND40" gate="1" x="208.28" y="-50.8"/>
-<instance part="JP13" gate="G$1" x="198.12" y="-40.64"/>
+<instance part="BOOT" gate="G$1" x="198.12" y="-40.64"/>
 <instance part="+3V34" gate="G$1" x="208.28" y="-30.48"/>
 <instance part="R7" gate="G$1" x="40.64" y="193.04" rot="MR270"/>
 <instance part="R15" gate="G$1" x="68.58" y="177.8" rot="MR0"/>
@@ -18004,7 +18004,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <instance part="C24" gate="G$1" x="66.04" y="40.64" rot="R180"/>
 <instance part="C25" gate="G$1" x="71.12" y="40.64" rot="R180"/>
 <instance part="GND21" gate="1" x="68.58" y="35.56"/>
-<instance part="JP12" gate="G$1" x="142.24" y="40.64" smashed="yes">
+<instance part="VBUS" gate="G$1" x="142.24" y="40.64" smashed="yes">
 <attribute name="VALUE" x="139.7" y="35.56" size="1.778" layer="96"/>
 <attribute name="NAME" x="138.938" y="38.1" size="1.778" layer="95" rot="R90"/>
 </instance>
@@ -18053,7 +18053,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <pinref part="GND40" gate="1" pin="GND"/>
 <wire x1="205.74" y1="-43.18" x2="208.28" y2="-43.18" width="0.1524" layer="91"/>
 <wire x1="208.28" y1="-43.18" x2="208.28" y2="-48.26" width="0.1524" layer="91"/>
-<pinref part="JP13" gate="G$1" pin="1"/>
+<pinref part="BOOT" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="GND25" gate="1" pin="GND"/>
@@ -18431,7 +18431,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <wire x1="27.94" y1="48.26" x2="27.94" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="JP12" gate="G$1" pin="2"/>
+<pinref part="VBUS" gate="G$1" pin="2"/>
 <pinref part="P+9" gate="1" pin="+5V"/>
 <wire x1="149.86" y1="43.18" x2="152.4" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="152.4" y1="43.18" x2="152.4" y2="48.26" width="0.1524" layer="91"/>
@@ -18613,7 +18613,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <segment>
 <wire x1="205.74" y1="-40.64" x2="220.98" y2="-40.64" width="0.1524" layer="91"/>
 <label x="210.82" y="-40.64" size="1.778" layer="95"/>
-<pinref part="JP13" gate="G$1" pin="2"/>
+<pinref part="BOOT" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="A14_SW2" class="0">
@@ -18838,7 +18838,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <pinref part="JP10" gate="G$1" pin="4"/>
 <label x="167.64" y="20.32" size="1.778" layer="95" rot="R90"/>
 <wire x1="167.64" y1="43.18" x2="167.64" y2="40.64" width="0.1524" layer="91"/>
-<pinref part="JP12" gate="G$1" pin="1"/>
+<pinref part="VBUS" gate="G$1" pin="1"/>
 <wire x1="167.64" y1="40.64" x2="167.64" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="40.64" x2="167.64" y2="40.64" width="0.1524" layer="91"/>
 <junction x="167.64" y="40.64"/>
@@ -19013,7 +19013,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <wire x1="104.14" y1="-33.02" x2="114.3" y2="-33.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="JP13" gate="G$1" pin="3"/>
+<pinref part="BOOT" gate="G$1" pin="3"/>
 <pinref part="+3V34" gate="G$1" pin="+3V3"/>
 <wire x1="205.74" y1="-38.1" x2="208.28" y2="-38.1" width="0.1524" layer="91"/>
 <wire x1="208.28" y1="-38.1" x2="208.28" y2="-33.02" width="0.1524" layer="91"/>
@@ -19379,9 +19379,13 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <junction x="71.12" y="48.26"/>
 </segment>
 <segment>
-<wire x1="185.42" y1="33.02" x2="185.42" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="185.42" y1="33.02" x2="185.42" y2="20.32" width="0.1524" layer="91"/>
 <label x="185.42" y="7.62" size="1.778" layer="95" rot="R90"/>
 <pinref part="JP14" gate="G$1" pin="4"/>
+<pinref part="U1" gate="G$1" pin="VBUS"/>
+<wire x1="185.42" y1="20.32" x2="185.42" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="20.32" x2="185.42" y2="20.32" width="0.1524" layer="91"/>
+<junction x="185.42" y="20.32"/>
 </segment>
 </net>
 <net name="N$14" class="0">
@@ -19483,8 +19487,6 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 </sheets>
 <errors>
 <approved hash="106,1,165.1,-25.4,CS_VQ1,,,,,"/>
-<approved hash="106,1,104.14,12.7,EXTSPI_CLK,,,,,"/>
-<approved hash="106,1,104.14,10.16,EXTSPI_MISO,,,,,"/>
 </errors>
 </schematic>
 </drawing>
