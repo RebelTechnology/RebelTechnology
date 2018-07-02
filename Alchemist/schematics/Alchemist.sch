@@ -17314,7 +17314,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <part name="C14" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
 <part name="JOUT" library="con-lumberg" deviceset="1503_09" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
-<part name="POT_C" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
+<part name="P3" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="IC6" library="linear" deviceset="LM324" device="D" value="OPA1679"/>
 <part name="C16" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="1u"/>
 <part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
@@ -17332,17 +17332,17 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
-<part name="POT_D" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
+<part name="P4" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
-<part name="POT_A" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
+<part name="P1" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
-<part name="POT_B" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
+<part name="P2" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="+3V7" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="JIN" library="con-lumberg" deviceset="1503_09" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
-<part name="SW1" library="switch-omron" deviceset="10-XX" device=""/>
+<part name="SW2" library="switch-omron" deviceset="10-XX" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="POWER" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
@@ -17354,7 +17354,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="C5" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
-<part name="SW2" library="switch-omron" deviceset="10-XX" device=""/>
+<part name="SW1" library="switch-omron" deviceset="10-XX" device=""/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="EXPO" library="SparkFun-Connectors" deviceset="CONN_05" device="JST-VERT"/>
 <part name="EXPI" library="SparkFun-Connectors" deviceset="CONN_05" device="JST-VERT"/>
@@ -17394,6 +17394,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <part name="LED1" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
 <part name="P+10" library="supply1" deviceset="+5V" device=""/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
+<part name="GND28" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -17466,13 +17467,13 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <attribute name="VALUE" x="157.48" y="-35.56" size="1.778" layer="96" rot="MR90"/>
 <attribute name="NAME" x="167.64" y="-36.322" size="1.778" layer="95" rot="MR180"/>
 </instance>
-<instance part="P+9" gate="1" x="144.78" y="-20.32" smashed="yes">
-<attribute name="VALUE" x="144.78" y="-20.32" size="1.778" layer="96" rot="R90"/>
+<instance part="P+9" gate="1" x="144.78" y="-5.08" smashed="yes">
+<attribute name="VALUE" x="144.78" y="-5.08" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="+3V5" gate="G$1" x="149.86" y="-20.32" smashed="yes">
-<attribute name="VALUE" x="149.86" y="-20.32" size="1.778" layer="96" rot="R90"/>
+<instance part="+3V5" gate="G$1" x="149.86" y="-5.08" smashed="yes">
+<attribute name="VALUE" x="149.86" y="-5.08" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="GND20" gate="1" x="147.32" y="-40.64"/>
+<instance part="GND20" gate="1" x="137.16" y="-40.64"/>
 <instance part="GND25" gate="1" x="170.18" y="27.94"/>
 <instance part="C6" gate="G$1" x="205.74" y="213.36" rot="R90"/>
 <instance part="C7" gate="G$1" x="167.64" y="182.88" rot="R270"/>
@@ -17512,7 +17513,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <instance part="C14" gate="G$1" x="185.42" y="91.44"/>
 <instance part="JOUT" gate="G$1" x="299.72" y="198.12"/>
 <instance part="GND3" gate="1" x="292.1" y="185.42"/>
-<instance part="POT_C" gate="G$1" x="292.1" y="157.48" rot="R90"/>
+<instance part="P3" gate="G$1" x="292.1" y="157.48" rot="R90"/>
 <instance part="IC6" gate="A" x="50.8" y="205.74" rot="MR180"/>
 <instance part="IC6" gate="B" x="50.8" y="160.02" rot="MR180"/>
 <instance part="IC6" gate="C" x="200.66" y="203.2" rot="MR180"/>
@@ -17540,21 +17541,21 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <instance part="IC6" gate="P" x="218.44" y="86.36"/>
 <instance part="+3V1" gate="G$1" x="292.1" y="172.72"/>
 <instance part="GND10" gate="1" x="292.1" y="144.78" rot="MR0"/>
-<instance part="POT_D" gate="G$1" x="292.1" y="119.38" rot="R90"/>
+<instance part="P4" gate="G$1" x="292.1" y="119.38" rot="R90"/>
 <instance part="+3V2" gate="G$1" x="292.1" y="134.62"/>
 <instance part="GND12" gate="1" x="292.1" y="106.68" rot="MR0"/>
-<instance part="POT_A" gate="G$1" x="292.1" y="81.28" rot="R90"/>
+<instance part="P1" gate="G$1" x="292.1" y="81.28" rot="R90"/>
 <instance part="GND14" gate="1" x="292.1" y="68.58" rot="MR0"/>
-<instance part="POT_B" gate="G$1" x="292.1" y="45.72" rot="R90"/>
+<instance part="P2" gate="G$1" x="292.1" y="45.72" rot="R90"/>
 <instance part="+3V7" gate="G$1" x="292.1" y="60.96"/>
 <instance part="GND17" gate="1" x="292.1" y="33.02" rot="MR0"/>
-<instance part="POT_C" gate="G$2" x="33.02" y="35.56"/>
-<instance part="POT_D" gate="G$2" x="43.18" y="35.56"/>
-<instance part="POT_A" gate="G$2" x="53.34" y="35.56"/>
-<instance part="POT_B" gate="G$2" x="63.5" y="35.56"/>
+<instance part="P3" gate="G$2" x="33.02" y="35.56"/>
+<instance part="P4" gate="G$2" x="43.18" y="35.56"/>
+<instance part="P1" gate="G$2" x="53.34" y="35.56"/>
+<instance part="P2" gate="G$2" x="63.5" y="35.56"/>
 <instance part="JIN" gate="G$1" x="-50.8" y="200.66" rot="MR0"/>
 <instance part="GND1" gate="1" x="-40.64" y="187.96" rot="MR0"/>
-<instance part="SW1" gate="1" x="-7.62" y="91.44"/>
+<instance part="SW2" gate="1" x="-7.62" y="91.44"/>
 <instance part="GND2" gate="1" x="-5.08" y="78.74"/>
 <instance part="POWER" gate="G$1" x="226.06" y="5.08"/>
 <instance part="GND11" gate="1" x="236.22" y="-2.54"/>
@@ -17568,7 +17569,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <instance part="R5" gate="G$1" x="238.76" y="137.16" rot="MR270"/>
 <instance part="GND18" gate="1" x="238.76" y="121.92" rot="MR0"/>
 <instance part="C5" gate="G$1" x="218.44" y="147.32" rot="R90"/>
-<instance part="SW2" gate="1" x="-63.5" y="149.86"/>
+<instance part="SW1" gate="1" x="-63.5" y="149.86"/>
 <instance part="GND21" gate="1" x="-60.96" y="137.16"/>
 <instance part="EXPO" gate="G$1" x="-22.86" y="43.18" rot="MR180"/>
 <instance part="EXPI" gate="G$1" x="-30.48" y="43.18" rot="R180"/>
@@ -17614,6 +17615,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <attribute name="VALUE" x="76.2" y="114.3" size="1.778" layer="96" rot="MR180"/>
 </instance>
 <instance part="GND24" gate="1" x="-33.02" y="137.16"/>
+<instance part="GND28" gate="1" x="182.88" y="-40.64"/>
 </instances>
 <busses>
 </busses>
@@ -17635,10 +17637,10 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <wire x1="53.34" y1="27.94" x2="63.5" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="63.5" y1="27.94" x2="63.5" y2="30.48" width="0.1524" layer="91"/>
 <junction x="53.34" y="27.94"/>
-<pinref part="POT_C" gate="G$2" pin="P$1"/>
-<pinref part="POT_D" gate="G$2" pin="P$1"/>
-<pinref part="POT_A" gate="G$2" pin="P$1"/>
-<pinref part="POT_B" gate="G$2" pin="P$1"/>
+<pinref part="P3" gate="G$2" pin="P$1"/>
+<pinref part="P4" gate="G$2" pin="P$1"/>
+<pinref part="P1" gate="G$2" pin="P$1"/>
+<pinref part="P2" gate="G$2" pin="P$1"/>
 </segment>
 <segment>
 <pinref part="PWR" gate="G$1" pin="2"/>
@@ -17655,7 +17657,9 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <segment>
 <pinref part="GND20" gate="1" pin="GND"/>
 <pinref part="ANG1" gate="G$1" pin="2"/>
-<wire x1="147.32" y1="-38.1" x2="147.32" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="-38.1" x2="137.16" y2="-22.86" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="-22.86" x2="147.32" y2="-22.86" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="-22.86" x2="147.32" y2="-25.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND25" gate="1" pin="GND"/>
@@ -17742,22 +17746,22 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <wire x1="238.76" y1="180.34" x2="238.76" y2="187.96" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT_C" gate="G$1" pin="1"/>
+<pinref part="P3" gate="G$1" pin="1"/>
 <pinref part="GND10" gate="1" pin="GND"/>
 <wire x1="292.1" y1="147.32" x2="292.1" y2="149.86" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT_D" gate="G$1" pin="1"/>
+<pinref part="P4" gate="G$1" pin="1"/>
 <pinref part="GND12" gate="1" pin="GND"/>
 <wire x1="292.1" y1="109.22" x2="292.1" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT_A" gate="G$1" pin="1"/>
+<pinref part="P1" gate="G$1" pin="1"/>
 <pinref part="GND14" gate="1" pin="GND"/>
 <wire x1="292.1" y1="71.12" x2="292.1" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT_B" gate="G$1" pin="1"/>
+<pinref part="P2" gate="G$1" pin="1"/>
 <pinref part="GND17" gate="1" pin="GND"/>
 <wire x1="292.1" y1="35.56" x2="292.1" y2="38.1" width="0.1524" layer="91"/>
 </segment>
@@ -17777,9 +17781,9 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 </segment>
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
-<pinref part="SW1" gate="1" pin="P1"/>
+<pinref part="SW2" gate="1" pin="P1"/>
 <wire x1="-5.08" y1="81.28" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="SW1" gate="1" pin="P"/>
+<pinref part="SW2" gate="1" pin="P"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-7.62" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="-7.62" y1="83.82" x2="-7.62" y2="86.36" width="0.1524" layer="91"/>
@@ -17814,9 +17818,9 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 </segment>
 <segment>
 <pinref part="GND21" gate="1" pin="GND"/>
-<pinref part="SW2" gate="1" pin="P1"/>
+<pinref part="SW1" gate="1" pin="P1"/>
 <wire x1="-60.96" y1="139.7" x2="-60.96" y2="142.24" width="0.1524" layer="91"/>
-<pinref part="SW2" gate="1" pin="P"/>
+<pinref part="SW1" gate="1" pin="P"/>
 <wire x1="-60.96" y1="142.24" x2="-60.96" y2="144.78" width="0.1524" layer="91"/>
 <wire x1="-60.96" y1="142.24" x2="-63.5" y2="142.24" width="0.1524" layer="91"/>
 <wire x1="-63.5" y1="142.24" x2="-63.5" y2="144.78" width="0.1524" layer="91"/>
@@ -17882,6 +17886,13 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <wire x1="-35.56" y1="142.24" x2="-33.02" y2="142.24" width="0.1524" layer="91"/>
 <junction x="-33.02" y="142.24"/>
 </segment>
+<segment>
+<pinref part="ANG2" gate="G$1" pin="6"/>
+<pinref part="GND28" gate="1" pin="GND"/>
+<wire x1="175.26" y1="-25.4" x2="175.26" y2="-22.86" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="-22.86" x2="182.88" y2="-22.86" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="-22.86" x2="182.88" y2="-38.1" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -17892,7 +17903,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <segment>
 <pinref part="P+9" gate="1" pin="+5V"/>
 <pinref part="ANG1" gate="G$1" pin="1"/>
-<wire x1="144.78" y1="-22.86" x2="144.78" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="-7.62" x2="144.78" y2="-25.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C13" gate="G$1" pin="1"/>
@@ -17940,7 +17951,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <label x="114.3" y="38.1" size="1.778" layer="95" rot="R270"/>
 </segment>
 <segment>
-<pinref part="POT_C" gate="G$1" pin="2"/>
+<pinref part="P3" gate="G$1" pin="2"/>
 <wire x1="297.18" y1="157.48" x2="309.88" y2="157.48" width="0.1524" layer="91"/>
 <label x="302.26" y="157.48" size="1.778" layer="95"/>
 </segment>
@@ -17952,7 +17963,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <label x="106.68" y="38.1" size="1.778" layer="95" rot="R270"/>
 </segment>
 <segment>
-<pinref part="POT_B" gate="G$1" pin="2"/>
+<pinref part="P2" gate="G$1" pin="2"/>
 <wire x1="297.18" y1="45.72" x2="309.88" y2="45.72" width="0.1524" layer="91"/>
 <label x="302.26" y="45.72" size="1.778" layer="95"/>
 </segment>
@@ -17964,7 +17975,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <label x="111.76" y="38.1" size="1.778" layer="95" rot="R270"/>
 </segment>
 <segment>
-<pinref part="POT_D" gate="G$1" pin="2"/>
+<pinref part="P4" gate="G$1" pin="2"/>
 <wire x1="297.18" y1="119.38" x2="309.88" y2="119.38" width="0.1524" layer="91"/>
 <label x="302.26" y="119.38" size="1.778" layer="95"/>
 </segment>
@@ -17976,7 +17987,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <label x="109.22" y="38.1" size="1.778" layer="95" rot="R270"/>
 </segment>
 <segment>
-<pinref part="POT_A" gate="G$1" pin="2"/>
+<pinref part="P1" gate="G$1" pin="2"/>
 <wire x1="297.18" y1="81.28" x2="314.96" y2="81.28" width="0.1524" layer="91"/>
 <label x="302.26" y="81.28" size="1.778" layer="95"/>
 <pinref part="D2" gate="G$1" pin="C1A2"/>
@@ -18492,10 +18503,10 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <pinref part="LGP6-7" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="SW1" gate="1" pin="S1"/>
+<pinref part="SW2" gate="1" pin="S1"/>
 <wire x1="-7.62" y1="99.06" x2="-5.08" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="96.52" x2="-5.08" y2="99.06" width="0.1524" layer="91"/>
-<pinref part="SW1" gate="1" pin="S"/>
+<pinref part="SW2" gate="1" pin="S"/>
 <wire x1="-7.62" y1="96.52" x2="-7.62" y2="99.06" width="0.1524" layer="91"/>
 <junction x="-7.62" y="99.06"/>
 <wire x1="-22.86" y1="99.06" x2="-7.62" y2="99.06" width="0.1524" layer="91"/>
@@ -18525,20 +18536,20 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <segment>
 <pinref part="+3V5" gate="G$1" pin="+3V3"/>
 <pinref part="ANG1" gate="G$1" pin="3"/>
-<wire x1="149.86" y1="-22.86" x2="149.86" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="-7.62" x2="149.86" y2="-25.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT_C" gate="G$1" pin="3"/>
+<pinref part="P3" gate="G$1" pin="3"/>
 <pinref part="+3V1" gate="G$1" pin="+3V3"/>
 <wire x1="292.1" y1="170.18" x2="292.1" y2="165.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT_D" gate="G$1" pin="3"/>
+<pinref part="P4" gate="G$1" pin="3"/>
 <pinref part="+3V2" gate="G$1" pin="+3V3"/>
 <wire x1="292.1" y1="132.08" x2="292.1" y2="127" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POT_B" gate="G$1" pin="3"/>
+<pinref part="P2" gate="G$1" pin="3"/>
 <pinref part="+3V7" gate="G$1" pin="+3V3"/>
 <wire x1="292.1" y1="58.42" x2="292.1" y2="53.34" width="0.1524" layer="91"/>
 </segment>
@@ -18681,10 +18692,10 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 </net>
 <net name="GP8_TRIG" class="0">
 <segment>
-<pinref part="SW2" gate="1" pin="S1"/>
+<pinref part="SW1" gate="1" pin="S1"/>
 <wire x1="-63.5" y1="157.48" x2="-60.96" y2="157.48" width="0.1524" layer="91"/>
 <wire x1="-60.96" y1="154.94" x2="-60.96" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="SW2" gate="1" pin="S"/>
+<pinref part="SW1" gate="1" pin="S"/>
 <wire x1="-63.5" y1="154.94" x2="-63.5" y2="157.48" width="0.1524" layer="91"/>
 <label x="-58.42" y="157.48" size="1.778" layer="95"/>
 <wire x1="-60.96" y1="157.48" x2="-45.72" y2="157.48" width="0.1524" layer="91"/>
@@ -18748,7 +18759,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 </net>
 <net name="N$25" class="0">
 <segment>
-<pinref part="POT_A" gate="G$1" pin="3"/>
+<pinref part="P1" gate="G$1" pin="3"/>
 <wire x1="289.56" y1="96.52" x2="292.1" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="292.1" y1="96.52" x2="292.1" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="R30" gate="G$1" pin="2"/>
@@ -18836,22 +18847,6 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <approved hash="106,1,162.56,40.64,USB_D_D+,,,,,"/>
 <approved hash="106,1,165.1,40.64,USB_D_D-,,,,,"/>
 <approved hash="106,1,160.02,40.64,USB_D_ID,,,,,"/>
-<approved hash="113,1,165.1,45.1273,USB,,,,,"/>
-<approved hash="113,1,110.49,45.1273,ADC,,,,,"/>
-<approved hash="113,1,99.6527,-30.48,PWR,,,,,"/>
-<approved hash="113,1,99.6527,11.43,EXTSPI,,,,,"/>
-<approved hash="113,1,99.6527,-17.9485,LGP6-7,,,,,"/>
-<approved hash="113,1,230.463,-21.3953,BOOT,,,,,"/>
-<approved hash="113,1,126.974,45.1273,TGP1-4,,,,,"/>
-<approved hash="113,1,99.6527,-5.08,LGP1-5,,,,,"/>
-<approved hash="113,1,151.13,-29.8873,ANG1,,,,,"/>
-<approved hash="113,1,168.91,-29.8873,ANG2,,,,,"/>
-<approved hash="113,1,-9.77053,91.44,SW1,,,,,"/>
-<approved hash="113,1,230.463,6.54473,POWER,,,,,"/>
-<approved hash="113,1,-65.6505,149.86,SW2,,,,,"/>
-<approved hash="113,1,-18.4573,41.7153,EXPO,,,,,"/>
-<approved hash="113,1,-34.8827,41.7153,EXPI,,,,,"/>
-<approved hash="113,1,-37.7105,149.86,SW3,,,,,"/>
 </errors>
 </schematic>
 </drawing>

@@ -152,8 +152,6 @@ todo:
  - 1503 19 4-pole (farnell £0.726 @100)
 - reduce top jack hole size
 
-- cut-outs for DC jack part
-
 --------------------------------------------------------------------------------
 
 Stereo jacks 3.5mm
@@ -220,35 +218,6 @@ on cs_vref
 --------------------------------------------------------------------------------
 
 112kHz 600mV on ain
-
---------------------------------------------------------------------------------
-
-MiniLab
-USB Host
-2x CV in/out
-1x Trigger in/out
-5x knobs
-patch change pushbutton and LEDs (press and turn knob 5)
-volume change (press and turn knob)
-
-USB A / Host connector
-Wurth 629104190121 short SMT
-Wurth 614104190121 short PTH
-
-todo:
-- connect trigger output to GPIO
-- connect 2x CV outputs to DACs
-- connect USB Host (with pwr sw?)
-- connect pushbuttons
-- rename pots and cv inputs / outputs
-- connect ADC5
-- remove LEDs
-- add RGB LED
-- move expander headers
-- slots for DC jack
-- illuminated pushbuttons?
-- add 4x patch select LEDs
-- add FUNCTION pushbutton top right: set volume, change patch et c
 
 --------------------------------------------------------------------------------
 
@@ -408,16 +377,6 @@ Molex 22-17-5053
 
 --------------------------------------------------------------------------------
 
-minilab todo
-- add SD card slot?
-- reverse USB connector or put on top
-- hw pull-down on power enable
-- power selection circuit usb/dc (with single op amp comparator and mosfet)
-- add pull-downs on audio inputs?
-- fix USB Host pin assignments (shift up from USB ID pin)
-
---------------------------------------------------------------------------------
-
 Battery size 18650
 rechargable 3.7V or 1.5V up to 3Ah+, e.g. Ansmann 3.6V / 2.6Ah @ £9.35 each
 size 18350 3.7V / 800mAh
@@ -430,18 +389,11 @@ Panasonic CGR 18650 CG 2.25Ah
 
 --------------------------------------------------------------------------------
 
-MiniLab USB Host -
-plugging in adds 50 percentage points cpu load
-
---------------------------------------------------------------------------------
-
 Rev02
 	GP7 SW1 A7 PB2 EXTI2
 	GP8 SW2 A17 PB9 EXTI9
 added 	GP9 SW3 A16 PB8 EXTI8
 
-todo:
-- remove R37 (use internal pull-up, test first)
 
 LEDs
 A6 PB1 TIM3_CH4 PWM3
@@ -451,11 +403,6 @@ A1 PA0 TIM2_CH1 PWM1
 --------------------------------------------------------------------------------
 
 5x8mm light pipe
-
---------------------------------------------------------------------------------
-
-MiniLab todo
-- swap USB HS and FS (host / device) to use DMA IP on Host
 
 --------------------------------------------------------------------------------
 
@@ -470,11 +417,13 @@ todo:
 - change to use single cap with 1/2F in differential output filter
 x add feedback cap to input circuit
 - test different op amps
-- use single TIM for RGB LED
+x use single TIM for RGB LED (using TIM2 and TIM3 on existing pin-out)
 - change to use 1uF film caps for decoupling
 / change to 22R audio output resistance
-- change to slotted DC jack
-- change expansion headers to JST PH
+/ change to slotted DC jack
+/ change expansion headers to JST PH
+
+- remove R37 (use internal pull-up, test first)
 
 --------------------------------------------------------------------------------
 
