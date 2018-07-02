@@ -18336,11 +18336,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="233.68" y="20.32" size="1.778" layer="95"/>
 <pinref part="BUS1" gate="G$1" pin="3"/>
 </segment>
-<segment>
-<wire x1="220.98" y1="-5.08" x2="251.46" y2="-5.08" width="0.1524" layer="91"/>
-<label x="233.68" y="-5.08" size="1.778" layer="95"/>
-<pinref part="BUS2" gate="G$1" pin="3"/>
-</segment>
 </net>
 <net name="A7_ENC_CNG_RDY" class="0">
 <segment>
@@ -18742,11 +18737,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="233.68" y="15.24" size="1.778" layer="95"/>
 <pinref part="BUS1" gate="G$1" pin="1"/>
 </segment>
-<segment>
-<wire x1="220.98" y1="-10.16" x2="251.46" y2="-10.16" width="0.1524" layer="91"/>
-<label x="233.68" y="-10.16" size="1.778" layer="95"/>
-<pinref part="BUS2" gate="G$1" pin="1"/>
-</segment>
 </net>
 <net name="A2_OLED_RST" class="0">
 <segment>
@@ -18837,12 +18827,22 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="134.62" y="-157.48" size="1.778" layer="95" rot="R90"/>
 <pinref part="ANG3" gate="G$1" pin="5"/>
 </segment>
+<segment>
+<wire x1="220.98" y1="-10.16" x2="251.46" y2="-10.16" width="0.1524" layer="91"/>
+<label x="233.68" y="-10.16" size="1.778" layer="95"/>
+<pinref part="BUS2" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="A17_I2C_SDA" class="0">
 <segment>
 <wire x1="132.08" y1="-134.62" x2="132.08" y2="-157.48" width="0.1524" layer="91"/>
 <label x="132.08" y="-157.48" size="1.778" layer="95" rot="R90"/>
 <pinref part="ANG3" gate="G$1" pin="6"/>
+</segment>
+<segment>
+<wire x1="220.98" y1="-5.08" x2="251.46" y2="-5.08" width="0.1524" layer="91"/>
+<label x="233.68" y="-5.08" size="1.778" layer="95"/>
+<pinref part="BUS2" gate="G$1" pin="3"/>
 </segment>
 </net>
 </nets>
