@@ -16687,8 +16687,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="D2" library="SparkFun" deviceset="DIODE" device="SMA" value="S1J"/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="SUPPLY3" library="supply2" deviceset="+9V" device=""/>
-<part name="U1" library="Rebel" deviceset="REG_S9V11F5" device=""/>
-<part name="U2" library="Rebel" deviceset="REG_S9V11F5" device="" value="REG_U3V12F12"/>
+<part name="U1" library="Rebel" deviceset="REG_S9V11F5" device="" value="S9V11F5"/>
+<part name="U2" library="Rebel" deviceset="REG_S9V11F5" device="" value="S10V2F12"/>
 <part name="C12" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
@@ -16712,8 +16712,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="C14" library="Rebel" deviceset="CPOL-EU" device="B" value="47u 16v"/>
 <part name="C2" library="Rebel" deviceset="CPOL-EU" device="D" value="2200u 10v"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
-<part name="C3" library="Rebel" deviceset="C-EU" device="C0603" value="680p"/>
-<part name="C15" library="Rebel" deviceset="C-EU" device="C0603" value="680p"/>
+<part name="C3" library="Rebel" deviceset="C-EU" device="C0603" value="750p"/>
+<part name="C15" library="Rebel" deviceset="C-EU" device="C0603" value="750p"/>
 <part name="X5" library="con-lumberg" deviceset="1503_09" device=""/>
 <part name="EXT" library="Rebel" deviceset="CON-JST_PH_3W" device=""/>
 <part name="-12V" library="SparkFun" deviceset="M01" device="PTH"/>
@@ -16724,6 +16724,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <text x="5.08" y="119.38" size="3.048" layer="97" font="vector">Magus Connectors Rev02</text>
 <text x="5.08" y="114.3" size="3.048" layer="97" font="vector">Copyright 2018 Rebel Technology</text>
 <text x="5.08" y="109.22" size="3.048" layer="97" font="vector">Published under the GNU GPL</text>
+<text x="200.66" y="12.7" size="1.778" layer="97">LPF 21kHz</text>
 </plain>
 <instances>
 <instance part="GND158" gate="1" x="53.34" y="78.74"/>
@@ -16848,13 +16849,13 @@ In this library the device names are the same as the pin names of the symbols, t
 <attribute name="VALUE" x="123.317" y="-46.2026" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="GND15" gate="1" x="124.46" y="-50.8"/>
-<instance part="C3" gate="G$1" x="195.58" y="22.86" smashed="yes" rot="R270">
-<attribute name="NAME" x="195.961" y="21.336" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="192.024" y="25.781" size="1.778" layer="96"/>
+<instance part="C3" gate="G$1" x="195.58" y="20.32" smashed="yes" rot="R270">
+<attribute name="NAME" x="195.961" y="18.796" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="192.024" y="23.241" size="1.778" layer="96"/>
 </instance>
-<instance part="C15" gate="G$1" x="198.12" y="-17.78" smashed="yes" rot="R270">
-<attribute name="NAME" x="198.501" y="-19.304" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="194.564" y="-14.859" size="1.778" layer="96"/>
+<instance part="C15" gate="G$1" x="198.12" y="-20.32" smashed="yes" rot="R270">
+<attribute name="NAME" x="198.501" y="-21.844" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="194.564" y="-17.399" size="1.778" layer="96"/>
 </instance>
 <instance part="X5" gate="G$1" x="172.72" y="96.52" rot="MR0"/>
 <instance part="EXT" gate="G$1" x="193.04" y="93.98" rot="R180"/>
@@ -17314,8 +17315,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="205.74" y1="30.48" x2="205.74" y2="43.18" width="0.1524" layer="91"/>
 <junction x="205.74" y="43.18"/>
 <pinref part="C3" gate="G$1" pin="1"/>
-<wire x1="198.12" y1="22.86" x2="205.74" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="205.74" y1="22.86" x2="205.74" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="20.32" x2="205.74" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="205.74" y1="20.32" x2="205.74" y2="30.48" width="0.1524" layer="91"/>
 <junction x="205.74" y="30.48"/>
 </segment>
 </net>
@@ -17330,8 +17331,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="205.74" y1="-10.16" x2="205.74" y2="2.54" width="0.1524" layer="91"/>
 <junction x="205.74" y="2.54"/>
 <pinref part="C15" gate="G$1" pin="1"/>
-<wire x1="200.66" y1="-17.78" x2="205.74" y2="-17.78" width="0.1524" layer="91"/>
-<wire x1="205.74" y1="-17.78" x2="205.74" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="200.66" y1="-20.32" x2="205.74" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="205.74" y1="-20.32" x2="205.74" y2="-10.16" width="0.1524" layer="91"/>
 <junction x="205.74" y="-10.16"/>
 </segment>
 </net>
@@ -17357,8 +17358,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="172.72" y1="40.64" x2="185.42" y2="40.64" width="0.1524" layer="91"/>
 <junction x="185.42" y="40.64"/>
 <pinref part="C3" gate="G$1" pin="2"/>
-<wire x1="190.5" y1="22.86" x2="185.42" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="185.42" y1="22.86" x2="185.42" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="20.32" x2="185.42" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="185.42" y1="20.32" x2="185.42" y2="30.48" width="0.1524" layer="91"/>
 <junction x="185.42" y="30.48"/>
 </segment>
 </net>
@@ -17373,8 +17374,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="185.42" y1="0" x2="172.72" y2="0" width="0.1524" layer="91"/>
 <junction x="185.42" y="0"/>
 <pinref part="C15" gate="G$1" pin="2"/>
-<wire x1="193.04" y1="-17.78" x2="185.42" y2="-17.78" width="0.1524" layer="91"/>
-<wire x1="185.42" y1="-17.78" x2="185.42" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="-20.32" x2="185.42" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="185.42" y1="-20.32" x2="185.42" y2="-10.16" width="0.1524" layer="91"/>
 <junction x="185.42" y="-10.16"/>
 </segment>
 </net>
