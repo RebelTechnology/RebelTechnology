@@ -465,3 +465,29 @@ PB11 CS_nRST
 
 --------------------------------------------------------------------------------
 
+picaxe programming interface over USB serial using 3.5mm stereo jack
+http://www.picaxe.com/Hardware/Cables/PICAXE-USB-Download-Cable/
+
+--------------------------------------------------------------------------------
+
+Interconnect / expansion system : magnetic connectors
+
+Rosenberger MultiMag
+https://www.rosenberger.de/ok/index.php?caller=xlink&url=detail.php&oldcaller=searchcritax&itemID=3530
+
+HTP-CON-M413
+http://www.hytepro.com/product/5_pin_circular_magnet_connector.html
+HTP-CON-M420
+
+Magnetic connectors
+http://www.cfconn.com/product_c4711/
+6pin Male & female magnetic connector
+http://www.cfconn.com/product-show_15566/
+
+Pogo pins 2.54MM Pitch Right angle Pogo Pin
+http://www.cfconn.com/product-show_11381/
+
+CFE Right angle female pin connector
+http://www.cfconn.com/product-show_10956/
+
+--------------------------------------------------------------------------------
