@@ -434,16 +434,16 @@ with LM324
 - bypass mode, default volume (gain 0x068) non-clipping at 320mVpp output / 2.78Vpp input
   volume 127 (zero attenuation) non-clipping at 2.6Vpp output / 1.62Vpp input
 
-
 CS4271: The digital volume control allows the user to attenuate the signal in 1 dB increments from 0 to -127 dB.
 
-op amp tests
+___op amp tests___
 
 with OPA1679
-
 - noise on AIN_A / B around 120-140mVpp
 
 with MCP6024
+
+with TS974
 
 --------------------------------------------------------------------------------
 
