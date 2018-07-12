@@ -75,3 +75,11 @@ Wifi interface for digital tuning, configuration, firmware upgrades
 
 -------------------------------------------------------
 
+Neutrik Combo XLR jacks Panel fastening
+Self-tapping PLASTITE screw with thread 2.9x1.06 and of tri-rondular configuration (A-screw)
+http://www.neutrik.com/en/xlr/combo-i-series/
+A-SCREW-1-8  Screws for D mounts, A type
+http://cpc.farnell.com/neutrik/a-screw-1-8/screws-for-d-mounts-a-type/dp/AV18050?CMP=CPC-PLA
+
+-------------------------------------------------------
+

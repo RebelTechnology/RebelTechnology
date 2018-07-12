@@ -58,9 +58,25 @@ L spk                      spk R
 Tempo : overall speed
 Root : transpose fundamental
 Mode : one of five fascinations
-Variation : variability, tonal range, dissonance and chaos
+Variation : variability, tonal range, dissonance and chaos, effect amount
 Volume : gain
 
-effect?
+------------------------------------------------------------------------------------------------------
+
+todo:
+
+- change output jack to this type
+https://www.rapidonline.com/truconnect-pcb-jack-socket-stereo-3-5mm-20-0137
+
+- add mounting holes to bottom case part and change 'feet' to be the same front and back
+
+- make a lightpipe fan to connect speakers behind
+
+------------------------------------------------------------------------------------------------------
+
+The MAX9717 features a headphone sense input (BTL/SE)
+that senses when a headphone is connected to the
+device, disables the BTL slave driver, muting the speaker
+while driving the headphone as a single-ended load
 
 ------------------------------------------------------------------------------------------------------
