@@ -1,16 +1,16 @@
---------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
 
 Fees 
 
 --Client agrees to pay Supplier  800 British Pounds via Paypal in two instalments--one on signing of this agreement via email signature, and one on delivery of the two working units by September 3, 2018 to Los Angeles (Client will pay shipping).
 
---------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
 
 The essential function of the machine is to provide 5 different generative musical sounds and patterns: 
 
     Mode 1--a traditional synth sound, could be one major key and the relative minor, like C and A minor.  More keys would be good to have, but not essential.  And then random generation of notes and note lengths within that, with occasional rests.
 
-    Mode 2--4 bongo sounds in repeating constrained  rhythmic patterns.
+    Mode 2--4 bongo sounds in repeating constrained rhythmic patterns.
 
     Mode 3--Outer space sounds--theremin type elements with portamento, kind of along the classic outer space sounds--basically oscillator sounding. 
 
@@ -20,7 +20,7 @@ The essential function of the machine is to provide 5 different generative music
 
 The machine’s overall mood will be one of calmness and relaxation as indicated in the brochure.
 
---------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
 
 Timescales
 10 July		Audio samples
@@ -45,3 +45,22 @@ Parameters to be determined, e.g.
 - intensity
 - mood
 - dissonance
+
+------------------------------------------------------------------------------------------------------
+
+controls:
+
+Tempo Root      Variation Volume
+           Mode
+L spk                      spk R
+
+
+Tempo : overall speed
+Root : transpose fundamental
+Mode : one of five fascinations
+Variation : variability, tonal range, dissonance and chaos
+Volume : gain
+
+effect?
+
+------------------------------------------------------------------------------------------------------
