@@ -21265,7 +21265,6 @@ Power Amplifiers</description>
 <part name="R15" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
 <part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R16" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
-<part name="R6" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
 <part name="R27" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="R13" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
@@ -21312,12 +21311,7 @@ Power Amplifiers</description>
 <part name="GND45" library="supply1" deviceset="GND" device=""/>
 <part name="P3" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="IC1" library="linear" deviceset="LM324" device="D" value="OPA1679"/>
-<part name="C1" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="1u"/>
-<part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="C5" library="resistor" deviceset="C-EU" device="C0603" value="2n2 C0G"/>
-<part name="C2" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="1u"/>
-<part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="C4" library="resistor" deviceset="C-EU" device="C0603" value="220p C0G"/>
 <part name="C21" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
 <part name="C14" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
@@ -21446,7 +21440,6 @@ Power Amplifiers</description>
 <instance part="R15" gate="G$1" x="68.58" y="177.8" rot="MR0"/>
 <instance part="R14" gate="G$1" x="68.58" y="205.74" rot="MR0"/>
 <instance part="R16" gate="G$1" x="68.58" y="160.02" rot="MR0"/>
-<instance part="R6" gate="G$1" x="12.7" y="147.32" rot="MR270"/>
 <instance part="R26" gate="G$1" x="182.88" y="205.74" rot="MR180"/>
 <instance part="R27" gate="G$1" x="182.88" y="198.12" rot="MR180"/>
 <instance part="R13" gate="G$1" x="68.58" y="223.52" rot="MR0"/>
@@ -21514,18 +21507,7 @@ Power Amplifiers</description>
 <instance part="IC1" gate="B" x="50.8" y="160.02" rot="MR180"/>
 <instance part="IC1" gate="C" x="200.66" y="203.2" rot="MR180"/>
 <instance part="IC1" gate="D" x="200.66" y="147.32" rot="MR180"/>
-<instance part="C1" gate="G$1" x="20.32" y="203.2" smashed="yes" rot="R270">
-<attribute name="NAME" x="17.2974" y="204.343" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="22.3774" y="204.343" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="R5" gate="G$1" x="12.7" y="193.04" rot="MR270"/>
-<instance part="GND12" gate="1" x="12.7" y="180.34" rot="MR0"/>
 <instance part="C5" gate="G$1" x="76.2" y="198.12"/>
-<instance part="C2" gate="G$1" x="20.32" y="157.48" smashed="yes" rot="R270">
-<attribute name="NAME" x="17.2974" y="158.623" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="22.3774" y="158.623" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="GND13" gate="1" x="12.7" y="137.16" rot="MR0"/>
 <instance part="C4" gate="G$1" x="50.8" y="170.18" rot="R90"/>
 <instance part="C21" gate="G$1" x="218.44" y="203.2" rot="R90"/>
 <instance part="C14" gate="G$1" x="195.58" y="182.88" rot="R90"/>
@@ -21714,16 +21696,6 @@ Power Amplifiers</description>
 <pinref part="GND45" gate="1" pin="GND"/>
 <wire x1="299.72" y1="228.6" x2="297.18" y2="228.6" width="0.1524" layer="91"/>
 <wire x1="297.18" y1="228.6" x2="297.18" y2="223.52" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="R5" gate="G$1" pin="2"/>
-<pinref part="GND12" gate="1" pin="GND"/>
-<wire x1="12.7" y1="182.88" x2="12.7" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND13" gate="1" pin="GND"/>
-<pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="12.7" y1="139.7" x2="12.7" y2="142.24" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C10" gate="G$1" pin="2"/>
@@ -22002,28 +21974,6 @@ Power Amplifiers</description>
 <label x="279.4" y="238.76" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="IN_L" class="0">
-<segment>
-<label x="0" y="203.2" size="1.778" layer="95"/>
-<wire x1="0" y1="203.2" x2="12.7" y2="203.2" width="0.1524" layer="91"/>
-<pinref part="C1" gate="G$1" pin="-"/>
-<pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="12.7" y1="203.2" x2="15.24" y2="203.2" width="0.1524" layer="91"/>
-<wire x1="12.7" y1="198.12" x2="12.7" y2="203.2" width="0.1524" layer="91"/>
-<junction x="12.7" y="203.2"/>
-</segment>
-</net>
-<net name="IN_R" class="0">
-<segment>
-<label x="0" y="157.48" size="1.778" layer="95"/>
-<pinref part="C2" gate="G$1" pin="-"/>
-<wire x1="15.24" y1="157.48" x2="12.7" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="12.7" y1="157.48" x2="0" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="12.7" y1="152.4" x2="12.7" y2="157.48" width="0.1524" layer="91"/>
-<junction x="12.7" y="157.48"/>
-</segment>
-</net>
 <net name="OUT_R" class="0">
 <segment>
 <label x="246.38" y="147.32" size="1.778" layer="95"/>
@@ -22142,7 +22092,6 @@ Power Amplifiers</description>
 <net name="DC_IN_L" class="0">
 <segment>
 <pinref part="R7" gate="G$1" pin="1"/>
-<pinref part="C1" gate="G$1" pin="+"/>
 <wire x1="22.86" y1="203.2" x2="40.64" y2="203.2" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="203.2" x2="43.18" y2="203.2" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="198.12" x2="40.64" y2="203.2" width="0.1524" layer="91"/>
@@ -22530,7 +22479,6 @@ Power Amplifiers</description>
 </net>
 <net name="DC_IN_R" class="0">
 <segment>
-<pinref part="C2" gate="G$1" pin="+"/>
 <pinref part="R8" gate="G$1" pin="1"/>
 <wire x1="22.86" y1="157.48" x2="40.64" y2="157.48" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="157.48" x2="40.64" y2="152.4" width="0.1524" layer="91"/>
