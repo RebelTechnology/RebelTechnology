@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.7.1">
+<eagle version="9.1.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -17581,30 +17581,30 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="JP10" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="JP7" library="SparkFun" deviceset="M04" device="PTH"/>
-<part name="R25" library="Rebel" deviceset="R-EU_" device="0603" value="5k1 / 4k99"/>
+<part name="R25" library="Rebel" deviceset="R-EU_" device="0603" value="5k1"/>
 <part name="R34" library="Rebel" deviceset="R-EU_" device="0603" value="22R"/>
-<part name="R21" library="Rebel" deviceset="R-EU_" device="0603" value="5k1 / 4k42"/>
+<part name="R21" library="Rebel" deviceset="R-EU_" device="0603" value="5k1"/>
 <part name="JP5" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
 <part name="+3V32" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="JP6" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="JP4" library="SparkFun" deviceset="M02" device="PTH"/>
-<part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="1k / 1k33"/>
+<part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="GND40" library="supply1" deviceset="GND" device=""/>
 <part name="BOOT" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="+3V34" library="supply1" deviceset="+3V3" device=""/>
 <part name="R7" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
-<part name="R15" library="Rebel" deviceset="R-EU_" device="0603" value="560R / 634R"/>
-<part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="100R / 91R"/>
-<part name="R16" library="Rebel" deviceset="R-EU_" device="0603" value="100R / 91R"/>
+<part name="R15" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
+<part name="R16" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="R6" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
-<part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="2k / 2k32"/>
-<part name="R27" library="Rebel" deviceset="R-EU_" device="0603" value="1k / 715R"/>
-<part name="R13" library="Rebel" deviceset="R-EU_" device="0603" value="560R / 634R"/>
-<part name="C3" library="resistor" deviceset="C-EU" device="C0603" value="220p / 470p"/>
-<part name="C6" library="resistor" deviceset="C-EU" device="C0603" value="2n2 / 2n7 C0G"/>
+<part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
+<part name="R27" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="R13" library="Rebel" deviceset="R-EU_" device="0603" value="560R"/>
+<part name="C3" library="resistor" deviceset="C-EU" device="C0603" value="220p C0G"/>
+<part name="C6" library="resistor" deviceset="C-EU" device="C0603" value="2n2 C0G"/>
 <part name="R8" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="JP8" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="JP3" library="SparkFun" deviceset="M05" device="PTH"/>
@@ -17614,21 +17614,21 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <part name="+3V33" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
-<part name="C17" library="resistor" deviceset="C-EU" device="C0603" value="220p / 470p C0G"/>
-<part name="C10" library="resistor" deviceset="C-EU" device="C0603" value="4n7 / 6n8 C0G"/>
+<part name="C17" library="resistor" deviceset="C-EU" device="C0603" value="220p C0G"/>
+<part name="C10" library="resistor" deviceset="C-EU" device="C0603" value="4n7 C0G"/>
 <part name="C9" library="resistor" deviceset="C-EU" device="C0603" value="2n2 C0G"/>
-<part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="1k / 1k5"/>
-<part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="5k1 / 4k99"/>
+<part name="R28" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="R29" library="Rebel" deviceset="R-EU_" device="0603" value="5k1"/>
 <part name="R36" library="Rebel" deviceset="R-EU_" device="0603" value="22R"/>
-<part name="R23" library="Rebel" deviceset="R-EU_" device="0603" value="5k1 / 4k42"/>
-<part name="R24" library="Rebel" deviceset="R-EU_" device="0603" value="1k / 1k33"/>
+<part name="R23" library="Rebel" deviceset="R-EU_" device="0603" value="5k1"/>
+<part name="R24" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
-<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="2k / 2k32"/>
-<part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="1k / 715R"/>
-<part name="C18" library="resistor" deviceset="C-EU" device="C0603" value="220p / 470p C0G"/>
-<part name="C12" library="resistor" deviceset="C-EU" device="C0603" value="4n7 / 6n8 C0G"/>
+<part name="R30" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
+<part name="R31" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="C18" library="resistor" deviceset="C-EU" device="C0603" value="220p C0G"/>
+<part name="C12" library="resistor" deviceset="C-EU" device="C0603" value="4n7 C0G"/>
 <part name="C11" library="resistor" deviceset="C-EU" device="C0603" value="2n2 C0G"/>
-<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="1k / 1k5"/>
+<part name="R32" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="C23" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND38" library="supply1" deviceset="GND" device=""/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
@@ -17649,14 +17649,14 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <part name="C1" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="1u"/>
 <part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
-<part name="C5" library="resistor" deviceset="C-EU" device="C0603" value="2n2 / 2n7 C0G"/>
+<part name="C5" library="resistor" deviceset="C-EU" device="C0603" value="2n2 C0G"/>
 <part name="C2" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="1u"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
-<part name="C4" library="resistor" deviceset="C-EU" device="C0603" value="220p / 470p C0G"/>
+<part name="C4" library="resistor" deviceset="C-EU" device="C0603" value="220p C0G"/>
 <part name="C21" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
 <part name="C14" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
-<part name="C19" library="resistor" deviceset="C-EU" device="C0603" value="1n / 1n5 C0G"/>
+<part name="C19" library="resistor" deviceset="C-EU" device="C0603" value="1n C0G"/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
 <part name="R37" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND41" library="supply1" deviceset="GND" device=""/>
@@ -17676,7 +17676,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
 <part name="C15" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
-<part name="C20" library="resistor" deviceset="C-EU" device="C0603" value="1n / 1n5 C0G"/>
+<part name="C20" library="resistor" deviceset="C-EU" device="C0603" value="1n C0G"/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
 <part name="R38" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
