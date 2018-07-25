@@ -41,6 +41,7 @@
 *.GTO
 *.GTP
 *.GTS
+*.TXT
 *.GL[234567]
 *.dri
 *.gpi
