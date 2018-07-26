@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<eagle version="6.4.2">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle version="9.1.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="100" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -3370,7 +3372,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4906-MAX4907F.pdf</description>
 <rectangle x1="4.826" y1="3.8608" x2="5.334" y2="5.334" layer="51"/>
 <rectangle x1="4.826" y1="-5.334" x2="5.334" y2="-3.8608" layer="51"/>
 </package>
-<package name="UMAX8-THERMAL" urn="urn:adsk.eagle:footprint:17459/1">
+<package name="UMAX8-THERMAL" urn="urn:adsk.eagle:footprint:17459/1" locally_modified="yes">
 <description>&lt;b&gt;micro MAX Package&lt;/b&gt;
 Source: MAX1792.pdf</description>
 <wire x1="-1.4" y1="1.4" x2="1.4" y2="1.4" width="0.2032" layer="21"/>
@@ -3379,14 +3381,14 @@ Source: MAX1792.pdf</description>
 <wire x1="-1.4" y1="-1.4" x2="-1.4" y2="1.4" width="0.2032" layer="21"/>
 <wire x1="-0.7" y1="-1.1" x2="-0.7" y2="-0.4" width="0.2032" layer="51" curve="-180"/>
 <wire x1="-0.7" y1="-0.4" x2="-0.7" y2="-1.1" width="0.2032" layer="51"/>
-<smd name="1" x="-0.975" y="-2.175" dx="0.45" dy="1.2" layer="1"/>
-<smd name="2" x="-0.325" y="-2.175" dx="0.45" dy="1.2" layer="1"/>
-<smd name="3" x="0.325" y="-2.175" dx="0.45" dy="1.2" layer="1"/>
-<smd name="4" x="0.975" y="-2.175" dx="0.45" dy="1.2" layer="1"/>
-<smd name="5" x="0.975" y="2.175" dx="0.45" dy="1.2" layer="1"/>
-<smd name="6" x="0.325" y="2.175" dx="0.45" dy="1.2" layer="1"/>
-<smd name="7" x="-0.325" y="2.175" dx="0.45" dy="1.2" layer="1"/>
-<smd name="8" x="-0.975" y="2.175" dx="0.45" dy="1.2" layer="1"/>
+<smd name="1" x="-0.975" y="-2.175" dx="0.4" dy="1.2" layer="1"/>
+<smd name="2" x="-0.325" y="-2.175" dx="0.4" dy="1.2" layer="1"/>
+<smd name="3" x="0.325" y="-2.175" dx="0.4" dy="1.2" layer="1"/>
+<smd name="4" x="0.975" y="-2.175" dx="0.4" dy="1.2" layer="1"/>
+<smd name="5" x="0.975" y="2.175" dx="0.4" dy="1.2" layer="1"/>
+<smd name="6" x="0.325" y="2.175" dx="0.4" dy="1.2" layer="1"/>
+<smd name="7" x="-0.325" y="2.175" dx="0.4" dy="1.2" layer="1"/>
+<smd name="8" x="-0.975" y="2.175" dx="0.4" dy="1.2" layer="1"/>
 <smd name="TH" x="0" y="0" dx="2" dy="2" layer="1"/>
 <text x="-1.636" y="-2.286" size="1.27" layer="25" rot="R90">&gt;NAME</text>
 <text x="2.906" y="-2.286" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
@@ -4461,7 +4463,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4906-MAX4907F.pdf</description>
 <packageinstance name="UDFN10"/>
 </packageinstances>
 </package3d>
-<package3d name="UMAX8-THERMAL" urn="urn:adsk.eagle:package:17552/1" type="box">
+<package3d name="UMAX8-THERMAL" urn="urn:adsk.eagle:package:17552/1" locally_modified="yes" type="box">
 <description>micro MAX Package
 Source: MAX1792.pdf</description>
 <packageinstances>
@@ -15265,7 +15267,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="MAX388CPN" prefix="IC" urn="urn:adsk.eagle:component:17592/2">
+<deviceset name="MAX388CPN" urn="urn:adsk.eagle:component:17592/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX388" x="0" y="-5.08"/>
@@ -15306,7 +15308,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX369CPN" prefix="IC" urn="urn:adsk.eagle:component:17587/2">
+<deviceset name="MAX369CPN" urn="urn:adsk.eagle:component:17587/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX369" x="0" y="0"/>
@@ -15347,7 +15349,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX222CPN" prefix="IC" urn="urn:adsk.eagle:component:17588/2">
+<deviceset name="MAX222CPN" urn="urn:adsk.eagle:component:17588/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX222" x="0" y="0"/>
@@ -15387,7 +15389,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MX7224KN" prefix="IC" urn="urn:adsk.eagle:component:17583/2">
+<deviceset name="MX7224KN" urn="urn:adsk.eagle:component:17583/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX7224" x="0" y="0"/>
@@ -15428,7 +15430,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX368CPN" prefix="IC" urn="urn:adsk.eagle:component:17586/2">
+<deviceset name="MAX368CPN" urn="urn:adsk.eagle:component:17586/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX368" x="0" y="0"/>
@@ -15469,7 +15471,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX160CPN" prefix="IC" urn="urn:adsk.eagle:component:17582/2">
+<deviceset name="MAX160CPN" urn="urn:adsk.eagle:component:17582/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX160" x="0" y="-2.54"/>
@@ -15510,7 +15512,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX3222" prefix="IC" urn="urn:adsk.eagle:component:17594/2">
+<deviceset name="MAX3222" urn="urn:adsk.eagle:component:17594/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX3222" x="0" y="0"/>
@@ -15552,7 +15554,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MX7531JN" prefix="IC" urn="urn:adsk.eagle:component:17584/2">
+<deviceset name="MX7531JN" urn="urn:adsk.eagle:component:17584/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX7531" x="0" y="2.54"/>
@@ -15593,7 +15595,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX620CPN" prefix="IC" urn="urn:adsk.eagle:component:17589/2">
+<deviceset name="MAX620CPN" urn="urn:adsk.eagle:component:17589/2" prefix="IC">
 <description>&lt;b&gt;MOSFET DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="A" symbol="MAX620" x="0" y="0"/>
@@ -15633,7 +15635,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX367CPN" prefix="IC" urn="urn:adsk.eagle:component:17591/2">
+<deviceset name="MAX367CPN" urn="urn:adsk.eagle:component:17591/2" prefix="IC">
 <description>Signal-line &lt;b&gt;CIRCUIT PROTECTOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX367" x="0" y="2.54"/>
@@ -15674,7 +15676,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX389CPN" prefix="IC" urn="urn:adsk.eagle:component:17593/2">
+<deviceset name="MAX389CPN" urn="urn:adsk.eagle:component:17593/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX389" x="0" y="0"/>
@@ -15715,7 +15717,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX242" prefix="IC" urn="urn:adsk.eagle:component:17585/2">
+<deviceset name="MAX242" urn="urn:adsk.eagle:component:17585/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX242" x="0" y="0"/>
@@ -15757,7 +15759,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX900ACP" prefix="IC" urn="urn:adsk.eagle:component:17607/2">
+<deviceset name="MAX900ACP" urn="urn:adsk.eagle:component:17607/2" prefix="IC">
 <description>&lt;b&gt;VOLTAGE COMPARATOR&lt;/b&gt;</description>
 <gates>
 <gate name="A" symbol="MAX900" x="2.54" y="20.32" swaplevel="1"/>
@@ -15804,7 +15806,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX200CPP" prefix="IC" urn="urn:adsk.eagle:component:17615/2">
+<deviceset name="MAX200CPP" urn="urn:adsk.eagle:component:17615/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSMITTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX200" x="0" y="0"/>
@@ -15846,7 +15848,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX166CPP" prefix="IC" urn="urn:adsk.eagle:component:17610/2">
+<deviceset name="MAX166CPP" urn="urn:adsk.eagle:component:17610/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX166" x="0" y="0"/>
@@ -15889,7 +15891,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX506CPP" prefix="IC" urn="urn:adsk.eagle:component:17612/2">
+<deviceset name="MAX506CPP" urn="urn:adsk.eagle:component:17612/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX506" x="0" y="0"/>
@@ -15932,7 +15934,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MF10BN" prefix="IC" urn="urn:adsk.eagle:component:17601/2">
+<deviceset name="MF10BN" urn="urn:adsk.eagle:component:17601/2" prefix="IC">
 <description>&lt;b&gt;FILTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MF10" x="0" y="0"/>
@@ -15975,7 +15977,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MX7545JN" prefix="IC" urn="urn:adsk.eagle:component:17599/2">
+<deviceset name="MX7545JN" urn="urn:adsk.eagle:component:17599/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX7545" x="0" y="-2.54"/>
@@ -16018,7 +16020,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX742CPP" prefix="IC" urn="urn:adsk.eagle:component:17605/2">
+<deviceset name="MAX742CPP" urn="urn:adsk.eagle:component:17605/2" prefix="IC">
 <description>&lt;b&gt;PWM SWITCH-MODE REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX742" x="0" y="0"/>
@@ -16061,7 +16063,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX165CPN" prefix="IC" urn="urn:adsk.eagle:component:17590/2">
+<deviceset name="MAX165CPN" urn="urn:adsk.eagle:component:17590/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX165" x="0" y="0"/>
@@ -16102,7 +16104,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX441CPP" prefix="IC" urn="urn:adsk.eagle:component:17611/2">
+<deviceset name="MAX441CPP" urn="urn:adsk.eagle:component:17611/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX441" x="0" y="0"/>
@@ -16143,7 +16145,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX150ACP" prefix="IC" urn="urn:adsk.eagle:component:17596/2">
+<deviceset name="MAX150ACP" urn="urn:adsk.eagle:component:17596/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX150" x="0" y="0"/>
@@ -16186,7 +16188,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX508CPP" prefix="IC" urn="urn:adsk.eagle:component:17613/2">
+<deviceset name="MAX508CPP" urn="urn:adsk.eagle:component:17613/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX508" x="0" y="0"/>
@@ -16229,7 +16231,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX333ACPP" prefix="IC" urn="urn:adsk.eagle:component:17602/2">
+<deviceset name="MAX333ACPP" urn="urn:adsk.eagle:component:17602/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX333" x="0" y="0"/>
@@ -16272,7 +16274,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX455CPP" prefix="IC" urn="urn:adsk.eagle:component:17600/2">
+<deviceset name="MAX455CPP" urn="urn:adsk.eagle:component:17600/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX455" x="0" y="-2.54"/>
@@ -16315,7 +16317,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX230" prefix="IC" urn="urn:adsk.eagle:component:17603/2">
+<deviceset name="MAX230" urn="urn:adsk.eagle:component:17603/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANMITTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX230" x="0" y="2.54"/>
@@ -16359,7 +16361,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX271CNG" prefix="IC" urn="urn:adsk.eagle:component:17744/2">
+<deviceset name="MAX271CNG" urn="urn:adsk.eagle:component:17744/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL FILTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX271" x="0" y="0"/>
@@ -16406,7 +16408,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX162ACN" prefix="IC" urn="urn:adsk.eagle:component:17737/2">
+<deviceset name="MAX162ACN" urn="urn:adsk.eagle:component:17737/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX162" x="0" y="2.54"/>
@@ -16453,7 +16455,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX154ACN" prefix="IC" urn="urn:adsk.eagle:component:17736/2">
+<deviceset name="MAX154ACN" urn="urn:adsk.eagle:component:17736/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX154" x="0" y="0"/>
@@ -16500,7 +16502,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX205ECPG" prefix="IC" urn="urn:adsk.eagle:component:17746/2">
+<deviceset name="MAX205ECPG" urn="urn:adsk.eagle:component:17746/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX235" x="0" y="0"/>
@@ -16548,7 +16550,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX178ACN" prefix="IC" urn="urn:adsk.eagle:component:17745/2">
+<deviceset name="MAX178ACN" urn="urn:adsk.eagle:component:17745/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX178" x="0" y="0"/>
@@ -16594,7 +16596,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX233" prefix="IC" urn="urn:adsk.eagle:component:17604/2">
+<deviceset name="MAX233" urn="urn:adsk.eagle:component:17604/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX233" x="0" y="0"/>
@@ -16638,7 +16640,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MX7528JN" prefix="IC" urn="urn:adsk.eagle:component:17598/2">
+<deviceset name="MX7528JN" urn="urn:adsk.eagle:component:17598/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX7528" x="0" y="0"/>
@@ -16681,7 +16683,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX261NG" prefix="IC" urn="urn:adsk.eagle:component:17741/2">
+<deviceset name="MAX261NG" urn="urn:adsk.eagle:component:17741/2" prefix="IC">
 <description>Switched-capacitor &lt;b&gt;FILTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX261" x="0" y="2.54"/>
@@ -16728,7 +16730,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX235" prefix="IC" urn="urn:adsk.eagle:component:17743/2">
+<deviceset name="MAX235" urn="urn:adsk.eagle:component:17743/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX235" x="0" y="2.54"/>
@@ -16776,7 +16778,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX267NG" prefix="IC" urn="urn:adsk.eagle:component:17742/2">
+<deviceset name="MAX267NG" urn="urn:adsk.eagle:component:17742/2" prefix="IC">
 <description>Switched-capacitor &lt;b&gt;FILTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX267" x="0" y="0"/>
@@ -16823,7 +16825,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MX7225KN" prefix="IC" urn="urn:adsk.eagle:component:17739/2">
+<deviceset name="MX7225KN" urn="urn:adsk.eagle:component:17739/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX7225" x="0" y="2.54"/>
@@ -16870,7 +16872,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX741UCP" prefix="IC" urn="urn:adsk.eagle:component:17608/2">
+<deviceset name="MAX741UCP" urn="urn:adsk.eagle:component:17608/2" prefix="IC">
 <description>&lt;b&gt;PWM CONTROLLER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX741" x="0" y="0"/>
@@ -16913,7 +16915,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX260NG" prefix="IC" urn="urn:adsk.eagle:component:17740/2">
+<deviceset name="MAX260NG" urn="urn:adsk.eagle:component:17740/2" prefix="IC">
 <description>Switched-capacitor &lt;b&gt;FILTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX260" x="0" y="0"/>
@@ -16960,7 +16962,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX270CPP" prefix="IC" urn="urn:adsk.eagle:component:17606/2">
+<deviceset name="MAX270CPP" urn="urn:adsk.eagle:component:17606/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL FILTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX270" x="0" y="0"/>
@@ -17003,7 +17005,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ADC0820BCN" prefix="IC" urn="urn:adsk.eagle:component:17597/2">
+<deviceset name="ADC0820BCN" urn="urn:adsk.eagle:component:17597/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ADC0820" x="0" y="0"/>
@@ -17046,7 +17048,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MXD1000P" prefix="IC" urn="urn:adsk.eagle:component:17734/2">
+<deviceset name="MXD1000P" urn="urn:adsk.eagle:component:17734/2" prefix="IC">
 <description>&lt;b&gt;DELAY LINE&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MXD1000" x="0" y="0"/>
@@ -17090,7 +17092,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX161ACP" prefix="IC" urn="urn:adsk.eagle:component:17559/2">
+<deviceset name="MAX161ACP" urn="urn:adsk.eagle:component:17559/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX161" x="0" y="0"/>
@@ -17141,7 +17143,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICM7218A" prefix="IC" urn="urn:adsk.eagle:component:17563/2">
+<deviceset name="ICM7218A" urn="urn:adsk.eagle:component:17563/2" prefix="IC">
 <description>&lt;b&gt;LED DECODER DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICM7218A" x="0" y="0"/>
@@ -17192,7 +17194,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICM7217" prefix="IC" urn="urn:adsk.eagle:component:17561/2">
+<deviceset name="ICM7217" urn="urn:adsk.eagle:component:17561/2" prefix="IC">
 <description>&lt;b&gt;COUNTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICM7217A" x="0" y="2.54"/>
@@ -17243,7 +17245,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MX565AJN" prefix="IC" urn="urn:adsk.eagle:component:17738/2">
+<deviceset name="MX565AJN" urn="urn:adsk.eagle:component:17738/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX565A" x="0" y="-2.54"/>
@@ -17290,7 +17292,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7650CPD" prefix="IC" urn="urn:adsk.eagle:component:17721/2">
+<deviceset name="ICL7650CPD" urn="urn:adsk.eagle:component:17721/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICL7650/" x="0" y="0"/>
@@ -17327,7 +17329,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX670CDD" prefix="IC" urn="urn:adsk.eagle:component:17714/2">
+<deviceset name="MAX670CDD" urn="urn:adsk.eagle:component:17714/2" prefix="IC">
 <description>&lt;b&gt;VOLATAGE REFERENCE&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX670" x="0" y="0"/>
@@ -17364,7 +17366,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX454CPD" prefix="IC" urn="urn:adsk.eagle:component:17720/2">
+<deviceset name="MAX454CPD" urn="urn:adsk.eagle:component:17720/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX454" x="0" y="0"/>
@@ -17401,7 +17403,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICM7556PD" prefix="IC" urn="urn:adsk.eagle:component:17722/2">
+<deviceset name="ICM7556PD" urn="urn:adsk.eagle:component:17722/2" prefix="IC">
 <description>&lt;b&gt;TIMER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICM7556" x="0" y="-2.54"/>
@@ -17438,7 +17440,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICM7217A" prefix="IC" urn="urn:adsk.eagle:component:17562/2">
+<deviceset name="ICM7217A" urn="urn:adsk.eagle:component:17562/2" prefix="IC">
 <description>&lt;b&gt;COUNTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICM7217A" x="0" y="0"/>
@@ -17489,7 +17491,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICM7218C" prefix="IC" urn="urn:adsk.eagle:component:17565/2">
+<deviceset name="ICM7218C" urn="urn:adsk.eagle:component:17565/2" prefix="IC">
 <description>&lt;b&gt;LED DECODER DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICM7218C" x="0" y="0"/>
@@ -17540,7 +17542,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX307CPI" prefix="IC" urn="urn:adsk.eagle:component:17579/2">
+<deviceset name="MAX307CPI" urn="urn:adsk.eagle:component:17579/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX307" x="0" y="-2.54"/>
@@ -17591,7 +17593,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX158ACN" prefix="IC" urn="urn:adsk.eagle:component:17558/2">
+<deviceset name="MAX158ACN" urn="urn:adsk.eagle:component:17558/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX158" x="0" y="2.54"/>
@@ -17642,7 +17644,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7135CJI" prefix="IC" urn="urn:adsk.eagle:component:17560/2">
+<deviceset name="ICL7135CJI" urn="urn:adsk.eagle:component:17560/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICL7135" x="0" y="-2.54"/>
@@ -17693,7 +17695,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX306CPI" prefix="IC" urn="urn:adsk.eagle:component:17578/2">
+<deviceset name="MAX306CPI" urn="urn:adsk.eagle:component:17578/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX306" x="2.54" y="-2.54"/>
@@ -17744,7 +17746,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX440CPI" prefix="IC" urn="urn:adsk.eagle:component:17577/2">
+<deviceset name="MAX440CPI" urn="urn:adsk.eagle:component:17577/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX440" x="0" y="0"/>
@@ -17795,7 +17797,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX135CPI" prefix="IC" urn="urn:adsk.eagle:component:17575/2">
+<deviceset name="MAX135CPI" urn="urn:adsk.eagle:component:17575/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX135" x="0" y="0"/>
@@ -17846,7 +17848,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG507ACJ" prefix="IC" urn="urn:adsk.eagle:component:17569/2">
+<deviceset name="DG507ACJ" urn="urn:adsk.eagle:component:17569/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG507AC" x="0" y="-2.54"/>
@@ -17897,7 +17899,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG406DJ" prefix="IC" urn="urn:adsk.eagle:component:17572/2">
+<deviceset name="DG406DJ" urn="urn:adsk.eagle:component:17572/2" prefix="IC">
 <description>&lt;b&gt;ANALOG MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG406" x="0" y="0"/>
@@ -17945,7 +17947,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX3237" prefix="IC" urn="urn:adsk.eagle:component:17580/2">
+<deviceset name="MAX3237" urn="urn:adsk.eagle:component:17580/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX3237" x="0" y="0"/>
@@ -17997,7 +17999,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG506ACJ" prefix="IC" urn="urn:adsk.eagle:component:17568/2">
+<deviceset name="DG506ACJ" urn="urn:adsk.eagle:component:17568/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG506A" x="0" y="5.08"/>
@@ -18048,7 +18050,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX421EPD" prefix="IC" urn="urn:adsk.eagle:component:17718/2">
+<deviceset name="MAX421EPD" urn="urn:adsk.eagle:component:17718/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX421" x="0" y="-2.54"/>
@@ -18085,7 +18087,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG200ACJ" prefix="IC" urn="urn:adsk.eagle:component:17723/2">
+<deviceset name="DG200ACJ" urn="urn:adsk.eagle:component:17723/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG200" x="0" y="0"/>
@@ -18122,7 +18124,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICM7218B" prefix="IC" urn="urn:adsk.eagle:component:17564/2">
+<deviceset name="ICM7218B" urn="urn:adsk.eagle:component:17564/2" prefix="IC">
 <description>&lt;b&gt;LED DECODER DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICM7218A" x="0" y="0"/>
@@ -18173,7 +18175,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX905CPD" prefix="IC" urn="urn:adsk.eagle:component:17731/2">
+<deviceset name="MAX905CPD" urn="urn:adsk.eagle:component:17731/2" prefix="IC">
 <description>&lt;b&gt;VOLTAGE COMPARATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX905" x="0" y="0"/>
@@ -18207,7 +18209,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX250CPD" prefix="IC" urn="urn:adsk.eagle:component:17725/2">
+<deviceset name="MAX250CPD" urn="urn:adsk.eagle:component:17725/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX250" x="0" y="0"/>
@@ -18244,7 +18246,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX232" prefix="IC" urn="urn:adsk.eagle:component:17797/2">
+<deviceset name="MAX232" urn="urn:adsk.eagle:component:17797/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX232" x="0" y="0"/>
@@ -18284,7 +18286,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX450CPD" prefix="IC" urn="urn:adsk.eagle:component:17719/2">
+<deviceset name="MAX450CPD" urn="urn:adsk.eagle:component:17719/2" prefix="IC">
 <description>&lt;b&gt;VIDEO AMPLIFIER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX450" x="0" y="-2.54"/>
@@ -18321,7 +18323,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICM7218D" prefix="IC" urn="urn:adsk.eagle:component:17566/2">
+<deviceset name="ICM7218D" urn="urn:adsk.eagle:component:17566/2" prefix="IC">
 <description>&lt;b&gt;LED DECODER DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICM7218D" x="0" y="-2.54"/>
@@ -18372,7 +18374,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG407DJ" prefix="IC" urn="urn:adsk.eagle:component:17573/2">
+<deviceset name="DG407DJ" urn="urn:adsk.eagle:component:17573/2" prefix="IC">
 <description>&lt;b&gt;ANALOG MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG407" x="0" y="0"/>
@@ -18420,7 +18422,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX2700JD" prefix="IC" urn="urn:adsk.eagle:component:17715/2">
+<deviceset name="MAX2700JD" urn="urn:adsk.eagle:component:17715/2" prefix="IC">
 <description>&lt;b&gt;RECEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX2700" x="0" y="0"/>
@@ -18457,7 +18459,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX3241" prefix="IC" urn="urn:adsk.eagle:component:17581/2">
+<deviceset name="MAX3241" urn="urn:adsk.eagle:component:17581/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX3241" x="0" y="0"/>
@@ -18509,7 +18511,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX716CPI" prefix="IC" urn="urn:adsk.eagle:component:17574/2">
+<deviceset name="MAX716CPI" urn="urn:adsk.eagle:component:17574/2" prefix="IC">
 <description>&lt;b&gt;SUPPLY SYSTEM&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="MAX716" x="0" y="0"/>
@@ -18559,7 +18561,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX275ACP" prefix="IC" urn="urn:adsk.eagle:component:17609/2">
+<deviceset name="MAX275ACP" urn="urn:adsk.eagle:component:17609/2" prefix="IC">
 <description>&lt;b&gt;ANALOG FILTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX275" x="0" y="0"/>
@@ -18600,7 +18602,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX155ACP" prefix="IC" urn="urn:adsk.eagle:component:17576/2">
+<deviceset name="MAX155ACP" urn="urn:adsk.eagle:component:17576/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX155" x="0" y="0"/>
@@ -18651,7 +18653,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX182ACP" prefix="IC" urn="urn:adsk.eagle:component:17571/2">
+<deviceset name="MAX182ACP" urn="urn:adsk.eagle:component:17571/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX182" x="0" y="0"/>
@@ -18702,7 +18704,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX528CPP" prefix="IC" urn="urn:adsk.eagle:component:17614/2">
+<deviceset name="MAX528CPP" urn="urn:adsk.eagle:component:17614/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX528" x="0" y="0"/>
@@ -18745,7 +18747,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX174AC" prefix="IC" urn="urn:adsk.eagle:component:17570/2">
+<deviceset name="MAX174AC" urn="urn:adsk.eagle:component:17570/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX174" x="0" y="0"/>
@@ -18796,7 +18798,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG409DJ" prefix="IC" urn="urn:adsk.eagle:component:17816/2">
+<deviceset name="DG409DJ" urn="urn:adsk.eagle:component:17816/2" prefix="IC">
 <description>&lt;b&gt;ANALOG MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG409" x="0" y="0"/>
@@ -18835,7 +18837,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX171ACP" prefix="IC" urn="urn:adsk.eagle:component:17810/2">
+<deviceset name="MAX171ACP" urn="urn:adsk.eagle:component:17810/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX171" x="0" y="0"/>
@@ -18873,7 +18875,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX500ACP" prefix="IC" urn="urn:adsk.eagle:component:17812/2">
+<deviceset name="MAX500ACP" urn="urn:adsk.eagle:component:17812/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX500" x="0" y="0"/>
@@ -18912,7 +18914,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX353CPE" prefix="IC" urn="urn:adsk.eagle:component:17829/2">
+<deviceset name="MAX353CPE" urn="urn:adsk.eagle:component:17829/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$5" symbol="MAX353" x="0" y="0"/>
@@ -18951,7 +18953,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG411CJ" prefix="IC" urn="urn:adsk.eagle:component:17843/2">
+<deviceset name="DG411CJ" urn="urn:adsk.eagle:component:17843/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG411" x="0" y="7.62"/>
@@ -18990,7 +18992,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX654CPD" prefix="IC" urn="urn:adsk.eagle:component:17727/2">
+<deviceset name="MAX654CPD" urn="urn:adsk.eagle:component:17727/2" prefix="IC">
 <description>Step-up &lt;b&gt;DC-DC CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX654" x="0" y="0"/>
@@ -19026,7 +19028,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX656CPD" prefix="IC" urn="urn:adsk.eagle:component:17728/2">
+<deviceset name="MAX656CPD" urn="urn:adsk.eagle:component:17728/2" prefix="IC">
 <description>Step-up &lt;b&gt;DC-DC CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX656" x="0" y="0"/>
@@ -19061,7 +19063,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX231" prefix="IC" urn="urn:adsk.eagle:component:17724/2">
+<deviceset name="MAX231" urn="urn:adsk.eagle:component:17724/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX231" x="0" y="0"/>
@@ -19099,7 +19101,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX902CPD" prefix="IC" urn="urn:adsk.eagle:component:17729/2">
+<deviceset name="MAX902CPD" urn="urn:adsk.eagle:component:17729/2" prefix="IC">
 <description>&lt;b&gt;VOLTAGE COMPARATOR&lt;/b&gt;</description>
 <gates>
 <gate name="A" symbol="MAX900" x="0" y="0" swaplevel="1"/>
@@ -19136,7 +19138,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX201CPD" prefix="IC" urn="urn:adsk.eagle:component:17733/2">
+<deviceset name="MAX201CPD" urn="urn:adsk.eagle:component:17733/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX201" x="0" y="0"/>
@@ -19173,7 +19175,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX714CPE" prefix="IC" urn="urn:adsk.eagle:component:17820/2">
+<deviceset name="MAX714CPE" urn="urn:adsk.eagle:component:17820/2" prefix="IC">
 <description>&lt;b&gt;WATCHDOG&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="MAX714" x="0" y="0"/>
@@ -19212,7 +19214,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX381CPE" prefix="IC" urn="urn:adsk.eagle:component:17834/2">
+<deviceset name="MAX381CPE" urn="urn:adsk.eagle:component:17834/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX381" x="2.54" y="2.54"/>
@@ -19251,7 +19253,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX623CPE" prefix="IC" urn="urn:adsk.eagle:component:17808/2">
+<deviceset name="MAX623CPE" urn="urn:adsk.eagle:component:17808/2" prefix="IC">
 <description>&lt;b&gt;POWER SUPPLY&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX623" x="0" y="0"/>
@@ -19280,7 +19282,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX338CPE" prefix="IC" urn="urn:adsk.eagle:component:17825/2">
+<deviceset name="MAX338CPE" urn="urn:adsk.eagle:component:17825/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX338" x="0" y="0"/>
@@ -19319,7 +19321,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX722CSE" prefix="IC" urn="urn:adsk.eagle:component:17821/2">
+<deviceset name="MAX722CSE" urn="urn:adsk.eagle:component:17821/2" prefix="IC">
 <description>Positive &lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX722" x="0" y="0"/>
@@ -19358,7 +19360,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX243" prefix="IC" urn="urn:adsk.eagle:component:17799/2">
+<deviceset name="MAX243" urn="urn:adsk.eagle:component:17799/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX243" x="0" y="2.54"/>
@@ -19398,7 +19400,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG508ACJ" prefix="IC" urn="urn:adsk.eagle:component:17792/2">
+<deviceset name="DG508ACJ" urn="urn:adsk.eagle:component:17792/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG508A" x="0" y="0"/>
@@ -19437,7 +19439,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX743CPE" prefix="IC" urn="urn:adsk.eagle:component:17809/2">
+<deviceset name="MAX743CPE" urn="urn:adsk.eagle:component:17809/2" prefix="IC">
 <description>&lt;b&gt;PWM SWITCH-MODE REGULATOR&lt;/b&gt;r</description>
 <gates>
 <gate name="G$1" symbol="MAX743" x="0" y="0"/>
@@ -19476,7 +19478,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX362CPE" prefix="IC" urn="urn:adsk.eagle:component:17831/2">
+<deviceset name="MAX362CPE" urn="urn:adsk.eagle:component:17831/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX362" x="0" y="0"/>
@@ -19515,7 +19517,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX696CPE" prefix="IC" urn="urn:adsk.eagle:component:17785/2">
+<deviceset name="MAX696CPE" urn="urn:adsk.eagle:component:17785/2" prefix="IC">
 <description>&lt;b&gt;SUPERVISORY CIRCUIT&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX696" x="0" y="0"/>
@@ -19555,7 +19557,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG201ACJ" prefix="IC" urn="urn:adsk.eagle:component:17794/2">
+<deviceset name="DG201ACJ" urn="urn:adsk.eagle:component:17794/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG201" x="0" y="0"/>
@@ -19594,7 +19596,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MX7524JN" prefix="IC" urn="urn:adsk.eagle:component:17780/2">
+<deviceset name="MX7524JN" urn="urn:adsk.eagle:component:17780/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX7524" x="0" y="0"/>
@@ -19633,7 +19635,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX358E" prefix="IC" urn="urn:adsk.eagle:component:17800/2">
+<deviceset name="MAX358E" urn="urn:adsk.eagle:component:17800/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX358" x="0" y="0"/>
@@ -19672,7 +19674,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX906CPE" prefix="IC" urn="urn:adsk.eagle:component:17819/2">
+<deviceset name="MAX906CPE" urn="urn:adsk.eagle:component:17819/2" prefix="IC">
 <description>&lt;b&gt;VOLTAGE COMPARATOR&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="MAX906" x="0" y="0"/>
@@ -19711,7 +19713,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX691ACPE" prefix="IC" urn="urn:adsk.eagle:component:17784/2">
+<deviceset name="MAX691ACPE" urn="urn:adsk.eagle:component:17784/2" prefix="IC">
 <description>&lt;b&gt;WATCHDOG&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX691" x="0" y="0"/>
@@ -19751,7 +19753,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX343CPE" prefix="IC" urn="urn:adsk.eagle:component:17796/2">
+<deviceset name="MAX343CPE" urn="urn:adsk.eagle:component:17796/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX343" x="0" y="0"/>
@@ -19790,7 +19792,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX389CPE" prefix="IC" urn="urn:adsk.eagle:component:17839/2">
+<deviceset name="MAX389CPE" urn="urn:adsk.eagle:component:17839/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX398" x="0" y="2.54"/>
@@ -19829,7 +19831,7 @@ Source: http://pdfserv.maxim-ic.com/package_dwgs/G4010-001.PDF</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL763*" prefix="IC" urn="urn:adsk.eagle:component:17844/2">
+<deviceset name="ICL763*" urn="urn:adsk.eagle:component:17844/2" prefix="IC">
 <description>&lt;b&gt;Triple Operational Amplifiers&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 <gates>
@@ -19877,7 +19879,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MX7520JN" prefix="IC" urn="urn:adsk.eagle:component:17778/2">
+<deviceset name="MX7520JN" urn="urn:adsk.eagle:component:17778/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX7520" x="0" y="0"/>
@@ -19916,7 +19918,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX378CPE" prefix="IC" urn="urn:adsk.eagle:component:17805/2">
+<deviceset name="MAX378CPE" urn="urn:adsk.eagle:component:17805/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX378" x="0" y="0"/>
@@ -19955,7 +19957,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX364CPE" prefix="IC" urn="urn:adsk.eagle:component:17832/2">
+<deviceset name="MAX364CPE" urn="urn:adsk.eagle:component:17832/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX351" x="0" y="2.54"/>
@@ -19994,7 +19996,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX361CPE" prefix="IC" urn="urn:adsk.eagle:component:17830/2">
+<deviceset name="MAX361CPE" urn="urn:adsk.eagle:component:17830/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX361" x="0" y="0"/>
@@ -20033,7 +20035,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX393CPE" prefix="IC" urn="urn:adsk.eagle:component:17838/2">
+<deviceset name="MAX393CPE" urn="urn:adsk.eagle:component:17838/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$5" symbol="MAX393" x="0" y="0"/>
@@ -20072,7 +20074,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX414CPD" prefix="IC" urn="urn:adsk.eagle:component:17730/2">
+<deviceset name="MAX414CPD" urn="urn:adsk.eagle:component:17730/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="A" symbol="OPUB" x="0" y="0"/>
@@ -20112,7 +20114,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX2701JD" prefix="IC" urn="urn:adsk.eagle:component:17716/2">
+<deviceset name="MAX2701JD" urn="urn:adsk.eagle:component:17716/2" prefix="IC">
 <description>&lt;b&gt;RECEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX2701" x="0" y="0"/>
@@ -20149,7 +20151,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX489CPD" prefix="IC" urn="urn:adsk.eagle:component:17735/2">
+<deviceset name="MAX489CPD" urn="urn:adsk.eagle:component:17735/2" prefix="IC">
 <description>&lt;b&gt;RS485 TRANSEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX489" x="0" y="0"/>
@@ -20190,7 +20192,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX736CPD" prefix="IC" urn="urn:adsk.eagle:component:17732/2">
+<deviceset name="MAX736CPD" urn="urn:adsk.eagle:component:17732/2" prefix="IC">
 <description>&lt;b&gt;DC/DC CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX736" x="0" y="0"/>
@@ -20225,7 +20227,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX311CPE" prefix="IC" urn="urn:adsk.eagle:component:17789/2">
+<deviceset name="MAX311CPE" urn="urn:adsk.eagle:component:17789/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX311" x="0" y="-2.54"/>
@@ -20264,7 +20266,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX326CPE" prefix="IC" urn="urn:adsk.eagle:component:17802/2">
+<deviceset name="MAX326CPE" urn="urn:adsk.eagle:component:17802/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG201" x="0" y="0"/>
@@ -20303,7 +20305,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX392CPE" prefix="IC" urn="urn:adsk.eagle:component:17837/2">
+<deviceset name="MAX392CPE" urn="urn:adsk.eagle:component:17837/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$3" symbol="MAX392" x="0" y="0"/>
@@ -20342,7 +20344,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX901ACP" prefix="IC" urn="urn:adsk.eagle:component:17811/2">
+<deviceset name="MAX901ACP" urn="urn:adsk.eagle:component:17811/2" prefix="IC">
 <description>&lt;b&gt;VOLTAGE COMPARATOR&lt;/b&gt;</description>
 <gates>
 <gate name="A" symbol="OP" x="2.54" y="7.62" swaplevel="1"/>
@@ -20385,7 +20387,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX383CPE" prefix="IC" urn="urn:adsk.eagle:component:17835/2">
+<deviceset name="MAX383CPE" urn="urn:adsk.eagle:component:17835/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$3" symbol="MAX383" x="0" y="-2.54"/>
@@ -20424,7 +20426,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX399CPE" prefix="IC" urn="urn:adsk.eagle:component:17840/2">
+<deviceset name="MAX399CPE" urn="urn:adsk.eagle:component:17840/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$3" symbol="MAX399" x="0" y="-2.54"/>
@@ -20463,7 +20465,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MX7530JN" prefix="IC" urn="urn:adsk.eagle:component:17781/2">
+<deviceset name="MX7530JN" urn="urn:adsk.eagle:component:17781/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX7530" x="0" y="2.54"/>
@@ -20502,7 +20504,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MX7542JN" prefix="IC" urn="urn:adsk.eagle:component:17782/2">
+<deviceset name="MX7542JN" urn="urn:adsk.eagle:component:17782/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX7542" x="0" y="0"/>
@@ -20541,7 +20543,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX697CPE" prefix="IC" urn="urn:adsk.eagle:component:17786/2">
+<deviceset name="MAX697CPE" urn="urn:adsk.eagle:component:17786/2" prefix="IC">
 <description>&lt;b&gt;SUPERVISORY CIRCUIT&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX697" x="0" y="0"/>
@@ -20581,7 +20583,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX352CPE" prefix="IC" urn="urn:adsk.eagle:component:17828/2">
+<deviceset name="MAX352CPE" urn="urn:adsk.eagle:component:17828/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$3" symbol="MAX352" x="0" y="0"/>
@@ -20620,7 +20622,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX309CPE" prefix="IC" urn="urn:adsk.eagle:component:17824/2">
+<deviceset name="MAX309CPE" urn="urn:adsk.eagle:component:17824/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX309" x="0" y="0"/>
@@ -20659,7 +20661,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX359E" prefix="IC" urn="urn:adsk.eagle:component:17801/2">
+<deviceset name="MAX359E" urn="urn:adsk.eagle:component:17801/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX359" x="0" y="0"/>
@@ -20698,7 +20700,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG441DJ" prefix="IC" urn="urn:adsk.eagle:component:17818/2">
+<deviceset name="DG441DJ" urn="urn:adsk.eagle:component:17818/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG441" x="0" y="0"/>
@@ -20736,7 +20738,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX359CPE" prefix="IC" urn="urn:adsk.eagle:component:17791/2">
+<deviceset name="MAX359CPE" urn="urn:adsk.eagle:component:17791/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX359" x="0" y="0"/>
@@ -20775,7 +20777,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX365CPE" prefix="IC" urn="urn:adsk.eagle:component:17833/2">
+<deviceset name="MAX365CPE" urn="urn:adsk.eagle:component:17833/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$3" symbol="MAX352" x="0" y="0"/>
@@ -20814,7 +20816,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX251CPD" prefix="IC" urn="urn:adsk.eagle:component:17726/2">
+<deviceset name="MAX251CPD" urn="urn:adsk.eagle:component:17726/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX251" x="0" y="0"/>
@@ -20851,7 +20853,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX263PI" prefix="IC" urn="urn:adsk.eagle:component:17567/2">
+<deviceset name="MAX263PI" urn="urn:adsk.eagle:component:17567/2" prefix="IC">
 <description>Switched-capacitor &lt;b&gt;FILTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX263" x="0" y="-2.54"/>
@@ -20902,7 +20904,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX351CPE" prefix="IC" urn="urn:adsk.eagle:component:17827/2">
+<deviceset name="MAX351CPE" urn="urn:adsk.eagle:component:17827/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX351" x="0" y="2.54"/>
@@ -20941,7 +20943,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG408DJ" prefix="IC" urn="urn:adsk.eagle:component:17815/2">
+<deviceset name="DG408DJ" urn="urn:adsk.eagle:component:17815/2" prefix="IC">
 <description>&lt;b&gt;ANALOG MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG408" x="0" y="0"/>
@@ -20980,7 +20982,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICM7240PE" prefix="IC" urn="urn:adsk.eagle:component:17787/2">
+<deviceset name="ICM7240PE" urn="urn:adsk.eagle:component:17787/2" prefix="IC">
 <description>&lt;b&gt;LCD COUNTER/DECODER/ DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICM7240" x="0" y="-2.54"/>
@@ -21019,7 +21021,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MX7543JN" prefix="IC" urn="urn:adsk.eagle:component:17783/2">
+<deviceset name="MX7543JN" urn="urn:adsk.eagle:component:17783/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX7543" x="0" y="0"/>
@@ -21058,7 +21060,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX391CPE" prefix="IC" urn="urn:adsk.eagle:component:17836/2">
+<deviceset name="MAX391CPE" urn="urn:adsk.eagle:component:17836/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX391" x="0" y="0"/>
@@ -21097,7 +21099,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MX580KH" prefix="IC" urn="urn:adsk.eagle:component:17846/1">
+<deviceset name="MX580KH" urn="urn:adsk.eagle:component:17846/1" prefix="IC">
 <description>&lt;b&gt;VOLTAGE REFERENCE&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX580H" x="0" y="0"/>
@@ -21123,7 +21125,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG405CJ" prefix="IC" urn="urn:adsk.eagle:component:17842/2">
+<deviceset name="DG405CJ" urn="urn:adsk.eagle:component:17842/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$4" symbol="DG403" x="0" y="-5.08"/>
@@ -21160,7 +21162,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MX7523JN" prefix="IC" urn="urn:adsk.eagle:component:17779/2">
+<deviceset name="MX7523JN" urn="urn:adsk.eagle:component:17779/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX7523" x="0" y="-2.54"/>
@@ -21199,7 +21201,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG403CJ" prefix="IC" urn="urn:adsk.eagle:component:17841/2">
+<deviceset name="DG403CJ" urn="urn:adsk.eagle:component:17841/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$2" symbol="DG403" x="0" y="-7.62"/>
@@ -21236,7 +21238,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG403DJ" prefix="IC" urn="urn:adsk.eagle:component:17814/2">
+<deviceset name="DG403DJ" urn="urn:adsk.eagle:component:17814/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG403" x="0" y="0"/>
@@ -21273,7 +21275,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX308CPE" prefix="IC" urn="urn:adsk.eagle:component:17823/2">
+<deviceset name="MAX308CPE" urn="urn:adsk.eagle:component:17823/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX308" x="0" y="0"/>
@@ -21312,7 +21314,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL764*" prefix="IC" urn="urn:adsk.eagle:component:17845/2">
+<deviceset name="ICL764*" urn="urn:adsk.eagle:component:17845/2" prefix="IC">
 <description>&lt;b&gt;Quad Operational Amplifiers&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 <gates>
@@ -21395,7 +21397,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX454CSD" prefix="IC" urn="urn:adsk.eagle:component:17847/2">
+<deviceset name="MAX454CSD" urn="urn:adsk.eagle:component:17847/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX454" x="0" y="2.54"/>
@@ -21432,7 +21434,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX489CSD" prefix="IC" urn="urn:adsk.eagle:component:17849/2">
+<deviceset name="MAX489CSD" urn="urn:adsk.eagle:component:17849/2" prefix="IC">
 <description>&lt;b&gt;RS485 TRANSEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX489" x="0" y="0"/>
@@ -21473,7 +21475,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7622" prefix="IC" urn="urn:adsk.eagle:component:17848/2">
+<deviceset name="ICL7622" urn="urn:adsk.eagle:component:17848/2" prefix="IC">
 <description>&lt;b&gt;Dual Operational Amplifiers&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 <gates>
@@ -21542,7 +21544,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX346*" prefix="IC" urn="urn:adsk.eagle:component:17850/2">
+<deviceset name="MAX346*" urn="urn:adsk.eagle:component:17850/2" prefix="IC">
 <description>&lt;b&gt;+5V, Fail-Safe, 40Mbps, Profibus RS-485/RS-422 Transceivers&lt;/b&gt;&lt;p&gt;
 Source: MAX3465-MAX3469.pdf</description>
 <gates>
@@ -21645,7 +21647,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX526CNG" prefix="IC" urn="urn:adsk.eagle:component:17910/2">
+<deviceset name="MAX526CNG" urn="urn:adsk.eagle:component:17910/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX526" x="0" y="0"/>
@@ -21692,7 +21694,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX190CNG" prefix="IC" urn="urn:adsk.eagle:component:17905/2">
+<deviceset name="MAX190CNG" urn="urn:adsk.eagle:component:17905/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX190" x="0" y="0"/>
@@ -21739,7 +21741,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX335CNG" prefix="IC" urn="urn:adsk.eagle:component:17911/2">
+<deviceset name="MAX335CNG" urn="urn:adsk.eagle:component:17911/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX335" x="0" y="5.08"/>
@@ -21786,7 +21788,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX501CNG" prefix="IC" urn="urn:adsk.eagle:component:17907/2">
+<deviceset name="MAX501CNG" urn="urn:adsk.eagle:component:17907/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX501" x="0" y="0"/>
@@ -21833,7 +21835,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX514CNG" prefix="IC" urn="urn:adsk.eagle:component:17909/2">
+<deviceset name="MAX514CNG" urn="urn:adsk.eagle:component:17909/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX514" x="0" y="0"/>
@@ -21880,7 +21882,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX236" prefix="IC" urn="urn:adsk.eagle:component:17886/2">
+<deviceset name="MAX236" urn="urn:adsk.eagle:component:17886/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX236" x="0" y="0"/>
@@ -21928,7 +21930,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG401DJ" prefix="IC" urn="urn:adsk.eagle:component:17813/2">
+<deviceset name="DG401DJ" urn="urn:adsk.eagle:component:17813/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG401" x="0" y="0"/>
@@ -21961,7 +21963,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX536AJN" prefix="IC" urn="urn:adsk.eagle:component:17717/2">
+<deviceset name="MAX536AJN" urn="urn:adsk.eagle:component:17717/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX536A" x="0" y="0"/>
@@ -21998,7 +22000,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX274ACN" prefix="IC" urn="urn:adsk.eagle:component:17901/2">
+<deviceset name="MAX274ACN" urn="urn:adsk.eagle:component:17901/2" prefix="IC">
 <description>&lt;b&gt;ANALOG FILTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX274" x="0" y="0"/>
@@ -22045,7 +22047,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX260" prefix="IC" urn="urn:adsk.eagle:component:17893/2">
+<deviceset name="MAX260" urn="urn:adsk.eagle:component:17893/2" prefix="IC">
 <description>Switched-capacitor &lt;b&gt;FILTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX260" x="0" y="0"/>
@@ -22092,7 +22094,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX715CNG" prefix="IC" urn="urn:adsk.eagle:component:17900/2">
+<deviceset name="MAX715CNG" urn="urn:adsk.eagle:component:17900/2" prefix="IC">
 <description>&lt;b&gt;SUPPLY SYSTEM&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="MAX715" x="0" y="0"/>
@@ -22139,7 +22141,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX507CNG" prefix="IC" urn="urn:adsk.eagle:component:17908/2">
+<deviceset name="MAX507CNG" urn="urn:adsk.eagle:component:17908/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX507" x="0" y="0"/>
@@ -22186,7 +22188,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX502CNG" prefix="IC" urn="urn:adsk.eagle:component:17906/2">
+<deviceset name="MAX502CNG" urn="urn:adsk.eagle:component:17906/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX502" x="0" y="0"/>
@@ -22233,7 +22235,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX151CNG" prefix="IC" urn="urn:adsk.eagle:component:17895/2">
+<deviceset name="MAX151CNG" urn="urn:adsk.eagle:component:17895/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="A" symbol="MAX151" x="0" y="0"/>
@@ -22280,7 +22282,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX516CNG" prefix="IC" urn="urn:adsk.eagle:component:17912/2">
+<deviceset name="MAX516CNG" urn="urn:adsk.eagle:component:17912/2" prefix="IC">
 <description>&lt;b&gt;COMPARATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX516" x="0" y="2.54"/>
@@ -22327,7 +22329,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX156CNG" prefix="IC" urn="urn:adsk.eagle:component:17904/2">
+<deviceset name="MAX156CNG" urn="urn:adsk.eagle:component:17904/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX156" x="0" y="0"/>
@@ -22374,7 +22376,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX183ACN" prefix="IC" urn="urn:adsk.eagle:component:17897/2">
+<deviceset name="MAX183ACN" urn="urn:adsk.eagle:component:17897/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX183" x="0" y="0"/>
@@ -22421,7 +22423,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX238" prefix="IC" urn="urn:adsk.eagle:component:17888/2">
+<deviceset name="MAX238" urn="urn:adsk.eagle:component:17888/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX238" x="0" y="0"/>
@@ -22469,7 +22471,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX911CNG" prefix="IC" urn="urn:adsk.eagle:component:17899/2">
+<deviceset name="MAX911CNG" urn="urn:adsk.eagle:component:17899/2" prefix="IC">
 <description>&lt;b&gt;VOLTAGE COMPARATOR&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="MAX911" x="0" y="0"/>
@@ -22516,7 +22518,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX120" prefix="IC" urn="urn:adsk.eagle:component:17902/2">
+<deviceset name="MAX120" urn="urn:adsk.eagle:component:17902/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX120" x="0" y="0"/>
@@ -22563,7 +22565,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX132CNG" prefix="IC" urn="urn:adsk.eagle:component:17903/2">
+<deviceset name="MAX132CNG" urn="urn:adsk.eagle:component:17903/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX132" x="0" y="0"/>
@@ -22610,7 +22612,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX7219CNG" prefix="IC" urn="urn:adsk.eagle:component:17892/2">
+<deviceset name="MAX7219CNG" urn="urn:adsk.eagle:component:17892/2" prefix="IC">
 <description>&lt;b&gt;LED DISPLAY DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX7219" x="0" y="0"/>
@@ -22657,7 +22659,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7129ACP" prefix="IC" urn="urn:adsk.eagle:component:17706/2">
+<deviceset name="ICL7129ACP" urn="urn:adsk.eagle:component:17706/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICL7129" x="0" y="0"/>
@@ -22720,7 +22722,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICM7211M" prefix="IC" urn="urn:adsk.eagle:component:17701/2">
+<deviceset name="ICM7211M" urn="urn:adsk.eagle:component:17701/2" prefix="IC">
 <description>&lt;b&gt;LCD DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICM7211M" x="0" y="0"/>
@@ -22783,7 +22785,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX138CPL" prefix="IC" urn="urn:adsk.eagle:component:17692/2">
+<deviceset name="MAX138CPL" urn="urn:adsk.eagle:component:17692/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX138" x="0" y="0"/>
@@ -22846,7 +22848,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MM74C945" prefix="IC" urn="urn:adsk.eagle:component:17704/2">
+<deviceset name="MM74C945" urn="urn:adsk.eagle:component:17704/2" prefix="IC">
 <description>&lt;b&gt;COUNTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MM74C945" x="0" y="0"/>
@@ -22910,7 +22912,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX130CPL" prefix="IC" urn="urn:adsk.eagle:component:17689/2">
+<deviceset name="MAX130CPL" urn="urn:adsk.eagle:component:17689/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX130" x="0" y="-5.08"/>
@@ -22973,7 +22975,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX133CPL" prefix="IC" urn="urn:adsk.eagle:component:17690/2">
+<deviceset name="MAX133CPL" urn="urn:adsk.eagle:component:17690/2" prefix="IC">
 <description>3 3/4-digit &lt;b&gt;DMM CIRCUIT&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX133" x="0" y="0"/>
@@ -23036,7 +23038,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX7232PL" prefix="IC" urn="urn:adsk.eagle:component:17697/2">
+<deviceset name="MAX7232PL" urn="urn:adsk.eagle:component:17697/2" prefix="IC">
 <description>&lt;b&gt;LCD DISPLAY DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX7232" x="0" y="0"/>
@@ -23099,7 +23101,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7106CPL" prefix="IC" urn="urn:adsk.eagle:component:17693/2">
+<deviceset name="ICL7106CPL" urn="urn:adsk.eagle:component:17693/2" prefix="IC">
 <description>&lt;b&gt;LCD DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICL7106" x="0" y="2.54"/>
@@ -23162,7 +23164,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG509ACJ" prefix="IC" urn="urn:adsk.eagle:component:17793/2">
+<deviceset name="DG509ACJ" urn="urn:adsk.eagle:component:17793/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG509A" x="0" y="0"/>
@@ -23201,7 +23203,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX310CPE" prefix="IC" urn="urn:adsk.eagle:component:17788/2">
+<deviceset name="MAX310CPE" urn="urn:adsk.eagle:component:17788/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX310" x="0" y="0"/>
@@ -23240,7 +23242,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG411DJ" prefix="IC" urn="urn:adsk.eagle:component:17817/2">
+<deviceset name="DG411DJ" urn="urn:adsk.eagle:component:17817/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG411" x="0" y="0"/>
@@ -23279,7 +23281,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX234" prefix="IC" urn="urn:adsk.eagle:component:17798/2">
+<deviceset name="MAX234" urn="urn:adsk.eagle:component:17798/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSMITTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX234" x="0" y="0"/>
@@ -23319,7 +23321,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX328CPE" prefix="IC" urn="urn:adsk.eagle:component:17803/2">
+<deviceset name="MAX328CPE" urn="urn:adsk.eagle:component:17803/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="DG508A" x="0" y="0"/>
@@ -23358,7 +23360,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX341CPE" prefix="IC" urn="urn:adsk.eagle:component:17795/2">
+<deviceset name="MAX341CPE" urn="urn:adsk.eagle:component:17795/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX341" x="0" y="2.54"/>
@@ -23397,7 +23399,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX220CPE" prefix="IC" urn="urn:adsk.eagle:component:17807/2">
+<deviceset name="MAX220CPE" urn="urn:adsk.eagle:component:17807/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX220" x="0" y="0"/>
@@ -23436,7 +23438,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX339CPE" prefix="IC" urn="urn:adsk.eagle:component:17826/2">
+<deviceset name="MAX339CPE" urn="urn:adsk.eagle:component:17826/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$3" symbol="MAX339" x="0" y="0"/>
@@ -23475,7 +23477,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX329CPE" prefix="IC" urn="urn:adsk.eagle:component:17804/2">
+<deviceset name="MAX329CPE" urn="urn:adsk.eagle:component:17804/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX329" x="0" y="0"/>
@@ -23514,7 +23516,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICM7212M" prefix="IC" urn="urn:adsk.eagle:component:17702/2">
+<deviceset name="ICM7212M" urn="urn:adsk.eagle:component:17702/2" prefix="IC">
 <description>&lt;b&gt;LCD DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICM7212M" x="0" y="0"/>
@@ -23577,7 +23579,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7126PL" prefix="IC" urn="urn:adsk.eagle:component:17705/2">
+<deviceset name="ICL7126PL" urn="urn:adsk.eagle:component:17705/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICL7126" x="0" y="0"/>
@@ -23640,7 +23642,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX7234PL" prefix="IC" urn="urn:adsk.eagle:component:17699/2">
+<deviceset name="MAX7234PL" urn="urn:adsk.eagle:component:17699/2" prefix="IC">
 <description>&lt;b&gt;LCD DISPLAY DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX7234" x="0" y="0"/>
@@ -23703,7 +23705,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX252A" prefix="IC" urn="urn:adsk.eagle:component:17711/2">
+<deviceset name="MAX252A" urn="urn:adsk.eagle:component:17711/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX252" x="0" y="0"/>
@@ -23766,7 +23768,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX456CPL" prefix="IC" urn="urn:adsk.eagle:component:17713/2">
+<deviceset name="MAX456CPL" urn="urn:adsk.eagle:component:17713/2" prefix="IC">
 <description>8 x 8 crosspoint &lt;b&gt;VIDEO SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX456" x="0" y="0"/>
@@ -23829,7 +23831,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX7231PL" prefix="IC" urn="urn:adsk.eagle:component:17696/2">
+<deviceset name="MAX7231PL" urn="urn:adsk.eagle:component:17696/2" prefix="IC">
 <description>&lt;b&gt;LCD DISPLAY DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX7231" x="0" y="-2.54"/>
@@ -23892,7 +23894,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX625" prefix="IC" urn="urn:adsk.eagle:component:17891/2">
+<deviceset name="MAX625" urn="urn:adsk.eagle:component:17891/2" prefix="IC">
 <description>&lt;b&gt;POWER SUPPLY&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX625" x="0" y="0"/>
@@ -23933,7 +23935,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX239" prefix="IC" urn="urn:adsk.eagle:component:17889/2">
+<deviceset name="MAX239" urn="urn:adsk.eagle:component:17889/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="P" symbol="VCC-GND" x="27.94" y="-2.54" addlevel="request"/>
@@ -23981,7 +23983,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX245" prefix="IC" urn="urn:adsk.eagle:component:17707/2">
+<deviceset name="MAX245" urn="urn:adsk.eagle:component:17707/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX245" x="0" y="2.54"/>
@@ -24045,7 +24047,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX7233PL" prefix="IC" urn="urn:adsk.eagle:component:17698/2">
+<deviceset name="MAX7233PL" urn="urn:adsk.eagle:component:17698/2" prefix="IC">
 <description>&lt;b&gt;LCD DISPLAY DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX7233" x="0" y="0"/>
@@ -24108,7 +24110,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX180ACP" prefix="IC" urn="urn:adsk.eagle:component:17712/2">
+<deviceset name="MAX180ACP" urn="urn:adsk.eagle:component:17712/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX180" x="0" y="0"/>
@@ -24171,7 +24173,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7109MJL" prefix="IC" urn="urn:adsk.eagle:component:17694/2">
+<deviceset name="ICL7109MJL" urn="urn:adsk.eagle:component:17694/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICL7109" x="0" y="10.16"/>
@@ -24234,7 +24236,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX136CPL" prefix="IC" urn="urn:adsk.eagle:component:17691/2">
+<deviceset name="MAX136CPL" urn="urn:adsk.eagle:component:17691/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX136" x="0" y="0"/>
@@ -24297,7 +24299,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7116CPL" prefix="IC" urn="urn:adsk.eagle:component:17695/2">
+<deviceset name="ICL7116CPL" urn="urn:adsk.eagle:component:17695/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICL7116" x="0" y="0"/>
@@ -24360,7 +24362,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICM7224PL" prefix="IC" urn="urn:adsk.eagle:component:17703/2">
+<deviceset name="ICM7224PL" urn="urn:adsk.eagle:component:17703/2" prefix="IC">
 <description>&lt;b&gt;LCD COUNTER/DECODER/ DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICM7224" x="2.54" y="-2.54"/>
@@ -24423,7 +24425,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX246" prefix="IC" urn="urn:adsk.eagle:component:17709/2">
+<deviceset name="MAX246" urn="urn:adsk.eagle:component:17709/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX246" x="0" y="2.54"/>
@@ -24487,7 +24489,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX578JN" prefix="IC" urn="urn:adsk.eagle:component:17595/2">
+<deviceset name="MAX578JN" urn="urn:adsk.eagle:component:17595/2" prefix="IC">
 <description>&lt;b&gt;ANALOG/DIGITAL CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX578" x="0" y="5.08"/>
@@ -24542,7 +24544,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX420MTV" prefix="IC" urn="urn:adsk.eagle:component:17852/1">
+<deviceset name="MAX420MTV" urn="urn:adsk.eagle:component:17852/1" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="OPAMP1" x="0" y="0"/>
@@ -24573,7 +24575,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MXD1000W" prefix="IC" urn="urn:adsk.eagle:component:17914/1">
+<deviceset name="MXD1000W" urn="urn:adsk.eagle:component:17914/1" prefix="IC">
 <description>&lt;b&gt;DELAY LINE&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MXD1000" x="0" y="0"/>
@@ -24621,7 +24623,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX202ECWE" prefix="IC" urn="urn:adsk.eagle:component:17916/1">
+<deviceset name="MAX202ECWE" urn="urn:adsk.eagle:component:17916/1" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX232" x="0" y="0"/>
@@ -24661,7 +24663,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX232ECWE" prefix="IC" urn="urn:adsk.eagle:component:17915/1">
+<deviceset name="MAX232ECWE" urn="urn:adsk.eagle:component:17915/1" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX232" x="0" y="0"/>
@@ -24701,7 +24703,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX691CWE" prefix="IC" urn="urn:adsk.eagle:component:17917/1">
+<deviceset name="MAX691CWE" urn="urn:adsk.eagle:component:17917/1" prefix="IC">
 <description>&lt;b&gt;WATCHDOG&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX691" x="0" y="0"/>
@@ -24741,7 +24743,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX201CWE" prefix="IC" urn="urn:adsk.eagle:component:17913/1">
+<deviceset name="MAX201CWE" urn="urn:adsk.eagle:component:17913/1" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX201" x="0" y="0"/>
@@ -24778,7 +24780,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX379CPE" prefix="IC" urn="urn:adsk.eagle:component:17806/2">
+<deviceset name="MAX379CPE" urn="urn:adsk.eagle:component:17806/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX379" x="0" y="0"/>
@@ -24817,7 +24819,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICM7212" prefix="IC" urn="urn:adsk.eagle:component:17710/2">
+<deviceset name="ICM7212" urn="urn:adsk.eagle:component:17710/2" prefix="IC">
 <description>&lt;b&gt;LCD DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICM7212" x="0" y="0"/>
@@ -24880,7 +24882,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICM7211PL" prefix="IC" urn="urn:adsk.eagle:component:17700/2">
+<deviceset name="ICM7211PL" urn="urn:adsk.eagle:component:17700/2" prefix="IC">
 <description>&lt;b&gt;LCD DRIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICM7211" x="0" y="0"/>
@@ -24943,7 +24945,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX247" prefix="IC" urn="urn:adsk.eagle:component:17708/2">
+<deviceset name="MAX247" urn="urn:adsk.eagle:component:17708/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX247" x="0" y="-2.54"/>
@@ -25007,7 +25009,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX202CPE" prefix="IC" urn="urn:adsk.eagle:component:17822/2">
+<deviceset name="MAX202CPE" urn="urn:adsk.eagle:component:17822/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX202" x="0" y="0"/>
@@ -25046,7 +25048,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="REF02HCSA" prefix="IC" urn="urn:adsk.eagle:component:17748/1">
+<deviceset name="REF02HCSA" urn="urn:adsk.eagle:component:17748/1" prefix="IC">
 <description>&lt;b&gt;VOLTAGE REFERENCE&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="REF02" x="0" y="0"/>
@@ -25077,7 +25079,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX317CSA" prefix="IC" urn="urn:adsk.eagle:component:17765/1">
+<deviceset name="MAX317CSA" urn="urn:adsk.eagle:component:17765/1" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX317" x="0" y="2.54"/>
@@ -25108,7 +25110,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX664CSA" prefix="IC" urn="urn:adsk.eagle:component:17755/1">
+<deviceset name="MAX664CSA" urn="urn:adsk.eagle:component:17755/1" prefix="IC">
 <description>Negative &lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX664" x="0" y="0"/>
@@ -25139,7 +25141,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX634CSA" prefix="IC" urn="urn:adsk.eagle:component:17750/1">
+<deviceset name="MAX634CSA" urn="urn:adsk.eagle:component:17750/1" prefix="IC">
 <description>&lt;b&gt;SWITCHING REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX634" x="0" y="0"/>
@@ -25170,7 +25172,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7664CPA" prefix="IC" urn="urn:adsk.eagle:component:17641/2">
+<deviceset name="ICL7664CPA" urn="urn:adsk.eagle:component:17641/2" prefix="IC">
 <description>Negative &lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICL7664" x="0" y="0"/>
@@ -25201,7 +25203,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX752CPA" prefix="IC" urn="urn:adsk.eagle:component:17685/2">
+<deviceset name="MAX752CPA" urn="urn:adsk.eagle:component:17685/2" prefix="IC">
 <description>&lt;b&gt;DC-DC CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX752" x="0" y="0"/>
@@ -25232,7 +25234,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MXD1000S" prefix="IC" urn="urn:adsk.eagle:component:17768/1">
+<deviceset name="MXD1000S" urn="urn:adsk.eagle:component:17768/1" prefix="IC">
 <description>&lt;b&gt;DELAY LINE&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MXD1000" x="0" y="0"/>
@@ -25264,7 +25266,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4105ESA" prefix="IC" urn="urn:adsk.eagle:component:17772/1">
+<deviceset name="MAX4105ESA" urn="urn:adsk.eagle:component:17772/1" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="OP" x="0" y="0"/>
@@ -25299,7 +25301,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX358CPE" prefix="IC" urn="urn:adsk.eagle:component:17790/2">
+<deviceset name="MAX358CPE" urn="urn:adsk.eagle:component:17790/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX358" x="0" y="0"/>
@@ -25338,7 +25340,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX634CPA" prefix="IC" urn="urn:adsk.eagle:component:17629/2">
+<deviceset name="MAX634CPA" urn="urn:adsk.eagle:component:17629/2" prefix="IC">
 <description>&lt;b&gt;SWITCHING REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX634" x="0" y="0"/>
@@ -25369,7 +25371,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX406CPA" prefix="IC" urn="urn:adsk.eagle:component:17654/2">
+<deviceset name="MAX406CPA" urn="urn:adsk.eagle:component:17654/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX406" x="0" y="0"/>
@@ -25400,7 +25402,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX412CPA" prefix="IC" urn="urn:adsk.eagle:component:17655/2">
+<deviceset name="MAX412CPA" urn="urn:adsk.eagle:component:17655/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="A" symbol="OPUB" x="0" y="0"/>
@@ -25432,7 +25434,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX667CPA" prefix="IC" urn="urn:adsk.eagle:component:17658/2">
+<deviceset name="MAX667CPA" urn="urn:adsk.eagle:component:17658/2" prefix="IC">
 <description>Positive &lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX667" x="0" y="0"/>
@@ -25463,7 +25465,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX764CPA" prefix="IC" urn="urn:adsk.eagle:component:17650/2">
+<deviceset name="MAX764CPA" urn="urn:adsk.eagle:component:17650/2" prefix="IC">
 <description>&lt;b&gt;DC-DC CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="A" symbol="MAX764" x="0" y="0"/>
@@ -25494,7 +25496,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX813L" prefix="IC" urn="urn:adsk.eagle:component:17770/2">
+<deviceset name="MAX813L" urn="urn:adsk.eagle:component:17770/2" prefix="IC">
 <description>&lt;b&gt;WATCHDOG&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX705" x="0" y="0"/>
@@ -25548,7 +25550,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX481CPA" prefix="IC" urn="urn:adsk.eagle:component:17688/2">
+<deviceset name="MAX481CPA" urn="urn:adsk.eagle:component:17688/2" prefix="IC">
 <description>&lt;b&gt;RS485 TRANSEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX481" x="0" y="0"/>
@@ -25580,7 +25582,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX666CPA" prefix="IC" urn="urn:adsk.eagle:component:17635/2">
+<deviceset name="MAX666CPA" urn="urn:adsk.eagle:component:17635/2" prefix="IC">
 <description>Positive &lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX666" x="0" y="0"/>
@@ -25611,7 +25613,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX280CP" prefix="IC" urn="urn:adsk.eagle:component:17665/2">
+<deviceset name="MAX280CP" urn="urn:adsk.eagle:component:17665/2" prefix="IC">
 <description>Switched-capacitor &lt;b&gt;FILTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX280" x="0" y="0"/>
@@ -25642,7 +25644,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX702CPA" prefix="IC" urn="urn:adsk.eagle:component:17664/2">
+<deviceset name="MAX702CPA" urn="urn:adsk.eagle:component:17664/2" prefix="IC">
 <description>&lt;b&gt;POWER SUPPLY MONITOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX702" x="0" y="0"/>
@@ -25669,7 +25671,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG419CJ" prefix="IC" urn="urn:adsk.eagle:component:17673/2">
+<deviceset name="DG419CJ" urn="urn:adsk.eagle:component:17673/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG419" x="0" y="0"/>
@@ -25700,7 +25702,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX660CPA" prefix="IC" urn="urn:adsk.eagle:component:17657/2">
+<deviceset name="MAX660CPA" urn="urn:adsk.eagle:component:17657/2" prefix="IC">
 <description>Charge-pump &lt;b&gt;VOLTAGE CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX660" x="0" y="0"/>
@@ -25731,7 +25733,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX427CPA" prefix="IC" urn="urn:adsk.eagle:component:17652/2">
+<deviceset name="MAX427CPA" urn="urn:adsk.eagle:component:17652/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="OPOFF+-" x="0" y="0"/>
@@ -25761,7 +25763,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX516ACN" prefix="IC" urn="urn:adsk.eagle:component:17898/2">
+<deviceset name="MAX516ACN" urn="urn:adsk.eagle:component:17898/2" prefix="IC">
 <description>&lt;b&gt;COMPARATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX516" x="0" y="0"/>
@@ -25808,7 +25810,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX505CNG" prefix="IC" urn="urn:adsk.eagle:component:17896/2">
+<deviceset name="MAX505CNG" urn="urn:adsk.eagle:component:17896/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="A" symbol="MAX505" x="0" y="0"/>
@@ -25855,7 +25857,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX237" prefix="IC" urn="urn:adsk.eagle:component:17887/2">
+<deviceset name="MAX237" urn="urn:adsk.eagle:component:17887/2" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX237" x="0" y="-2.54"/>
@@ -25903,7 +25905,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX635CPA" prefix="IC" urn="urn:adsk.eagle:component:17630/2">
+<deviceset name="MAX635CPA" urn="urn:adsk.eagle:component:17630/2" prefix="IC">
 <description>&lt;b&gt;SWITCHING REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX635" x="0" y="0"/>
@@ -25934,7 +25936,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX261" prefix="IC" urn="urn:adsk.eagle:component:17894/2">
+<deviceset name="MAX261" urn="urn:adsk.eagle:component:17894/2" prefix="IC">
 <description>Switched-capacitor &lt;b&gt;FILTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX261" x="0" y="0"/>
@@ -25981,7 +25983,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX910" prefix="IC" urn="urn:adsk.eagle:component:17890/2">
+<deviceset name="MAX910" urn="urn:adsk.eagle:component:17890/2" prefix="IC">
 <description>&lt;b&gt;VOLTAGE COMPARATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX910" x="0" y="0"/>
@@ -26028,7 +26030,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX700CPA" prefix="IC" urn="urn:adsk.eagle:component:17662/2">
+<deviceset name="MAX700CPA" urn="urn:adsk.eagle:component:17662/2" prefix="IC">
 <description>&lt;b&gt;POWER SUPPLY MONITOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX700" x="0" y="0"/>
@@ -26059,7 +26061,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4178ESA" prefix="IC" urn="urn:adsk.eagle:component:17774/1">
+<deviceset name="MAX4178ESA" urn="urn:adsk.eagle:component:17774/1" prefix="IC">
 <description>&lt;b&gt;BUFFER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="BUFF3P" x="0" y="0"/>
@@ -26093,7 +26095,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX638CSA" prefix="IC" urn="urn:adsk.eagle:component:17752/1">
+<deviceset name="MAX638CSA" urn="urn:adsk.eagle:component:17752/1" prefix="IC">
 <description>Step-down &lt;b&gt;SWITCHING REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX638" x="0" y="0"/>
@@ -26124,7 +26126,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX680CPA" prefix="IC" urn="urn:adsk.eagle:component:17636/2">
+<deviceset name="MAX680CPA" urn="urn:adsk.eagle:component:17636/2" prefix="IC">
 <description>Switched-capcitor &lt;b&gt;VOLTAGE CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX680" x="0" y="0"/>
@@ -26156,7 +26158,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX699CPA" prefix="IC" urn="urn:adsk.eagle:component:17661/2">
+<deviceset name="MAX699CPA" urn="urn:adsk.eagle:component:17661/2" prefix="IC">
 <description>&lt;b&gt;WATCHDOG&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX699" x="0" y="0"/>
@@ -26186,7 +26188,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX690ACPA" prefix="IC" urn="urn:adsk.eagle:component:17637/2">
+<deviceset name="MAX690ACPA" urn="urn:adsk.eagle:component:17637/2" prefix="IC">
 <description>&lt;b&gt;WATCHDOG&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX690" x="0" y="0"/>
@@ -26218,7 +26220,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7665CPA" prefix="IC" urn="urn:adsk.eagle:component:17642/2">
+<deviceset name="ICL7665CPA" urn="urn:adsk.eagle:component:17642/2" prefix="IC">
 <description>&lt;b&gt;UNDER/OVER VOLTAGE DETECTOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICL7665" x="0" y="0"/>
@@ -26249,7 +26251,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX630CPA" prefix="IC" urn="urn:adsk.eagle:component:17627/2">
+<deviceset name="MAX630CPA" urn="urn:adsk.eagle:component:17627/2" prefix="IC">
 <description>Step-up &lt;b&gt;SWITCHING REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX630" x="0" y="0"/>
@@ -26280,7 +26282,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX457CPA" prefix="IC" urn="urn:adsk.eagle:component:17668/2">
+<deviceset name="MAX457CPA" urn="urn:adsk.eagle:component:17668/2" prefix="IC">
 <description>&lt;b&gt;VIDEO AMPLIFIER&lt;/b&gt;</description>
 <gates>
 <gate name="A" symbol="OPUB" x="0" y="0"/>
@@ -26312,7 +26314,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG418CJ" prefix="IC" urn="urn:adsk.eagle:component:17672/2">
+<deviceset name="DG418CJ" urn="urn:adsk.eagle:component:17672/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG417" x="0" y="0"/>
@@ -26342,7 +26344,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX442CPA" prefix="IC" urn="urn:adsk.eagle:component:17680/2">
+<deviceset name="MAX442CPA" urn="urn:adsk.eagle:component:17680/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX442" x="0" y="0"/>
@@ -26373,7 +26375,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX705CSA" prefix="IC" urn="urn:adsk.eagle:component:17771/1">
+<deviceset name="MAX705CSA" urn="urn:adsk.eagle:component:17771/1" prefix="IC">
 <description>&lt;b&gt;WATCHDOG&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX705" x="0" y="0"/>
@@ -26404,7 +26406,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX617*ASA" prefix="IC" urn="urn:adsk.eagle:component:17777/1">
+<deviceset name="MAX617*ASA" urn="urn:adsk.eagle:component:17777/1" prefix="IC">
 <description>&lt;b&gt;High-Precision Voltage References with Temperature Sensor&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 <gates>
@@ -26487,7 +26489,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX481CSA" prefix="IC" urn="urn:adsk.eagle:component:17769/1">
+<deviceset name="MAX481CSA" urn="urn:adsk.eagle:component:17769/1" prefix="IC">
 <description>&lt;b&gt;RS485 TRANSEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX481" x="0" y="0"/>
@@ -26519,7 +26521,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7663CSA" prefix="IC" urn="urn:adsk.eagle:component:17760/1">
+<deviceset name="ICL7663CSA" urn="urn:adsk.eagle:component:17760/1" prefix="IC">
 <description>Positive &lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICL7663" x="0" y="0"/>
@@ -26550,7 +26552,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7660CSA" prefix="IC" urn="urn:adsk.eagle:component:17759/1">
+<deviceset name="ICL7660CSA" urn="urn:adsk.eagle:component:17759/1" prefix="IC">
 <description>&lt;b&gt;VOLTAGE CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICL7660" x="0" y="0"/>
@@ -26581,7 +26583,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX680CSA" prefix="IC" urn="urn:adsk.eagle:component:17757/1">
+<deviceset name="MAX680CSA" urn="urn:adsk.eagle:component:17757/1" prefix="IC">
 <description>Switched-capcitor &lt;b&gt;VOLTAGE CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX680" x="0" y="0"/>
@@ -26613,7 +26615,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX641CSA" prefix="IC" urn="urn:adsk.eagle:component:17753/1">
+<deviceset name="MAX641CSA" urn="urn:adsk.eagle:component:17753/1" prefix="IC">
 <description>Step-up &lt;b&gt;SWITCHING REGULATOR CONTROLLER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX641" x="0" y="0"/>
@@ -26644,7 +26646,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX705CPA" prefix="IC" urn="urn:adsk.eagle:component:17678/2">
+<deviceset name="MAX705CPA" urn="urn:adsk.eagle:component:17678/2" prefix="IC">
 <description>&lt;b&gt;WATCHDOG&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX705" x="0" y="0"/>
@@ -26675,7 +26677,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX872CPA" prefix="IC" urn="urn:adsk.eagle:component:17681/2">
+<deviceset name="MAX872CPA" urn="urn:adsk.eagle:component:17681/2" prefix="IC">
 <description>&lt;b&gt;VOLTAGE REFERENCE&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX872" x="0" y="0"/>
@@ -26706,7 +26708,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MXD1000" prefix="IC" urn="urn:adsk.eagle:component:17686/2">
+<deviceset name="MXD1000" urn="urn:adsk.eagle:component:17686/2" prefix="IC">
 <description>&lt;b&gt;DELAY LINE&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MXD1000" x="0" y="0"/>
@@ -26738,7 +26740,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX404CPA" prefix="IC" urn="urn:adsk.eagle:component:17666/2">
+<deviceset name="MAX404CPA" urn="urn:adsk.eagle:component:17666/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX404" x="0" y="0"/>
@@ -26768,7 +26770,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX471CPA" prefix="IC" urn="urn:adsk.eagle:component:17651/2">
+<deviceset name="MAX471CPA" urn="urn:adsk.eagle:component:17651/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="A" symbol="MAX471" x="0" y="0"/>
@@ -26799,7 +26801,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX452CPA" prefix="IC" urn="urn:adsk.eagle:component:17622/2">
+<deviceset name="MAX452CPA" urn="urn:adsk.eagle:component:17622/2" prefix="IC">
 <description>&lt;b&gt;VIDEO AMPLIFIER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="OPAMP2NC" x="0" y="0"/>
@@ -26830,7 +26832,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7660CPA" prefix="IC" urn="urn:adsk.eagle:component:17639/2">
+<deviceset name="ICL7660CPA" urn="urn:adsk.eagle:component:17639/2" prefix="IC">
 <description>&lt;b&gt;VOLTAGE CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICL7660" x="0" y="0"/>
@@ -26861,7 +26863,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG417CJ" prefix="IC" urn="urn:adsk.eagle:component:17671/2">
+<deviceset name="DG417CJ" urn="urn:adsk.eagle:component:17671/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG417" x="0" y="0"/>
@@ -26891,7 +26893,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX701CPA" prefix="IC" urn="urn:adsk.eagle:component:17663/2">
+<deviceset name="MAX701CPA" urn="urn:adsk.eagle:component:17663/2" prefix="IC">
 <description>&lt;b&gt;POWER SUPPLY MONITOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX701" x="0" y="0"/>
@@ -26919,7 +26921,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX410CPA" prefix="IC" urn="urn:adsk.eagle:component:17687/2">
+<deviceset name="MAX410CPA" urn="urn:adsk.eagle:component:17687/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="P" symbol="PWR+-" x="12.7" y="0" addlevel="request"/>
@@ -26952,7 +26954,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX317CPA" prefix="IC" urn="urn:adsk.eagle:component:17682/2">
+<deviceset name="MAX317CPA" urn="urn:adsk.eagle:component:17682/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX317" x="0" y="2.54"/>
@@ -26983,7 +26985,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX707CPA" prefix="IC" urn="urn:adsk.eagle:component:17679/2">
+<deviceset name="MAX707CPA" urn="urn:adsk.eagle:component:17679/2" prefix="IC">
 <description>&lt;b&gt;WATCHDOG&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX707" x="0" y="0"/>
@@ -27013,7 +27015,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX664CPA" prefix="IC" urn="urn:adsk.eagle:component:17634/2">
+<deviceset name="MAX664CPA" urn="urn:adsk.eagle:component:17634/2" prefix="IC">
 <description>Negative &lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX664" x="0" y="0"/>
@@ -27044,7 +27046,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX622CPA" prefix="IC" urn="urn:adsk.eagle:component:17656/2">
+<deviceset name="MAX622CPA" urn="urn:adsk.eagle:component:17656/2" prefix="IC">
 <description>&lt;b&gt;POWER SUPPLY&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX622" x="0" y="0"/>
@@ -27075,7 +27077,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX366CPA" prefix="IC" urn="urn:adsk.eagle:component:17684/2">
+<deviceset name="MAX366CPA" urn="urn:adsk.eagle:component:17684/2" prefix="IC">
 <description>Signal-line &lt;b&gt;CIRCUIT PROTECTOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX366" x="0" y="0"/>
@@ -27106,7 +27108,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX663CPA" prefix="IC" urn="urn:adsk.eagle:component:17633/2">
+<deviceset name="MAX663CPA" urn="urn:adsk.eagle:component:17633/2" prefix="IC">
 <description>Positive &lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX663" x="0" y="0"/>
@@ -27137,7 +27139,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX6173-MAX6177.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX34*" prefix="IC" urn="urn:adsk.eagle:component:17776/2">
+<deviceset name="MAX34*" urn="urn:adsk.eagle:component:17776/2" prefix="IC">
 <description>&lt;b&gt;+5V, Fail-Safe, 40Mbps, Profibus RS-485/RS-422 Transceivers&lt;/b&gt;&lt;p&gt;
 Source: MAX3465-MAX3469.pdf</description>
 <gates>
@@ -27228,7 +27230,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX600LPA" prefix="IC" urn="urn:adsk.eagle:component:17625/2">
+<deviceset name="MAX600LPA" urn="urn:adsk.eagle:component:17625/2" prefix="IC">
 <description>&lt;b&gt;AC-DC REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX600" x="0" y="0"/>
@@ -27259,7 +27261,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX639" prefix="IC" urn="urn:adsk.eagle:component:17645/2">
+<deviceset name="MAX639" urn="urn:adsk.eagle:component:17645/2" prefix="IC">
 <description>Step-down &lt;b&gt;SWITCHING REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX639" x="0" y="0"/>
@@ -27290,7 +27292,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX420PA" prefix="IC" urn="urn:adsk.eagle:component:17648/2">
+<deviceset name="MAX420PA" urn="urn:adsk.eagle:component:17648/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="OPAMP1" x="0" y="0"/>
@@ -27321,7 +27323,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX638CPA" prefix="IC" urn="urn:adsk.eagle:component:17631/2">
+<deviceset name="MAX638CPA" urn="urn:adsk.eagle:component:17631/2" prefix="IC">
 <description>Step-down &lt;b&gt;SWITCHING REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX638" x="0" y="0"/>
@@ -27352,7 +27354,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX430PA" prefix="IC" urn="urn:adsk.eagle:component:17649/2">
+<deviceset name="MAX430PA" urn="urn:adsk.eagle:component:17649/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="OPAMP2" x="0" y="0"/>
@@ -27380,7 +27382,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX730CPA" prefix="IC" urn="urn:adsk.eagle:component:17676/2">
+<deviceset name="MAX730CPA" urn="urn:adsk.eagle:component:17676/2" prefix="IC">
 <description>&lt;b&gt;DC/DC CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX730" x="0" y="0"/>
@@ -27411,7 +27413,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7664CSA" prefix="IC" urn="urn:adsk.eagle:component:17761/1">
+<deviceset name="ICL7664CSA" urn="urn:adsk.eagle:component:17761/1" prefix="IC">
 <description>Negative &lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICL7664" x="0" y="0"/>
@@ -27442,7 +27444,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX407CPA" prefix="IC" urn="urn:adsk.eagle:component:17674/2">
+<deviceset name="MAX407CPA" urn="urn:adsk.eagle:component:17674/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="A" symbol="OPUB" x="0" y="0" swaplevel="1"/>
@@ -27474,7 +27476,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX430CPA" prefix="IC" urn="urn:adsk.eagle:component:17621/2">
+<deviceset name="MAX430CPA" urn="urn:adsk.eagle:component:17621/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="OPAMP2NC" x="0" y="0"/>
@@ -27505,7 +27507,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX405CPA" prefix="IC" urn="urn:adsk.eagle:component:17667/2">
+<deviceset name="MAX405CPA" urn="urn:adsk.eagle:component:17667/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX405" x="0" y="0"/>
@@ -27536,7 +27538,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4278ESA" prefix="IC" urn="urn:adsk.eagle:component:17773/1">
+<deviceset name="MAX4278ESA" urn="urn:adsk.eagle:component:17773/1" prefix="IC">
 <description>&lt;b&gt;BUFFER&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="NC" x="25.4" y="7.62" addlevel="request"/>
@@ -27570,7 +27572,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX601LPA" prefix="IC" urn="urn:adsk.eagle:component:17626/2">
+<deviceset name="MAX601LPA" urn="urn:adsk.eagle:component:17626/2" prefix="IC">
 <description>&lt;b&gt;AC-DC REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX601" x="0" y="0"/>
@@ -27601,7 +27603,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX543AC" prefix="IC" urn="urn:adsk.eagle:component:17670/2">
+<deviceset name="MAX543AC" urn="urn:adsk.eagle:component:17670/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL/ANALOG CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX543" x="0" y="0"/>
@@ -27632,7 +27634,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX453EPA" prefix="IC" urn="urn:adsk.eagle:component:17623/2">
+<deviceset name="MAX453EPA" urn="urn:adsk.eagle:component:17623/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX453" x="0" y="0"/>
@@ -27663,7 +27665,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX672CPA" prefix="IC" urn="urn:adsk.eagle:component:17616/2">
+<deviceset name="MAX672CPA" urn="urn:adsk.eagle:component:17616/2" prefix="IC">
 <description>&lt;b&gt;VOLATAGE REFERENCE&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX672" x="0" y="0"/>
@@ -27694,7 +27696,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICM7555" prefix="IC" urn="urn:adsk.eagle:component:17644/2">
+<deviceset name="ICM7555" urn="urn:adsk.eagle:component:17644/2" prefix="IC">
 <description>&lt;b&gt;TIMER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICM7555" x="0" y="0"/>
@@ -27725,7 +27727,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX631CPA" prefix="IC" urn="urn:adsk.eagle:component:17628/2">
+<deviceset name="MAX631CPA" urn="urn:adsk.eagle:component:17628/2" prefix="IC">
 <description>Step-up &lt;b&gt;SWITCHING REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX631" x="0" y="-2.54"/>
@@ -27756,7 +27758,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX318CPA" prefix="IC" urn="urn:adsk.eagle:component:17683/2">
+<deviceset name="MAX318CPA" urn="urn:adsk.eagle:component:17683/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX318" x="0" y="0"/>
@@ -27787,7 +27789,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX641CPA" prefix="IC" urn="urn:adsk.eagle:component:17632/2">
+<deviceset name="MAX641CPA" urn="urn:adsk.eagle:component:17632/2" prefix="IC">
 <description>Step-up &lt;b&gt;SWITCHING REGULATOR CONTROLLER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX641" x="0" y="0"/>
@@ -27818,7 +27820,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX903CPA" prefix="IC" urn="urn:adsk.eagle:component:17669/2">
+<deviceset name="MAX903CPA" urn="urn:adsk.eagle:component:17669/2" prefix="IC">
 <description>&lt;b&gt;VOLTAGE COMPARATOR&lt;/b&gt;</description>
 <gates>
 <gate name="A" symbol="MAX900" x="2.54" y="0"/>
@@ -27850,7 +27852,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7621" prefix="IC" urn="urn:adsk.eagle:component:17851/2">
+<deviceset name="ICL7621" urn="urn:adsk.eagle:component:17851/2" prefix="IC">
 <description>&lt;b&gt;Dual Operational Amplifiers&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 <gates>
@@ -27929,7 +27931,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7611" prefix="IC" urn="urn:adsk.eagle:component:17853/2">
+<deviceset name="ICL7611" urn="urn:adsk.eagle:component:17853/2" prefix="IC">
 <description>&lt;b&gt;Single Operational Amplifiers&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 <gates>
@@ -28067,7 +28069,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX420CPA" prefix="IC" urn="urn:adsk.eagle:component:17620/2">
+<deviceset name="MAX420CPA" urn="urn:adsk.eagle:component:17620/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX420" x="0" y="0"/>
@@ -28098,7 +28100,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICM7242PA" prefix="IC" urn="urn:adsk.eagle:component:17643/2">
+<deviceset name="ICM7242PA" urn="urn:adsk.eagle:component:17643/2" prefix="IC">
 <description>&lt;b&gt;TIMER/COUNTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICM7242" x="0" y="0"/>
@@ -28129,7 +28131,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX76*" prefix="IC" urn="urn:adsk.eagle:component:17767/2">
+<deviceset name="MAX76*" urn="urn:adsk.eagle:component:17767/2" prefix="IC">
 <description>&lt;b&gt;DC-DC CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX765" x="0" y="0"/>
@@ -28243,7 +28245,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX291" prefix="IC" urn="urn:adsk.eagle:component:17647/2">
+<deviceset name="MAX291" urn="urn:adsk.eagle:component:17647/2" prefix="IC">
 <description>&lt;b&gt;DIGITAL FILTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX291" x="0" y="0"/>
@@ -28275,7 +28277,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL762*" prefix="IC" urn="urn:adsk.eagle:component:17854/2">
+<deviceset name="ICL762*" urn="urn:adsk.eagle:component:17854/2" prefix="IC">
 <description>&lt;b&gt;Dual Operational Amplifiers&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 <gates>
@@ -28355,7 +28357,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX1232CPA" prefix="IC" urn="urn:adsk.eagle:component:17659/2">
+<deviceset name="MAX1232CPA" urn="urn:adsk.eagle:component:17659/2" prefix="IC">
 <description>MONITOR DEVICE</description>
 <gates>
 <gate name="G$1" symbol="MAX1232" x="0" y="0"/>
@@ -28386,7 +28388,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX8211CP" prefix="IC" urn="urn:adsk.eagle:component:17638/2">
+<deviceset name="MAX8211CP" urn="urn:adsk.eagle:component:17638/2" prefix="IC">
 <description>&lt;b&gt;VOLTAGE MONITOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX8211" x="0" y="0"/>
@@ -28417,7 +28419,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MX584JN" prefix="IC" urn="urn:adsk.eagle:component:17617/2">
+<deviceset name="MX584JN" urn="urn:adsk.eagle:component:17617/2" prefix="IC">
 <description>&lt;b&gt;VOLTAGE REFERENCE&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX584N" x="0" y="0"/>
@@ -28448,7 +28450,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX665" prefix="IC" urn="urn:adsk.eagle:component:17646/2">
+<deviceset name="MAX665" urn="urn:adsk.eagle:component:17646/2" prefix="IC">
 <description>Switched-capcitor &lt;b&gt;VOLTAGE CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX665" x="0" y="0"/>
@@ -28479,7 +28481,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/ICL7612-ICL764X.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX3467*" prefix="IC" urn="urn:adsk.eagle:component:17775/2">
+<deviceset name="MAX3467*" urn="urn:adsk.eagle:component:17775/2" prefix="IC">
 <description>&lt;b&gt;+5V, Fail-Safe, 40Mbps, Profibus RS-485/RS-422 Transceivers&lt;/b&gt;&lt;p&gt;
 Source: MAX3465-MAX3469.pdf</description>
 <gates>
@@ -28546,7 +28548,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="REF01HP" prefix="IC" urn="urn:adsk.eagle:component:17618/2">
+<deviceset name="REF01HP" urn="urn:adsk.eagle:component:17618/2" prefix="IC">
 <description>&lt;b&gt;VOLTAGE REFERENCE&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="REF01" x="0" y="0"/>
@@ -28577,7 +28579,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX687CPA" prefix="IC" urn="urn:adsk.eagle:component:17660/2">
+<deviceset name="MAX687CPA" urn="urn:adsk.eagle:component:17660/2" prefix="IC">
 <description>Positive &lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX687" x="0" y="0"/>
@@ -28608,7 +28610,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX662CPA" prefix="IC" urn="urn:adsk.eagle:component:17675/2">
+<deviceset name="MAX662CPA" urn="urn:adsk.eagle:component:17675/2" prefix="IC">
 <description>&lt;b&gt;SUPPLY CHARGE PUMP&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="MAX662" x="0" y="0"/>
@@ -28639,7 +28641,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX907CPA" prefix="IC" urn="urn:adsk.eagle:component:17653/2">
+<deviceset name="MAX907CPA" urn="urn:adsk.eagle:component:17653/2" prefix="IC">
 <description>&lt;b&gt;COMPARATOR&lt;/b&gt;</description>
 <gates>
 <gate name="A" symbol="OPUB" x="0" y="0"/>
@@ -28671,7 +28673,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7665CSA" prefix="IC" urn="urn:adsk.eagle:component:17762/1">
+<deviceset name="ICL7665CSA" urn="urn:adsk.eagle:component:17762/1" prefix="IC">
 <description>&lt;b&gt;UNDER/OVER VOLTAGE DETECTOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICL7665" x="0" y="0"/>
@@ -28702,7 +28704,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7663CPA" prefix="IC" urn="urn:adsk.eagle:component:17640/2">
+<deviceset name="ICL7663CPA" urn="urn:adsk.eagle:component:17640/2" prefix="IC">
 <description>Positive &lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICL7663" x="0" y="0"/>
@@ -28733,7 +28735,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MX580JCSA" prefix="IC" urn="urn:adsk.eagle:component:17747/1">
+<deviceset name="MX580JCSA" urn="urn:adsk.eagle:component:17747/1" prefix="IC">
 <description>&lt;b&gt;VOLTAGE REFERENCE&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MX580CS" x="0" y="0"/>
@@ -28764,7 +28766,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX366CSA" prefix="IC" urn="urn:adsk.eagle:component:17766/1">
+<deviceset name="MAX366CSA" urn="urn:adsk.eagle:component:17766/1" prefix="IC">
 <description>Signal-line &lt;b&gt;CIRCUIT PROTECTOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$2" symbol="MAX366" x="0" y="0"/>
@@ -28795,7 +28797,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX248" prefix="IC" urn="urn:adsk.eagle:component:17884/1">
+<deviceset name="MAX248" urn="urn:adsk.eagle:component:17884/1" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX248" x="0" y="-2.54"/>
@@ -28863,7 +28865,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX635CSA" prefix="IC" urn="urn:adsk.eagle:component:17751/1">
+<deviceset name="MAX635CSA" urn="urn:adsk.eagle:component:17751/1" prefix="IC">
 <description>&lt;b&gt;SWITCHING REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX635" x="0" y="0"/>
@@ -28894,7 +28896,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX400MJA" prefix="IC" urn="urn:adsk.eagle:component:17619/2">
+<deviceset name="MAX400MJA" urn="urn:adsk.eagle:component:17619/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX400" x="2.54" y="0"/>
@@ -28925,7 +28927,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX663CSA" prefix="IC" urn="urn:adsk.eagle:component:17754/1">
+<deviceset name="MAX663CSA" urn="urn:adsk.eagle:component:17754/1" prefix="IC">
 <description>Positive &lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX663" x="0" y="0"/>
@@ -28956,7 +28958,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX307EQI" prefix="IC" urn="urn:adsk.eagle:component:17919/1">
+<deviceset name="MAX307EQI" urn="urn:adsk.eagle:component:17919/1" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX307" x="0" y="-2.54"/>
@@ -29007,7 +29009,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX309CSE" prefix="IC" urn="urn:adsk.eagle:component:17857/2">
+<deviceset name="MAX309CSE" urn="urn:adsk.eagle:component:17857/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX309" x="0" y="-2.54"/>
@@ -29046,7 +29048,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX353CSE" prefix="IC" urn="urn:adsk.eagle:component:17862/2">
+<deviceset name="MAX353CSE" urn="urn:adsk.eagle:component:17862/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$6" symbol="MAX353" x="0" y="0"/>
@@ -29085,7 +29087,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX352CSE" prefix="IC" urn="urn:adsk.eagle:component:17861/2">
+<deviceset name="MAX352CSE" urn="urn:adsk.eagle:component:17861/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$4" symbol="MAX352" x="0" y="0"/>
@@ -29124,7 +29126,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX691ACSE" prefix="IC" urn="urn:adsk.eagle:component:17855/2">
+<deviceset name="MAX691ACSE" urn="urn:adsk.eagle:component:17855/2" prefix="IC">
 <description>&lt;b&gt;WATCHDOG&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX691" x="0" y="0"/>
@@ -29164,7 +29166,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX361CSE" prefix="IC" urn="urn:adsk.eagle:component:17863/2">
+<deviceset name="MAX361CSE" urn="urn:adsk.eagle:component:17863/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$2" symbol="MAX361" x="0" y="0"/>
@@ -29203,7 +29205,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX381CSE" prefix="IC" urn="urn:adsk.eagle:component:17867/2">
+<deviceset name="MAX381CSE" urn="urn:adsk.eagle:component:17867/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$2" symbol="MAX381" x="2.54" y="2.54"/>
@@ -29242,7 +29244,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX308CSE" prefix="IC" urn="urn:adsk.eagle:component:17856/2">
+<deviceset name="MAX308CSE" urn="urn:adsk.eagle:component:17856/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$4" symbol="MAX308" x="0" y="0"/>
@@ -29281,7 +29283,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX362CSE" prefix="IC" urn="urn:adsk.eagle:component:17864/2">
+<deviceset name="MAX362CSE" urn="urn:adsk.eagle:component:17864/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$2" symbol="MAX362" x="0" y="0"/>
@@ -29320,7 +29322,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG405CY" prefix="IC" urn="urn:adsk.eagle:component:17877/2">
+<deviceset name="DG405CY" urn="urn:adsk.eagle:component:17877/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$5" symbol="DG403" x="0" y="-7.62"/>
@@ -29357,7 +29359,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX392CSE" prefix="IC" urn="urn:adsk.eagle:component:17871/2">
+<deviceset name="MAX392CSE" urn="urn:adsk.eagle:component:17871/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$4" symbol="MAX392" x="0" y="0"/>
@@ -29396,7 +29398,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX351CSE" prefix="IC" urn="urn:adsk.eagle:component:17860/2">
+<deviceset name="MAX351CSE" urn="urn:adsk.eagle:component:17860/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$2" symbol="MAX351" x="0" y="2.54"/>
@@ -29435,7 +29437,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX339CSE" prefix="IC" urn="urn:adsk.eagle:component:17859/2">
+<deviceset name="MAX339CSE" urn="urn:adsk.eagle:component:17859/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$4" symbol="MAX339" x="0" y="0"/>
@@ -29474,7 +29476,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX398CSE" prefix="IC" urn="urn:adsk.eagle:component:17873/2">
+<deviceset name="MAX398CSE" urn="urn:adsk.eagle:component:17873/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$2" symbol="MAX398" x="0" y="5.08"/>
@@ -29513,7 +29515,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG403CY" prefix="IC" urn="urn:adsk.eagle:component:17876/2">
+<deviceset name="DG403CY" urn="urn:adsk.eagle:component:17876/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$3" symbol="DG403" x="0" y="-5.08"/>
@@ -29550,7 +29552,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX391CSE" prefix="IC" urn="urn:adsk.eagle:component:17870/2">
+<deviceset name="MAX391CSE" urn="urn:adsk.eagle:component:17870/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$2" symbol="MAX391" x="0" y="0"/>
@@ -29589,7 +29591,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX666CSA" prefix="IC" urn="urn:adsk.eagle:component:17756/1">
+<deviceset name="MAX666CSA" urn="urn:adsk.eagle:component:17756/1" prefix="IC">
 <description>Positive &lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX666" x="0" y="0"/>
@@ -29620,7 +29622,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX318CSA" prefix="IC" urn="urn:adsk.eagle:component:17764/1">
+<deviceset name="MAX318CSA" urn="urn:adsk.eagle:component:17764/1" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX318" x="0" y="0"/>
@@ -29651,7 +29653,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX244" prefix="IC" urn="urn:adsk.eagle:component:17883/1">
+<deviceset name="MAX244" urn="urn:adsk.eagle:component:17883/1" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX244" x="0" y="0"/>
@@ -29719,7 +29721,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX690ACSA" prefix="IC" urn="urn:adsk.eagle:component:17763/1">
+<deviceset name="MAX690ACSA" urn="urn:adsk.eagle:component:17763/1" prefix="IC">
 <description>&lt;b&gt;WATCHDOG&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX690" x="0" y="0"/>
@@ -29751,7 +29753,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4193SA" prefix="IC" urn="urn:adsk.eagle:component:17749/1">
+<deviceset name="MAX4193SA" urn="urn:adsk.eagle:component:17749/1" prefix="IC">
 <description>Step-up &lt;b&gt;SWITCHING REGULATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX630" x="0" y="0"/>
@@ -29782,7 +29784,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ICL7650CPA" prefix="IC" urn="urn:adsk.eagle:component:17624/2">
+<deviceset name="ICL7650CPA" urn="urn:adsk.eagle:component:17624/2" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="ICL7650" x="0" y="0"/>
@@ -29813,7 +29815,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX8211CS" prefix="IC" urn="urn:adsk.eagle:component:17758/1">
+<deviceset name="MAX8211CS" urn="urn:adsk.eagle:component:17758/1" prefix="IC">
 <description>&lt;b&gt;VOLTAGE MONITOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX8211" x="0" y="0"/>
@@ -29844,7 +29846,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX731CPA" prefix="IC" urn="urn:adsk.eagle:component:17677/2">
+<deviceset name="MAX731CPA" urn="urn:adsk.eagle:component:17677/2" prefix="IC">
 <description>&lt;b&gt;DC/DC CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX730" x="0" y="0"/>
@@ -29875,7 +29877,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX306CWI" prefix="IC" urn="urn:adsk.eagle:component:17921/1">
+<deviceset name="MAX306CWI" urn="urn:adsk.eagle:component:17921/1" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX306" x="2.54" y="-2.54"/>
@@ -29926,7 +29928,7 @@ Source: MAX3465-MAX3469.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX3311" prefix="IC" urn="urn:adsk.eagle:component:17964/1">
+<deviceset name="MAX3311" urn="urn:adsk.eagle:component:17964/1" prefix="IC">
 <description>&lt;b&gt;460kbps, 1µA Supply Current, RS-232-Compatible Transceivers in µMAX&lt;/b&gt;&lt;p&gt;
 Source: http://www.maxim-ic.com .. MAX3311-MAX3313.pdf</description>
 <gates>
@@ -29960,7 +29962,7 @@ Source: http://www.maxim-ic.com .. MAX3311-MAX3313.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX241ECWI" prefix="IC" urn="urn:adsk.eagle:component:17924/1">
+<deviceset name="MAX241ECWI" urn="urn:adsk.eagle:component:17924/1" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX211E" x="0" y="0"/>
@@ -30012,7 +30014,7 @@ Source: http://www.maxim-ic.com .. MAX3311-MAX3313.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX211ECWI" prefix="IC" urn="urn:adsk.eagle:component:17925/1">
+<deviceset name="MAX211ECWI" urn="urn:adsk.eagle:component:17925/1" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX211E" x="0" y="0"/>
@@ -30064,7 +30066,7 @@ Source: http://www.maxim-ic.com .. MAX3311-MAX3313.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX213ECWI" prefix="IC" urn="urn:adsk.eagle:component:17926/1">
+<deviceset name="MAX213ECWI" urn="urn:adsk.eagle:component:17926/1" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX213E" x="0" y="0"/>
@@ -30116,7 +30118,7 @@ Source: http://www.maxim-ic.com .. MAX3311-MAX3313.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX307CWI" prefix="IC" urn="urn:adsk.eagle:component:17922/1">
+<deviceset name="MAX307CWI" urn="urn:adsk.eagle:component:17922/1" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$3" symbol="MAX307" x="0" y="0"/>
@@ -30167,7 +30169,7 @@ Source: http://www.maxim-ic.com .. MAX3311-MAX3313.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX807LSO" prefix="IC" urn="urn:adsk.eagle:component:17881/2">
+<deviceset name="MAX807LSO" urn="urn:adsk.eagle:component:17881/2" prefix="IC">
 <description>&lt;b&gt;WATCHDOG&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX807" x="0" y="0"/>
@@ -30207,7 +30209,7 @@ Source: http://www.maxim-ic.com .. MAX3311-MAX3313.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG409DY" prefix="IC" urn="urn:adsk.eagle:component:17879/2">
+<deviceset name="DG409DY" urn="urn:adsk.eagle:component:17879/2" prefix="IC">
 <description>&lt;b&gt;ANALOG MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$2" symbol="DG409" x="0" y="0"/>
@@ -30246,7 +30248,7 @@ Source: http://www.maxim-ic.com .. MAX3311-MAX3313.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX365CSE" prefix="IC" urn="urn:adsk.eagle:component:17866/2">
+<deviceset name="MAX365CSE" urn="urn:adsk.eagle:component:17866/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$4" symbol="MAX352" x="0" y="0"/>
@@ -30285,7 +30287,7 @@ Source: http://www.maxim-ic.com .. MAX3311-MAX3313.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4335" prefix="IC" urn="urn:adsk.eagle:component:17967/1">
+<deviceset name="MAX4335" urn="urn:adsk.eagle:component:17967/1" prefix="IC">
 <description>&lt;b&gt;50mA IOUT, Rail-to-Rail I/O Op Amp&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 <gates>
@@ -30315,7 +30317,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX6342" prefix="IC" urn="urn:adsk.eagle:component:17965/1">
+<deviceset name="MAX6342" urn="urn:adsk.eagle:component:17965/1" prefix="IC">
 <description>&lt;b&gt;RESET CIRCUIT&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX6342" x="0" y="0"/>
@@ -30344,7 +30346,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG408DY" prefix="IC" urn="urn:adsk.eagle:component:17878/2">
+<deviceset name="DG408DY" urn="urn:adsk.eagle:component:17878/2" prefix="IC">
 <description>&lt;b&gt;ANALOG MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$2" symbol="DG408" x="0" y="0"/>
@@ -30383,7 +30385,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4338" prefix="IC" urn="urn:adsk.eagle:component:17962/1">
+<deviceset name="MAX4338" urn="urn:adsk.eagle:component:17962/1" prefix="IC">
 <description>&lt;b&gt;50mA IOUT, Rail-to-Rail I/O Op Amp with Shutdown/Mute&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 <gates>
@@ -30419,7 +30421,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX385CSE" prefix="IC" urn="urn:adsk.eagle:component:17869/2">
+<deviceset name="MAX385CSE" urn="urn:adsk.eagle:component:17869/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$6" symbol="MAX385" x="0" y="0"/>
@@ -30458,7 +30460,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG406CWI" prefix="IC" urn="urn:adsk.eagle:component:17923/1">
+<deviceset name="DG406CWI" urn="urn:adsk.eagle:component:17923/1" prefix="IC">
 <description>&lt;b&gt;ANALOG MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG406" x="0" y="5.08"/>
@@ -30506,7 +30508,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG401CY" prefix="IC" urn="urn:adsk.eagle:component:17875/2">
+<deviceset name="DG401CY" urn="urn:adsk.eagle:component:17875/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="DG401" x="0" y="0"/>
@@ -30539,7 +30541,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX71*?" prefix="IC" urn="urn:adsk.eagle:component:17882/2">
+<deviceset name="MAX71*?" urn="urn:adsk.eagle:component:17882/2" prefix="IC">
 <description>NiCd/NiMH Battery Fast-Charge Controller</description>
 <gates>
 <gate name="G$1" symbol="MAX712" x="0" y="0"/>
@@ -30645,7 +30647,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX338CSE" prefix="IC" urn="urn:adsk.eagle:component:17858/2">
+<deviceset name="MAX338CSE" urn="urn:adsk.eagle:component:17858/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$2" symbol="MAX338" x="0" y="0"/>
@@ -30684,7 +30686,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX1676" prefix="IC" urn="urn:adsk.eagle:component:17961/1">
+<deviceset name="MAX1676" urn="urn:adsk.eagle:component:17961/1" prefix="IC">
 <description>&lt;b&gt;DC/DC CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX1676" x="0" y="0"/>
@@ -30717,7 +30719,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX383CSE" prefix="IC" urn="urn:adsk.eagle:component:17868/2">
+<deviceset name="MAX383CSE" urn="urn:adsk.eagle:component:17868/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$4" symbol="MAX383" x="0" y="0"/>
@@ -30756,7 +30758,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX249" prefix="IC" urn="urn:adsk.eagle:component:17885/1">
+<deviceset name="MAX249" urn="urn:adsk.eagle:component:17885/1" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX249" x="0" y="-2.54"/>
@@ -30824,7 +30826,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DG411CY" prefix="IC" urn="urn:adsk.eagle:component:17880/2">
+<deviceset name="DG411CY" urn="urn:adsk.eagle:component:17880/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$2" symbol="DG411" x="0" y="7.62"/>
@@ -30863,7 +30865,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX306EQI" prefix="IC" urn="urn:adsk.eagle:component:17920/1">
+<deviceset name="MAX306EQI" urn="urn:adsk.eagle:component:17920/1" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$2" symbol="MAX306" x="2.54" y="-2.54"/>
@@ -30914,7 +30916,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX1759" prefix="IC" urn="urn:adsk.eagle:component:17963/1">
+<deviceset name="MAX1759" urn="urn:adsk.eagle:component:17963/1" prefix="IC">
 <description>&lt;b&gt;Buck/Boost Regulating Charge Pump in µMAX&lt;/b&gt;&lt;p&gt;
 Source: http://www.maxim-ic.com .. MAX1759.pdf</description>
 <gates>
@@ -30948,7 +30950,7 @@ Source: http://www.maxim-ic.com .. MAX1759.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX399CSE" prefix="IC" urn="urn:adsk.eagle:component:17874/2">
+<deviceset name="MAX399CSE" urn="urn:adsk.eagle:component:17874/2" prefix="IC">
 <description>&lt;b&gt;MULTIPLEXER&lt;/b&gt;</description>
 <gates>
 <gate name="G$4" symbol="MAX399" x="0" y="0"/>
@@ -30987,7 +30989,7 @@ Source: http://www.maxim-ic.com .. MAX1759.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX393CSE" prefix="IC" urn="urn:adsk.eagle:component:17872/2">
+<deviceset name="MAX393CSE" urn="urn:adsk.eagle:component:17872/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$6" symbol="MAX393" x="0" y="0"/>
@@ -31026,7 +31028,7 @@ Source: http://www.maxim-ic.com .. MAX1759.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX364CSE" prefix="IC" urn="urn:adsk.eagle:component:17865/2">
+<deviceset name="MAX364CSE" urn="urn:adsk.eagle:component:17865/2" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$2" symbol="MAX351" x="0" y="2.54"/>
@@ -31065,7 +31067,7 @@ Source: http://www.maxim-ic.com .. MAX1759.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4336" prefix="IC" urn="urn:adsk.eagle:component:17966/1">
+<deviceset name="MAX4336" urn="urn:adsk.eagle:component:17966/1" prefix="IC">
 <description>&lt;b&gt;50mA IOUT, Rail-to-Rail I/O Op Amp with Shutdown/Mute&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 <gates>
@@ -31096,7 +31098,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX481CUA" prefix="IC" urn="urn:adsk.eagle:component:17947/1">
+<deviceset name="MAX481CUA" urn="urn:adsk.eagle:component:17947/1" prefix="IC">
 <description>&lt;b&gt;RS485 TRANSEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX481" x="0" y="0"/>
@@ -31128,7 +31130,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX1674" prefix="IC" urn="urn:adsk.eagle:component:17949/1">
+<deviceset name="MAX1674" urn="urn:adsk.eagle:component:17949/1" prefix="IC">
 <description>&lt;b&gt;DC/DC CONVERTER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX1674" x="0" y="0"/>
@@ -31159,7 +31161,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX488" prefix="IC" urn="urn:adsk.eagle:component:17948/2">
+<deviceset name="MAX488" urn="urn:adsk.eagle:component:17948/2" prefix="IC">
 <description>&lt;b&gt;RS485 TRANSEIVER&lt;/b&gt;&lt;p&gt;
 Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/MAX1487-MAX491.pdf"&gt; Data sheet &lt;/a&gt;</description>
 <gates>
@@ -31238,7 +31240,7 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/MAX1487-MAX491.pdf"&gt;
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4313" prefix="IC" urn="urn:adsk.eagle:component:17953/1">
+<deviceset name="MAX4313" urn="urn:adsk.eagle:component:17953/1" prefix="IC">
 <description>&lt;b&gt;Video Multiplexer-Amplifier&lt;/b&gt;&lt;p&gt;
 High-Speed, Low-Power, Single-Supply, Multichannel</description>
 <gates>
@@ -31293,7 +31295,7 @@ High-Speed, Low-Power, Single-Supply, Multichannel</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX705CUA" prefix="IC" urn="urn:adsk.eagle:component:17950/1">
+<deviceset name="MAX705CUA" urn="urn:adsk.eagle:component:17950/1" prefix="IC">
 <description>&lt;b&gt;WATCHDOG&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX705" x="0" y="0"/>
@@ -31324,7 +31326,7 @@ High-Speed, Low-Power, Single-Supply, Multichannel</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX9*" prefix="IC" urn="urn:adsk.eagle:component:17955/1">
+<deviceset name="MAX9*" urn="urn:adsk.eagle:component:17955/1" prefix="IC">
 <description>&lt;b&gt;Micropower, Low-Voltage Rail-to-Rail I/O Comparators&lt;/b&gt;&lt;p&gt;
 Source: http://pdfserv.maxim-ic.com/en/ds/MAX985-MAX994.pdf</description>
 <gates>
@@ -31393,7 +31395,7 @@ Source: http://pdfserv.maxim-ic.com/en/ds/MAX985-MAX994.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4178EUA" prefix="IC" urn="urn:adsk.eagle:component:17952/1">
+<deviceset name="MAX4178EUA" urn="urn:adsk.eagle:component:17952/1" prefix="IC">
 <description>&lt;b&gt;BUFFER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="BUFF3P" x="0" y="0"/>
@@ -31427,7 +31429,7 @@ Source: http://pdfserv.maxim-ic.com/en/ds/MAX985-MAX994.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4137" prefix="IC" urn="urn:adsk.eagle:component:17934/1">
+<deviceset name="MAX4137" urn="urn:adsk.eagle:component:17934/1" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="NC1" symbol="MAX4137" x="0" y="0"/>
@@ -31474,7 +31476,7 @@ Source: http://pdfserv.maxim-ic.com/en/ds/MAX985-MAX994.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX038*" prefix="IC" urn="urn:adsk.eagle:component:17959/2">
+<deviceset name="MAX038*" urn="urn:adsk.eagle:component:17959/2" prefix="IC">
 <description>&lt;b&gt;HIGH FREQUENCY WAVEFORM GENERATOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX038" x="0" y="0"/>
@@ -31564,7 +31566,7 @@ Source: http://pdfserv.maxim-ic.com/en/ds/MAX985-MAX994.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX3233E" prefix="IC" urn="urn:adsk.eagle:component:17960/2">
+<deviceset name="MAX3233E" urn="urn:adsk.eagle:component:17960/2" prefix="IC">
 <description>&lt;b&gt;Dual RS-232 Transceivers with Internal Capacitors&lt;/b&gt;&lt;p&gt;
 ±15kV ESD-Protected, 1µA, 250kbps, 3.3V/5V &lt;br&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX3233E-MAX3235E.pdf</description>
@@ -31657,7 +31659,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX3233E-MAX3235E.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX206ECWG" prefix="IC" urn="urn:adsk.eagle:component:17936/1">
+<deviceset name="MAX206ECWG" urn="urn:adsk.eagle:component:17936/1" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="P" symbol="VCC-GND" x="33.02" y="-2.54" addlevel="request"/>
@@ -31705,7 +31707,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX3233E-MAX3235E.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX1555" prefix="IC" urn="urn:adsk.eagle:component:17943/1">
+<deviceset name="MAX1555" urn="urn:adsk.eagle:component:17943/1" prefix="IC">
 <description>&lt;b&gt;Dual-Input USB/AC Adapter 1-Cell Li+ Battery Chargers&lt;/b&gt;&lt;p&gt;
 Source: http://www.maxim-ic.com .. MAX1551-MAX1555.pdf</description>
 <gates>
@@ -31734,7 +31736,7 @@ Source: http://www.maxim-ic.com .. MAX1551-MAX1555.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4178EUK" prefix="IC" urn="urn:adsk.eagle:component:17942/1">
+<deviceset name="MAX4178EUK" urn="urn:adsk.eagle:component:17942/1" prefix="IC">
 <description>&lt;b&gt;BUFFER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="BUFF3P" x="0" y="0"/>
@@ -31762,7 +31764,7 @@ Source: http://www.maxim-ic.com .. MAX1551-MAX1555.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4278EUK" prefix="IC" urn="urn:adsk.eagle:component:17941/1">
+<deviceset name="MAX4278EUK" urn="urn:adsk.eagle:component:17941/1" prefix="IC">
 <description>&lt;b&gt;BUFFER&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="BUFF3P" x="0" y="0"/>
@@ -31790,7 +31792,7 @@ Source: http://www.maxim-ic.com .. MAX1551-MAX1555.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX208ECWG" prefix="IC" urn="urn:adsk.eagle:component:17938/1">
+<deviceset name="MAX208ECWG" urn="urn:adsk.eagle:component:17938/1" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX238" x="0" y="0"/>
@@ -31838,7 +31840,7 @@ Source: http://www.maxim-ic.com .. MAX1551-MAX1555.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX203ECWP" prefix="IC" urn="urn:adsk.eagle:component:17957/1">
+<deviceset name="MAX203ECWP" urn="urn:adsk.eagle:component:17957/1" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX203E" x="0" y="0"/>
@@ -31882,7 +31884,7 @@ Source: http://www.maxim-ic.com .. MAX1551-MAX1555.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX207ECWG" prefix="IC" urn="urn:adsk.eagle:component:17937/1">
+<deviceset name="MAX207ECWG" urn="urn:adsk.eagle:component:17937/1" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX237" x="0" y="0"/>
@@ -31930,7 +31932,7 @@ Source: http://www.maxim-ic.com .. MAX1551-MAX1555.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX618" prefix="IC" urn="urn:adsk.eagle:component:17982/1">
+<deviceset name="MAX618" urn="urn:adsk.eagle:component:17982/1" prefix="IC">
 <description>&lt;b&gt;28V, PWM, Step-Up DC-DC Converter&lt;/b&gt;&lt;p&gt;
 Source: MAX618.pdf</description>
 <gates>
@@ -31970,7 +31972,7 @@ Source: MAX618.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4315" prefix="IC" urn="urn:adsk.eagle:component:17979/2">
+<deviceset name="MAX4315" urn="urn:adsk.eagle:component:17979/2" prefix="IC">
 <description>&lt;b&gt;Video Multiplexer-Amplifier&lt;/b&gt;&lt;p&gt;
 High-Speed, Low-Power, Single-Supply, Multichannel</description>
 <gates>
@@ -32041,7 +32043,7 @@ High-Speed, Low-Power, Single-Supply, Multichannel</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX309*" prefix="IC" urn="urn:adsk.eagle:component:17980/2">
+<deviceset name="MAX309*" urn="urn:adsk.eagle:component:17980/2" prefix="IC">
 <description>&lt;b&gt;±15kV ESD-Protected, 10Mbps, 3V/5V, Quad RS-422/RS-485 Receivers&lt;/b&gt;&lt;p&gt;
 Source: http://pdfserv.maxim-ic.com/en/ds/MAX3095-MAX3096.pdf</description>
 <gates>
@@ -32197,7 +32199,7 @@ Source: http://pdfserv.maxim-ic.com/en/ds/MAX3095-MAX3096.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DS2890" prefix="IC" urn="urn:adsk.eagle:component:17939/1">
+<deviceset name="DS2890" urn="urn:adsk.eagle:component:17939/1" prefix="IC">
 <description>&lt;b&gt;1-Wire Digital Potentiometer&lt;/b&gt;&lt;p&gt;
 DALLAS Semiconductor; &lt;p&gt;
 http://www.maxim-ic.com/</description>
@@ -32228,7 +32230,7 @@ http://www.maxim-ic.com/</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4311" prefix="IC" urn="urn:adsk.eagle:component:17976/2">
+<deviceset name="MAX4311" urn="urn:adsk.eagle:component:17976/2" prefix="IC">
 <description>&lt;b&gt;Video Multiplexer-Amplifier&lt;/b&gt;&lt;p&gt;
 High-Speed, Low-Power, Single-Supply, Multichannel</description>
 <gates>
@@ -32289,7 +32291,7 @@ High-Speed, Low-Power, Single-Supply, Multichannel</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4312" prefix="IC" urn="urn:adsk.eagle:component:17977/2">
+<deviceset name="MAX4312" urn="urn:adsk.eagle:component:17977/2" prefix="IC">
 <description>&lt;b&gt;Video Multiplexer-Amplifier&lt;/b&gt;&lt;p&gt;
 High-Speed, Low-Power, Single-Supply, Multichannel</description>
 <gates>
@@ -32360,7 +32362,7 @@ High-Speed, Low-Power, Single-Supply, Multichannel</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4314" prefix="IC" urn="urn:adsk.eagle:component:17978/2">
+<deviceset name="MAX4314" urn="urn:adsk.eagle:component:17978/2" prefix="IC">
 <description>&lt;b&gt;Video Multiplexer-Amplifier&lt;/b&gt;&lt;p&gt;
 High-Speed, Low-Power, Single-Supply, Multichannel</description>
 <gates>
@@ -32423,7 +32425,7 @@ High-Speed, Low-Power, Single-Supply, Multichannel</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX1551" prefix="IC" urn="urn:adsk.eagle:component:17944/1">
+<deviceset name="MAX1551" urn="urn:adsk.eagle:component:17944/1" prefix="IC">
 <description>&lt;b&gt;Dual-Input USB/AC Adapter 1-Cell Li+ Battery Chargers&lt;/b&gt;&lt;p&gt;
 Source: http://www.maxim-ic.com .. MAX1551-MAX1555.pdf</description>
 <gates>
@@ -32452,7 +32454,7 @@ Source: http://www.maxim-ic.com .. MAX1551-MAX1555.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX333ACWP" prefix="IC" urn="urn:adsk.eagle:component:17956/1">
+<deviceset name="MAX333ACWP" urn="urn:adsk.eagle:component:17956/1" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX333" x="2.54" y="2.54"/>
@@ -32495,7 +32497,7 @@ Source: http://www.maxim-ic.com .. MAX1551-MAX1555.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4278EUA" prefix="IC" urn="urn:adsk.eagle:component:17951/1">
+<deviceset name="MAX4278EUA" urn="urn:adsk.eagle:component:17951/1" prefix="IC">
 <description>&lt;b&gt;BUFFER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="BUFF3P" x="0" y="0"/>
@@ -32529,7 +32531,7 @@ Source: http://www.maxim-ic.com .. MAX1551-MAX1555.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4138" prefix="IC" urn="urn:adsk.eagle:component:17935/1">
+<deviceset name="MAX4138" urn="urn:adsk.eagle:component:17935/1" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="NC1" symbol="MAX4138" x="0" y="0"/>
@@ -32576,7 +32578,7 @@ Source: http://www.maxim-ic.com .. MAX1551-MAX1555.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX233AEWP" prefix="IC" urn="urn:adsk.eagle:component:17958/1">
+<deviceset name="MAX233AEWP" urn="urn:adsk.eagle:component:17958/1" prefix="IC">
 <description>&lt;b&gt;RS232 TRANSCEIVER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX233" x="0" y="0"/>
@@ -32620,7 +32622,7 @@ Source: http://www.maxim-ic.com .. MAX1551-MAX1555.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4105EUK" prefix="IC" urn="urn:adsk.eagle:component:17940/1">
+<deviceset name="MAX4105EUK" urn="urn:adsk.eagle:component:17940/1" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="OP" x="0" y="0"/>
@@ -32649,7 +32651,7 @@ Source: http://www.maxim-ic.com .. MAX1551-MAX1555.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX10*" prefix="IC" urn="urn:adsk.eagle:component:17981/1">
+<deviceset name="MAX10*" urn="urn:adsk.eagle:component:17981/1" prefix="IC">
 <description>&lt;b&gt;2.7V to 5.5V, Low-Power, 4-/12-Channel 2-Wire Serial 8-Bit ADCs&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX1036-MAX1039M.pdf</description>
 <gates>
@@ -32695,7 +32697,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX1036-MAX1039M.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX413*EWG" prefix="IC" urn="urn:adsk.eagle:component:17933/1">
+<deviceset name="MAX413*EWG" urn="urn:adsk.eagle:component:17933/1" prefix="IC">
 <description>&lt;b&gt;1-Input/4-Output Video Distribution Amplifiers&lt;/b&gt;&lt;p&gt;
 Source: http://pdfserv.maxim-ic.com/en/ds/MAX4137-MAX4138.pdf</description>
 <gates>
@@ -32749,7 +32751,7 @@ Source: http://pdfserv.maxim-ic.com/en/ds/MAX4137-MAX4138.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX335CWG" prefix="IC" urn="urn:adsk.eagle:component:17932/1">
+<deviceset name="MAX335CWG" urn="urn:adsk.eagle:component:17932/1" prefix="IC">
 <description>&lt;b&gt;ANALOG SWITCH&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX335" x="0" y="7.62"/>
@@ -32796,7 +32798,7 @@ Source: http://pdfserv.maxim-ic.com/en/ds/MAX4137-MAX4138.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX1150*" prefix="IC" urn="urn:adsk.eagle:component:17989/1">
+<deviceset name="MAX1150*" urn="urn:adsk.eagle:component:17989/1" prefix="IC">
 <description>&lt;b&gt;8-Bit, 500Msps Flash ADC&lt;/b&gt;&lt;p&gt;
 Source: http://pdfserv.maxim-ic.com/en/ds/MAX1150.pdf</description>
 <gates>
@@ -32907,7 +32909,7 @@ Source: http://pdfserv.maxim-ic.com/en/ds/MAX1150.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX7042" prefix="IC" urn="urn:adsk.eagle:component:17986/1">
+<deviceset name="MAX7042" urn="urn:adsk.eagle:component:17986/1" prefix="IC">
 <description>&lt;b&gt;308MHz/315MHz/418MHz/433.92MHz Low-Power, FSK Superheterodyne Receiver&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX7042.pdf</description>
 <gates>
@@ -32959,7 +32961,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX7042.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX7313ATG" prefix="IC" urn="urn:adsk.eagle:component:17994/1">
+<deviceset name="MAX7313ATG" urn="urn:adsk.eagle:component:17994/1" prefix="IC">
 <description>&lt;b&gt;16-Port I/O Expander with LED Intensity Control, Interrupt, and Hot-Insertion Protection&lt;/p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX7313.pdf</description>
 <gates>
@@ -33008,7 +33010,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX7313.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4947ETG" prefix="IC" urn="urn:adsk.eagle:component:17993/1">
+<deviceset name="MAX4947ETG" urn="urn:adsk.eagle:component:17993/1" prefix="IC">
 <description>&lt;b&gt;Hex SPDT Data Switch&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX4947-MAX4948.pdf</description>
 <gates>
@@ -33062,7 +33064,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4947-MAX4948.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX3766*" prefix="IC" urn="urn:adsk.eagle:component:17946/1">
+<deviceset name="MAX3766*" urn="urn:adsk.eagle:component:17946/1" prefix="IC">
 <description>&lt;b&gt;622Mbps LAN/WAN Laser Driver with Automatic Power Control and Safety Shutdown&lt;/b&gt;&lt;p&gt;
 Source: http://pdfserv.maxim-ic.com/en/ds/MAX3766.pdf</description>
 <gates>
@@ -33112,7 +33114,7 @@ Source: http://pdfserv.maxim-ic.com/en/ds/MAX3766.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4948ETG" prefix="IC" urn="urn:adsk.eagle:component:17992/1">
+<deviceset name="MAX4948ETG" urn="urn:adsk.eagle:component:17992/1" prefix="IC">
 <description>&lt;b&gt;Hex SPDT Data Switch&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX4947-MAX4948.pdf</description>
 <gates>
@@ -33162,7 +33164,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4947-MAX4948.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4355" prefix="IC" urn="urn:adsk.eagle:component:17968/1">
+<deviceset name="MAX4355" urn="urn:adsk.eagle:component:17968/1" prefix="IC">
 <description>&lt;b&gt;16x16 Nonblocking Video Crosspoint Switch&lt;/b&gt;&lt;p&gt;
 with I/O Buffers</description>
 <gates>
@@ -33342,7 +33344,7 @@ with I/O Buffers</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DS2405" prefix="IC" urn="urn:adsk.eagle:component:17969/1">
+<deviceset name="DS2405" urn="urn:adsk.eagle:component:17969/1" prefix="IC">
 <description>&lt;b&gt;Addressable Switch&lt;/b&gt;&lt;p&gt;
 DALLAS Semiconductor</description>
 <gates>
@@ -33405,7 +33407,7 @@ DALLAS Semiconductor</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX3965CEP" prefix="IC" urn="urn:adsk.eagle:component:17945/1">
+<deviceset name="MAX3965CEP" urn="urn:adsk.eagle:component:17945/1" prefix="IC">
 <description>&lt;b&gt;OP AMP&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MAX3965" x="0" y="0"/>
@@ -33448,7 +33450,7 @@ DALLAS Semiconductor</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX103*" prefix="IC" urn="urn:adsk.eagle:component:17988/1">
+<deviceset name="MAX103*" urn="urn:adsk.eagle:component:17988/1" prefix="IC">
 <description>&lt;b&gt;2.7V to 5.5V, Low-Power, 4-/12-Channel 2-Wire Serial 8-Bit ADCs&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX1036-MAX1039M.pdf</description>
 <gates>
@@ -33486,7 +33488,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX1036-MAX1039M.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX12527" prefix="IC" urn="urn:adsk.eagle:component:17985/1">
+<deviceset name="MAX12527" urn="urn:adsk.eagle:component:17985/1" prefix="IC">
 <description>&lt;b&gt;Dual, 65Msps, 12-Bit, IF/Baseband ADC&lt;/b&gt;&lt;p&gt;
 Source: http://pdfserv.maxim-ic.com/en/ds/MAX12527.pdf</description>
 <gates>
@@ -33575,7 +33577,7 @@ Source: http://pdfserv.maxim-ic.com/en/ds/MAX12527.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX367CWN" prefix="IC" urn="urn:adsk.eagle:component:17918/2">
+<deviceset name="MAX367CWN" urn="urn:adsk.eagle:component:17918/2" prefix="IC">
 <description>Signal-line &lt;b&gt;CIRCUIT PROTECTOR&lt;/b&gt;r</description>
 <gates>
 <gate name="G$2" symbol="MAX367" x="0" y="2.54"/>
@@ -33616,7 +33618,7 @@ Source: http://pdfserv.maxim-ic.com/en/ds/MAX12527.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4948EBA" prefix="IC" urn="urn:adsk.eagle:component:17991/1">
+<deviceset name="MAX4948EBA" urn="urn:adsk.eagle:component:17991/1" prefix="IC">
 <description>&lt;b&gt;Hex SPDT Data Switch&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX4947-MAX4948.pdf</description>
 <gates>
@@ -33666,7 +33668,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4947-MAX4948.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX338*" prefix="IC" urn="urn:adsk.eagle:component:17970/2">
+<deviceset name="MAX338*" urn="urn:adsk.eagle:component:17970/2" prefix="IC">
 <description>&lt;b&gt;RS-232 Transceivers with ±15kV ESD-Protected I/O and Logic Pins&lt;/b&gt;&lt;p&gt;
 +2.35V to +5.5V, 1µA, 2Tx/2Rx &lt;br&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX3380E-MAX3381E.pdf</description>
@@ -33730,7 +33732,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX3380E-MAX3381E.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4337" prefix="IC" urn="urn:adsk.eagle:component:17987/1">
+<deviceset name="MAX4337" urn="urn:adsk.eagle:component:17987/1" prefix="IC">
 <description>&lt;b&gt;50mA IOUT, Rail-to-Rail I/O Op Amp&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 <gates>
@@ -33787,7 +33789,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4906" prefix="IC" urn="urn:adsk.eagle:component:17998/1">
+<deviceset name="MAX4906" urn="urn:adsk.eagle:component:17998/1" prefix="IC">
 <description>&lt;b&gt;High-/Full-Speed USB 2.0 Switches&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX4906-MAX4907F.pdf</description>
 <gates>
@@ -33827,7 +33829,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4906-MAX4907F.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4907" prefix="IC" urn="urn:adsk.eagle:component:17996/1">
+<deviceset name="MAX4907" urn="urn:adsk.eagle:component:17996/1" prefix="IC">
 <description>&lt;b&gt;High-/Full-Speed USB 2.0 Switches&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX4906-MAX4907F.pdf</description>
 <gates>
@@ -33865,7 +33867,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4906-MAX4907F.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4947EBA" prefix="IC" urn="urn:adsk.eagle:component:17990/1">
+<deviceset name="MAX4947EBA" urn="urn:adsk.eagle:component:17990/1" prefix="IC">
 <description>&lt;b&gt;Hex SPDT Data Switch&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX4947-MAX4948.pdf</description>
 <gates>
@@ -33919,7 +33921,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4947-MAX4948.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX3223*" prefix="IC" urn="urn:adsk.eagle:component:17971/2">
+<deviceset name="MAX3223*" urn="urn:adsk.eagle:component:17971/2" prefix="IC">
 <description>&lt;b&gt;RS-232 Transceivers with AutoShutdown&lt;/b&gt;&lt;p&gt;
 1µA Supply-Current, True +3V to +5.5V&lt;br&gt;
 http://dbserv.maxim-ic.com/</description>
@@ -34053,7 +34055,7 @@ http://dbserv.maxim-ic.com/</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DS8500" prefix="IC" urn="urn:adsk.eagle:component:18001/1">
+<deviceset name="DS8500" urn="urn:adsk.eagle:component:18001/1" prefix="IC">
 <description>&lt;b&gt;HART Modem&lt;/b&gt; Single-Chip, Half-Duplex, 1200bps FSK Modulation and Demodulation&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/DS8500.pdf</description>
 <gates>
@@ -34098,7 +34100,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/DS8500.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX1792EUA" prefix="IC" urn="urn:adsk.eagle:component:17997/1">
+<deviceset name="MAX1792EUA" urn="urn:adsk.eagle:component:17997/1" locally_modified="yes" prefix="IC">
 <description>&lt;b&gt;500mA Low-Dropout Linear Regulator in µMAX&lt;/b&gt;&lt;p&gt;
 Source: http://www.maxim-ic.com .. MAX1792-1.pdf</description>
 <gates>
@@ -34131,7 +34133,7 @@ Source: http://www.maxim-ic.com .. MAX1792-1.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX8559" prefix="IC" urn="urn:adsk.eagle:component:18002/1">
+<deviceset name="MAX8559" urn="urn:adsk.eagle:component:18002/1" prefix="IC">
 <description>&lt;b&gt;Dual, 300mA, Low-Noise Linear Regulator with Independent Shutdown&lt;/b&gt;&lt;p&gt;
 Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/MAX8559.pdf"&gt; Data sheet &lt;/a&gt;</description>
 <gates>
@@ -34158,7 +34160,7 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/MAX8559.pdf"&gt; Data s
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX7313AEG" prefix="IC" urn="urn:adsk.eagle:component:17999/1">
+<deviceset name="MAX7313AEG" urn="urn:adsk.eagle:component:17999/1" prefix="IC">
 <description>&lt;b&gt;16-Port I/O Expander with LED Intensity Control, Interrupt, and Hot-Insertion Protection&lt;/p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX7313.pdf</description>
 <gates>
@@ -34206,7 +34208,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX7313.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX98*" prefix="IC" urn="urn:adsk.eagle:component:17974/2">
+<deviceset name="MAX98*" urn="urn:adsk.eagle:component:17974/2" prefix="IC">
 <description>&lt;b&gt;Micropower, Low-Voltage Rail-to-Rail I/O Comparators&lt;/b&gt;&lt;p&gt;
 Source: http://pdfserv.maxim-ic.com/en/ds/MAX985-MAX994.pdf</description>
 <gates>
@@ -34301,7 +34303,7 @@ Source: http://pdfserv.maxim-ic.com/en/ds/MAX985-MAX994.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DS2726" prefix="IC" urn="urn:adsk.eagle:component:18000/1">
+<deviceset name="DS2726" urn="urn:adsk.eagle:component:18000/1" prefix="IC">
 <description>&lt;b&gt;5-Cell to 10-Cell Li+ Protector with Cell Balancing&lt;/b&gt;&lt;p&gt;
 Source: www.maxim-ic.com .. DS2726.pdf</description>
 <gates>
@@ -34356,7 +34358,7 @@ Source: www.maxim-ic.com .. DS2726.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DS275" prefix="IC" urn="urn:adsk.eagle:component:17984/2">
+<deviceset name="DS275" urn="urn:adsk.eagle:component:17984/2" prefix="IC">
 <description>&lt;b&gt;Line-Powered RS-232 Transceiver Chip&lt;/b&gt;&lt;p&gt;
 Source: http://www.maxim-ic.com .. DS275.pdf</description>
 <gates>
@@ -34431,7 +34433,7 @@ Source: http://www.maxim-ic.com .. DS275.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX3243*" prefix="IC" urn="urn:adsk.eagle:component:17975/2">
+<deviceset name="MAX3243*" urn="urn:adsk.eagle:component:17975/2" prefix="IC">
 <description>&lt;b&gt;RS-232 Transceivers with AutoShutdown&lt;/b&gt;&lt;p&gt;
 1µA Supply-Current, True +3V to +5.5V&lt;br&gt;
 http://dbserv.maxim-ic.com/</description>
@@ -34577,7 +34579,7 @@ http://dbserv.maxim-ic.com/</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX6520" prefix="IC" urn="urn:adsk.eagle:component:18003/2">
+<deviceset name="MAX6520" urn="urn:adsk.eagle:component:18003/2" prefix="IC">
 <description>&lt;b&gt; 1.2V Voltage Reference&lt;/b&gt; 50ppm/°C, SOT23, 3-Terminal&lt;p&gt;
 Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/MAX6520.pdf"&gt; Data sheet &lt;/a&gt;</description>
 <gates>
@@ -34604,7 +34606,7 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/MAX6520.pdf"&gt; Data s
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX99*" prefix="IC" urn="urn:adsk.eagle:component:17983/2">
+<deviceset name="MAX99*" urn="urn:adsk.eagle:component:17983/2" prefix="IC">
 <description>&lt;b&gt;Micropower, Low-Voltage Rail-to-Rail I/O Comparators&lt;/b&gt;&lt;p&gt;
 Source: http://pdfserv.maxim-ic.com/en/ds/MAX985-MAX994.pdf</description>
 <gates>
@@ -34675,7 +34677,7 @@ Source: http://pdfserv.maxim-ic.com/en/ds/MAX985-MAX994.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DS1621" prefix="IC" urn="urn:adsk.eagle:component:17995/2">
+<deviceset name="DS1621" urn="urn:adsk.eagle:component:17995/2" prefix="IC">
 <description>&lt;b&gt;Digital Thermometer and Thermostat&lt;/b&gt;&lt;p&gt;
 Source: http://pdfserv.maxim-ic.com/en/ds/DS1621.pdf</description>
 <gates>
@@ -34753,7 +34755,7 @@ Source: http://pdfserv.maxim-ic.com/en/ds/DS1621.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX30*" prefix="IC" urn="urn:adsk.eagle:component:17929/2">
+<deviceset name="MAX30*" urn="urn:adsk.eagle:component:17929/2" prefix="IC">
 <description>&lt;b&gt;±10kV ESD-Protected, Quad 5V RS-485/RS-422 Transmitters&lt;/b&gt;&lt;p&gt;
 Source: www.maxim-ic.com .. MAX3040-MAX3045.pdf</description>
 <gates>
@@ -34945,7 +34947,7 @@ Source: www.maxim-ic.com .. MAX3040-MAX3045.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX304*" prefix="IC" urn="urn:adsk.eagle:component:17928/2">
+<deviceset name="MAX304*" urn="urn:adsk.eagle:component:17928/2" prefix="IC">
 <description>&lt;b&gt;±10kV ESD-Protected, Quad 5V RS-485/422 Transmitters&lt;/b&gt;&lt;p&gt;
 Source: MAX3040-MAX3045.pdf</description>
 <gates>
@@ -35137,7 +35139,7 @@ Source: MAX3040-MAX3045.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX3221*" prefix="IC" urn="urn:adsk.eagle:component:17972/2">
+<deviceset name="MAX3221*" urn="urn:adsk.eagle:component:17972/2" prefix="IC">
 <description>&lt;b&gt;RS-232 Transceivers with AutoShutdown&lt;/b&gt;&lt;p&gt;
 1µA Supply-Current, True +3V to +5.5V &lt;br&gt;
 http://dbserv.maxim-ic.com/</description>
@@ -35222,7 +35224,7 @@ http://dbserv.maxim-ic.com/</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX312" prefix="IC" urn="urn:adsk.eagle:component:17973/2">
+<deviceset name="MAX312" urn="urn:adsk.eagle:component:17973/2" prefix="IC">
 <description>&lt;b&gt;10?, Quad, SPST, CMOS Analog Switches&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX312-MAX314.pdf</description>
 <gates>
@@ -35324,7 +35326,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX312-MAX314.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX314" prefix="IC" urn="urn:adsk.eagle:component:17931/2">
+<deviceset name="MAX314" urn="urn:adsk.eagle:component:17931/2" prefix="IC">
 <description>&lt;b&gt;10?, Quad, SPST, CMOS Analog Switches&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX312-MAX314.pdf</description>
 <gates>
@@ -35444,7 +35446,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX312-MAX314.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX313" prefix="IC" urn="urn:adsk.eagle:component:17930/2">
+<deviceset name="MAX313" urn="urn:adsk.eagle:component:17930/2" prefix="IC">
 <description>&lt;b&gt;10?, Quad, SPST, CMOS Analog Switches&lt;/b&gt;&lt;p&gt;
 Source: http://datasheets.maxim-ic.com/en/ds/MAX312-MAX314.pdf</description>
 <gates>
@@ -35564,7 +35566,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX312-MAX314.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX3232*" prefix="IC" urn="urn:adsk.eagle:component:17927/2">
+<deviceset name="MAX3232*" urn="urn:adsk.eagle:component:17927/2" prefix="IC">
 <description>&lt;b&gt;True RS-232 Transceivers&lt;/b&gt; 3.0V to 5.5V, Low-Power&lt;p&gt;
 up to 1Mbps,  Using Four 0.1µF External Capacitors&lt;br&gt;
 Source: http://pdfserv.maxim-ic.com/en/ds/MAX3222-MAX3241.pdf</description>
@@ -35723,7 +35725,7 @@ Source: http://pdfserv.maxim-ic.com/en/ds/MAX3222-MAX3241.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX4310" prefix="IC" urn="urn:adsk.eagle:component:17954/1">
+<deviceset name="MAX4310" urn="urn:adsk.eagle:component:17954/1" prefix="IC">
 <description>&lt;b&gt;Video Multiplexer-Amplifier&lt;/b&gt;&lt;p&gt;
 High-Speed, Low-Power, Single-Supply, Multichannel</description>
 <gates>
@@ -35782,12 +35784,12 @@ High-Speed, Low-Power, Single-Supply, Multichannel</description>
 </library>
 </drawing>
 <compatibility>
-<note severity="warning" version="8.3">
+<note version="8.3" severity="warning">
 Since Version 8.3, EAGLE supports URNs for individual library
 assets (packages, symbols, and devices). The URNs of those assets
 will not be understood (or retained) with this version.
 </note>
-<note severity="warning" version="8.3">
+<note version="8.3" severity="warning">
 Since Version 8.3, EAGLE supports the association of 3D packages
 with devices in libraries, schematics, and board files. Those 3D
 packages will not be understood (or retained) with this version.
