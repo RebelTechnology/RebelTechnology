@@ -54,7 +54,6 @@ Tempo Root      Variation Volume
            Mode
 L spk                      spk R
 
-
 Tempo : overall speed
 Root : transpose fundamental
 Mode : one of five fascinations
@@ -78,5 +77,9 @@ The MAX9717 features a headphone sense input (BTL/SE)
 that senses when a headphone is connected to the
 device, disables the BTL slave driver, muting the speaker
 while driving the headphone as a single-ended load
+
+------------------------------------------------------------------------------------------------------
+
+Ordered FascinationMachineRev01 27/7
 
 ------------------------------------------------------------------------------------------------------
