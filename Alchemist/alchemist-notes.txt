@@ -445,6 +445,8 @@ with MCP6024
 
 with TS974
 
+with TS924
+
 --------------------------------------------------------------------------------
 
 TIM
@@ -489,5 +491,28 @@ http://www.cfconn.com/product-show_11381/
 
 CFE Right angle female pin connector
 http://www.cfconn.com/product-show_10956/
+
+--------------------------------------------------------------------------------
+
+todo / questions / issues to resolve:
+- bootloader
+- which op amp
+
+--------------------------------------------------------------------------------
+
+labeled
+1 - OPA1679 Alchemist
+2 - LM324 Alchemist
+3 - OPA1679 Wizard
+4 - TS924 Wizard
+5 - TS974 Alchemist
+
+change 2 to 5: TS974
+
+1+3 - OPA1679, 4 - TS924, change 2 to TS974
+
+--------------------------------------------------------------------------------
+
+New boards, DC power: 9V 190mA
 
 --------------------------------------------------------------------------------

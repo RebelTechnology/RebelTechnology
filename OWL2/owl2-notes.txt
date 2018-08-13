@@ -399,6 +399,11 @@ S25FL064LABMFV013
 
 -----------------------------------------------------------------
 
+S25FL128LAGMFM010 128 Mbit (farnell £2.69 @100)
+S25FL127SABMFV101 128 Mbit (farnell £1.92 @100)
+
+-----------------------------------------------------------------
+
 James todo list:
 - NOR flash driver S25FL132K0XMFI013
 - LED driver TLC5971
@@ -428,7 +433,6 @@ https://www.avnet.com/shop/apac/products/cirrus-logic/cs4271-czz-307445734562991
 BOOT0, pin 138, BOOT/A15, 10k pull down, solder jumper to +3v3
 BOOT1/PB2, pin 48, A7
 
-
 Find BOOT0 pin and set it to HIGH
 Find PB2 (BOOT1) pin and set it LOW
 Reset device
@@ -445,4 +449,3 @@ SOP8 instead of SO8W
 EN25QH32B-104GIP2B, EN25QH32A-104HIP, EN25QH128A-104HIP2T
 
 -----------------------------------------------------------------
-

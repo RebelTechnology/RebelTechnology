@@ -60,9 +60,16 @@ A23	PF7
 A24	PF8
 A25	PF9	SW5
 
-
 changed USBH_PWR_EN to B9 PC8
 changed USBH_PWR_FAULT to B8 PC6
 changed ADC5 to A23 PF7
 
 connected SW5 to A25
+
+--------------------------------------------------------------------------------
+
+todo / questions / issues to resolve:
+- bootloader
+- which op amp
+
+--------------------------------------------------------------------------------

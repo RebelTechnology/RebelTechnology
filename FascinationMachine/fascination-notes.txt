@@ -45,6 +45,7 @@ Parameters to be determined, e.g.
 - intensity
 - mood
 - dissonance
+- effect e.g. delay
 
 ------------------------------------------------------------------------------------------------------
 
@@ -57,8 +58,10 @@ L spk                      spk R
 Tempo : overall speed
 Root : transpose fundamental
 Mode : one of five fascinations
-Variation : variability, tonal range, dissonance and chaos, effect amount
-Volume : gain
+Variation : tonal range, dissonance and chaos
+Volume : gain / intensity
+
+Effect amount?
 
 ------------------------------------------------------------------------------------------------------
 
@@ -81,5 +84,11 @@ while driving the headphone as a single-ended load
 ------------------------------------------------------------------------------------------------------
 
 Ordered FascinationMachineRev01 27/7
+
+------------------------------------------------------------------------------------------------------
+
+rjdj
+
+compressor limiter
 
 ------------------------------------------------------------------------------------------------------
