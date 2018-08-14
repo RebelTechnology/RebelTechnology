@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.1.0">
+<eagle version="9.1.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -17645,7 +17645,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <part name="X2" library="con-lumberg" deviceset="1503_09" device=""/>
 <part name="GND45" library="supply1" deviceset="GND" device=""/>
 <part name="P3" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
-<part name="IC1" library="linear" deviceset="LM324" device="D" value="OPA1679"/>
+<part name="IC1" library="linear" deviceset="LM324" device="D" value="TS974"/>
 <part name="C1" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="1u"/>
 <part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
@@ -17740,7 +17740,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <part name="R18" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
-<part name="U2" library="Rebel" deviceset="REG_S9V11F5" device=""/>
+<part name="U2" library="Rebel" deviceset="REG_S9V11F5" device="" value="LM7805"/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
