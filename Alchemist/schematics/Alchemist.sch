@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.1.0">
+<eagle version="9.1.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -17315,7 +17315,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <part name="JOUT" library="con-lumberg" deviceset="1503_09" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="P3" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
-<part name="IC6" library="linear" deviceset="LM324" device="D" value="OPA1679"/>
+<part name="IC6" library="linear" deviceset="LM324" device="D" value="TS974"/>
 <part name="C16" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="1u"/>
 <part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>

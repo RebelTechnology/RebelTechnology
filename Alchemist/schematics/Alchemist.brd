@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.1.0">
+<eagle version="9.1.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -2344,7 +2344,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="20.955" y="20.51" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="P3" library="Rebel" package="POT-ALPS-RK09L1140" value="POT-ALPS-RK09L1140" x="49.4665" y="30.1625" locked="yes"/>
-<element name="IC6" library="linear" package="SO14" value="OPA1679" x="32.385" y="27.305" smashed="yes" rot="MR270">
+<element name="IC6" library="linear" package="SO14" value="TS974" x="32.385" y="27.305" smashed="yes" rot="MR270">
 <attribute name="NAME" x="33.02" y="27.1145" size="0.762" layer="26" rot="MR0"/>
 <attribute name="VALUE" x="34.29" y="21.463" size="1.27" layer="28" rot="MR0"/>
 </element>
