@@ -19465,7 +19465,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <wire x1="187.96" y1="33.02" x2="187.96" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="A23_SW5" class="0">
+<net name="A25_SW5" class="0">
 <segment>
 <pinref part="JP6" gate="G$1" pin="1"/>
 <wire x1="104.14" y1="7.62" x2="119.38" y2="7.62" width="0.1524" layer="91"/>

@@ -4016,7 +4016,7 @@ design rules under a new name.</description>
 <signal name="USB_H_ID">
 <contactref element="JP14" pad="3"/>
 </signal>
-<signal name="A23_SW5">
+<signal name="A25_SW5">
 <contactref element="JP6" pad="1"/>
 <contactref element="SW5" pad="1"/>
 <contactref element="SW5" pad="2"/>
