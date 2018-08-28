@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.0.0">
+<eagle version="9.1.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -15154,8 +15154,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </segment>
 <segment>
 <pinref part="IC8" gate="G$1" pin="PF10"/>
-<wire x1="43.18" y1="93.98" x2="35.56" y2="93.98" width="0.1524" layer="91"/>
-<label x="35.56" y="93.98" size="1.778" layer="95"/>
+<wire x1="43.18" y1="93.98" x2="25.4" y2="93.98" width="0.1524" layer="91"/>
+<label x="25.4" y="93.98" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A19" class="0">
