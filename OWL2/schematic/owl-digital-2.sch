@@ -14289,20 +14289,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="JP5" gate="G$1" pin="5"/>
 </segment>
 </net>
-<net name="USB_D_D+" class="0">
-<segment>
-<wire x1="307.34" y1="25.4" x2="271.78" y2="25.4" width="0.1524" layer="91"/>
-<label x="281.94" y="25.4" size="1.778" layer="95"/>
-<pinref part="JP7" gate="G$1" pin="2"/>
-<wire x1="271.78" y1="38.1" x2="271.78" y2="25.4" width="0.1524" layer="91"/>
-<pinref part="R2" gate="G$1" pin="2"/>
-</segment>
-<segment>
-<wire x1="139.7" y1="111.76" x2="121.92" y2="111.76" width="0.1524" layer="91"/>
-<label x="121.92" y="111.76" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$2" pin="PB15"/>
-</segment>
-</net>
 <net name="N$33" class="0">
 <segment>
 <pinref part="C19" gate="G$1" pin="1"/>
@@ -14762,34 +14748,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="IC8" gate="G$2" pin="PF11"/>
 </segment>
 </net>
-<net name="USB_D_VBUS" class="0">
-<segment>
-<wire x1="139.7" y1="116.84" x2="121.92" y2="116.84" width="0.1524" layer="91"/>
-<label x="121.92" y="116.84" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$2" pin="PB13"/>
-</segment>
-<segment>
-<wire x1="299.72" y1="30.48" x2="276.86" y2="30.48" width="0.1524" layer="91"/>
-<label x="281.94" y="30.48" size="1.778" layer="95"/>
-<pinref part="JP7" gate="G$1" pin="4"/>
-<wire x1="276.86" y1="38.1" x2="276.86" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="L1" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="USB_D_D-" class="0">
-<segment>
-<wire x1="139.7" y1="114.3" x2="121.92" y2="114.3" width="0.1524" layer="91"/>
-<label x="121.92" y="114.3" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$2" pin="PB14"/>
-</segment>
-<segment>
-<wire x1="299.72" y1="27.94" x2="274.32" y2="27.94" width="0.1524" layer="91"/>
-<label x="281.94" y="27.94" size="1.778" layer="95"/>
-<pinref part="JP7" gate="G$1" pin="3"/>
-<wire x1="274.32" y1="27.94" x2="274.32" y2="38.1" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="2"/>
-</segment>
-</net>
 <net name="DRAM_CKE" class="0">
 <segment>
 <pinref part="IC10" gate="G$1" pin="CKE"/>
@@ -15182,20 +15140,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="228.6" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="USB_ID" class="0">
-<segment>
-<wire x1="320.04" y1="22.86" x2="269.24" y2="22.86" width="0.1524" layer="91"/>
-<pinref part="JP7" gate="G$1" pin="1"/>
-<wire x1="269.24" y1="22.86" x2="269.24" y2="38.1" width="0.1524" layer="91"/>
-<label x="281.94" y="22.86" size="1.778" layer="95"/>
-<pinref part="USB" gate="USB" pin="ID"/>
-</segment>
-<segment>
-<pinref part="IC8" gate="G$2" pin="PB12"/>
-<wire x1="139.7" y1="119.38" x2="121.92" y2="119.38" width="0.1524" layer="91"/>
-<label x="121.92" y="119.38" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="A23" class="0">
 <segment>
 <wire x1="43.18" y1="101.6" x2="25.4" y2="101.6" width="0.1524" layer="91"/>
@@ -15299,54 +15243,6 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="USB" gate="USB" pin="D-"/>
 <pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="320.04" y1="27.94" x2="309.88" y2="27.94" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="USB_H_D-" class="0">
-<segment>
-<pinref part="IC8" gate="G$3" pin="PA11"/>
-<wire x1="284.48" y1="99.06" x2="269.24" y2="99.06" width="0.1524" layer="91"/>
-<label x="271.78" y="99.06" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP11" gate="G$1" pin="1"/>
-<wire x1="261.62" y1="10.16" x2="261.62" y2="-7.62" width="0.1524" layer="91"/>
-<label x="261.62" y="-7.62" size="1.778" layer="95" rot="R90"/>
-</segment>
-</net>
-<net name="USB_H_D+" class="0">
-<segment>
-<pinref part="IC8" gate="G$3" pin="PA12"/>
-<wire x1="269.24" y1="96.52" x2="284.48" y2="96.52" width="0.1524" layer="91"/>
-<label x="271.78" y="96.52" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP11" gate="G$1" pin="2"/>
-<wire x1="259.08" y1="10.16" x2="259.08" y2="-7.62" width="0.1524" layer="91"/>
-<label x="259.08" y="-7.62" size="1.778" layer="95" rot="R90"/>
-</segment>
-</net>
-<net name="USB_H_VBUS" class="0">
-<segment>
-<pinref part="IC8" gate="G$3" pin="PA9"/>
-<wire x1="289.56" y1="104.14" x2="269.24" y2="104.14" width="0.1524" layer="91"/>
-<label x="271.78" y="104.14" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP11" gate="G$1" pin="4"/>
-<wire x1="254" y1="10.16" x2="254" y2="-7.62" width="0.1524" layer="91"/>
-<label x="254" y="-7.62" size="1.778" layer="95" rot="R90"/>
-</segment>
-</net>
-<net name="USB_H_ID" class="0">
-<segment>
-<pinref part="IC8" gate="G$3" pin="PA10"/>
-<wire x1="269.24" y1="101.6" x2="284.48" y2="101.6" width="0.1524" layer="91"/>
-<label x="271.78" y="101.6" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP11" gate="G$1" pin="3"/>
-<wire x1="256.54" y1="10.16" x2="256.54" y2="-7.62" width="0.1524" layer="91"/>
-<label x="256.54" y="-7.62" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="A1" class="0">
@@ -15734,6 +15630,110 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="33.02" y="129.54" size="1.778" layer="95"/>
 </segment>
 </net>
+<net name="USBD_VBUS" class="0">
+<segment>
+<pinref part="IC8" gate="G$3" pin="PA9"/>
+<wire x1="289.56" y1="104.14" x2="269.24" y2="104.14" width="0.1524" layer="91"/>
+<label x="271.78" y="104.14" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="299.72" y1="30.48" x2="276.86" y2="30.48" width="0.1524" layer="91"/>
+<label x="281.94" y="30.48" size="1.778" layer="95"/>
+<pinref part="JP7" gate="G$1" pin="4"/>
+<wire x1="276.86" y1="38.1" x2="276.86" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="L1" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="USBD_ID" class="0">
+<segment>
+<pinref part="IC8" gate="G$3" pin="PA10"/>
+<wire x1="269.24" y1="101.6" x2="284.48" y2="101.6" width="0.1524" layer="91"/>
+<label x="271.78" y="101.6" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="320.04" y1="22.86" x2="269.24" y2="22.86" width="0.1524" layer="91"/>
+<pinref part="JP7" gate="G$1" pin="1"/>
+<wire x1="269.24" y1="22.86" x2="269.24" y2="38.1" width="0.1524" layer="91"/>
+<label x="281.94" y="22.86" size="1.778" layer="95"/>
+<pinref part="USB" gate="USB" pin="ID"/>
+</segment>
+</net>
+<net name="USBD_DM" class="0">
+<segment>
+<pinref part="IC8" gate="G$3" pin="PA11"/>
+<wire x1="284.48" y1="99.06" x2="269.24" y2="99.06" width="0.1524" layer="91"/>
+<label x="271.78" y="99.06" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="299.72" y1="27.94" x2="274.32" y2="27.94" width="0.1524" layer="91"/>
+<label x="281.94" y="27.94" size="1.778" layer="95"/>
+<pinref part="JP7" gate="G$1" pin="3"/>
+<wire x1="274.32" y1="27.94" x2="274.32" y2="38.1" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="USBD_DP" class="0">
+<segment>
+<pinref part="IC8" gate="G$3" pin="PA12"/>
+<wire x1="269.24" y1="96.52" x2="284.48" y2="96.52" width="0.1524" layer="91"/>
+<label x="271.78" y="96.52" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="307.34" y1="25.4" x2="271.78" y2="25.4" width="0.1524" layer="91"/>
+<label x="281.94" y="25.4" size="1.778" layer="95"/>
+<pinref part="JP7" gate="G$1" pin="2"/>
+<wire x1="271.78" y1="38.1" x2="271.78" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="USBH_ID" class="0">
+<segment>
+<pinref part="IC8" gate="G$2" pin="PB12"/>
+<wire x1="139.7" y1="119.38" x2="121.92" y2="119.38" width="0.1524" layer="91"/>
+<label x="121.92" y="119.38" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP11" gate="G$1" pin="3"/>
+<wire x1="256.54" y1="10.16" x2="256.54" y2="-7.62" width="0.1524" layer="91"/>
+<label x="256.54" y="-7.62" size="1.778" layer="95" rot="R90"/>
+</segment>
+</net>
+<net name="USBH_VBUS" class="0">
+<segment>
+<wire x1="139.7" y1="116.84" x2="121.92" y2="116.84" width="0.1524" layer="91"/>
+<label x="121.92" y="116.84" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$2" pin="PB13"/>
+</segment>
+<segment>
+<pinref part="JP11" gate="G$1" pin="4"/>
+<wire x1="254" y1="10.16" x2="254" y2="-7.62" width="0.1524" layer="91"/>
+<label x="254" y="-7.62" size="1.778" layer="95" rot="R90"/>
+</segment>
+</net>
+<net name="USBH_DM" class="0">
+<segment>
+<wire x1="139.7" y1="114.3" x2="121.92" y2="114.3" width="0.1524" layer="91"/>
+<label x="121.92" y="114.3" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$2" pin="PB14"/>
+</segment>
+<segment>
+<pinref part="JP11" gate="G$1" pin="1"/>
+<wire x1="261.62" y1="10.16" x2="261.62" y2="-7.62" width="0.1524" layer="91"/>
+<label x="261.62" y="-7.62" size="1.778" layer="95" rot="R90"/>
+</segment>
+</net>
+<net name="USBH_DP" class="0">
+<segment>
+<wire x1="139.7" y1="111.76" x2="121.92" y2="111.76" width="0.1524" layer="91"/>
+<label x="121.92" y="111.76" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$2" pin="PB15"/>
+</segment>
+<segment>
+<pinref part="JP11" gate="G$1" pin="2"/>
+<wire x1="259.08" y1="10.16" x2="259.08" y2="-7.62" width="0.1524" layer="91"/>
+<label x="259.08" y="-7.62" size="1.778" layer="95" rot="R90"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
@@ -15769,20 +15769,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <approved hash="208,1,106.68,-45.72,+3V3,sup,,,,"/>
 <approved hash="208,1,261.62,27.94,+3V3,sup,,,,"/>
 <approved hash="208,1,317.5,-10.16,+3V3,sup,,,,"/>
-<approved hash="113,1,213.555,41.3173,JP1,,,,,"/>
-<approved hash="113,1,232.215,41.3173,JP3,,,,,"/>
-<approved hash="113,1,253.805,41.3173,JP4,,,,,"/>
-<approved hash="113,1,275.785,41.3173,JP7,,,,,"/>
-<approved hash="113,1,189.823,-34.0953,JP10,,,,,"/>
-<approved hash="113,1,189.823,-62.0353,JP2,,,,,"/>
 <approved hash="113,1,245.11,-58.9026,JP5,,,,,"/>
 <approved hash="113,1,260.35,-58.9026,JP6,,,,,"/>
-<approved hash="113,1,324.337,26.4075,USB,,,,,"/>
-<approved hash="113,1,253.805,13.3773,JP11,,,,,"/>
-<approved hash="113,1,230.945,13.3773,JP12,,,,,"/>
-<approved hash="113,1,210.625,13.3773,JP9,,,,,"/>
-<approved hash="113,1,212.683,-36.6353,JP13,,,,,"/>
-<approved hash="113,1,189.823,-13.7753,JP15,,,,,"/>
 </errors>
 </schematic>
 </drawing>
