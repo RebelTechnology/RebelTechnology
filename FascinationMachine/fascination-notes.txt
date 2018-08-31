@@ -47,6 +47,14 @@ Parameters to be determined, e.g.
 - dissonance
 - effect e.g. delay
 
+Patch parameters:
+- tempo
+- transpose
+- intensity
+System parameters:
+- mode
+- volume
+
 ------------------------------------------------------------------------------------------------------
 
 controls:
@@ -92,3 +100,75 @@ rjdj
 compressor limiter
 
 ------------------------------------------------------------------------------------------------------
+
+
+Raymond Scott, the great American composer and electronic instrument inventor, would have been 110 this year, and there will be a festival to celebrate his work. We were asked if we could re-create his Fascination Machines, a concept design from the sixties which prefigured generative music. The answer, of course, was yes! Based loosely on the Wizard design, and featuring bespoke generative compositions created by Adam Parkinson and Cherif Hashizume, the newly re-imagined Raymond Scott Fascination Machines will be unveiled at Scottworks in LA on September 8 this year.
+
+https://www.raymondscott.net/rsfestival/
+
+------------------------------------------------------------------------------------------------------
+
+
+Speaker visation
+
+Visaton K 14.25 - 8 Ohm 2812 Mini Loudspeaker 0.5 x 1.0 inch
+A 1.4 x 2.5cm (0.5in. x 1in.) miniature speaker with a plastic diaphragm and rectangular plastic basket.
+25x14x5.3mm
+
+VIS K23SQ-8
+reichelt / mouser
+2.3 cm (0.9") miniature speaker with plastic diaphragm and square plastic basket with 4 mounting holes.
+
+K 50 SQ - 8 Ohm
+5 cm (2") miniature speaker with plastic diaphragm, square metal basket with 4 mounting holes and foam gasket. 2.8 x 0.5 mm contact pin.
+
+
+test in wide enclosure (extra space for speakers left/right)
+
+1) VIS K28.40-8 :: VISATON miniature speaker/2.8 x 4 cm, 8 ohm
+https://uk.farnell.com/visaton/2945/speaker-2w-20khz-8ohm/dp/2787067
+https://www.reichelt.com/gb/en/visaton-miniature-speaker-2-8-x-4-cm-8-ohm-vis-k28-40-8-p145413.html
+2.8 x 4.0 cm (1.1" x 1.6") miniature speaker with paper cone and rectangular plastic basket. Small dimensions due to neodymium magnet.
+40x28x11.7mm
+(reichelt £5.71, farnell £11.42, mouser £5.87)
+
+
+2) FRWS 5 - 8 Ohm
+5 cm (2") fullrange speaker with square basket, soft surround and special light weight cone. Balanced frequency response above 250 Hz, brilliant highs and good omnidirectional sound distribution.
+https://uk.farnell.com/visaton/frws-5-8ohm/speaker-2-mini/dp/5095414
+50x50x21.5mm
+
+3) Visaton K 20.40 8 OHM Oval Mini Speaker Waterproof
+https://www.rapidonline.com/visaton-k-20-40-8-ohm-oval-mini-speaker-waterproof-35-2948
+40x20x8mm
+
+(40x20 common format)
+
+also
+RVFM ABS-230-RC Miniature Loudspeaker Rectangular 40x28mm 4 Ohm
+(rapid £3.32)
+
+Visaton FRWS 4 ND - 8 Ohm 2207 Mini Loudspeaker 1.6 inch
+A 4cm (1.6in.) full-range speaker with coated paper membrane and black metal basket.
+The quality components combine to produce a very homogeneous sound quality, allowing the loudspeaker to be used as a miniature hi-fi speaker.
+(rapid £13.66)
+
+Visation BF 32 - 8 Ohm
+3.2 cm (1.3") fullrange speaker with a wide and balanced frequency response and very good low range reproduction. With powerful Neodymium driver. Suitable for applications where slim construction and good music and speech reproduction are requested. Square basket with four mounting holes for easy mounting.
+32x32x11mm
+
+------------------------------------------------------------------------------------------------------
+
+Speakers require switched output jacks
+
+Big speaker Visation FRWS-5 4ohm
+Middle speaker Visation K28-40 8ohm
+Little speaker KAAG
+
+current 140mA 9V no output to 540mA full volume, one big speaker
+current 140mA 9V no output to 750mA full volume, two big speakers (pololu vreg)
+
+louder with USB supply?
+
+------------------------------------------------------------------------------------------------------
+
