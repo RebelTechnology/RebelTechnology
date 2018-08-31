@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.1.0">
+<eagle version="9.1.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -21356,7 +21356,7 @@ Power Amplifiers</description>
 <part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
 <part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="510R"/>
 <part name="P+8" library="supply1" deviceset="+5V" device=""/>
-<part name="U2" library="Rebel" deviceset="REG_S9V11F5" device=""/>
+<part name="U2" library="Rebel" deviceset="REG_S9V11F5" device="" value="LM7805"/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="VBUS" library="SparkFun" deviceset="M02" device="PTH"/>

@@ -4710,7 +4710,7 @@ design rules under a new name.</description>
 <element name="R11" library="Rebel" package="0603" value="510R" x="33.35" y="16.45" smashed="yes" rot="MR90">
 <attribute name="NAME" x="33.35" y="18.712" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
-<element name="U2" library="Rebel" package="REG_S9V11F5" value="REG_S9V11F5" x="90.17" y="27.94" smashed="yes" rot="R180">
+<element name="U2" library="Rebel" package="REG_S9V11F5" value="LM7805" x="90.17" y="27.94" smashed="yes" rot="R180">
 <attribute name="NAME" x="89.414" y="25.82" size="0.9" layer="25"/>
 </element>
 <element name="VBUS" library="SparkFun" package="1X02" value="" x="30.585" y="55.4625" smashed="yes" rot="R180">
