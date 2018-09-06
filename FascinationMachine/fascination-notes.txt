@@ -172,3 +172,59 @@ louder with USB supply?
 
 ------------------------------------------------------------------------------------------------------
 
+hiya,
+
+I've had some email probs today, tried to send a couple but they probably got lost.
+
+Fascination IV had CPU problems, due to having three mtof objects. I found that we weren't using the optimised versions of exp, log and pow. I've fixed this now and deployed on live.
+Adam, this will also improve CPU performance of your patches.
+
+So IV now runs in < 60% CPU with no changes, but it's still not making any real sound - just some low frequency farts. If you set fixed frequency values for the oscs then there's sound.
+
+For this and the ping pong problem I suspect there's an issue with parameter initialisation, for variables that aren't given an explicit value in the patch (e.g. from a knob or constant). But I've not managed to nail down what it is. Could it be something to do with the slider visualiser?
+
+We're just making the cases and hardware with a couple of different speaker options. Looking pretty good!
+
+Oh and some patches including the ping test don't play in the browser. There's an error that pops up in the javascript console: Invalid asm.js: Integer multiply of expects int
+
+Again I'm thinking this might be down to initialisation issues - but I could be wrong.
+
+Cherif if you could make a simplified ping pong without the visual controls then I could test that more thoroughly.
+
+thanks!
+
+
+Martin
+
+
+------------------------------------------------------------------------------------------------------
+
+todo:
+- noise on load
+- ping pong delay
+- order switched minijacks
+
+
+I : works with -O2 // with -O2 PATCHRAM overflowed by 80 bytes, with -Os runs at 44%
+    dodgy startup noise
+
+II : with -O2 PATCHRAM overflowed by 1448 bytes, with -Os runs at 80%
+
+III : with -Os runs badly at 96%, with -O2 runs fine at 78%
+
+IV : 60% on -O2
+
+V : needs -O2 to run in 78%
+    parameters: nof birds, tweetiness, intensity
+
+name  	       	    	     	  status   	     	git	online
+I    Traditional synth sound 	  ok
+II   Bongo	       		  ok synthesised		fascination_II_v3
+III  Outer space		  ok with -O2		yes	fascination-III-ap
+IV   Chords			  
+V    Nature			  birds only			fascination_v
+
+
+
+------------------------------------------------------------------------------------------------------
+

@@ -30,17 +30,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.95264407"
-     inkscape:cx="270.0955"
-     inkscape:cy="688.48919"
+     inkscape:zoom="1.3472422"
+     inkscape:cx="439.87971"
+     inkscape:cy="929.27578"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="mm"
-     inkscape:window-width="1680"
-     inkscape:window-height="986"
-     inkscape:window-x="240"
-     inkscape:window-y="27"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="1050"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -282,5 +282,96 @@
          x="610.97034"
          y="214.53955"
          style="font-size:15px;stroke-width:0.9375">5mm light pipe</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
+       x="203.44847"
+       y="215.90712"
+       id="text51"><tspan
+         sodipodi:role="line"
+         id="tspan49"
+         x="203.44847"
+         y="215.90712"
+         style="font-size:12.5px;stroke-width:0.9375">Rate</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
+       x="410.92358"
+       y="215.90712"
+       id="text55"><tspan
+         sodipodi:role="line"
+         id="tspan53"
+         x="410.92358"
+         y="215.90712"
+         style="font-size:12.5px;stroke-width:0.9375">Intensity</tspan></text>
+    <text
+       id="text59"
+       y="216.29164"
+       x="269.95432"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
+       xml:space="preserve"><tspan
+         style="font-size:12.5px;stroke-width:0.9375"
+         y="216.29164"
+         x="269.95432"
+         id="tspan57"
+         sodipodi:role="line">Brightness</tspan></text>
+    <text
+       id="text63"
+       y="216.29164"
+       x="501.11414"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
+       xml:space="preserve"><tspan
+         style="font-size:12.5px;stroke-width:0.9375"
+         y="216.29164"
+         x="501.11414"
+         id="tspan61"
+         sodipodi:role="line">Volume</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
+       x="353.76291"
+       y="264.35205"
+       id="text67"><tspan
+         sodipodi:role="line"
+         id="tspan65"
+         x="353.76291"
+         y="264.35205"
+         style="font-size:12.5px;stroke-width:0.9375">Mode</tspan></text>
+    <text
+       id="text90"
+       y="461.22705"
+       x="-305.62723"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
+       xml:space="preserve"
+       transform="scale(-1,1)"><tspan
+         style="font-size:12.5px;stroke-width:0.9375"
+         y="461.22705"
+         x="-305.62723"
+         id="tspan88"
+         sodipodi:role="line">USB</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
+       x="-463.16135"
+       y="461.22705"
+       id="text94"
+       transform="scale(-1,1)"><tspan
+         sodipodi:role="line"
+         id="tspan92"
+         x="-463.16135"
+         y="461.22705"
+         style="font-size:12.5px;stroke-width:0.9375">9V DC</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
+       x="-352.84351"
+       y="-864.62671"
+       id="text98"
+       transform="scale(-1)"><tspan
+         sodipodi:role="line"
+         id="tspan96"
+         x="-352.84351"
+         y="-864.62671"
+         style="font-size:12.5px;stroke-width:0.9375">OUT</tspan></text>
   </g>
 </svg>
