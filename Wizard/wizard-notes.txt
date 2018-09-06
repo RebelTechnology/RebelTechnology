@@ -73,3 +73,54 @@ todo / questions / issues to resolve:
 - which op amp
 
 --------------------------------------------------------------------------------
+
+testing/fixing firmware
+- TRIG_OUT working (output BUTTON_A)
+- button 2 not working?
+
+owl2
+A25, PF9, pin 21, ADC3 IN7, ADC5
+
+wizard
+A23_SW5
+A23_ADC5, PF7, ADC3 CH5
+
+fixed: A25_SW5,  PF9, EXTI9_5
+       A23_ADC5, PF7, ADC3 CH5
+
+A25_SW5, PF9 conflict with A17_SW1, PB9
+A7_SW4, PB2 conflict with A14_SW2 PD2
+
+Read SW5 and SW4 manually.
+
+--------------------------------------------------------------------------------
+
+Remap USB_HOST_PWR_FAULT to PC8. Check it works. Update failure logic to prevent error loop.
+
+--------------------------------------------------------------------------------
+
+Wizard Parameter Mappings
+P1 / CV1		PARAMETER_A
+P2 / CV2		PARAMETER_B
+P3			PARAMETER_C
+P4			PARAMETER_D
+P5			PARAMETER_E
+DAC1			PARAMETER_F out
+DAC2			PARAMETER_G out
+SW1 / Trigger in	BUTTON_A
+SW2	     		BUTTON_B
+SW3	     		BUTTON_C
+SW4	     		BUTTON_D
+SW5	     		BUTTON_E / Mode
+Trigger out:     	BUTTON_F out
+
+Alchemist Parameter Mappings
+P1 / CV1		PARAMETER_A
+P2   			PARAMETER_B
+P3			PARAMETER_C
+P4			PARAMETER_D
+SW1 / Trigger in	BUTTON_A
+SW2	     		BUTTON_B
+SW3	     		BUTTON_E / Mode
+
+--------------------------------------------------------------------------------

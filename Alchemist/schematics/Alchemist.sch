@@ -17944,7 +17944,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <wire x1="78.74" y1="106.68" x2="78.74" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="ADC1" class="0">
+<net name="A18_ADC1" class="0">
 <segment>
 <pinref part="ADC" gate="G$1" pin="4"/>
 <wire x1="114.3" y1="40.64" x2="114.3" y2="30.48" width="0.1524" layer="91"/>
@@ -17956,7 +17956,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <label x="302.26" y="157.48" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="ADC4" class="0">
+<net name="A21_ADC4" class="0">
 <segment>
 <pinref part="ADC" gate="G$1" pin="1"/>
 <wire x1="106.68" y1="40.64" x2="106.68" y2="30.48" width="0.1524" layer="91"/>
@@ -17968,7 +17968,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <label x="302.26" y="45.72" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="ADC2" class="0">
+<net name="A19_ADC2" class="0">
 <segment>
 <pinref part="ADC" gate="G$1" pin="3"/>
 <wire x1="111.76" y1="40.64" x2="111.76" y2="30.48" width="0.1524" layer="91"/>
@@ -17980,7 +17980,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <label x="302.26" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="ADC3" class="0">
+<net name="A20_ADC3" class="0">
 <segment>
 <pinref part="ADC" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="40.64" x2="109.22" y2="30.48" width="0.1524" layer="91"/>
@@ -18131,7 +18131,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <pinref part="BOOT" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="GP10" class="0">
+<net name="A14" class="0">
 <segment>
 <wire x1="129.54" y1="40.64" x2="129.54" y2="30.48" width="0.1524" layer="91"/>
 <label x="129.54" y="38.1" size="1.778" layer="95" rot="MR270"/>
@@ -18288,14 +18288,14 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <label x="134.62" y="142.24" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GP5" class="0">
+<net name="A5" class="0">
 <segment>
 <pinref part="LGP1-5" gate="G$1" pin="5"/>
 <wire x1="104.14" y1="-10.16" x2="119.38" y2="-10.16" width="0.1524" layer="91"/>
 <label x="106.68" y="-10.16" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GP4_USART_RX" class="0">
+<net name="A4_USART_RX" class="0">
 <segment>
 <pinref part="LGP1-5" gate="G$1" pin="4"/>
 <wire x1="104.14" y1="-7.62" x2="119.38" y2="-7.62" width="0.1524" layer="91"/>
@@ -18307,7 +18307,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <wire x1="-55.88" y1="38.1" x2="-76.2" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="GP9_TRIG" class="0">
+<net name="A16_SW3" class="0">
 <segment>
 <wire x1="124.46" y1="40.64" x2="124.46" y2="30.48" width="0.1524" layer="91"/>
 <label x="124.46" y="38.1" size="1.778" layer="95" rot="MR270"/>
@@ -18324,7 +18324,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <label x="-33.02" y="157.48" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GP11" class="0">
+<net name="A13" class="0">
 <segment>
 <pinref part="TGP1-4" gate="G$1" pin="1"/>
 <wire x1="132.08" y1="40.64" x2="132.08" y2="30.48" width="0.1524" layer="91"/>
@@ -18460,7 +18460,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <junction x="172.72" y="127"/>
 </segment>
 </net>
-<net name="GP1_LEDPWM" class="0">
+<net name="A1_LEDPWM2" class="0">
 <segment>
 <pinref part="LGP1-5" gate="G$1" pin="1"/>
 <wire x1="104.14" y1="0" x2="119.38" y2="0" width="0.1524" layer="91"/>
@@ -18472,7 +18472,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <label x="40.64" y="96.52" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GP2_LEDPWM" class="0">
+<net name="A2_LEDPWM3" class="0">
 <segment>
 <pinref part="LGP1-5" gate="G$1" pin="2"/>
 <wire x1="104.14" y1="-2.54" x2="119.38" y2="-2.54" width="0.1524" layer="91"/>
@@ -18484,7 +18484,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <label x="40.64" y="81.28" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GP6_LEDPWM" class="0">
+<net name="A6_LEDPWM1" class="0">
 <segment>
 <wire x1="104.14" y1="-17.78" x2="119.38" y2="-17.78" width="0.1524" layer="91"/>
 <label x="106.68" y="-17.78" size="1.778" layer="95"/>
@@ -18496,7 +18496,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <label x="40.64" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GP7_TRIG" class="0">
+<net name="A7_SW2" class="0">
 <segment>
 <wire x1="119.38" y1="-20.32" x2="104.14" y2="-20.32" width="0.1524" layer="91"/>
 <label x="106.68" y="-20.32" size="1.778" layer="95"/>
@@ -18690,7 +18690,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <wire x1="-40.64" y1="40.64" x2="-40.64" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="GP8_TRIG" class="0">
+<net name="A17_SW1" class="0">
 <segment>
 <pinref part="SW1" gate="1" pin="S1"/>
 <wire x1="-63.5" y1="157.48" x2="-60.96" y2="157.48" width="0.1524" layer="91"/>
@@ -18811,7 +18811,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <label x="-12.7" y="48.26" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GP3_USART_TX" class="0">
+<net name="A3_USART_TX" class="0">
 <segment>
 <pinref part="LGP1-5" gate="G$1" pin="3"/>
 <wire x1="104.14" y1="-5.08" x2="119.38" y2="-5.08" width="0.1524" layer="91"/>

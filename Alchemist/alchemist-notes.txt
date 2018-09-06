@@ -157,6 +157,10 @@ todo:
 Stereo jacks 3.5mm
 http://shogyo.com/product-category/connectors/audio-connectors/audio-connectors-audio-jacks/?filter_audio_standard=1304&filter_mono_or_stereo=1297
 
+
+Decelect Forgos IES101-4 3.5 mm PCB Mount Stereo Jack (rs 0.954 @200)
+
+
 --------------------------------------------------------------------------------
 
 ADC1 PC3   ADC3_IN13
@@ -500,19 +504,43 @@ todo / questions / issues to resolve:
 
 --------------------------------------------------------------------------------
 
-labeled
+labelled
 1 - OPA1679 Alchemist
 2 - LM324 Alchemist
 3 - OPA1679 Wizard
 4 - TS924 Wizard
 5 - TS974 Alchemist
 
-change 2 to 5: TS974
+changed 2 to 5: TS974
 
-1+3 - OPA1679, 4 - TS924, change 2 to TS974
+winner: TS974 ? (TS924 : high current, TS974 : ultra low noise, cheaper from Mouser)
+
+TS924 and TS974 not specced as single supply.
+Try TS934.
 
 --------------------------------------------------------------------------------
 
 New boards, DC power: 9V 190mA
+
+--------------------------------------------------------------------------------
+
+Stereo jacks
+SJ1-3513N	SJ1-3514N	SJ1-3515N   - no thread
+SJ1-3513 	SJ1-3514 	SJ1-3515    - threaded
+no switch       1 switch        2 switches
+Switchcraft 35RAPC4BH3
+
+--------------------------------------------------------------------------------
+
+Alchemist #1
+noise 14mV RMS
+sine 1khz 1900mV RMS
+50mS window, noise measured with 20mV scale
+
+Signal to Noise Ratio SNR:
+s = signal Vrms, n = noise Vrms
+SNR = 10 * log10( ( s / n )^2 ) dB
+10 * l( ( 1900 / 14 )^2 )/l(10) = 42.6dB
+
 
 --------------------------------------------------------------------------------
