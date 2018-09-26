@@ -1,0 +1,42 @@
+<module type="12hp">
+  
+  <!-- pots -->
+  <pot x="-0.5625" y="1.75"/>
+  <pot x="0.5625" y="1.75"/>
+  <pot x="0.0" y="1.125"/>
+  <pot x="-0.5625" y="0.5"/>
+  <pot x="0.5625" y="0.5"/>
+
+  <!-- leds -->
+  <rect x="0.0" y="1.75" width="5" height="8"/>
+
+  <!-- usb client connector -->
+  <rect x="-0.625" y="-0.625" width="12" height="11"/>
+
+  <!-- usb host connector -->
+  <rect x="0.625" y="-0.625" height="7" width="14.75"/>
+
+  <!-- buttons -->
+  <hole x="-0.75" y="-0.125" radius="2.55"/>
+  <hole x="-0.25" y="-0.125" radius="2.55"/>
+  <hole x="0.00" y="-0.625" radius="2.55"/> <!-- mode -->
+  <hole x="0.25" y="-0.125" radius="2.55"/>
+  <hole x="0.75" y="-0.125" radius="2.55"/>
+
+  <!-- jacks -->
+  <hole x="-1.00" y="-1.25" radius="3.25"/>
+  <hole x="-1.00" y="-1.75" radius="3.25"/>
+
+  <hole x="-0.5" y="-1.25" radius="3.25"/>
+  <hole x="-0.5" y="-1.75" radius="3.25"/>
+
+  <hole x="0.00" y="-1.25" radius="3.25"/>
+  <hole x="0.00" y="-1.75" radius="3.25"/>
+
+  <hole x="0.5" y="-1.25" radius="3.25"/>
+  <hole x="0.5" y="-1.75" radius="3.25"/>
+
+  <hole x="1.00" y="-1.25" radius="3.25"/>
+  <hole x="1.00" y="-1.75" radius="3.25"/>
+
+</module>
