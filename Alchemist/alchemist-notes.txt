@@ -542,5 +542,154 @@ s = signal Vrms, n = noise Vrms
 SNR = 10 * log10( ( s / n )^2 ) dB
 10 * l( ( 1900 / 14 )^2 )/l(10) = 42.6dB
 
+--------------------------------------------------------------------------------
+
+firmware todo
+/ OwlBoot led feedback
+/ OwlBoot reset command
+/ OwlBoot flash protect
+/ firmware enter bootloader
+- Alchemist firmware mode button: volume and patch change
+- dynamic blocksize
+- application settings
 
 --------------------------------------------------------------------------------
+
+bootloader LED indication
+PA0 and PA1 used in Alchemist, Wizard and Tesseract
+PA0 LED1
+PA1 LED2
+
+--------------------------------------------------------------------------------
+
+Flash memory sectors can be either in Write protection or Read & Write (PCROP) protection
+mode, depending on the Selection of protection mode (SPRMOD option bit) of nWPRi
+option bits. To activate the write protection (SPRMOD = 0) for each Flash memory sector i,
+one option bit (nWRPi) is used. When the Write protection is set for sector i (option bit
+nWRPi = 0), this sector cannot be erased or programmed.
+Enabling or disabling write protection can be managed either by embedded user code or by
+using STM32 ST-Link Utility software and debug interfaces.
+
+--------------------------------------------------------------------------------
+
+openocd
+telnet 4444
+> flash protect 0 0 1 on 
+set protection for sectors 0 through 1 on flash bank 0
+
+> program Build/OwlBoot.elf verify reset exit
+
+> flash info 0
+
+> halt
+> flash protect 0 0 1 on 
+
+--------------------------------------------------------------------------------
+
+
+Thank you for supporting our Kickstarter! It is only thanks to our backers that this has been possible. We are proud to present you with your very own Alchemist and we hope you will find it as exciting and fun to use as we do!
+
+
+Getting Started
+We have pre-loaded your Alchemist with a small selection of noise making patches.
+To select a patch, hold down the MODE button (top left corner) and turn the D knob (bottom centre). You can then select one of the five pre-loaded patches on the device.
+
+You can also change patches remotely by sending a MIDI Program Change message to the device.
+
+To change the output volume of the device, hold down the MODE button and turn the C knob (right side) to adjust.
+
+You can also change volume remotely by sending a MIDI Volume (Control Change 7) message to the device.
+
+
+Firmware Upgrade
+Your Alchemist has a built in boot loader which lets you upgrade the firmware on the device over the USB MIDI connection. To activate the bootloader, connect the device to a computer using the USB cable, and hold down the B button while the device is starting up. The LED will blink red/green three times to indicate that it is entering boot loader mode.
+
+
+
+--------------------------------------------------------------------------------
+
+make deploy-midiboot 1.7s
+make deploy-alchemist 8.3s
+./flash 24.6s
+
+make PATCHSOURCE=FascinationMachine HEAVY=FascinationMachineI PATCHNAME="Fascination I" clean store SLOT=1
+make PATCHSOURCE=FascinationMachine HEAVY=FascinationMachineI PATCHNAME="Fascination I" clean store SLOT=1
+
+FirmwareSender -d 4 -out OWL-MIDI* -in FascinationMachine/FascinationMachineI.bin -store 1
+FirmwareSender -d 4 -out OWL-MIDI* -in FascinationMachine/FascinationMachineII.bin -store 2
+FirmwareSender -d 4 -out OWL-MIDI* -in FascinationMachine/FascinationMachineIII.bin -store 3
+FirmwareSender -d 4 -out OWL-MIDI* -in FascinationMachine/FascinationMachineIV.bin -store 4
+FirmwareSender -d 4 -out OWL-MIDI* -in FascinationMachine/FascinationMachineV.bin -store 5
+
+
+# reset
+amidi -p "hw:1,0,0" -S f07d527df7
+
+f07d527df7
+
+--------------------------------------------------------------------------------
+
+Consumer audio equipment line levels are rated in dBV, and the most commonly used nominal level for such equipment is −10 dBV, which corresponds to a sine wave of about 0.3162 volts RMS. 0.894Vpp 
+
+Professional audio equipment line levels are rated in dBu, and the most commonly used nominal level for such equipment is +4 dBu, which corresponds to a sine wave of about 1.228 volts RMS. 3.472Vpp
+
+Alchemist 1k sine max output 4Vpp unloaded.
+
+820mVpp / 286mVrms
+
+max output 4.48Vpp 1k sine
+
+--------------------------------------------------------------------------------
+
+MidiBoot change FLASH_SCK to pin PB3 (was PA5)
+
+Alchemist cube: enable SWD to prevent GPIO init to disable it
+
+--------------------------------------------------------------------------------
+
+Output clips very soon when headphones connected - need to change to high output power op amp
+Replace TS974 op amps with TS924.
+The TS924 and TS924A devices are rail-to-rail quad BiCMOS operational amplifiers optimized and fully specified for 3 V and 5 V operation.
+High output current allows low load impedances to be driven.
+The TS924 and TS924A devices exhibit a very low noise, low distortion, low offset, and high output current capability, making these devices an excellent choice for high-quality, low-voltage, and battery-operated audio systems.
+
+TS924A: low input offset voltage < 0.9mV
+
+--------------------------------------------------------------------------------
+
+deploy:
+cd OpenWare/MidiBoot
+sudo make unlock erase deploy
+or
+sudo make deploy
+
+cd OpenWare/Alchemist
+./deploy.sh
+
+--------------------------------------------------------------------------------
+
+test:
+
+connect usb
+
+load patch
+https://www.rebeltech.org/patch-library/patch/Quad_Tone
+
+knobs A, B, C, D
+buttons A and B
+out left, right
+
+cv in > knob A (knob attenuates)
+trigger in > button B
+
+
+load patch
+https://www.rebeltech.org/patch-library/patch/Four_Band_EQ
+
+test left in, right in
+
+dc power 9v
+
+mode button:
+- change patch with knob D
+- change volume with knob C
