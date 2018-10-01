@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.7.1">
+<eagle version="9.1.3">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -16699,7 +16699,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="GND62" library="supply1" deviceset="GND" device=""/>
 <part name="P-3" library="supply1" deviceset="-12V" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
-<part name="U3" library="Rebel" deviceset="ICL7660" device=""/>
+<part name="U3" library="Rebel" deviceset="ICL7660" device="" value="ICL7660A"/>
 <part name="P+8" library="supply1" deviceset="+12V" device=""/>
 <part name="P-4" library="supply1" deviceset="-12V" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
