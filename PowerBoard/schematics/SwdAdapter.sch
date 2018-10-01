@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="9.1.3">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
@@ -1255,6 +1256,8 @@ Button commonly used for reset or general input. Spark Fun Electronics SKU : COM
 <sheets>
 <sheet>
 <plain>
+<text x="-17.78" y="-12.7" size="2.54" layer="97">Rebel Technology</text>
+<text x="-17.78" y="-17.78" size="2.54" layer="97">SWD Adaptor Rev1.0</text>
 </plain>
 <instances>
 <instance part="GND89" gate="1" x="60.96" y="43.18"/>
