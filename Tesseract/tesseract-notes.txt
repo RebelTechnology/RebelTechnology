@@ -204,3 +204,47 @@ Mid    Time
 Lo     Warp
 
 --------------------------------------------------------------------------------
+
+Replace LED with illuminated pushbutton for tempo
+
+e.g. 15MM SPDG RGB
+https://www.rjselectronics.com/product/15mm%C2%B2-17-4mm%C2%B2-o22mm-spdg
+
+what is height of SPH2T incl cap, excl pins
+https://www.rjselectronics.com/product/sph2t
+10.5 + 7.1 = 17.6mm
+
+ZTSN
+7.2 + 7.1 = 14.3mm
+
+http://old.rjselectronics.com/media/pdf/SPH2-Z-2017.pdf
+https://www.shanpu.com.tw/upload_files/catalogue/SPH2_shanpu_push-button_tactile_LED_switch_smooth_push_push_indicator.pdf
+
+from Jamie Smart
+
+RJSSPH2 with  YCA119CD cap = 11.5mm base with cap at 8.5mm with 5mm threw panel (total height off pcb 20mm)
+RJSSPH2T7A515-Z framed =  (total height off pcb 11.5mm)
+RJSSPF framed  = (total height off pcb 12mm)
+RJSSPD with cap = 8.9mm base with YCS0054 cap at 7mm (total height off pcb 15.9mm)
+RJSSPC = (total height off pcb 13.7mm)
+RJSSPA = (total height off pcb 13.2mm)
+RJSPB617 / RJSPB6131 series = (total height off pcb 12.5mm)
+
+- SPDG
+Bi LED x100pcs @ £3.85 each / RGB LED x100pcs @ £3.95 each
+- SPF
+Single LED x100pcs @ £1.85 each / Bi LED tba 
+- SPH2T
+Single LED x100pcs @ £1.89 each / Bi LED tba
+
+--------------------------------------------------------------------------------
+
+SPDG-P94-YCS005A-Z common anode RGB PTH 15mm Ice 13mm height
+SPDG-P94-YCS001A-Z common anode RGB STM 17.4mm Ice 13mm height
+
+https://www.shanpu.com.tw/upload_files/size/8/115%20Smart%20cap_shanpu_Broadcasting%20System_tactile%20switch_illuminated_navigation.pdf
+http://old.rjselectronics.com/media/pdf/SPD-2016.pdf
+
+100x 15mm SPDG RGB common anode ordered from RJS 2 Oct 2019
+
+--------------------------------------------------------------------------------
