@@ -182,8 +182,10 @@
 <dimension x1="-0.06" y1="-0.97" x2="55.94" y2="-0.97" x3="27.94" y3="-5.47" textsize="1.778" layer="47"/>
 <dimension x1="-1.06" y1="99.03" x2="-1.06" y2="-0.97" x3="-3.06" y3="49.03" textsize="1.778" layer="47"/>
 <text x="49.94" y="81.03" size="1.016" layer="22" rot="MR0">BOOT</text>
-<text x="47.74" y="1.83" size="1.27" layer="22" font="vector" rot="MR180">-12V</text>
+<text x="47.486" y="2.465" size="1.4224" layer="22" font="vector" rot="MR180">-12V</text>
 <text x="41.84" y="0.73" size="1.27" layer="21" font="vector" rot="R180">-12V</text>
+<wire x1="47.498" y1="0.762" x2="55.753" y2="0.762" width="0.4064" layer="22"/>
+<wire x1="42.545" y1="0.762" x2="0.127" y2="0.762" width="0.4064" layer="22"/>
 </plain>
 <libraries>
 <library name="Rebel">
@@ -3206,19 +3208,16 @@ design rules under a new name.</description>
 <attribute name="NAME" x="13.6985" y="39.038" size="0.9" layer="26" rot="MR180"/>
 </element>
 <element name="R14" library="Rebel" package="0603" value="10k" x="11.04" y="51.7" smashed="yes" rot="MR180">
-<attribute name="NAME" x="9.7685" y="49.838" size="0.9" layer="26" rot="MR180"/>
+<attribute name="NAME" x="9.7685" y="49.838" size="0.9" layer="26" font="vector" rot="MR180"/>
 </element>
 <element name="R13" library="Rebel" package="0603" value="1k" x="19.04" y="51.7" smashed="yes" rot="MR180">
-<attribute name="NAME" x="20.64" y="52.6" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="20.64" y="52.6" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R16" library="Rebel" package="0603" value="4k3" x="7.54" y="51.7" smashed="yes" rot="MR180">
 <attribute name="NAME" x="5.929" y="51.262" size="0.9" layer="26" rot="MR0"/>
 </element>
 <element name="PWR" library="SparkFun" package="1X03" value="" x="6.2775" y="97.2375" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="7.5475" y="94.0625" size="1.27" layer="28" rot="MR0"/>
-</element>
-<element name="EXTSPI" library="SparkFun" package="1X04" value="" x="44.3775" y="97.2375" smashed="yes" rot="MR180">
-<attribute name="VALUE" x="43.1075" y="100.4125" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="LGP6-7" library="SparkFun" package="1X02" value="" x="8.8175" y="97.2375" smashed="yes" rot="MR180">
 <attribute name="VALUE" x="7.5475" y="100.4125" size="1.27" layer="28" rot="MR180"/>
@@ -3239,60 +3238,60 @@ design rules under a new name.</description>
 <element name="CV_D" library="Rebel" package="THONKICONN" value="THONKICONN" x="27.94" y="30.48" rot="R180"/>
 <element name="TR" library="Rebel" package="THONKICONN" value="THONKICONN" x="27.94" y="17.78" rot="R180"/>
 <element name="R19" library="Rebel" package="0603" value="4k3" x="7.54" y="57.6" smashed="yes" rot="MR180">
-<attribute name="NAME" x="5.929" y="57.162" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="5.929" y="57.162" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="IC4" library="adafruit" package="SO14" value="QUAD_OPAMPD" x="27.63" y="61.39" smashed="yes" rot="MR0">
-<attribute name="NAME" x="32.262" y="60.34" size="0.9" layer="26" rot="MR90"/>
+<attribute name="NAME" x="32.262" y="60.34" size="0.9" layer="26" font="vector" rot="MR90"/>
 <attribute name="VALUE" x="21.788" y="59.485" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="R8" library="Rebel" package="0603" value="100k" x="31.24" y="49.3" smashed="yes" rot="MR0">
-<attribute name="NAME" x="33.764" y="50.162" size="1.016" layer="26" rot="MR0"/>
+<attribute name="NAME" x="33.764" y="50.162" size="1.016" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R9" library="Rebel" package="0603" value="100k" x="28.14" y="49.3" smashed="yes" rot="MR180">
-<attribute name="NAME" x="29.564" y="50.162" size="1.016" layer="26" rot="MR0"/>
+<attribute name="NAME" x="29.564" y="50.162" size="1.016" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R23" library="Rebel" package="0603" value="33k" x="31.24" y="55.82" smashed="yes" rot="MR180">
-<attribute name="NAME" x="33.064" y="56.682" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="33.064" y="56.682" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R40" library="Rebel" package="0603" value="1k" x="45.14" y="90.4" smashed="yes" rot="MR0">
-<attribute name="NAME" x="43.64" y="89.9" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="43.64" y="89.9" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R39" library="Rebel" package="0603" value="100R" x="51.34" y="90.4" smashed="yes" rot="MR0">
-<attribute name="NAME" x="49.84" y="89.9" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="49.84" y="89.9" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="C15" library="resistor" package="C0603" value="100n" x="27.64" y="55.82" smashed="yes" rot="MR180">
-<attribute name="NAME" x="29.364" y="56.582" size="1.016" layer="26" rot="MR0"/>
+<attribute name="NAME" x="29.364" y="56.582" size="1.016" layer="26" font="vector" rot="MR0"/>
 <attribute name="VALUE" x="26.751" y="57.852" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="R31" library="Rebel" package="0603" value="100k" x="13.54" y="70.9" smashed="yes" rot="MR0">
-<attribute name="NAME" x="15.164" y="71.662" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="15.164" y="71.662" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R32" library="Rebel" package="0603" value="100k" x="9.94" y="70.9" smashed="yes" rot="MR180">
-<attribute name="NAME" x="11.364" y="71.662" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="11.364" y="71.662" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R24" library="Rebel" package="0603" value="33k" x="22.292" y="59.807" smashed="yes" rot="MR90">
-<attribute name="NAME" x="23.154" y="58.783" size="0.9" layer="26" rot="MR90"/>
+<attribute name="NAME" x="21.884" y="55.989" size="0.9" layer="26" font="vector" rot="MR90"/>
 </element>
 <element name="R42" library="Rebel" package="0603" value="1k" x="45.14" y="91.9" smashed="yes" rot="MR0">
-<attribute name="NAME" x="43.64" y="91.4" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="43.64" y="91.4" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R41" library="Rebel" package="0603" value="100R" x="51.34" y="91.9" smashed="yes" rot="MR0">
-<attribute name="NAME" x="49.84" y="91.4" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="49.84" y="91.4" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R33" library="Rebel" package="0603" value="100k" x="47.14" y="71.9" smashed="yes" rot="MR0">
-<attribute name="NAME" x="45.464" y="71.362" size="1.016" layer="26" rot="MR0"/>
+<attribute name="NAME" x="45.464" y="71.362" size="1.016" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R30" library="Rebel" package="0603" value="100k" x="47.14" y="69.9" smashed="yes" rot="MR0">
-<attribute name="NAME" x="45.464" y="69.362" size="1.016" layer="26" rot="MR0"/>
+<attribute name="NAME" x="45.464" y="69.362" size="1.016" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R35" library="Rebel" package="0603" value="33k" x="24.24" y="66.82" smashed="yes" rot="MR0">
-<attribute name="NAME" x="25.664" y="67.782" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="25.664" y="67.782" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R47" library="Rebel" package="0603" value="1k" x="45.14" y="93.4" smashed="yes" rot="MR0">
-<attribute name="NAME" x="43.64" y="92.9" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="43.64" y="92.9" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R46" library="Rebel" package="0603" value="100R" x="51.34" y="93.4" smashed="yes" rot="MR0">
-<attribute name="NAME" x="49.84" y="92.9" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="49.84" y="92.9" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R37" library="Rebel" package="0603" value="100k" x="28.195" y="78.795" smashed="yes" rot="MR0">
 <attribute name="NAME" x="29.819" y="79.557" size="1.016" layer="26" rot="MR0"/>
@@ -3301,33 +3300,33 @@ design rules under a new name.</description>
 <attribute name="NAME" x="29.764" y="81.562" size="1.016" layer="26" rot="MR0"/>
 </element>
 <element name="R34" library="Rebel" package="0603" value="33k" x="31.44" y="66.82" smashed="yes" rot="MR180">
-<attribute name="NAME" x="33.164" y="67.682" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="33.164" y="67.682" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R52" library="Rebel" package="0603" value="1k" x="45.14" y="94.9" smashed="yes" rot="MR0">
-<attribute name="NAME" x="43.64" y="94.4" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="43.64" y="94.4" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R51" library="Rebel" package="0603" value="100R" x="51.34" y="94.9" smashed="yes" rot="MR0">
-<attribute name="NAME" x="49.84" y="94.4" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="49.84" y="94.4" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="R50" library="Rebel" package="0603" value="100k" x="3.74" y="88.9" smashed="yes" rot="MR90">
-<attribute name="NAME" x="2.878" y="90.289" size="0.9" layer="26" rot="MR270"/>
+<attribute name="NAME" x="2.878" y="90.289" size="0.9" layer="26" font="vector" rot="MR270"/>
 </element>
 <element name="R49" library="Rebel" package="0603" value="1M" x="3.74" y="92.9" smashed="yes" rot="MR270">
-<attribute name="NAME" x="2.878" y="94.089" size="0.9" layer="26" rot="MR270"/>
+<attribute name="NAME" x="2.878" y="94.089" size="0.9" layer="26" font="vector" rot="MR270"/>
 </element>
 <element name="R48" library="Rebel" package="0603" value="10k" x="9.74" y="92.9" smashed="yes" rot="MR90">
 <attribute name="NAME" x="9.429" y="90.039" size="0.9" layer="26" font="vector" rot="MR90" align="bottom-center"/>
 </element>
 <element name="Q3" library="transistor" package="SOT23" value="BC846" x="6.94" y="92.9" smashed="yes" rot="MR90">
-<attribute name="NAME" x="7.35" y="91.435" size="0.9" layer="26" rot="MR270"/>
+<attribute name="NAME" x="7.35" y="91.435" size="0.9" layer="26" font="vector" rot="MR270"/>
 <attribute name="VALUE" x="3.765" y="90.995" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="D1" library="diode" package="SOT23" value="BAT54S" x="50.84" y="87.6" smashed="yes" rot="MR0">
-<attribute name="NAME" x="52.4275" y="84.705" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="52.4275" y="84.705" size="0.9" layer="26" font="vector" rot="MR0"/>
 <attribute name="VALUE" x="52.745" y="84.425" size="1.27" layer="28" rot="MR0"/>
 </element>
 <element name="D2" library="diode" package="SOT23" value="BAT54S" x="47.34" y="87.6" smashed="yes" rot="MR0">
-<attribute name="NAME" x="48.9275" y="84.6875" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="48.9275" y="84.6875" size="0.9" layer="26" font="vector" rot="MR0"/>
 <attribute name="VALUE" x="49.245" y="84.425" size="1.27" layer="28" rot="MR0"/>
 </element>
 <element name="D3" library="diode" package="SOT23" value="BAT54S" x="43.84" y="87.6" smashed="yes" rot="MR0">
@@ -3335,19 +3334,19 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="45.745" y="84.425" size="1.27" layer="28" rot="MR0"/>
 </element>
 <element name="D4" library="diode" package="SOT23" value="BAT54S" x="40.34" y="87.6" smashed="yes" rot="MR0">
-<attribute name="NAME" x="41.805" y="84.705" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="41.805" y="84.705" size="0.9" layer="26" font="vector" rot="MR0"/>
 <attribute name="VALUE" x="42.245" y="84.425" size="1.27" layer="28" rot="MR0"/>
 </element>
-<element name="C2" library="Rebel" package="CPOL-5" value="10u" x="35.44" y="2.53" smashed="yes" rot="MR270">
-<attribute name="NAME" x="34.05" y="2.96" size="0.9" layer="26" rot="MR180"/>
-<attribute name="VALUE" x="38.265" y="4.18" size="1.016" layer="28" rot="MR270"/>
+<element name="C2" library="Rebel" package="CPOL-5" value="10u" x="35.44" y="3.8" smashed="yes" rot="MR270">
+<attribute name="NAME" x="35.955" y="4.23" size="0.9" layer="26" font="vector" rot="MR180"/>
+<attribute name="VALUE" x="38.265" y="5.45" size="1.016" layer="28" rot="MR270"/>
 </element>
 <element name="C20" library="resistor" package="C0603" value="100n" x="27.84" y="66.82" smashed="yes" rot="MR0">
-<attribute name="NAME" x="29.2815" y="67.742" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="29.2815" y="67.742" size="0.9" layer="26" font="vector" rot="MR0"/>
 <attribute name="VALUE" x="28.729" y="64.788" size="1.27" layer="28" rot="MR0"/>
 </element>
 <element name="IC3" library="linear" package="SO08" value="NE5532D" x="17.94" y="58.3" smashed="yes" rot="MR0">
-<attribute name="NAME" x="20.607" y="57.395" size="0.9" layer="26" rot="MR90"/>
+<attribute name="NAME" x="20.607" y="57.395" size="0.9" layer="26" font="vector" rot="MR90"/>
 <attribute name="VALUE" x="14.003" y="56.395" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="BOOT" library="SparkFun" package="1X03" value="" x="45.64" y="83.5" smashed="yes">
@@ -3372,7 +3371,7 @@ design rules under a new name.</description>
 <element name="IC5" library="texas" package="DBZ_R-PDSO-G3" value="LM4040B10" x="19.57" y="71.8" smashed="yes" rot="MR0">
 <attribute name="MF" value="TEXAS INSTRUMENT CONNECTORS" x="19.57" y="71.8" size="1.778" layer="28" rot="MR0" display="off"/>
 <attribute name="MPN" value="LM4041C12QDBZT" x="19.57" y="71.8" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="NAME" x="18.875" y="72.705" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="18.875" y="72.705" size="0.9" layer="26" font="vector" rot="MR0"/>
 <attribute name="OC_FARNELL" value="1771733" x="19.57" y="71.8" size="1.778" layer="28" rot="MR0" display="off"/>
 <attribute name="OC_NEWARK" value="43K3376" x="19.57" y="71.8" size="1.778" layer="28" rot="MR0" display="off"/>
 <attribute name="VALUE" x="21.475" y="68.625" size="1.27" layer="28" rot="MR0"/>
@@ -3381,7 +3380,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="16.77" y="67.362" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="C19" library="resistor" package="C0603" value="100n" x="19.57" y="69.3" smashed="yes" rot="MR180">
-<attribute name="NAME" x="17.959" y="68.862" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="17.959" y="68.862" size="0.9" layer="26" font="vector" rot="MR0"/>
 <attribute name="VALUE" x="18.681" y="71.332" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="R15" library="Rebel" package="0603" value="4k7" x="11.04" y="53.2" smashed="yes" rot="MR180">
@@ -3415,7 +3414,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="5.04" y="42.962" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="C9" library="resistor" package="C0603" value="100n" x="21.44" y="48" smashed="yes" rot="MR270">
-<attribute name="NAME" x="21.951" y="48.538" size="0.9" layer="26" rot="MR180"/>
+<attribute name="NAME" x="21.951" y="48.538" size="0.9" layer="26" font="vector" rot="MR180"/>
 <attribute name="VALUE" x="23.472" y="48.889" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="C6" library="resistor" package="C0603" value="100n" x="14.34" y="42.5" smashed="yes" rot="MR270">
@@ -3435,15 +3434,15 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="4.385" y="55.36" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="C11" library="resistor" package="C0603" value="100p" x="14.34" y="52.4" smashed="yes" rot="MR270">
-<attribute name="NAME" x="15.051" y="52.838" size="0.9" layer="26" rot="MR180"/>
+<attribute name="NAME" x="15.051" y="52.838" size="0.9" layer="26" font="vector" rot="MR180"/>
 <attribute name="VALUE" x="16.372" y="53.289" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="C13" library="resistor" package="C0603" value="1n" x="7.54" y="55.5" smashed="yes" rot="MR0">
-<attribute name="NAME" x="5.929" y="55.062" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="5.929" y="55.062" size="0.9" layer="26" font="vector" rot="MR0"/>
 <attribute name="VALUE" x="8.429" y="53.468" size="1.27" layer="28" rot="MR0"/>
 </element>
 <element name="C10" library="resistor" package="C0603" value="1n" x="7.54" y="53.8" smashed="yes" rot="MR0">
-<attribute name="NAME" x="6.029" y="53.362" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="6.029" y="53.362" size="0.9" layer="26" font="vector" rot="MR0"/>
 <attribute name="VALUE" x="8.429" y="51.768" size="1.27" layer="28" rot="MR0"/>
 </element>
 <element name="R17" library="Rebel" package="0603" value="10k" x="11.04" y="56.1" smashed="yes" rot="MR0">
@@ -3456,7 +3455,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="17.34" y="64" size="0.9" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
 <element name="R26" library="Rebel" package="0603" value="4k3" x="7.54" y="64.9" smashed="yes" rot="MR180">
-<attribute name="NAME" x="7.56" y="65.762" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
+<attribute name="NAME" x="7.56" y="65.662" size="0.8128" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="R22" library="Rebel" package="0603" value="4k3" x="7.54" y="59.6" smashed="yes" rot="MR180">
 <attribute name="NAME" x="4.74" y="59.162" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
@@ -3468,19 +3467,19 @@ design rules under a new name.</description>
 <attribute name="NAME" x="12.84" y="58.938" size="0.7" layer="26" font="vector" rot="MR180" align="bottom-center"/>
 </element>
 <element name="C16" library="resistor" package="C0603" value="100p" x="14.34" y="64.1" smashed="yes" rot="MR90">
-<attribute name="NAME" x="15.489" y="65.622" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="13.933" y="65.659" size="0.9" layer="26" font="vector" rot="MR90"/>
 <attribute name="VALUE" x="12.308" y="63.211" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="C14" library="resistor" package="C0603" value="1n" x="7.44" y="61.2" smashed="yes" rot="MR0">
-<attribute name="NAME" x="5.229" y="60.762" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="5.483" y="60.762" size="0.9" layer="26" font="vector" rot="MR0"/>
 <attribute name="VALUE" x="8.329" y="59.168" size="1.27" layer="28" rot="MR0"/>
 </element>
 <element name="C18" library="resistor" package="C0603" value="1n" x="7.44" y="62.8" smashed="yes" rot="MR0">
-<attribute name="NAME" x="5.729" y="62.362" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="5.729" y="62.362" size="0.9" layer="26" font="vector" rot="MR0"/>
 <attribute name="VALUE" x="8.329" y="60.768" size="1.27" layer="28" rot="MR0"/>
 </element>
 <element name="R21" library="Rebel" package="0603" value="10k" x="11.04" y="61.2" smashed="yes" rot="MR0">
-<attribute name="NAME" x="11.04" y="62.062" size="0.7" layer="26" font="vector" rot="MR0" align="bottom-center"/>
+<attribute name="NAME" x="11.04" y="61.9506" size="0.7" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="R45" library="Rebel" package="0603" value="510R" x="11.36" y="92.88" smashed="yes" rot="MR90">
 <attribute name="NAME" x="10.922" y="89.98" size="0.9" layer="26" font="vector" rot="MR90" align="bottom-center"/>
@@ -3492,43 +3491,43 @@ design rules under a new name.</description>
 <attribute name="NAME" x="19.942" y="89.58" size="1.016" layer="26" font="vector" rot="MR90" align="bottom-center"/>
 </element>
 <element name="C17" library="resistor" package="C0603" value="100n" x="20.04" y="64.2" smashed="yes" rot="MR90">
-<attribute name="NAME" x="20.902" y="63.011" size="0.9" layer="26" rot="MR90"/>
+<attribute name="NAME" x="20.902" y="63.011" size="0.9" layer="26" font="vector" rot="MR90"/>
 <attribute name="VALUE" x="18.008" y="63.311" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="C12" library="resistor" package="C0603" value="100n" x="14.56" y="55.7" smashed="yes" rot="MR90">
-<attribute name="NAME" x="14.089" y="57.122" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="14.196" y="57.158" size="0.8128" layer="26" font="vector" rot="MR90"/>
 <attribute name="VALUE" x="12.528" y="54.811" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="JP8" library="SparkFun" package="AVR_ICSP" value="M05X2PTH" x="45.04" y="5.83" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="47.834" y="5.576" size="0.4064" layer="28" font="vector" rot="MR90"/>
 </element>
-<element name="Q2" library="transistor-small-signal" package="SOT23" value="SI2309CDS" x="39.84" y="9.83" smashed="yes" rot="MR0">
-<attribute name="NAME" x="40.445" y="6.935" size="0.9" layer="26" rot="MR0"/>
-<attribute name="OC_FARNELL" value="1779264" x="51.66" y="16.41" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="VALUE" x="41.745" y="6.655" size="1.27" layer="28" rot="MR0"/>
+<element name="Q2" library="transistor-small-signal" package="SOT23" value="SI2309CDS" x="39.84" y="11.1" smashed="yes" rot="MR0">
+<attribute name="NAME" x="40.445" y="8.205" size="0.9" layer="26" font="vector" rot="MR0"/>
+<attribute name="OC_FARNELL" value="1779264" x="51.66" y="17.68" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="VALUE" x="41.745" y="7.925" size="1.27" layer="28" rot="MR0"/>
 </element>
-<element name="Q1" library="transistor-small-signal" package="SOT23" value="BSS123" x="39.84" y="1.83" smashed="yes" rot="MR180">
-<attribute name="NAME" x="40.545" y="3.835" size="0.9" layer="26" rot="MR0"/>
-<attribute name="OC_FARNELL" value="1843725" x="16.95" y="2.54" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="VALUE" x="37.935" y="5.005" size="1.27" layer="28" rot="MR180"/>
+<element name="Q1" library="transistor-small-signal" package="SOT23" value="BSS123" x="39.84" y="3.1" smashed="yes" rot="MR180">
+<attribute name="NAME" x="40.545" y="5.105" size="0.9" layer="26" font="vector" rot="MR0"/>
+<attribute name="OC_FARNELL" value="1843725" x="16.95" y="3.81" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="VALUE" x="37.935" y="6.275" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="C3" library="Rebel" package="C0603" value="100n" x="9.24" y="7.83" smashed="yes" rot="MR90">
-<attribute name="NAME" x="9.24" y="5.092" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
+<attribute name="NAME" x="9.113" y="5.346" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="C1" library="Rebel" package="C0603" value="100n 16v" x="9.14" y="2.23" smashed="yes" rot="MR270">
-<attribute name="NAME" x="9.14" y="0.468" size="0.9" layer="26" font="vector" rot="MR180" align="bottom-center"/>
+<attribute name="NAME" x="9.021" y="-0.214" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="IC1" library="James" package="DPACK" value="MC7805CDTG" x="17.07" y="5.04" smashed="yes" rot="MR90">
 <attribute name="NAME" x="22.94" y="2.52" size="0.9" layer="26" rot="MR90"/>
 <attribute name="OC_FARNELL" value="2296028" x="26.74" y="-11.92" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="14.53" y="10.12" size="1.27" layer="28" rot="MR180"/>
 </element>
-<element name="C4" library="Rebel" package="CPOL-5" value="10u" x="35.44" y="9.33" smashed="yes" rot="MR270">
-<attribute name="NAME" x="36.49" y="8.88" size="0.9" layer="26" rot="MR0"/>
-<attribute name="VALUE" x="38.265" y="10.98" size="1.016" layer="28" rot="MR270"/>
+<element name="C4" library="Rebel" package="CPOL-5" value="10u" x="35.44" y="10.6" smashed="yes" rot="MR270">
+<attribute name="NAME" x="37.506" y="10.15" size="0.9" layer="26" font="vector" rot="MR0"/>
+<attribute name="VALUE" x="38.265" y="12.25" size="1.016" layer="28" rot="MR270"/>
 </element>
 <element name="C5" library="rcl" package="PANASONIC_C" value="47u" x="12.24" y="11.33" smashed="yes" rot="MR0">
-<attribute name="NAME" x="13.54" y="14.18" size="0.9" layer="26" rot="MR0"/>
+<attribute name="NAME" x="13.032" y="12.275" size="0.9" layer="26" font="vector" rot="MR0"/>
 <attribute name="VALUE" x="14.89" y="7.555" size="1.016" layer="28" rot="MR0"/>
 </element>
 <element name="SW1" library="Rebel" package="SPDG-P94" value="SPDG-P94" x="27.94" y="72.39" smashed="yes">
@@ -3537,11 +3536,11 @@ design rules under a new name.</description>
 <element name="SW3" library="Rebel" package="SUB-MIN-SPDT" value="SUB-MIN-SPDT" x="3.81" y="30.48"/>
 <element name="SW4" library="Rebel" package="SUB-MIN-SPDT" value="SUB-MIN-SPDT" x="52.07" y="30.48"/>
 <element name="C21" library="resistor" package="C0603" value="100p" x="13.22" y="56.74" smashed="yes" rot="MR270">
-<attribute name="NAME" x="13.558" y="55.129" size="0.9" layer="26" rot="MR270"/>
+<attribute name="NAME" x="13.558" y="55.51" size="0.9" layer="26" font="vector" rot="MR270"/>
 <attribute name="VALUE" x="15.252" y="57.629" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="C22" library="resistor" package="C0603" value="100p" x="13.26" y="60.39" smashed="yes" rot="MR90">
-<attribute name="NAME" x="13.922" y="59.301" size="0.9" layer="26" rot="MR90"/>
+<attribute name="NAME" x="13.922" y="59.301" size="0.9" layer="26" font="vector" rot="MR90"/>
 <attribute name="VALUE" x="11.228" y="59.501" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="BUS" library="Rebel" package="JST-B3B-PH-KL" value="" x="41.6" y="31.3" rot="MR270"/>
@@ -3649,7 +3648,7 @@ design rules under a new name.</description>
 <via x="34.34" y="59.72" extent="1-16" drill="0.3048"/>
 <via x="19.54" y="5.03" extent="1-16" drill="0.3048"/>
 <via x="15.74" y="5.03" extent="1-16" drill="0.3048"/>
-<via x="34.44" y="0.83" extent="1-16" drill="0.3048"/>
+<via x="34.44" y="1.465" extent="1-16" drill="0.3048"/>
 <via x="36.44" y="11.03" extent="1-16" drill="0.3048"/>
 <via x="5.84" y="63.9" extent="1-16" drill="0.3048"/>
 <via x="26.04" y="57.02" extent="1-16" drill="0.3048"/>
@@ -3660,7 +3659,7 @@ design rules under a new name.</description>
 <contactref element="C22" pad="2"/>
 <via x="5.44" y="52.9" extent="1-16" drill="0.3048"/>
 <via x="5.84" y="61.2" extent="1-16" drill="0.3048"/>
-<via x="10.04" y="54.6" extent="1-16" drill="0.3048"/>
+<via x="9.532" y="54.6" extent="1-16" drill="0.3048"/>
 <via x="12.34" y="54.6" extent="1-16" drill="0.3048"/>
 <via x="16.64" y="54.1" extent="1-16" drill="0.3048"/>
 <via x="10.04" y="47.4" extent="1-16" drill="0.3048"/>
@@ -3674,7 +3673,7 @@ design rules under a new name.</description>
 <via x="3.84" y="47.7" extent="1-16" drill="0.3048"/>
 <via x="3.84" y="50.5" extent="1-16" drill="0.3048"/>
 <via x="3.74" y="54.7" extent="1-16" drill="0.3048"/>
-<via x="5.745" y="69.443" extent="1-16" drill="0.3048"/>
+<via x="5.872" y="65.887" extent="1-16" drill="0.3048"/>
 <via x="3.84" y="42" extent="1-16" drill="0.3048"/>
 <via x="39.84" y="46.5" extent="1-16" drill="0.3048"/>
 <via x="39.84" y="52.5" extent="1-16" drill="0.3048"/>
@@ -3703,6 +3702,9 @@ design rules under a new name.</description>
 <wire x1="20.42" y1="70.6" x2="20.52" y2="70.7" width="0.4064" layer="16"/>
 <via x="28.967" y="62.32" extent="1-16" drill="0.3048"/>
 <contactref element="TR" pad="P$2"/>
+<via x="4.348" y="66.141" extent="1-16" drill="0.3048"/>
+<via x="9.024" y="52.695" extent="1-16" drill="0.3048"/>
+<via x="46.879" y="75.006" extent="1-16" drill="0.3048"/>
 </signal>
 <signal name="+5V">
 <contactref element="PWR" pad="1"/>
@@ -3858,10 +3860,10 @@ design rules under a new name.</description>
 <contactref element="R16" pad="2"/>
 <contactref element="C10" pad="1"/>
 <wire x1="10.19" y1="53.2" x2="10.19" y2="51.7" width="0.4064" layer="16"/>
-<wire x1="8.39" y1="53.8" x2="8.39" y2="51.7" width="0.4064" layer="16"/>
 <wire x1="8.39" y1="51.7" x2="10.19" y2="51.7" width="0.4064" layer="16"/>
-<wire x1="8.39" y1="53.8" x2="9.5" y2="53.8" width="0.4064" layer="16"/>
-<wire x1="9.5" y1="53.8" x2="9.9" y2="53.4" width="0.4064" layer="16"/>
+<wire x1="10.19" y1="53.2" x2="10.19" y2="53.2" width="0.4064" layer="16"/>
+<wire x1="10.19" y1="53.2" x2="9.59" y2="53.8" width="0.4064" layer="16"/>
+<wire x1="9.59" y1="53.8" x2="8.39" y2="53.8" width="0.4064" layer="16"/>
 </signal>
 <signal name="+12V">
 <contactref element="IC4" pad="4"/>
@@ -3885,9 +3887,8 @@ design rules under a new name.</description>
 <wire x1="27.63" y1="57.41" x2="26.84" y2="56.62" width="0.4064" layer="16"/>
 <wire x1="26.84" y1="56.62" x2="26.84" y2="55.87" width="0.4064" layer="16"/>
 <wire x1="26.84" y1="55.87" x2="26.79" y2="55.82" width="0.4064" layer="16"/>
-<wire x1="35.365" y1="7.605" x2="32.94" y2="10.03" width="0.6096" layer="16"/>
-<wire x1="32.94" y1="10.03" x2="32.94" y2="11.03" width="0.6096" layer="16"/>
-<wire x1="32.94" y1="11.03" x2="29.24" y2="14.73" width="0.6096" layer="16"/>
+<wire x1="35.4" y1="8.915" x2="35.055" y2="8.915" width="0.6096" layer="16"/>
+<wire x1="35.055" y1="8.915" x2="29.24" y2="14.73" width="0.6096" layer="16"/>
 <wire x1="21.44" y1="17.53" x2="21.44" y2="44.1" width="0.6096" layer="16"/>
 <wire x1="21.44" y1="44.1" x2="19.885" y2="45.655" width="0.6096" layer="16"/>
 <wire x1="29.24" y1="14.73" x2="24.24" y2="14.73" width="0.6096" layer="16"/>
@@ -3902,9 +3903,8 @@ design rules under a new name.</description>
 <wire x1="19.885" y1="47.745" x2="20.99" y2="48.85" width="0.4064" layer="16"/>
 <wire x1="21.34" y1="48.95" x2="21.44" y2="48.85" width="0.4064" layer="16"/>
 <wire x1="21.44" y1="48.85" x2="20.99" y2="48.85" width="0.4064" layer="16"/>
-<wire x1="35.44" y1="7.605" x2="37.765" y2="7.605" width="0.6096" layer="16"/>
-<wire x1="37.765" y1="7.605" x2="38.89" y2="8.73" width="0.6096" layer="16"/>
-<wire x1="35.44" y1="7.605" x2="35.365" y2="7.605" width="0.6096" layer="16"/>
+<wire x1="35.44" y1="8.875" x2="37.765" y2="8.875" width="0.6096" layer="16"/>
+<wire x1="37.765" y1="8.875" x2="38.89" y2="10" width="0.6096" layer="16"/>
 <wire x1="14.94" y1="8.53" x2="17.44" y2="11.03" width="0.6096" layer="16"/>
 <wire x1="17.44" y1="11.03" x2="20.44" y2="11.03" width="0.6096" layer="16"/>
 <wire x1="20.44" y1="11.03" x2="24.19" y2="14.78" width="0.6096" layer="16"/>
@@ -3912,6 +3912,7 @@ design rules under a new name.</description>
 <wire x1="23.45" y1="48.85" x2="21.44" y2="48.85" width="0.4064" layer="16"/>
 <wire x1="26.94" y1="55.77" x2="26.94" y2="52.34" width="0.4064" layer="16"/>
 <wire x1="26.94" y1="52.34" x2="23.45" y2="48.85" width="0.4064" layer="16"/>
+<wire x1="35.44" y1="8.875" x2="35.4" y2="8.915" width="0.6096" layer="16"/>
 </signal>
 <signal name="-12V">
 <contactref element="IC4" pad="11"/>
@@ -3941,7 +3942,7 @@ design rules under a new name.</description>
 <wire x1="20.889" y1="67.8" x2="17.34" y2="67.8" width="0.4064" layer="1"/>
 <wire x1="17.34" y1="67.8" x2="15.24" y2="65.7" width="0.4064" layer="1"/>
 <wire x1="15.24" y1="65.7" x2="15.24" y2="56.6" width="0.4064" layer="1"/>
-<wire x1="31.94" y1="2.03" x2="25.44" y2="2.03" width="0.6096" layer="16"/>
+<wire x1="32.17" y1="2.03" x2="25.44" y2="2.03" width="0.6096" layer="16"/>
 <wire x1="25.44" y1="2.03" x2="23.84" y2="0.33" width="0.6096" layer="16"/>
 <wire x1="23.84" y1="0.33" x2="13.64" y2="0.33" width="0.6096" layer="16"/>
 <via x="13.64" y="0.33" extent="1-16" drill="0.3048"/>
@@ -3951,14 +3952,12 @@ design rules under a new name.</description>
 <via x="13.54" y="41.4" extent="1-16" drill="0.3048"/>
 <wire x1="13.54" y1="41.4" x2="14.19" y2="41.4" width="0.6096" layer="16"/>
 <wire x1="14.19" y1="41.4" x2="14.34" y2="41.65" width="0.6096" layer="16"/>
-<wire x1="40.79" y1="2.93" x2="40.79" y2="3.68" width="0.6096" layer="16"/>
-<wire x1="40.79" y1="3.68" x2="39.94" y2="4.53" width="0.6096" layer="16"/>
-<wire x1="39.94" y1="4.53" x2="35.715" y2="4.53" width="0.6096" layer="16"/>
-<wire x1="35.715" y1="4.53" x2="35.44" y2="4.255" width="0.6096" layer="16"/>
-<wire x1="35.44" y1="4.255" x2="35.44" y2="4.03" width="0.6096" layer="16"/>
-<wire x1="35.44" y1="4.03" x2="34.94" y2="3.53" width="0.6096" layer="16"/>
-<wire x1="34.94" y1="3.53" x2="33.44" y2="3.53" width="0.6096" layer="16"/>
-<wire x1="33.44" y1="3.53" x2="31.94" y2="2.03" width="0.6096" layer="16"/>
+<wire x1="40.79" y1="4.2" x2="40.79" y2="4.95" width="0.6096" layer="16"/>
+<wire x1="40.79" y1="4.95" x2="39.94" y2="5.8" width="0.6096" layer="16"/>
+<wire x1="39.94" y1="5.8" x2="35.715" y2="5.8" width="0.6096" layer="16"/>
+<wire x1="35.715" y1="5.8" x2="35.44" y2="5.525" width="0.6096" layer="16"/>
+<wire x1="35.44" y1="5.525" x2="35.44" y2="5.3" width="0.6096" layer="16"/>
+<wire x1="35.44" y1="5.3" x2="32.17" y2="2.03" width="0.6096" layer="16"/>
 <wire x1="26.17830625" y1="67.8" x2="26.99" y2="66.98830625" width="0.4064" layer="16"/>
 <wire x1="26.99" y1="66.98830625" x2="26.99" y2="66.82" width="0.4064" layer="16"/>
 <wire x1="27.63" y1="65.62" x2="26.99" y2="66.26" width="0.4064" layer="16"/>
@@ -4301,7 +4300,6 @@ design rules under a new name.</description>
 <via x="25.14" y="65.52" extent="1-16" drill="0.3048"/>
 <wire x1="25.09" y1="66.82" x2="25.09" y2="65.57" width="0.4064" layer="16"/>
 <wire x1="25.09" y1="65.57" x2="25.14" y2="65.52" width="0.4064" layer="16" curve="90"/>
-<wire x1="46.09" y1="72.1" x2="46.29" y2="71.9" width="0.4064" layer="16"/>
 <wire x1="40.3" y1="65.689" x2="36.922" y2="62.311" width="0.4064" layer="16"/>
 <via x="35.525" y="62.311" extent="1-16" drill="0.3048"/>
 <wire x1="36.922" y1="62.311" x2="35.525" y2="62.311" width="0.4064" layer="16"/>
@@ -4446,9 +4444,9 @@ design rules under a new name.</description>
 <wire x1="5.6" y1="33.8" x2="4.5" y2="34.9" width="0.254" layer="1"/>
 <wire x1="4.5" y1="34.9" x2="4.5" y2="56.2" width="0.254" layer="1"/>
 <wire x1="4.5" y1="56.2" x2="5.2" y2="56.9" width="0.254" layer="1"/>
-<wire x1="5.2" y1="56.9" x2="5.2" y2="65.9" width="0.254" layer="1"/>
-<wire x1="5.2" y1="65.9" x2="4.7" y2="66.4" width="0.254" layer="1"/>
-<wire x1="4.7" y1="66.4" x2="4.7" y2="70" width="0.254" layer="1"/>
+<wire x1="5.2" y1="56.9" x2="5.2" y2="66.662" width="0.254" layer="1"/>
+<wire x1="5.2" y1="66.662" x2="4.7" y2="67.162" width="0.254" layer="1"/>
+<wire x1="4.7" y1="67.162" x2="4.7" y2="70" width="0.254" layer="1"/>
 <wire x1="4.7" y1="70" x2="5.3" y2="70.6" width="0.254" layer="1"/>
 <wire x1="15.17" y1="95.9675" x2="15.17" y2="80.47" width="0.254" layer="1"/>
 <wire x1="15.17" y1="80.47" x2="5.3" y2="70.6" width="0.254" layer="1"/>
@@ -4579,16 +4577,16 @@ design rules under a new name.</description>
 <contactref element="JP8" pad="9"/>
 <contactref element="Q1" pad="3"/>
 <wire x1="46.31" y1="0.75" x2="43.77" y2="0.75" width="0.6096" layer="16"/>
-<wire x1="43.77" y1="0.75" x2="39.86" y2="0.75" width="0.6096" layer="16"/>
-<wire x1="39.86" y1="0.75" x2="39.84" y2="0.73" width="0.6096" layer="16"/>
+<wire x1="43.77" y1="0.75" x2="41.09" y2="0.75" width="0.6096" layer="16"/>
+<wire x1="41.09" y1="0.75" x2="39.84" y2="2" width="0.6096" layer="16"/>
 </signal>
 <signal name="N$12">
 <contactref element="JP8" pad="2"/>
 <contactref element="JP8" pad="1"/>
 <contactref element="Q2" pad="3"/>
 <wire x1="46.31" y1="10.91" x2="43.77" y2="10.91" width="0.6096" layer="16"/>
-<wire x1="43.77" y1="10.91" x2="39.86" y2="10.91" width="0.6096" layer="16"/>
-<wire x1="39.86" y1="10.91" x2="39.84" y2="10.93" width="0.6096" layer="16"/>
+<wire x1="43.77" y1="10.91" x2="41.13" y2="10.91" width="0.6096" layer="16"/>
+<wire x1="41.13" y1="10.91" x2="39.84" y2="12.2" width="0.6096" layer="16"/>
 </signal>
 <signal name="GP1_LEDPWM">
 <contactref element="LGP1-5" pad="1"/>
@@ -4726,11 +4724,11 @@ design rules under a new name.</description>
 <wire x1="54.5375" y1="87.0375" x2="52.2" y2="84.7" width="0.254" layer="1"/>
 <wire x1="52.2" y1="84.7" x2="52.2" y2="80.8" width="0.254" layer="1"/>
 <wire x1="52.2" y1="80.8" x2="49" y2="77.6" width="0.254" layer="1"/>
-<wire x1="49" y1="77.6" x2="49" y2="73.881" width="0.254" layer="1"/>
-<wire x1="49" y1="73.881" x2="52.427" y2="70.454" width="0.254" layer="1"/>
-<wire x1="52.427" y1="70.454" x2="52.427" y2="65.373" width="0.254" layer="1"/>
-<wire x1="52.427" y1="65.373" x2="46.99" y2="59.936" width="0.254" layer="1"/>
-<wire x1="46.99" y1="59.936" x2="46.99" y2="40.383" width="0.254" layer="1"/>
+<wire x1="49" y1="77.6" x2="49" y2="73.373" width="0.254" layer="1"/>
+<wire x1="49" y1="73.373" x2="52.173" y2="70.2" width="0.254" layer="1"/>
+<wire x1="52.173" y1="70.2" x2="52.173" y2="65.627" width="0.254" layer="1"/>
+<wire x1="52.173" y1="65.627" x2="46.99" y2="60.444" width="0.254" layer="1"/>
+<wire x1="46.99" y1="60.444" x2="46.99" y2="40.383" width="0.254" layer="1"/>
 <wire x1="46.99" y1="40.383" x2="47.2" y2="40.173" width="0.254" layer="1"/>
 <via x="47.2" y="40.173" extent="1-16" drill="0.3048"/>
 <wire x1="47.2" y1="40.173" x2="25.227" y2="40.173" width="0.254" layer="16"/>

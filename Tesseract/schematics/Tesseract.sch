@@ -24386,7 +24386,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="P+8" library="supply1" deviceset="+5V" device=""/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
-<part name="EXTSPI" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="LGP6-7" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="IN_L" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="IN_R" library="Rebel" deviceset="THONKICONN" device=""/>
@@ -24603,10 +24602,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <attribute name="VALUE" x="114.3" y="-22.86" size="1.778" layer="96" rot="MR180"/>
 </instance>
 <instance part="GND9" gate="1" x="106.68" y="-38.1" rot="MR0"/>
-<instance part="EXTSPI" gate="G$1" x="99.06" y="10.16" smashed="yes">
-<attribute name="VALUE" x="93.98" y="2.54" size="1.778" layer="96"/>
-<attribute name="NAME" x="93.218" y="7.62" size="1.778" layer="95" rot="R90"/>
-</instance>
 <instance part="LGP6-7" gate="G$1" x="96.52" y="-20.32" smashed="yes">
 <attribute name="VALUE" x="93.98" y="-25.4" size="1.778" layer="96"/>
 <attribute name="NAME" x="93.218" y="-22.86" size="1.778" layer="95" rot="R90"/>
