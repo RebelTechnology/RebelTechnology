@@ -12,7 +12,7 @@
    height="297mm"
    viewBox="0 0 210 297"
    id="svg8437"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.92.1 r15371"
    sodipodi:docname="Magus.svg">
   <metadata
      id="metadata8549">
@@ -30,13 +30,13 @@
      inkscape:document-units="mm"
      units="mm"
      showgrid="false"
-     inkscape:zoom="7.1762364"
-     inkscape:cx="482.75634"
-     inkscape:cy="910.9317"
-     inkscape:window-width="1615"
-     inkscape:window-height="1026"
-     inkscape:window-x="65"
-     inkscape:window-y="24"
+     inkscape:zoom="1.2685914"
+     inkscape:cx="431.91082"
+     inkscape:cy="894.53011"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="1050"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg8437" />
   <defs
@@ -379,25 +379,20 @@
      id="path16004"
      d="m 135.06668,31.25718 3,0 0,2.019675 2.00001,0 -2.00001,9.079145 -3,0 -2,-9.079145 2,0 z"
      style="fill:none;stroke:#ff0000;stroke-width:0.05;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-  <path
-     style="fill:none;stroke:#ff0000;stroke-width:0.05;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="m 146.35556,31.25718 c 0,-1 3,-1 3,0 l 0,2.019675 2.00001,0 -2.00001,9.079145 -3,0 -2,-9.079145 2,0 z"
-     id="path11415"
-     inkscape:connector-curvature="0"
-     sodipodi:nodetypes="ssccccccs" />
   <text
      xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:125%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="133.23325"
      y="24.615252"
-     id="text11417"
-     sodipodi:linespacing="125%"><tspan
+     id="text11417"><tspan
        sodipodi:role="line"
        id="tspan11419"
        x="133.23325"
-       y="24.615252">LIGHTPIPES 3mm Opal</tspan><tspan
+       y="24.615252"
+       style="font-size:2.82222199px;line-height:1.25">LIGHTPIPES 3mm Opal</tspan><tspan
        sodipodi:role="line"
        x="133.23325"
-       y="28.14303"
-       id="tspan11421" /></text>
+       y="28.763212"
+       id="tspan11421"
+       style="font-size:2.82222199px;line-height:1.25"> </tspan></text>
 </svg>
