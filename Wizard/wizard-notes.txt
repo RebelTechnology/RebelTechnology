@@ -124,3 +124,60 @@ SW2	     		BUTTON_B
 SW3	     		BUTTON_E / Mode
 
 --------------------------------------------------------------------------------
+
+Note: CV in attenuates by apprx 0.6x at full gain, so 3.3V in doesn't reach ADC full scale.
+
+--------------------------------------------------------------------------------
+
+Specifications
+
+Voltage Ranges
+CV In: 0-10V with attenuation/gain 0x to 2x
+CV Out: 0-3.3V
+Trigger in: 0-10V, threshold 0.8V
+Trigger out: 0V off, 3.3V on
+Audio In: 
+Audio Out: 4.5VPP max
+
+Impedance
+Audio In: 100k
+Audio Out: 22 Ohm
+CV In: 15k
+CV Out: 1k
+Trigger In: 100k
+Trigger Out 1k
+
+--------------------------------------------------------------------------------
+
+test:
+
+Connect USB
+
+Load patch https://www.rebeltech.org/patch-library/patch/Quad_Tone
+
+buttons A and B: turn on oscillator pairs
+Knobs A, and C control left side oscillators,
+Knobs B and D control right side oscillators
+Test out left, right and knob range
+
+Test buttons C and D: turn on oscillators with gain set by knob E
+
+Test CV in A > knob A (knob attenuates)
+Test CV in B > knob B (knob attenuates)
+Test trigger in > button A
+
+Load patch https://www.rebeltech.org/patch-library/patch/Wizard_Test
+Test trigger out: button B high, button A low
+Test CV out A with knob C, test CV out B with knob D
+
+Load patch https://www.rebeltech.org/patch-library/patch/Four_Band_EQ
+
+Test left in, right in
+
+dc power 9v
+
+Test mode button:
+- change volume with knob D
+- change patch with knob E
+
+--------------------------------------------------------------------------------
