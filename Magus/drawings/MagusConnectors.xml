@@ -1,0 +1,17 @@
+<module type="4hp">
+
+  <!-- jacks -->
+  <hole x="0" y="1.75" radius="3.25"/>
+  <hole x="0" y="1.10" radius="3.25"/>
+  <hole x="0" y="0.45" radius="3.25"/>
+
+  <!-- usb client connector -->
+  <rect x="0" y="-0.20" width="11" height="12"/>
+    
+  <!-- usb host connector -->
+  <rect x="0" y="-0.95" height="14.75" width="7"/>
+
+    <!-- DC jack -->
+  <rect x="0" y="-1.70" height="9" width="12"/>
+
+</module>

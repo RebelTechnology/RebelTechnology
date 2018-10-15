@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   id="svg4509"
+   sodipodi:docname="MagusExpander.svg"
+   inkscape:version="0.92.1 r15371">
+  <metadata
+     id="metadata4511">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     id="base"
+     inkscape:document-units="mm"
+     units="mm"
+     showgrid="false"
+     inkscape:zoom="1.5144501"
+     inkscape:cx="204.57344"
+     inkscape:cy="892.64721"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="1050"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4509" />
+  <defs
+     id="defs4487">
+    <g
+       id="potgrading" />
+  </defs>
+  <g
+     style="fill:none;stroke-width:0.05;stroke:#ff0000"
+     id="g4507">
+    <rect
+       x="0.0"
+       y="0.0"
+       width="20.00"
+       height="128.50"
+       id="rect4489" />
+    <circle
+       cx="7.5"
+       cy="3"
+       r="1.6"
+       id="circle4491" />
+    <circle
+       cx="7.5"
+       cy="125.5"
+       r="1.6"
+       id="circle4493" />
+    <circle
+       cx="7.75"
+       cy="19.799999"
+       r="3.25"
+       style="fill:none;stroke:#ff0000"
+       id="circle4495" />
+    <circle
+       cx="7.75"
+       cy="36.310001"
+       r="3.25"
+       style="fill:none;stroke:#ff0000"
+       id="circle4497" />
+    <circle
+       cx="7.75"
+       cy="52.82"
+       r="3.25"
+       style="fill:none;stroke:#ff0000"
+       id="circle4499" />
+    <circle
+       cx="7.75"
+       cy="107.43"
+       r="3.25"
+       style="fill:none;stroke:#ff0000"
+       id="circle4501" />
+    <rect
+       x="4.5"
+       y="63.330002"
+       width="11"
+       height="12"
+       style="fill:none;stroke:#ff0000"
+       id="rect4503" />
+    <rect
+       x="4.5"
+       y="81.004997"
+       width="7"
+       height="14.75"
+       style="fill:none;stroke:#ff0000"
+       id="rect4505" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="18.328255"
+     y="-16.555986"
+     id="text6892"
+     transform="rotate(90)"><tspan
+       sodipodi:role="line"
+       id="tspan6894"
+       x="18.328255"
+       y="-16.555986"
+       style="font-size:2.82222199px;line-height:1.25;stroke-width:1px">IN</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="33.22044"
+     y="-16.60961"
+     id="text6896"
+     transform="rotate(90)"><tspan
+       sodipodi:role="line"
+       id="tspan6898"
+       x="33.22044"
+       y="-16.60961"
+       style="font-size:2.82222199px;line-height:1.25;stroke-width:1px">OUT</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="64.639015"
+     y="-16.60961"
+     id="text6900"
+     transform="rotate(90)"><tspan
+       sodipodi:role="line"
+       id="tspan6902"
+       x="64.639015"
+       y="-16.60961"
+       style="font-size:2.82222199px;line-height:1.25;stroke-width:1px">DEVICE · USB · HOST</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="104.29359"
+     y="-16.60961"
+     id="text6908"
+     transform="rotate(90)"><tspan
+       sodipodi:role="line"
+       id="tspan6910"
+       x="104.29359"
+       y="-16.60961"
+       style="font-size:2.82222199px;line-height:1.25;stroke-width:1px">MIDI</tspan></text>
+  <text
+     id="text48"
+     y="-16.60961"
+     x="49.979862"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"
+     transform="rotate(90)"><tspan
+       style="font-size:2.82222199px;line-height:1.25;stroke-width:1px"
+       y="-16.60961"
+       x="49.979862"
+       id="tspan46"
+       sodipodi:role="line">EXT</tspan></text>
+</svg>
