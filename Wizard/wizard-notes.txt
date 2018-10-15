@@ -180,4 +180,6 @@ Test mode button:
 - change volume with knob D
 - change patch with knob E
 
+Test USB Host with Poly Sub
+
 --------------------------------------------------------------------------------

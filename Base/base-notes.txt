@@ -381,6 +381,37 @@ Or Opal Gloss 050
 Or Polar White Frost S2 030?
 Moonlight White Frost S2 1T41
 
+Opal 030 Cast Perspex Acrylic Sheet With 70% Light Transmission
+Polar White S2 030 Frost Perspex Acrylic Sheet With 60% Light Transmission
+
+Perspex Colour	Light Transmission (%)
+Clear - 000	92%
+Opal - 1T21	3%
+Opal - 069	9%
+Opal - 028	26%
+Opal - 050	37%
+Opal - 040	51%
+Opal - 030	70%
+Silk - SK 040	51%
+Opal - 1TL1 	37%
+Opal - 1TL2 	51%
+
+Perspex Colour			Light Transmission (%)
+Citrus Yellow Frost - S2 2T07	85%
+Lemon Sorbet Frost - S2 2T30	63%
+Mandarin Orange Frost - S2 3T17	59%
+Blush Pink Frost - S2 4T46	54%
+Chilli Red Frost - S2 4T50	44%
+Glacier Green Frost - S2 6T21	74%
+Emerald Green Frost - S2 6T59	18%
+Sapphire Blue Frost - S2 7T28	17%
+Aurora Violet Frost - S2 7T58	55%
+Electric Blue Frost - S2 7T69	73%
+Arctic Blue Frost - S2 7T77	75%
+Polar White Frost - S2 030	60%
+
+https://www.antalis.cz/mediashare/g4media/pdf/PU_EN_PERSPEX_DESIGN_GUIDE_00_03032014.pdf
+
 --------------------------------------------------------------------------
 
 FAQ / questions and answers
