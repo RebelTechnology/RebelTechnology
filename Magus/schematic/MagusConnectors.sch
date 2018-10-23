@@ -16695,7 +16695,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="P+7" library="supply1" deviceset="+12V" device=""/>
 <part name="C7" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
-<part name="C101" library="Rebel" deviceset="CPOL-EU" device="B" value="47u 16v"/>
+<part name="C16" library="Rebel" deviceset="CPOL-EU" device="B" value="47u 16v"/>
 <part name="GND62" library="supply1" deviceset="GND" device=""/>
 <part name="P-3" library="supply1" deviceset="-12V" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
@@ -16820,7 +16820,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <instance part="P+7" gate="1" x="88.9" y="-25.4"/>
 <instance part="C7" gate="G$1" x="88.9" y="-43.18" rot="R180"/>
 <instance part="GND8" gate="1" x="88.9" y="-53.34"/>
-<instance part="C101" gate="G$1" x="101.6" y="-40.64" smashed="yes">
+<instance part="C16" gate="G$1" x="101.6" y="-40.64" smashed="yes">
 <attribute name="NAME" x="100.457" y="-43.6626" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="100.457" y="-46.2026" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -17112,7 +17112,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="88.9" y1="-50.8" x2="88.9" y2="-45.72" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="C101" gate="G$1" pin="-"/>
+<pinref part="C16" gate="G$1" pin="-"/>
 <pinref part="GND62" gate="1" pin="GND"/>
 <wire x1="101.6" y1="-50.8" x2="101.6" y2="-45.72" width="0.1524" layer="91"/>
 </segment>
@@ -17188,7 +17188,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <pinref part="C7" gate="G$1" pin="2"/>
 <wire x1="88.9" y1="-38.1" x2="88.9" y2="-33.02" width="0.1524" layer="91"/>
 <junction x="88.9" y="-33.02"/>
-<pinref part="C101" gate="G$1" pin="+"/>
+<pinref part="C16" gate="G$1" pin="+"/>
 <wire x1="101.6" y1="-38.1" x2="101.6" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="-33.02" x2="88.9" y2="-33.02" width="0.1524" layer="91"/>
 </segment>
