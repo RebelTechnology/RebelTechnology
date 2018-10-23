@@ -625,7 +625,9 @@ FirmwareSender -d 4 -out OWL-MIDI* -in FascinationMachine/FascinationMachineV.bi
 # reset
 amidi -p "hw:1,0,0" -S f07d527df7
 
-f07d527df7
+# reset to bootloader
+amidi -p "hw:1,0,0" -S f07d527ef7
+
 
 --------------------------------------------------------------------------------
 
@@ -693,3 +695,22 @@ dc power 9v
 mode button:
 - change patch with knob D
 - change volume with knob C
+
+--------------------------------------------------------------------------------
+
+interconnects:
+JST JQ connector 2.5mm pitch
+Receptacle 05JQ-ST, Shrouded Header S5B-XH-A-1 (Conrad JST 801037)
+
+JST FJ series
+05R-FJ, 05PL-FJ
+https://www.synth-parts.com/en/Products/connectors-and-cable/Board-to-Board-Connectors/JST-FJ-Plugs-and-Connectors/JST-FJ-Plug-5-pin-for-printed-circuits.html
+https://www.synth-parts.com/en/Products/connectors-and-cable/Board-to-Board-Connectors/JST-FJ-Plugs-and-Connectors/JST-FJ-Socket-5-pin-for-printed-circuits.html
+
+JST PA Series 2mm
+Receptacle 05MQ-ST, Shrouded Header B5P-MQ
+
+Single row 2.54mm pitch right angle female
+Connfly 1389991 Socket enclosure - PCB Total number of pins 5 Contact spacing: 2.54 mm
+
+--------------------------------------------------------------------------------

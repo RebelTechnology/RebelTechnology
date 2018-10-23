@@ -73,6 +73,22 @@
     <svg:circle cx="104.02" cy="3" r="1.6"/>
     <svg:circle cx="104.02" cy="125.5" r="1.6"/>
   </module>
+
+  <module name="24hp" width="121.50" height="128.50">
+    <!-- estimated : 5.08*24 = 121.92mm -->
+    <svg:circle cx="7.5" cy="3" r="1.6"/>
+    <svg:circle cx="7.5" cy="125.5" r="1.6"/>
+    <svg:circle cx="114.18" cy="3" r="1.6"/>
+    <svg:circle cx="114.18" cy="125.5" r="1.6"/>
+  </module>
+  <module name="26hp" width="131.70" height="128.50">
+    <!-- estimated : 5.08*26 = 132.08 -->
+    <svg:circle cx="7.5" cy="3" r="1.6"/>
+    <svg:circle cx="7.5" cy="125.5" r="1.6"/>
+    <svg:circle cx="124.34" cy="3" r="1.6"/>
+    <svg:circle cx="124.34" cy="125.5" r="1.6"/>
+  </module>
+
   <module name="28hp" width="141.90" height="128.50">
     <svg:circle cx="7.5" cy="3" r="1.6"/>
     <svg:circle cx="7.5" cy="125.5" r="1.6"/>

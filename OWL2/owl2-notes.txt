@@ -397,6 +397,9 @@ S25FL064LABMFI010 (mouser £0.709 @100 lead time 20 weeks)
 
 S25FL064LABMFV013
 
+
+S25FL164K0XMFI013 -  Flash Memory, Floating Gate Architecture, Serial NOR, 64 Mbit, 8M x 8bit, SPI, SOIC, 8 Pins
+
 -----------------------------------------------------------------
 
 S25FL128LAGMFM010 128 Mbit (farnell £2.69 @100)
@@ -449,3 +452,9 @@ SOP8 instead of SO8W
 EN25QH32B-104GIP2B, EN25QH32A-104HIP, EN25QH128A-104HIP2T
 
 -----------------------------------------------------------------
+
+BOOT0/BOOT1 not working on owl2
+It may be that there is a difference in the crystal oscillator start time. On one of the STM32 parts with a particular ROM (System Memory) if the oscillator didn't start up quickly enough it would revert to the UART.
+
+-----------------------------------------------------------------
+
