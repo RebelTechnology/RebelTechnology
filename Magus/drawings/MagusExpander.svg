@@ -31,8 +31,8 @@
      units="mm"
      showgrid="false"
      inkscape:zoom="1.5144501"
-     inkscape:cx="79.115361"
-     inkscape:cy="890.00599"
+     inkscape:cx="106.00352"
+     inkscape:cy="920.21532"
      inkscape:window-width="1680"
      inkscape:window-height="986"
      inkscape:window-x="240"
@@ -89,9 +89,9 @@
        id="circle4501" />
     <rect
        x="4.5"
-       y="63.330002"
-       width="10.5"
-       height="12"
+       y="63.130001"
+       width="10.599999"
+       height="12.4"
        style="fill:none;stroke:#ff0000;stroke-width:0.05"
        id="rect4503" />
     <rect
@@ -113,7 +113,7 @@
        id="tspan6894"
        x="18.328255"
        y="-16.555986"
-       style="font-size:2.82222199px;line-height:1.25;stroke-width:1px">IN</tspan></text>
+       style="font-size:2.82222199px;line-height:1.25;stroke-width:1px">IUN</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
