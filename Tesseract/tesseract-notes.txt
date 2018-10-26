@@ -248,3 +248,11 @@ http://old.rjselectronics.com/media/pdf/SPD-2016.pdf
 100x 15mm SPDG RGB common anode ordered from RJS 2 Oct 2019
 
 --------------------------------------------------------------------------------
+
+	REVERB		DELAY		PHASER		DISTORTION
+WIDTH	pre-delay	time		rate
+HEIGHT	room size	feedback	feedback
+DEPTH	mix  		mix		mix		mix
+SHAPE	cutoff		
+
+--------------------------------------------------------------------------------
