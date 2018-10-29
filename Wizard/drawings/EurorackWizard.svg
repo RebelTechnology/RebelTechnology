@@ -22,6 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -30,9 +31,9 @@
      inkscape:document-units="mm"
      units="mm"
      showgrid="false"
-     inkscape:zoom="0.8409652"
-     inkscape:cx="308.48777"
-     inkscape:cy="665.93606"
+     inkscape:zoom="1.1893044"
+     inkscape:cx="325.71824"
+     inkscape:cy="778.67398"
      inkscape:window-width="1680"
      inkscape:window-height="986"
      inkscape:window-x="240"
@@ -2017,27 +2018,27 @@
      id="rect2743"
      width="69.509018"
      height="147.20975"
-     x="3.415"
-     y="28.660658" />
+     x="3.3150001"
+     y="29.189825" />
   <rect
      style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.05;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect2745"
      width="140.02513"
      height="32.552979"
      x="33.329746"
-     y="14.817441" />
+     y="14.717022" />
   <rect
      style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.05;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect2747"
      width="61.179123"
      height="131.99257"
-     x="133.56982"
-     y="47.370419" />
+     x="133.67"
+     y="46.841251" />
   <rect
      style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.05;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect2749"
      width="132.79076"
      height="18.594276"
      x="49.373436"
-     y="175.87044" />
+     y="176.07072" />
 </svg>
