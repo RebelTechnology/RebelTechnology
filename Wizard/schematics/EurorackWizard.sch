@@ -1,42 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.2.1">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
-<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="9" fill="3" visible="no" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="12" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="9" fill="3" visible="yes" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="12" fill="6" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -45,8 +44,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -54,20 +53,20 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="1" visible="no" active="no"/>
-<layer number="54" name="bGND_GNDA" color="7" fill="1" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="58" name="bCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
-<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="1" visible="yes" active="no"/>
+<layer number="54" name="bGND_GNDA" color="7" fill="1" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="58" name="bCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="yes" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="yes" active="no"/>
 <layer number="88" name="SimResults" color="9" fill="1" visible="no" active="yes"/>
 <layer number="89" name="SimProbes" color="9" fill="1" visible="no" active="yes"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
@@ -24900,124 +24899,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="switch-omron">
-<description>&lt;b&gt;Omron Switches&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="B3F-10XX">
-<description>&lt;b&gt;OMRON SWITCH&lt;/b&gt;</description>
-<wire x1="3.302" y1="-0.762" x2="3.048" y2="-0.762" width="0.1524" layer="21"/>
-<wire x1="3.302" y1="-0.762" x2="3.302" y2="0.762" width="0.1524" layer="21"/>
-<wire x1="3.048" y1="0.762" x2="3.302" y2="0.762" width="0.1524" layer="21"/>
-<wire x1="3.048" y1="1.016" x2="3.048" y2="2.54" width="0.1524" layer="51"/>
-<wire x1="-3.302" y1="0.762" x2="-3.048" y2="0.762" width="0.1524" layer="21"/>
-<wire x1="-3.302" y1="0.762" x2="-3.302" y2="-0.762" width="0.1524" layer="21"/>
-<wire x1="-3.048" y1="-0.762" x2="-3.302" y2="-0.762" width="0.1524" layer="21"/>
-<wire x1="3.048" y1="2.54" x2="2.54" y2="3.048" width="0.1524" layer="51"/>
-<wire x1="2.54" y1="-3.048" x2="3.048" y2="-2.54" width="0.1524" layer="51"/>
-<wire x1="3.048" y1="-2.54" x2="3.048" y2="-1.016" width="0.1524" layer="51"/>
-<wire x1="-2.54" y1="3.048" x2="-3.048" y2="2.54" width="0.1524" layer="51"/>
-<wire x1="-3.048" y1="2.54" x2="-3.048" y2="1.016" width="0.1524" layer="51"/>
-<wire x1="-2.54" y1="-3.048" x2="-3.048" y2="-2.54" width="0.1524" layer="51"/>
-<wire x1="-3.048" y1="-2.54" x2="-3.048" y2="-1.016" width="0.1524" layer="51"/>
-<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.0508" layer="51"/>
-<wire x1="1.27" y1="-1.27" x2="-1.27" y2="-1.27" width="0.0508" layer="51"/>
-<wire x1="1.27" y1="-1.27" x2="1.27" y2="1.27" width="0.0508" layer="51"/>
-<wire x1="-1.27" y1="1.27" x2="1.27" y2="1.27" width="0.0508" layer="51"/>
-<wire x1="-1.27" y1="3.048" x2="-1.27" y2="2.794" width="0.0508" layer="21"/>
-<wire x1="1.27" y1="2.794" x2="-1.27" y2="2.794" width="0.0508" layer="21"/>
-<wire x1="1.27" y1="2.794" x2="1.27" y2="3.048" width="0.0508" layer="21"/>
-<wire x1="1.143" y1="-2.794" x2="-1.27" y2="-2.794" width="0.0508" layer="21"/>
-<wire x1="1.143" y1="-2.794" x2="1.143" y2="-3.048" width="0.0508" layer="21"/>
-<wire x1="-1.27" y1="-2.794" x2="-1.27" y2="-3.048" width="0.0508" layer="21"/>
-<wire x1="2.54" y1="-3.048" x2="2.159" y2="-3.048" width="0.1524" layer="51"/>
-<wire x1="-2.54" y1="-3.048" x2="-2.159" y2="-3.048" width="0.1524" layer="51"/>
-<wire x1="-2.159" y1="-3.048" x2="-1.27" y2="-3.048" width="0.1524" layer="21"/>
-<wire x1="-2.54" y1="3.048" x2="-2.159" y2="3.048" width="0.1524" layer="51"/>
-<wire x1="2.54" y1="3.048" x2="2.159" y2="3.048" width="0.1524" layer="51"/>
-<wire x1="2.159" y1="3.048" x2="1.27" y2="3.048" width="0.1524" layer="21"/>
-<wire x1="1.27" y1="3.048" x2="-1.27" y2="3.048" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="3.048" x2="-2.159" y2="3.048" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="-3.048" x2="1.143" y2="-3.048" width="0.1524" layer="21"/>
-<wire x1="1.143" y1="-3.048" x2="2.159" y2="-3.048" width="0.1524" layer="21"/>
-<wire x1="3.048" y1="-0.762" x2="3.048" y2="-1.016" width="0.1524" layer="21"/>
-<wire x1="3.048" y1="0.762" x2="3.048" y2="1.016" width="0.1524" layer="21"/>
-<wire x1="-3.048" y1="-0.762" x2="-3.048" y2="-1.016" width="0.1524" layer="21"/>
-<wire x1="-3.048" y1="0.762" x2="-3.048" y2="1.016" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="-2.159" x2="1.27" y2="-2.159" width="0.1524" layer="51"/>
-<wire x1="1.27" y1="2.286" x2="-1.27" y2="2.286" width="0.1524" layer="51"/>
-<wire x1="-2.413" y1="1.27" x2="-2.413" y2="0.508" width="0.1524" layer="51"/>
-<wire x1="-2.413" y1="-0.508" x2="-2.413" y2="-1.27" width="0.1524" layer="51"/>
-<wire x1="-2.413" y1="0.508" x2="-2.159" y2="-0.381" width="0.1524" layer="51"/>
-<circle x="0" y="0" radius="1.778" width="0.1524" layer="21"/>
-<circle x="-2.159" y="-2.159" radius="0.508" width="0.1524" layer="51"/>
-<circle x="2.159" y="-2.032" radius="0.508" width="0.1524" layer="51"/>
-<circle x="2.159" y="2.159" radius="0.508" width="0.1524" layer="51"/>
-<circle x="-2.159" y="2.159" radius="0.508" width="0.1524" layer="51"/>
-<circle x="0" y="0" radius="0.635" width="0.0508" layer="51"/>
-<circle x="0" y="0" radius="0.254" width="0.1524" layer="21"/>
-<pad name="1" x="-3.2512" y="2.2606" drill="1.016" shape="long"/>
-<pad name="3" x="-3.2512" y="-2.2606" drill="1.016" shape="long"/>
-<pad name="2" x="3.2512" y="2.2606" drill="1.016" shape="long"/>
-<pad name="4" x="3.2512" y="-2.2606" drill="1.016" shape="long"/>
-<text x="-3.048" y="3.683" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-3.048" y="-5.08" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-<text x="-4.318" y="1.651" size="1.27" layer="51" ratio="10">1</text>
-<text x="3.556" y="1.524" size="1.27" layer="51" ratio="10">2</text>
-<text x="-4.572" y="-2.794" size="1.27" layer="51" ratio="10">3</text>
-<text x="3.556" y="-2.794" size="1.27" layer="51" ratio="10">4</text>
-</package>
-</packages>
-<symbols>
-<symbol name="TS2">
-<wire x1="0" y1="1.905" x2="0" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-4.445" y1="1.905" x2="-3.175" y2="1.905" width="0.254" layer="94"/>
-<wire x1="-4.445" y1="-1.905" x2="-3.175" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="-4.445" y1="1.905" x2="-4.445" y2="0" width="0.254" layer="94"/>
-<wire x1="-4.445" y1="0" x2="-4.445" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="0" x2="-1.905" y2="0" width="0.1524" layer="94"/>
-<wire x1="-1.27" y1="0" x2="-0.635" y2="0" width="0.1524" layer="94"/>
-<wire x1="-4.445" y1="0" x2="-3.175" y2="0" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="2.54" x2="0" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="-2.54" x2="0" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="0" y1="-2.54" x2="-1.27" y2="1.905" width="0.254" layer="94"/>
-<circle x="0" y="-2.54" radius="0.127" width="0.4064" layer="94"/>
-<circle x="0" y="2.54" radius="0.127" width="0.4064" layer="94"/>
-<text x="-6.35" y="-2.54" size="1.778" layer="95" rot="R90">&gt;NAME</text>
-<text x="-3.81" y="3.175" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<pin name="P" x="0" y="-5.08" visible="pad" length="short" direction="pas" swaplevel="2" rot="R90"/>
-<pin name="S" x="0" y="5.08" visible="pad" length="short" direction="pas" swaplevel="1" rot="R270"/>
-<pin name="S1" x="2.54" y="5.08" visible="pad" length="short" direction="pas" swaplevel="1" rot="R270"/>
-<pin name="P1" x="2.54" y="-5.08" visible="pad" length="short" direction="pas" swaplevel="2" rot="R90"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="10-XX" prefix="S" uservalue="yes">
-<description>&lt;b&gt;OMRON SWITCH&lt;/b&gt;</description>
-<gates>
-<gate name="1" symbol="TS2" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="B3F-10XX">
-<connects>
-<connect gate="1" pin="P" pad="3"/>
-<connect gate="1" pin="P1" pad="4"/>
-<connect gate="1" pin="S" pad="1"/>
-<connect gate="1" pin="S1" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="MF" value="" constant="no"/>
-<attribute name="MPN" value="B3F-1000" constant="no"/>
-<attribute name="OC_FARNELL" value="176432" constant="no"/>
-<attribute name="OC_NEWARK" value="36M3542" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="con-kycon">
 <description>&lt;b&gt;Connector from KYCON, Inc&lt;/b&gt;&lt;p&gt;
 1810 Little Orchard Street,&lt;br&gt;
@@ -25344,6 +25225,124 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="switch-omron">
+<description>&lt;b&gt;Omron Switches&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="B3F-10XX">
+<description>&lt;b&gt;OMRON SWITCH&lt;/b&gt;</description>
+<wire x1="3.302" y1="-0.762" x2="3.048" y2="-0.762" width="0.1524" layer="21"/>
+<wire x1="3.302" y1="-0.762" x2="3.302" y2="0.762" width="0.1524" layer="21"/>
+<wire x1="3.048" y1="0.762" x2="3.302" y2="0.762" width="0.1524" layer="21"/>
+<wire x1="3.048" y1="1.016" x2="3.048" y2="2.54" width="0.1524" layer="51"/>
+<wire x1="-3.302" y1="0.762" x2="-3.048" y2="0.762" width="0.1524" layer="21"/>
+<wire x1="-3.302" y1="0.762" x2="-3.302" y2="-0.762" width="0.1524" layer="21"/>
+<wire x1="-3.048" y1="-0.762" x2="-3.302" y2="-0.762" width="0.1524" layer="21"/>
+<wire x1="3.048" y1="2.54" x2="2.54" y2="3.048" width="0.1524" layer="51"/>
+<wire x1="2.54" y1="-3.048" x2="3.048" y2="-2.54" width="0.1524" layer="51"/>
+<wire x1="3.048" y1="-2.54" x2="3.048" y2="-1.016" width="0.1524" layer="51"/>
+<wire x1="-2.54" y1="3.048" x2="-3.048" y2="2.54" width="0.1524" layer="51"/>
+<wire x1="-3.048" y1="2.54" x2="-3.048" y2="1.016" width="0.1524" layer="51"/>
+<wire x1="-2.54" y1="-3.048" x2="-3.048" y2="-2.54" width="0.1524" layer="51"/>
+<wire x1="-3.048" y1="-2.54" x2="-3.048" y2="-1.016" width="0.1524" layer="51"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.0508" layer="51"/>
+<wire x1="1.27" y1="-1.27" x2="-1.27" y2="-1.27" width="0.0508" layer="51"/>
+<wire x1="1.27" y1="-1.27" x2="1.27" y2="1.27" width="0.0508" layer="51"/>
+<wire x1="-1.27" y1="1.27" x2="1.27" y2="1.27" width="0.0508" layer="51"/>
+<wire x1="-1.27" y1="3.048" x2="-1.27" y2="2.794" width="0.0508" layer="21"/>
+<wire x1="1.27" y1="2.794" x2="-1.27" y2="2.794" width="0.0508" layer="21"/>
+<wire x1="1.27" y1="2.794" x2="1.27" y2="3.048" width="0.0508" layer="21"/>
+<wire x1="1.143" y1="-2.794" x2="-1.27" y2="-2.794" width="0.0508" layer="21"/>
+<wire x1="1.143" y1="-2.794" x2="1.143" y2="-3.048" width="0.0508" layer="21"/>
+<wire x1="-1.27" y1="-2.794" x2="-1.27" y2="-3.048" width="0.0508" layer="21"/>
+<wire x1="2.54" y1="-3.048" x2="2.159" y2="-3.048" width="0.1524" layer="51"/>
+<wire x1="-2.54" y1="-3.048" x2="-2.159" y2="-3.048" width="0.1524" layer="51"/>
+<wire x1="-2.159" y1="-3.048" x2="-1.27" y2="-3.048" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="3.048" x2="-2.159" y2="3.048" width="0.1524" layer="51"/>
+<wire x1="2.54" y1="3.048" x2="2.159" y2="3.048" width="0.1524" layer="51"/>
+<wire x1="2.159" y1="3.048" x2="1.27" y2="3.048" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="3.048" x2="-1.27" y2="3.048" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="3.048" x2="-2.159" y2="3.048" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="-3.048" x2="1.143" y2="-3.048" width="0.1524" layer="21"/>
+<wire x1="1.143" y1="-3.048" x2="2.159" y2="-3.048" width="0.1524" layer="21"/>
+<wire x1="3.048" y1="-0.762" x2="3.048" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="3.048" y1="0.762" x2="3.048" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-3.048" y1="-0.762" x2="-3.048" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="-3.048" y1="0.762" x2="-3.048" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="-2.159" x2="1.27" y2="-2.159" width="0.1524" layer="51"/>
+<wire x1="1.27" y1="2.286" x2="-1.27" y2="2.286" width="0.1524" layer="51"/>
+<wire x1="-2.413" y1="1.27" x2="-2.413" y2="0.508" width="0.1524" layer="51"/>
+<wire x1="-2.413" y1="-0.508" x2="-2.413" y2="-1.27" width="0.1524" layer="51"/>
+<wire x1="-2.413" y1="0.508" x2="-2.159" y2="-0.381" width="0.1524" layer="51"/>
+<circle x="0" y="0" radius="1.778" width="0.1524" layer="21"/>
+<circle x="-2.159" y="-2.159" radius="0.508" width="0.1524" layer="51"/>
+<circle x="2.159" y="-2.032" radius="0.508" width="0.1524" layer="51"/>
+<circle x="2.159" y="2.159" radius="0.508" width="0.1524" layer="51"/>
+<circle x="-2.159" y="2.159" radius="0.508" width="0.1524" layer="51"/>
+<circle x="0" y="0" radius="0.635" width="0.0508" layer="51"/>
+<circle x="0" y="0" radius="0.254" width="0.1524" layer="21"/>
+<pad name="1" x="-3.2512" y="2.2606" drill="1.016" shape="long"/>
+<pad name="3" x="-3.2512" y="-2.2606" drill="1.016" shape="long"/>
+<pad name="2" x="3.2512" y="2.2606" drill="1.016" shape="long"/>
+<pad name="4" x="3.2512" y="-2.2606" drill="1.016" shape="long"/>
+<text x="-3.048" y="3.683" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-3.048" y="-5.08" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<text x="-4.318" y="1.651" size="1.27" layer="51" ratio="10">1</text>
+<text x="3.556" y="1.524" size="1.27" layer="51" ratio="10">2</text>
+<text x="-4.572" y="-2.794" size="1.27" layer="51" ratio="10">3</text>
+<text x="3.556" y="-2.794" size="1.27" layer="51" ratio="10">4</text>
+</package>
+</packages>
+<symbols>
+<symbol name="TS2">
+<wire x1="0" y1="1.905" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-4.445" y1="1.905" x2="-3.175" y2="1.905" width="0.254" layer="94"/>
+<wire x1="-4.445" y1="-1.905" x2="-3.175" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="-4.445" y1="1.905" x2="-4.445" y2="0" width="0.254" layer="94"/>
+<wire x1="-4.445" y1="0" x2="-4.445" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-1.905" y2="0" width="0.1524" layer="94"/>
+<wire x1="-1.27" y1="0" x2="-0.635" y2="0" width="0.1524" layer="94"/>
+<wire x1="-4.445" y1="0" x2="-3.175" y2="0" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="0" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="0" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="0" y1="-2.54" x2="-1.27" y2="1.905" width="0.254" layer="94"/>
+<circle x="0" y="-2.54" radius="0.127" width="0.4064" layer="94"/>
+<circle x="0" y="2.54" radius="0.127" width="0.4064" layer="94"/>
+<text x="-6.35" y="-2.54" size="1.778" layer="95" rot="R90">&gt;NAME</text>
+<text x="-3.81" y="3.175" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="P" x="0" y="-5.08" visible="pad" length="short" direction="pas" swaplevel="2" rot="R90"/>
+<pin name="S" x="0" y="5.08" visible="pad" length="short" direction="pas" swaplevel="1" rot="R270"/>
+<pin name="S1" x="2.54" y="5.08" visible="pad" length="short" direction="pas" swaplevel="1" rot="R270"/>
+<pin name="P1" x="2.54" y="-5.08" visible="pad" length="short" direction="pas" swaplevel="2" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="10-XX" prefix="S" uservalue="yes">
+<description>&lt;b&gt;OMRON SWITCH&lt;/b&gt;</description>
+<gates>
+<gate name="1" symbol="TS2" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="B3F-10XX">
+<connects>
+<connect gate="1" pin="P" pad="3"/>
+<connect gate="1" pin="P1" pad="4"/>
+<connect gate="1" pin="S" pad="1"/>
+<connect gate="1" pin="S1" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="B3F-1000" constant="no"/>
+<attribute name="OC_FARNELL" value="176432" constant="no"/>
+<attribute name="OC_NEWARK" value="36M3542" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -25509,7 +25508,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <part name="P+14" library="supply1" deviceset="+12V" device=""/>
 <part name="P+6" library="supply1" deviceset="+5V" device=""/>
 <part name="C4" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="10u"/>
-<part name="C5" library="rcl" deviceset="CPOL-EU" device="C" value="47u"/>
+<part name="C5" library="rcl" deviceset="CPOL-EU" device="B" value="47u"/>
 <part name="LED1" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="C21" library="resistor" deviceset="C-EU" device="C0603" value="100p"/>
@@ -25701,10 +25700,6 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <attribute name="VALUE" x="284.48" y="172.72" size="1.778" layer="96"/>
 </instance>
 <instance part="IC4" gate="P" x="325.12" y="248.92" smashed="yes"/>
-<instance part="IC4" gate="A" x="327.66" y="193.04" smashed="yes" rot="MR180">
-<attribute name="NAME" x="330.2" y="189.865" size="1.778" layer="95" rot="MR180"/>
-<attribute name="VALUE" x="330.2" y="198.12" size="1.778" layer="96" rot="MR180"/>
-</instance>
 <instance part="R8" gate="G$1" x="299.72" y="195.58" smashed="yes" rot="MR180">
 <attribute name="NAME" x="295.91" y="194.0814" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="295.91" y="198.882" size="1.778" layer="96" rot="MR180"/>
@@ -25772,10 +25767,6 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 </instance>
 <instance part="GND46" gate="1" x="327.66" y="-22.86" smashed="yes">
 <attribute name="VALUE" x="325.12" y="-25.4" size="1.778" layer="96"/>
-</instance>
-<instance part="IC4" gate="B" x="327.66" y="116.84" smashed="yes" rot="MR180">
-<attribute name="NAME" x="330.2" y="113.665" size="1.778" layer="95" rot="MR180"/>
-<attribute name="VALUE" x="330.2" y="121.92" size="1.778" layer="96" rot="MR180"/>
 </instance>
 <instance part="POT_D" gate="G$2" x="55.88" y="63.5" smashed="yes" rot="R180"/>
 <instance part="POT_C" gate="G$2" x="66.04" y="63.5" smashed="yes" rot="R180"/>
@@ -26196,14 +26187,6 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <attribute name="NAME" x="331.47" y="-6.5786" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="331.47" y="-1.778" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="IC4" gate="C" x="353.06" y="45.72" smashed="yes" rot="MR0">
-<attribute name="NAME" x="350.52" y="48.895" size="1.778" layer="95" rot="MR0"/>
-<attribute name="VALUE" x="350.52" y="40.64" size="1.778" layer="96" rot="MR0"/>
-</instance>
-<instance part="IC4" gate="D" x="353.06" y="-5.08" smashed="yes" rot="MR0">
-<attribute name="NAME" x="350.52" y="-1.905" size="1.778" layer="95" rot="MR0"/>
-<attribute name="VALUE" x="350.52" y="-10.16" size="1.778" layer="96" rot="MR0"/>
-</instance>
 <instance part="R34" gate="G$1" x="350.52" y="35.56" smashed="yes" rot="MR180">
 <attribute name="NAME" x="346.71" y="34.0614" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="346.71" y="38.862" size="1.778" layer="96" rot="MR180"/>
@@ -26379,6 +26362,10 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <instance part="GND34" gate="1" x="38.1" y="96.52" smashed="yes">
 <attribute name="VALUE" x="35.56" y="93.98" size="1.778" layer="96"/>
 </instance>
+<instance part="IC4" gate="A" x="327.66" y="116.84" rot="MR180"/>
+<instance part="IC4" gate="D" x="327.66" y="193.04" rot="MR180"/>
+<instance part="IC4" gate="C" x="353.06" y="45.72" rot="MR0"/>
+<instance part="IC4" gate="B" x="353.06" y="-5.08" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -26463,7 +26450,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <pinref part="GND30" gate="1" pin="GND"/>
 <wire x1="320.04" y1="114.3" x2="317.5" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="317.5" y1="114.3" x2="317.5" y2="101.6" width="0.1524" layer="91"/>
-<pinref part="IC4" gate="B" pin="+IN"/>
+<pinref part="IC4" gate="A" pin="+IN"/>
 </segment>
 <segment>
 <wire x1="325.12" y1="50.8" x2="327.66" y2="50.8" width="0.1524" layer="91"/>
@@ -26520,9 +26507,9 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 </segment>
 <segment>
 <wire x1="317.5" y1="177.8" x2="317.5" y2="190.5" width="0.1524" layer="91"/>
-<pinref part="IC4" gate="A" pin="+IN"/>
 <wire x1="317.5" y1="190.5" x2="320.04" y2="190.5" width="0.1524" layer="91"/>
 <pinref part="GND22" gate="1" pin="GND"/>
+<pinref part="IC4" gate="D" pin="+IN"/>
 </segment>
 <segment>
 <pinref part="IC5" gate="G$1" pin="C"/>
@@ -27145,7 +27132,6 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <pinref part="R23" gate="G$1" pin="1"/>
 <wire x1="322.58" y1="203.2" x2="317.5" y2="203.2" width="0.1524" layer="91"/>
 <wire x1="317.5" y1="203.2" x2="317.5" y2="195.58" width="0.1524" layer="91"/>
-<pinref part="IC4" gate="A" pin="-IN"/>
 <wire x1="320.04" y1="195.58" x2="317.5" y2="195.58" width="0.1524" layer="91"/>
 <wire x1="307.34" y1="195.58" x2="317.5" y2="195.58" width="0.1524" layer="91"/>
 <junction x="317.5" y="195.58"/>
@@ -27153,6 +27139,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <pinref part="R9" gate="G$1" pin="2"/>
 <wire x1="307.34" y1="195.58" x2="307.34" y2="220.98" width="0.1524" layer="91"/>
 <wire x1="307.34" y1="220.98" x2="304.8" y2="220.98" width="0.1524" layer="91"/>
+<pinref part="IC4" gate="D" pin="-IN"/>
 </segment>
 </net>
 <net name="N$14" class="0">
@@ -27169,9 +27156,9 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <wire x1="332.74" y1="203.2" x2="337.82" y2="203.2" width="0.1524" layer="91"/>
 <wire x1="337.82" y1="203.2" x2="337.82" y2="193.04" width="0.1524" layer="91"/>
 <pinref part="R40" gate="G$1" pin="2"/>
-<pinref part="IC4" gate="A" pin="OUT"/>
 <wire x1="335.28" y1="193.04" x2="337.82" y2="193.04" width="0.1524" layer="91"/>
 <junction x="337.82" y="193.04"/>
+<pinref part="IC4" gate="D" pin="OUT"/>
 </segment>
 </net>
 <net name="N$16" class="0">
@@ -27197,7 +27184,6 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <pinref part="R31" gate="G$1" pin="2"/>
 <wire x1="320.04" y1="119.38" x2="317.5" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="317.5" y1="119.38" x2="307.34" y2="119.38" width="0.1524" layer="91"/>
-<pinref part="IC4" gate="B" pin="-IN"/>
 <wire x1="307.34" y1="119.38" x2="302.26" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="317.5" y1="127" x2="317.5" y2="119.38" width="0.1524" layer="91"/>
 <junction x="307.34" y="119.38"/>
@@ -27207,6 +27193,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <junction x="317.5" y="119.38"/>
 <pinref part="R24" gate="G$1" pin="1"/>
 <wire x1="322.58" y1="127" x2="317.5" y2="127" width="0.1524" layer="91"/>
+<pinref part="IC4" gate="A" pin="-IN"/>
 </segment>
 </net>
 <net name="N$21" class="0">
@@ -27225,7 +27212,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <wire x1="337.82" y1="127" x2="337.82" y2="116.84" width="0.1524" layer="91"/>
 <junction x="337.82" y="116.84"/>
 <pinref part="R42" gate="G$1" pin="2"/>
-<pinref part="IC4" gate="B" pin="OUT"/>
+<pinref part="IC4" gate="A" pin="OUT"/>
 </segment>
 </net>
 <net name="N$23" class="0">
@@ -27784,7 +27771,6 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <pinref part="SW1" gate="1" pin="S"/>
 <wire x1="127" y1="114.3" x2="127" y2="116.84" width="0.1524" layer="91"/>
 <label x="132.08" y="116.84" size="1.778" layer="95"/>
-<wire x1="129.54" y1="116.84" x2="129.54" y2="109.22" width="0.1524" layer="91"/>
 <junction x="129.54" y="116.84"/>
 <wire x1="129.54" y1="116.84" x2="142.24" y2="116.84" width="0.1524" layer="91"/>
 </segment>
@@ -27807,7 +27793,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <segment>
 <wire x1="360.68" y1="-2.54" x2="373.38" y2="-2.54" width="0.1524" layer="91"/>
 <label x="363.22" y="-2.54" size="1.778" layer="95"/>
-<pinref part="IC4" gate="D" pin="+IN"/>
+<pinref part="IC4" gate="B" pin="+IN"/>
 </segment>
 <segment>
 <pinref part="EXTSPI" gate="G$1" pin="4"/>
@@ -27824,7 +27810,6 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 </net>
 <net name="N$25" class="0">
 <segment>
-<pinref part="IC4" gate="C" pin="OUT"/>
 <pinref part="R30" gate="G$1" pin="2"/>
 <wire x1="345.44" y1="45.72" x2="342.9" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="R34" gate="G$1" pin="1"/>
@@ -27836,11 +27821,11 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <wire x1="347.98" y1="30.48" x2="342.9" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="342.9" y1="30.48" x2="342.9" y2="35.56" width="0.1524" layer="91"/>
 <junction x="342.9" y="35.56"/>
+<pinref part="IC4" gate="C" pin="OUT"/>
 </segment>
 </net>
 <net name="N$29" class="0">
 <segment>
-<pinref part="IC4" gate="C" pin="-IN"/>
 <pinref part="R35" gate="G$1" pin="2"/>
 <wire x1="360.68" y1="43.18" x2="365.76" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="365.76" y1="43.18" x2="365.76" y2="35.56" width="0.1524" layer="91"/>
@@ -27853,6 +27838,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <wire x1="355.6" y1="30.48" x2="358.14" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="358.14" y1="30.48" x2="358.14" y2="35.56" width="0.1524" layer="91"/>
 <junction x="358.14" y="35.56"/>
+<pinref part="IC4" gate="C" pin="-IN"/>
 </segment>
 </net>
 <net name="N$31" class="0">
@@ -27864,11 +27850,11 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <wire x1="347.98" y1="-20.32" x2="342.9" y2="-20.32" width="0.1524" layer="91"/>
 <wire x1="342.9" y1="-20.32" x2="342.9" y2="-15.24" width="0.1524" layer="91"/>
 <junction x="342.9" y="-15.24"/>
-<pinref part="IC4" gate="D" pin="OUT"/>
 <wire x1="345.44" y1="-5.08" x2="342.9" y2="-5.08" width="0.1524" layer="91"/>
 <pinref part="R33" gate="G$1" pin="2"/>
 <wire x1="342.9" y1="-5.08" x2="340.36" y2="-5.08" width="0.1524" layer="91"/>
 <junction x="342.9" y="-5.08"/>
+<pinref part="IC4" gate="B" pin="OUT"/>
 </segment>
 </net>
 <net name="N$33" class="0">
@@ -27885,7 +27871,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <wire x1="355.6" y1="-20.32" x2="358.14" y2="-20.32" width="0.1524" layer="91"/>
 <wire x1="358.14" y1="-20.32" x2="358.14" y2="-15.24" width="0.1524" layer="91"/>
 <junction x="358.14" y="-15.24"/>
-<pinref part="IC4" gate="D" pin="-IN"/>
+<pinref part="IC4" gate="B" pin="-IN"/>
 </segment>
 </net>
 <net name="N$47" class="0">
@@ -28129,24 +28115,20 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <approved hash="104,1,182.88,243.84,IC3P,V-,-12V,,,"/>
 <approved hash="104,1,71.12,259.08,IC2P,V+,+12V,,,"/>
 <approved hash="104,1,71.12,243.84,IC2P,V-,-12V,,,"/>
-<approved hash="104,1,99.06,-15.24,U3,VIN,+5V,,,"/>
-<approved hash="106,1,185.42,7.62,A24,,,,,"/>
-<approved hash="106,1,246.38,-27.94,CS_VQ1,,,,,"/>
-<approved hash="106,1,241.3,38.1,USB_D_ID,,,,,"/>
-<approved hash="106,1,269.24,27.94,USB_H_ID,,,,,"/>
-<approved hash="113,1,246.38,42.6822,USB,,,,,"/>
-<approved hash="113,1,191.77,42.6822,ADC,,,,,"/>
-<approved hash="113,1,180.838,-33.02,PWR,,,,,"/>
-<approved hash="113,1,180.838,8.89,EXTSPI,,,,,"/>
-<approved hash="113,1,180.838,-21.361,LGP6-7,,,,,"/>
-<approved hash="113,1,12.0227,181.9,BOOT,,,,,"/>
-<approved hash="113,1,208.28,42.6822,TGP1-4,,,,,"/>
-<approved hash="113,1,180.838,-7.62,LGP1-5,,,,,"/>
-<approved hash="113,1,232.41,-32.5222,ANG1,,,,,"/>
-<approved hash="113,1,250.19,-32.5222,ANG2,,,,,"/>
-<approved hash="113,1,-56.1171,161.064,BUS,,,,,"/>
-<approved hash="113,1,267.97,32.5222,JP14,,,,,"/>
-<approved hash="113,1,137.16,14.7278,JP13,,,,,"/>
+<approved hash="104,1,104.14,-15.24,U3,VIN,+5V,,,"/>
+<approved hash="113,1,259.08,45.1273,USB,,,,,"/>
+<approved hash="113,1,204.47,45.1273,ADC,,,,,"/>
+<approved hash="113,1,193.633,-30.48,PWR,,,,,"/>
+<approved hash="113,1,193.633,11.43,EXTSPI,,,,,"/>
+<approved hash="113,1,193.633,-18.821,LGP6-7,,,,,"/>
+<approved hash="113,1,12.0227,181.805,BOOT,,,,,"/>
+<approved hash="113,1,220.98,45.1273,TGP1-4,,,,,"/>
+<approved hash="113,1,193.633,-5.08,LGP1-5,,,,,"/>
+<approved hash="113,1,245.11,-29.8873,ANG1,,,,,"/>
+<approved hash="113,1,262.89,-29.8873,ANG2,,,,,"/>
+<approved hash="113,1,-56.1171,161.159,BUS,,,,,"/>
+<approved hash="113,1,280.67,34.9673,JP14,,,,,"/>
+<approved hash="113,1,142.24,14.7278,JP13,,,,,"/>
 </errors>
 </schematic>
 </drawing>
