@@ -30,12 +30,12 @@
      inkscape:document-units="mm"
      units="mm"
      showgrid="false"
-     inkscape:zoom="1.1893044"
-     inkscape:cx="109.49161"
-     inkscape:cy="846.21253"
-     inkscape:window-width="1920"
-     inkscape:window-height="1016"
-     inkscape:window-x="0"
+     inkscape:zoom="1.6819304"
+     inkscape:cx="177.77504"
+     inkscape:cy="959.23062"
+     inkscape:window-width="1680"
+     inkscape:window-height="986"
+     inkscape:window-x="240"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg6265" />
@@ -44,6 +44,12 @@
     <g
        id="potgrading" />
   </defs>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.76499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 4.0044414,104.47105 30.340009,2.2286054 55.839713,102.0239 37.263554,97.129578 27.808622,112.47994 25.583932,97.574516 Z"
+     id="path6273"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccccc" />
   <g
      style="fill:none;stroke-width:0.05;stroke:#ff0000"
      id="g6263">
@@ -57,26 +63,30 @@
        cx="7.5"
        cy="3"
        r="1.6"
-       id="circle5825" />
+       id="circle5825"
+       style="fill:#ffffff" />
     <circle
        cx="7.5"
        cy="125.5"
        r="1.6"
-       id="circle5827" />
+       id="circle5827"
+       style="fill:#ffffff" />
     <circle
        cx="53.22"
        cy="3"
        r="1.6"
-       id="circle5829" />
+       id="circle5829"
+       style="fill:#ffffff" />
     <circle
        cx="53.22"
        cy="125.5"
        r="1.6"
-       id="circle5831" />
+       id="circle5831"
+       style="fill:#ffffff" />
     <path
        inkscape:connector-curvature="0"
        d="m 16.0125,15.05 c -2.6129013,0 -4.7375971,2.115556 -4.7375971,4.727735 0,2.135913 1.421033,3.945767 3.3650681,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 3.38e-4,-2.612179 -2.115205,-4.727369 -4.727403,-4.727369 z"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="path5833" />
     <g
        transform="translate(16.0125,19.8)"
@@ -177,7 +187,7 @@
     <path
        inkscape:connector-curvature="0"
        d="m 44.5875,15.05 c -2.6129013,0 -4.7375971,2.115556 -4.7375971,4.727735 0,2.135913 1.421033,3.945767 3.3650681,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 3.38e-4,-2.612179 -2.115205,-4.727369 -4.727403,-4.727369 z"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="path5883" />
     <g
        transform="translate(44.5875,19.8)"
@@ -278,7 +288,7 @@
     <path
        inkscape:connector-curvature="0"
        d="m 16.0125,34.1 c -2.6129013,0 -4.7375971,2.115556 -4.7375971,4.727735 0,2.135913 1.421033,3.945767 3.3650681,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 3.38e-4,-2.612179 -2.115205,-4.727369 -4.727403,-4.727369 z"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="path5933" />
     <g
        transform="translate(16.0125,38.85)"
@@ -379,7 +389,7 @@
     <path
        inkscape:connector-curvature="0"
        d="m 44.5875,34.1 c -2.6129013,0 -4.7375971,2.115556 -4.7375971,4.727735 0,2.135913 1.421033,3.945767 3.3650681,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 3.38e-4,-2.612179 -2.115205,-4.727369 -4.727403,-4.727369 z"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="path5983" />
     <g
        transform="translate(44.5875,38.85)"
@@ -480,7 +490,7 @@
     <path
        inkscape:connector-curvature="0"
        d="m 16.0125,53.15 c -2.6129013,0 -4.7375971,2.115556 -4.7375971,4.727735 0,2.135913 1.421033,3.945767 3.3650681,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 3.38e-4,-2.612179 -2.115205,-4.727369 -4.727403,-4.727369 z"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="path6033" />
     <g
        transform="translate(16.0125,57.9)"
@@ -581,7 +591,7 @@
     <path
        inkscape:connector-curvature="0"
        d="m 44.5875,53.15 c -2.6129013,0 -4.7375971,2.115556 -4.7375971,4.727735 0,2.135913 1.421033,3.945767 3.3650681,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 3.38e-4,-2.612179 -2.115205,-4.727369 -4.727403,-4.727369 z"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="path6083" />
     <g
        transform="translate(44.5875,57.9)"
@@ -682,7 +692,7 @@
     <path
        inkscape:connector-curvature="0"
        d="m 16.0125,72.2 c -2.6129013,0 -4.7375971,2.115556 -4.7375971,4.727735 0,2.135913 1.421033,3.945767 3.3650681,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 3.38e-4,-2.612179 -2.115205,-4.727369 -4.727403,-4.727369 z"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="path6133" />
     <g
        transform="translate(16.0125,76.95)"
@@ -783,7 +793,7 @@
     <path
        inkscape:connector-curvature="0"
        d="m 44.5875,72.2 c -2.6129013,0 -4.7375971,2.115556 -4.7375971,4.727735 0,2.135913 1.421033,3.945767 3.3650681,4.5331 l 0,2.107204 2.632936,1.41e-4 0,-2.079677 c 1.996054,-0.554631 3.466996,-2.388302 3.466996,-4.561134 3.38e-4,-2.612179 -2.115205,-4.727369 -4.727403,-4.727369 z"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="path6183" />
     <g
        transform="translate(44.5875,76.95)"
@@ -886,114 +896,101 @@
        y="13.45"
        width="3"
        height="63.5"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="rect6233" />
-    <rect
-       x="28.8"
-       y="10.275"
-       width="3"
-       height="69.85"
-       style="fill:none;stroke:#ff0000"
-       id="rect6235" />
     <circle
        cx="4.900000000000002"
        cy="86.475"
        r="2.55"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="circle6237" />
     <circle
        cx="30.3"
        cy="86.475"
        r="2.55"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="circle6239" />
     <circle
        cx="55.7"
        cy="86.475"
        r="2.55"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="circle6241" />
     <circle
        cx="4.900000000000002"
        cy="96"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="circle6243" />
     <circle
        cx="4.900000000000002"
        cy="108.7"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="circle6245" />
     <circle
        cx="17.6"
        cy="96"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="circle6247" />
     <circle
        cx="17.6"
        cy="108.7"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="circle6249" />
     <circle
        cx="30.3"
        cy="96"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="circle6251" />
     <circle
        cx="30.3"
        cy="108.7"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="circle6253" />
     <circle
        cx="43"
        cy="96"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="circle6255" />
     <circle
        cx="43"
        cy="108.7"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="circle6257" />
     <circle
        cx="55.7"
        cy="96"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="circle6259" />
     <circle
        cx="55.7"
        cy="108.7"
        r="3.25"
-       style="fill:none;stroke:#ff0000"
+       style="fill:#ffffff;stroke:#ff0000"
        id="circle6261" />
   </g>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-     x="14.545555"
-     y="9.6750679"
+     style="font-style:normal;font-weight:normal;font-size:9.50178623px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+     x="15.792658"
+     y="8.9978514"
      id="text6271"><tspan
        sodipodi:role="line"
        id="tspan6269"
-       x="14.545555"
-       y="9.6750679"
+       x="15.792658"
+       y="8.9978514"
        style="stroke-width:0.26458332">PL  NE</tspan></text>
   <path
      style="fill:none;stroke:#000000;stroke-width:0.76499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 4.0044414,104.47105 30.340009,2.2286054 55.839713,102.0239 37.263554,97.129578 27.808622,112.47994 25.583932,97.574516 Z"
-     id="path6273"
-     inkscape:connector-curvature="0"
-     sodipodi:nodetypes="ccccccc" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:0.76499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="m 29.474083,6.7643004 1.88771,0.1573093"
+     d="m 29.474083,6.7643004 1.943327,0.046075"
      id="path6279"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cc" />
