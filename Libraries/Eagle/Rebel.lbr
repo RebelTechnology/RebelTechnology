@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="7" fill="1" visible="yes" active="yes"/>
@@ -10923,6 +10923,27 @@ Source: http://www.zetex.com/3.0/pdf/ZXSC300.pdf</description>
 <hole x="2.54" y="2.54" drill="1"/>
 <hole x="-2.54" y="2.54" drill="1"/>
 </package>
+<package name="USB_MINI_8P_F">
+<smd name="P1" x="0" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
+<smd name="P2" x="0.45" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
+<smd name="P3" x="0.9" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
+<smd name="P4" x="1.35" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
+<smd name="P5" x="1.8" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
+<smd name="P6" x="2.25" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
+<smd name="P7" x="2.7" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
+<smd name="P8" x="3.15" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
+<smd name="CASE1" x="-1.65" y="-0.05" dx="1.05" dy="1.25" layer="1" rot="R90"/>
+<smd name="CASE2" x="4.75" y="-0.05" dx="1.05" dy="1.25" layer="1" rot="R90"/>
+<smd name="CASE4" x="-1.65" y="-4.05" dx="1.15" dy="1.45" layer="1" rot="R180"/>
+<smd name="CASE3" x="4.75" y="-4.05" dx="1.15" dy="1.45" layer="1" rot="R180"/>
+<hole x="0.1" y="-1.38" drill="0.75"/>
+<hole x="3.1" y="-1.38" drill="0.75"/>
+<wire x1="-1.2" y1="0.5" x2="-1.2" y2="-6" width="0.127" layer="21"/>
+<wire x1="4.3" y1="0.5" x2="4.3" y2="-6" width="0.127" layer="21"/>
+<wire x1="-1.2" y1="-6" x2="4.3" y2="-6" width="0.127" layer="21"/>
+<wire x1="-1.2" y1="0.5" x2="4.3" y2="0.5" width="0.127" layer="21"/>
+<text x="-1.27" y="1.27" size="1.27" layer="25" font="vector">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="IS61WV51216BLL">
@@ -13092,6 +13113,23 @@ Memory Configuration: 512K x 16bit &lt;br/&gt;</description>
 <wire x1="25.4" y1="-15.24" x2="0" y2="-15.24" width="0.254" layer="94"/>
 <text x="7.62" y="2.54" size="1.778" layer="96">&gt;VALUE</text>
 <text x="7.62" y="5.08" size="1.778" layer="95">&gt;NAME</text>
+</symbol>
+<symbol name="USB_MINI_8P_F">
+<wire x1="10.16" y1="2.54" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="0" y2="-25.4" width="0.254" layer="94"/>
+<text x="9.525" y="-13.97" size="2.54" layer="94" rot="R90">USB 8P</text>
+<pin name="P3" x="-2.54" y="-5.08" length="short"/>
+<pin name="P2" x="-2.54" y="-2.54" length="short"/>
+<pin name="P1" x="-2.54" y="0" length="short"/>
+<pin name="P5" x="-2.54" y="-10.16" length="short"/>
+<pin name="P4" x="-2.54" y="-7.62" length="short"/>
+<pin name="CASE" x="-2.54" y="-22.86" length="short"/>
+<wire x1="0" y1="-25.4" x2="10.16" y2="-25.4" width="0.254" layer="94"/>
+<text x="0" y="5.08" size="1.016" layer="95">&gt;NAME</text>
+<text x="0" y="2.54" size="1.016" layer="96">&gt;VALUE</text>
+<pin name="P6" x="-2.54" y="-12.7" length="short"/>
+<pin name="P7" x="-2.54" y="-15.24" length="short"/>
+<pin name="P8" x="-2.54" y="-17.78" length="short"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -18281,6 +18319,29 @@ This is the standard 5.5mm barrel jack for power. The PTH is the most common, pr
 <connect gate="G$1" pin="GND" pad="2"/>
 <connect gate="G$1" pin="VIN" pad="3"/>
 <connect gate="G$1" pin="VOUT" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="USB_MINI_8P_F">
+<gates>
+<gate name="G$1" symbol="USB_MINI_8P_F" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="USB_MINI_8P_F">
+<connects>
+<connect gate="G$1" pin="CASE" pad="CASE1 CASE2 CASE3 CASE4"/>
+<connect gate="G$1" pin="P1" pad="P1"/>
+<connect gate="G$1" pin="P2" pad="P2"/>
+<connect gate="G$1" pin="P3" pad="P3"/>
+<connect gate="G$1" pin="P4" pad="P4"/>
+<connect gate="G$1" pin="P5" pad="P5"/>
+<connect gate="G$1" pin="P6" pad="P6"/>
+<connect gate="G$1" pin="P7" pad="P7"/>
+<connect gate="G$1" pin="P8" pad="P8"/>
 </connects>
 <technologies>
 <technology name=""/>
