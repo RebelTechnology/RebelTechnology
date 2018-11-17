@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.001" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="7" fill="1" visible="yes" active="yes"/>
@@ -10924,24 +10924,24 @@ Source: http://www.zetex.com/3.0/pdf/ZXSC300.pdf</description>
 <hole x="-2.54" y="2.54" drill="1"/>
 </package>
 <package name="USB_MINI_8P_F">
-<smd name="P1" x="0" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
-<smd name="P2" x="0.45" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
-<smd name="P3" x="0.9" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
-<smd name="P4" x="1.35" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
-<smd name="P5" x="1.8" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
-<smd name="P6" x="2.25" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
-<smd name="P7" x="2.7" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
-<smd name="P8" x="3.15" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
-<smd name="CASE1" x="-1.65" y="-0.05" dx="1.05" dy="1.25" layer="1" rot="R90"/>
-<smd name="CASE2" x="4.75" y="-0.05" dx="1.05" dy="1.25" layer="1" rot="R90"/>
-<smd name="CASE4" x="-1.65" y="-4.05" dx="1.15" dy="1.45" layer="1" rot="R180"/>
-<smd name="CASE3" x="4.75" y="-4.05" dx="1.15" dy="1.45" layer="1" rot="R180"/>
-<hole x="0.1" y="-1.38" drill="0.75"/>
-<hole x="3.1" y="-1.38" drill="0.75"/>
-<wire x1="-1.2" y1="0.5" x2="-1.2" y2="-6" width="0.127" layer="21"/>
-<wire x1="4.3" y1="0.5" x2="4.3" y2="-6" width="0.127" layer="21"/>
-<wire x1="-1.2" y1="-6" x2="4.3" y2="-6" width="0.127" layer="21"/>
-<wire x1="-1.2" y1="0.5" x2="4.3" y2="0.5" width="0.127" layer="21"/>
+<smd name="P1" x="-1.5748" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
+<smd name="P2" x="-1.1248" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
+<smd name="P3" x="-0.6748" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
+<smd name="P4" x="-0.2248" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
+<smd name="P5" x="0.2252" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
+<smd name="P6" x="0.6752" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
+<smd name="P7" x="1.1252" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
+<smd name="P8" x="1.5752" y="0" dx="1" dy="0.28" layer="1" rot="R90"/>
+<smd name="CASE1" x="-3.2248" y="-0.05" dx="1.05" dy="1.25" layer="1" rot="R90"/>
+<smd name="CASE2" x="3.1752" y="-0.05" dx="1.05" dy="1.25" layer="1" rot="R90"/>
+<smd name="CASE4" x="-3.2248" y="-4.05" dx="1.15" dy="1.45" layer="1" rot="R180"/>
+<smd name="CASE3" x="3.1752" y="-4.05" dx="1.15" dy="1.45" layer="1" rot="R180"/>
+<hole x="-1.4748" y="-1.38" drill="0.75"/>
+<hole x="1.5252" y="-1.38" drill="0.75"/>
+<wire x1="-2.7748" y1="0.5" x2="-2.7748" y2="-6" width="0.127" layer="21"/>
+<wire x1="2.7252" y1="0.5" x2="2.7252" y2="-6" width="0.127" layer="21"/>
+<wire x1="-2.7748" y1="-6" x2="2.7252" y2="-6" width="0.127" layer="21"/>
+<wire x1="-2.7748" y1="0.5" x2="2.7252" y2="0.5" width="0.127" layer="21"/>
 <text x="-1.27" y="1.27" size="1.27" layer="25" font="vector">&gt;NAME</text>
 </package>
 </packages>
