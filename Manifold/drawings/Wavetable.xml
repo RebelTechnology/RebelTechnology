@@ -11,19 +11,19 @@
   <pot x="0.5625" y="-0.5"/>
   
   <!-- jacks -->
-  <hole x="-1.00" y="-1.25" radius="3.25"/>
-  <hole x="-1.00" y="-1.75" radius="3.25"/>
+  <hole x="-1.00" y="-1.252" radius="3.25"/>
+  <hole x="-1.00" y="-1.752" radius="3.25"/>
 
-  <hole x="-0.5" y="-1.25" radius="3.25"/>
-  <hole x="-0.5" y="-1.75" radius="3.25"/>
+  <hole x="-0.5" y="-1.252" radius="3.25"/>
+  <hole x="-0.5" y="-1.752" radius="3.25"/>
 
-  <hole x="0.00" y="-1.25" radius="3.25"/>
-  <hole x="0.00" y="-1.75" radius="3.25"/>
+  <hole x="0.00" y="-1.252" radius="3.25"/>
+  <hole x="0.00" y="-1.752" radius="3.25"/>
 
-  <hole x="0.5" y="-1.25" radius="3.25"/>
-  <hole x="0.5" y="-1.75" radius="3.25"/>
+  <hole x="0.5" y="-1.252" radius="3.25"/>
+  <hole x="0.5" y="-1.752" radius="3.25"/>
 
-  <hole x="1.00" y="-1.25" radius="3.25"/>
-  <hole x="1.00" y="-1.75" radius="3.25"/>
+  <hole x="1.00" y="-1.252" radius="3.25"/>
+  <hole x="1.00" y="-1.752" radius="3.25"/>
 
 </module>
