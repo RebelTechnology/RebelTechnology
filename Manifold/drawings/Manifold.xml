@@ -1,0 +1,37 @@
+<module type="12hp" grading="small">
+  
+  <!-- pots -->
+  <pot x="-0.5625" y="1.75"/>
+  <pot x="0.5625" y="1.75"/>
+  <pot x="-0.5625" y="1.00"/>
+  <pot x="0.5625" y="1.00"/>
+  <pot x="-0.5625" y="0.25"/>
+  <pot x="0.5625" y="0.25"/>
+  <pot x="-0.5625" y="-0.5"/>
+  <pot x="0.5625" y="-0.5"/>
+
+  <!-- leds -->
+  <rect x="0.0" y="0.75" width="3" height="63.5"/>
+
+  <!-- buttons -->
+  <hole x="-0.835" y="-0.875" radius="2.55"/>
+  <hole x="0.00" y="-0.875" radius="2.55"/>
+  <hole x="0.835" y="-0.875" radius="2.55"/>
+
+  <!-- jacks -->
+  <hole x="-1.00" y="-1.25" radius="3.25"/>
+  <hole x="-1.00" y="-1.75" radius="3.25"/>
+
+  <hole x="-0.5" y="-1.25" radius="3.25"/>
+  <hole x="-0.5" y="-1.75" radius="3.25"/>
+
+  <hole x="0.00" y="-1.25" radius="3.25"/>
+  <hole x="0.00" y="-1.75" radius="3.25"/>
+
+  <hole x="0.5" y="-1.25" radius="3.25"/>
+  <hole x="0.5" y="-1.75" radius="3.25"/>
+
+  <hole x="1.00" y="-1.25" radius="3.25"/>
+  <hole x="1.00" y="-1.75" radius="3.25"/>
+
+</module>
