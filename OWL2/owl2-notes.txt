@@ -457,4 +457,3 @@ BOOT0/BOOT1 not working on owl2
 It may be that there is a difference in the crystal oscillator start time. On one of the STM32 parts with a particular ROM (System Memory) if the oscillator didn't start up quickly enough it would revert to the UART.
 
 -----------------------------------------------------------------
-
