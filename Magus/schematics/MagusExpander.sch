@@ -11875,7 +11875,7 @@ NS Package M08A</description>
 <part name="GND158" library="supply1" deviceset="GND" device=""/>
 <part name="GND159" library="supply1" deviceset="GND" device=""/>
 <part name="GND163" library="supply1" deviceset="GND" device=""/>
-<part name="C1" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="10u"/>
+<part name="C1" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="47u"/>
 <part name="P+13" library="supply1" deviceset="+5V" device=""/>
 <part name="X1" library="con-usb-3" deviceset="USB" device="-A-H"/>
 <part name="X3" library="con-usb-3" deviceset="USB" device="-B-H"/>
