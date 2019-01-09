@@ -32,14 +32,14 @@
      units="mm"
      showgrid="false"
      inkscape:zoom="2.1138401"
-     inkscape:cx="331.37157"
-     inkscape:cy="955.6431"
-     inkscape:window-width="1680"
-     inkscape:window-height="986"
-     inkscape:window-x="240"
+     inkscape:cx="332.22209"
+     inkscape:cy="1009.9097"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g5316" />
+     inkscape:current-layer="svg6866" />
   <defs
      id="defs6869">
     <g
@@ -51,129 +51,130 @@
      style="fill:none;stroke:#000000;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
      id="g6872"
      transform="matrix(0,1,-1,0,170.80154,46.241117)">
-    <rect
-       x="-16.135496"
-       y="5.8515401"
-       width="39.900002"
-       height="119.9"
-       id="rect6874"
-       style="stroke:#ff0000;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none" />
-    <g
-       id="g5316"
-       style="fill:none;stroke:#ff0000;stroke-width:0.05"
-       transform="rotate(-180,-1.1286068,65.472192)">
-      <circle
-         id="circle5302"
-         style="fill:none;stroke:#ff0000"
-         r="3.25"
-         cy="19.817844"
-         cx="-15.032097" />
-      <circle
-         id="circle5304"
-         style="fill:none;stroke:#ff0000"
-         r="3.25"
-         cy="36.327847"
-         cx="-15.032097" />
-      <circle
-         id="circle5306"
-         style="fill:none;stroke:#ff0000"
-         r="3.25"
-         cy="52.837845"
-         cx="-15.032097" />
-      <g
-         id="g5344">
-        <rect
-           x="-18.282097"
-           y="63.347847"
-           width="11"
-           height="12"
-           style="fill:none;stroke:#ff0000"
-           id="rect5308" />
-        <rect
-           x="-18.282097"
-           y="81.02285"
-           width="7"
-           height="14.75"
-           style="fill:none;stroke:#ff0000"
-           id="rect5310" />
-      </g>
-      <rect
-         id="rect5312"
-         style="fill:none;stroke:#ff0000"
-         height="9"
-         width="12"
-         y="102.94786"
-         x="-18.282097" />
-    </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 9.4900595,111.12654 H 3.6486284"
+       d="m 8.989883,110.86634 h -5.341"
        id="path30"
        inkscape:connector-curvature="0" />
     <path
        inkscape:connector-curvature="0"
        id="path32"
-       d="M 9.4900595,94.616537 H 3.6486284"
+       d="m 8.989883,94.316378 h -5.341"
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 9.4900595,78.106539 H 3.6486284"
+       d="m 8.989883,78.016466 h -5.341"
        id="path34"
        inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path41"
+       d="m 8.489883,42.391529 h -4.841"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <g
+       id="g588"
+       style="stroke:#ff0000">
+      <path
+         id="path526"
+         style="fill:none;stroke:#ff0000;stroke-width:0.02645833"
+         d="M 20.379556,5.9512454 V 127.15106 H -13.582629 V 5.9512454 Z"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path528"
+         style="fill:none;stroke:#ff0000;stroke-width:0.02645833"
+         d="m 12.529819,74.891484 a 3.1250004,3.1250004 0 1 0 0,6.249964 3.1250004,3.1250004 0 1 0 0,-6.249964 z"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path530"
+         style="fill:none;stroke:#ff0000;stroke-width:0.02645833"
+         d="M 4.2548198,18.716529 V 28.41653 H 16.054809 v -9.700001 z"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path532"
+         style="fill:none;stroke:#ff0000;stroke-width:0.02645833"
+         d="m 12.529819,91.191391 a 3.125005,3.125005 0 1 0 0,6.249974 3.125005,3.125005 0 1 0 0,-6.249974 z"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path534"
+         style="fill:none;stroke:#ff0000;stroke-width:0.02645833"
+         d="M 4.5548044,54.866529 V 67.766533 H 16.054809 V 54.866529 Z"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path536"
+         style="fill:none;stroke:#ff0000;stroke-width:0.02645833"
+         d="M 9.5548178,35.366528 V 49.41653 H 16.054809 V 35.366528 Z"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path538"
+         style="fill:none;stroke:#ff0000;stroke-width:0.02645833"
+         d="m 12.529819,107.74134 a 3.1250004,3.1250004 0 1 0 0,6.25 3.1250004,3.1250004 0 1 0 0,-6.25 z"
+         inkscape:connector-curvature="0" />
+    </g>
   </g>
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     x="58.213303"
+     x="58.463455"
      y="49.032272"
      id="text6892"><tspan
        sodipodi:role="line"
        id="tspan6894"
-       x="58.213303"
+       x="58.463455"
        y="49.032272"
        style="font-size:2.82222199px;line-height:1.25">IN</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     x="73.105461"
+     x="73.395599"
      y="48.978649"
      id="text6896"><tspan
        sodipodi:role="line"
        id="tspan6898"
-       x="73.105461"
+       x="73.395599"
        y="48.978649"
        style="font-size:2.82222199px;line-height:1.25">OUT</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     x="104.51402"
+     x="105.14832"
      y="48.978649"
      id="text6900"><tspan
        sodipodi:role="line"
        id="tspan6902"
-       x="104.51402"
+       x="105.14832"
        y="48.978649"
-       style="font-size:2.82222199px;line-height:1.25">DEVICE · USB · HOST</tspan></text>
+       style="font-size:2.82222199px;line-height:1.25">USB B</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     x="145.17181"
+     x="145.10181"
      y="48.978649"
      id="text6908"><tspan
        sodipodi:role="line"
        id="tspan6910"
-       x="145.17181"
+       x="145.10181"
        y="48.978649"
        style="font-size:2.82222199px;line-height:1.25">DC</tspan></text>
   <text
      id="text48"
      y="48.978649"
-     x="89.864876"
+     x="89.944939"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      xml:space="preserve"><tspan
        style="font-size:2.82222199px;line-height:1.25"
        y="48.978649"
-       x="89.864876"
+       x="89.944939"
        id="tspan46"
        sodipodi:role="line">EXT</tspan></text>
+  <text
+     id="text33"
+     y="48.978649"
+     x="128.29839"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Helvetica LT Std';-inkscape-font-specification:'Helvetica LT Std';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-size:2.82222199px;line-height:1.25;text-align:center;text-anchor:middle"
+       y="48.978649"
+       x="128.29839"
+       sodipodi:role="line"
+       id="tspan35">USB A</tspan></text>
 </svg>
