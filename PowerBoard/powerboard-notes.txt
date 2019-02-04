@@ -719,3 +719,27 @@ IcspAdapter AVR ISP programming adaptor
 to fit AVR-ISP-MK2 (which has target power)
 
 --------------------------------------------------------------------------
+
+Isolated Dual output DC/DC converter 4.5-5.5V in, +/- 12V out 42mA 1W
+MeanWell DETN01L-12 £2.86 @500
+AM1DE-0512DZ AIMTEC 
+
+Neither one is regulated.
+
+--------------------------------------------------------------------------
+
+LT1945
+350mA Boost and 350mA Inverter in Single Package
+Vin 1.2V to 15V.
+
+LT3463 Dual 250mA Boost/Inverter
+Input Voltage Range: 2.4V to 15V
+High Output Voltages: Up to ±40V
+
+LT3463A 250mA Boost, 400mA Inverter
+
+LT3472 Boost and Inverting DC/DC Converter for CCD Bias
+VIN Range: 2.2V to 16V
+Output Voltages Up to ±34V
+
+--------------------------------------------------------------------------
