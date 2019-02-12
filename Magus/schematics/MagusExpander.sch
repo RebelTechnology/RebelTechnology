@@ -11930,6 +11930,7 @@ NS Package M08A</description>
 <part name="EXT1" library="Rebel" deviceset="CON-JST_PH_3W" device=""/>
 <part name="X6" library="con-lumberg" deviceset="1503_09" device=""/>
 <part name="EXT2" library="Rebel" deviceset="CON-JST_PH_3W" device=""/>
+<part name="GND4" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12147,6 +12148,9 @@ NS Package M08A</description>
 <instance part="EXT2" gate="G$1" x="193.04" y="71.12" smashed="yes" rot="R180">
 <attribute name="NAME" x="199.644" y="69.088" size="1.778" layer="95" rot="R180"/>
 </instance>
+<instance part="GND4" gate="1" x="139.7" y="12.7" smashed="yes">
+<attribute name="VALUE" x="137.16" y="10.16" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -12355,6 +12359,12 @@ NS Package M08A</description>
 <wire x1="99.06" y1="48.26" x2="99.06" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="48.26" x2="99.06" y2="48.26" width="0.1524" layer="91"/>
 <junction x="99.06" y="48.26"/>
+</segment>
+<segment>
+<pinref part="AUDIO_OUT" gate="G$1" pin="-2"/>
+<wire x1="132.08" y1="20.32" x2="139.7" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="20.32" x2="139.7" y2="15.24" width="0.1524" layer="91"/>
+<pinref part="GND4" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="IN_L" class="0">
