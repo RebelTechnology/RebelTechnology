@@ -11927,6 +11927,11 @@ Farnell: 1469104</description>
 <junction x="152.4" y="180.34"/>
 <label x="160.02" y="180.34" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="G1" pin="VCOMAD"/>
+<pinref part="C30" gate="G$1" pin="+"/>
+<wire x1="269.24" y1="35.56" x2="259.08" y2="35.56" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="ADC2" class="0">
 <segment>
@@ -12222,6 +12227,11 @@ Farnell: 1469104</description>
 <pinref part="JP1" gate="A" pin="30"/>
 <wire x1="152.4" y1="160.02" x2="167.64" y2="160.02" width="0.1524" layer="91"/>
 <junction x="152.4" y="160.02"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G1" pin="VCOMDA"/>
+<pinref part="C31" gate="G$1" pin="+"/>
+<wire x1="337.82" y1="35.56" x2="347.98" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AIN1+" class="0">
@@ -12991,20 +13001,6 @@ Farnell: 1469104</description>
 <pinref part="C28" gate="G$1" pin="+"/>
 <wire x1="269.24" y1="48.26" x2="241.3" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="241.3" y1="48.26" x2="241.3" y2="38.1" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$5" class="0">
-<segment>
-<pinref part="IC1" gate="G1" pin="VCOMAD"/>
-<pinref part="C30" gate="G$1" pin="+"/>
-<wire x1="269.24" y1="35.56" x2="259.08" y2="35.56" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="IC1" gate="G1" pin="VCOMDA"/>
-<pinref part="C31" gate="G$1" pin="+"/>
-<wire x1="337.82" y1="35.56" x2="347.98" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SAI_MCLK" class="0">
