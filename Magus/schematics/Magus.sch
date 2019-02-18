@@ -19945,7 +19945,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="X6" gate="-13" pin="1"/>
 </segment>
 </net>
-<net name="USB_D_ID" class="0">
+<net name="USBH_ID" class="0">
 <segment>
 <wire x1="162.56" y1="-172.72" x2="162.56" y2="-200.66" width="0.1524" layer="91"/>
 <label x="162.56" y="-200.66" size="1.778" layer="95" rot="R90"/>
@@ -20053,9 +20053,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="254" y1="-76.2" x2="271.78" y2="-76.2" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="USB" gate="G$1" pin="4"/>
-<wire x1="182.88" y1="-134.62" x2="182.88" y2="-152.4" width="0.1524" layer="91"/>
-<label x="182.88" y="-152.4" size="1.778" layer="95" rot="R90"/>
+<wire x1="160.02" y1="-172.72" x2="160.02" y2="-200.66" width="0.1524" layer="91"/>
+<label x="160.02" y="-200.66" size="1.778" layer="95" rot="R90"/>
+<pinref part="ANG4" gate="G$1" pin="4"/>
 </segment>
 </net>
 <net name="USBD_VBUS" class="0">
@@ -20065,9 +20065,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="EXT" gate="A" pin="2"/>
 </segment>
 <segment>
-<wire x1="160.02" y1="-172.72" x2="160.02" y2="-200.66" width="0.1524" layer="91"/>
-<label x="160.02" y="-200.66" size="1.778" layer="95" rot="R90"/>
-<pinref part="ANG4" gate="G$1" pin="4"/>
+<pinref part="USB" gate="G$1" pin="4"/>
+<wire x1="182.88" y1="-134.62" x2="182.88" y2="-152.4" width="0.1524" layer="91"/>
+<label x="182.88" y="-152.4" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 </nets>
