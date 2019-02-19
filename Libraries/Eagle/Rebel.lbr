@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="9.2.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
@@ -90,7 +91,7 @@
 <layer number="110" name="fp0" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="111" name="LPC17xx" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="112" name="tSilk" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="113" name="Max.sfx.Comments" color="9" fill="1" visible="yes" active="yes"/>
+<layer number="113" name="Max.sfx.Comments" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="114" name="FRNTMAAT1" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="115" name="FRNTMAAT2" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="116" name="Patch_BOT" color="7" fill="1" visible="yes" active="yes"/>
@@ -12490,6 +12491,42 @@ Memory Configuration: 512K x 16bit &lt;br/&gt;</description>
 <wire x1="-2.54" y1="0" x2="0" y2="2.54" width="0.254" layer="94"/>
 <wire x1="0" y1="2.54" x2="2.54" y2="0" width="0.254" layer="94"/>
 </symbol>
+<symbol name="TLC5949">
+<pin name="OUT0" x="20.32" y="17.78" length="middle" rot="R180"/>
+<pin name="OUT1" x="20.32" y="15.24" length="middle" rot="R180"/>
+<pin name="OUT2" x="20.32" y="12.7" length="middle" rot="R180"/>
+<pin name="OUT3" x="20.32" y="10.16" length="middle" rot="R180"/>
+<pin name="OUT4" x="20.32" y="7.62" length="middle" rot="R180"/>
+<pin name="OUT5" x="20.32" y="5.08" length="middle" rot="R180"/>
+<pin name="OUT6" x="20.32" y="2.54" length="middle" rot="R180"/>
+<pin name="OUT7" x="20.32" y="0" length="middle" rot="R180"/>
+<pin name="OUT8" x="20.32" y="-2.54" length="middle" rot="R180"/>
+<pin name="OUT9" x="20.32" y="-5.08" length="middle" rot="R180"/>
+<pin name="OUT10" x="20.32" y="-7.62" length="middle" rot="R180"/>
+<pin name="OUT11" x="20.32" y="-10.16" length="middle" rot="R180"/>
+<pin name="OUT12" x="20.32" y="-12.7" length="middle" rot="R180"/>
+<pin name="OUT13" x="20.32" y="-15.24" length="middle" rot="R180"/>
+<pin name="OUT14" x="20.32" y="-17.78" length="middle" rot="R180"/>
+<wire x1="15.24" y1="22.86" x2="15.24" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="-15.24" y1="-25.4" x2="-15.24" y2="22.86" width="0.254" layer="94"/>
+<wire x1="-15.24" y1="22.86" x2="15.24" y2="22.86" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-25.4" x2="-15.24" y2="-25.4" width="0.254" layer="94"/>
+<pin name="OUT15" x="20.32" y="-20.32" length="middle" rot="R180"/>
+<pin name="VCC" x="0" y="27.94" length="middle" rot="R270"/>
+<pin name="GND" x="0" y="-30.48" length="middle" rot="R90"/>
+<pin name="MODE" x="-20.32" y="-5.08" length="middle"/>
+<pin name="BLANK" x="-20.32" y="-7.62" length="middle"/>
+<pin name="SCLK" x="-20.32" y="5.08" length="middle"/>
+<pin name="SIN" x="-20.32" y="0" length="middle"/>
+<pin name="SOUT" x="-20.32" y="2.54" length="middle"/>
+<pin name="XERR" x="-20.32" y="-12.7" length="middle"/>
+<pin name="XHALF" x="-20.32" y="-15.24" length="middle"/>
+<pin name="XLAT" x="-20.32" y="-17.78" length="middle"/>
+<pin name="IREF" x="-20.32" y="12.7" length="middle"/>
+<pin name="GSCLK" x="-20.32" y="10.16" length="middle"/>
+<text x="5.08" y="23.368" size="1.27" layer="95">&gt;NAME</text>
+<text x="5.08" y="-27.432" size="1.27" layer="96">&gt;VALUE</text>
+</symbol>
 <symbol name="TLC5971">
 <pin name="IREF" x="-5.08" y="-22.86" length="middle"/>
 <pin name="GND" x="-5.08" y="-30.48" length="middle"/>
@@ -17633,6 +17670,48 @@ Source: http://document.sharpsma.com/files/GM1WA55311A_SS.pdf</description>
 <connect gate="G$1" pin="CBLUE" pad="P4"/>
 <connect gate="G$1" pin="CGREEN" pad="P2"/>
 <connect gate="G$1" pin="CRED" pad="P1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TLC5946">
+<gates>
+<gate name="TLC5946" symbol="TLC5949" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TSSOP28">
+<connects>
+<connect gate="TLC5946" pin="BLANK" pad="2"/>
+<connect gate="TLC5946" pin="GND" pad="1"/>
+<connect gate="TLC5946" pin="GSCLK" pad="25"/>
+<connect gate="TLC5946" pin="IREF" pad="27"/>
+<connect gate="TLC5946" pin="MODE" pad="6"/>
+<connect gate="TLC5946" pin="OUT0" pad="7"/>
+<connect gate="TLC5946" pin="OUT1" pad="8"/>
+<connect gate="TLC5946" pin="OUT10" pad="17"/>
+<connect gate="TLC5946" pin="OUT11" pad="18"/>
+<connect gate="TLC5946" pin="OUT12" pad="19"/>
+<connect gate="TLC5946" pin="OUT13" pad="20"/>
+<connect gate="TLC5946" pin="OUT14" pad="21"/>
+<connect gate="TLC5946" pin="OUT15" pad="22"/>
+<connect gate="TLC5946" pin="OUT2" pad="9"/>
+<connect gate="TLC5946" pin="OUT3" pad="10"/>
+<connect gate="TLC5946" pin="OUT4" pad="11"/>
+<connect gate="TLC5946" pin="OUT5" pad="12"/>
+<connect gate="TLC5946" pin="OUT6" pad="13"/>
+<connect gate="TLC5946" pin="OUT7" pad="14"/>
+<connect gate="TLC5946" pin="OUT8" pad="15"/>
+<connect gate="TLC5946" pin="OUT9" pad="16"/>
+<connect gate="TLC5946" pin="SCLK" pad="4"/>
+<connect gate="TLC5946" pin="SIN" pad="5"/>
+<connect gate="TLC5946" pin="SOUT" pad="24"/>
+<connect gate="TLC5946" pin="VCC" pad="28"/>
+<connect gate="TLC5946" pin="XERR" pad="23"/>
+<connect gate="TLC5946" pin="XHALF" pad="26"/>
+<connect gate="TLC5946" pin="XLAT" pad="3"/>
 </connects>
 <technologies>
 <technology name=""/>
