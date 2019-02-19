@@ -179,3 +179,43 @@ todo:
 
 -------------------------------------------------------
 
+Noise on output when connected to VCA?
+discohead
+https://www.muffwiggler.com/forum/viewtopic.php?p=2928272#2928272
+jaredcolin@gmail.com
+
+7/12 2018
+No I don't think it's possible that my power supply is strained or overloaded.
+My case is a Tiptop Audio Manits with +12V@3A and -12V@1.1A and I'm only using about half of that.
+It's been patched dozens of ways, but if I use it to open a VCA that has audible output, I can hear the "noise" in the recording I originally posted: https://soundcloud.com/discohead/gonies-noise
+Any sound source into any of my VCA's (Intellijel Quad, MI Blinds, MN LxD) then use the Gonies to open them and I can hear it. However, when I used the Gonies to modulate a filter cutoff, for example, there were no audible problems.
+On Mon, Dec 3, 2018 at 2:41 AM Martin Klang <martin@rebeltech.org> wrote:
+    yes I received it last week and did some initial testing on it.
+    Powering from my small skiff I can't see any significant noise on the output. It comes out as less than 0.3% noise, both at rest, during ramp up and down, and sustain. This amount of noise is well below what would be audible under normal circumstances.
+    I also compared it against a brand new Gonies and got identical results.
+    I plan to test it in a few more ways, by simulating an overloaded PSU, and by injecting noise on the power rails, to see if this produces more noise on the output. Alas I ran out of time, which is also why I didn't get back to you sooner, apologies.
+    I will do the additional tests this week. Meanwhile can you tell me in detail what your setup is and how it is patched when you hear a noisy output? Do you think it is possible that your power supply is straining or overloaded?
+10/1 2019
+Yes, I have received it. Unfortunately, I've been too busy the past few weeks to get it back in my case.
+Once it's back in and I've had a chance to test it out, I'll follow up with you and let you know how it goes.
+Thanks again,
+Jared
+
+Konstantinos <kyvelakos@yahoo.gr>
+On 08/01/2019 14:35, Konstantinos wrote:
+> Hello, and happy year.
+>
+> I have just bought a new module from one of your products the module called Gonies and i'm experiencing the following issue from the beginning:
+> I'm using it as an envelope controlling a VCA and i have to say that there is some bleeding of noise if i can say it like this when gonies controls the VCA this phenomenon does not occur with other envelopes from my set up. I have tried it also to switch skiff and control the VCA from different psu but still the same thing happens.
+> I would like to know if this is normal, the noise if i can describe it is a small amount and it occurs when the envelope opens and closes the VCA.
+> Any advice is greatly appreciated.
+I have tested with gates from:
+Intellijel - uMidi
+Noise Engineering - Bin Seq
+Malleko - VARIGATE4+
+And i have used as VCA :
+Intellijel - Quad VCA
+Make Noise - ModDemix
+I have installed in my both case:
+Tiptop Audio Mantis
+EOWAVE - 104HP CASE with bus board.
