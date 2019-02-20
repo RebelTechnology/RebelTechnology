@@ -13364,6 +13364,11 @@ Farnell: 1469104</description>
 <label x="314.96" y="114.3" size="1.778" layer="95" rot="R90"/>
 <pinref part="IC1" gate="G1" pin="LRCKDA"/>
 </segment>
+<segment>
+<wire x1="289.56" y1="111.76" x2="289.56" y2="124.46" width="0.1524" layer="91"/>
+<label x="289.56" y="114.3" size="1.778" layer="95" rot="R90"/>
+<pinref part="IC1" gate="G1" pin="LRCKAD"/>
+</segment>
 </net>
 <net name="SAI_BCK" class="0">
 <segment>
@@ -13375,6 +13380,11 @@ Farnell: 1469104</description>
 <wire x1="317.5" y1="111.76" x2="317.5" y2="124.46" width="0.1524" layer="91"/>
 <label x="317.5" y="114.3" size="1.778" layer="95" rot="R90"/>
 <pinref part="IC1" gate="G1" pin="BCKDA"/>
+</segment>
+<segment>
+<wire x1="292.1" y1="111.76" x2="292.1" y2="124.46" width="0.1524" layer="91"/>
+<label x="292.1" y="114.3" size="1.778" layer="95" rot="R90"/>
+<pinref part="IC1" gate="G1" pin="BCKAD"/>
 </segment>
 </net>
 <net name="SAI_SDI" class="0">
