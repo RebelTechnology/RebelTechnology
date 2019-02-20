@@ -12137,6 +12137,7 @@ Farnell: 1469104</description>
 <pinref part="C30" gate="G$1" pin="+"/>
 <pinref part="IC1" gate="G1" pin="VCOMAD"/>
 <wire x1="259.08" y1="35.56" x2="269.24" y2="35.56" width="0.1524" layer="91"/>
+<label x="259.08" y="35.56" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC2" class="0">
@@ -12431,6 +12432,7 @@ Farnell: 1469104</description>
 <pinref part="IC1" gate="G1" pin="VCOMDA"/>
 <pinref part="C31" gate="G$1" pin="+"/>
 <wire x1="337.82" y1="35.56" x2="347.98" y2="35.56" width="0.1524" layer="91"/>
+<label x="340.36" y="35.56" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="AIN1+" class="0">
@@ -13450,6 +13452,37 @@ Farnell: 1469104</description>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="102,1,40.64,109.22,+3V3,+A3V3,,,,"/>
+<approved hash="102,1,12.7,96.52,+3V3,+A3V3,,,,"/>
+<approved hash="102,1,83.82,203.2,+3V3,+A3V3,,,,"/>
+<approved hash="102,1,83.82,172.72,+5V,+A5V,,,,"/>
+<approved hash="102,1,264.16,101.6,+5V,+A5V,,,,"/>
+<approved hash="102,1,342.9,101.6,+5V,+A5V,,,,"/>
+<approved hash="102,1,223.52,73.66,+5V,+A5V,,,,"/>
+<approved hash="201,1,83.82,203.2,+3V3,+3V3\, +A3V3,,,,"/>
+<approved hash="201,1,12.7,96.52,+3V3,+3V3\, +A3V3,,,,"/>
+<approved hash="201,1,40.64,109.22,+3V3,+3V3\, +A3V3,,,,"/>
+<approved hash="201,1,223.52,73.66,+5V,+5V\, +A5V,,,,"/>
+<approved hash="201,1,342.9,101.6,+5V,+5V\, +A5V,,,,"/>
+<approved hash="201,1,264.16,101.6,+5V,+5V\, +A5V,,,,"/>
+<approved hash="201,1,83.82,172.72,+5V,+5V\, +A5V,,,,"/>
+<approved hash="208,1,10.16,149.86,+3V3,sup,,,,"/>
+<approved hash="208,1,20.32,149.86,+3V3,sup,,,,"/>
+<approved hash="208,1,30.48,149.86,+3V3,sup,,,,"/>
+<approved hash="208,1,40.64,149.86,+3V3,sup,,,,"/>
+<approved hash="208,1,50.8,149.86,+3V3,sup,,,,"/>
+<approved hash="208,1,48.26,111.76,+3V3,sup,,,,"/>
+<approved hash="208,1,152.4,111.76,+3V3,sup,,,,"/>
+<approved hash="208,1,101.6,142.24,+3V3,sup,,,,"/>
+<approved hash="208,1,119.38,38.1,+3V3,sup,,,,"/>
+<approved hash="208,1,233.68,142.24,+3V3,sup,,,,"/>
+<approved hash="208,1,60.96,203.2,+3V3,sup,,,,"/>
+<approved hash="208,1,40.64,200.66,+3V3,out,,,,"/>
+<approved hash="208,1,266.7,104.14,+3V3,sup,,,,"/>
+<approved hash="208,1,241.3,73.66,+3V3,sup,,,,"/>
+<approved hash="208,1,284.48,15.24,+3V3,sup,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>
