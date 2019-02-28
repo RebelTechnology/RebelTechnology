@@ -14813,7 +14813,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <sheet>
 <plain>
 <text x="-66.04" y="198.12" size="1.778" layer="97">RC Filter fc=3315Hz</text>
-<text x="-297.18" y="193.04" size="3.048" layer="97" font="vector">Magus Rev03</text>
+<text x="-297.18" y="193.04" size="3.048" layer="97" font="vector">Magus Rev04</text>
 <text x="-297.18" y="185.42" size="3.048" layer="97" font="vector">Copyright Rebel Technology 2018</text>
 <text x="-195.58" y="119.38" size="2.54" layer="97">OLED</text>
 <text x="-160.02" y="-167.64" size="1.778" layer="97">RC LP filter Fc=650kHz</text>
@@ -18377,7 +18377,11 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="INR" gate="G$1" pin="5"/>
 <wire x1="-284.48" y1="-60.96" x2="-279.4" y2="-60.96" width="0.1524" layer="91"/>
 <pinref part="GND56" gate="1" pin="GND"/>
-<wire x1="-279.4" y1="-71.12" x2="-279.4" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="-279.4" y1="-71.12" x2="-279.4" y2="-63.5" width="0.1524" layer="91"/>
+<pinref part="INR" gate="G$1" pin="4"/>
+<wire x1="-279.4" y1="-63.5" x2="-279.4" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="-284.48" y1="-63.5" x2="-279.4" y2="-63.5" width="0.1524" layer="91"/>
+<junction x="-279.4" y="-63.5"/>
 </segment>
 <segment>
 <pinref part="OUTR" gate="G$1" pin="5"/>
@@ -19082,13 +19086,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="-213.36" y="-170.18" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="-266.7" y1="-38.1" x2="-281.94" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="-266.7" y1="-38.1" x2="-284.48" y2="-38.1" width="0.1524" layer="91"/>
 <pinref part="INL" gate="G$1" pin="3"/>
-<pinref part="INR" gate="G$1" pin="4"/>
-<wire x1="-281.94" y1="-38.1" x2="-284.48" y2="-38.1" width="0.1524" layer="91"/>
-<wire x1="-284.48" y1="-63.5" x2="-281.94" y2="-63.5" width="0.1524" layer="91"/>
-<wire x1="-281.94" y1="-63.5" x2="-281.94" y2="-38.1" width="0.1524" layer="91"/>
-<junction x="-281.94" y="-38.1"/>
 <label x="-276.86" y="-38.1" size="1.778" layer="95"/>
 </segment>
 </net>
