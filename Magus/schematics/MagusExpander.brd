@@ -893,12 +893,12 @@ design rules under a new name.</description>
 <element name="MIDI" library="Rebel" package="CON-JST_PH_3W" value="CON-JST_PH_3W" x="21.59" y="8.89" smashed="yes" rot="R270">
 <attribute name="NAME" x="23.764" y="13.001" size="1.27" layer="21" font="vector" rot="R270"/>
 </element>
-<element name="C2" library="Rebel" package="C1210" value="1u Polyester" x="17.526" y="92.075" smashed="yes">
-<attribute name="NAME" x="14.986" y="91.44" size="0.9" layer="25" font="vector" rot="R90"/>
-<attribute name="VALUE" x="15.621" y="88.9" size="1.27" layer="27"/>
+<element name="C2" library="Rebel" package="C1210" value="1u Polyester" x="16.891" y="92.075" smashed="yes">
+<attribute name="NAME" x="17.399" y="91.313" size="0.9" layer="25" font="vector" rot="R90"/>
+<attribute name="VALUE" x="15.494" y="88.9" size="1.27" layer="27"/>
 </element>
-<element name="C6" library="Rebel" package="C1210" value="1u Polyester" x="17.526" y="98.425" smashed="yes">
-<attribute name="NAME" x="14.986" y="97.663" size="0.9" layer="25" font="vector" rot="R90"/>
+<element name="C6" library="Rebel" package="C1210" value="1u Polyester" x="16.891" y="98.425" smashed="yes">
+<attribute name="NAME" x="17.272" y="97.79" size="0.9" layer="25" font="vector" rot="R90"/>
 <attribute name="VALUE" x="15.621" y="95.25" size="1.27" layer="27"/>
 </element>
 </elements>
@@ -1118,7 +1118,6 @@ design rules under a new name.</description>
 <contactref element="R14" pad="1"/>
 <wire x1="19.939" y1="69.988" x2="19.939" y2="72.123" width="0.3048" layer="1"/>
 <wire x1="19.939" y1="72.123" x2="19.742" y2="72.32" width="0.3048" layer="1"/>
-<wire x1="19.694" y1="72.272" x2="19.742" y2="72.32" width="0.254" layer="1"/>
 <contactref element="C15" pad="1"/>
 <wire x1="19.742" y1="74.353" x2="19.742" y2="72.32" width="0.3048" layer="1"/>
 <wire x1="8.947" y1="86.782" x2="12.278" y2="86.782" width="0.3048" layer="1"/>
@@ -1217,30 +1216,29 @@ design rules under a new name.</description>
 <signal name="N$9">
 <contactref element="X4" pad="2"/>
 <contactref element="C2" pad="1"/>
-<wire x1="16.126" y1="92.075" x2="8.015" y2="92.075" width="0.3048" layer="1"/>
+<wire x1="15.491" y1="92.075" x2="8.015" y2="92.075" width="0.3048" layer="1"/>
 <wire x1="8.015" y1="92.075" x2="5.37" y2="89.43" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$17">
 <contactref element="X4" pad="3"/>
 <contactref element="C6" pad="1"/>
 <wire x1="9.87" y1="99.03" x2="14.886" y2="99.03" width="0.3048" layer="1"/>
-<wire x1="14.886" y1="99.03" x2="16.126" y2="98.425" width="0.3048" layer="1"/>
+<wire x1="14.886" y1="99.03" x2="15.491" y2="98.425" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$18">
 <contactref element="C6" pad="2"/>
 <contactref element="R2" pad="2"/>
-<wire x1="18.926" y1="98.425" x2="18.291" y2="97.666" width="0.3048" layer="1"/>
-<wire x1="16.549" y1="95.924" x2="16.549" y2="95.242" width="0.3048" layer="1"/>
-<wire x1="18.291" y1="97.666" x2="16.549" y2="95.924" width="0.3048" layer="1"/>
+<wire x1="18.291" y1="97.793" x2="18.291" y2="98.425" width="0.3048" layer="1"/>
+<wire x1="16.549" y1="95.242" x2="16.549" y2="96.051" width="0.3048" layer="1"/>
+<wire x1="16.549" y1="96.051" x2="18.291" y2="97.793" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$20">
 <contactref element="R1" pad="2"/>
 <contactref element="C2" pad="2"/>
-<wire x1="18.926" y1="92.075" x2="18.288" y2="91.691" width="0.3048" layer="1"/>
-<wire x1="16.51" y1="89.285" x2="16.549" y2="89.246" width="0.3048" layer="1"/>
-<wire x1="18.926" y1="92.075" x2="18.672" y2="91.951" width="0.3048" layer="1"/>
-<wire x1="16.51" y1="89.789" x2="16.51" y2="89.285" width="0.3048" layer="1"/>
-<wire x1="18.672" y1="91.951" x2="16.51" y2="89.789" width="0.3048" layer="1"/>
+<wire x1="16.549" y1="89.246" x2="16.549" y2="89.574" width="0.3048" layer="1"/>
+<wire x1="16.549" y1="89.574" x2="17.907" y2="90.932" width="0.3048" layer="1"/>
+<wire x1="17.907" y1="90.932" x2="17.907" y2="91.691" width="0.3048" layer="1"/>
+<wire x1="17.907" y1="91.691" x2="18.291" y2="92.075" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$7">
 <contactref element="X6" pad="3"/>
