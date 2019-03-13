@@ -735,11 +735,18 @@ Vin 1.2V to 15V.
 LT3463 Dual 250mA Boost/Inverter
 Input Voltage Range: 2.4V to 15V
 High Output Voltages: Up to ±40V
+Mouser £1.84 @250
 
 LT3463A 250mA Boost, 400mA Inverter
 
 LT3472 Boost and Inverting DC/DC Converter for CCD Bias
 VIN Range: 2.2V to 16V
 Output Voltages Up to ±34V
+
+--------------------------------------------------------------------------
+
+Traco Power TMR or TEC 1 to 6 Watt regulated power supplies +/-12v out, 4.5-13.2V in
+
+TDN 5-0922WI Isolated DC/DC Converters 4.5-12Vin 12V/210mA -12V/210mA 5W DIP-7
 
 --------------------------------------------------------------------------
