@@ -16764,7 +16764,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <sheets>
 <sheet>
 <plain>
-<text x="5.08" y="119.38" size="3.048" layer="97" font="vector">Magus Connectors Rev06</text>
+<text x="5.08" y="119.38" size="3.048" layer="97" font="vector">Magus Connectors Rev07</text>
 <text x="5.08" y="114.3" size="3.048" layer="97" font="vector">Copyright 2018 Rebel Technology</text>
 <text x="5.08" y="109.22" size="3.048" layer="97" font="vector">Published under the GNU GPL</text>
 <text x="200.66" y="12.7" size="1.778" layer="97">LPF 21kHz</text>
@@ -17617,19 +17617,6 @@ In this library the device names are the same as the pin names of the symbols, t
 <errors>
 <approved hash="104,1,220.98,83.82,IC3P,V+,+12V,,,"/>
 <approved hash="104,1,220.98,68.58,IC3P,V-,-12V,,,"/>
-<approved hash="208,1,20.32,101.6,+5V,sup,,,,"/>
-<approved hash="208,1,22.86,5.08,+5V,sup,,,,"/>
-<approved hash="208,1,99.06,58.42,+5V,sup,,,,"/>
-<approved hash="208,1,40.64,-27.94,+5V,sup,,,,"/>
-<approved hash="208,1,35.56,-33.02,+5V,out,,,,"/>
-<approved hash="208,1,220.98,88.9,+12V,sup,,,,"/>
-<approved hash="208,1,91.44,58.42,+12V,sup,,,,"/>
-<approved hash="208,1,81.28,-33.02,+12V,out,,,,"/>
-<approved hash="208,1,88.9,-27.94,+12V,sup,,,,"/>
-<approved hash="208,1,7.62,-73.66,+12V,sup,,,,"/>
-<approved hash="113,1,57.5945,93.3958,X1,,,,,"/>
-<approved hash="113,1,57.5945,45.1358,X3,,,,,"/>
-<approved hash="113,1,36.7877,12.8312,JP1,,,,,"/>
 </errors>
 </schematic>
 </drawing>
