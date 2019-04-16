@@ -11829,7 +11829,7 @@ NS Package M08A</description>
 <sheets>
 <sheet>
 <plain>
-<text x="5.08" y="119.38" size="3.048" layer="97" font="vector">Magus Expander Rev03</text>
+<text x="5.08" y="119.38" size="3.048" layer="97" font="vector">Magus Expander Rev04</text>
 <text x="5.08" y="114.3" size="3.048" layer="97" font="vector">Copyright 2018 Rebel Technology</text>
 <text x="5.08" y="109.22" size="3.048" layer="97" font="vector">Published under the GNU GPL</text>
 <text x="200.66" y="12.7" size="1.778" layer="97">LPF 21kHz</text>
@@ -12319,9 +12319,13 @@ NS Package M08A</description>
 <wire x1="218.44" y1="43.18" x2="223.52" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="223.52" y1="43.18" x2="246.38" y2="43.18" width="0.1524" layer="91"/>
 <junction x="223.52" y="43.18"/>
-<wire x1="246.38" y1="43.18" x2="246.38" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="246.38" y1="43.18" x2="246.38" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="X2" gate="G$1" pin="2"/>
+<wire x1="246.38" y1="22.86" x2="246.38" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="248.92" y1="20.32" x2="246.38" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="X2" gate="G$1" pin="4"/>
+<wire x1="248.92" y1="22.86" x2="246.38" y2="22.86" width="0.1524" layer="91"/>
+<junction x="246.38" y="22.86"/>
 </segment>
 </net>
 <net name="R_OUT" class="0">
@@ -12333,9 +12337,13 @@ NS Package M08A</description>
 <wire x1="218.44" y1="2.54" x2="223.52" y2="2.54" width="0.1524" layer="91"/>
 <wire x1="223.52" y1="2.54" x2="223.52" y2="0" width="0.1524" layer="91"/>
 <junction x="223.52" y="2.54"/>
-<wire x1="238.76" y1="2.54" x2="238.76" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="238.76" y1="2.54" x2="238.76" y2="25.4" width="0.1524" layer="91"/>
 <pinref part="X2" gate="G$1" pin="3"/>
+<wire x1="238.76" y1="25.4" x2="238.76" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="248.92" y1="27.94" x2="238.76" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="X2" gate="G$1" pin="5"/>
+<wire x1="248.92" y1="25.4" x2="238.76" y2="25.4" width="0.1524" layer="91"/>
+<junction x="238.76" y="25.4"/>
 </segment>
 </net>
 <net name="N$19" class="0">
