@@ -3,7 +3,7 @@
 <eagle version="9.2.1">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
@@ -2416,7 +2416,6 @@ design rules under a new name.</description>
 <wire x1="5.404" y1="71.128" x2="3.517" y2="71.128" width="0.3048" layer="1"/>
 <wire x1="3.517" y1="71.128" x2="3.409" y2="71.12" width="0.3048" layer="1"/>
 <contactref element="X2" pad="3"/>
-<wire x1="6.35" y1="71.12" x2="6.342" y2="71.128" width="0.3048" layer="1"/>
 <wire x1="6.342" y1="71.128" x2="5.404" y2="71.128" width="0.3048" layer="1"/>
 <contactref element="X2" pad="5"/>
 <wire x1="8.47" y1="80.12" x2="8.47" y2="73.256" width="0.3048" layer="1"/>
