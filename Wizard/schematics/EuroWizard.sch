@@ -25518,7 +25518,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND84" library="supply1" deviceset="GND" device=""/>
 <part name="BUS" library="Rebel" deviceset="CON-JST-1X03" device="PH-TH"/>
-<part name="R53" library="Rebel" deviceset="R-EU_" device="0603" value="4k3"/>
+<part name="R53" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="POT_E" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
@@ -27467,7 +27467,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <label x="254" y="38.1" size="1.778" layer="95" rot="MR270"/>
 </segment>
 </net>
-<net name="USB_D_D+" class="0">
+<net name="USBD_DP" class="0">
 <segment>
 <pinref part="USB" gate="G$1" pin="2"/>
 <wire x1="256.54" y1="40.64" x2="256.54" y2="25.4" width="0.1524" layer="91"/>
@@ -27481,7 +27481,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <pinref part="X5" gate="G$1" pin="D+"/>
 </segment>
 </net>
-<net name="USB_D_VBUS" class="0">
+<net name="USBD_VBUS" class="0">
 <segment>
 <pinref part="USB" gate="G$1" pin="4"/>
 <wire x1="261.62" y1="40.64" x2="261.62" y2="25.4" width="0.1524" layer="91"/>
@@ -27493,7 +27493,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <label x="116.84" y="15.24" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="USB_D_D-" class="0">
+<net name="USBD_DM" class="0">
 <segment>
 <pinref part="USB" gate="G$1" pin="3"/>
 <wire x1="259.08" y1="40.64" x2="259.08" y2="25.4" width="0.1524" layer="91"/>
@@ -28023,7 +28023,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <label x="63.5" y="116.84" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="USB_H_D-" class="0">
+<net name="USBH_DM" class="0">
 <segment>
 <label x="287.02" y="5.08" size="1.778" layer="95" rot="R90"/>
 <pinref part="JP14" gate="G$1" pin="1"/>
@@ -28035,7 +28035,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <pinref part="X3" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="USB_H_D+" class="0">
+<net name="USBH_DP" class="0">
 <segment>
 <label x="284.48" y="5.08" size="1.778" layer="95" rot="R90"/>
 <pinref part="JP14" gate="G$1" pin="2"/>
@@ -28072,7 +28072,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <label x="137.16" y="-35.56" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="USB_H_VBUS" class="0">
+<net name="USBH_VBUS" class="0">
 <segment>
 <label x="279.4" y="5.08" size="1.778" layer="95" rot="R90"/>
 <pinref part="JP14" gate="G$1" pin="4"/>
