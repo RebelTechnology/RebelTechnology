@@ -750,3 +750,12 @@ Traco Power TMR or TEC 1 to 6 Watt regulated power supplies +/-12v out, 4.5-13.2
 TDN 5-0922WI Isolated DC/DC Converters 4.5-12Vin 12V/210mA -12V/210mA 5W DIP-7
 
 --------------------------------------------------------------------------
+
+PDQ30-D Series
+30 W, 4:1 Input Range, Single/Dual Regulated Output, 1500 Vdc Isolation, Dc-Dc Converter
+https://www.cui.com/product/power/dc-dc-converters/isolated/pdq30-d-series
+
+Also see Meanwell DKMW30F-12 used in befaco Cheapow
+https://www.mouser.co.uk/ProductDetail/MEAN-WELL/DKMW30F-12?qs=5aG0NVq1C4xuBs7GEt7vmw==
+
+--------------------------------------------------------------------------
