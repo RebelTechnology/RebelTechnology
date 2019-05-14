@@ -9,34 +9,34 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
-<layer number="2" name="Route2" color="10" fill="1" visible="yes" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
-<layer number="15" name="Route15" color="13" fill="1" visible="yes" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
-<layer number="19" name="Unrouted" color="14" fill="1" visible="yes" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
+<layer number="2" name="Route2" color="10" fill="1" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
+<layer number="15" name="Route15" color="13" fill="1" visible="no" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
+<layer number="19" name="Unrouted" color="14" fill="1" visible="no" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -45,8 +45,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -54,20 +54,20 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
-<layer number="58" name="bCAD" color="11" fill="1" visible="yes" active="no"/>
-<layer number="59" name="tCarbon" color="7" fill="1" visible="yes" active="no"/>
-<layer number="60" name="bCarbon" color="7" fill="1" visible="yes" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
+<layer number="58" name="bCAD" color="11" fill="1" visible="no" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -14310,7 +14310,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="C27" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C29" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="USB" library="SparkFun" deviceset="M05" device="PTH"/>
+<part name="USBD" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="PWR" library="SparkFun" deviceset="M03" device="PTH"/>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
@@ -14324,7 +14324,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
-<part name="ANG4" library="SparkFun" deviceset="M06" device="SIP"/>
+<part name="USBH" library="SparkFun" deviceset="M06" device="SIP"/>
 <part name="U2" library="Rebel" deviceset="STM32F051K4T6" device="" value="STM32F051K4T6"/>
 <part name="C19" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C20" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
@@ -14370,13 +14370,16 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <part name="C25" library="Rebel" deviceset="C-EU" device="C0603" value="220p C0G"/>
 <part name="C28" library="Rebel" deviceset="CPOL-EU" device="E5-8.5" value="22u"/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
+<part name="GND39" library="supply1" deviceset="GND" device=""/>
+<part name="R73" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
+<part name="R74" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="-66.04" y="198.12" size="1.778" layer="97">RC Filter fc=3315Hz</text>
-<text x="-297.18" y="193.04" size="3.048" layer="97" font="vector">Magus Rev04</text>
-<text x="-297.18" y="185.42" size="3.048" layer="97" font="vector">Copyright Rebel Technology 2018</text>
+<text x="-297.18" y="193.04" size="3.048" layer="97" font="vector">Magus Rev05</text>
+<text x="-297.18" y="185.42" size="3.048" layer="97" font="vector">Copyright Rebel Technology 2019</text>
 <text x="-195.58" y="119.38" size="2.54" layer="97">OLED</text>
 <text x="-160.02" y="-167.64" size="1.778" layer="97">RC LP filter Fc=650kHz</text>
 <text x="27.94" y="-226.06" size="2.54" layer="97">Audio Outputs</text>
@@ -15694,7 +15697,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="GND7" gate="1" x="-284.48" y="40.64" smashed="yes">
 <attribute name="VALUE" x="-287.02" y="38.1" size="1.778" layer="96"/>
 </instance>
-<instance part="USB" gate="G$1" x="180.34" y="-127" smashed="yes" rot="R270">
+<instance part="USBD" gate="G$1" x="180.34" y="-127" smashed="yes" rot="R270">
 <attribute name="VALUE" x="170.18" y="-124.46" size="1.778" layer="96" rot="R270"/>
 <attribute name="NAME" x="177.8" y="-123.698" size="1.778" layer="95" rot="MR0"/>
 </instance>
@@ -15743,7 +15746,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="GND13" gate="1" x="185.42" y="-154.94" smashed="yes">
 <attribute name="VALUE" x="182.88" y="-157.48" size="1.778" layer="96"/>
 </instance>
-<instance part="ANG4" gate="G$1" x="162.56" y="-167.64" smashed="yes" rot="MR270">
+<instance part="USBH" gate="G$1" x="162.56" y="-167.64" smashed="yes" rot="MR270">
 <attribute name="VALUE" x="172.72" y="-162.56" size="1.778" layer="96" rot="MR270"/>
 <attribute name="NAME" x="162.56" y="-161.798" size="1.778" layer="95" rot="MR0"/>
 </instance>
@@ -15847,9 +15850,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <instance part="GND29" gate="1" x="-248.92" y="-193.04" smashed="yes">
 <attribute name="VALUE" x="-251.46" y="-195.58" size="1.778" layer="96"/>
 </instance>
-<instance part="AUDIO_OUT" gate="G$1" x="43.18" y="-205.74" smashed="yes">
-<attribute name="NAME" x="36.83" y="-200.025" size="1.778" layer="95"/>
-<attribute name="VALUE" x="36.83" y="-213.36" size="1.778" layer="96"/>
+<instance part="AUDIO_OUT" gate="G$1" x="60.96" y="-233.68" smashed="yes">
+<attribute name="NAME" x="54.61" y="-227.965" size="1.778" layer="95"/>
+<attribute name="VALUE" x="54.61" y="-241.3" size="1.778" layer="96"/>
 </instance>
 <instance part="BUS3" gate="G$1" x="218.44" y="-33.02" smashed="yes" rot="R180">
 <attribute name="NAME" x="224.79" y="-38.735" size="1.778" layer="95" rot="R180"/>
@@ -15911,6 +15914,17 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </instance>
 <instance part="GND37" gate="1" x="307.34" y="45.72" smashed="yes">
 <attribute name="VALUE" x="304.8" y="43.18" size="1.778" layer="96"/>
+</instance>
+<instance part="GND39" gate="1" x="43.18" y="-243.84" smashed="yes">
+<attribute name="VALUE" x="40.64" y="-246.38" size="1.778" layer="96"/>
+</instance>
+<instance part="R73" gate="G$1" x="38.1" y="-193.04" smashed="yes" rot="R180">
+<attribute name="NAME" x="41.91" y="-194.5386" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="41.91" y="-189.738" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="R74" gate="G$1" x="38.1" y="-254" smashed="yes" rot="R180">
+<attribute name="NAME" x="41.91" y="-255.4986" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="41.91" y="-250.698" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -16980,7 +16994,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="EXT" gate="A" pin="4"/>
 </segment>
 <segment>
-<pinref part="USB" gate="G$1" pin="3"/>
+<pinref part="USBD" gate="G$1" pin="3"/>
 <wire x1="180.34" y1="-134.62" x2="180.34" y2="-152.4" width="0.1524" layer="91"/>
 <label x="180.34" y="-152.4" size="1.778" layer="95" rot="R90"/>
 </segment>
@@ -16992,7 +17006,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="EXT" gate="A" pin="6"/>
 </segment>
 <segment>
-<pinref part="USB" gate="G$1" pin="2"/>
+<pinref part="USBD" gate="G$1" pin="2"/>
 <wire x1="177.8" y1="-134.62" x2="177.8" y2="-152.4" width="0.1524" layer="91"/>
 <label x="177.8" y="-152.4" size="1.778" layer="95" rot="R90"/>
 </segment>
@@ -17006,7 +17020,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="165.1" y1="-172.72" x2="165.1" y2="-200.66" width="0.1524" layer="91"/>
 <label x="165.1" y="-200.66" size="1.778" layer="95" rot="R90"/>
-<pinref part="ANG4" gate="G$1" pin="2"/>
+<pinref part="USBH" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="USBH_DM" class="0">
@@ -17018,14 +17032,14 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="167.64" y1="-172.72" x2="167.64" y2="-200.66" width="0.1524" layer="91"/>
 <label x="167.64" y="-200.66" size="1.778" layer="95" rot="R90"/>
-<pinref part="ANG4" gate="G$1" pin="1"/>
+<pinref part="USBH" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="B8_USBH_PWR_EN" class="0">
 <segment>
 <wire x1="157.48" y1="-172.72" x2="157.48" y2="-200.66" width="0.1524" layer="91"/>
 <label x="157.48" y="-200.66" size="1.778" layer="95" rot="R90"/>
-<pinref part="ANG4" gate="G$1" pin="5"/>
+<pinref part="USBH" gate="G$1" pin="5"/>
 </segment>
 <segment>
 <pinref part="U9" gate="MIC2005" pin="EN"/>
@@ -17044,7 +17058,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <label x="256.54" y="-91.44" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="ANG4" gate="G$1" pin="6"/>
+<pinref part="USBH" gate="G$1" pin="6"/>
 <wire x1="154.94" y1="-172.72" x2="154.94" y2="-200.66" width="0.1524" layer="91"/>
 <label x="154.94" y="-200.66" size="1.778" layer="95" rot="R90"/>
 </segment>
@@ -18222,7 +18236,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </segment>
 <segment>
 <pinref part="GND13" gate="1" pin="GND"/>
-<pinref part="USB" gate="G$1" pin="5"/>
+<pinref part="USBD" gate="G$1" pin="5"/>
 <wire x1="185.42" y1="-152.4" x2="185.42" y2="-134.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -18355,6 +18369,12 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="GND37" gate="1" pin="GND"/>
 <pinref part="C28" gate="G$1" pin="-"/>
 <wire x1="307.34" y1="48.26" x2="307.34" y2="55.88" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="AUDIO_OUT" gate="G$1" pin="2"/>
+<pinref part="GND39" gate="1" pin="GND"/>
+<wire x1="58.42" y1="-233.68" x2="43.18" y2="-233.68" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="-233.68" x2="43.18" y2="-241.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="1">
@@ -18837,9 +18857,9 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <junction x="30.48" y="-170.18"/>
 <pinref part="IC1" gate="A" pin="OUT"/>
 <pinref part="R16" gate="G$1" pin="2"/>
-<pinref part="AUDIO_OUT" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="-203.2" x2="30.48" y2="-203.2" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="-203.2" x2="30.48" y2="-182.88" width="0.1524" layer="91"/>
+<pinref part="R73" gate="G$1" pin="2"/>
+<wire x1="33.02" y1="-193.04" x2="30.48" y2="-193.04" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="-193.04" x2="30.48" y2="-182.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$18" class="0">
@@ -18911,10 +18931,8 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <junction x="30.48" y="-254"/>
 <pinref part="IC1" gate="B" pin="OUT"/>
 <pinref part="R17" gate="G$1" pin="2"/>
-<pinref part="AUDIO_OUT" gate="G$1" pin="3"/>
-<wire x1="40.64" y1="-208.28" x2="30.48" y2="-208.28" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="-208.28" x2="30.48" y2="-241.3" width="0.1524" layer="91"/>
-<junction x="30.48" y="-241.3"/>
+<pinref part="R74" gate="G$1" pin="2"/>
+<wire x1="33.02" y1="-254" x2="30.48" y2="-254" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -19525,7 +19543,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="162.56" y1="-172.72" x2="162.56" y2="-200.66" width="0.1524" layer="91"/>
 <label x="162.56" y="-200.66" size="1.778" layer="95" rot="R90"/>
-<pinref part="ANG4" gate="G$1" pin="3"/>
+<pinref part="USBH" gate="G$1" pin="3"/>
 </segment>
 </net>
 <net name="BOOT" class="0">
@@ -19592,10 +19610,11 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <wire x1="220.98" y1="-35.56" x2="236.22" y2="-35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$26" class="0">
+<net name="USBD_ID" class="0">
 <segment>
-<pinref part="USB" gate="G$1" pin="1"/>
+<pinref part="USBD" gate="G$1" pin="1"/>
 <wire x1="175.26" y1="-134.62" x2="175.26" y2="-152.4" width="0.1524" layer="91"/>
+<label x="175.26" y="-152.4" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="VSUP" class="1">
@@ -19631,7 +19650,7 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <segment>
 <wire x1="160.02" y1="-172.72" x2="160.02" y2="-200.66" width="0.1524" layer="91"/>
 <label x="160.02" y="-200.66" size="1.778" layer="95" rot="R90"/>
-<pinref part="ANG4" gate="G$1" pin="4"/>
+<pinref part="USBH" gate="G$1" pin="4"/>
 </segment>
 </net>
 <net name="USBD_VBUS" class="0">
@@ -19641,9 +19660,27 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 <pinref part="EXT" gate="A" pin="2"/>
 </segment>
 <segment>
-<pinref part="USB" gate="G$1" pin="4"/>
+<pinref part="USBD" gate="G$1" pin="4"/>
 <wire x1="182.88" y1="-134.62" x2="182.88" y2="-152.4" width="0.1524" layer="91"/>
 <label x="182.88" y="-152.4" size="1.778" layer="95" rot="R90"/>
+</segment>
+</net>
+<net name="N$27" class="0">
+<segment>
+<pinref part="AUDIO_OUT" gate="G$1" pin="1"/>
+<wire x1="58.42" y1="-231.14" x2="48.26" y2="-231.14" width="0.1524" layer="91"/>
+<pinref part="R73" gate="G$1" pin="1"/>
+<wire x1="48.26" y1="-231.14" x2="48.26" y2="-193.04" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="-193.04" x2="43.18" y2="-193.04" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$30" class="0">
+<segment>
+<pinref part="AUDIO_OUT" gate="G$1" pin="3"/>
+<wire x1="58.42" y1="-236.22" x2="48.26" y2="-236.22" width="0.1524" layer="91"/>
+<pinref part="R74" gate="G$1" pin="1"/>
+<wire x1="43.18" y1="-254" x2="48.26" y2="-254" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="-254" x2="48.26" y2="-236.22" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
