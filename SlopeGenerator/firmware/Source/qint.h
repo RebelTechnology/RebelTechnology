@@ -13,7 +13,7 @@ typedef int64_t q63_t;
 #define Q31_MAX INT32_MAX
 
 #define Q15_MUL_Q15(a,b) (__SSAT(((q31_t)a*b)>>15, 16))
-#define Q31_MUL_Q31(a,b) (__SSAT(((q63_t)a*b)>>30, 32))
+#define Q31_MUL_Q31(a,b) (__SSAT(((q63_t)a*b)>>31, 32))
 #define Q15_DIV_Q15(a,b) (((q31_t)a<<15)/b) /* non-rounding */
 #define Q15_RECIPROCAL(a) (((q31_t)Q15_MAX<<15)/a)
 
