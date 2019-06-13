@@ -14756,7 +14756,7 @@ Also note, the SNAP packages are for using a snappable style connector. We sell 
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
 <part name="C22" library="Rebel" deviceset="C-EU" device="C0603" value="220p C0G"/>
 <part name="C25" library="Rebel" deviceset="C-EU" device="C0603" value="220p C0G"/>
-<part name="C28" library="Rebel" deviceset="CPOL-EU" device="E5-8.5" value="22u"/>
+<part name="C28" library="Rebel" deviceset="CPOL-EU" device="E5-8.5" value="100u"/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
 <part name="R73" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
@@ -14767,12 +14767,13 @@ Also note, the SNAP packages are for using a snappable style connector. We sell 
 <part name="GND43" library="supply1" deviceset="GND" device=""/>
 <part name="J4" library="SparkFun-Connectors" deviceset="CONN_01" device=""/>
 <part name="J5" library="SparkFun-Connectors" deviceset="CONN_01" device=""/>
+<part name="J6" library="SparkFun-Connectors" deviceset="CONN_01" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="-66.04" y="198.12" size="1.778" layer="97">RC Filter fc=3315Hz</text>
-<text x="-297.18" y="193.04" size="3.048" layer="97" font="vector">Magus Rev05</text>
+<text x="-297.18" y="193.04" size="3.048" layer="97" font="vector">Magus Rev06</text>
 <text x="-297.18" y="185.42" size="3.048" layer="97" font="vector">Copyright Rebel Technology 2019</text>
 <text x="-195.58" y="119.38" size="2.54" layer="97">OLED</text>
 <text x="-160.02" y="-167.64" size="1.778" layer="97">RC LP filter Fc=650kHz</text>
@@ -16332,8 +16333,8 @@ Also note, the SNAP packages are for using a snappable style connector. We sell 
 <attribute name="VALUE" x="-297.18" y="-141.986" size="1.778" layer="96" font="vector"/>
 <attribute name="NAME" x="-297.18" y="-134.112" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="GND43" gate="1" x="-284.48" y="-172.72" smashed="yes">
-<attribute name="VALUE" x="-287.02" y="-175.26" size="1.778" layer="96"/>
+<instance part="GND43" gate="1" x="-284.48" y="-182.88" smashed="yes">
+<attribute name="VALUE" x="-287.02" y="-185.42" size="1.778" layer="96"/>
 </instance>
 <instance part="J4" gate="G$1" x="-294.64" y="-149.86" smashed="yes">
 <attribute name="VALUE" x="-297.18" y="-154.686" size="1.778" layer="96" font="vector"/>
@@ -16342,6 +16343,10 @@ Also note, the SNAP packages are for using a snappable style connector. We sell 
 <instance part="J5" gate="G$1" x="-294.64" y="-162.56" smashed="yes">
 <attribute name="VALUE" x="-297.18" y="-167.386" size="1.778" layer="96" font="vector"/>
 <attribute name="NAME" x="-297.18" y="-159.512" size="1.778" layer="95" font="vector"/>
+</instance>
+<instance part="J6" gate="G$1" x="-294.64" y="-172.72" smashed="yes">
+<attribute name="VALUE" x="-297.18" y="-177.546" size="1.778" layer="96" font="vector"/>
+<attribute name="NAME" x="-297.18" y="-169.672" size="1.778" layer="95" font="vector"/>
 </instance>
 </instances>
 <busses>
@@ -18802,7 +18807,8 @@ Also note, the SNAP packages are for using a snappable style connector. We sell 
 <wire x1="-284.48" y1="-124.46" x2="-284.48" y2="-137.16" width="0.1524" layer="91"/>
 <wire x1="-284.48" y1="-137.16" x2="-284.48" y2="-149.86" width="0.1524" layer="91"/>
 <wire x1="-284.48" y1="-149.86" x2="-284.48" y2="-162.56" width="0.1524" layer="91"/>
-<wire x1="-284.48" y1="-162.56" x2="-284.48" y2="-170.18" width="0.1524" layer="91"/>
+<wire x1="-284.48" y1="-162.56" x2="-284.48" y2="-172.72" width="0.1524" layer="91"/>
+<wire x1="-284.48" y1="-172.72" x2="-284.48" y2="-180.34" width="0.1524" layer="91"/>
 <wire x1="-287.02" y1="-124.46" x2="-284.48" y2="-124.46" width="0.1524" layer="91"/>
 <junction x="-284.48" y="-124.46"/>
 <pinref part="J3" gate="G$1" pin="1"/>
@@ -18814,6 +18820,9 @@ Also note, the SNAP packages are for using a snappable style connector. We sell 
 <pinref part="J5" gate="G$1" pin="1"/>
 <wire x1="-287.02" y1="-162.56" x2="-284.48" y2="-162.56" width="0.1524" layer="91"/>
 <junction x="-284.48" y="-162.56"/>
+<pinref part="J6" gate="G$1" pin="1"/>
+<wire x1="-287.02" y1="-172.72" x2="-284.48" y2="-172.72" width="0.1524" layer="91"/>
+<junction x="-284.48" y="-172.72"/>
 </segment>
 </net>
 <net name="+5V" class="1">
