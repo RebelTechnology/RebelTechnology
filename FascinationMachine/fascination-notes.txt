@@ -101,7 +101,6 @@ compressor limiter
 
 ------------------------------------------------------------------------------------------------------
 
-
 Raymond Scott, the great American composer and electronic instrument inventor, would have been 110 this year, and there will be a festival to celebrate his work. We were asked if we could re-create his Fascination Machines, a concept design from the sixties which prefigured generative music. The answer, of course, was yes! Based loosely on the Wizard design, and featuring bespoke generative compositions created by Adam Parkinson and Cherif Hashizume, the newly re-imagined Raymond Scott Fascination Machines will be unveiled at Scottworks in LA on September 8 this year.
 
 https://www.raymondscott.net/rsfestival/
