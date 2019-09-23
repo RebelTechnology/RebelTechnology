@@ -188,3 +188,9 @@ Black Cardboard Mailing Postal Boxes (Colour Outside)
 REGULAR - Size / Ref : 80 x 80 x 80 mm (Ref KSH2BK)
 
 --------------------------------------------------------------------------------
+
+EuroWizard errors/todo:
+- turn power header around
+- swap host / device USB?
+
+--------------------------------------------------------------------------------
