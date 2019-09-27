@@ -17284,7 +17284,7 @@ plastic packages.&lt;p&gt;&lt;author&gt;AAL Eindhoven MK&lt;/author&gt;&lt;hr&gt
 </sheet>
 <sheet>
 <plain>
-<text x="-139.7" y="-17.78" size="6.4516" layer="97" font="vector">OwlPedal MKII Rev01</text>
+<text x="-139.7" y="-17.78" size="6.4516" layer="97" font="vector">OwlPedal MkII Rev01</text>
 <text x="-139.7" y="-25.4" size="3.81" layer="97" font="vector">Copyright 2019 Rebel Technology</text>
 <text x="-139.7" y="-33.02" size="3.81" layer="97" font="vector">Published under the GNU GPL</text>
 </plain>

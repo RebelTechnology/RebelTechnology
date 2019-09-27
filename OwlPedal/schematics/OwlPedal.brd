@@ -206,10 +206,10 @@
 <text x="80.645" y="52.3875" size="1.016" layer="22" font="vector" rot="SMR180" align="bottom-right">5v</text>
 <text x="80.645" y="54.9275" size="1.016" layer="22" font="vector" rot="SMR180" align="bottom-right">gnd</text>
 <text x="80.645" y="57.4675" size="1.016" layer="22" font="vector" rot="SMR180" align="bottom-right">3v3</text>
-<text x="69.85" y="78.105" size="1.9304" layer="21" font="vector">OWL MKII Rev01</text>
+<text x="69.85" y="78.105" size="1.9304" layer="21" font="vector">OWL MkII Rev01</text>
 <text x="13.335" y="78.105" size="1.9304" layer="21" font="vector">Rebel Technology</text>
 <text x="85.4075" y="78.105" size="1.9304" layer="22" font="vector" rot="MR0">Rebel Technology</text>
-<text x="36.5125" y="78.105" size="1.9304" layer="22" font="vector" rot="MR0">OWL MKII Rev01</text>
+<text x="36.5125" y="78.105" size="1.9304" layer="22" font="vector" rot="MR0">OWL MkII Rev01</text>
 <text x="18.415" y="40.64" size="1.27" layer="22" font="vector" rot="MR0">BOOT</text>
 <text x="75.185" y="49.0975" size="1.016" layer="22" font="vector" rot="SMR0" align="bottom-right">5v</text>
 <text x="76.7675" y="49.0975" size="1.016" layer="21" font="vector" rot="SR0" align="bottom-right">5v</text>
