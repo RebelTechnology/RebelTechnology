@@ -423,3 +423,9 @@ They both have built-in mains power supply with +12V, +5V and -12V rails, and th
 The 42HP is £125, 22x13cm, the 60HP is £160, 32x13cm. Shipping is £12.
 
 --------------------------------------------------------------------------
+
+4MS Pod 20
+2x VXO78 +/- 12v 1A / 0.5A
+1x BA17805T 5v 1A
+
+--------------------------------------------------------------------------
