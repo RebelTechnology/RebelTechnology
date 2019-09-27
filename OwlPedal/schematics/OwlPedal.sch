@@ -17073,6 +17073,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="P+6" library="supply2" deviceset="+9V" device=""/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
+<part name="JP6" library="SparkFun" deviceset="M02" device="PTH"/>
+<part name="P+2" library="supply1" deviceset="+5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -17594,6 +17596,13 @@ In this library the device names are the same as the pin names of the symbols, t
 <instance part="+3V1" gate="G$1" x="-48.26" y="139.7" smashed="yes">
 <attribute name="VALUE" x="-50.8" y="134.62" size="1.778" layer="96" rot="R90"/>
 </instance>
+<instance part="JP6" gate="G$1" x="7.62" y="43.18" smashed="yes" rot="R180">
+<attribute name="VALUE" x="10.16" y="48.26" size="1.778" layer="96" rot="R180"/>
+<attribute name="NAME" x="10.16" y="37.338" size="1.778" layer="95" rot="R180"/>
+</instance>
+<instance part="P+2" gate="1" x="-2.54" y="48.26" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="-5.08" y="50.8" size="1.778" layer="96" rot="MR180"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -17881,6 +17890,12 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="35.56" y1="101.6" x2="35.56" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="JP5" gate="G$1" pin="1"/>
 <wire x1="38.1" y1="101.6" x2="35.56" y2="101.6" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JP6" gate="G$1" pin="1"/>
+<wire x1="0" y1="43.18" x2="-2.54" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="45.72" x2="-2.54" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="P+2" gate="1" pin="+5V"/>
 </segment>
 </net>
 <net name="A18_ADC1" class="0">
@@ -18227,6 +18242,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <pinref part="Q1" gate="1" pin="D"/>
 <wire x1="-12.7" y1="40.64" x2="-12.7" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="0" y1="40.64" x2="-12.7" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="JP6" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="A4_USART_RX" class="0">
