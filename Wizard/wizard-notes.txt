@@ -191,6 +191,33 @@ REGULAR - Size / Ref : 80 x 80 x 80 mm (Ref KSH2BK)
 
 EuroWizard errors/todo:
 - turn power header around
-- swap host / device USB?
+- change adc mappings to match Wizard
+- top pot tabs touch pins
+- increase output gain (currently 9.8Vpp at gain=127)
+
+- adc 1 and 2 connected on proto 1?
+
+EuroWizard
+- 125mA @ 12v in bootloader
+- 250mA @ 12v in firmware
+- 40mA @ -12v
+
+
+EuroWizard bootloader
+make CONFIG=Release PLATFORM=EuroWizard clean all
+
+hold button D to start in bootloader mode
+
+
+buttons 1, 2, 3 work on exti
+
+bool isModeButtonPressed() reports true when set and not set
+
+both A and B knobs control adc_values[0]
+
+Test tone:
+vpp max only 1.8Vpp
+pots A and B are reversed
+output channels swapped
 
 --------------------------------------------------------------------------------
