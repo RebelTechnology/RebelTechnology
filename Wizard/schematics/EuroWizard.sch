@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.2.1">
+<eagle version="9.5.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -25389,7 +25389,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <part name="R19" library="Rebel" deviceset="R-EU_" device="0603" value="4k7"/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
-<part name="IC4" library="adafruit" deviceset="QUAD_OPAMP" device="D" value="QUAD_OPAMPD"/>
+<part name="IC4" library="adafruit" deviceset="QUAD_OPAMP" device="D" value="TL074"/>
 <part name="R8" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="R9" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
