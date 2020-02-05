@@ -9,34 +9,34 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="9" fill="3" visible="no" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="12" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="9" fill="3" visible="yes" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="12" fill="6" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -45,8 +45,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -54,20 +54,20 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="1" visible="no" active="no"/>
-<layer number="54" name="bGND_GNDA" color="7" fill="1" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="58" name="bCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
-<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="1" visible="yes" active="no"/>
+<layer number="54" name="bGND_GNDA" color="7" fill="1" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="58" name="bCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="yes" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="yes" active="no"/>
 <layer number="88" name="SimResults" color="9" fill="1" visible="no" active="yes"/>
 <layer number="89" name="SimProbes" color="9" fill="1" visible="no" active="yes"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
@@ -17279,37 +17279,6 @@ www.irf.com&lt;p&gt;
 </library>
 <library name="James">
 <packages>
-<package name="DPACK">
-<description>&lt;b&gt;DPAK&lt;/b&gt;&lt;p&gt;
-PLASTIC PACKAGE CASE 369C-01&lt;br&gt;
-Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
-<wire x1="3.2766" y1="3.8354" x2="3.277" y2="-2.159" width="0.2032" layer="21"/>
-<wire x1="3.277" y1="-2.159" x2="-3.277" y2="-2.159" width="0.2032" layer="21"/>
-<wire x1="-3.277" y1="-2.159" x2="-3.2766" y2="3.8354" width="0.2032" layer="21"/>
-<wire x1="-3.277" y1="3.835" x2="3.2774" y2="3.8346" width="0.2032" layer="51"/>
-<wire x1="-2.5654" y1="3.937" x2="-2.5654" y2="4.6482" width="0.2032" layer="51"/>
-<wire x1="-2.5654" y1="4.6482" x2="-2.1082" y2="5.1054" width="0.2032" layer="51"/>
-<wire x1="-2.1082" y1="5.1054" x2="2.1082" y2="5.1054" width="0.2032" layer="51"/>
-<wire x1="2.1082" y1="5.1054" x2="2.5654" y2="4.6482" width="0.2032" layer="51"/>
-<wire x1="2.5654" y1="4.6482" x2="2.5654" y2="3.937" width="0.2032" layer="51"/>
-<wire x1="2.5654" y1="3.937" x2="-2.5654" y2="3.937" width="0.2032" layer="51"/>
-<smd name="4" x="0" y="2.38" dx="5.8" dy="6.2" layer="1"/>
-<smd name="1" x="-2.28" y="-4.8" dx="1.6" dy="3" layer="1"/>
-<smd name="3" x="2.28" y="-4.8" dx="1.6" dy="3" layer="1"/>
-<text x="-3.81" y="-2.54" size="1.27" layer="25" rot="R90">&gt;NAME</text>
-<text x="5.08" y="-2.54" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
-<rectangle x1="-2.7178" y1="-5.1562" x2="-1.8542" y2="-2.2606" layer="51"/>
-<rectangle x1="1.8542" y1="-5.1562" x2="2.7178" y2="-2.2606" layer="51"/>
-<rectangle x1="-0.4318" y1="-3.0226" x2="0.4318" y2="-2.2606" layer="21"/>
-<polygon width="0.1998" layer="51">
-<vertex x="-2.5654" y="3.937"/>
-<vertex x="-2.5654" y="4.6482"/>
-<vertex x="-2.1082" y="5.1054"/>
-<vertex x="2.1082" y="5.1054"/>
-<vertex x="2.5654" y="4.6482"/>
-<vertex x="2.5654" y="3.937"/>
-</polygon>
-</package>
 <package name="SOT23-6">
 <description>&lt;b&gt;Small Outline Transistor&lt;/b&gt; 6 lead</description>
 <wire x1="1.422" y1="-0.781" x2="-1.423" y2="-0.781" width="0.1524" layer="51"/>
@@ -17334,20 +17303,6 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 </package>
 </packages>
 <symbols>
-<symbol name="78XX">
-<wire x1="-5.08" y1="-5.08" x2="5.08" y2="-5.08" width="0.4064" layer="94"/>
-<wire x1="5.08" y1="-5.08" x2="5.08" y2="2.54" width="0.4064" layer="94"/>
-<wire x1="5.08" y1="2.54" x2="-5.08" y2="2.54" width="0.4064" layer="94"/>
-<wire x1="-5.08" y1="2.54" x2="-5.08" y2="-5.08" width="0.4064" layer="94"/>
-<text x="2.54" y="-7.62" size="1.778" layer="95">&gt;NAME</text>
-<text x="2.54" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-2.032" y="-4.318" size="1.524" layer="95">GND</text>
-<text x="-4.445" y="-0.635" size="1.524" layer="95">IN</text>
-<text x="0.635" y="-0.635" size="1.524" layer="95">OUT</text>
-<pin name="IN" x="-7.62" y="0" visible="off" length="short" direction="in"/>
-<pin name="GND" x="0" y="-7.62" visible="off" length="short" direction="in" rot="R90"/>
-<pin name="OUT" x="7.62" y="0" visible="off" length="short" direction="pas" rot="R180"/>
-</symbol>
 <symbol name="MIC2005">
 <wire x1="-10.16" y1="12.7" x2="10.16" y2="12.7" width="0.254" layer="94"/>
 <wire x1="10.16" y1="12.7" x2="10.16" y2="-12.7" width="0.254" layer="94"/>
@@ -17363,24 +17318,6 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="MC78XX" prefix="IC" uservalue="yes">
-<description>&lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
-<gates>
-<gate name="1" symbol="78XX" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="DPACK">
-<connects>
-<connect gate="1" pin="GND" pad="4"/>
-<connect gate="1" pin="IN" pad="1"/>
-<connect gate="1" pin="OUT" pad="3"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="MIC2005">
 <gates>
 <gate name="MIC2005" symbol="MIC2005" x="0" y="0"/>
@@ -25344,6 +25281,387 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="linear" urn="urn:adsk.eagle:library:262">
+<description>&lt;b&gt;Linear Devices&lt;/b&gt;&lt;p&gt;
+Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="TO92" urn="urn:adsk.eagle:footprint:16150/1" library_version="5">
+<description>&lt;b&gt;TO-92&lt;/b&gt;</description>
+<wire x1="-2.095" y1="-1.651" x2="-0.7869" y2="2.5484" width="0.1524" layer="21" curve="-111.097684"/>
+<wire x1="0.7869" y1="2.5484" x2="2.095" y2="-1.651" width="0.1524" layer="21" curve="-111.097684"/>
+<wire x1="-2.095" y1="-1.651" x2="2.095" y2="-1.651" width="0.1524" layer="21"/>
+<wire x1="-2.254" y1="-0.254" x2="-0.286" y2="-0.254" width="0.1524" layer="51"/>
+<wire x1="-2.655" y1="-0.254" x2="-2.254" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="-0.286" y1="-0.254" x2="0.286" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="2.254" y1="-0.254" x2="2.655" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="0.286" y1="-0.254" x2="2.254" y2="-0.254" width="0.1524" layer="51"/>
+<wire x1="-0.7864" y1="2.5484" x2="0.7864" y2="2.5484" width="0.1524" layer="51" curve="-34.298964"/>
+<pad name="1" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="2" x="0" y="1.905" drill="0.8128" shape="octagon"/>
+<pad name="3" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<text x="2.413" y="1.651" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="2.921" y="-1.27" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+<package name="TO220H" urn="urn:adsk.eagle:footprint:16151/1" library_version="5">
+<description>&lt;b&gt;TO-220&lt;/b&gt;</description>
+<wire x1="-5.207" y1="-7.62" x2="5.207" y2="-7.62" width="0.1524" layer="21"/>
+<wire x1="5.207" y1="8.255" x2="-5.207" y2="8.255" width="0.1524" layer="21"/>
+<wire x1="5.207" y1="-7.62" x2="5.207" y2="4.826" width="0.1524" layer="21"/>
+<wire x1="5.207" y1="4.826" x2="4.318" y2="4.826" width="0.1524" layer="21"/>
+<wire x1="4.318" y1="4.826" x2="4.318" y2="6.35" width="0.1524" layer="21"/>
+<wire x1="4.318" y1="6.35" x2="5.207" y2="6.35" width="0.1524" layer="21"/>
+<wire x1="5.207" y1="6.35" x2="5.207" y2="8.255" width="0.1524" layer="21"/>
+<wire x1="-5.207" y1="-7.62" x2="-5.207" y2="4.826" width="0.1524" layer="21"/>
+<wire x1="-5.207" y1="4.826" x2="-4.318" y2="4.826" width="0.1524" layer="21"/>
+<wire x1="-4.318" y1="4.826" x2="-4.318" y2="6.35" width="0.1524" layer="21"/>
+<wire x1="-4.318" y1="6.35" x2="-5.207" y2="6.35" width="0.1524" layer="21"/>
+<wire x1="-5.207" y1="6.35" x2="-5.207" y2="8.255" width="0.1524" layer="21"/>
+<wire x1="-4.572" y1="-6.985" x2="4.572" y2="-6.985" width="0.0508" layer="21"/>
+<wire x1="4.572" y1="1.27" x2="4.572" y2="-6.985" width="0.0508" layer="21"/>
+<wire x1="4.572" y1="1.27" x2="-4.572" y2="1.27" width="0.0508" layer="21"/>
+<wire x1="-4.572" y1="-6.985" x2="-4.572" y2="1.27" width="0.0508" layer="21"/>
+<circle x="0" y="4.826" radius="1.8034" width="0.1524" layer="21"/>
+<circle x="0" y="4.826" radius="2.54" width="0" layer="43"/>
+<circle x="0" y="4.826" radius="2.54" width="0" layer="42"/>
+<pad name="1" x="-2.54" y="-10.16" drill="1.1176" shape="long" rot="R90"/>
+<pad name="2" x="0" y="-10.16" drill="1.1176" shape="long" rot="R90"/>
+<pad name="3" x="2.54" y="-10.16" drill="1.1176" shape="long" rot="R90"/>
+<text x="-5.461" y="-10.922" size="1.778" layer="25" ratio="10" rot="R90">&gt;NAME</text>
+<text x="7.366" y="-11.049" size="1.778" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
+<rectangle x1="2.159" y1="-11.049" x2="2.921" y2="-10.414" layer="21"/>
+<rectangle x1="-0.381" y1="-11.049" x2="0.381" y2="-10.414" layer="21"/>
+<rectangle x1="-2.921" y1="-11.049" x2="-2.159" y2="-10.414" layer="21"/>
+<rectangle x1="-3.175" y1="-10.414" x2="-1.905" y2="-7.62" layer="21"/>
+<rectangle x1="-0.635" y1="-10.414" x2="0.635" y2="-7.62" layer="21"/>
+<rectangle x1="1.905" y1="-10.414" x2="3.175" y2="-7.62" layer="21"/>
+<hole x="0" y="4.826" drill="3.302"/>
+</package>
+<package name="TO39" urn="urn:adsk.eagle:footprint:16152/1" library_version="5">
+<description>&lt;b&gt;Metal Can Package&lt;/b&gt;</description>
+<wire x1="-4.0386" y1="-3.5306" x2="-3.5052" y2="-2.9972" width="0.1524" layer="21"/>
+<wire x1="-2.9718" y1="-3.5306" x2="-3.5052" y2="-4.064" width="0.1524" layer="21"/>
+<wire x1="-3.5052" y1="-4.064" x2="-4.0386" y2="-3.5306" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="4.572" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="3.8608" width="0.0508" layer="21"/>
+<pad name="1" x="0" y="-2.54" drill="0.8128" shape="octagon"/>
+<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
+<pad name="3" x="0" y="2.54" drill="0.8128" shape="octagon"/>
+<text x="-2.794" y="4.826" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-3.302" y="-0.635" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+<package name="TO252" urn="urn:adsk.eagle:footprint:16153/1" library_version="5">
+<description>&lt;b&gt;SMALL OUTLINE TRANSISTOR&lt;/b&gt;&lt;p&gt;
+TS-003</description>
+<wire x1="3.2766" y1="3.8354" x2="3.277" y2="-2.159" width="0.2032" layer="21"/>
+<wire x1="3.277" y1="-2.159" x2="-3.277" y2="-2.159" width="0.2032" layer="21"/>
+<wire x1="-3.277" y1="-2.159" x2="-3.2766" y2="3.8354" width="0.2032" layer="21"/>
+<wire x1="-3.277" y1="3.835" x2="3.2774" y2="3.8346" width="0.2032" layer="51"/>
+<wire x1="-2.5654" y1="3.937" x2="-2.5654" y2="4.6482" width="0.2032" layer="51"/>
+<wire x1="-2.5654" y1="4.6482" x2="-2.1082" y2="5.1054" width="0.2032" layer="51"/>
+<wire x1="-2.1082" y1="5.1054" x2="2.1082" y2="5.1054" width="0.2032" layer="51"/>
+<wire x1="2.1082" y1="5.1054" x2="2.5654" y2="4.6482" width="0.2032" layer="51"/>
+<wire x1="2.5654" y1="4.6482" x2="2.5654" y2="3.937" width="0.2032" layer="51"/>
+<wire x1="2.5654" y1="3.937" x2="-2.5654" y2="3.937" width="0.2032" layer="51"/>
+<smd name="3" x="0" y="2.5" dx="5.4" dy="6.2" layer="1"/>
+<smd name="1" x="-2.28" y="-4.8" dx="1" dy="1.6" layer="1"/>
+<smd name="2" x="2.28" y="-4.8" dx="1" dy="1.6" layer="1"/>
+<text x="-3.81" y="-2.54" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="5.08" y="-2.54" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-2.7178" y1="-5.1562" x2="-1.8542" y2="-2.2606" layer="51"/>
+<rectangle x1="1.8542" y1="-5.1562" x2="2.7178" y2="-2.2606" layer="51"/>
+<rectangle x1="-0.4318" y1="-3.0226" x2="0.4318" y2="-2.2606" layer="21"/>
+<polygon width="0.1998" layer="51">
+<vertex x="-2.5654" y="3.937"/>
+<vertex x="-2.5654" y="4.6482"/>
+<vertex x="-2.1082" y="5.1054"/>
+<vertex x="2.1082" y="5.1054"/>
+<vertex x="2.5654" y="4.6482"/>
+<vertex x="2.5654" y="3.937"/>
+</polygon>
+</package>
+<package name="TO220V" urn="urn:adsk.eagle:footprint:16154/1" library_version="5">
+<description>&lt;b&gt;TO 200 vertical&lt;/b&gt;</description>
+<wire x1="5.08" y1="-1.143" x2="4.953" y2="-4.064" width="0.127" layer="21"/>
+<wire x1="4.699" y1="-4.318" x2="4.953" y2="-4.064" width="0.127" layer="21"/>
+<wire x1="4.699" y1="-4.318" x2="-4.699" y2="-4.318" width="0.127" layer="21"/>
+<wire x1="-4.953" y1="-4.064" x2="-4.699" y2="-4.318" width="0.127" layer="21"/>
+<wire x1="-4.953" y1="-4.064" x2="-5.08" y2="-1.143" width="0.127" layer="21"/>
+<circle x="-4.4958" y="-3.7084" radius="0.254" width="0.127" layer="21"/>
+<pad name="1" x="-2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
+<pad name="2" x="0" y="-2.54" drill="1.016" shape="long" rot="R90"/>
+<pad name="3" x="2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
+<text x="-5.08" y="-6.0452" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-5.08" y="-7.62" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<text x="-3.175" y="-3.175" size="1.27" layer="51" ratio="10">1</text>
+<text x="-0.635" y="-3.175" size="1.27" layer="51" ratio="10">2</text>
+<text x="1.905" y="-3.175" size="1.27" layer="51" ratio="10">3</text>
+<rectangle x1="-5.334" y1="-0.762" x2="5.334" y2="0" layer="21"/>
+<rectangle x1="-5.334" y1="-1.27" x2="-3.429" y2="-0.762" layer="21"/>
+<rectangle x1="-1.651" y1="-1.27" x2="-0.889" y2="-0.762" layer="21"/>
+<rectangle x1="-3.429" y1="-1.27" x2="-1.651" y2="-0.762" layer="51"/>
+<rectangle x1="0.889" y1="-1.27" x2="1.651" y2="-0.762" layer="21"/>
+<rectangle x1="3.429" y1="-1.27" x2="5.334" y2="-0.762" layer="21"/>
+<rectangle x1="-0.889" y1="-1.27" x2="0.889" y2="-0.762" layer="51"/>
+<rectangle x1="1.651" y1="-1.27" x2="3.429" y2="-0.762" layer="51"/>
+</package>
+</packages>
+<packages3d>
+<package3d name="TO92" urn="urn:adsk.eagle:package:16416/2" type="model" library_version="5">
+<description>TO-92</description>
+<packageinstances>
+<packageinstance name="TO92"/>
+</packageinstances>
+</package3d>
+<package3d name="TO220H" urn="urn:adsk.eagle:package:16414/1" type="box" library_version="5">
+<description>TO-220</description>
+<packageinstances>
+<packageinstance name="TO220H"/>
+</packageinstances>
+</package3d>
+<package3d name="TO39" urn="urn:adsk.eagle:package:16419/1" type="box" library_version="5">
+<description>Metal Can Package</description>
+<packageinstances>
+<packageinstance name="TO39"/>
+</packageinstances>
+</package3d>
+<package3d name="TO252" urn="urn:adsk.eagle:package:16415/2" type="model" library_version="5">
+<description>SMALL OUTLINE TRANSISTOR
+TS-003</description>
+<packageinstances>
+<packageinstance name="TO252"/>
+</packageinstances>
+</package3d>
+<package3d name="TO220V" urn="urn:adsk.eagle:package:16417/2" type="model" library_version="5">
+<description>TO 200 vertical</description>
+<packageinstances>
+<packageinstance name="TO220V"/>
+</packageinstances>
+</package3d>
+</packages3d>
+<symbols>
+<symbol name="78XX" urn="urn:adsk.eagle:symbol:16149/1" library_version="5">
+<wire x1="-7.62" y1="-5.08" x2="7.62" y2="-5.08" width="0.4064" layer="94"/>
+<wire x1="7.62" y1="-5.08" x2="7.62" y2="2.54" width="0.4064" layer="94"/>
+<wire x1="7.62" y1="2.54" x2="-7.62" y2="2.54" width="0.4064" layer="94"/>
+<wire x1="-7.62" y1="2.54" x2="-7.62" y2="-5.08" width="0.4064" layer="94"/>
+<text x="-7.62" y="5.715" size="1.778" layer="95">&gt;NAME</text>
+<text x="-7.62" y="3.175" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-2.032" y="-4.318" size="1.524" layer="95">GND</text>
+<pin name="VI" x="-10.16" y="0" length="short" direction="in"/>
+<pin name="GND" x="0" y="-7.62" visible="pad" length="short" direction="pas" rot="R90"/>
+<pin name="VO" x="10.16" y="0" length="short" direction="pas" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="78*" urn="urn:adsk.eagle:component:16686/5" prefix="IC" library_version="5">
+<description>Positive &lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;&lt;p&gt;
+Source:&lt;br&gt;
+http://cache.national.com/ds/LM/LM78L05.pdf&lt;br&gt;
+http://www.fairchildsemi.com/ds/LM/LM7805.pdf</description>
+<gates>
+<gate name="A1" symbol="78XX" x="0" y="0"/>
+</gates>
+<devices>
+<device name="Z" package="TO92">
+<connects>
+<connect gate="A1" pin="GND" pad="2"/>
+<connect gate="A1" pin="VI" pad="3"/>
+<connect gate="A1" pin="VO" pad="1"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16416/2"/>
+</package3dinstances>
+<technologies>
+<technology name="L05">
+<attribute name="POPULARITY" value="12" constant="no"/>
+</technology>
+<technology name="L08">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="L12">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="L15">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="L18">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="L24">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="T" package="TO220H">
+<connects>
+<connect gate="A1" pin="GND" pad="2"/>
+<connect gate="A1" pin="VI" pad="1"/>
+<connect gate="A1" pin="VO" pad="3"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16414/1"/>
+</package3dinstances>
+<technologies>
+<technology name="05">
+<attribute name="POPULARITY" value="35" constant="no"/>
+</technology>
+<technology name="06">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="08">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="12">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="15">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="18">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="24">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="H" package="TO39">
+<connects>
+<connect gate="A1" pin="GND" pad="3"/>
+<connect gate="A1" pin="VI" pad="1"/>
+<connect gate="A1" pin="VO" pad="2"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16419/1"/>
+</package3dinstances>
+<technologies>
+<technology name="05">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="06">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="08">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="12">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="15">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="18">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="24">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="L" package="TO92">
+<connects>
+<connect gate="A1" pin="GND" pad="2"/>
+<connect gate="A1" pin="VI" pad="3"/>
+<connect gate="A1" pin="VO" pad="1"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16416/2"/>
+</package3dinstances>
+<technologies>
+<technology name="05">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="06">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="08">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="12">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="15">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="18">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="24">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="DT" package="TO252">
+<connects>
+<connect gate="A1" pin="GND" pad="3"/>
+<connect gate="A1" pin="VI" pad="1"/>
+<connect gate="A1" pin="VO" pad="2"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16415/2"/>
+</package3dinstances>
+<technologies>
+<technology name="05">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="06">
+<attribute name="POPULARITY" value="18" constant="no"/>
+</technology>
+<technology name="08">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="12">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="15">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="18">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="24">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="TV" package="TO220V">
+<connects>
+<connect gate="A1" pin="GND" pad="2"/>
+<connect gate="A1" pin="VI" pad="1"/>
+<connect gate="A1" pin="VO" pad="3"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16417/2"/>
+</package3dinstances>
+<technologies>
+<technology name="05">
+<attribute name="POPULARITY" value="57" constant="no"/>
+</technology>
+<technology name="12">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="15">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="18">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="24">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="6">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="8">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -25418,7 +25736,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <part name="+3V10" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
 <part name="D2" library="diode" deviceset="BAT54S" device=""/>
-<part name="C2" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="10u"/>
+<part name="C2" library="Rebel" deviceset="CPOL-EU" device="UD-4X5,8" value="10u"/>
 <part name="C20" library="resistor" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND54" library="supply1" deviceset="GND" device=""/>
 <part name="GND56" library="supply1" deviceset="GND" device=""/>
@@ -25502,14 +25820,11 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <part name="GND57" library="supply1" deviceset="GND" device=""/>
 <part name="GND58" library="supply1" deviceset="GND" device=""/>
 <part name="GND59" library="supply1" deviceset="GND" device=""/>
-<part name="IC1" library="James" deviceset="MC78XX" device="" value="MC7805CDTG">
-<attribute name="OC_FARNELL" value="2296028"/>
-</part>
 <part name="GND99" library="supply1" deviceset="GND" device=""/>
 <part name="P+14" library="supply1" deviceset="+12V" device=""/>
 <part name="P+6" library="supply1" deviceset="+5V" device=""/>
-<part name="C4" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="10u"/>
-<part name="C5" library="rcl" deviceset="CPOL-EU" device="B" value="47u"/>
+<part name="C4" library="Rebel" deviceset="CPOL-EU" device="UD-4X5,8" value="10u"/>
+<part name="C5" library="rcl" deviceset="CPOL-EU" device="UD-4X5,8" value="47u"/>
 <part name="LED1" library="Rebel" deviceset="MULTICOMP_703-1028" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="C21" library="resistor" deviceset="C-EU" device="C0603" value="100p"/>
@@ -25579,6 +25894,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <part name="X5" library="SparkFun" deviceset="USB" device="PTH-VERTICAL"/>
 <part name="SW5" library="switch-omron" deviceset="10-XX" device="" value="B3F-1000"/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
+<part name="IC1" library="linear" library_urn="urn:adsk.eagle:library:262" deviceset="78*" device="TV" package3d_urn="urn:adsk.eagle:package:16417/2" technology="05"/>
 </parts>
 <sheets>
 <sheet>
@@ -26105,11 +26421,6 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <instance part="GND59" gate="1" x="-10.16" y="236.22" smashed="yes">
 <attribute name="VALUE" x="-12.7" y="233.68" size="1.778" layer="96"/>
 </instance>
-<instance part="IC1" gate="1" x="-33.02" y="251.46" smashed="yes">
-<attribute name="OC_FARNELL" x="-33.02" y="251.46" size="1.778" layer="96" display="off"/>
-<attribute name="NAME" x="-35.56" y="256.54" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-40.64" y="254" size="1.778" layer="96"/>
-</instance>
 <instance part="GND99" gate="1" x="-58.42" y="236.22" smashed="yes">
 <attribute name="VALUE" x="-60.96" y="233.68" size="1.778" layer="96"/>
 </instance>
@@ -26378,6 +26689,10 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <instance part="IC4" gate="B" x="353.06" y="-5.08" smashed="yes" rot="MR0">
 <attribute name="NAME" x="350.52" y="-1.905" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="350.52" y="-10.16" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="IC1" gate="A1" x="-33.02" y="251.46" smashed="yes">
+<attribute name="NAME" x="-40.64" y="257.175" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-40.64" y="254.635" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -26657,7 +26972,7 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <segment>
 <pinref part="GND57" gate="1" pin="GND"/>
 <wire x1="-33.02" y1="238.76" x2="-33.02" y2="243.84" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="1" pin="GND"/>
+<pinref part="IC1" gate="A1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="GND58" gate="1" pin="GND"/>
@@ -26846,15 +27161,15 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <segment>
 <pinref part="C3" gate="G$1" pin="1"/>
 <wire x1="-10.16" y1="248.92" x2="-10.16" y2="251.46" width="0.1524" layer="91"/>
-<wire x1="-25.4" y1="251.46" x2="-20.32" y2="251.46" width="0.1524" layer="91"/>
+<wire x1="-22.86" y1="251.46" x2="-20.32" y2="251.46" width="0.1524" layer="91"/>
 <wire x1="-20.32" y1="251.46" x2="-20.32" y2="248.92" width="0.1524" layer="91"/>
 <wire x1="-20.32" y1="251.46" x2="-10.16" y2="251.46" width="0.1524" layer="91"/>
 <junction x="-20.32" y="251.46"/>
-<pinref part="IC1" gate="1" pin="OUT"/>
 <pinref part="P+6" gate="1" pin="+5V"/>
 <wire x1="-10.16" y1="251.46" x2="-10.16" y2="256.54" width="0.1524" layer="91"/>
 <junction x="-10.16" y="251.46"/>
 <pinref part="C5" gate="G$1" pin="+"/>
+<pinref part="IC1" gate="A1" pin="VO"/>
 </segment>
 <segment>
 <pinref part="U3" gate="MIC2005" pin="VIN"/>
@@ -27033,15 +27348,15 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 <segment>
 <pinref part="C1" gate="G$1" pin="1"/>
 <wire x1="-48.26" y1="251.46" x2="-48.26" y2="248.92" width="0.1524" layer="91"/>
-<wire x1="-40.64" y1="251.46" x2="-48.26" y2="251.46" width="0.1524" layer="91"/>
 <junction x="-48.26" y="251.46"/>
-<pinref part="IC1" gate="1" pin="IN"/>
+<wire x1="-43.18" y1="251.46" x2="-48.26" y2="251.46" width="0.1524" layer="91"/>
 <wire x1="-58.42" y1="248.92" x2="-58.42" y2="251.46" width="0.1524" layer="91"/>
 <wire x1="-58.42" y1="251.46" x2="-48.26" y2="251.46" width="0.1524" layer="91"/>
 <pinref part="P+14" gate="1" pin="+12V"/>
 <wire x1="-58.42" y1="251.46" x2="-58.42" y2="256.54" width="0.1524" layer="91"/>
 <junction x="-58.42" y="251.46"/>
 <pinref part="C4" gate="G$1" pin="+"/>
+<pinref part="IC1" gate="A1" pin="VI"/>
 </segment>
 <segment>
 <pinref part="R902" gate="G$1" pin="1"/>
@@ -28145,4 +28460,21 @@ Source: KYCON Sibalco USB vertical socket KUSBV.pdf</description>
 </errors>
 </schematic>
 </drawing>
+<compatibility>
+<note version="8.2" severity="warning">
+Since Version 8.2, EAGLE supports online libraries. The ids
+of those online libraries will not be understood (or retained)
+with this version.
+</note>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports URNs for individual library
+assets (packages, symbols, and devices). The URNs of those assets
+will not be understood (or retained) with this version.
+</note>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports the association of 3D packages
+with devices in libraries, schematics, and board files. Those 3D
+packages will not be understood (or retained) with this version.
+</note>
+</compatibility>
 </eagle>

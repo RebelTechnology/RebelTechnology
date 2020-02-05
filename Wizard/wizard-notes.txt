@@ -192,7 +192,7 @@ REGULAR - Size / Ref : 80 x 80 x 80 mm (Ref KSH2BK)
 EuroWizard errors/todo:
 - turn power header around
 - change adc mappings to match Wizard
-- top pot tabs touch pins
+- top pot tabs touch pins (try building with Befaco pots?)
 - increase output gain (currently 9.8Vpp at gain=127)
 
 - adc 1 and 2 connected on proto 1?
