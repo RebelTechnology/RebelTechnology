@@ -3947,9 +3947,9 @@ design rules under a new name.</description>
 <signal name="GND">
 <polygon width="0.3048" layer="16">
 <vertex x="-2.16" y="-1.97"/>
-<vertex x="-2.06" y="100.3"/>
-<vertex x="57.94" y="100.3"/>
-<vertex x="58.44" y="-2.47"/>
+<vertex x="-2.16" y="100.3"/>
+<vertex x="58.44" y="100.3"/>
+<vertex x="58.44" y="-1.97"/>
 </polygon>
 <contactref element="PWR" pad="2"/>
 <contactref element="OUT_L" pad="P$1"/>
