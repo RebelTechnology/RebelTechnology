@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.2.1">
+<eagle version="9.5.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -112,6 +112,9 @@
 <layer number="131" name="tAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="133" name="bottom_silk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="134" name="BGA_GND" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="135" name="BGA_NC" color="8" fill="1" visible="yes" active="yes"/>
+<layer number="136" name="BGA_DED" color="14" fill="1" visible="yes" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="no" active="yes"/>
 <layer number="150" name="Notes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="no" active="yes"/>
@@ -11212,63 +11215,306 @@ wire to board 1.25 mm (.049 inch) pitch header</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="James">
+<library name="v-reg" urn="urn:adsk.eagle:library:409">
+<description>&lt;b&gt;Voltage Regulators&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
 <packages>
-<package name="SOT223">
-<description>&lt;b&gt;SOT-223&lt;/b&gt;</description>
-<wire x1="3.2766" y1="1.651" x2="3.2766" y2="-1.651" width="0.2032" layer="21"/>
-<wire x1="3.2766" y1="-1.651" x2="-3.2766" y2="-1.651" width="0.2032" layer="21"/>
-<wire x1="-3.2766" y1="-1.651" x2="-3.2766" y2="1.651" width="0.2032" layer="21"/>
-<wire x1="-3.2766" y1="1.651" x2="3.2766" y2="1.651" width="0.2032" layer="21"/>
-<smd name="1" x="-2.3114" y="-3.0988" dx="1.2192" dy="2.2352" layer="1"/>
-<smd name="2" x="0" y="-3.0988" dx="1.2192" dy="2.2352" layer="1"/>
-<smd name="3" x="2.3114" y="-3.0988" dx="1.2192" dy="2.2352" layer="1"/>
-<smd name="4" x="0" y="3.099" dx="3.6" dy="2.2" layer="1"/>
-<text x="-0.8255" y="4.5085" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.0795" y="-0.1905" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="-1.6002" y1="1.8034" x2="1.6002" y2="3.6576" layer="51"/>
-<rectangle x1="-0.4318" y1="-3.6576" x2="0.4318" y2="-1.8034" layer="51"/>
-<rectangle x1="-2.7432" y1="-3.6576" x2="-1.8796" y2="-1.8034" layer="51"/>
-<rectangle x1="1.8796" y1="-3.6576" x2="2.7432" y2="-1.8034" layer="51"/>
-<rectangle x1="-1.6002" y1="1.8034" x2="1.6002" y2="3.6576" layer="51"/>
-<rectangle x1="-0.4318" y1="-3.6576" x2="0.4318" y2="-1.8034" layer="51"/>
-<rectangle x1="-2.7432" y1="-3.6576" x2="-1.8796" y2="-1.8034" layer="51"/>
-<rectangle x1="1.8796" y1="-3.6576" x2="2.7432" y2="-1.8034" layer="51"/>
+<package name="DPACK" urn="urn:adsk.eagle:footprint:30314/1" library_version="4">
+<description>&lt;b&gt;DPAK&lt;/b&gt;&lt;p&gt;
+PLASTIC PACKAGE CASE 369C-01&lt;br&gt;
+Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
+<wire x1="3.2766" y1="3.8354" x2="3.277" y2="-2.159" width="0.2032" layer="21"/>
+<wire x1="3.277" y1="-2.159" x2="-3.277" y2="-2.159" width="0.2032" layer="21"/>
+<wire x1="-3.277" y1="-2.159" x2="-3.2766" y2="3.8354" width="0.2032" layer="21"/>
+<wire x1="-3.277" y1="3.835" x2="3.2774" y2="3.8346" width="0.2032" layer="51"/>
+<wire x1="-2.5654" y1="3.937" x2="-2.5654" y2="4.6482" width="0.2032" layer="51"/>
+<wire x1="-2.5654" y1="4.6482" x2="-2.1082" y2="5.1054" width="0.2032" layer="51"/>
+<wire x1="-2.1082" y1="5.1054" x2="2.1082" y2="5.1054" width="0.2032" layer="51"/>
+<wire x1="2.1082" y1="5.1054" x2="2.5654" y2="4.6482" width="0.2032" layer="51"/>
+<wire x1="2.5654" y1="4.6482" x2="2.5654" y2="3.937" width="0.2032" layer="51"/>
+<wire x1="2.5654" y1="3.937" x2="-2.5654" y2="3.937" width="0.2032" layer="51"/>
+<smd name="4" x="0" y="2.38" dx="5.8" dy="6.2" layer="1"/>
+<smd name="1" x="-2.28" y="-4.8" dx="1.6" dy="3" layer="1"/>
+<smd name="3" x="2.28" y="-4.8" dx="1.6" dy="3" layer="1"/>
+<text x="-3.81" y="-2.54" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="5.08" y="-2.54" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-2.7178" y1="-5.1562" x2="-1.8542" y2="-2.2606" layer="51"/>
+<rectangle x1="1.8542" y1="-5.1562" x2="2.7178" y2="-2.2606" layer="51"/>
+<rectangle x1="-0.4318" y1="-3.0226" x2="0.4318" y2="-2.2606" layer="21"/>
+<polygon width="0.1998" layer="51">
+<vertex x="-2.5654" y="3.937"/>
+<vertex x="-2.5654" y="4.6482"/>
+<vertex x="-2.1082" y="5.1054"/>
+<vertex x="2.1082" y="5.1054"/>
+<vertex x="2.5654" y="4.6482"/>
+<vertex x="2.5654" y="3.937"/>
+</polygon>
+</package>
+<package name="TO220L1" urn="urn:adsk.eagle:footprint:30309/1" library_version="4">
+<description>&lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
+<wire x1="-5.207" y1="-1.27" x2="5.207" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="5.207" y1="14.605" x2="-5.207" y2="14.605" width="0.1524" layer="21"/>
+<wire x1="5.207" y1="-1.27" x2="5.207" y2="11.176" width="0.1524" layer="21"/>
+<wire x1="5.207" y1="11.176" x2="4.318" y2="11.176" width="0.1524" layer="21"/>
+<wire x1="4.318" y1="11.176" x2="4.318" y2="12.7" width="0.1524" layer="21"/>
+<wire x1="4.318" y1="12.7" x2="5.207" y2="12.7" width="0.1524" layer="21"/>
+<wire x1="5.207" y1="12.7" x2="5.207" y2="14.605" width="0.1524" layer="21"/>
+<wire x1="-5.207" y1="-1.27" x2="-5.207" y2="11.176" width="0.1524" layer="21"/>
+<wire x1="-5.207" y1="11.176" x2="-4.318" y2="11.176" width="0.1524" layer="21"/>
+<wire x1="-4.318" y1="11.176" x2="-4.318" y2="12.7" width="0.1524" layer="21"/>
+<wire x1="-4.318" y1="12.7" x2="-5.207" y2="12.7" width="0.1524" layer="21"/>
+<wire x1="-5.207" y1="12.7" x2="-5.207" y2="14.605" width="0.1524" layer="21"/>
+<wire x1="-4.572" y1="-0.635" x2="4.572" y2="-0.635" width="0.0508" layer="21"/>
+<wire x1="4.572" y1="7.62" x2="4.572" y2="-0.635" width="0.0508" layer="21"/>
+<wire x1="4.572" y1="7.62" x2="-4.572" y2="7.62" width="0.0508" layer="21"/>
+<wire x1="-4.572" y1="-0.635" x2="-4.572" y2="7.62" width="0.0508" layer="21"/>
+<circle x="0" y="11.176" radius="1.8034" width="0.1524" layer="21"/>
+<circle x="0" y="11.176" radius="4.191" width="0" layer="42"/>
+<circle x="0" y="11.176" radius="4.191" width="0" layer="43"/>
+<pad name="1" x="-2.54" y="-3.81" drill="1.016" shape="long" rot="R90"/>
+<pad name="2" x="0" y="-3.81" drill="1.016" shape="long" rot="R90"/>
+<pad name="3" x="2.54" y="-3.81" drill="1.016" shape="long" rot="R90"/>
+<text x="-3.81" y="5.08" size="1.778" layer="25" ratio="10">&gt;NAME</text>
+<text x="-3.937" y="2.54" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
+<text x="-4.445" y="7.874" size="0.9906" layer="21" ratio="10">A15,2mm</text>
+<text x="-3.048" y="0" size="1.27" layer="51" ratio="10">1</text>
+<text x="-0.508" y="0" size="1.27" layer="51" ratio="10">2</text>
+<text x="2.032" y="0" size="1.27" layer="51" ratio="10">3</text>
+<rectangle x1="1.905" y1="-2.159" x2="3.175" y2="-1.27" layer="21"/>
+<rectangle x1="1.905" y1="-3.81" x2="3.175" y2="-2.159" layer="51"/>
+<rectangle x1="-0.635" y1="-2.159" x2="0.635" y2="-1.27" layer="21"/>
+<rectangle x1="-3.175" y1="-2.159" x2="-1.905" y2="-1.27" layer="21"/>
+<rectangle x1="-0.635" y1="-3.81" x2="0.635" y2="-2.159" layer="51"/>
+<rectangle x1="-3.175" y1="-3.81" x2="-1.905" y2="-2.159" layer="51"/>
+<hole x="0" y="11.176" drill="3.302"/>
+</package>
+<package name="SOT223" urn="urn:adsk.eagle:footprint:30315/1" library_version="4">
+<description>&lt;b&gt;Small Outline Transistor 223&lt;/b&gt;&lt;p&gt;
+PLASTIC PACKAGE CASE 318E-04&lt;br&gt;
+Source: http://www.onsemi.co.jp .. LM137M-D.PDF</description>
+<wire x1="3.277" y1="1.778" x2="3.277" y2="-1.778" width="0.2032" layer="21"/>
+<wire x1="3.277" y1="-1.778" x2="-3.277" y2="-1.778" width="0.2032" layer="21"/>
+<wire x1="-3.277" y1="-1.778" x2="-3.277" y2="1.778" width="0.2032" layer="21"/>
+<wire x1="-3.277" y1="1.778" x2="3.277" y2="1.778" width="0.2032" layer="21"/>
+<wire x1="0" y1="-0.7" x2="0" y2="0.6" width="0.127" layer="48"/>
+<wire x1="0" y1="0.6" x2="-0.2" y2="0.2" width="0.127" layer="48"/>
+<wire x1="-0.2" y1="0.2" x2="0.2" y2="0.2" width="0.127" layer="48"/>
+<wire x1="0.2" y1="0.2" x2="0" y2="0.6" width="0.127" layer="48"/>
+<wire x1="0" y1="-0.7" x2="0.2" y2="-0.3" width="0.127" layer="48"/>
+<wire x1="0.2" y1="-0.3" x2="-0.2" y2="-0.3" width="0.127" layer="48"/>
+<wire x1="-0.2" y1="-0.3" x2="0" y2="-0.7" width="0.127" layer="48"/>
+<smd name="1" x="-2.3" y="-3.15" dx="1.5" dy="2" layer="1"/>
+<smd name="2" x="0" y="-3.15" dx="1.5" dy="2" layer="1"/>
+<smd name="3" x="2.3" y="-3.15" dx="1.5" dy="2" layer="1"/>
+<smd name="4" x="0" y="3.15" dx="3.8" dy="2" layer="1"/>
+<text x="-2.54" y="0.0508" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.54" y="-1.3208" size="1.27" layer="27">&gt;VALUE</text>
+<text x="0.4" y="0.4" size="0.254" layer="48">direction of pcb</text>
+<text x="0.4" y="-0.05" size="0.254" layer="48">transportation for</text>
+<text x="0.4" y="-0.5" size="0.254" layer="48">wavesoldering</text>
+<rectangle x1="-0.9271" y1="1.1303" x2="0.9271" y2="4.3307" layer="51" rot="R270"/>
+<rectangle x1="-0.9271" y1="-3.1623" x2="0.9271" y2="-2.2987" layer="51" rot="R270"/>
+<rectangle x1="-3.2385" y1="-3.1623" x2="-1.3843" y2="-2.2987" layer="51" rot="R270"/>
+<rectangle x1="1.3843" y1="-3.1623" x2="3.2385" y2="-2.2987" layer="51" rot="R270"/>
+<rectangle x1="-0.9271" y1="1.1303" x2="0.9271" y2="4.3307" layer="51" rot="R270"/>
+<rectangle x1="-0.9271" y1="-3.1623" x2="0.9271" y2="-2.2987" layer="51" rot="R270"/>
+<rectangle x1="-3.2385" y1="-3.1623" x2="-1.3843" y2="-2.2987" layer="51" rot="R270"/>
+<rectangle x1="1.3843" y1="-3.1623" x2="3.2385" y2="-2.2987" layer="51" rot="R270"/>
+</package>
+<package name="D2PACK" urn="urn:adsk.eagle:footprint:29392/1" library_version="4">
+<description>&lt;b&gt;D2PACK&lt;/b&gt;&lt;p&gt;
+INTERNATIONAL RECTIFIER, irg4bc15ud-s.pdf</description>
+<wire x1="-5.1308" y1="-4.0894" x2="5.1308" y2="-4.0894" width="0.254" layer="21"/>
+<wire x1="5.1308" y1="-4.0894" x2="5.1308" y2="4.445" width="0.254" layer="51"/>
+<wire x1="5.1308" y1="4.445" x2="3.1242" y2="5.8166" width="0.254" layer="51"/>
+<wire x1="3.1242" y1="5.8166" x2="-3.3782" y2="5.8166" width="0.254" layer="51"/>
+<wire x1="-3.3782" y1="5.8166" x2="-5.1308" y2="4.699" width="0.254" layer="51"/>
+<wire x1="-5.1308" y1="4.699" x2="-5.1308" y2="4.445" width="0.254" layer="51"/>
+<wire x1="-5.1308" y1="4.445" x2="-5.1308" y2="-4.0894" width="0.254" layer="51"/>
+<wire x1="-5.1308" y1="4.445" x2="5.1308" y2="4.445" width="0.254" layer="51"/>
+<wire x1="-5.1308" y1="-4.0894" x2="-5.1308" y2="-2.3114" width="0.254" layer="21"/>
+<wire x1="5.1308" y1="-4.0894" x2="5.1308" y2="-2.3114" width="0.254" layer="21"/>
+<smd name="1" x="-2.54" y="-8.89" dx="2.0828" dy="3.81" layer="1"/>
+<smd name="3" x="2.54" y="-8.89" dx="2.0828" dy="3.81" layer="1"/>
+<smd name="2" x="0" y="2.54" dx="11.43" dy="8.89" layer="1"/>
+<text x="-5.588" y="7.239" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.81" y="-3.429" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-3.0988" y1="-9.525" x2="-1.9812" y2="-8.1026" layer="51"/>
+<rectangle x1="-3.2512" y1="-8.1534" x2="-1.8288" y2="-6.731" layer="51"/>
+<rectangle x1="-3.2512" y1="-6.731" x2="-1.8288" y2="-4.2418" layer="21"/>
+<rectangle x1="1.9812" y1="-9.525" x2="3.0988" y2="-8.1026" layer="51"/>
+<rectangle x1="1.8288" y1="-8.1534" x2="3.2512" y2="-6.731" layer="51"/>
+<rectangle x1="1.8288" y1="-6.731" x2="3.2512" y2="-4.2418" layer="21"/>
+<rectangle x1="-0.7112" y1="-6.731" x2="0.7112" y2="-4.2418" layer="21"/>
 </package>
 </packages>
+<packages3d>
+<package3d name="DPACK" urn="urn:adsk.eagle:package:30369/1" type="box" library_version="4">
+<description>DPAK
+PLASTIC PACKAGE CASE 369C-01
+Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
+<packageinstances>
+<packageinstance name="DPACK"/>
+</packageinstances>
+</package3d>
+<package3d name="TO220L1" urn="urn:adsk.eagle:package:30365/1" type="box" library_version="4">
+<description>VOLTAGE REGULATOR</description>
+<packageinstances>
+<packageinstance name="TO220L1"/>
+</packageinstances>
+</package3d>
+<package3d name="SOT223" urn="urn:adsk.eagle:package:30370/1" type="box" library_version="4">
+<description>Small Outline Transistor 223
+PLASTIC PACKAGE CASE 318E-04
+Source: http://www.onsemi.co.jp .. LM137M-D.PDF</description>
+<packageinstances>
+<packageinstance name="SOT223"/>
+</packageinstances>
+</package3d>
+<package3d name="D2PACK" urn="urn:adsk.eagle:package:29497/2" type="model" library_version="4">
+<description>D2PACK
+INTERNATIONAL RECTIFIER, irg4bc15ud-s.pdf</description>
+<packageinstances>
+<packageinstance name="D2PACK"/>
+</packageinstances>
+</package3d>
+</packages3d>
 <symbols>
-<symbol name="78XX-1">
+<symbol name="78ADJ" urn="urn:adsk.eagle:symbol:30281/1" library_version="4">
 <wire x1="-5.08" y1="-5.08" x2="5.08" y2="-5.08" width="0.4064" layer="94"/>
 <wire x1="5.08" y1="-5.08" x2="5.08" y2="2.54" width="0.4064" layer="94"/>
 <wire x1="5.08" y1="2.54" x2="-5.08" y2="2.54" width="0.4064" layer="94"/>
 <wire x1="-5.08" y1="2.54" x2="-5.08" y2="-5.08" width="0.4064" layer="94"/>
 <text x="2.54" y="-7.62" size="1.778" layer="95">&gt;NAME</text>
 <text x="2.54" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-2.032" y="-4.318" size="1.524" layer="95">GND</text>
+<text x="-2.032" y="-4.318" size="1.524" layer="95">ADJ</text>
 <text x="-4.445" y="-0.635" size="1.524" layer="95">IN</text>
-<text x="0.635" y="-0.635" size="1.524" layer="95">OUT</text>
+<text x="0.127" y="-0.635" size="1.524" layer="95">OUT</text>
 <pin name="IN" x="-7.62" y="0" visible="off" length="short" direction="in"/>
-<pin name="GND" x="0" y="-7.62" visible="off" length="short" direction="in" rot="R90"/>
-<pin name="OUT" x="7.62" y="0" visible="off" length="short" direction="out" rot="R180"/>
+<pin name="ADJ" x="0" y="-7.62" visible="off" length="short" direction="in" rot="R90"/>
+<pin name="OUT" x="7.62" y="0" visible="off" length="short" direction="pas" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="V_REG_LM3940IMP">
-<description>LM3940IMP Fixed LDO Voltage Regulator
-
-Farnell: 1469104</description>
+<deviceset name="LD117A?*" urn="urn:adsk.eagle:component:30422/3" prefix="IC" library_version="4">
+<description>&lt;b&gt;Low drop fixed and adjustable positive voltage regulators&lt;/b&gt; 1 A&lt;p&gt;
+Source: http://www.st.com/stonline/products/literature/ds/7194/ld1117axx.pdf</description>
 <gates>
-<gate name="G$1" symbol="78XX-1" x="0" y="0"/>
+<gate name="G$1" symbol="78ADJ" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="SOT223">
+<device name="DT" package="DPACK">
 <connects>
-<connect gate="G$1" pin="GND" pad="2"/>
-<connect gate="G$1" pin="IN" pad="1"/>
-<connect gate="G$1" pin="OUT" pad="3"/>
+<connect gate="G$1" pin="ADJ" pad="1"/>
+<connect gate="G$1" pin="IN" pad="3"/>
+<connect gate="G$1" pin="OUT" pad="4"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:30369/1"/>
+</package3dinstances>
 <technologies>
-<technology name=""/>
+<technology name="-TR">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="12TR">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="18TR">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="25TR">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="28TR">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="33TR">
+<attribute name="POPULARITY" value="2" constant="no"/>
+</technology>
+<technology name="50TR">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="V" package="TO220L1">
+<connects>
+<connect gate="G$1" pin="ADJ" pad="1"/>
+<connect gate="G$1" pin="IN" pad="3"/>
+<connect gate="G$1" pin="OUT" pad="2"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:30365/1"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="12">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="18">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="25">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="28">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="33">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="50">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="S" package="SOT223">
+<connects>
+<connect gate="G$1" pin="ADJ" pad="1"/>
+<connect gate="G$1" pin="IN" pad="3"/>
+<connect gate="G$1" pin="OUT" pad="4"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:30370/1"/>
+</package3dinstances>
+<technologies>
+<technology name="12TR">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="18TR">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="25TR">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="28TR">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="33TR">
+<attribute name="POPULARITY" value="9" constant="no"/>
+</technology>
+<technology name="50TR">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+<technology name="TR">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="D2MTR" package="D2PACK">
+<connects>
+<connect gate="G$1" pin="ADJ" pad="1"/>
+<connect gate="G$1" pin="IN" pad="3"/>
+<connect gate="G$1" pin="OUT" pad="2"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:29497/2"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -11311,7 +11557,7 @@ Farnell: 1469104</description>
 <part name="GND75" library="supply1" deviceset="GND" device=""/>
 <part name="C10" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="+3V14" library="supply1" deviceset="+3V3" device=""/>
-<part name="C11" library="Rebel" deviceset="C-EU" device="C0603" value="10n C0G"/>
+<part name="C11" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C12" library="Rebel" deviceset="C-EU" device="C0603" value="1u"/>
 <part name="C13" library="Rebel" deviceset="C-EU" device="C0603" value="2u2"/>
 <part name="C14" library="Rebel" deviceset="C-EU" device="C0603" value="2u2"/>
@@ -11322,7 +11568,7 @@ Farnell: 1469104</description>
 <part name="GND81" library="supply1" deviceset="GND" device=""/>
 <part name="GND89" library="supply1" deviceset="GND" device=""/>
 <part name="+3V16" library="supply1" deviceset="+3V3" device=""/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="22R"/>
+<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="22R"/>
 <part name="GND90" library="supply1" deviceset="GND" device=""/>
 <part name="X1" library="con-molex" deviceset="53?-05" device="048"/>
 <part name="BOOT" library="SparkFun" deviceset="SOLDERJUMPER" device="NO"/>
@@ -11353,15 +11599,11 @@ Farnell: 1469104</description>
 <part name="GND54" library="supply1" deviceset="GND" device=""/>
 <part name="GND55" library="supply1" deviceset="GND" device=""/>
 <part name="C24" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="L2" library="Rebel" deviceset="INDUCTOR" device="" value="10uH">
+<part name="L2" library="Rebel" deviceset="INDUCTOR" device="" value="Ferrite Bead">
 <attribute name="OC_FARNELL" value="2288736"/>
 </part>
-<part name="C27" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
-<part name="U3" library="James" deviceset="V_REG_LM3940IMP" device="" value="LM3940IMP">
-<attribute name="OC_FARNELL" value="1469104"/>
-</part>
-<part name="C16" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="47u"/>
+<part name="C16" library="Rebel" deviceset="CPOL-EU" device="UD-4X5,8" value="10u"/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="L1" library="Rebel" deviceset="INDUCTOR" device="" value="Ferrite Bead">
 <attribute name="OC_FARNELL" value="2288736"/>
@@ -11369,26 +11611,26 @@ Farnell: 1469104</description>
 <part name="AGND6" library="supply1" deviceset="AGND" device=""/>
 <part name="+A3V2" library="supply1" deviceset="+3V3" device="" value="+A3V3"/>
 <part name="AGND7" library="supply1" deviceset="AGND" device=""/>
-<part name="C19" library="Rebel" deviceset="CPOL-EU" device="B" value="10u"/>
+<part name="C19" library="Rebel" deviceset="CPOL-EU" device="UD-4X5,8" value="10u"/>
 <part name="AGND8" library="supply1" deviceset="AGND" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
-<part name="L3" library="Rebel" deviceset="INDUCTOR" device="" value="10uH">
+<part name="L3" library="Rebel" deviceset="INDUCTOR" device="" value="Ferrite Bead">
 <attribute name="OC_FARNELL" value="2288736"/>
 </part>
 <part name="P+8" library="supply1" deviceset="+5V" device="" value="+A5V"/>
 <part name="AGND9" library="supply1" deviceset="AGND" device=""/>
-<part name="C21" library="Rebel" deviceset="C-EU" device="C0603" value="10n"/>
+<part name="C21" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="P+9" library="supply1" deviceset="+5V" device="" value="+A5V"/>
 <part name="P+10" library="supply1" deviceset="+5V" device="" value="+A5V"/>
 <part name="AGND10" library="supply1" deviceset="AGND" device=""/>
-<part name="C28" library="Rebel" deviceset="CPOL-EU" device="B" value="10u"/>
-<part name="C29" library="Rebel" deviceset="CPOL-EU" device="B" value="10u"/>
+<part name="C28" library="Rebel" deviceset="CPOL-EU" device="UD-4X5,8" value="10u"/>
+<part name="C29" library="Rebel" deviceset="CPOL-EU" device="UD-4X5,8" value="10u"/>
 <part name="AGND11" library="supply1" deviceset="AGND" device=""/>
-<part name="C30" library="Rebel" deviceset="CPOL-EU" device="B" value="10u"/>
+<part name="C30" library="Rebel" deviceset="CPOL-EU" device="UD-4X5,8" value="10u"/>
 <part name="AGND12" library="supply1" deviceset="AGND" device=""/>
-<part name="C31" library="Rebel" deviceset="CPOL-EU" device="B" value="10u"/>
+<part name="C31" library="Rebel" deviceset="CPOL-EU" device="UD-4X5,8" value="10u"/>
 <part name="AGND13" library="supply1" deviceset="AGND" device=""/>
 <part name="C32" library="Rebel" deviceset="C-EU" device="C0603" value="1u"/>
 <part name="C33" library="Rebel" deviceset="C-EU" device="C0603" value="1u"/>
@@ -11401,12 +11643,13 @@ Farnell: 1469104</description>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
-<part name="C18" library="Rebel" deviceset="CPOL-EU" device="B" value="10u"/>
-<part name="C25" library="Rebel" deviceset="CPOL-EU" device="B" value="10u"/>
+<part name="C18" library="Rebel" deviceset="CPOL-EU" device="UD-4X5,8" value="10u"/>
+<part name="C25" library="Rebel" deviceset="CPOL-EU" device="UD-4X5,8" value="10u"/>
 <part name="P+5" library="supply1" deviceset="+5V" device="" value="+A5V"/>
 <part name="AGND16" library="supply1" deviceset="AGND" device=""/>
 <part name="CN1" library="Rebel" deviceset="USB_HRS_ZX62-B-5PA(11)MICRO.B" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
+<part name="U3" library="v-reg" library_urn="urn:adsk.eagle:library:409" deviceset="LD117A?*" device="S" package3d_urn="urn:adsk.eagle:package:30370/1" technology="33TR" value="TLV1117LV33DCYR"/>
 </parts>
 <sheets>
 <sheet>
@@ -11525,7 +11768,7 @@ Farnell: 1469104</description>
 <instance part="+3V16" gate="G$1" x="101.6" y="144.78" smashed="yes">
 <attribute name="VALUE" x="99.06" y="139.7" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R3" gate="G$1" x="144.78" y="27.94" smashed="yes" rot="R90">
+<instance part="R1" gate="G$1" x="144.78" y="27.94" smashed="yes" rot="R90">
 <attribute name="NAME" x="143.2814" y="24.13" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="148.082" y="24.13" size="1.778" layer="96" rot="R90"/>
 </instance>
@@ -11650,17 +11893,8 @@ Farnell: 1469104</description>
 <attribute name="NAME" x="68.58" y="199.39" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="68.58" y="204.47" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="C27" gate="G$1" x="93.98" y="195.58" smashed="yes">
-<attribute name="NAME" x="95.504" y="195.961" size="1.778" layer="95"/>
-<attribute name="VALUE" x="95.504" y="190.881" size="1.778" layer="96"/>
-</instance>
 <instance part="P+2" gate="1" x="12.7" y="208.28" smashed="yes">
 <attribute name="VALUE" x="10.16" y="203.2" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="U3" gate="G$1" x="33.02" y="200.66" smashed="yes">
-<attribute name="OC_FARNELL" x="33.02" y="200.66" size="1.778" layer="96" display="off"/>
-<attribute name="NAME" x="27.94" y="205.74" size="1.778" layer="95"/>
-<attribute name="VALUE" x="27.94" y="203.2" size="1.778" layer="96"/>
 </instance>
 <instance part="C16" gate="G$1" x="20.32" y="195.58" smashed="yes">
 <attribute name="NAME" x="21.463" y="196.0626" size="1.778" layer="95"/>
@@ -11808,6 +12042,10 @@ Farnell: 1469104</description>
 <instance part="GND2" gate="1" x="287.02" y="157.48" smashed="yes">
 <attribute name="VALUE" x="284.48" y="154.94" size="1.778" layer="96"/>
 </instance>
+<instance part="U3" gate="G$1" x="33.02" y="200.66" smashed="yes">
+<attribute name="NAME" x="35.56" y="193.04" size="1.778" layer="95"/>
+<attribute name="VALUE" x="35.56" y="190.5" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -11885,7 +12123,7 @@ Farnell: 1469104</description>
 <pinref part="X1" gate="-3" pin="S"/>
 </segment>
 <segment>
-<pinref part="R3" gate="G$1" pin="1"/>
+<pinref part="R1" gate="G$1" pin="1"/>
 <pinref part="GND90" gate="1" pin="GND"/>
 <wire x1="144.78" y1="20.32" x2="144.78" y2="22.86" width="0.1524" layer="91"/>
 </segment>
@@ -11926,7 +12164,7 @@ Farnell: 1469104</description>
 <segment>
 <pinref part="GND53" gate="1" pin="GND"/>
 <wire x1="33.02" y1="185.42" x2="33.02" y2="193.04" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="GND"/>
+<pinref part="U3" gate="G$1" pin="ADJ"/>
 </segment>
 <segment>
 <pinref part="GND54" gate="1" pin="GND"/>
@@ -12063,8 +12301,8 @@ Farnell: 1469104</description>
 <junction x="60.96" y="200.66"/>
 <wire x1="66.04" y1="200.66" x2="60.96" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="L2" gate="G$1" pin="2"/>
-<pinref part="U3" gate="G$1" pin="OUT"/>
 <pinref part="C19" gate="G$1" pin="+"/>
+<pinref part="U3" gate="G$1" pin="OUT"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VDD"/>
@@ -12107,7 +12345,7 @@ Farnell: 1469104</description>
 <segment>
 <wire x1="154.94" y1="35.56" x2="144.78" y2="35.56" width="0.1524" layer="91"/>
 <label x="144.78" y="35.56" size="1.778" layer="95"/>
-<pinref part="R3" gate="G$1" pin="2"/>
+<pinref part="R1" gate="G$1" pin="2"/>
 <wire x1="144.78" y1="35.56" x2="139.7" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="33.02" x2="144.78" y2="35.56" width="0.1524" layer="91"/>
 <junction x="144.78" y="35.56"/>
@@ -12209,11 +12447,11 @@ Farnell: 1469104</description>
 <wire x1="25.4" y1="200.66" x2="20.32" y2="200.66" width="0.1524" layer="91"/>
 <junction x="12.7" y="200.66"/>
 <pinref part="P+2" gate="1" pin="+5V"/>
-<pinref part="U3" gate="G$1" pin="IN"/>
 <pinref part="C16" gate="G$1" pin="+"/>
 <wire x1="20.32" y1="200.66" x2="12.7" y2="200.66" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="198.12" x2="20.32" y2="200.66" width="0.1524" layer="91"/>
 <junction x="20.32" y="200.66"/>
+<pinref part="U3" gate="G$1" pin="IN"/>
 </segment>
 <segment>
 <pinref part="L3" gate="G$1" pin="2"/>
@@ -12383,9 +12621,6 @@ Farnell: 1469104</description>
 <pinref part="AGND6" gate="VR1" pin="AGND"/>
 <wire x1="83.82" y1="185.42" x2="83.82" y2="187.96" width="0.1524" layer="91"/>
 <junction x="83.82" y="187.96"/>
-<pinref part="C27" gate="G$1" pin="2"/>
-<wire x1="83.82" y1="187.96" x2="93.98" y2="187.96" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="187.96" x2="93.98" y2="190.5" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="AGND7" gate="VR1" pin="AGND"/>
@@ -12492,9 +12727,6 @@ Farnell: 1469104</description>
 <wire x1="81.28" y1="200.66" x2="83.82" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="C24" gate="G$1" pin="1"/>
 <wire x1="83.82" y1="200.66" x2="83.82" y2="198.12" width="0.1524" layer="91"/>
-<wire x1="83.82" y1="200.66" x2="93.98" y2="200.66" width="0.1524" layer="91"/>
-<pinref part="C27" gate="G$1" pin="1"/>
-<wire x1="93.98" y1="198.12" x2="93.98" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="L2" gate="G$1" pin="1"/>
 <junction x="83.82" y="200.66"/>
 <pinref part="+A3V2" gate="G$1" pin="+3V3"/>
@@ -12993,7 +13225,7 @@ Farnell: 1469104</description>
 <pinref part="U1" gate="B" pin="PB12"/>
 </segment>
 </net>
-<net name="SPI1_SCK" class="0">
+<net name="SPI4_SCK" class="0">
 <segment>
 <pinref part="JP2" gate="A" pin="13"/>
 <wire x1="205.74" y1="180.34" x2="187.96" y2="180.34" width="0.1524" layer="91"/>
@@ -13005,7 +13237,7 @@ Farnell: 1469104</description>
 <label x="88.9" y="86.36" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SPI1_MISO" class="0">
+<net name="SPI4_MISO" class="0">
 <segment>
 <pinref part="JP2" gate="A" pin="15"/>
 <wire x1="205.74" y1="177.8" x2="187.96" y2="177.8" width="0.1524" layer="91"/>
@@ -13017,7 +13249,7 @@ Farnell: 1469104</description>
 <label x="88.9" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SPI1_MOSI" class="0">
+<net name="SPI4_MOSI" class="0">
 <segment>
 <pinref part="JP2" gate="A" pin="17"/>
 <wire x1="205.74" y1="175.26" x2="187.96" y2="175.26" width="0.1524" layer="91"/>
@@ -13125,7 +13357,7 @@ Farnell: 1469104</description>
 <label x="139.7" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SPI2_MOSI" class="0">
+<net name="SPI3_MOSI" class="0">
 <segment>
 <pinref part="JP2" gate="A" pin="18"/>
 <wire x1="213.36" y1="175.26" x2="233.68" y2="175.26" width="0.1524" layer="91"/>
@@ -13137,7 +13369,7 @@ Farnell: 1469104</description>
 <label x="193.04" y="55.88" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SPI2_MISO" class="0">
+<net name="SPI3_MISO" class="0">
 <segment>
 <pinref part="JP2" gate="A" pin="16"/>
 <wire x1="213.36" y1="177.8" x2="233.68" y2="177.8" width="0.1524" layer="91"/>
@@ -13149,7 +13381,7 @@ Farnell: 1469104</description>
 <label x="193.04" y="53.34" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SPI2_SCK" class="0">
+<net name="SPI3_SCK" class="0">
 <segment>
 <pinref part="JP2" gate="A" pin="14"/>
 <wire x1="213.36" y1="180.34" x2="233.68" y2="180.34" width="0.1524" layer="91"/>
@@ -13583,22 +13815,24 @@ Farnell: 1469104</description>
 <approved hash="201,1,342.9,101.6,+5V,+5V\, +A5V,,,,"/>
 <approved hash="201,1,264.16,101.6,+5V,+5V\, +A5V,,,,"/>
 <approved hash="201,1,83.82,172.72,+5V,+5V\, +A5V,,,,"/>
-<approved hash="208,1,10.16,149.86,+3V3,sup,,,,"/>
-<approved hash="208,1,20.32,149.86,+3V3,sup,,,,"/>
-<approved hash="208,1,30.48,149.86,+3V3,sup,,,,"/>
-<approved hash="208,1,40.64,149.86,+3V3,sup,,,,"/>
-<approved hash="208,1,50.8,149.86,+3V3,sup,,,,"/>
-<approved hash="208,1,48.26,111.76,+3V3,sup,,,,"/>
-<approved hash="208,1,152.4,111.76,+3V3,sup,,,,"/>
-<approved hash="208,1,101.6,142.24,+3V3,sup,,,,"/>
-<approved hash="208,1,119.38,38.1,+3V3,sup,,,,"/>
-<approved hash="208,1,233.68,142.24,+3V3,sup,,,,"/>
-<approved hash="208,1,60.96,203.2,+3V3,sup,,,,"/>
-<approved hash="208,1,40.64,200.66,+3V3,out,,,,"/>
-<approved hash="208,1,266.7,104.14,+3V3,sup,,,,"/>
-<approved hash="208,1,241.3,73.66,+3V3,sup,,,,"/>
-<approved hash="208,1,284.48,15.24,+3V3,sup,,,,"/>
 </errors>
 </schematic>
 </drawing>
+<compatibility>
+<note version="8.2" severity="warning">
+Since Version 8.2, EAGLE supports online libraries. The ids
+of those online libraries will not be understood (or retained)
+with this version.
+</note>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports URNs for individual library
+assets (packages, symbols, and devices). The URNs of those assets
+will not be understood (or retained) with this version.
+</note>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports the association of 3D packages
+with devices in libraries, schematics, and board files. Those 3D
+packages will not be understood (or retained) with this version.
+</note>
+</compatibility>
 </eagle>
