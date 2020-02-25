@@ -3,7 +3,7 @@
 <eagle version="9.5.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
@@ -3938,7 +3938,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="24.952" y="29.045" size="1.27" layer="27" ratio="10"/>
 </element>
 <element name="IC1" library="linear" library_urn="urn:adsk.eagle:library:262" package="TO220V" package3d_urn="urn:adsk.eagle:package:16417/2" value="7805TV" x="44.5" y="4.8" smashed="yes" rot="MR270">
-<attribute name="NAME" x="50.2912" y="6.197" size="1.27" layer="26" ratio="10" rot="MR270"/>
+<attribute name="NAME" x="50.2912" y="6.197" size="1.27" layer="26" font="vector" ratio="10" rot="MR270"/>
 <attribute name="POPULARITY" value="57" x="44.5" y="4.8" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="52.12" y="9.88" size="1.27" layer="28" ratio="10" rot="MR270"/>
 </element>
