@@ -303,7 +303,7 @@ Witch spacing
 knobs: - 950 - 750 - 750 - 950 - horizontal, 250 vertical
 jacks: 550 (pairs) horizontal
 jacks/leds: 400 vertical
-jacks/switches: 500 vertical
+jacks/switches: 600 vertical
 
 --------------------------------------------------------------------------------
 
