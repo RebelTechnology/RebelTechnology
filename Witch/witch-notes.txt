@@ -1,0 +1,80 @@
+--------------------------------------------------------------------------------
+
+Hammond 1590BB
+technical drawing 1590BB.pdf
+
+lid 119.5mm x 94
+lid holes 4mm at 109.50mm x 84mm
+
+inside height 29.75mm, width 87.16mm, length 112.66
+
+120*94*34 mm
+
+hole positions (5mm from each edge)
+119.5/2 - 109.5/2 = 5
+119.5/2 + 109.5/2 = 114.5
+94/2 - 84/2 = 5
+94/2 + 84/2 = 89
+
+--------------------------------------------------------------------------------
+
+compatibility
+Volca
+Mother 32
+
+Arturia Beatstep
+ Control Voltage: 1 Volt/octave, from 0V to 7V
+ Gate output: 8 Volts 
+
+Behringer Crave
+OSC cv: -5 to +5 V,
+Play/stop: more than 3.2 V
+Env: 0 to 8 V
+Gate: 0/+5 V
+
+Behringer TD-3
+
+Arturia Minibrute
+CV input range is from -5 to 10V
+Normal range is 0 to 10V
+
+Koma Kommander does CV 0 / +8 volts
+
+Dopfer A100
+Within the A-100 usually any voltage beyond about +3V is treated as "high" and will trigger an ADSR or any other module with a Gate or Clock input (e.g. trigger delay, sequencer, clock divider, clock sequencer). Any voltage below 1V is treated as "low".
+
+--------------------------------------------------------------------------------
+
+Workaround for extra high input impedance ADC readings
+https://www.st.com/content/ccc/resource/technical/document/application_note/group0/3f/4c/a4/82/bd/63/4e/92/CD00211314/files/CD00211314.pdf/jcr:content/translations/en.CD00211314.pdf
+
+1) Add external capacitor Cext = 1.58 * Csh * Umax / Ulsb
+where Csh=16pF, Umax=4096 LSB, Ulsb = 0.5 LSB
+so Cext = 220nF (too high!)
+with Ulsb = 2 LSB
+Cext = 1.58 * 16pF * 4096 / 2 = 1.58*16*10^-12*4096/2 = 51nF
+
+2) Wait between conversions: tC
+tC = -(Rin * Cext) * ln(1- (Csh*Umax)/(Cext*Ulsb))
+
+with Rin = 150k, Lusb=0.5, Cext=220n
+-(150000*220*10^-9) * l(1-(16*10^-12*4096)/(220*10^-9*0.5)) = 29.8mS
+
+with Rin = 100k, Lusb=2, Cext=51n
+tC = -(100k * 51n) * ln(1-(16p*4096)/(51n * 2))
+-(100000*51*10^-10) * l(1-(16*10^-12*4096)/(51*10^-9*2)) = 0.5mS
+
+with Rin = 100k, Lusb=1, Cext=100n
+-(100000*100*10^-10) * l(1-(16*10^-12*4096)/(100*10^-9*1)) = 1.1mS
+Rc filter Fc=15Hz
+
+--------------------------------------------------------------------------------
+
+Witch spacing
+knobs: - 950 - 750 - 750 - 950 - horizontal, 250 vertical
+jacks: 550 (pairs) horizontal
+jacks/leds: 400 vertical
+jacks/switches: 600 vertical
+
+--------------------------------------------------------------------------------
+

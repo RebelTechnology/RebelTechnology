@@ -1,0 +1,70 @@
+<module type="26hp" grading="small">
+
+  <!-- pots -->
+  <pot x="-1.70" y="0.0"/>
+  <pot x="-0.75" y="0.0"/>
+  <pot x="1.70" y="0.0"/>
+  <pot x="0.75" y="0.0"/>
+  <pot x="0.00" y="-0.30"/>
+
+  <!-- jacks -->
+  <hole x="-1.500" y="0.750" radius="3.25"/>
+  <hole x="-0.950" y="0.750" radius="3.25"/>
+  <hole x="0.950" y="0.750" radius="3.25"/>
+  <hole x="1.500" y="0.750" radius="3.25"/>
+
+  <hole x="-1.50" y="-0.750" radius="3.25"/>
+  <hole x="-0.95" y="-0.750" radius="3.25"/>
+  <hole x="0.95" y="-0.750" radius="3.25"/>
+  <hole x="1.50" y="-0.750" radius="3.25"/>
+
+  <hole x="-0.275" y="1.050" radius="3.25"/>
+  <hole x="0.275" y="1.050" radius="3.25"/>
+
+  <hole x="-0.275" y="-1.05" radius="3.25"/>
+  <hole x="0.275" y="-1.05" radius="3.25"/>
+
+  <hole x="-1.70" y="1.350" radius="3.25"/>
+  <hole x="1.70" y="1.350" radius="3.25"/>
+
+  <!-- LEDs -->
+  <hole x="-1.500" y="0.450" radius="1.6"/>
+  <hole x="-0.950" y="0.450" radius="1.6"/>
+  <hole x="0.950" y="0.450" radius="1.6"/>
+  <hole x="1.500" y="0.450" radius="1.6"/>
+
+  <hole x="-0.275" y="0.750" radius="1.6"/>
+  <hole x="0.275" y="0.750" radius="1.6"/>
+
+  <hole x="-0.275" y="-0.75" radius="1.6"/>
+  <hole x="0.275" y="-0.75" radius="1.6"/>
+
+  <!-- LED buttons -->
+  <hole x="-1.50" y="-1.35" radius="3.5"/>
+  <hole x="-0.95" y="-1.35" radius="3.5"/>
+  <hole x="0.95" y="-1.35" radius="3.5"/>
+  <hole x="1.50" y="-1.35" radius="3.5"/>
+
+  <!-- pushbutton -->
+  <hole x="0.00" y="0.30" radius="2.75"/>
+
+    <!-- usb client connector -->
+  <rect x="-0.95" y="1.35" width="12" height="11"/>
+
+  <!-- usb host connector -->
+  <rect x="0.95" y="1.35" height="7" width="14.75"/>
+
+  <!-- <hole x="0.725" y="1.675" radius="3.25"/> -->
+  <!-- <hole x="1.275" y="1.675" radius="3.25"/> -->
+  <!-- <hole x="1.825" y="1.675" radius="3.25"/> -->
+
+  <!-- mounting holes -->
+  <hole x="-2.1555118" y="1.6535433" radius="1.6"/>
+  <hole x="2.1555118" y="1.6535433" radius="1.6"/>
+  <hole x="2.1555118" y="-1.6535433" radius="1.6"/>
+  <hole x="-2.1555118" y="-1.6535433" radius="1.6"/>
+  
+  <!-- outline -->
+  <rect x="0.0" y="0.0" width="119.5" height="94"/>
+
+</module>
