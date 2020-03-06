@@ -138,3 +138,11 @@ Font for Mix titles: Caviar Dreams
 for labels: Helvetica
 
 ------------------------------------------------------------------
+
+Connect X1 to X2, X3 to X4
+X1 switched master bus output
+X2 direct master bus input
+X3 direct input channels
+X4 switched input channels
+
+------------------------------------------------------------------

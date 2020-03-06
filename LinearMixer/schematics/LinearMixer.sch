@@ -19968,7 +19968,7 @@ NS Package M08A</description>
 <part name="GND28" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R40" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="10R"/>
 <part name="R37" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="10R"/>
-<part name="IC3" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="NE5532" device="D" package3d_urn="urn:adsk.eagle:package:16404/2" value="RC4560"/>
+<part name="IC3" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="NE5532" device="D" package3d_urn="urn:adsk.eagle:package:16404/2" value="OPA1648"/>
 <part name="GND29" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND30" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="C12" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:15457955/3" value="47n"/>

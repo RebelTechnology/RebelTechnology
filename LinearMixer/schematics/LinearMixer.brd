@@ -2029,7 +2029,7 @@ NS Package M08A</description>
 <attribute name="NAME" x="13.828" y="10.318" size="0.9" layer="25" font="vector"/>
 <attribute name="VALUE" x="16.0045" y="8.2325" size="1.27" layer="27"/>
 </element>
-<element name="IC3" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="SO08" package3d_urn="urn:adsk.eagle:package:16404/2" value="RC4560" x="23.241" y="29.5" smashed="yes" rot="R90">
+<element name="IC3" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="SO08" package3d_urn="urn:adsk.eagle:package:16404/2" value="OPA1648" x="23.241" y="29.5" smashed="yes" rot="R90">
 <attribute name="NAME" x="22.065" y="30.543" size="0.9" layer="25" font="vector"/>
 <attribute name="VALUE" x="25.146" y="33.437" size="1.27" layer="27" rot="R180"/>
 </element>
