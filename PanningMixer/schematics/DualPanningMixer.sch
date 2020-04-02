@@ -10220,8 +10220,8 @@ NS Package M08A</description>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+12V" device=""/>
 <part name="P-1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="-12V" device=""/>
 <part name="GND30" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="C7" library="Rebel" deviceset="CPOL-EU" device="UD-5X5,8" value="10u"/>
-<part name="C8" library="Rebel" deviceset="CPOL-EU" device="UD-5X5,8" value="10u"/>
+<part name="C7" library="Rebel" deviceset="CPOL-EU" device="UD-5X5,8" value="47u"/>
+<part name="C8" library="Rebel" deviceset="CPOL-EU" device="UD-5X5,8" value="47u"/>
 <part name="GND11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="X4" library="Rebel" deviceset="CON-JST_PH_5W" device=""/>
@@ -10251,7 +10251,7 @@ NS Package M08A</description>
 <part name="GND38" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R47" library="Rebel" deviceset="R-EU_" device="0603" value="10R"/>
 <part name="R48" library="Rebel" deviceset="R-EU_" device="0603" value="10R"/>
-<part name="IC4" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="NE5532" device="D" package3d_urn="urn:adsk.eagle:package:16404/2" value="OPA1648"/>
+<part name="IC4" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="NE5532" device="D" package3d_urn="urn:adsk.eagle:package:16404/2" value="OPA1678"/>
 <part name="GND35" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND36" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="C15" library="Rebel" deviceset="C-EU" device="C0603" value="47n"/>
@@ -10315,8 +10315,8 @@ NS Package M08A</description>
 <part name="GND28" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND29" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="X5" library="Rebel" deviceset="CON-JST_PH_3W" device=""/>
-<part name="R44" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
-<part name="R45" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="R44" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
+<part name="R45" library="Rebel" deviceset="R-EU_" device="0603" value="100R"/>
 <part name="GND40" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND41" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND42" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
