@@ -177,3 +177,26 @@ CLK is a triple clock generator. It comprises of a master clock and two dual fun
 
 -------------------------------------------------------
 
+atmega328 / m328:
+hfuse DA fine
+lfuse FF fine
+efuse 0xfd != 0x05
+lock 0xff != 0x3f
+
+on Phoreo 328:
+avrdude: safemode: Fuses OK (E:F8, H:DD, L:FF)
+doesn't work (wrong clock?)
+
+on Klasmata 128:
+avrdude: safemode: Fuses OK (E:F8, H:DD, L:FF)
+doesn't work
+
+one that works:
+avrdude: safemode: Fuses OK (E:FF, H:D9, L:62)
+works
+
+efuse = 0x07 or 0xFF is the same, because for this chip and fuse only the low 3 bits matter
+
+conclusion: CLK firmware seems to work correctly with internal oscillator
+
+-------------------------------------------------------
