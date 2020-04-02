@@ -3,11 +3,11 @@
 <eagle version="9.5.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mm" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -259,38 +259,31 @@
 <wire x1="-0.127" y1="-0.635" x2="-0.127" y2="0.635" width="0.127" layer="21"/>
 <wire x1="0.127" y1="-0.635" x2="0.127" y2="0.635" width="0.127" layer="21"/>
 </package>
-<package name="PANASONIC_B">
-<description>&lt;b&gt;Panasonic Aluminium Electrolytic Capacitor VS-Serie Package B&lt;/b&gt;</description>
-<wire x1="-2.1" y1="2.1" x2="1" y2="2.1" width="0.1016" layer="51"/>
-<wire x1="1" y1="2.1" x2="2.1" y2="1" width="0.1016" layer="51"/>
-<wire x1="2.1" y1="1" x2="2.1" y2="-1" width="0.1016" layer="51"/>
-<wire x1="2.1" y1="-1" x2="1" y2="-2.1" width="0.1016" layer="51"/>
-<wire x1="1" y1="-2.1" x2="-2.1" y2="-2.1" width="0.1016" layer="51"/>
-<wire x1="-2.1" y1="-2.1" x2="-2.1" y2="2.1" width="0.1016" layer="51"/>
-<wire x1="-1.75" y1="0.85" x2="1.75" y2="0.85" width="0.1016" layer="21" curve="-128.186984"/>
-<wire x1="-1.75" y1="-0.85" x2="1.75" y2="-0.85" width="0.1016" layer="21" curve="128.186984"/>
-<wire x1="-2.1" y1="0.85" x2="-2.1" y2="2.1" width="0.1016" layer="21"/>
-<wire x1="-2.1" y1="2.1" x2="1" y2="2.1" width="0.1016" layer="21"/>
-<wire x1="1" y1="2.1" x2="2.1" y2="1" width="0.1016" layer="21"/>
-<wire x1="2.1" y1="-1" x2="1" y2="-2.1" width="0.1016" layer="21"/>
-<wire x1="1" y1="-2.1" x2="-2.1" y2="-2.1" width="0.1016" layer="21"/>
-<wire x1="-2.1" y1="-2.1" x2="-2.1" y2="-0.85" width="0.1016" layer="21"/>
-<wire x1="-1.2" y1="1.5" x2="-1.2" y2="-1.5" width="0.1016" layer="51"/>
-<circle x="0" y="0" radius="1.95" width="0.1016" layer="51"/>
-<smd name="-" x="-1.6" y="0" dx="2.2" dy="1.4" layer="1"/>
-<smd name="+" x="1.6" y="0" dx="2.2" dy="1.4" layer="1"/>
-<text x="-2.15" y="2.3" size="1.016" layer="25">&gt;NAME</text>
-<text x="-2.15" y="-3.275" size="1.016" layer="27">&gt;VALUE</text>
-<rectangle x1="-2.3" y1="-0.35" x2="-1.85" y2="0.35" layer="51"/>
-<rectangle x1="1.9" y1="-0.35" x2="2.3" y2="0.35" layer="51"/>
+<package name="UD-5X5,8_NICHICON">
+<description>&lt;b&gt;ALUMINUM ELECTROLYTIC CAPACITORS&lt;/b&gt; UD Series 5 x 5.8 mm&lt;p&gt;
+Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
+<wire x1="-2.6" y1="2.6" x2="1.8" y2="2.6" width="0.1016" layer="51"/>
+<wire x1="1.8" y1="2.6" x2="2.6" y2="1.8" width="0.1016" layer="51"/>
+<wire x1="2.6" y1="1.8" x2="2.6" y2="-1.8" width="0.1016" layer="51"/>
+<wire x1="2.6" y1="-1.8" x2="1.8" y2="-2.6" width="0.1016" layer="51"/>
+<wire x1="1.8" y1="-2.6" x2="-2.6" y2="-2.6" width="0.1016" layer="51"/>
+<wire x1="-2.6" y1="-2.6" x2="-2.6" y2="2.6" width="0.1016" layer="51"/>
+<wire x1="-2.3" y1="0.85" x2="2.275" y2="0.9" width="0.1016" layer="21" curve="-137.986421"/>
+<wire x1="-2.6" y1="0.7" x2="-2.6" y2="2.6" width="0.1016" layer="21"/>
+<wire x1="-2.6" y1="2.6" x2="1.8" y2="2.6" width="0.1016" layer="21"/>
+<wire x1="1.8" y1="2.6" x2="2.6" y2="1.8" width="0.1016" layer="21"/>
+<wire x1="2.6" y1="-1.8" x2="1.8" y2="-2.6" width="0.1016" layer="21"/>
+<wire x1="1.8" y1="-2.6" x2="-2.6" y2="-2.6" width="0.1016" layer="21"/>
+<wire x1="-2.6" y1="-2.6" x2="-2.6" y2="-0.7" width="0.1016" layer="21"/>
+<wire x1="2.3" y1="-0.85" x2="-2.275" y2="-0.9" width="0.1016" layer="21" curve="-137.986421"/>
+<circle x="0" y="0" radius="2.4501" width="0.1016" layer="51"/>
+<smd name="-" x="-1.7" y="0" dx="2.3" dy="1" layer="1"/>
+<smd name="+" x="1.725" y="0" dx="2.3" dy="1" layer="1"/>
+<text x="-2.54" y="3.175" size="1.016" layer="25">&gt;NAME</text>
+<text x="-2.54" y="-3.81" size="1.016" layer="27">&gt;VALUE</text>
 <polygon width="0.1016" layer="51">
-<vertex x="-1.25" y="1.45"/>
-<vertex x="-1.7" y="0.85"/>
-<vertex x="-1.85" y="0.35"/>
-<vertex x="-1.85" y="-0.4"/>
-<vertex x="-1.7" y="-0.85"/>
-<vertex x="-1.25" y="-1.4"/>
-<vertex x="-1.25" y="1.4"/>
+<vertex x="-1.55" y="1.875" curve="100.118878"/>
+<vertex x="-1.55" y="-1.875"/>
 </polygon>
 </package>
 <package name="CON-JST_PH_5W">
@@ -807,7 +800,7 @@ NS Package M08A</description>
 <element name="R12" library="Rebel" package="0603" value="10k" x="10.446" y="33" smashed="yes" rot="MR90">
 <attribute name="NAME" x="9.958" y="35.8" size="0.9" layer="26" font="vector" rot="MR90" align="bottom-center"/>
 </element>
-<element name="C1" library="Rebel" package="C0603" value="10pF" x="14.7" y="90" smashed="yes" rot="MR270">
+<element name="C1" library="Rebel" package="C0603" value="10p" x="14.7" y="90" smashed="yes" rot="MR270">
 <attribute name="NAME" x="14.7" y="91.612" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="R13" library="Rebel" package="0603" value="22k" x="12.7" y="90" smashed="yes" rot="MR90">
@@ -855,19 +848,19 @@ NS Package M08A</description>
 <element name="R32" library="Rebel" package="0603" value="10k" x="33.7" y="33" smashed="yes" rot="MR270">
 <attribute name="NAME" x="34.288" y="35.75" size="0.9" layer="26" font="vector" rot="MR270" align="bottom-center"/>
 </element>
-<element name="C2" library="Rebel" package="C0603" value="10pF" x="14.7" y="71" smashed="yes" rot="MR90">
+<element name="C2" library="Rebel" package="C0603" value="10p" x="14.7" y="71" smashed="yes" rot="MR90">
 <attribute name="NAME" x="14.7" y="72.562" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="R14" library="Rebel" package="0603" value="22k" x="12.7" y="71" smashed="yes" rot="MR270">
 <attribute name="NAME" x="12.212" y="73.8" size="0.9" layer="26" font="vector" rot="MR90" align="bottom-center"/>
 </element>
-<element name="C3" library="Rebel" package="C0603" value="10pF" x="14.7" y="52" smashed="yes" rot="MR270">
+<element name="C3" library="Rebel" package="C0603" value="10p" x="14.7" y="52" smashed="yes" rot="MR270">
 <attribute name="NAME" x="14.7" y="53.562" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="R15" library="Rebel" package="0603" value="22k" x="12.7" y="52" smashed="yes" rot="MR90">
 <attribute name="NAME" x="13.138" y="54.85" size="0.9" layer="26" font="vector" rot="MR270" align="bottom-center"/>
 </element>
-<element name="C4" library="Rebel" package="C0603" value="10pF" x="14.446" y="33" smashed="yes" rot="MR90">
+<element name="C4" library="Rebel" package="C0603" value="10p" x="14.446" y="33" smashed="yes" rot="MR90">
 <attribute name="NAME" x="14.446" y="34.562" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
 <element name="R16" library="Rebel" package="0603" value="22k" x="12.446" y="33" smashed="yes" rot="MR270">
@@ -888,11 +881,11 @@ NS Package M08A</description>
 <attribute name="NAME" x="44.155" y="57.885" size="0.9" layer="26" font="vector" rot="MR0"/>
 <attribute name="POPULARITY" value="21" x="45.12" y="57.3" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
-<element name="C7" library="Rebel" package="PANASONIC_B" value="10u" x="36.42" y="79.4" smashed="yes" rot="MR0">
-<attribute name="NAME" x="37.4225" y="81.64" size="0.9" layer="26" font="vector" rot="MR0"/>
+<element name="C7" library="Rebel" package="UD-5X5,8_NICHICON" value="10u" x="36.42" y="79.4" smashed="yes" rot="MR0">
+<attribute name="NAME" x="37.0415" y="77.576" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
-<element name="C8" library="Rebel" package="PANASONIC_B" value="10u" x="36.42" y="45.4" smashed="yes" rot="MR0">
-<attribute name="NAME" x="35.47" y="43.16" size="0.9" layer="26" rot="MR180"/>
+<element name="C8" library="Rebel" package="UD-5X5,8_NICHICON" value="10u" x="36.42" y="45.4" smashed="yes" rot="MR0">
+<attribute name="NAME" x="35.47" y="44.43" size="0.9" layer="26" font="vector" rot="MR180"/>
 </element>
 <element name="X4" library="Rebel" package="CON-JST_PH_5W" value="CON-JST_PH_5W" x="3.371" y="26.722" smashed="yes" rot="MR270">
 <attribute name="NAME" x="3.81" y="36.83" size="1.27" layer="22" rot="MR0"/>
@@ -963,7 +956,7 @@ NS Package M08A</description>
 <element name="R48" library="Rebel" package="0603" value="10R" x="29.66" y="8.88" smashed="yes" rot="MR0">
 <attribute name="NAME" x="29.66" y="9.642" size="1.016" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
-<element name="IC4" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="SO08" package3d_urn="urn:adsk.eagle:package:16404/2" value="RC4560" x="23.7" y="35" smashed="yes" rot="MR270">
+<element name="IC4" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="SO08" package3d_urn="urn:adsk.eagle:package:16404/2" value="OPA1648" x="23.7" y="35" smashed="yes" rot="MR270">
 <attribute name="NAME" x="24.605" y="34.467" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="C15" library="Rebel" package="C0603" value="47n" x="15.465" y="8.9" smashed="yes" rot="MR0">
@@ -1037,10 +1030,10 @@ NS Package M08A</description>
 <element name="C13" library="Rebel" package="C0603" value="100n" x="18.7" y="80.2" smashed="yes" rot="MR90">
 <attribute name="NAME" x="17.938" y="80.2" size="1.016" layer="26" font="vector" rot="MR270" align="bottom-center"/>
 </element>
-<element name="IC2" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="SO14" package3d_urn="urn:adsk.eagle:package:16406/2" value="TL074D" x="23.7" y="48.5" smashed="yes" rot="MR90">
+<element name="IC2" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="SO14" package3d_urn="urn:adsk.eagle:package:16406/2" value="TL074" x="23.7" y="48.5" smashed="yes" rot="MR90">
 <attribute name="NAME" x="24.705" y="47.772" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
-<element name="IC1" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="SO14" package3d_urn="urn:adsk.eagle:package:16406/2" value="TS924" x="23.7" y="81" smashed="yes" rot="MR90">
+<element name="IC1" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="SO14" package3d_urn="urn:adsk.eagle:package:16406/2" value="TL074" x="23.7" y="81" smashed="yes" rot="MR90">
 <attribute name="NAME" x="24.705" y="81.572" size="0.9" layer="26" font="vector" rot="MR0"/>
 </element>
 <element name="C12" library="Rebel" package="C0603" value="100n" x="28.7" y="49.5" smashed="yes" rot="MR270">
@@ -1061,7 +1054,7 @@ NS Package M08A</description>
 <element name="R4" library="Rebel" package="0603" value="1M" x="40.2" y="23" smashed="yes" rot="MR180">
 <attribute name="NAME" x="40" y="23.862" size="0.9" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
-<element name="IC3" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="SO08" package3d_urn="urn:adsk.eagle:package:16404/2" value="NE5532D" x="23.7" y="17" smashed="yes" rot="MR270">
+<element name="IC3" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="SO08" package3d_urn="urn:adsk.eagle:package:16404/2" value="TL072" x="23.7" y="17" smashed="yes" rot="MR270">
 <attribute name="NAME" x="24.905" y="16.767" size="1.27" layer="26" font="vector" rot="MR0"/>
 <attribute name="VALUE" x="25.605" y="13.063" size="1.27" layer="28" rot="MR0"/>
 </element>
@@ -1087,9 +1080,8 @@ NS Package M08A</description>
 <contactref element="C11" pad="2"/>
 <contactref element="IC2" pad="4"/>
 <via x="19.6" y="48.5" extent="1-16" drill="0.3048"/>
-<wire x1="19.6" y1="48.5" x2="19.6" y2="46.99" width="0.4064" layer="1"/>
 <via x="19.6" y="20.5" extent="1-16" drill="0.3048"/>
-<wire x1="19.6" y1="46.99" x2="19.6" y2="38.5" width="0.4064" layer="1"/>
+<wire x1="19.6" y1="48.5" x2="19.6" y2="38.5" width="0.4064" layer="1"/>
 <wire x1="19.6" y1="38.5" x2="19.6" y2="20.5" width="0.4064" layer="1"/>
 <wire x1="19.6" y1="48.5" x2="19.6" y2="75.8" width="0.4064" layer="1"/>
 <via x="19.6" y="38.5" extent="1-16" drill="0.3048"/>
@@ -1108,14 +1100,14 @@ NS Package M08A</description>
 <wire x1="21.235" y1="18.905" x2="22.78" y2="20.45" width="0.4064" layer="16"/>
 <wire x1="28.5" y1="75.8" x2="19.6" y2="75.8" width="0.4064" layer="16"/>
 <via x="19.6" y="75.8" extent="1-16" drill="0.3048"/>
-<wire x1="43.48" y1="80.95" x2="36.37" y2="80.95" width="0.4064" layer="16"/>
-<wire x1="36.37" y1="80.95" x2="34.82" y2="79.4" width="0.4064" layer="16"/>
-<wire x1="34.82" y1="79.4" x2="32.1" y2="79.4" width="0.4064" layer="16"/>
+<wire x1="34.695" y1="79.4" x2="32.1" y2="79.4" width="0.4064" layer="16"/>
 <wire x1="32.1" y1="79.4" x2="28.5" y2="75.8" width="0.4064" layer="16"/>
 <wire x1="18.7" y1="48.55" x2="18.8" y2="48.55" width="0.3048" layer="16"/>
 <wire x1="18.8" y1="48.55" x2="18.85" y2="48.5" width="0.3048" layer="16"/>
 <wire x1="19.6" y1="81" x2="18.75" y2="81" width="0.3048" layer="16"/>
 <wire x1="18.75" y1="81" x2="18.7" y2="81.05" width="0.3048" layer="16"/>
+<wire x1="34.695" y1="79.4" x2="36.245" y2="80.95" width="0.4064" layer="16"/>
+<wire x1="36.245" y1="80.95" x2="43.48" y2="80.95" width="0.4064" layer="16"/>
 </signal>
 <signal name="GND">
 <polygon width="0.3048" layer="16">
@@ -1295,13 +1287,13 @@ NS Package M08A</description>
 <wire x1="46.22" y1="56.35" x2="46.22" y2="50.52" width="0.4064" layer="16"/>
 <wire x1="46.22" y1="50.52" x2="41.2" y2="45.5" width="0.4064" layer="16"/>
 <wire x1="41.2" y1="45.5" x2="38.12" y2="45.5" width="0.4064" layer="16"/>
-<wire x1="38.12" y1="45.5" x2="38.02" y2="45.4" width="0.4064" layer="16"/>
-<wire x1="38.02" y1="45.4" x2="38.02" y2="45.68" width="0.4064" layer="16"/>
-<wire x1="38.02" y1="45.68" x2="36.7" y2="47" width="0.4064" layer="16"/>
-<wire x1="36.7" y1="47" x2="30.35" y2="47" width="0.4064" layer="16"/>
+<wire x1="38.12" y1="45.5" x2="38.12" y2="45.4" width="0.4064" layer="16"/>
+<wire x1="30.35" y1="47" x2="36.7" y2="47" width="0.4064" layer="16"/>
 <wire x1="30.35" y1="47" x2="28.7" y2="48.65" width="0.4064" layer="16"/>
 <wire x1="27.8" y1="48.5" x2="28.55" y2="48.5" width="0.4064" layer="16"/>
 <wire x1="28.55" y1="48.5" x2="28.7" y2="48.65" width="0.4064" layer="16"/>
+<wire x1="36.7" y1="47" x2="38.12" y2="45.58" width="0.4064" layer="16"/>
+<wire x1="38.12" y1="45.58" x2="38.12" y2="45.5" width="0.4064" layer="16"/>
 </signal>
 <signal name="MONO1">
 <contactref element="AMP1" pad="3"/>

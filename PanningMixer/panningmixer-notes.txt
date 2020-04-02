@@ -167,3 +167,21 @@ http://multitron.co.uk/standard-components/knobs/
 Emailed enquiry 19/5 2017
 
 -----------------------------------------------------------------------------------
+
+Change Pan pot for one with centre detent, e.g.
+RK09L112003P 20k lin with detent 15mm
+or
+RK09L114001T 10k lin with detent 20mm
+
+compare RK09L1140A66 10k lin without detent 12.5mm
+
+-----------------------------------------------------------------------------------
+
+Connect X1 to X2, X3 to X4
+X1 switched master bus output
+X2 direct master bus input
+X3 direct input channels
+X4 switched input channels
+X5 direct master bus output
+
+-----------------------------------------------------------------------------------
