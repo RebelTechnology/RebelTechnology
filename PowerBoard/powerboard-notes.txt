@@ -759,3 +759,54 @@ Also see Meanwell DKMW30F-12 used in befaco Cheapow
 https://www.mouser.co.uk/ProductDetail/MEAN-WELL/DKMW30F-12?qs=5aG0NVq1C4xuBs7GEt7vmw==
 
 --------------------------------------------------------------------------
+
+The STEVAL-USBPD45C 45 W AC-DC adapter reference design features a USB Type-C connector and functions as a USB Power Delivery provider with a single source port.
+
+--------------------------------------------------------------------------
+
+ECLB40W-24D12
+Isolated DC/DC Converters DC-DC Converter, 40 Watt, 4:1 Input Range, 9-36VDC Input, +/-12VDC Output
+1667mA @ +/-12v
+
+Mark Verbos: I use the ECLB40W-24D12 which is a 40W metal can one. It will take pretty much any DC you throw at it (9V-36V per the datasheet). I put some big caps to ground on the output of them. I have never experienced anything close to 150mV of ripple on these. They have not caused interaction between modules or blown anything up (a real problem with cheep switchers, I guess from start-up transients).
+
+--------------------------------------------------------------------------
+
+UsbEuroPowerAdaptor
+
+Traco TBA 2-0522, 5V DC nominal input
+Vin 4.5v-5.5v, +/-12V 2W +/-80mA, unregulated outputs
+1 Vin
+2 GND (in)
+3 nc (not there)
+4 -12V
+5 GND (out)
+6 +12V
+Ripple and noise: 250mVpp max, 120mVpp typ. Min load not required. Continuous short circuit protection.
+
+
+TEC 2-0922 or TEC 3-0922, 9V DC nominal input
+SL04-E3-08 -  Schottky Rectifier, 40 V, 1.1 A, DO-219AB, 2 Pins, Vf max 420mV
+Traco TEC 2-0922, Vin 4.5v-13.2v +/-12V 2W +/-83mA SIP
+Traco TEC 3-0922, Vin 4.5v-13.2v +/-12V 3W +/-125mA SIP
+
+Traco TEC 2-1222WI, Vin 4.5v-18v +/-12V 2W +/-83mA SIP
+Traco TEC 3-1222WI, Vin 4.5v-18v +/-12V 3W +/-125mA SIP
+
+also TMR 3-1222WI, TDN 3-1222WI in DIP, TDR 3-1222WISM in DIP SMT
+
+1 gnd
+2 Vin
+3 nc: remote on/off
+4 nc: not there
+5 nc
+6 +12v
+7 gnd
+8 -12v
+
+
+Pololu 5V Step-Up/Step-Down Voltage Regulator S9V11F5
+
+
+
+--------------------------------------------------------------------------
