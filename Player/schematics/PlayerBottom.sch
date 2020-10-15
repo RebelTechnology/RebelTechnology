@@ -20185,13 +20185,6 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <label x="381" y="38.1" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="TR_IN_B" class="0">
-<segment>
-<wire x1="238.76" y1="119.38" x2="218.44" y2="119.38" width="0.1524" layer="91"/>
-<label x="218.44" y="119.38" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$3" pin="PD2"/>
-</segment>
-</net>
 <net name="TR_OUT_A" class="0">
 <segment>
 <pinref part="R13" gate="G$1" pin="2"/>
@@ -20384,6 +20377,11 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <pinref part="JP3" gate="G$1" pin="8"/>
 <wire x1="434.34" y1="38.1" x2="421.64" y2="38.1" width="0.1524" layer="91"/>
 <label x="421.64" y="38.1" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="238.76" y1="119.38" x2="218.44" y2="119.38" width="0.1524" layer="91"/>
+<label x="218.44" y="119.38" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$3" pin="PD2"/>
 </segment>
 </net>
 <net name="N$19" class="0">
