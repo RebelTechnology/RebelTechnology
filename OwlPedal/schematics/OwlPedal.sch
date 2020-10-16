@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.4.0">
+<eagle version="9.6.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -17233,15 +17233,15 @@ plastic packages.&lt;p&gt;&lt;author&gt;AAL Eindhoven MK&lt;/author&gt;&lt;hr&gt
 <part name="P+17" library="supply1" deviceset="+5V" device=""/>
 <part name="C17" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="10u"/>
 <part name="C14" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
-<part name="IC6" library="linear" deviceset="LM324" device="D" value="TS974"/>
-<part name="C16" library="Rebel" deviceset="C-EU" device="C1210" value="1u"/>
+<part name="IC6" library="linear" deviceset="LM324" device="D" value="TS924"/>
+<part name="C16" library="Rebel" deviceset="C-EU" device="C1210" value="1u Film"/>
 <part name="R26" library="Rebel" deviceset="R-EU_" device="0603" value="1M"/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="C18" library="resistor" deviceset="C-EU" device="C0603" value="2n2 C0G"/>
-<part name="C19" library="Rebel" deviceset="C-EU" device="C1210" value="1u"/>
+<part name="C19" library="Rebel" deviceset="C-EU" device="C1210" value="1u Film"/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
 <part name="C20" library="resistor" deviceset="C-EU" device="C0603" value="220p C0G"/>
-<part name="C21" library="Rebel" deviceset="C-EU" device="C1210" value="22u"/>
+<part name="C21" library="Rebel" deviceset="C-EU" device="C1210" value="1u Film"/>
 <part name="C22" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="22u"/>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
 <part name="C23" library="resistor" deviceset="C-EU" device="C0603" value="1n C0G"/>
@@ -17254,7 +17254,7 @@ plastic packages.&lt;p&gt;&lt;author&gt;AAL Eindhoven MK&lt;/author&gt;&lt;hr&gt
 <part name="GND51" library="supply1" deviceset="GND" device=""/>
 <part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
 <part name="GND52" library="supply1" deviceset="GND" device=""/>
-<part name="C5" library="Rebel" deviceset="C-EU" device="C1210" value="22u"/>
+<part name="C5" library="Rebel" deviceset="C-EU" device="C1210" value="1u Film"/>
 <part name="D4" library="SparkFun" deviceset="DIODE" device="SMA" value="S1J"/>
 <part name="P+23" library="supply1" deviceset="+5V" device=""/>
 <part name="SW2" library="switch-omron" deviceset="10-XX" device=""/>
