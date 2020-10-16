@@ -1169,7 +1169,7 @@ design rules under a new name.</description>
 <element name="CVOUTA" library="Rebel" package="THONKICONN" value="THONKICONN" x="44.05" y="43.885" smashed="yes">
 <attribute name="NAME" x="44.05" y="46.425" size="1.27" layer="104" font="vector" align="bottom-center"/>
 </element>
-<element name="X3" library="con-kycon" package="KUSBVX" value="KUSBVX" x="25" y="4.508" smashed="yes" rot="R180">
+<element name="X1" library="con-kycon" package="KUSBVX" value="KUSBVX" x="25" y="4.508" smashed="yes" rot="R180">
 <attribute name="NAME" x="25.9666" y="7.4692" size="1.016" layer="25" font="vector" rot="R180"/>
 <attribute name="VALUE" x="33.0896" y="8.7682" size="1.27" layer="27" rot="R180"/>
 </element>
@@ -1181,7 +1181,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="27.941" y="9.217" size="1.016" layer="26" font="vector" rot="MR180"/>
 <attribute name="VALUE" x="23.6" y="11.58" size="1.27" layer="28" rot="MR180"/>
 </element>
-<element name="X5" library="SparkFun" package="USB-B-PTH-VERTICAL" value="USBPTH-VERTICAL" x="18.85" y="10.56" smashed="yes">
+<element name="X2" library="SparkFun" package="USB-B-PTH-VERTICAL" value="USBPTH-VERTICAL" x="18.85" y="10.56" smashed="yes">
 <attribute name="NAME" x="23.89" y="22.19" size="1.016" layer="25" font="vector"/>
 <attribute name="VALUE" x="18.85" y="9.29" size="0.8128" layer="27"/>
 </element>
@@ -1529,18 +1529,18 @@ design rules under a new name.</description>
 <contactref element="CVINB" pad="P$2"/>
 <contactref element="CVOUTB" pad="P$1"/>
 <contactref element="OUTL" pad="P$1"/>
-<contactref element="X3" pad="4"/>
+<contactref element="X1" pad="4"/>
 <contactref element="C2" pad="-"/>
 <contactref element="C5" pad="-"/>
-<contactref element="X5" pad="GND"/>
+<contactref element="X2" pad="GND"/>
 <contactref element="CVINA" pad="P$2"/>
 <contactref element="TRINB" pad="P$2"/>
 <contactref element="TRINA" pad="P$2"/>
 <contactref element="IC1" pad="2"/>
 <contactref element="JP6" pad="4"/>
 <contactref element="JP5" pad="4"/>
-<contactref element="X3" pad="M2"/>
-<contactref element="X3" pad="M1"/>
+<contactref element="X1" pad="M2"/>
+<contactref element="X1" pad="M1"/>
 <contactref element="IC2" pad="5"/>
 <contactref element="MIDI_IN" pad="P$1"/>
 <contactref element="MIDI_OUT" pad="P$1"/>
@@ -1553,7 +1553,7 @@ design rules under a new name.</description>
 </signal>
 <signal name="USBD_VBUS">
 <contactref element="JP2" pad="1"/>
-<contactref element="X5" pad="VBUS"/>
+<contactref element="X2" pad="VBUS"/>
 <wire x1="2.9" y1="97.539996875" x2="3.027" y2="97.539996875" width="0.254" layer="1"/>
 <wire x1="6.355" y1="94.211996875" x2="3.027" y2="97.539996875" width="0.254" layer="1"/>
 <wire x1="26.1652" y1="18.1546" x2="26.1652" y2="30.6308" width="0.254" layer="1"/>
@@ -1568,7 +1568,7 @@ design rules under a new name.</description>
 </signal>
 <signal name="USBD_DM">
 <contactref element="JP2" pad="2"/>
-<contactref element="X5" pad="D-"/>
+<contactref element="X2" pad="D-"/>
 <wire x1="2.9" y1="94.999996875" x2="5.339" y2="92.560996875" width="0.254" layer="1"/>
 <wire x1="17.299" y1="61.595" x2="14.759" y2="64.135" width="0.254" layer="1"/>
 <wire x1="14.759" y1="74.422" x2="14.759" y2="64.135" width="0.254" layer="1"/>
@@ -1583,7 +1583,7 @@ design rules under a new name.</description>
 </signal>
 <signal name="USBD_DP">
 <contactref element="JP2" pad="3"/>
-<contactref element="X5" pad="D+"/>
+<contactref element="X2" pad="D+"/>
 <wire x1="13.87" y1="63.5" x2="16.41" y2="60.96" width="0.254" layer="1"/>
 <wire x1="13.87" y1="73.533" x2="13.87" y2="63.5" width="0.254" layer="1"/>
 <wire x1="16.41" y1="46.609" x2="15.394" y2="45.593" width="0.254" layer="1"/>
@@ -1599,7 +1599,7 @@ design rules under a new name.</description>
 </signal>
 <signal name="USBH_VBUS">
 <contactref element="JP2" pad="6"/>
-<contactref element="X3" pad="1"/>
+<contactref element="X1" pad="1"/>
 <contactref element="C5" pad="+"/>
 <wire x1="2.9" y1="84.839996875" x2="2.9" y2="84.712996875" width="0.3048" layer="1"/>
 <wire x1="2.9" y1="84.712996875" x2="1.297" y2="83.109996875" width="0.3048" layer="1"/>
@@ -1614,7 +1614,7 @@ design rules under a new name.</description>
 </signal>
 <signal name="USBH_DM">
 <contactref element="JP2" pad="7"/>
-<contactref element="X3" pad="2"/>
+<contactref element="X1" pad="2"/>
 <wire x1="20.982" y1="16.383" x2="16.283" y2="21.082" width="0.254" layer="1"/>
 <wire x1="20.982" y1="7.526" x2="24" y2="4.508" width="0.254" layer="1"/>
 <wire x1="20.982" y1="16.383" x2="20.982" y2="7.526" width="0.254" layer="1"/>
@@ -1628,7 +1628,7 @@ design rules under a new name.</description>
 </signal>
 <signal name="USBH_DP">
 <contactref element="JP2" pad="8"/>
-<contactref element="X3" pad="3"/>
+<contactref element="X1" pad="3"/>
 <wire x1="26" y1="4.508" x2="21.998" y2="8.51" width="0.254" layer="1"/>
 <wire x1="21.998" y1="8.51" x2="21.998" y2="16.51" width="0.254" layer="1"/>
 <wire x1="21.998" y1="16.51" x2="17.172" y2="21.336" width="0.254" layer="1"/>

@@ -19299,7 +19299,7 @@ high speed (Philips)</description>
 <part name="GND96" library="supply1" deviceset="GND" device=""/>
 <part name="GND97" library="supply1" deviceset="GND" device=""/>
 <part name="GND98" library="supply1" deviceset="GND" device=""/>
-<part name="X3" library="con-kycon" deviceset="KUSBVX" device=""/>
+<part name="X1" library="con-kycon" deviceset="KUSBVX" device=""/>
 <part name="GND103" library="supply1" deviceset="GND" device=""/>
 <part name="GND104" library="supply1" deviceset="GND" device=""/>
 <part name="GND99" library="supply1" deviceset="GND" device=""/>
@@ -19307,7 +19307,7 @@ high speed (Philips)</description>
 <part name="GND124" library="supply1" deviceset="GND" device=""/>
 <part name="P+14" library="supply1" deviceset="+12V" device=""/>
 <part name="C5" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="CPOL-EU" device="E2.5-6" package3d_urn="urn:adsk.eagle:package:15457832/1" value="10u"/>
-<part name="X5" library="SparkFun" deviceset="USB" device="PTH-VERTICAL"/>
+<part name="X2" library="SparkFun" deviceset="USB" device="PTH-VERTICAL"/>
 <part name="IC1" library="adafruit" deviceset="78*" device="T" technology="05"/>
 <part name="MIDI_OUT" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="THONKICONN_STEREO" device="" package3d_urn="urn:adsk.eagle:package:15809357/2"/>
 <part name="MIDI_IN" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="THONKICONN_STEREO" device="" package3d_urn="urn:adsk.eagle:package:15809357/2"/>
@@ -19459,7 +19459,7 @@ high speed (Philips)</description>
 <instance part="GND98" gate="1" x="121.92" y="127" smashed="yes">
 <attribute name="VALUE" x="119.38" y="124.46" size="1.778" layer="96"/>
 </instance>
-<instance part="X3" gate="G$1" x="208.28" y="180.34" smashed="yes">
+<instance part="X1" gate="G$1" x="208.28" y="180.34" smashed="yes">
 <attribute name="NAME" x="209.55" y="185.928" size="1.778" layer="95"/>
 <attribute name="VALUE" x="209.55" y="174.498" size="1.778" layer="96"/>
 </instance>
@@ -19510,7 +19510,7 @@ high speed (Philips)</description>
 <attribute name="NAME" x="166.624" y="180.721" size="1.778" layer="95"/>
 <attribute name="VALUE" x="166.624" y="175.641" size="1.778" layer="96"/>
 </instance>
-<instance part="X5" gate="G$1" x="208.28" y="142.24" smashed="yes"/>
+<instance part="X2" gate="G$1" x="208.28" y="142.24" smashed="yes"/>
 <instance part="IC1" gate="A1" x="96.52" y="322.58" smashed="yes">
 <attribute name="NAME" x="88.9" y="328.295" size="1.778" layer="95"/>
 <attribute name="VALUE" x="88.9" y="325.755" size="1.778" layer="96"/>
@@ -20070,16 +20070,16 @@ high speed (Philips)</description>
 <wire x1="101.6" y1="215.9" x2="104.14" y2="215.9" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="X3" gate="G$1" pin="4"/>
+<pinref part="X1" gate="G$1" pin="4"/>
 <pinref part="GND103" gate="1" pin="GND"/>
 <wire x1="203.2" y1="177.8" x2="200.66" y2="177.8" width="0.1524" layer="91"/>
 <wire x1="200.66" y1="177.8" x2="200.66" y2="170.18" width="0.1524" layer="91"/>
-<pinref part="X3" gate="G$1" pin="S2"/>
+<pinref part="X1" gate="G$1" pin="S2"/>
 <wire x1="200.66" y1="170.18" x2="200.66" y2="167.64" width="0.1524" layer="91"/>
 <wire x1="208.28" y1="172.72" x2="208.28" y2="170.18" width="0.1524" layer="91"/>
 <wire x1="208.28" y1="170.18" x2="205.74" y2="170.18" width="0.1524" layer="91"/>
 <junction x="200.66" y="170.18"/>
-<pinref part="X3" gate="G$1" pin="S1"/>
+<pinref part="X1" gate="G$1" pin="S1"/>
 <wire x1="205.74" y1="170.18" x2="200.66" y2="170.18" width="0.1524" layer="91"/>
 <wire x1="205.74" y1="172.72" x2="205.74" y2="170.18" width="0.1524" layer="91"/>
 <junction x="205.74" y="170.18"/>
@@ -20087,7 +20087,7 @@ high speed (Philips)</description>
 <segment>
 <pinref part="GND104" gate="1" pin="GND"/>
 <wire x1="205.74" y1="142.24" x2="205.74" y2="139.7" width="0.1524" layer="91"/>
-<pinref part="X5" gate="G$1" pin="GND"/>
+<pinref part="X2" gate="G$1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="GND124" gate="1" pin="GND"/>
@@ -20147,7 +20147,7 @@ high speed (Philips)</description>
 <segment>
 <wire x1="205.74" y1="144.78" x2="177.8" y2="144.78" width="0.1524" layer="91"/>
 <label x="177.8" y="144.78" size="1.778" layer="95"/>
-<pinref part="X5" gate="G$1" pin="VBUS"/>
+<pinref part="X2" gate="G$1" pin="VBUS"/>
 </segment>
 </net>
 <net name="USBD_DM" class="0">
@@ -20159,7 +20159,7 @@ high speed (Philips)</description>
 <segment>
 <label x="177.8" y="147.32" size="1.778" layer="95"/>
 <wire x1="177.8" y1="147.32" x2="205.74" y2="147.32" width="0.1524" layer="91"/>
-<pinref part="X5" gate="G$1" pin="D-"/>
+<pinref part="X2" gate="G$1" pin="D-"/>
 </segment>
 </net>
 <net name="USBD_DP" class="0">
@@ -20171,7 +20171,7 @@ high speed (Philips)</description>
 <segment>
 <label x="177.8" y="149.86" size="1.778" layer="95"/>
 <wire x1="205.74" y1="149.86" x2="177.8" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="X5" gate="G$1" pin="D+"/>
+<pinref part="X2" gate="G$1" pin="D+"/>
 </segment>
 </net>
 <net name="USBH_VBUS" class="0">
@@ -20183,7 +20183,7 @@ high speed (Philips)</description>
 <segment>
 <wire x1="203.2" y1="185.42" x2="165.1" y2="185.42" width="0.1524" layer="91"/>
 <label x="177.8" y="185.42" size="1.778" layer="95"/>
-<pinref part="X3" gate="G$1" pin="1"/>
+<pinref part="X1" gate="G$1" pin="1"/>
 <wire x1="165.1" y1="185.42" x2="157.48" y2="185.42" width="0.1524" layer="91"/>
 <wire x1="165.1" y1="182.88" x2="165.1" y2="185.42" width="0.1524" layer="91"/>
 <junction x="165.1" y="185.42"/>
@@ -20200,7 +20200,7 @@ high speed (Philips)</description>
 <wire x1="203.2" y1="182.88" x2="200.66" y2="182.88" width="0.1524" layer="91"/>
 <wire x1="200.66" y1="182.88" x2="177.8" y2="182.88" width="0.1524" layer="91"/>
 <label x="177.8" y="182.88" size="1.778" layer="95"/>
-<pinref part="X3" gate="G$1" pin="2"/>
+<pinref part="X1" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="USBH_DP" class="0">
@@ -20213,7 +20213,7 @@ high speed (Philips)</description>
 <wire x1="203.2" y1="180.34" x2="200.66" y2="180.34" width="0.1524" layer="91"/>
 <wire x1="200.66" y1="180.34" x2="177.8" y2="180.34" width="0.1524" layer="91"/>
 <label x="177.8" y="180.34" size="1.778" layer="95"/>
-<pinref part="X3" gate="G$1" pin="3"/>
+<pinref part="X1" gate="G$1" pin="3"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -20292,11 +20292,6 @@ high speed (Philips)</description>
 </nets>
 </sheet>
 </sheets>
-<errors>
-<approved hash="102,1,71.12,327.66,+12V,TOP_+12V,,,,"/>
-<approved hash="104,1,81.28,269.24,U$1,VIN,TOP_+5V,,,"/>
-<approved hash="104,1,81.28,261.62,U$1,GND,TOP_GND,,,"/>
-</errors>
 </schematic>
 </drawing>
 <compatibility>

@@ -16109,14 +16109,14 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="R802" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="1M"/>
 <part name="GND118" library="supply1" deviceset="GND" device=""/>
 <part name="+3V15" library="supply1" deviceset="+3V3" device=""/>
-<part name="R15" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="200k"/>
-<part name="R17" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="100k"/>
+<part name="R15" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="100k"/>
+<part name="R17" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="51k"/>
 <part name="GND82" library="supply1" deviceset="GND" device=""/>
 <part name="D3" library="diode" deviceset="BAT54S" device=""/>
 <part name="GND112" library="supply1" deviceset="GND" device=""/>
 <part name="+3V18" library="supply1" deviceset="+3V3" device=""/>
-<part name="R16" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="200k"/>
-<part name="R18" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="100k"/>
+<part name="R16" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="100k"/>
+<part name="R18" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="51k"/>
 <part name="GND115" library="supply1" deviceset="GND" device=""/>
 <part name="D4" library="diode" deviceset="BAT54S" device=""/>
 <part name="GND119" library="supply1" deviceset="GND" device=""/>
@@ -16192,8 +16192,8 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="+3V30" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V31" library="supply1" deviceset="+3V3" device=""/>
 <part name="BUS" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="CON-JST-1X03" device="PH-TH"/>
-<part name="R19" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="1k"/>
-<part name="R20" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="1k"/>
+<part name="R19" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="100R"/>
+<part name="R20" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="100R"/>
 <part name="C1" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:15457955/3" value="47n"/>
 <part name="C2" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:15457955/3" value="47n"/>
 <part name="IC3" library="linear" library_urn="urn:adsk.eagle:library:262" deviceset="LM321?*" device="MF" package3d_urn="urn:adsk.eagle:package:16456/2"/>
@@ -16210,7 +16210,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="JP4" library="SparkFun" deviceset="M09" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
-<part name="IC10" library="usblc6" deviceset="USBLC6-2" device="SC6"/>
+<part name="IC10" library="usblc6" deviceset="USBLC6-2" device="SC6" value="USBLC6-2SC6"/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
@@ -16220,8 +16220,6 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <text x="581.66" y="48.26" size="2.54" layer="97">Audio Outputs</text>
 <text x="129.54" y="236.22" size="2.54" layer="97">Audio Inputs</text>
 <text x="266.7" y="236.22" size="2.54" layer="97">CV Inputs</text>
-<text x="172.72" y="208.28" size="1.778" layer="97">G= -2.00</text>
-<text x="172.72" y="259.08" size="1.778" layer="97">G= -2.00</text>
 <text x="289.56" y="261.62" size="1.778" layer="97">G= 0.33</text>
 <text x="452.12" y="231.14" size="2.54" layer="97">CV Outputs</text>
 <text x="289.56" y="220.98" size="1.778" layer="97">G= 0.33</text>
@@ -17360,11 +17358,9 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </instance>
 <instance part="JP2" gate="G$1" x="464.82" y="-66.04" smashed="yes" rot="R180">
 <attribute name="VALUE" x="464.82" y="-50.8" size="1.778" layer="96" rot="R180"/>
-<attribute name="NAME" x="464.82" y="-82.55" size="1.778" layer="95" rot="R180"/>
 </instance>
 <instance part="JP4" gate="G$1" x="403.86" y="-12.7" smashed="yes" rot="R180">
 <attribute name="VALUE" x="403.86" y="2.54" size="1.778" layer="96" rot="R180"/>
-<attribute name="NAME" x="403.86" y="-29.21" size="1.778" layer="95" rot="R180"/>
 </instance>
 <instance part="GND2" gate="1" x="452.12" y="-81.28" smashed="yes">
 <attribute name="VALUE" x="449.58" y="-83.82" size="1.778" layer="96"/>
@@ -17374,7 +17370,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </instance>
 <instance part="IC10" gate="G$1" x="398.78" y="-55.88" smashed="yes">
 <attribute name="NAME" x="381" y="-40.005" size="1.778" layer="95" ratio="10"/>
-<attribute name="VALUE" x="381" y="-58.42" size="1.778" layer="96" ratio="10"/>
+<attribute name="VALUE" x="391.16" y="-66.04" size="1.778" layer="96" ratio="10"/>
 </instance>
 <instance part="GND30" gate="1" x="381" y="-68.58" smashed="yes">
 <attribute name="VALUE" x="378.46" y="-71.12" size="1.778" layer="96"/>
@@ -20335,36 +20331,6 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <pinref part="IC9" gate="N25Q128A13" pin="DQ0"/>
 <wire x1="229.87" y1="10.16" x2="213.36" y2="10.16" width="0.1524" layer="91"/>
 <label x="213.36" y="10.16" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$48" class="0">
-<segment>
-<pinref part="IC8" gate="G$3" pin="PB8"/>
-<wire x1="269.24" y1="134.62" x2="284.48" y2="134.62" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$49" class="0">
-<segment>
-<pinref part="IC8" gate="G$3" pin="PB9"/>
-<wire x1="269.24" y1="132.08" x2="284.48" y2="132.08" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$50" class="0">
-<segment>
-<pinref part="IC8" gate="G$3" pin="PB7"/>
-<wire x1="269.24" y1="137.16" x2="284.48" y2="137.16" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$52" class="0">
-<segment>
-<pinref part="IC8" gate="G$2" pin="PC6"/>
-<wire x1="170.18" y1="83.82" x2="187.96" y2="83.82" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$53" class="0">
-<segment>
-<pinref part="IC8" gate="G$3" pin="PC7"/>
-<wire x1="269.24" y1="83.82" x2="287.02" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="UART5_RX" class="0">

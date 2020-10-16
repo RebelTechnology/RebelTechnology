@@ -3911,20 +3911,20 @@ design rules under a new name.
 <element name="R802" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="1M" x="9.382" y="33.986" smashed="yes" rot="R90">
 <attribute name="NAME" x="8.493" y="33.986" size="0.9" layer="25" font="vector" rot="R90" align="bottom-center"/>
 </element>
-<element name="R15" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="200k" x="26.882" y="20.57" smashed="yes">
+<element name="R15" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="100k" x="26.882" y="20.57" smashed="yes">
 <attribute name="NAME" x="26.882" y="21.332" size="0.9" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R17" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="100k" x="26.882" y="18.57" smashed="yes" rot="R180">
+<element name="R17" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="51k" x="26.882" y="18.57" smashed="yes" rot="R180">
 <attribute name="NAME" x="26.882" y="17.708" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="D3" library="diode" package="SOT23" value="BAT54S" x="24.082" y="23.762" smashed="yes" rot="R90">
 <attribute name="NAME" x="23.377" y="25.567" size="0.9" layer="25" font="vector"/>
 <attribute name="VALUE" x="27.257" y="21.857" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="R16" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="200k" x="22.882" y="20.57" smashed="yes" rot="R180">
+<element name="R16" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="100k" x="22.882" y="20.57" smashed="yes" rot="R180">
 <attribute name="NAME" x="22.882" y="21.432" size="0.9" layer="25" font="vector" align="bottom-center"/>
 </element>
-<element name="R18" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="100k" x="22.882" y="18.57" smashed="yes">
+<element name="R18" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="51k" x="22.882" y="18.57" smashed="yes">
 <attribute name="NAME" x="22.832" y="17.708" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
 <element name="D4" library="diode" package="SOT23" value="BAT54S" x="19.682" y="23.762" smashed="yes" rot="R90">
@@ -4057,10 +4057,10 @@ design rules under a new name.
 <element name="BUS" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="JST-B3B-PH-KL" value="" x="12.787" y="95.358" smashed="yes" rot="MR0">
 <attribute name="NAME" x="12.787" y="96.608" size="1.27" layer="26" font="vector" rot="MR0" align="bottom-center"/>
 </element>
-<element name="R19" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="1k" x="19.432" y="3.52" smashed="yes">
+<element name="R19" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="100R" x="19.432" y="3.52" smashed="yes">
 <attribute name="NAME" x="19.432" y="2.658" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
 </element>
-<element name="R20" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="1k" x="30.19" y="11.07" smashed="yes" rot="R90">
+<element name="R20" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="100R" x="30.19" y="11.07" smashed="yes" rot="R90">
 <attribute name="NAME" x="31.975" y="11.064" size="0.9" layer="25" font="vector" rot="R90" align="bottom-center"/>
 </element>
 <element name="C1" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="C0603" package3d_urn="urn:adsk.eagle:package:15457955/3" value="47n" x="46.432" y="42.95" smashed="yes" rot="R90">
@@ -4091,7 +4091,7 @@ design rules under a new name.
 <element name="JP4" library="SparkFun" package="1X09" value="M09" x="46.9" y="97.54" smashed="yes" rot="R270">
 <attribute name="VALUE" x="43.725" y="98.81" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="IC10" library="usblc6" package="SOT-23-6L" value="" x="2.159" y="72.263" smashed="yes">
+<element name="IC10" library="usblc6" package="SOT-23-6L" value="USBLC6-2SC6" x="2.159" y="72.263" smashed="yes">
 <attribute name="NAME" x="0.4445" y="74.1045" size="1.27" layer="25" ratio="10"/>
 <attribute name="VALUE" x="0.5715" y="67.818" size="1.27" layer="27" ratio="10"/>
 </element>
@@ -7449,21 +7449,6 @@ design rules under a new name.
 <wire x1="42.232" y1="82.9" x2="44.282" y2="80.85" width="0.204" layer="15"/>
 <wire x1="29.58126875" y1="78.9594" x2="28.47186875" y2="77.85" width="0.204" layer="1"/>
 <wire x1="28.47186875" y1="77.85" x2="28.132" y2="77.85" width="0.204" layer="1"/>
-</signal>
-<signal name="N$48">
-<contactref element="IC8" pad="139"/>
-</signal>
-<signal name="N$49">
-<contactref element="IC8" pad="140"/>
-</signal>
-<signal name="N$50">
-<contactref element="IC8" pad="137"/>
-</signal>
-<signal name="N$52">
-<contactref element="IC8" pad="96"/>
-</signal>
-<signal name="N$53">
-<contactref element="IC8" pad="97"/>
 </signal>
 <signal name="UART5_RX">
 <contactref element="IC8" pad="73"/>
