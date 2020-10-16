@@ -2229,7 +2229,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="42.3545" y="52.1335" size="1.27" layer="25" ratio="10" rot="R180"/>
 <attribute name="VALUE" x="42.164" y="53.848" size="1.27" layer="27" ratio="10" rot="R90"/>
 </element>
-<element name="IC1" library="linear" package="DIL14" value="MCP6040" x="50.8" y="56.8325" smashed="yes">
+<element name="IC1" library="linear" package="DIL14" value="MCP6024" x="50.8" y="56.8325" smashed="yes">
 <attribute name="NAME" x="45.0215" y="55.372" size="1.27" layer="25" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="44.069" y="56.1975" size="1.27" layer="27" ratio="10"/>
 </element>

@@ -15820,7 +15820,7 @@ naming: grid - package width</description>
 <part name="P+10" library="supply1" deviceset="VCC/2" device=""/>
 <part name="P+11" library="supply1" deviceset="VCC/2" device=""/>
 <part name="P+12" library="supply1" deviceset="VCC/2" device=""/>
-<part name="IC1" library="linear" deviceset="TL074" device="P" value="MCP6040"/>
+<part name="IC1" library="linear" deviceset="TL074" device="P" value="MCP6024"/>
 <part name="R406" library="Rebel" deviceset="R-EU_" device="0204/7" value="1k"/>
 <part name="C404" library="capacitor-wima" deviceset="C" device="5/5" value="1uF"/>
 <part name="R408" library="Rebel" deviceset="R-EU_" device="0204/7" value="100R"/>
