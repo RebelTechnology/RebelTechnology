@@ -9,34 +9,34 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
-<layer number="2" name="Route2" color="10" fill="1" visible="yes" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
-<layer number="15" name="Route15" color="13" fill="1" visible="yes" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
-<layer number="19" name="Unrouted" color="14" fill="1" visible="yes" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
+<layer number="2" name="Route2" color="10" fill="1" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
+<layer number="15" name="Route15" color="13" fill="1" visible="no" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
+<layer number="19" name="Unrouted" color="14" fill="1" visible="no" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -45,8 +45,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -54,20 +54,20 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
-<layer number="58" name="bCAD" color="11" fill="1" visible="yes" active="no"/>
-<layer number="59" name="tCarbon" color="7" fill="1" visible="yes" active="no"/>
-<layer number="60" name="bCarbon" color="7" fill="1" visible="yes" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
+<layer number="58" name="bCAD" color="11" fill="1" visible="no" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
 <layer number="88" name="SimResults" color="9" fill="1" visible="no" active="no"/>
 <layer number="89" name="SimProbes" color="9" fill="1" visible="no" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
@@ -16001,7 +16001,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="+3V16" library="supply1" deviceset="+3V3" device=""/>
 <part name="R3" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="10k"/>
 <part name="GND90" library="supply1" deviceset="GND" device=""/>
-<part name="X2" library="con-molex" deviceset="53?-05" device="048"/>
+<part name="X1" library="con-molex" deviceset="53?-05" device="048"/>
 <part name="BOOT" library="SparkFun" deviceset="SOLDERJUMPER" device="NO"/>
 <part name="+3V19" library="supply1" deviceset="+3V3" device=""/>
 <part name="Q1" library="transistor-small-signal" deviceset="BSS84" device="" value="SI2309CDS">
@@ -16010,7 +16010,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="Q2" library="transistor-small-signal" deviceset="BSS123" device="">
 <attribute name="OC_FARNELL" value="1843725"/>
 </part>
-<part name="IC10" library="James" deviceset="IS42S16400J" device="">
+<part name="IC2" library="James" deviceset="IS42S16400J" device="">
 <attribute name="OC_FARNELL" value="2253831"/>
 </part>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
@@ -16037,7 +16037,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="C12" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:15457955/3" value="20pF"/>
 <part name="GND78" library="supply1" deviceset="GND" device=""/>
 <part name="GND79" library="supply1" deviceset="GND" device=""/>
-<part name="Y3" library="Seeed-OPL-crystal-osctllator" deviceset="SMD-CRYSTAL-8MHZ-20PF-20PPM(2P-5.0X3.2MM)" device="" value="25MHz"/>
+<part name="Y2" library="Seeed-OPL-crystal-osctllator" deviceset="SMD-CRYSTAL-8MHZ-20PF-20PPM(2P-5.0X3.2MM)" device="" value="25MHz"/>
 <part name="R10" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="100k"/>
 <part name="R11" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="10k"/>
 <part name="GND80" library="supply1" deviceset="GND" device=""/>
@@ -16108,7 +16108,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="IC1" library="linear" deviceset="TL074" device="D"/>
 <part name="C24" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:15457955/3" value="100n"/>
 <part name="GND122" library="supply1" deviceset="GND" device=""/>
-<part name="U$2" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="INDUCTOR" device="" package3d_urn="urn:adsk.eagle:package:15457735/3" value="1uH">
+<part name="L2" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="INDUCTOR" device="" package3d_urn="urn:adsk.eagle:package:15457735/3" value="1uH">
 <attribute name="OC_FARNELL" value="2288736"/>
 </part>
 <part name="C27" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:15457955/3" value="10n"/>
@@ -16158,7 +16158,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="IC3" library="linear" library_urn="urn:adsk.eagle:library:262" deviceset="LM321?*" device="MF" package3d_urn="urn:adsk.eagle:package:16456/2"/>
 <part name="P-3" library="supply1" deviceset="-12V" device=""/>
 <part name="P+8" library="supply1" deviceset="+12V" device=""/>
-<part name="U$1" library="James" deviceset="MIC2005" device="">
+<part name="IC7" library="James" deviceset="MIC2005" device="">
 <attribute name="OC_FARNELL" value="2509882"/>
 </part>
 <part name="GND101" library="supply1" deviceset="GND" device=""/>
@@ -16169,7 +16169,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="JP4" library="SparkFun" deviceset="M09" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
-<part name="VD1" library="usblc6" deviceset="USBLC6-2" device="SC6"/>
+<part name="IC10" library="usblc6" deviceset="USBLC6-2" device="SC6"/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
@@ -16290,20 +16290,20 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <instance part="GND90" gate="1" x="271.78" y="55.88" smashed="yes">
 <attribute name="VALUE" x="269.24" y="53.34" size="1.778" layer="96"/>
 </instance>
-<instance part="X2" gate="-1" x="238.76" y="-43.18" smashed="yes">
+<instance part="X1" gate="-1" x="238.76" y="-43.18" smashed="yes">
 <attribute name="NAME" x="241.3" y="-43.942" size="1.524" layer="95"/>
 <attribute name="VALUE" x="237.998" y="-41.783" size="1.778" layer="96"/>
 </instance>
-<instance part="X2" gate="-2" x="238.76" y="-45.72" smashed="yes">
+<instance part="X1" gate="-2" x="238.76" y="-45.72" smashed="yes">
 <attribute name="NAME" x="241.3" y="-46.482" size="1.524" layer="95"/>
 </instance>
-<instance part="X2" gate="-3" x="238.76" y="-48.26" smashed="yes">
+<instance part="X1" gate="-3" x="238.76" y="-48.26" smashed="yes">
 <attribute name="NAME" x="241.3" y="-49.022" size="1.524" layer="95"/>
 </instance>
-<instance part="X2" gate="-4" x="238.76" y="-50.8" smashed="yes">
+<instance part="X1" gate="-4" x="238.76" y="-50.8" smashed="yes">
 <attribute name="NAME" x="241.3" y="-51.562" size="1.524" layer="95"/>
 </instance>
-<instance part="X2" gate="-5" x="238.76" y="-53.34" smashed="yes">
+<instance part="X1" gate="-5" x="238.76" y="-53.34" smashed="yes">
 <attribute name="NAME" x="241.3" y="-54.102" size="1.524" layer="95"/>
 </instance>
 <instance part="BOOT" gate="1" x="287.02" y="73.66" smashed="yes">
@@ -16700,7 +16700,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <attribute name="NAME" x="53.34" y="281.94" size="1.778" layer="95" rot="MR270"/>
 <attribute name="VALUE" x="55.88" y="281.94" size="1.778" layer="96" rot="MR270"/>
 </instance>
-<instance part="IC10" gate="G$1" x="58.42" y="7.62" smashed="yes">
+<instance part="IC2" gate="G$1" x="58.42" y="7.62" smashed="yes">
 <attribute name="OC_FARNELL" x="58.42" y="7.62" size="1.778" layer="96" display="off"/>
 <attribute name="NAME" x="53.34" y="45.72" size="1.27" layer="95"/>
 <attribute name="VALUE" x="53.34" y="48.26" size="1.27" layer="96"/>
@@ -16783,7 +16783,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <instance part="GND79" gate="1" x="27.94" y="68.58" smashed="yes">
 <attribute name="VALUE" x="25.4" y="66.04" size="1.778" layer="96"/>
 </instance>
-<instance part="Y3" gate="G$1" x="21.59" y="86.36" smashed="yes" rot="R180">
+<instance part="Y2" gate="G$1" x="21.59" y="86.36" smashed="yes" rot="R180">
 <attribute name="NAME" x="24.13" y="83.82" size="1.27" layer="95" ratio="10" rot="R180"/>
 <attribute name="VALUE" x="24.13" y="90.17" size="1.27" layer="96" ratio="10" rot="R180"/>
 </instance>
@@ -17050,7 +17050,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <instance part="GND122" gate="1" x="81.28" y="231.14" smashed="yes">
 <attribute name="VALUE" x="78.74" y="228.6" size="1.778" layer="96"/>
 </instance>
-<instance part="U$2" gate="G$1" x="71.12" y="246.38" smashed="yes" rot="R180">
+<instance part="L2" gate="G$1" x="71.12" y="246.38" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" x="71.12" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="NAME" x="66.04" y="247.65" size="1.778" layer="95"/>
 <attribute name="VALUE" x="66.04" y="242.57" size="1.778" layer="96"/>
@@ -17298,7 +17298,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <instance part="P+8" gate="1" x="134.62" y="358.14" smashed="yes">
 <attribute name="VALUE" x="132.08" y="353.06" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="U$1" gate="MIC2005" x="231.14" y="330.2" smashed="yes">
+<instance part="IC7" gate="MIC2005" x="231.14" y="330.2" smashed="yes">
 <attribute name="OC_FARNELL" x="231.14" y="330.2" size="1.778" layer="96" display="off"/>
 <attribute name="NAME" x="223.52" y="342.9" size="1.778" layer="95"/>
 <attribute name="VALUE" x="228.6" y="314.96" size="1.778" layer="96" align="center"/>
@@ -17331,7 +17331,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <instance part="GND9" gate="1" x="391.16" y="-27.94" smashed="yes">
 <attribute name="VALUE" x="388.62" y="-30.48" size="1.778" layer="96"/>
 </instance>
-<instance part="VD1" gate="G$1" x="398.78" y="-55.88" smashed="yes">
+<instance part="IC10" gate="G$1" x="398.78" y="-55.88" smashed="yes">
 <attribute name="NAME" x="381" y="-40.005" size="1.778" layer="95" ratio="10"/>
 <attribute name="VALUE" x="381" y="-58.42" size="1.778" layer="96" ratio="10"/>
 </instance>
@@ -17393,7 +17393,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <wire x1="236.22" y1="-48.26" x2="233.68" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="-48.26" x2="233.68" y2="-60.96" width="0.1524" layer="91"/>
 <pinref part="GND89" gate="1" pin="GND"/>
-<pinref part="X2" gate="-3" pin="S"/>
+<pinref part="X1" gate="-3" pin="S"/>
 </segment>
 <segment>
 <pinref part="R3" gate="G$1" pin="1"/>
@@ -17609,27 +17609,27 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <junction x="45.72" y="289.56"/>
 </segment>
 <segment>
-<pinref part="IC10" gate="G$1" pin="GNDQ3"/>
+<pinref part="IC2" gate="G$1" pin="GNDQ3"/>
 <pinref part="GND16" gate="1" pin="GND"/>
 <wire x1="73.66" y1="-27.94" x2="76.2" y2="-27.94" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="-30.48" x2="76.2" y2="-27.94" width="0.1524" layer="91"/>
-<pinref part="IC10" gate="G$1" pin="GNDQ2"/>
+<pinref part="IC2" gate="G$1" pin="GNDQ2"/>
 <wire x1="76.2" y1="-27.94" x2="76.2" y2="-25.4" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="-25.4" x2="73.66" y2="-25.4" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="-25.4" x2="76.2" y2="-22.86" width="0.1524" layer="91"/>
-<pinref part="IC10" gate="G$1" pin="GNDQ1"/>
+<pinref part="IC2" gate="G$1" pin="GNDQ1"/>
 <wire x1="76.2" y1="-22.86" x2="73.66" y2="-22.86" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="-22.86" x2="76.2" y2="-20.32" width="0.1524" layer="91"/>
-<pinref part="IC10" gate="G$1" pin="GNDQ"/>
+<pinref part="IC2" gate="G$1" pin="GNDQ"/>
 <wire x1="76.2" y1="-20.32" x2="73.66" y2="-20.32" width="0.1524" layer="91"/>
-<pinref part="IC10" gate="G$1" pin="GND"/>
+<pinref part="IC2" gate="G$1" pin="GND"/>
 <wire x1="73.66" y1="-10.16" x2="76.2" y2="-10.16" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="-10.16" x2="76.2" y2="-12.7" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="-20.32" x2="76.2" y2="-15.24" width="0.1524" layer="91"/>
-<pinref part="IC10" gate="G$1" pin="GND1"/>
+<pinref part="IC2" gate="G$1" pin="GND1"/>
 <wire x1="76.2" y1="-15.24" x2="76.2" y2="-12.7" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="-12.7" x2="73.66" y2="-12.7" width="0.1524" layer="91"/>
-<pinref part="IC10" gate="G$1" pin="GND2"/>
+<pinref part="IC2" gate="G$1" pin="GND2"/>
 <wire x1="73.66" y1="-15.24" x2="76.2" y2="-15.24" width="0.1524" layer="91"/>
 <junction x="76.2" y="-12.7"/>
 <junction x="76.2" y="-15.24"/>
@@ -17966,7 +17966,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <wire x1="429.26" y1="134.62" x2="429.26" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="MIC2005" pin="GND"/>
+<pinref part="IC7" gate="MIC2005" pin="GND"/>
 <pinref part="GND101" gate="1" pin="GND"/>
 <wire x1="215.9" y1="330.2" x2="213.36" y2="330.2" width="0.1524" layer="91"/>
 </segment>
@@ -17983,7 +17983,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <wire x1="452.12" y1="-76.2" x2="452.12" y2="-78.74" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="VD1" gate="G$1" pin="GND"/>
+<pinref part="IC10" gate="G$1" pin="GND"/>
 <wire x1="383.286" y1="-55.88" x2="381" y2="-55.88" width="0.1524" layer="91"/>
 <wire x1="381" y1="-55.88" x2="381" y2="-66.04" width="0.1524" layer="91"/>
 <pinref part="GND30" gate="1" pin="GND"/>
@@ -18039,7 +18039,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <pinref part="+3V16" gate="G$1" pin="+3V3"/>
 <wire x1="236.22" y1="-43.18" x2="233.68" y2="-43.18" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="-43.18" x2="233.68" y2="-38.1" width="0.1524" layer="91"/>
-<pinref part="X2" gate="-1" pin="S"/>
+<pinref part="X1" gate="-1" pin="S"/>
 </segment>
 <segment>
 <pinref part="C112" gate="G$1" pin="1"/>
@@ -18053,7 +18053,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <junction x="48.26" y="246.38"/>
 <junction x="58.42" y="246.38"/>
 <wire x1="63.5" y1="246.38" x2="58.42" y2="246.38" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="2"/>
+<pinref part="L2" gate="G$1" pin="2"/>
 <pinref part="U4" gate="G$1" pin="OUT"/>
 </segment>
 <segment>
@@ -18075,25 +18075,25 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <pinref part="+3V21" gate="G$1" pin="+3V3"/>
 <wire x1="40.64" y1="45.72" x2="40.64" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="IC10" gate="G$1" pin="VDD"/>
+<pinref part="IC2" gate="G$1" pin="VDD"/>
 <wire x1="43.18" y1="43.18" x2="40.64" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="43.18" x2="40.64" y2="40.64" width="0.1524" layer="91"/>
-<pinref part="IC10" gate="G$1" pin="VDD1"/>
+<pinref part="IC2" gate="G$1" pin="VDD1"/>
 <wire x1="40.64" y1="40.64" x2="43.18" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="40.64" x2="40.64" y2="38.1" width="0.1524" layer="91"/>
-<pinref part="IC10" gate="G$1" pin="VDD2"/>
+<pinref part="IC2" gate="G$1" pin="VDD2"/>
 <wire x1="40.64" y1="38.1" x2="43.18" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="38.1" x2="40.64" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="IC10" gate="G$1" pin="VDDQ"/>
+<pinref part="IC2" gate="G$1" pin="VDDQ"/>
 <wire x1="40.64" y1="33.02" x2="43.18" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="33.02" x2="40.64" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="IC10" gate="G$1" pin="VDDQ1"/>
+<pinref part="IC2" gate="G$1" pin="VDDQ1"/>
 <wire x1="40.64" y1="30.48" x2="43.18" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="30.48" x2="40.64" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="IC10" gate="G$1" pin="VDDQ3"/>
+<pinref part="IC2" gate="G$1" pin="VDDQ3"/>
 <wire x1="40.64" y1="27.94" x2="43.18" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="27.94" x2="40.64" y2="25.4" width="0.1524" layer="91"/>
-<pinref part="IC10" gate="G$1" pin="VDDQ2"/>
+<pinref part="IC2" gate="G$1" pin="VDDQ2"/>
 <wire x1="40.64" y1="25.4" x2="43.18" y2="25.4" width="0.1524" layer="91"/>
 <junction x="40.64" y="43.18"/>
 <junction x="40.64" y="40.64"/>
@@ -18490,7 +18490,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="236.22" y1="-50.8" x2="220.98" y2="-50.8" width="0.1524" layer="91"/>
 <label x="220.98" y="-50.8" size="1.778" layer="95"/>
-<pinref part="X2" gate="-4" pin="S"/>
+<pinref part="X1" gate="-4" pin="S"/>
 </segment>
 <segment>
 <wire x1="287.02" y1="93.98" x2="269.24" y2="93.98" width="0.1524" layer="91"/>
@@ -18502,7 +18502,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="236.22" y1="-45.72" x2="220.98" y2="-45.72" width="0.1524" layer="91"/>
 <label x="220.98" y="-45.72" size="1.778" layer="95"/>
-<pinref part="X2" gate="-2" pin="S"/>
+<pinref part="X1" gate="-2" pin="S"/>
 </segment>
 <segment>
 <wire x1="269.24" y1="91.44" x2="287.02" y2="91.44" width="0.1524" layer="91"/>
@@ -18514,7 +18514,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="236.22" y1="-53.34" x2="220.98" y2="-53.34" width="0.1524" layer="91"/>
 <label x="220.98" y="-53.34" size="1.778" layer="95"/>
-<pinref part="X2" gate="-5" pin="S"/>
+<pinref part="X1" gate="-5" pin="S"/>
 </segment>
 <segment>
 <wire x1="43.18" y1="144.78" x2="33.02" y2="144.78" width="0.1524" layer="91"/>
@@ -18556,7 +18556,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <pinref part="JP4" gate="G$1" pin="7"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="MIC2005" pin="VIN"/>
+<pinref part="IC7" gate="MIC2005" pin="VIN"/>
 <pinref part="P+9" gate="1" pin="+5V"/>
 <wire x1="205.74" y1="337.82" x2="215.9" y2="337.82" width="0.1524" layer="91"/>
 <wire x1="205.74" y1="337.82" x2="205.74" y2="345.44" width="0.1524" layer="91"/>
@@ -19175,7 +19175,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <label x="271.78" y="78.74" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="MIC2005" pin="EN"/>
+<pinref part="IC7" gate="MIC2005" pin="EN"/>
 <wire x1="215.9" y1="322.58" x2="187.96" y2="322.58" width="0.1524" layer="91"/>
 <label x="187.96" y="322.58" size="1.778" layer="95"/>
 </segment>
@@ -19189,7 +19189,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="383.286" y1="-50.8" x2="365.76" y2="-50.8" width="0.1524" layer="91"/>
 <label x="365.76" y="-50.8" size="1.778" layer="95"/>
-<pinref part="VD1" gate="G$1" pin="I/O_1"/>
+<pinref part="IC10" gate="G$1" pin="I/O_1"/>
 </segment>
 </net>
 <net name="USBD_DP" class="0">
@@ -19201,7 +19201,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="383.286" y1="-60.96" x2="365.76" y2="-60.96" width="0.1524" layer="91"/>
 <label x="365.76" y="-60.96" size="1.778" layer="95"/>
-<pinref part="VD1" gate="G$1" pin="I/O_2"/>
+<pinref part="IC10" gate="G$1" pin="I/O_2"/>
 </segment>
 </net>
 <net name="USBH_DP" class="0">
@@ -19237,7 +19237,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <pinref part="C12" gate="G$1" pin="1"/>
 <wire x1="27.94" y1="81.28" x2="27.94" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="86.36" x2="43.18" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="Y3" gate="G$1" pin="1"/>
+<pinref part="Y2" gate="G$1" pin="1"/>
 <wire x1="27.94" y1="86.36" x2="25.4" y2="86.36" width="0.1524" layer="91"/>
 <junction x="27.94" y="86.36"/>
 <pinref part="IC8" gate="G$1" pin="PH1"/>
@@ -19248,7 +19248,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <pinref part="C11" gate="G$1" pin="1"/>
 <wire x1="43.18" y1="88.9" x2="15.24" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="88.9" x2="15.24" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="Y3" gate="G$1" pin="2"/>
+<pinref part="Y2" gate="G$1" pin="2"/>
 <wire x1="15.24" y1="86.36" x2="15.24" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="86.36" x2="15.24" y2="86.36" width="0.1524" layer="91"/>
 <junction x="15.24" y="86.36"/>
@@ -19281,7 +19281,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </net>
 <net name="DRAM_DQ0" class="0">
 <segment>
-<pinref part="IC10" gate="G$1" pin="DQ0"/>
+<pinref part="IC2" gate="G$1" pin="DQ0"/>
 <wire x1="73.66" y1="43.18" x2="91.44" y2="43.18" width="0.1524" layer="91"/>
 <label x="76.2" y="43.18" size="1.778" layer="95"/>
 </segment>
@@ -19295,7 +19295,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="40.64" x2="91.44" y2="40.64" width="0.1524" layer="91"/>
 <label x="76.2" y="40.64" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="DQ1"/>
+<pinref part="IC2" gate="G$1" pin="DQ1"/>
 </segment>
 <segment>
 <wire x1="170.18" y1="104.14" x2="187.96" y2="104.14" width="0.1524" layer="91"/>
@@ -19307,7 +19307,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="38.1" x2="91.44" y2="38.1" width="0.1524" layer="91"/>
 <label x="76.2" y="38.1" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="DQ2"/>
+<pinref part="IC2" gate="G$1" pin="DQ2"/>
 </segment>
 <segment>
 <wire x1="218.44" y1="124.46" x2="238.76" y2="124.46" width="0.1524" layer="91"/>
@@ -19319,7 +19319,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="35.56" x2="91.44" y2="35.56" width="0.1524" layer="91"/>
 <label x="76.2" y="35.56" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="DQ3"/>
+<pinref part="IC2" gate="G$1" pin="DQ3"/>
 </segment>
 <segment>
 <wire x1="218.44" y1="121.92" x2="238.76" y2="121.92" width="0.1524" layer="91"/>
@@ -19331,7 +19331,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="33.02" x2="91.44" y2="33.02" width="0.1524" layer="91"/>
 <label x="76.2" y="33.02" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="DQ4"/>
+<pinref part="IC2" gate="G$1" pin="DQ4"/>
 </segment>
 <segment>
 <wire x1="139.7" y1="106.68" x2="121.92" y2="106.68" width="0.1524" layer="91"/>
@@ -19343,7 +19343,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="30.48" x2="91.44" y2="30.48" width="0.1524" layer="91"/>
 <label x="76.2" y="30.48" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="DQ5"/>
+<pinref part="IC2" gate="G$1" pin="DQ5"/>
 </segment>
 <segment>
 <wire x1="139.7" y1="104.14" x2="121.92" y2="104.14" width="0.1524" layer="91"/>
@@ -19355,7 +19355,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="27.94" x2="91.44" y2="27.94" width="0.1524" layer="91"/>
 <label x="76.2" y="27.94" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="DQ6"/>
+<pinref part="IC2" gate="G$1" pin="DQ6"/>
 </segment>
 <segment>
 <wire x1="139.7" y1="101.6" x2="121.92" y2="101.6" width="0.1524" layer="91"/>
@@ -19367,7 +19367,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="25.4" x2="91.44" y2="25.4" width="0.1524" layer="91"/>
 <label x="76.2" y="25.4" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="DQ7"/>
+<pinref part="IC2" gate="G$1" pin="DQ7"/>
 </segment>
 <segment>
 <wire x1="139.7" y1="99.06" x2="121.92" y2="99.06" width="0.1524" layer="91"/>
@@ -19379,7 +19379,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="22.86" x2="91.44" y2="22.86" width="0.1524" layer="91"/>
 <label x="76.2" y="22.86" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="DQ8"/>
+<pinref part="IC2" gate="G$1" pin="DQ8"/>
 </segment>
 <segment>
 <wire x1="139.7" y1="96.52" x2="121.92" y2="96.52" width="0.1524" layer="91"/>
@@ -19391,7 +19391,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="20.32" x2="91.44" y2="20.32" width="0.1524" layer="91"/>
 <label x="76.2" y="20.32" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="DQ9"/>
+<pinref part="IC2" gate="G$1" pin="DQ9"/>
 </segment>
 <segment>
 <wire x1="139.7" y1="93.98" x2="121.92" y2="93.98" width="0.1524" layer="91"/>
@@ -19403,7 +19403,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="17.78" x2="91.44" y2="17.78" width="0.1524" layer="91"/>
 <label x="76.2" y="17.78" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="DQ10"/>
+<pinref part="IC2" gate="G$1" pin="DQ10"/>
 </segment>
 <segment>
 <wire x1="139.7" y1="91.44" x2="121.92" y2="91.44" width="0.1524" layer="91"/>
@@ -19415,7 +19415,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="15.24" x2="91.44" y2="15.24" width="0.1524" layer="91"/>
 <label x="76.2" y="15.24" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="DQ11"/>
+<pinref part="IC2" gate="G$1" pin="DQ11"/>
 </segment>
 <segment>
 <wire x1="139.7" y1="88.9" x2="121.92" y2="88.9" width="0.1524" layer="91"/>
@@ -19427,7 +19427,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="10.16" x2="91.44" y2="10.16" width="0.1524" layer="91"/>
 <label x="76.2" y="10.16" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="DQ13"/>
+<pinref part="IC2" gate="G$1" pin="DQ13"/>
 </segment>
 <segment>
 <wire x1="187.96" y1="121.92" x2="170.18" y2="121.92" width="0.1524" layer="91"/>
@@ -19439,7 +19439,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="7.62" x2="91.44" y2="7.62" width="0.1524" layer="91"/>
 <label x="76.2" y="7.62" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="DQ14"/>
+<pinref part="IC2" gate="G$1" pin="DQ14"/>
 </segment>
 <segment>
 <wire x1="187.96" y1="119.38" x2="170.18" y2="119.38" width="0.1524" layer="91"/>
@@ -19451,7 +19451,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="5.08" x2="91.44" y2="5.08" width="0.1524" layer="91"/>
 <label x="76.2" y="5.08" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="DQ15"/>
+<pinref part="IC2" gate="G$1" pin="DQ15"/>
 </segment>
 <segment>
 <wire x1="170.18" y1="116.84" x2="187.96" y2="116.84" width="0.1524" layer="91"/>
@@ -19463,7 +19463,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="-2.54" x2="91.44" y2="-2.54" width="0.1524" layer="91"/>
 <label x="76.2" y="-2.54" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="BA0"/>
+<pinref part="IC2" gate="G$1" pin="BA0"/>
 </segment>
 <segment>
 <wire x1="170.18" y1="137.16" x2="187.96" y2="137.16" width="0.1524" layer="91"/>
@@ -19475,7 +19475,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="-5.08" x2="91.44" y2="-5.08" width="0.1524" layer="91"/>
 <label x="76.2" y="-5.08" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="BA1"/>
+<pinref part="IC2" gate="G$1" pin="BA1"/>
 </segment>
 <segment>
 <wire x1="170.18" y1="134.62" x2="187.96" y2="134.62" width="0.1524" layer="91"/>
@@ -19485,7 +19485,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </net>
 <net name="DRAM_UDQM" class="0">
 <segment>
-<pinref part="IC10" gate="G$1" pin="UDQM"/>
+<pinref part="IC2" gate="G$1" pin="UDQM"/>
 <wire x1="73.66" y1="2.54" x2="91.44" y2="2.54" width="0.1524" layer="91"/>
 <label x="76.2" y="2.54" size="1.778" layer="95"/>
 </segment>
@@ -19499,7 +19499,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="25.4" y1="0" x2="43.18" y2="0" width="0.1524" layer="91"/>
 <label x="25.4" y="0" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="A0"/>
+<pinref part="IC2" gate="G$1" pin="A0"/>
 </segment>
 <segment>
 <wire x1="43.18" y1="119.38" x2="27.94" y2="119.38" width="0.1524" layer="91"/>
@@ -19511,7 +19511,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="25.4" y1="-2.54" x2="43.18" y2="-2.54" width="0.1524" layer="91"/>
 <label x="25.4" y="-2.54" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="A1"/>
+<pinref part="IC2" gate="G$1" pin="A1"/>
 </segment>
 <segment>
 <wire x1="43.18" y1="116.84" x2="27.94" y2="116.84" width="0.1524" layer="91"/>
@@ -19523,7 +19523,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="25.4" y1="-5.08" x2="43.18" y2="-5.08" width="0.1524" layer="91"/>
 <label x="25.4" y="-5.08" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="A2"/>
+<pinref part="IC2" gate="G$1" pin="A2"/>
 </segment>
 <segment>
 <wire x1="43.18" y1="114.3" x2="27.94" y2="114.3" width="0.1524" layer="91"/>
@@ -19535,7 +19535,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="25.4" y1="-7.62" x2="43.18" y2="-7.62" width="0.1524" layer="91"/>
 <label x="25.4" y="-7.62" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="A3"/>
+<pinref part="IC2" gate="G$1" pin="A3"/>
 </segment>
 <segment>
 <wire x1="43.18" y1="111.76" x2="27.94" y2="111.76" width="0.1524" layer="91"/>
@@ -19547,7 +19547,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="25.4" y1="-10.16" x2="43.18" y2="-10.16" width="0.1524" layer="91"/>
 <label x="25.4" y="-10.16" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="A4"/>
+<pinref part="IC2" gate="G$1" pin="A4"/>
 </segment>
 <segment>
 <wire x1="43.18" y1="109.22" x2="27.94" y2="109.22" width="0.1524" layer="91"/>
@@ -19559,7 +19559,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="25.4" y1="-12.7" x2="43.18" y2="-12.7" width="0.1524" layer="91"/>
 <label x="25.4" y="-12.7" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="A5"/>
+<pinref part="IC2" gate="G$1" pin="A5"/>
 </segment>
 <segment>
 <wire x1="43.18" y1="106.68" x2="27.94" y2="106.68" width="0.1524" layer="91"/>
@@ -19571,7 +19571,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="25.4" y1="-15.24" x2="43.18" y2="-15.24" width="0.1524" layer="91"/>
 <label x="25.4" y="-15.24" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="A6"/>
+<pinref part="IC2" gate="G$1" pin="A6"/>
 </segment>
 <segment>
 <wire x1="187.96" y1="96.52" x2="170.18" y2="96.52" width="0.1524" layer="91"/>
@@ -19583,7 +19583,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="25.4" y1="-17.78" x2="43.18" y2="-17.78" width="0.1524" layer="91"/>
 <label x="25.4" y="-17.78" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="A7"/>
+<pinref part="IC2" gate="G$1" pin="A7"/>
 </segment>
 <segment>
 <wire x1="187.96" y1="93.98" x2="170.18" y2="93.98" width="0.1524" layer="91"/>
@@ -19595,7 +19595,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="25.4" y1="-20.32" x2="43.18" y2="-20.32" width="0.1524" layer="91"/>
 <label x="25.4" y="-20.32" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="A8"/>
+<pinref part="IC2" gate="G$1" pin="A8"/>
 </segment>
 <segment>
 <wire x1="187.96" y1="91.44" x2="170.18" y2="91.44" width="0.1524" layer="91"/>
@@ -19607,7 +19607,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="25.4" y1="-22.86" x2="43.18" y2="-22.86" width="0.1524" layer="91"/>
 <label x="25.4" y="-22.86" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="A9"/>
+<pinref part="IC2" gate="G$1" pin="A9"/>
 </segment>
 <segment>
 <wire x1="187.96" y1="88.9" x2="170.18" y2="88.9" width="0.1524" layer="91"/>
@@ -19619,7 +19619,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="25.4" y1="-25.4" x2="43.18" y2="-25.4" width="0.1524" layer="91"/>
 <label x="25.4" y="-25.4" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="A10"/>
+<pinref part="IC2" gate="G$1" pin="A10"/>
 </segment>
 <segment>
 <wire x1="187.96" y1="78.74" x2="170.18" y2="78.74" width="0.1524" layer="91"/>
@@ -19631,7 +19631,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="25.4" y1="-27.94" x2="43.18" y2="-27.94" width="0.1524" layer="91"/>
 <label x="25.4" y="-27.94" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="A11"/>
+<pinref part="IC2" gate="G$1" pin="A11"/>
 </segment>
 <segment>
 <wire x1="187.96" y1="144.78" x2="170.18" y2="144.78" width="0.1524" layer="91"/>
@@ -19641,7 +19641,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </net>
 <net name="DRAM_!CAS" class="0">
 <segment>
-<pinref part="IC10" gate="G$1" pin="!CAS"/>
+<pinref part="IC2" gate="G$1" pin="!CAS"/>
 <wire x1="43.18" y1="15.24" x2="25.4" y2="15.24" width="0.1524" layer="91"/>
 <label x="25.4" y="15.24" size="1.778" layer="95"/>
 </segment>
@@ -19653,7 +19653,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </net>
 <net name="DRAM_!WE" class="0">
 <segment>
-<pinref part="IC10" gate="G$1" pin="!WE"/>
+<pinref part="IC2" gate="G$1" pin="!WE"/>
 <wire x1="43.18" y1="17.78" x2="25.4" y2="17.78" width="0.1524" layer="91"/>
 <label x="25.4" y="17.78" size="1.778" layer="95"/>
 </segment>
@@ -19665,7 +19665,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </net>
 <net name="DRAM_LDQM" class="0">
 <segment>
-<pinref part="IC10" gate="G$1" pin="LDQM"/>
+<pinref part="IC2" gate="G$1" pin="LDQM"/>
 <wire x1="43.18" y1="20.32" x2="25.4" y2="20.32" width="0.1524" layer="91"/>
 <label x="25.4" y="20.32" size="1.778" layer="95"/>
 </segment>
@@ -19679,7 +19679,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="25.4" y1="10.16" x2="43.18" y2="10.16" width="0.1524" layer="91"/>
 <label x="25.4" y="10.16" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="!CS"/>
+<pinref part="IC2" gate="G$1" pin="!CS"/>
 </segment>
 <segment>
 <wire x1="269.24" y1="139.7" x2="287.02" y2="139.7" width="0.1524" layer="91"/>
@@ -19691,7 +19691,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="25.4" y1="12.7" x2="43.18" y2="12.7" width="0.1524" layer="91"/>
 <label x="25.4" y="12.7" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="!RAS"/>
+<pinref part="IC2" gate="G$1" pin="!RAS"/>
 </segment>
 <segment>
 <wire x1="170.18" y1="99.06" x2="187.96" y2="99.06" width="0.1524" layer="91"/>
@@ -19982,7 +19982,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </net>
 <net name="DRAM_CKE" class="0">
 <segment>
-<pinref part="IC10" gate="G$1" pin="CKE"/>
+<pinref part="IC2" gate="G$1" pin="CKE"/>
 <wire x1="43.18" y1="5.08" x2="25.4" y2="5.08" width="0.1524" layer="91"/>
 <label x="25.4" y="5.08" size="1.778" layer="95"/>
 </segment>
@@ -19994,7 +19994,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </net>
 <net name="DRAM_CLK" class="0">
 <segment>
-<pinref part="IC10" gate="G$1" pin="CLK"/>
+<pinref part="IC2" gate="G$1" pin="CLK"/>
 <wire x1="43.18" y1="7.62" x2="25.4" y2="7.62" width="0.1524" layer="91"/>
 <label x="25.4" y="7.62" size="1.778" layer="95"/>
 </segment>
@@ -20014,7 +20014,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <pinref part="C27" gate="G$1" pin="1"/>
 <wire x1="91.44" y1="243.84" x2="91.44" y2="246.38" width="0.1524" layer="91"/>
 <wire x1="91.44" y1="246.38" x2="99.06" y2="246.38" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="1"/>
+<pinref part="L2" gate="G$1" pin="1"/>
 <junction x="81.28" y="246.38"/>
 <junction x="91.44" y="246.38"/>
 </segment>
@@ -20058,7 +20058,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <pinref part="IC8" gate="G$3" pin="PA10"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="MIC2005" pin="FAULT"/>
+<pinref part="IC7" gate="MIC2005" pin="FAULT"/>
 <wire x1="246.38" y1="322.58" x2="281.94" y2="322.58" width="0.1524" layer="91"/>
 <label x="248.92" y="322.58" size="1.778" layer="95"/>
 </segment>
@@ -20230,7 +20230,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <wire x1="73.66" y1="12.7" x2="91.44" y2="12.7" width="0.1524" layer="91"/>
 <label x="76.2" y="12.7" size="1.778" layer="95"/>
-<pinref part="IC10" gate="G$1" pin="DQ12"/>
+<pinref part="IC2" gate="G$1" pin="DQ12"/>
 </segment>
 </net>
 <net name="CS_!CS" class="0">
@@ -20345,7 +20345,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <pinref part="JP2" gate="G$1" pin="6"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="MIC2005" pin="VOUT"/>
+<pinref part="IC7" gate="MIC2005" pin="VOUT"/>
 <label x="248.92" y="337.82" size="1.778" layer="95"/>
 <wire x1="246.38" y1="337.82" x2="264.16" y2="337.82" width="0.1524" layer="91"/>
 </segment>
@@ -20354,7 +20354,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <segment>
 <pinref part="JP2" gate="G$1" pin="1"/>
 <label x="436.88" y="-55.88" size="1.778" layer="95"/>
-<pinref part="VD1" gate="G$1" pin="VBUS"/>
+<pinref part="IC10" gate="G$1" pin="VBUS"/>
 <wire x1="454.66" y1="-55.88" x2="413.766" y2="-55.88" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -20386,7 +20386,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </net>
 <net name="N$19" class="0">
 <segment>
-<pinref part="VD1" gate="G$1" pin="I/O1"/>
+<pinref part="IC10" gate="G$1" pin="I/O1"/>
 <wire x1="413.766" y1="-50.8" x2="431.8" y2="-50.8" width="0.1524" layer="91"/>
 <wire x1="431.8" y1="-50.8" x2="431.8" y2="-58.42" width="0.1524" layer="91"/>
 <pinref part="JP2" gate="G$1" pin="2"/>
@@ -20396,7 +20396,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <net name="N$55" class="0">
 <segment>
 <pinref part="JP2" gate="G$1" pin="3"/>
-<pinref part="VD1" gate="G$1" pin="I/O2"/>
+<pinref part="IC10" gate="G$1" pin="I/O2"/>
 <wire x1="454.66" y1="-60.96" x2="413.766" y2="-60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
