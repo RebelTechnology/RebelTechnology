@@ -1,4 +1,6 @@
 
+-------------------------------------------------------
+
 Most (nearly all) repairs we do on Stoicheia are due to over voltage on the +5v rail. This is usually caused by a reverse voltage elsewhere in the case, or a momentary short e.g. from a loose screw. Overvoltage may fry the microcontroller, which will then need to be replaced.
 
 If you send it back to us we will repair or replace. I would appreciate it if you could transfer GBP 10.00 to payments@rebeltech.org to cover shipping.
@@ -8,3 +10,14 @@ Rebel Technology
 3-4 Wells Terrace
 N4 3JU London
 United Kingdom
+
+-------------------------------------------------------
+
+read fuses on pre-programmed (untested):
+avrdude -p m328 -P usb -c avrisp2 -U efuse:r:-:i
+avrdude: safemode: Fuses OK (E:F8, H:DD, L:FF)
+
+on unprogrammed m328:
+avrdude: safemode: Fuses OK (E:FF, H:D9, L:62)
+
+-------------------------------------------------------
