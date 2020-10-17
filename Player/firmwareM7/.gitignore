@@ -1,9 +1,0 @@
-.cproject
-.mxproject
-.project
-.settings
-Drivers
-*.elf.launch
-MDK-ARM
-Middlewares
-Drivers
