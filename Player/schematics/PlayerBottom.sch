@@ -16056,7 +16056,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </part>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="+3V21" library="supply1" deviceset="+3V3" device=""/>
-<part name="IC8" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="STM32F42XZ/43XZ(144PIN)" device="LQFP144" package3d_urn="urn:adsk.eagle:package:15457733/1" value="STM32F427Z">
+<part name="IC8" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="STM32F42XZ/43XZ(144PIN)" device="LQFP144" package3d_urn="urn:adsk.eagle:package:15457733/1" value="STM32H743ZGTx">
 <attribute name="OC_FARNELL" value="2484975"/>
 </part>
 <part name="GND105" library="supply1" deviceset="GND" device=""/>
@@ -18336,9 +18336,9 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <pinref part="X4" gate="-14" pin="1"/>
 </segment>
 <segment>
-<wire x1="238.76" y1="88.9" x2="218.44" y2="88.9" width="0.1524" layer="91"/>
-<label x="218.44" y="88.9" size="1.778" layer="95"/>
-<pinref part="IC8" gate="G$3" pin="PC12"/>
+<pinref part="IC8" gate="G$1" pin="PC1"/>
+<wire x1="73.66" y1="119.38" x2="91.44" y2="119.38" width="0.1524" layer="91"/>
+<label x="76.2" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="OLED_SCK" class="0">
@@ -20453,14 +20453,14 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </net>
 <net name="SW_B" class="0">
 <segment>
-<pinref part="IC8" gate="G$3" pin="PC8"/>
-<wire x1="269.24" y1="81.28" x2="284.48" y2="81.28" width="0.1524" layer="91"/>
-<label x="271.78" y="81.28" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="JP3" gate="G$1" pin="8"/>
 <wire x1="434.34" y1="38.1" x2="421.64" y2="38.1" width="0.1524" layer="91"/>
 <label x="421.64" y="38.1" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="238.76" y1="88.9" x2="218.44" y2="88.9" width="0.1524" layer="91"/>
+<label x="218.44" y="88.9" size="1.778" layer="95"/>
+<pinref part="IC8" gate="G$3" pin="PC12"/>
 </segment>
 </net>
 </nets>
@@ -20487,8 +20487,6 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <approved hash="102,1,236.22,149.86,+3V3,+3.3V,,,,"/>
 <approved hash="102,1,529.59,207.01,+3V3,+3.3V,,,,"/>
 <approved hash="102,1,529.59,255.27,+3V3,+3.3V,,,,"/>
-<approved hash="102,1,363.22,210.82,+3V3,+3.3V,,,,"/>
-<approved hash="102,1,363.22,251.46,+3V3,+3.3V,,,,"/>
 <approved hash="102,1,132.08,30.48,+3V3,+3.3V,,,,"/>
 <approved hash="102,1,83.82,-12.7,+3V3,+3.3V,,,,"/>
 <approved hash="102,1,91.44,-12.7,+3V3,+3.3V,,,,"/>
