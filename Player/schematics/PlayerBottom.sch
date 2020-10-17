@@ -20199,7 +20199,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <junction x="393.7" y="147.32"/>
 </segment>
 </net>
-<net name="SW_A" class="0">
+<net name="TR_IN_A" class="0">
 <segment>
 <pinref part="Q801" gate="G$1" pin="C"/>
 <wire x1="529.59" y1="240.03" x2="529.59" y2="237.49" width="0.1524" layer="91"/>
@@ -20213,11 +20213,6 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <wire x1="238.76" y1="91.44" x2="218.44" y2="91.44" width="0.1524" layer="91"/>
 <label x="218.44" y="91.44" size="1.778" layer="95"/>
 <pinref part="IC8" gate="G$3" pin="PC11"/>
-</segment>
-<segment>
-<pinref part="JP1" gate="G$1" pin="8"/>
-<wire x1="393.7" y1="38.1" x2="381" y2="38.1" width="0.1524" layer="91"/>
-<label x="381" y="38.1" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TR_OUT_A" class="0">
@@ -20368,7 +20363,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <label x="271.78" y="104.14" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SW_B" class="0">
+<net name="TR_IN_B" class="0">
 <segment>
 <pinref part="Q601" gate="G$1" pin="C"/>
 <wire x1="529.59" y1="191.77" x2="529.59" y2="189.23" width="0.1524" layer="91"/>
@@ -20377,11 +20372,6 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <pinref part="R11" gate="G$1" pin="2"/>
 <wire x1="529.59" y1="191.77" x2="529.59" y2="194.31" width="0.1524" layer="91"/>
 <junction x="529.59" y="191.77"/>
-</segment>
-<segment>
-<pinref part="JP3" gate="G$1" pin="8"/>
-<wire x1="434.34" y1="38.1" x2="421.64" y2="38.1" width="0.1524" layer="91"/>
-<label x="421.64" y="38.1" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="238.76" y1="119.38" x2="218.44" y2="119.38" width="0.1524" layer="91"/>
@@ -20441,6 +20431,36 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <junction x="320.04" y="215.9"/>
 <wire x1="345.44" y1="215.9" x2="355.6" y2="215.9" width="0.1524" layer="91"/>
 <pinref part="R21" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$48" class="0">
+<segment>
+<pinref part="IC8" gate="G$3" pin="PA8"/>
+<wire x1="269.24" y1="106.68" x2="287.02" y2="106.68" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="SW_A" class="0">
+<segment>
+<pinref part="IC8" gate="G$3" pin="PC10"/>
+<wire x1="238.76" y1="93.98" x2="218.44" y2="93.98" width="0.1524" layer="91"/>
+<label x="218.44" y="93.98" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP1" gate="G$1" pin="8"/>
+<wire x1="393.7" y1="38.1" x2="381" y2="38.1" width="0.1524" layer="91"/>
+<label x="381" y="38.1" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SW_B" class="0">
+<segment>
+<pinref part="IC8" gate="G$3" pin="PC8"/>
+<wire x1="269.24" y1="81.28" x2="284.48" y2="81.28" width="0.1524" layer="91"/>
+<label x="271.78" y="81.28" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP3" gate="G$1" pin="8"/>
+<wire x1="434.34" y1="38.1" x2="421.64" y2="38.1" width="0.1524" layer="91"/>
+<label x="421.64" y="38.1" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
