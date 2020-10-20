@@ -784,6 +784,7 @@ Vin 4.5v-5.5v, +/-12V 2W +/-80mA, unregulated outputs
 6 +12V
 Ripple and noise: 250mVpp max, 120mVpp typ. Min load not required. Continuous short circuit protection.
 
+TDN 5-0922WI
 
 TEC 2-0922 or TEC 3-0922, 9V DC nominal input
 SL04-E3-08 -  Schottky Rectifier, 40 V, 1.1 A, DO-219AB, 2 Pins, Vf max 420mV
@@ -807,6 +808,13 @@ also TMR 3-1222WI, TDN 3-1222WI in DIP, TDR 3-1222WISM in DIP SMT
 
 Pololu 5V Step-Up/Step-Down Voltage Regulator S9V11F5
 
+1N5817, 1N5818, 1N5819
+Low drop power Schottky rectifier
+Vf max 0.45V (1N5817 @ 1A), Repetitive peak reverse voltage 20V/30V/40V
 
+USB Euro Power Rev01
+build
+- for 2W USB power only: Traco TBA 2-0522, bridge SJ, bridge D1, dnp D1, D2, IC1, IC3, C1, C4, J1
+- for 3W USB and/or 9V DC power: Traco TEC 3-0922 and S9V11F5, dnp IC2
 
 --------------------------------------------------------------------------
