@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.2">
+<eagle version="9.6.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -9,44 +9,44 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="7" fill="1" visible="no" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="7" fill="1" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="16" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="14" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
-<layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
-<layer number="32" name="bCream" color="7" fill="5" visible="no" active="no"/>
+<layer number="1" name="Top" color="1" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="7" fill="1" visible="yes" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="7" fill="1" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="4" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="14" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="16" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="29" name="tStop" color="7" fill="6" visible="no" active="no"/>
+<layer number="30" name="bStop" color="7" fill="3" visible="no" active="no"/>
+<layer number="31" name="tCream" color="7" fill="5" visible="no" active="no"/>
+<layer number="32" name="bCream" color="7" fill="4" visible="no" active="no"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="no"/>
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -54,20 +54,20 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="12" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="6" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="58" name="bCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
-<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="6" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="58" name="bCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="yes" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="yes" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -11040,7 +11040,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <description>&lt;b&gt;Omron Switches&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
 <packages>
-<package name="B3F-10XX">
+<package name="B3F-10XX" urn="urn:adsk.eagle:footprint:27476/1" locally_modified="yes">
 <description>&lt;b&gt;OMRON SWITCH&lt;/b&gt;</description>
 <wire x1="3.302" y1="-0.762" x2="3.048" y2="-0.762" width="0.1524" layer="21"/>
 <wire x1="3.302" y1="-0.762" x2="3.302" y2="0.762" width="0.1524" layer="21"/>
@@ -11092,10 +11092,10 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <circle x="-2.159" y="2.159" radius="0.508" width="0.1524" layer="51"/>
 <circle x="0" y="0" radius="0.635" width="0.0508" layer="51"/>
 <circle x="0" y="0" radius="0.254" width="0.1524" layer="21"/>
-<pad name="1" x="-3.2512" y="2.2606" drill="1.016" shape="long"/>
-<pad name="3" x="-3.2512" y="-2.2606" drill="1.016" shape="long"/>
-<pad name="2" x="3.2512" y="2.2606" drill="1.016" shape="long"/>
-<pad name="4" x="3.2512" y="-2.2606" drill="1.016" shape="long"/>
+<pad name="1" x="-3.2512" y="2.2606" drill="1.016"/>
+<pad name="3" x="-3.2512" y="-2.2606" drill="1.016"/>
+<pad name="2" x="3.2512" y="2.2606" drill="1.016"/>
+<pad name="4" x="3.2512" y="-2.2606" drill="1.016"/>
 <text x="-3.048" y="3.683" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.048" y="-5.08" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <text x="-4.318" y="1.651" size="1.27" layer="51" ratio="10">1</text>
@@ -11104,6 +11104,14 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <text x="3.556" y="-2.794" size="1.27" layer="51" ratio="10">4</text>
 </package>
 </packages>
+<packages3d>
+<package3d name="B3F-10XX" urn="urn:adsk.eagle:package:27496/1" type="box">
+<description>OMRON SWITCH</description>
+<packageinstances>
+<packageinstance name="B3F-10XX"/>
+</packageinstances>
+</package3d>
+</packages3d>
 <symbols>
 <symbol name="TS2">
 <wire x1="0" y1="1.905" x2="0" y2="2.54" width="0.254" layer="94"/>
@@ -11141,12 +11149,16 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <connect gate="1" pin="S" pad="1"/>
 <connect gate="1" pin="S1" pad="2"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:27496/1"/>
+</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="MF" value="" constant="no"/>
 <attribute name="MPN" value="B3F-1000" constant="no"/>
 <attribute name="OC_FARNELL" value="176432" constant="no"/>
 <attribute name="OC_NEWARK" value="36M3542" constant="no"/>
+<attribute name="POPULARITY" value="72" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -11823,7 +11835,7 @@ Based on the following sources:
 <part name="C2" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="47u"/>
 <part name="OUT_CV" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="IN_1" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="V1" library="resistor" deviceset="R-TRIMM" device="64W" value="B10k"/>
+<part name="V1" library="resistor" deviceset="R-TRIMM" device="3296W" value="B10k"/>
 <part name="R42" library="Rebel" deviceset="R-EU_" device="0603" value="51k"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
@@ -11847,7 +11859,7 @@ Based on the following sources:
 <part name="C5" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
 <part name="IN_2" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="V2" library="resistor" deviceset="R-TRIMM" device="64W" value="B10k"/>
+<part name="V2" library="resistor" deviceset="R-TRIMM" device="3296W" value="B10k"/>
 <part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="51k"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
@@ -11858,7 +11870,7 @@ Based on the following sources:
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="P+1" library="supply1" deviceset="+12V" device=""/>
 <part name="IN_3" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="V3" library="resistor" deviceset="R-TRIMM" device="64W" value="B10k"/>
+<part name="V3" library="resistor" deviceset="R-TRIMM" device="3296W" value="B10k"/>
 <part name="R9" library="Rebel" deviceset="R-EU_" device="0603" value="51k"/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
@@ -11869,7 +11881,7 @@ Based on the following sources:
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="+12V" device=""/>
 <part name="IN_4" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="V4" library="resistor" deviceset="R-TRIMM" device="64W" value="B10k"/>
+<part name="V4" library="resistor" deviceset="R-TRIMM" device="3296W" value="B10k"/>
 <part name="R22" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
@@ -11881,7 +11893,7 @@ Based on the following sources:
 <part name="P+3" library="supply1" deviceset="+12V" device=""/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="IN_5" library="Rebel" deviceset="THONKICONN" device=""/>
-<part name="V5" library="resistor" deviceset="R-TRIMM" device="64W" value="B10k"/>
+<part name="V5" library="resistor" deviceset="R-TRIMM" device="3296W" value="B10k"/>
 <part name="R27" library="Rebel" deviceset="R-EU_" device="0603" value="33k"/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
@@ -11910,16 +11922,16 @@ Based on the following sources:
 <part name="OUT_TR" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="C6" library="Rebel" deviceset="C-EU" device="C0603" value="39p"/>
-<part name="SW1" library="switch-omron" deviceset="10-XX" device=""/>
+<part name="SW1" library="switch-omron" deviceset="10-XX" device="" package3d_urn="urn:adsk.eagle:package:27496/1"/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
-<part name="SW2" library="switch-omron" deviceset="10-XX" device=""/>
+<part name="SW2" library="switch-omron" deviceset="10-XX" device="" package3d_urn="urn:adsk.eagle:package:27496/1"/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
-<part name="SW3" library="switch-omron" deviceset="10-XX" device=""/>
+<part name="SW3" library="switch-omron" deviceset="10-XX" device="" package3d_urn="urn:adsk.eagle:package:27496/1"/>
 <part name="GND38" library="supply1" deviceset="GND" device=""/>
-<part name="SW4" library="switch-omron" deviceset="10-XX" device=""/>
+<part name="SW4" library="switch-omron" deviceset="10-XX" device="" package3d_urn="urn:adsk.eagle:package:27496/1"/>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
-<part name="SW5" library="switch-omron" deviceset="10-XX" device=""/>
-<part name="SW6" library="switch-omron" deviceset="10-XX" device=""/>
+<part name="SW5" library="switch-omron" deviceset="10-XX" device="" package3d_urn="urn:adsk.eagle:package:27496/1"/>
+<part name="SW6" library="switch-omron" deviceset="10-XX" device="" package3d_urn="urn:adsk.eagle:package:27496/1"/>
 <part name="GND40" library="supply1" deviceset="GND" device=""/>
 <part name="GND41" library="supply1" deviceset="GND" device=""/>
 <part name="P+18" library="supply1" deviceset="+12V" device=""/>
@@ -11965,7 +11977,7 @@ Based on the following sources:
 <part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="36k"/>
 <part name="P-2" library="supply1" deviceset="-12V" device=""/>
 <part name="P+12" library="supply1" deviceset="+12V" device=""/>
-<part name="V6" library="resistor" deviceset="R-TRIMM" device="64W" value="B10k"/>
+<part name="V6" library="resistor" deviceset="R-TRIMM" device="3296W" value="B10k"/>
 <part name="R14" library="Rebel" deviceset="R-EU_" device="0603" value="1M"/>
 </parts>
 <sheets>
@@ -13525,6 +13537,16 @@ Copyright 2017 Rebel Technology</text>
 <note version="6.3" minversion="6.2.2" severity="warning">
 Since Version 6.2.2 text objects can contain more than one line,
 which will not be processed correctly with this version.
+</note>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports URNs for individual library
+assets (packages, symbols, and devices). The URNs of those assets
+will not be understood (or retained) with this version.
+</note>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports the association of 3D packages
+with devices in libraries, schematics, and board files. Those 3D
+packages will not be understood (or retained) with this version.
 </note>
 </compatibility>
 </eagle>

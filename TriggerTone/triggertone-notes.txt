@@ -245,11 +245,6 @@ TL1265 SERIES 5mm round, total height 12mm
 
 -------------------------------------------------------
 
-trim pot
-T93YA series 100K: T93YA104KT20
-
--------------------------------------------------------
-
  B D F A C
 -1 2 5 9 11
 
@@ -343,8 +338,6 @@ http://gaje.jp/2011/12/20/2473/
 FET applications: Analog Switch
 http://www.circuitstoday.com/fet-applications
 
--------------------------------------------------------
-
 
 -------------------------------------------------------
 
@@ -398,11 +391,16 @@ bottom interval drops a semitone
 -------------------------------------------------------
 
 tuning:
--1     -0.083V
-+2      0.166V
-+4	0.333V
-+8	0.666V
 +16	1.333V
++8	0.666V
++4	0.333V
++2      0.166V
+-1     -0.083V
+
+Tonic notes - burned in my brain
+for cv out: No buttons, set 0v with lone trimmer
+then 1st button should be -0.5v- +1v with knob, then set the rest to 1.333v, 0.666v, 0.333v, 0.167v, -0.083v
+
 
 -------------------------------------------------------
 
@@ -413,5 +411,67 @@ ToggleTone
 TriggerTone
 - change LED resistors to 2k2 or 2k
 - change 1k output resistor to 100R
+
+-------------------------------------------------------
+
+Tactile switch / pushbutton
+E-Switch TL1105SPF with cap 1RWHT
+Mouser 612-TL1105SPF160R or 612-TL1105SPF100Q
+or 612-1105SPF160Q1RWHT incl cap
+
+-------------------------------------------------------
+
+trim pot
+Vishay T93YA series 23-turn
+T93YA104KT20 100k
+T93YA103KT20 10k
+
+Suntan 3296W series 30-turn
+TSR-3296W-103R 10k
+
+-------------------------------------------------------
+
+solder:
+- smt
+- electrolytics
+- power header
+- trimpots, cut legs
+place:
+- switches
+- jacks
+- pot
+- leds
+then solder
+
+
+ON BSS123 (marking SA)
+Igss gate-body leakage current +-50nA
+
+2N7002P (marking LWW)
+
+1081191 	100 	BAT54A marking *V3
+actual diode: KL2
+
+KL2 = BAT54A
+
+Nexperia 2N7002
+SSM3K7002F (marking NC)
+Igss gate leakage current 10-100nA
+
+
+12W 69
+
+Nexperia 2N7002 marking 12*
+
+two fully working (old stock) have transistor markings SA (plus right-angle P), BSS123?
+
+-------------------------------------------------------
+
+Removing e.g. Q9 only does not fix the problem, removing Q10
+
+BSS123 Gate Resistance Rg = 2.2 Ohm (VGS = 15 mV, f = 1.0 MHz)
+
+BSS123 Gate source leakage current Igss = 10-100nA nexperia (onsemi: +/-50nA)
+2N7002P max 100nA
 
 -------------------------------------------------------
