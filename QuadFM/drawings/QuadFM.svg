@@ -12,7 +12,7 @@
    height="297mm"
    viewBox="0 0 210 297"
    id="svg7762"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="QuadFM.svg">
   <metadata
      id="metadata8234">
@@ -31,14 +31,15 @@
      units="mm"
      showgrid="false"
      inkscape:zoom="1.8090324"
-     inkscape:cx="199.47077"
-     inkscape:cy="851.33963"
-     inkscape:window-width="1680"
-     inkscape:window-height="1002"
+     inkscape:cx="125.86438"
+     inkscape:cy="897.28326"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="1107"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g7768" />
+     inkscape:current-layer="g7768"
+     inkscape:snap-object-midpoints="true" />
   <defs
      id="defs7765">
     <g
@@ -918,37 +919,21 @@
        style="fill:none;stroke:#ff0000"
        id="circle8190" />
     <rect
-       x="-22.125624"
-       y="69.342598"
+       x="-16.294355"
+       y="70.631912"
        width="3"
        height="6"
        style="fill:none;stroke:#ff0000;stroke-width:0.05"
        id="rect8192"
-       transform="matrix(0.8709044,-0.49145246,0.49145246,0.8709044,0,0)" />
+       transform="rotate(-24.490964)" />
     <rect
-       x="20.12866"
-       y="68.21035"
+       x="20.360546"
+       y="68.123146"
        width="3"
        height="6"
        style="fill:none;stroke:#ff0000"
        id="rect8194"
-       transform="matrix(0.98690946,-0.1612753,0.1612753,0.98690946,0,0)" />
-    <rect
-       x="58.105392"
-       y="53.734699"
-       width="3"
-       height="6"
-       style="fill:none;stroke:#ff0000;stroke-width:0.05"
-       id="rect8196"
-       transform="matrix(0.98270915,0.18515593,-0.18515593,0.98270915,0,0)" />
-    <rect
-       x="88.100975"
-       y="33.459301"
-       width="3"
-       height="6"
-       style="fill:none;stroke:#ff0000;stroke-width:0.05"
-       id="rect8198"
-       transform="matrix(0.89117479,0.45366011,-0.45366011,0.89117479,0,0)" />
+       transform="rotate(-8.9302078)" />
     <circle
        cx="8.700000000000003"
        cy="96"
@@ -1052,5 +1037,21 @@
        height="7"
        style="fill:none;stroke:#ff0000"
        id="rect8232" />
+    <rect
+       transform="matrix(-0.91002666,-0.41454973,-0.41454973,0.91002666,0,0)"
+       id="rect4756"
+       style="fill:none;stroke:#ff0000;stroke-width:0.05"
+       height="6"
+       width="3"
+       y="37.144073"
+       x="-89.807419" />
+    <rect
+       transform="matrix(-0.98787816,-0.15523124,-0.15523124,0.98787816,0,0)"
+       id="rect4758"
+       style="fill:none;stroke:#ff0000"
+       height="6"
+       width="3"
+       y="55.583389"
+       x="-59.441452" />
   </g>
 </svg>

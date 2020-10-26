@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
@@ -166,19 +166,19 @@
 </layers>
 <board>
 <plain>
-<wire x1="51.85" y1="69.342" x2="93.87" y2="69.342" width="0.2" layer="21"/>
-<wire x1="51.85" y1="42.122" x2="51.85" y2="69.342" width="0.2" layer="21"/>
-<wire x1="93.87" y1="69.342" x2="93.87" y2="42.122" width="0.2" layer="21"/>
-<wire x1="51.85" y1="42.122" x2="93.87" y2="42.122" width="0.2" layer="21"/>
+<wire x1="51.85" y1="68.342" x2="93.87" y2="68.342" width="0.2" layer="21"/>
+<wire x1="51.85" y1="41.122" x2="51.85" y2="68.342" width="0.2" layer="21"/>
+<wire x1="93.87" y1="68.342" x2="93.87" y2="41.122" width="0.2" layer="21"/>
+<wire x1="51.85" y1="41.122" x2="93.87" y2="41.122" width="0.2" layer="21"/>
 <wire x1="52.324" y1="72.644" x2="50.8" y2="72.644" width="0.1524" layer="20"/>
 <wire x1="50.8" y1="72.644" x2="50.038" y2="71.882" width="0.1524" layer="20" curve="90"/>
 <wire x1="50.038" y1="71.882" x2="50.038" y2="69.342" width="0.1524" layer="20"/>
 <wire x1="50.038" y1="69.342" x2="51.562" y2="67.818" width="0.1524" layer="20"/>
-<wire x1="51.562" y1="67.818" x2="51.562" y2="41.91" width="0.1524" layer="20"/>
-<wire x1="51.562" y1="41.91" x2="51.816" y2="41.656" width="0.1524" layer="20" curve="90"/>
-<wire x1="51.816" y1="41.656" x2="93.98" y2="41.656" width="0.1524" layer="20"/>
-<wire x1="93.98" y1="41.656" x2="94.234" y2="41.91" width="0.1524" layer="20" curve="90"/>
-<wire x1="94.234" y1="41.91" x2="94.234" y2="69.596" width="0.1524" layer="20"/>
+<wire x1="51.562" y1="67.818" x2="51.562" y2="40.91" width="0.1524" layer="20"/>
+<wire x1="51.562" y1="40.91" x2="51.816" y2="40.656" width="0.1524" layer="20" curve="90"/>
+<wire x1="51.816" y1="40.656" x2="93.98" y2="40.656" width="0.1524" layer="20"/>
+<wire x1="93.98" y1="40.656" x2="94.234" y2="40.91" width="0.1524" layer="20" curve="90"/>
+<wire x1="94.234" y1="40.91" x2="94.234" y2="69.596" width="0.1524" layer="20"/>
 <wire x1="94.234" y1="69.596" x2="93.98" y2="69.85" width="0.1524" layer="20" curve="90"/>
 <wire x1="93.98" y1="69.85" x2="90.297" y2="69.85" width="0.1524" layer="20"/>
 <wire x1="90.297" y1="69.85" x2="89.535" y2="70.612" width="0.1524" layer="20"/>
@@ -192,13 +192,13 @@
 <wire x1="53.975" y1="69.85" x2="53.086" y2="70.739" width="0.1524" layer="20"/>
 <wire x1="53.086" y1="70.739" x2="53.086" y2="71.882" width="0.1524" layer="20"/>
 <wire x1="53.086" y1="71.882" x2="52.324" y2="72.644" width="0.1524" layer="20" curve="90"/>
-<polygon width="0.1524" layer="21" spacing="6.35" pour="hatch">
-<vertex x="54.334" y="67.342"/>
-<vertex x="54.334" y="47.832"/>
-<vertex x="91.386" y="47.832"/>
-<vertex x="91.386" y="67.342"/>
+<polygon width="0.1524" layer="21" spacing="3.556" pour="hatch">
+<vertex x="54.334" y="66.342"/>
+<vertex x="54.334" y="46.832"/>
+<vertex x="91.386" y="46.832"/>
+<vertex x="91.386" y="66.342"/>
 </polygon>
-<text x="59.817" y="44.704" size="1.778" layer="21" font="vector">Magus ScreenFit Rev01</text>
+<text x="59.817" y="43.704" size="1.778" layer="21" font="vector">Magus ScreenFit Rev02</text>
 </plain>
 <libraries>
 <library name="holes" urn="urn:adsk.eagle:library:237">

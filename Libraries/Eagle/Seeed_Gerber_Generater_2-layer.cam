@@ -1,214 +1,268 @@
-[CAM Processor Job]
-Description[de]="<b>Erzeugt Extended-Gerber-Format (RS274X)</b><p>\nDieser CAM-Job besteht aus fünf Arbeitsschritten und erzeugt Fertigungsdaten für eine zweilagige Platine.<p><p>\nDie fünf Gerberdateien enthalten Daten für:<br>\nBestückungsseite  *.cmp<br>\nLötseite  *.sol<br>\nBestückungsdruck oben  *.plc<br>\nLötstoplack Bestückungsseite  *.stc<br>\nLötstoplack Lötseite  *.sts<br>"
-Description[en]="<b>Seeed Studio 2-layer PCB Gerber Generator</b><br>\n<b>You will get 10 RS274-x format gerber files:</b><p>\n\nTop Layer: pcbname.GTL<br>\nSilk Top:  pcbname.GTO<br>\nSolderMask Top: pcbname.GTS<br>\nSMD paste Top: pcbname.GTP<p>\n\nBottom Layer: pcbname.GBL<br>\nSilk Bottom: pcbname.GBO<br>\nSolderMask Bottom: pcbname.GBS<br>\nSMD paste Bottom: pcbname.GBP<p>\n\nSolt Drills/Hole: pcbname.GML ---> the Milling Layer(layer46)<br>\nNC Drill file:pcbname.TXT<p>\n\nIt works well with our Fusion PCB Service:<br>\n<u>http://www.seeedstudio.com/depot/index.php?main_page=advanced_search_result&search_in_description=1&keyword=Fusion\n\n\n"
-Description[zh]="<b>Seeed Studio Gerber Generater</b><p>\nThis CAM job consists of 10 sections that generate data for a two layer board.<p><p>\nYou will get 10 gerber files that contain data for:<br>\nTop trace layer 	*.GTL<br>\nTop slikscreen layer 	*.GTO<br>\nTop pad paste layer 	*.GTP<br>\nTop solder mask layer 	*.GTS<br>\nBottom trace layer 	*.GBL<br>\nBottom slikscreen layer 	*.GBO<br>\nBottom pad paste layer 	*.GBP<br>\nBottom solder mask layer 	*.GBS<br>\nSlot data		*.GML<br>\nNC Drills		*.TXT<br>\n"
-Section=Sec_1
-Section=Sec_2
-Section=Sec_3
-Section=Sec_4
-Section=Sec_5
-Section=Sec_6
-Section=Sec_7
-Section=Sec_8
-Section=Sec_9
-Section=Sec_10
-
-[Sec_1]
-Name[de]="Lötstopmaske Lötseite"
-Name[en]="Drills&Holes"
-Name[zh]="drill data"
-Prompt=""
-Device="EXCELLON_24"
-Wheel=""
-Rack=""
-Scale=1
-Output="%N.TXT"
-Flags="0 0 0 1 0 1 1"
-Emulate="0"
-Offset="0.0mil 0.0mil"
-Sheet=1
-Tolerance="0 0 0 0 0 0"
-Pen="0.0mil 0"
-Page="12000.0mil 8000.0mil"
-Layers=" 20 44 45"
-Colors=" 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 6 6 4 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 1 1 1 1 3 3 1 2 6 8 8 5 8 8 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4 2 4 3 6 6 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0"
-
-[Sec_2]
-Name[de]="Lötstopmaske Lötseite"
-Name[en]="Slot drills/holes"
-Name[zh]="edge milling"
-Prompt=""
-Device="GERBER_RS274X"
-Wheel=""
-Rack=""
-Scale=1
-Output="%N.GML"
-Flags="0 0 0 1 0 1 1"
-Emulate="0"
-Offset="0.0mil 0.0mil"
-Sheet=1
-Tolerance="0 0 0 0 0 0"
-Pen="0.0mil 0"
-Page="12000.0mil 8000.0mil"
-Layers=" 20 46"
-Colors=" 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 6 6 4 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 1 1 1 1 3 3 1 2 6 8 8 5 8 8 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4 2 4 3 6 6 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0"
-
-[Sec_3]
-Name[de]="Lötstopmaske Lötseite"
-Name[en]="Solder paste bottom"
-Name[zh]="padmask bottom"
-Prompt=""
-Device="GERBER_RS274X"
-Wheel=".whl"
-Rack=""
-Scale=1
-Output="%N.GBP"
-Flags="0 0 0 1 0 1 1"
-Emulate="0"
-Offset="0.0mil 0.0mil"
-Sheet=1
-Tolerance="0 0 0 0 0 0"
-Pen="0.0mil 0"
-Page="12000.0mil 8000.0mil"
-Layers=" 20 32"
-Colors=" 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 6 6 4 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 1 1 1 1 3 3 1 2 6 8 8 5 8 8 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4 2 4 3 6 6 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0"
-
-[Sec_4]
-Name[de]="Lötstopmaske Lötseite"
-Name[en]="Solder paste top"
-Name[zh]="padmask top"
-Prompt=""
-Device="GERBER_RS274X"
-Wheel=".whl"
-Rack=""
-Scale=1
-Output="%N.GTP"
-Flags="0 0 0 1 0 1 1"
-Emulate="0"
-Offset="0.0mil 0.0mil"
-Sheet=1
-Tolerance="0 0 0 0 0 0"
-Pen="0.0mil 0"
-Page="12000.0mil 8000.0mil"
-Layers=" 20 31"
-Colors=" 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 6 6 4 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 1 1 1 1 3 3 1 2 6 8 8 5 8 8 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4 2 4 3 6 6 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0"
-
-[Sec_5]
-Name[de]="Lötstopmaske Lötseite"
-Name[en]="Solder Mask bottom"
-Name[zh]="solder mask bottom"
-Prompt=""
-Device="GERBER_RS274X"
-Wheel=".whl"
-Rack=""
-Scale=1
-Output="%N.GBS"
-Flags="0 0 0 1 0 1 1"
-Emulate="0"
-Offset="0.0mil 0.0mil"
-Sheet=1
-Tolerance="0 0 0 0 0 0"
-Pen="0.0mil 0"
-Page="12000.0mil 8000.0mil"
-Layers=" 20 30"
-Colors=" 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 6 6 4 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 1 1 1 1 3 3 1 2 6 8 8 5 8 8 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4 2 4 3 6 6 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0"
-
-[Sec_6]
-Name[de]="Lötstopmaske Lötseite"
-Name[en]="Solder Mask top"
-Name[zh]="solder mask top"
-Prompt=""
-Device="GERBER_RS274X"
-Wheel=".whl"
-Rack=""
-Scale=1
-Output="%N.GTS"
-Flags="0 0 0 1 0 1 1"
-Emulate="0"
-Offset="0.0mil 0.0mil"
-Sheet=1
-Tolerance="0 0 0 0 0 0"
-Pen="0.0mil 0"
-Page="12000.0mil 8000.0mil"
-Layers=" 20 29"
-Colors=" 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 6 6 4 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 1 1 1 1 3 3 1 2 6 8 8 5 8 8 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4 2 4 3 6 6 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0"
-
-[Sec_7]
-Name[de]="Lötstopmaske Lötseite"
-Name[en]="Silk bottom"
-Name[zh]="silk bottom"
-Prompt=""
-Device="GERBER_RS274X"
-Wheel=".whl"
-Rack=""
-Scale=1
-Output="%N.GBO"
-Flags="0 0 0 1 0 1 1"
-Emulate="0"
-Offset="0.0mil 0.0mil"
-Sheet=1
-Tolerance="0 0 0 0 0 0"
-Pen="0.0mil 0"
-Page="12000.0mil 8000.0mil"
-Layers=" 20 22 26"
-Colors=" 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 6 6 4 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 1 1 1 1 3 3 1 2 6 8 8 5 8 8 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4 2 4 3 6 6 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0"
-
-[Sec_8]
-Name[de]="Lötstopmaske Lötseite"
-Name[en]="Silk top"
-Name[zh]="silk top"
-Prompt=""
-Device="GERBER_RS274X"
-Wheel=".whl"
-Rack=""
-Scale=1
-Output="%N.GTO"
-Flags="0 0 0 1 0 1 1"
-Emulate="0"
-Offset="0.0mil 0.0mil"
-Sheet=1
-Tolerance="0 0 0 0 0 0"
-Pen="0.0mil 0"
-Page="12000.0mil 8000.0mil"
-Layers=" 20 21 25"
-Colors=" 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 6 6 4 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 1 1 1 1 3 3 1 2 6 8 8 5 8 8 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4 2 4 3 6 6 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0"
-
-[Sec_9]
-Name[de]="Lötstopmaske Lötseite"
-Name[en]="Bottom layer"
-Name[zh]="bottom copper"
-Prompt=""
-Device="GERBER_RS274X"
-Wheel=".whl"
-Rack=""
-Scale=1
-Output="%N.GBL"
-Flags="0 0 0 1 0 1 1"
-Emulate="0"
-Offset="0.0mil 0.0mil"
-Sheet=1
-Tolerance="0 0 0 0 0 0"
-Pen="0.0mil 0"
-Page="12000.0mil 8000.0mil"
-Layers=" 16 17 18 20"
-Colors=" 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 6 6 4 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 1 1 1 1 3 3 1 2 6 8 8 5 8 8 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4 2 4 3 6 6 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0"
-
-[Sec_10]
-Name[de]="Lötstopmaske Lötseite"
-Name[en]="Top Layer"
-Name[zh]="top copper"
-Prompt=""
-Device="GERBER_RS274X"
-Wheel=".whl"
-Rack=""
-Scale=1
-Output="%N.GTL"
-Flags="0 0 0 1 0 1 1"
-Emulate="0"
-Offset="0.0mil 0.0mil"
-Sheet=1
-Tolerance="0 0 0 0 0 0"
-Pen="0.0mil 0"
-Page="12000.0mil 8000.0mil"
-Layers=" 1 17 18 20"
-Colors=" 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 6 6 4 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 1 1 1 1 3 3 1 2 6 8 8 5 8 8 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4 2 4 3 6 6 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0"
+{
+    "author": {
+        "email": "carmen.zheng@seeed.cc",
+        "name": "Seeed Studio"
+    },
+    "description": {
+        "EN": "\n\n<b>NEW Seeed Eagle 8.6 CAM File for 2-Layer Boards</b><p>\n<b>This CAM file replaces the previous Seeed CAM file designed for versions of Eagle prior to version 8.6. In version 8.6, Gerber X2 format compatibilty was introduced which is not currently supported by Seeed Fusion. Other minor adjustments have also been made.<p>\n<b>This CAM file will generate ten manufacturing files including nine Gerber files in RS-274x format and one drill file in Excellon format. It has been configured for the Seeed Fusion PCB Service and may also be compatible with other manufacturers. A CAM file for 4 layer boards is also available:\nwww.seeedstudio.com/fusion_pcb.html</b><p>\n\n\nTop Copper: pcbname.GTL<br>\nTop Solder Mask: pcbname.GTS<br>\nTop Silkscreen: pcbname.GTO<br>\nTop Paste: pcbname.GTP<p>\n\nBottom Copper: pcbname.GBL<br>\nBottom Solder Mask: pcbname.GBS<br>\nBottom Silkscreen: pcbname.GBO<br>\nBottom Paste: pcbname.GBP<p>\n\nMechanical: pcbname.GML ---> uses the Board Shape object and also the Dimension (20) and Milling (46) layers so that any text in these layers will also be exported<p>\nDrill Layer: pcbname.TXT ---> includes both plated and non-plated holes in a single file<p>\n\n- Seeed Studio Fusion Service<p>\nLast updated 2018/02/26\n\n\n\n"
+    },
+    "output_type": "directory",
+    "outputs": [
+        {
+            "filename_prefix": "Gerber",
+            "format_specifier": {
+                "decimal": 4,
+                "integer": 3
+            },
+            "generate_job_file": true,
+            "output_type": "gerber",
+            "outputs": [
+                {
+                    "advanced_options": {
+                        "mirror": false,
+                        "offset_x": 0,
+                        "offset_y": 0,
+                        "rotate": false,
+                        "upside_down": false
+                    },
+                    "board_outline": true,
+                    "config": {
+                        "description": "Mechanical",
+                        "file_function": "Other"
+                    },
+                    "filename_format": "%N.GML",
+                    "layers": [
+                        46,
+                        20
+                    ],
+                    "milling": true,
+                    "name": "Mechanical",
+                    "polarity": "positive",
+                    "type": "gerber_layer"
+                },
+                {
+                    "advanced_options": {
+                        "mirror": false,
+                        "offset_x": 0,
+                        "offset_y": 0,
+                        "rotate": false,
+                        "upside_down": false
+                    },
+                    "board_outline": false,
+                    "config": {
+                        "description": "Bottom Paste",
+                        "file_function": "Other"
+                    },
+                    "filename_format": "%N.GBP",
+                    "layers": [
+                        32
+                    ],
+                    "milling": false,
+                    "name": "Bottom Paste",
+                    "polarity": "positive",
+                    "type": "gerber_layer"
+                },
+                {
+                    "advanced_options": {
+                        "mirror": false,
+                        "offset_x": 0,
+                        "offset_y": 0,
+                        "rotate": false,
+                        "upside_down": false
+                    },
+                    "board_outline": false,
+                    "config": {
+                        "description": "Top Paste",
+                        "file_function": "Other"
+                    },
+                    "filename_format": "%N.GTP",
+                    "layers": [
+                        31
+                    ],
+                    "milling": false,
+                    "name": "Top Paste",
+                    "polarity": "positive",
+                    "type": "gerber_layer"
+                },
+                {
+                    "advanced_options": {
+                        "mirror": false,
+                        "offset_x": 0,
+                        "offset_y": 0,
+                        "rotate": false,
+                        "upside_down": false
+                    },
+                    "board_outline": false,
+                    "config": {
+                        "description": "Bottom Solder Mask",
+                        "file_function": "Other"
+                    },
+                    "filename_format": "%N.GBS",
+                    "layers": [
+                        30
+                    ],
+                    "milling": false,
+                    "name": "Bottom Solder Mask",
+                    "polarity": "positive",
+                    "type": "gerber_layer"
+                },
+                {
+                    "advanced_options": {
+                        "mirror": false,
+                        "offset_x": 0,
+                        "offset_y": 0,
+                        "rotate": false,
+                        "upside_down": false
+                    },
+                    "board_outline": false,
+                    "config": {
+                        "description": "Top Solder Mask",
+                        "file_function": "Other"
+                    },
+                    "filename_format": "%N.GTS",
+                    "layers": [
+                        29
+                    ],
+                    "milling": false,
+                    "name": "Top Solder Mask",
+                    "polarity": "positive",
+                    "type": "gerber_layer"
+                },
+                {
+                    "advanced_options": {
+                        "mirror": false,
+                        "offset_x": 0,
+                        "offset_y": 0,
+                        "rotate": false,
+                        "upside_down": false
+                    },
+                    "board_outline": false,
+                    "config": {
+                        "description": "Bottom Silkscreen",
+                        "file_function": "Other"
+                    },
+                    "filename_format": "%N.GBO",
+                    "layers": [
+                        22,
+                        26
+                    ],
+                    "milling": false,
+                    "name": "Bottom Silkscreen",
+                    "polarity": "positive",
+                    "type": "gerber_layer"
+                },
+                {
+                    "advanced_options": {
+                        "mirror": false,
+                        "offset_x": 0,
+                        "offset_y": 0,
+                        "rotate": false,
+                        "upside_down": false
+                    },
+                    "board_outline": false,
+                    "config": {
+                        "description": "Top Silkscreen",
+                        "file_function": "Other"
+                    },
+                    "filename_format": "%N.GTO",
+                    "layers": [
+                        21,
+                        25
+                    ],
+                    "milling": false,
+                    "name": "Top Silkscreen",
+                    "polarity": "positive",
+                    "type": "gerber_layer"
+                },
+                {
+                    "advanced_options": {
+                        "mirror": false,
+                        "offset_x": 0,
+                        "offset_y": 0,
+                        "rotate": false,
+                        "upside_down": false
+                    },
+                    "board_outline": false,
+                    "config": {
+                        "description": "Bottom Copper",
+                        "file_function": "Other"
+                    },
+                    "filename_format": "%N.GBL",
+                    "layers": [
+                        16,
+                        17,
+                        18
+                    ],
+                    "milling": false,
+                    "name": "Bottom Copper",
+                    "polarity": "positive",
+                    "type": "gerber_layer"
+                },
+                {
+                    "advanced_options": {
+                        "mirror": false,
+                        "offset_x": 0,
+                        "offset_y": 0,
+                        "rotate": false,
+                        "upside_down": false
+                    },
+                    "board_outline": false,
+                    "config": {
+                        "description": "Top Copper",
+                        "file_function": "Other"
+                    },
+                    "filename_format": "%N.GTL",
+                    "layers": [
+                        1,
+                        17,
+                        18
+                    ],
+                    "milling": false,
+                    "name": "Top Copper",
+                    "polarity": "positive",
+                    "type": "gerber_layer"
+                }
+            ],
+            "version": "RS274X"
+        },
+        {
+            "format_specifier": {
+                "decimal": 3,
+                "integer": 3
+            },
+            "output_type": "drill",
+            "outputs": [
+                {
+                    "drills": {
+                        "NPTH": true,
+                        "PTH": true,
+                        "VIA": true
+                    },
+                    "filename_format": "%N.TXT",
+                    "layers": {
+                        "from": 1,
+                        "to": 16
+                    },
+                    "name": "Drill Layer",
+                    "type": "excellon"
+                }
+            ]
+        },
+        {
+            "filename_prefix": "CAMOutputs/Assembly",
+            "output_type": "assembly",
+            "outputs": [
+            ]
+        },
+        {
+            "filename_prefix": "CAMOutputs/DrawingFiles",
+            "output_type": "drawing",
+            "outputs": [
+            ]
+        }
+    ],
+    "timestamp": "2018-02-26T11:31:25",
+    "type": "EAGLE CAM job",
+    "units": "metric",
+    "version": "8.6.0"
+}

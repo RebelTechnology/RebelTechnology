@@ -13,10 +13,10 @@
    viewBox="0 0 210 297"
    id="svg1019"
    sodipodi:docname="MidiInterface.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    inkscape:export-filename="/home/mars/devel/RebelTechnology/Expander/drawings/MidiInterface.svg.png"
    inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+   inkscape:export-ydpi="90"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <metadata
      id="metadata1021">
     <rdf:RDF>
@@ -25,7 +25,6 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -34,9 +33,9 @@
      inkscape:document-units="mm"
      units="mm"
      showgrid="false"
-     inkscape:zoom="1.1893044"
-     inkscape:cx="22.188381"
-     inkscape:cy="903.84906"
+     inkscape:zoom="1.6819304"
+     inkscape:cx="82.029613"
+     inkscape:cy="908.92603"
      inkscape:window-width="1920"
      inkscape:window-height="1043"
      inkscape:window-x="0"
@@ -412,7 +411,7 @@
        style="stroke-width:0.26458332">TX</tspan></text>
   <g
      id="g146"
-     transform="matrix(0.35316586,0,0,0.35316586,-86.354126,-77.449767)"
+     transform="matrix(0.35316586,0,0,0.35316586,-85.734901,-77.119583)"
      style="stroke-width:0.93670917"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90">
@@ -424,7 +423,7 @@
   </g>
   <g
      id="g150"
-     transform="matrix(0.35316586,0,0,0.35316586,-86.354126,-77.449767)"
+     transform="matrix(0.35316586,0,0,0.35316586,-85.781342,-77.608033)"
      style="stroke-width:0.93670917"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90">
@@ -436,7 +435,7 @@
   </g>
   <g
      id="g154"
-     transform="matrix(0.35316586,0,0,0.35316586,-86.354126,-77.449767)"
+     transform="matrix(0.35316586,0,0,0.35316586,-85.799883,-77.214979)"
      style="stroke-width:0.93670917"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90">
@@ -448,7 +447,7 @@
   </g>
   <g
      id="g158"
-     transform="matrix(0.35316586,0,0,0.35316586,-86.354126,-77.449767)"
+     transform="matrix(0.35316586,0,0,0.35316586,-85.841204,-77.408711)"
      style="stroke-width:0.93670917"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90">
@@ -460,7 +459,7 @@
   </g>
   <g
      id="g162"
-     transform="matrix(0.35316586,0,0,0.35316586,-86.354126,-77.449767)"
+     transform="matrix(0.35316586,0,0,0.35316586,-85.774455,-77.220674)"
      style="stroke-width:0.93670917"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90">
@@ -472,7 +471,7 @@
   </g>
   <g
      id="g166"
-     transform="matrix(0.35316586,0,0,0.35316586,-86.354126,-77.449767)"
+     transform="matrix(0.35316586,0,0,0.35316586,-85.731546,-77.013559)"
      style="stroke-width:0.93670917"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90">
@@ -484,7 +483,7 @@
   </g>
   <g
      id="g170"
-     transform="matrix(0.35316586,0,0,0.35316586,-86.354126,-77.449767)"
+     transform="matrix(0.35316586,0,0,0.35316586,-85.835906,-77.179393)"
      style="stroke-width:0.93670917"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90">
@@ -496,7 +495,7 @@
   </g>
   <g
      id="g174"
-     transform="matrix(0.35316586,0,0,0.35316586,-86.354126,-77.449767)"
+     transform="matrix(0.35316586,0,0,0.35316586,-85.8073,-77.157338)"
      style="stroke-width:0.93670917"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90">

@@ -465,6 +465,25 @@ Nexperia 2N7002 marking 12*
 
 two fully working (old stock) have transistor markings SA (plus right-angle P), BSS123?
 
+
+Testing with Waveforms Impedance, Drain/Source connected
+
+2N7002P (marking LWW) presumed removed from non-working board
+Series Capacitance 3uF
+|Z| Impedance 13.69k
+Rs Series Resistance 13.69k
+Xs Series Reactance -52.2 Ohm
+Q Quality 0.0038
+Measured resistance: 21k @ 1kHz, 7k @ DC
+
+Brand new 2N7002P
+Series Capacitance 16uF
+|Z| Impedance 5.35k
+Rs Series Resistance 5.35k
+Xs Series Reactance -9.8 Ohm
+Q Quality 0.0018
+Measured resistance: 5.49k @ 1kHz, 3.6k @ DC
+
 -------------------------------------------------------
 
 Removing e.g. Q9 only does not fix the problem, removing Q10
@@ -473,5 +492,9 @@ BSS123 Gate Resistance Rg = 2.2 Ohm (VGS = 15 mV, f = 1.0 MHz)
 
 BSS123 Gate source leakage current Igss = 10-100nA nexperia (onsemi: +/-50nA)
 2N7002P max 100nA
+
+-------------------------------------------------------
+
+Removing e.g. Q8 stops LED lighting up erroneously. Current appears to be leaking through mosfet gate
 
 -------------------------------------------------------

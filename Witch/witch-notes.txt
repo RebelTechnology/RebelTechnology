@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 
-Hammond 1590BB
+Hammond 1590BB (black: 1590BBBK, not 1590BBK or 1590BBSBK!)
 technical drawing 1590BB.pdf
 
 lid 119.5mm x 94
@@ -78,3 +78,52 @@ jacks/switches: 600 vertical
 
 --------------------------------------------------------------------------------
 
+move:
+- everything 4mm south (or 3.81mm, 0.15")
+- move USB device 1mm right and make 1mm wider
+- move USB host 2mm right
+- enlarge pushbuttons .5mm radius
+
+--------------------------------------------------------------------------------
+
+patches with:
+sound source (drone, drums, lead)
+sound modulation (filters, waveshape, detune)
+sound triggers (play or mute note/sound/oscillator)
+CV generators (LFO, 1/v oct pitch/chord sequences, random)
+trigger generators (rhythmic, sequenced, clocked)
+
+-----------------------------------------------------------------------------------------------
+
+LED button: PB6146L
+Pushbutton: TL1105SPF100Q
+Cap: 1RWHT
+
+Use PB6146L-12 bi-colour red/yellow LED pushbuttons ?
+http://www.ledswitches.co.uk/media/pdf/PB614-2016.pdf?PB614M
+
+-----------------------------------------------------------------------------------------------
+
+Crazy 3Vpp sharp square on IN_L and AIN_A with 6024, swapped to MCP6004 no noise.
+
+1V signal
+Around +3dB to +4dB from 20Hz to 10k, dropping to -1.5dB at 20k
+THD+N <= -48dB up to 7kHz
+THD <= -56dB up to 7kHz
+THD+N at 1kHz: -52dB, 0.256%
+THD at 1kHz: -62dB, 0.081%
+
+RMS AC 3mV, 22mVpp
+USB power, with/without isolator
+gain patch with fixed/maxed gain
+
+Lich -0.8dB to -3dB from 20Hz to 10k, -8dB at 20kHz
+1V signal
+THD+N -53dB at 1kHz
+THD -76dB at 1kHz
+
+5V signal
+THD+N -55dB, 0.174% at 1kHz
+THD -67dB, 0.043% at 1kHz
+
+-----------------------------------------------------------------------------------------------

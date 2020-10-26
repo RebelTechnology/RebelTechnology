@@ -245,7 +245,7 @@ SPDG-P94-YCS001A-Z common anode RGB STM 17.4mm Ice 13mm height
 https://www.shanpu.com.tw/upload_files/size/8/115%20Smart%20cap_shanpu_Broadcasting%20System_tactile%20switch_illuminated_navigation.pdf
 http://old.rjselectronics.com/media/pdf/SPD-2016.pdf
 
-100x 15mm SPDG RGB common anode ordered from RJS 2 Oct 2019
+100x 15mm SPDG RGB common anode ordered from RJS 2 Oct 2019 (really? 2018?)
 
 --------------------------------------------------------------------------------
 
