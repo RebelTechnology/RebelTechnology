@@ -19906,13 +19906,8 @@ high speed (Philips)</description>
 </net>
 <net name="TOP_INL" class="0">
 <segment>
-<wire x1="55.88" y1="215.9" x2="45.72" y2="215.9" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="215.9" x2="43.18" y2="215.9" width="0.1524" layer="91"/>
 <pinref part="INL" gate="G$1" pin="3"/>
-<pinref part="INR" gate="G$1" pin="4"/>
-<wire x1="45.72" y1="215.9" x2="43.18" y2="215.9" width="0.1524" layer="91"/>
-<wire x1="43.18" y1="190.5" x2="45.72" y2="190.5" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="190.5" x2="45.72" y2="215.9" width="0.1524" layer="91"/>
-<junction x="45.72" y="215.9"/>
 <label x="55.88" y="215.9" size="1.778" layer="95"/>
 </segment>
 <segment>
@@ -20294,7 +20289,11 @@ high speed (Philips)</description>
 <pinref part="INR" gate="G$1" pin="5"/>
 <wire x1="43.18" y1="193.04" x2="48.26" y2="193.04" width="0.1524" layer="91"/>
 <pinref part="GND35" gate="1" pin="GND"/>
-<wire x1="48.26" y1="182.88" x2="48.26" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="182.88" x2="48.26" y2="190.5" width="0.1524" layer="91"/>
+<pinref part="INR" gate="G$1" pin="4"/>
+<wire x1="48.26" y1="190.5" x2="48.26" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="190.5" x2="48.26" y2="190.5" width="0.1524" layer="91"/>
+<junction x="48.26" y="190.5"/>
 </segment>
 <segment>
 <pinref part="GND38" gate="1" pin="GND"/>

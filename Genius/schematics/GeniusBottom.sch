@@ -16627,18 +16627,18 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <part name="Q701" library="transistor" deviceset="BC846" device=""/>
 <part name="R701" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="1k"/>
 <part name="R703" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="100R"/>
-<part name="R704" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="1k"/>
+<part name="R704" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="10k"/>
 <part name="GND83" library="supply1" deviceset="GND" device=""/>
 <part name="GND113" library="supply1" deviceset="GND" device=""/>
-<part name="R702" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="1k"/>
+<part name="R702" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="2k"/>
 <part name="P+17" library="supply1" deviceset="+12V" device=""/>
 <part name="Q903" library="transistor" deviceset="BC846" device=""/>
 <part name="R13" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="1k"/>
 <part name="R903" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="100R"/>
-<part name="R904" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="1k"/>
+<part name="R904" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="10k"/>
 <part name="GND114" library="supply1" deviceset="GND" device=""/>
 <part name="GND116" library="supply1" deviceset="GND" device=""/>
-<part name="R902" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="1k"/>
+<part name="R902" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="2k"/>
 <part name="P+18" library="supply1" deviceset="+12V" device=""/>
 <part name="R14" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="100k"/>
 <part name="R803" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="10k"/>
