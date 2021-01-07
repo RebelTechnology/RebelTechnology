@@ -390,7 +390,7 @@ bottom interval drops a semitone
 
 -------------------------------------------------------
 
-tuning:
+tune / tuning:
 +16	1.333V
 +8	0.666V
 +4	0.333V
