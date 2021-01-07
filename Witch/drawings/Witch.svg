@@ -442,11 +442,11 @@
     </filter>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath13954">
+       id="clipPath8296">
       <path
-         id="path13956"
-         d="m 16.904337,101.46361 h 73.865892 c 1.868571,0 3.372872,1.50368 3.372872,3.37148 v 56.64095 c 0,1.86781 -1.504301,3.37148 -3.372872,3.37148 H 16.904337 c -1.868571,0 -3.372871,-1.50367 -3.372871,-3.37148 v -56.64095 c 0,-1.8678 1.5043,-3.37148 3.372871,-3.37148 z"
-         style="display:inline;fill:none;stroke:#ff0000;stroke-width:0.17716536"
+         id="path8298"
+         d="m 16.904338,102.13791 h 73.865893 c 1.86857,0 3.37287,1.50368 3.37287,3.37148 v 56.64095 c 0,1.8678 -1.5043,3.37147 -3.37287,3.37147 H 16.904338 c -1.868572,0 -3.372872,-1.50367 -3.372872,-3.37147 v -56.64095 c 0,-1.8678 1.5043,-3.37148 3.372872,-3.37148 z"
+         style="display:inline;fill:none;stroke:#ff0000;stroke-width:0.17716533"
          inkscape:connector-curvature="0" />
     </clipPath>
   </defs>
@@ -465,10 +465,10 @@
      inkscape:window-width="1920"
      units="mm"
      showgrid="false"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer4"
      inkscape:document-units="mm"
      inkscape:cy="206.04398"
-     inkscape:cx="375.02951"
+     inkscape:cx="252.18635"
      inkscape:zoom="1.6769351"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -497,7 +497,7 @@
        id="g4861"
        transform="matrix(5.2526561,0,0,5.2548168,89.364808,172.5301)"
        style="font-style:normal;font-weight:normal;font-size:11.25px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;fill:#333333;fill-opacity:1;stroke:#000000;stroke-width:0.12238909;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter5645)"
-       clip-path="url(#clipPath13954)">
+       clip-path="url(#clipPath8296)">
       <path
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#000000;stroke-width:0.12238909;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -699,6 +699,11 @@
          d="M 31.437828,170.13987 14.806878,153.31993"
          style="fill:none;stroke:#000000;stroke-width:0.12238909;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
+    <path
+       inkscape:connector-curvature="0"
+       style="display:inline;fill:none;stroke:#ff0000;stroke-width:0.17716533"
+       d="m 178.15748,709.24611 h 387.99213 c 9.81496,0 17.71653,7.90157 17.71653,17.71651 v 297.63778 c 0,9.815 -7.90157,17.7165 -17.71653,17.7165 H 178.15748 c -9.81496,0 -17.71653,-7.9015 -17.71653,-17.7165 V 726.96262 c 0,-9.81494 7.90157,-17.71651 17.71653,-17.71651 z"
+       id="path13956" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -920,32 +925,27 @@
          id="circle1855"
          style="fill:none;stroke:#ff0000"
          r="1.6"
-         cy="18.440001"
+         cy="19.440008"
          cx="11.1" />
       <circle
          id="circle1857"
          style="fill:none;stroke:#ff0000"
          r="1.6"
-         cy="18.440001"
+         cy="19.440008"
          cx="120.6" />
       <circle
          id="circle1859"
          style="fill:none;stroke:#ff0000"
          r="1.6"
-         cy="102.44"
+         cy="103.44001"
          cx="120.6" />
       <circle
          id="circle1861"
          style="fill:none;stroke:#ff0000"
          r="1.6"
-         cy="102.44"
+         cy="103.44001"
          cx="11.1" />
     </g>
-    <path
-       style="display:inline;fill:none;stroke:#ff0000;stroke-width:0.05"
-       d="m 11.1,13.44 h 109.5 c 2.77,0 5,2.23 5,5 v 84 c 0,2.77 -2.23,5 -5,5 H 11.1 c -2.7700001,0 -5.0000001,-2.23 -5.0000001,-5 v -84 c 0,-2.77 2.23,-5 5.0000001,-5 z"
-       id="rect4556"
-       transform="matrix(3.5433071,0,0,3.5433071,138.82677,658.08071)" />
     <g
        style="display:inline"
        id="g16351"
