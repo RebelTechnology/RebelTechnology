@@ -11395,7 +11395,7 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <segment>
 <pinref part="IC1" gate="G$1" pin="PA13"/>
 <wire x1="193.04" y1="-45.72" x2="213.36" y2="-45.72" width="0.1524" layer="91"/>
-<label x="203.2" y="-45.72" size="1.778" layer="95"/>
+<label x="200.66" y="-45.72" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="-15.24" y1="-132.08" x2="-33.02" y2="-132.08" width="0.1524" layer="91"/>
@@ -11467,6 +11467,11 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <wire x1="264.16" y1="-134.62" x2="248.92" y2="-134.62" width="0.1524" layer="91"/>
 <label x="248.92" y="-134.62" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="PB13"/>
+<wire x1="193.04" y1="-76.2" x2="213.36" y2="-76.2" width="0.1524" layer="91"/>
+<label x="200.66" y="-76.2" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="USBD_ID" class="0">
 <segment>
@@ -11478,6 +11483,11 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <pinref part="JP1" gate="G$1" pin="6"/>
 <wire x1="264.16" y1="-142.24" x2="248.92" y2="-142.24" width="0.1524" layer="91"/>
 <label x="248.92" y="-142.24" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="PB12"/>
+<wire x1="193.04" y1="-78.74" x2="213.36" y2="-78.74" width="0.1524" layer="91"/>
+<label x="200.66" y="-78.74" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PORT0" class="0">
@@ -11923,6 +11933,11 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <label x="12.7" y="-180.34" size="1.778" layer="95"/>
 <pinref part="X1" gate="USB" pin="D-"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="PB14"/>
+<wire x1="193.04" y1="-73.66" x2="213.36" y2="-73.66" width="0.1524" layer="91"/>
+<label x="200.66" y="-73.66" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="USBD_DP" class="0">
 <segment>
@@ -11935,12 +11950,22 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <label x="12.7" y="-182.88" size="1.778" layer="95"/>
 <pinref part="X1" gate="USB" pin="D+"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="PB15"/>
+<wire x1="193.04" y1="-71.12" x2="213.36" y2="-71.12" width="0.1524" layer="91"/>
+<label x="200.66" y="-71.12" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="USBH_VBUS" class="0">
 <segment>
 <pinref part="JP1" gate="G$1" pin="5"/>
 <wire x1="264.16" y1="-144.78" x2="248.92" y2="-144.78" width="0.1524" layer="91"/>
 <label x="248.92" y="-144.78" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="PA9"/>
+<wire x1="193.04" y1="-55.88" x2="213.36" y2="-55.88" width="0.1524" layer="91"/>
+<label x="200.66" y="-55.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="USBH_DM" class="0">
@@ -11949,6 +11974,11 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <wire x1="264.16" y1="-147.32" x2="248.92" y2="-147.32" width="0.1524" layer="91"/>
 <label x="248.92" y="-147.32" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="PA11"/>
+<wire x1="193.04" y1="-50.8" x2="213.36" y2="-50.8" width="0.1524" layer="91"/>
+<label x="200.66" y="-50.8" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="USBH_DP" class="0">
 <segment>
@@ -11956,12 +11986,22 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <wire x1="264.16" y1="-149.86" x2="248.92" y2="-149.86" width="0.1524" layer="91"/>
 <label x="248.92" y="-149.86" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="PA12"/>
+<wire x1="193.04" y1="-48.26" x2="213.36" y2="-48.26" width="0.1524" layer="91"/>
+<label x="200.66" y="-48.26" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="USBH_ID" class="0">
 <segment>
 <pinref part="JP1" gate="G$1" pin="2"/>
 <wire x1="264.16" y1="-152.4" x2="248.92" y2="-152.4" width="0.1524" layer="91"/>
 <label x="248.92" y="-152.4" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="PA10"/>
+<wire x1="193.04" y1="-53.34" x2="213.36" y2="-53.34" width="0.1524" layer="91"/>
+<label x="200.66" y="-53.34" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$8" class="0">
