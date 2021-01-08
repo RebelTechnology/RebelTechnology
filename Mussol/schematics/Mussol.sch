@@ -11772,11 +11772,16 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <pinref part="JP7" gate="G$1" pin="8"/>
 </segment>
 </net>
-<net name="MAX_DIN" class="0">
+<net name="MAX_MOSI" class="0">
 <segment>
 <wire x1="-73.66" y1="-50.8" x2="-55.88" y2="-50.8" width="0.1524" layer="91"/>
 <label x="-68.58" y="-50.8" size="1.778" layer="95"/>
 <pinref part="U1" gate="-SERIAL" pin="DIN"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="PC1"/>
+<wire x1="139.7" y1="-60.96" x2="71.12" y2="-60.96" width="0.1524" layer="91"/>
+<label x="71.12" y="-60.96" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MAX_SCLK" class="0">
@@ -11785,6 +11790,11 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <label x="-68.58" y="-53.34" size="1.778" layer="95"/>
 <pinref part="U1" gate="-SERIAL" pin="SCLK"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="PB10"/>
+<wire x1="177.8" y1="-96.52" x2="177.8" y2="-114.3" width="0.1524" layer="91"/>
+<label x="177.8" y="-114.3" size="1.778" layer="95" rot="R90"/>
+</segment>
 </net>
 <net name="MAX_CS" class="0">
 <segment>
@@ -11792,12 +11802,22 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <label x="-68.58" y="-55.88" size="1.778" layer="95"/>
 <pinref part="U1" gate="-SERIAL" pin="!CS!"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="PC0"/>
+<wire x1="139.7" y1="-58.42" x2="71.12" y2="-58.42" width="0.1524" layer="91"/>
+<label x="71.12" y="-58.42" size="1.778" layer="95"/>
+</segment>
 </net>
-<net name="MAX_DOUT" class="0">
+<net name="MAX_MISO" class="0">
 <segment>
 <wire x1="-73.66" y1="-58.42" x2="-55.88" y2="-58.42" width="0.1524" layer="91"/>
 <label x="-68.58" y="-58.42" size="1.778" layer="95"/>
 <pinref part="U1" gate="-SERIAL" pin="DOUT"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="PC2"/>
+<wire x1="139.7" y1="-63.5" x2="71.12" y2="-63.5" width="0.1524" layer="91"/>
+<label x="71.12" y="-63.5" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$1" class="0">
