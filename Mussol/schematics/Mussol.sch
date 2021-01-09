@@ -10827,7 +10827,7 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="JP3" library="SparkFun" deviceset="M05" device="PTH"/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
-<part name="X3" library="borkedlabs-connectors" deviceset="ARM_10" device="SMD" value="FTS-105-01-F-DV"/>
+<part name="X2" library="borkedlabs-connectors" deviceset="ARM_10" device="SMD" value="FTS-105-01-F-DV"/>
 <part name="+3V29" library="supply1" deviceset="+3V3" device=""/>
 <part name="C19" library="Rebel" deviceset="C-EU" device="C0402" value="100n"/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
@@ -11074,7 +11074,7 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <instance part="GND31" gate="1" x="-45.72" y="-106.68" smashed="yes">
 <attribute name="VALUE" x="-48.26" y="-109.22" size="1.778" layer="96"/>
 </instance>
-<instance part="X3" gate="G$1" x="-25.4" y="-96.52" smashed="yes">
+<instance part="X2" gate="G$1" x="-25.4" y="-96.52" smashed="yes">
 <attribute name="NAME" x="-38.1" y="-88.9" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-38.1" y="-106.68" size="1.778" layer="96"/>
 </instance>
@@ -11253,17 +11253,17 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <segment>
 <pinref part="GND31" gate="1" pin="GND"/>
 <wire x1="-45.72" y1="-104.14" x2="-45.72" y2="-101.6" width="0.1524" layer="91"/>
-<pinref part="X3" gate="G$1" pin="GND@9"/>
+<pinref part="X2" gate="G$1" pin="GND@9"/>
 <wire x1="-45.72" y1="-101.6" x2="-43.18" y2="-101.6" width="0.1524" layer="91"/>
-<pinref part="X3" gate="G$1" pin="GND@7"/>
+<pinref part="X2" gate="G$1" pin="GND@7"/>
 <wire x1="-43.18" y1="-99.06" x2="-45.72" y2="-99.06" width="0.1524" layer="91"/>
 <wire x1="-45.72" y1="-99.06" x2="-45.72" y2="-101.6" width="0.1524" layer="91"/>
 <junction x="-45.72" y="-101.6"/>
-<pinref part="X3" gate="G$1" pin="GND@5"/>
+<pinref part="X2" gate="G$1" pin="GND@5"/>
 <wire x1="-43.18" y1="-96.52" x2="-45.72" y2="-96.52" width="0.1524" layer="91"/>
 <wire x1="-45.72" y1="-96.52" x2="-45.72" y2="-99.06" width="0.1524" layer="91"/>
 <junction x="-45.72" y="-99.06"/>
-<pinref part="X3" gate="G$1" pin="GND@3"/>
+<pinref part="X2" gate="G$1" pin="GND@3"/>
 <wire x1="-43.18" y1="-93.98" x2="-45.72" y2="-93.98" width="0.1524" layer="91"/>
 <wire x1="-45.72" y1="-93.98" x2="-45.72" y2="-96.52" width="0.1524" layer="91"/>
 <junction x="-45.72" y="-96.52"/>
@@ -11360,7 +11360,7 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <pinref part="+3V7" gate="G$1" pin="+3V3"/>
 </segment>
 <segment>
-<pinref part="X3" gate="G$1" pin="VCC"/>
+<pinref part="X2" gate="G$1" pin="VCC"/>
 <pinref part="+3V29" gate="G$1" pin="+3V3"/>
 <wire x1="-43.18" y1="-91.44" x2="-45.72" y2="-91.44" width="0.1524" layer="91"/>
 <wire x1="-45.72" y1="-91.44" x2="-45.72" y2="-86.36" width="0.1524" layer="91"/>
@@ -11404,7 +11404,7 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <segment>
 <wire x1="10.16" y1="-91.44" x2="-7.62" y2="-91.44" width="0.1524" layer="91"/>
 <label x="-5.08" y="-91.44" size="1.778" layer="95"/>
-<pinref part="X3" gate="G$1" pin="SWDIO/TMS"/>
+<pinref part="X2" gate="G$1" pin="SWDIO/TMS"/>
 </segment>
 </net>
 <net name="SWCLK" class="0">
@@ -11416,7 +11416,7 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <segment>
 <wire x1="-7.62" y1="-93.98" x2="10.16" y2="-93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="-93.98" size="1.778" layer="95"/>
-<pinref part="X3" gate="G$1" pin="SWDCLK/TCK"/>
+<pinref part="X2" gate="G$1" pin="SWDCLK/TCK"/>
 </segment>
 </net>
 <net name="NRST" class="0">
@@ -11430,7 +11430,7 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <segment>
 <wire x1="-7.62" y1="-101.6" x2="10.16" y2="-101.6" width="0.1524" layer="91"/>
 <label x="-5.08" y="-101.6" size="1.778" layer="95"/>
-<pinref part="X3" gate="G$1" pin="NRESET"/>
+<pinref part="X2" gate="G$1" pin="NRESET"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -11928,7 +11928,7 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 </net>
 <net name="SWO" class="0">
 <segment>
-<pinref part="X3" gate="G$1" pin="SWO/TDO"/>
+<pinref part="X2" gate="G$1" pin="SWO/TDO"/>
 <wire x1="-7.62" y1="-96.52" x2="10.16" y2="-96.52" width="0.1524" layer="91"/>
 <label x="-5.08" y="-96.52" size="1.778" layer="95"/>
 </segment>
@@ -12034,7 +12034,7 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <label x="157.48" y="-12.7" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="X3" gate="G$1" pin="NC/TDI"/>
+<pinref part="X2" gate="G$1" pin="NC/TDI"/>
 <wire x1="-7.62" y1="-99.06" x2="10.16" y2="-99.06" width="0.1524" layer="91"/>
 <label x="-5.08" y="-99.06" size="1.778" layer="95"/>
 </segment>
