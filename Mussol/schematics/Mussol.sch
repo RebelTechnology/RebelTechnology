@@ -12082,9 +12082,9 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <label x="83.82" y="-78.74" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="JP7" gate="G$1" pin="10"/>
-<wire x1="289.56" y1="-53.34" x2="302.26" y2="-53.34" width="0.1524" layer="91"/>
-<label x="292.1" y="-53.34" size="1.778" layer="95"/>
+<pinref part="JP4" gate="G$1" pin="1"/>
+<wire x1="289.56" y1="-40.64" x2="302.26" y2="-40.64" width="0.1524" layer="91"/>
+<label x="297.18" y="-40.64" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PA1" class="0">
@@ -12094,9 +12094,9 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <label x="83.82" y="-76.2" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="JP7" gate="G$1" pin="9"/>
-<wire x1="289.56" y1="-55.88" x2="302.26" y2="-55.88" width="0.1524" layer="91"/>
-<label x="292.1" y="-55.88" size="1.778" layer="95"/>
+<pinref part="JP7" gate="G$1" pin="10"/>
+<wire x1="289.56" y1="-53.34" x2="302.26" y2="-53.34" width="0.1524" layer="91"/>
+<label x="292.1" y="-53.34" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PA3" class="0">
@@ -12106,9 +12106,9 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <label x="147.32" y="-114.3" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="JP4" gate="G$1" pin="1"/>
-<wire x1="289.56" y1="-40.64" x2="302.26" y2="-40.64" width="0.1524" layer="91"/>
-<label x="297.18" y="-40.64" size="1.778" layer="95"/>
+<pinref part="JP4" gate="G$1" pin="2"/>
+<wire x1="289.56" y1="-38.1" x2="302.26" y2="-38.1" width="0.1524" layer="91"/>
+<label x="297.18" y="-38.1" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PA4" class="0">
@@ -12116,11 +12116,6 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <pinref part="IC1" gate="G$1" pin="PA4"/>
 <wire x1="154.94" y1="-96.52" x2="154.94" y2="-114.3" width="0.1524" layer="91"/>
 <label x="154.94" y="-114.3" size="1.778" layer="95" rot="R90"/>
-</segment>
-<segment>
-<pinref part="JP4" gate="G$1" pin="2"/>
-<wire x1="289.56" y1="-38.1" x2="302.26" y2="-38.1" width="0.1524" layer="91"/>
-<label x="297.18" y="-38.1" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PB6" class="0">
@@ -12202,6 +12197,11 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <pinref part="IC1" gate="G$1" pin="PA0"/>
 <wire x1="139.7" y1="-73.66" x2="83.82" y2="-73.66" width="0.1524" layer="91"/>
 <label x="83.82" y="-73.66" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP7" gate="G$1" pin="9"/>
+<wire x1="289.56" y1="-55.88" x2="302.26" y2="-55.88" width="0.1524" layer="91"/>
+<label x="292.1" y="-55.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PC4" class="0">
