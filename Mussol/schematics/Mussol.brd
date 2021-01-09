@@ -3335,14 +3335,21 @@ design rules under a new name.
 </signal>
 <signal name="PC4">
 <contactref element="IC1" pad="24"/>
+</signal>
+<signal name="PB1">
+<contactref element="IC1" pad="27"/>
+</signal>
+<signal name="PB0">
+<contactref element="IC1" pad="26"/>
 <contactref element="JP4" pad="6"/>
-<wire x1="20.978" y1="31.5" x2="19.935" y2="31.5" width="0.254" layer="1"/>
-<wire x1="19.935" y1="31.5" x2="19.812" y2="31.623" width="0.254" layer="1"/>
-<via x="19.812" y="31.623" extent="1-16" drill="0.3048" diameter="0.55"/>
-<wire x1="19.812" y1="31.623" x2="20.8915" y2="32.7025" width="0.254" layer="15"/>
+<via x="19.812" y="32.512" extent="1-16" drill="0.3048" diameter="0.55"/>
+<wire x1="19.812" y1="32.512" x2="19.812" y2="32.893" width="0.254" layer="15"/>
+<wire x1="20.8915" y1="33.9725" x2="19.812" y2="32.893" width="0.254" layer="15"/>
 <wire x1="22.86" y1="38.7985" x2="20.8915" y2="36.83" width="0.254" layer="15"/>
 <wire x1="22.86" y1="38.7985" x2="22.86" y2="39.37" width="0.254" layer="15"/>
-<wire x1="20.8915" y1="32.7025" x2="20.8915" y2="36.83" width="0.254" layer="15"/>
+<wire x1="20.8915" y1="33.9725" x2="20.8915" y2="36.83" width="0.254" layer="15"/>
+<wire x1="20.978" y1="32.5" x2="19.824" y2="32.5" width="0.254" layer="1"/>
+<wire x1="19.824" y1="32.5" x2="19.812" y2="32.512" width="0.254" layer="1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

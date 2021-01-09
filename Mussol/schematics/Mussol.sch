@@ -12210,6 +12210,20 @@ Source: &lt;a href="http://docs-emea.rs-online.com/webdocs/14d7/0900766b814d7c59
 <wire x1="165.1" y1="-96.52" x2="165.1" y2="-114.3" width="0.1524" layer="91"/>
 <label x="165.1" y="-114.3" size="1.778" layer="95" rot="R90"/>
 </segment>
+</net>
+<net name="PB1" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="PB1"/>
+<wire x1="172.72" y1="-96.52" x2="172.72" y2="-114.3" width="0.1524" layer="91"/>
+<label x="172.72" y="-114.3" size="1.778" layer="95" rot="R90"/>
+</segment>
+</net>
+<net name="PB0" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="PB0"/>
+<wire x1="170.18" y1="-96.52" x2="170.18" y2="-114.3" width="0.1524" layer="91"/>
+<label x="170.18" y="-114.3" size="1.778" layer="95" rot="R90"/>
+</segment>
 <segment>
 <pinref part="JP4" gate="G$1" pin="6"/>
 <wire x1="289.56" y1="-27.94" x2="302.26" y2="-27.94" width="0.1524" layer="91"/>
