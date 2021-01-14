@@ -365,24 +365,24 @@ We've spent an enormous amount of time creating and checking these footprints an
 </package>
 <package name="USB-B-PTH-VERTICAL">
 <description>&lt;b&gt;USB Series B Hole Mounted&lt;/b&gt;</description>
-<wire x1="0" y1="0" x2="11.938" y2="0" width="0.254" layer="21"/>
-<wire x1="11.938" y1="0" x2="11.938" y2="11.303" width="0.254" layer="21"/>
-<wire x1="11.938" y1="11.303" x2="0" y2="11.303" width="0.254" layer="21"/>
-<wire x1="0" y1="11.303" x2="0" y2="0" width="0.254" layer="21"/>
-<wire x1="1.27" y1="1.27" x2="10.795" y2="1.27" width="0.254" layer="51"/>
-<wire x1="10.795" y1="1.27" x2="10.795" y2="8.255" width="0.254" layer="51"/>
-<wire x1="10.795" y1="8.255" x2="8.89" y2="10.16" width="0.254" layer="51"/>
-<wire x1="8.89" y1="10.16" x2="3.175" y2="10.16" width="0.254" layer="51"/>
-<wire x1="3.175" y1="10.16" x2="1.27" y2="8.255" width="0.254" layer="51"/>
-<wire x1="1.27" y1="8.255" x2="1.27" y2="1.27" width="0.254" layer="51"/>
-<pad name="GND" x="7.3152" y="4.3942" drill="0.9144" diameter="1.6764" rot="R90"/>
-<pad name="VBUS" x="7.3152" y="7.5946" drill="0.9144" diameter="1.6764" rot="R90"/>
-<pad name="D-" x="4.826" y="7.5946" drill="0.9144" diameter="1.6764" rot="R270"/>
-<pad name="D+" x="4.826" y="4.3942" drill="0.9144" diameter="1.6764" rot="R270"/>
-<pad name="P$1" x="0" y="4.9022" drill="2.286"/>
-<pad name="P$2" x="12.0396" y="4.9022" drill="2.286"/>
-<text x="8.89" y="-1.27" size="0.8128" layer="25">&gt;NAME</text>
-<text x="0" y="-1.27" size="0.8128" layer="27">&gt;VALUE</text>
+<wire x1="-5.969" y1="-5.6515" x2="5.969" y2="-5.6515" width="0.254" layer="21"/>
+<wire x1="5.969" y1="-5.6515" x2="5.969" y2="5.6515" width="0.254" layer="21"/>
+<wire x1="5.969" y1="5.6515" x2="-5.969" y2="5.6515" width="0.254" layer="21"/>
+<wire x1="-5.969" y1="5.6515" x2="-5.969" y2="-5.6515" width="0.254" layer="21"/>
+<wire x1="-4.699" y1="-4.3815" x2="4.826" y2="-4.3815" width="0.254" layer="51"/>
+<wire x1="4.826" y1="-4.3815" x2="4.826" y2="2.6035" width="0.254" layer="51"/>
+<wire x1="4.826" y1="2.6035" x2="2.921" y2="4.5085" width="0.254" layer="51"/>
+<wire x1="2.921" y1="4.5085" x2="-2.794" y2="4.5085" width="0.254" layer="51"/>
+<wire x1="-2.794" y1="4.5085" x2="-4.699" y2="2.6035" width="0.254" layer="51"/>
+<wire x1="-4.699" y1="2.6035" x2="-4.699" y2="-4.3815" width="0.254" layer="51"/>
+<pad name="GND" x="1.3462" y="-1.2573" drill="0.9144" diameter="1.6764" rot="R90"/>
+<pad name="VBUS" x="1.3462" y="1.9431" drill="0.9144" diameter="1.6764" rot="R90"/>
+<pad name="D-" x="-1.143" y="1.9431" drill="0.9144" diameter="1.6764" rot="R270"/>
+<pad name="D+" x="-1.143" y="-1.2573" drill="0.9144" diameter="1.6764" rot="R270"/>
+<pad name="P$1" x="-5.969" y="-0.7493" drill="2.286"/>
+<pad name="P$2" x="6.0706" y="-0.7493" drill="2.286"/>
+<text x="2.921" y="-6.9215" size="0.8128" layer="25">&gt;NAME</text>
+<text x="-5.969" y="-6.9215" size="0.8128" layer="27">&gt;VALUE</text>
 </package>
 <package name="1X09">
 <wire x1="14.605" y1="1.27" x2="15.875" y2="1.27" width="0.2032" layer="21"/>
@@ -1184,9 +1184,9 @@ design rules under a new name.</description>
 <attribute name="NAME" x="27.941" y="9.217" size="1.016" layer="26" font="vector" rot="MR180"/>
 <attribute name="VALUE" x="23.6" y="11.58" size="1.27" layer="28" rot="MR180"/>
 </element>
-<element name="X2" library="SparkFun" package="USB-B-PTH-VERTICAL" value="USBPTH-VERTICAL" x="18.85" y="10.56" smashed="yes">
-<attribute name="NAME" x="23.89" y="22.19" size="1.016" layer="25" font="vector"/>
-<attribute name="VALUE" x="18.85" y="9.29" size="0.8128" layer="27"/>
+<element name="X2" library="SparkFun" package="USB-B-PTH-VERTICAL" value="USBPTH-VERTICAL" x="25" y="16.148" smashed="yes">
+<attribute name="NAME" x="30.04" y="27.778" size="1.016" layer="25" font="vector"/>
+<attribute name="VALUE" x="25" y="14.878" size="0.8128" layer="27"/>
 </element>
 <element name="MIDI_OUT" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="THONKICONN_STEREO" package3d_urn="urn:adsk.eagle:package:15809357/2" value="THONKICONN_STEREO" x="31.35" y="28.645" smashed="yes">
 <attribute name="NAME" x="31.35" y="31.185" size="1.27" layer="104" font="vector" align="bottom-center"/>
@@ -1583,15 +1583,15 @@ design rules under a new name.</description>
 <contactref element="X2" pad="VBUS"/>
 <wire x1="2.9" y1="97.539996875" x2="3.027" y2="97.539996875" width="0.254" layer="1"/>
 <wire x1="6.355" y1="94.211996875" x2="3.027" y2="97.539996875" width="0.254" layer="1"/>
-<wire x1="26.1652" y1="18.1546" x2="26.1652" y2="30.6308" width="0.254" layer="1"/>
 <wire x1="15.648" y1="64.643" x2="18.188" y2="62.103" width="0.254" layer="1"/>
 <wire x1="15.648" y1="75.311" x2="15.648" y2="64.643" width="0.254" layer="1"/>
 <wire x1="18.188" y1="45.974" x2="17.426" y2="45.212" width="0.254" layer="1"/>
-<wire x1="17.426" y1="45.212" x2="17.426" y2="39.37" width="0.254" layer="1"/>
 <wire x1="18.188" y1="62.103" x2="18.188" y2="45.974" width="0.254" layer="1"/>
-<wire x1="26.1652" y1="30.6308" x2="17.426" y2="39.37" width="0.254" layer="1"/>
 <wire x1="6.355" y1="94.211996875" x2="6.355" y2="84.604" width="0.254" layer="1"/>
 <wire x1="6.355" y1="84.604" x2="15.648" y2="75.311" width="0.254" layer="1"/>
+<wire x1="26.3462" y1="30.1688" x2="26.3462" y2="18.0911" width="0.254" layer="1"/>
+<wire x1="17.426" y1="45.212" x2="17.426" y2="39.089" width="0.254" layer="1"/>
+<wire x1="17.426" y1="39.089" x2="26.3462" y2="30.1688" width="0.254" layer="1"/>
 </signal>
 <signal name="USBD_DM">
 <contactref element="JP2" pad="2"/>
@@ -1599,8 +1599,8 @@ design rules under a new name.</description>
 <wire x1="2.9" y1="94.999996875" x2="5.339" y2="92.560996875" width="0.254" layer="1"/>
 <wire x1="17.299" y1="61.595" x2="14.759" y2="64.135" width="0.254" layer="1"/>
 <wire x1="14.759" y1="74.422" x2="14.759" y2="64.135" width="0.254" layer="1"/>
-<wire x1="23.422" y1="31.469" x2="23.422" y2="18.4086" width="0.254" layer="1"/>
-<wire x1="23.422" y1="18.4086" x2="23.676" y2="18.1546" width="0.254" layer="1"/>
+<wire x1="23.422" y1="31.469" x2="23.422" y2="18.616034375" width="0.254" layer="1"/>
+<wire x1="23.422" y1="18.616034375" x2="23.857" y2="18.0911" width="0.254" layer="1"/>
 <wire x1="23.422" y1="31.469" x2="16.41" y2="38.481" width="0.254" layer="1"/>
 <wire x1="16.41" y1="38.481" x2="16.41" y2="45.466" width="0.254" layer="1"/>
 <wire x1="16.41" y1="45.466" x2="17.299" y2="46.355" width="0.254" layer="1"/>
@@ -1615,14 +1615,14 @@ design rules under a new name.</description>
 <wire x1="13.87" y1="73.533" x2="13.87" y2="63.5" width="0.254" layer="1"/>
 <wire x1="16.41" y1="46.609" x2="15.394" y2="45.593" width="0.254" layer="1"/>
 <wire x1="15.394" y1="45.593" x2="15.394" y2="35.179" width="0.254" layer="1"/>
-<wire x1="22.025" y1="28.548" x2="22.025" y2="17.4942" width="0.254" layer="1"/>
-<wire x1="23.676" y1="15.8432" x2="22.025" y2="17.4942" width="0.254" layer="1"/>
-<wire x1="23.676" y1="15.8432" x2="23.676" y2="14.9542" width="0.254" layer="1"/>
+<wire x1="22.025" y1="28.548" x2="22.025" y2="17.78" width="0.254" layer="1"/>
 <wire x1="16.41" y1="60.96" x2="16.41" y2="46.609" width="0.254" layer="1"/>
 <wire x1="15.394" y1="35.179" x2="22.025" y2="28.548" width="0.254" layer="1"/>
 <wire x1="2.9" y1="92.459996875" x2="4.323" y2="91.036996875" width="0.254" layer="1"/>
 <wire x1="4.323" y1="91.036996875" x2="4.323" y2="83.08" width="0.254" layer="1"/>
 <wire x1="4.323" y1="83.08" x2="13.87" y2="73.533" width="0.254" layer="1"/>
+<wire x1="22.025" y1="17.78" x2="23.857" y2="15.948" width="0.254" layer="1"/>
+<wire x1="23.857" y1="15.948" x2="23.857" y2="14.8907" width="0.254" layer="1"/>
 </signal>
 <signal name="USBH_VBUS">
 <contactref element="JP2" pad="6"/>
