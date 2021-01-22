@@ -11568,7 +11568,7 @@ Source: http://www.st.com/stonline/products/literature/ds/7194/ld1117axx.pdf</de
 <part name="GND81" library="supply1" deviceset="GND" device=""/>
 <part name="GND89" library="supply1" deviceset="GND" device=""/>
 <part name="+3V16" library="supply1" deviceset="+3V3" device=""/>
-<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
+<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND90" library="supply1" deviceset="GND" device=""/>
 <part name="X1" library="con-molex" deviceset="53?-05" device="048"/>
 <part name="BOOT" library="SparkFun" deviceset="SOLDERJUMPER" device="NO"/>
