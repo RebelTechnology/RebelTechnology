@@ -10989,9 +10989,9 @@ TBA 2-0522, Vin 4.5v-5.5v, +/-12V 2W +/-80mA</description>
 <instance part="GND4" gate="1" x="170.18" y="-30.48" smashed="yes">
 <attribute name="VALUE" x="167.64" y="-33.02" size="1.778" layer="96"/>
 </instance>
-<instance part="LED1" gate="G$1" x="182.88" y="-22.86" smashed="yes" rot="R180">
-<attribute name="NAME" x="179.324" y="-18.288" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="177.165" y="-18.288" size="1.778" layer="96" rot="R270"/>
+<instance part="LED1" gate="G$1" x="182.88" y="-20.32" smashed="yes">
+<attribute name="NAME" x="186.436" y="-24.892" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="188.595" y="-24.892" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="R1" gate="G$1" x="182.88" y="-10.16" smashed="yes" rot="MR270">
 <attribute name="NAME" x="181.3814" y="-6.35" size="1.778" layer="95" rot="MR270"/>
@@ -11257,9 +11257,9 @@ TBA 2-0522, Vin 4.5v-5.5v, +/-12V 2W +/-80mA</description>
 <wire x1="12.7" y1="-5.08" x2="12.7" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="LED1" gate="G$1" pin="A"/>
-<wire x1="182.88" y1="-27.94" x2="182.88" y2="-25.4" width="0.1524" layer="91"/>
 <pinref part="P-2" gate="1" pin="-12V"/>
+<pinref part="LED1" gate="G$1" pin="C"/>
+<wire x1="182.88" y1="-25.4" x2="182.88" y2="-27.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+9V" class="0">
@@ -11353,9 +11353,9 @@ TBA 2-0522, Vin 4.5v-5.5v, +/-12V 2W +/-80mA</description>
 </net>
 <net name="N$2" class="0">
 <segment>
-<pinref part="LED1" gate="G$1" pin="C"/>
 <pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="182.88" y1="-15.24" x2="182.88" y2="-17.78" width="0.1524" layer="91"/>
+<pinref part="LED1" gate="G$1" pin="A"/>
+<wire x1="182.88" y1="-17.78" x2="182.88" y2="-15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
