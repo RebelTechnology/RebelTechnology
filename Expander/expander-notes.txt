@@ -183,6 +183,19 @@ https://datasheets.maximintegrated.com/en/ds/MAX11300PMB1.pdf
 
 --------------------------------------------------------------------------------
 
-todo: thermally enhanced package TSSOP28-TE for TLC5946
+todo:
+- thermally enhanced package TSSOP28-TE for TLC5946
+- move programming header from bus connector
+- i2c connector?
 
 --------------------------------------------------------------------------------
+
+MIDI Interface
+oled screen
+128x64 monochrome SSD1306 module: 27x27mm
+https://solectroshop.com/es/pantalla-oled/638-pantalla-oled-096-128x64-blanco-spi-i2c-7-pines.html
+96x64
+Resistors for 4SPI: R3 and R4 4k7 (code 472)
+
+--------------------------------------------------------------------------------
+
