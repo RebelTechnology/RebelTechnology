@@ -3,7 +3,7 @@ ELF=$(BUILD)/Expander.elf
 BIN=$(BUILD)/Expander.bin
 
 # Tool path
-TOOLROOT ?= ~/devel/OwlWare/Tools/gcc-arm-none-eabi-5_2-2015q4/bin
+TOOLROOT ?= ~/bin/gcc-arm-none-eabi-9-2020-q2-update/bin/
 
 # Tools
 CC=$(TOOLROOT)/arm-none-eabi-gcc
