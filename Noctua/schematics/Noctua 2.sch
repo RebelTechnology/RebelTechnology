@@ -11790,11 +11790,7 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 <part name="AGND2" library="supply1" deviceset="AGND" device=""/>
 <part name="+A3V1" library="supply1" deviceset="+3V3" device="" value="+A3V3"/>
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
-<part name="GND1" library="supply1" deviceset="GND" device=""/>
-<part name="GND6" library="supply1" deviceset="GND" device=""/>
-<part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="AGND3" library="supply1" deviceset="AGND" device=""/>
 <part name="AGND4" library="supply1" deviceset="AGND" device=""/>
 <part name="AGND5" library="supply1" deviceset="AGND" device=""/>
 <part name="C39" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
@@ -11857,7 +11853,11 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="U3" library="v-reg" library_urn="urn:adsk.eagle:library:409" deviceset="LD117A?*" device="S" package3d_urn="urn:adsk.eagle:package:30370/1" technology="33TR" value="TLV1117LV33DCYR"/>
 <part name="IC1" library="SamacSys_Parts" deviceset="STM32H743IIK6" device=""/>
-<part name="IC2" library="SamacSys_Parts" deviceset="MT46H16M32LFB5-6_AT_C_TR" device=""/>
+<part name="IC2" library="SamacSys_Parts" deviceset="MT46H16M32LFB5-6_AT_C_TR" device="" value="AS4C16M32MSA-6BIN"/>
+<part name="AGND17" library="supply1" deviceset="AGND" device=""/>
+<part name="AGND18" library="supply1" deviceset="AGND" device=""/>
+<part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
+<part name="GND3" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12040,23 +12040,11 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 <instance part="P+1" gate="1" x="223.52" y="200.66" smashed="yes">
 <attribute name="VALUE" x="220.98" y="200.66" size="1.778" layer="96"/>
 </instance>
-<instance part="GND1" gate="1" x="238.76" y="157.48" smashed="yes">
-<attribute name="VALUE" x="236.22" y="154.94" size="1.778" layer="96"/>
+<instance part="GND7" gate="1" x="241.3" y="177.8" smashed="yes">
+<attribute name="VALUE" x="238.76" y="175.26" size="1.778" layer="96"/>
 </instance>
-<instance part="GND6" gate="1" x="233.68" y="132.08" smashed="yes">
-<attribute name="VALUE" x="231.14" y="129.54" size="1.778" layer="96"/>
-</instance>
-<instance part="+3V1" gate="G$1" x="233.68" y="144.78" smashed="yes">
-<attribute name="VALUE" x="231.14" y="144.78" size="1.778" layer="96"/>
-</instance>
-<instance part="GND7" gate="1" x="238.76" y="177.8" smashed="yes">
-<attribute name="VALUE" x="236.22" y="175.26" size="1.778" layer="96"/>
-</instance>
-<instance part="AGND3" gate="VR1" x="124.46" y="177.8" smashed="yes">
-<attribute name="VALUE" x="121.92" y="175.26" size="1.778" layer="96"/>
-</instance>
-<instance part="AGND4" gate="VR1" x="124.46" y="157.48" smashed="yes">
-<attribute name="VALUE" x="121.92" y="154.94" size="1.778" layer="96"/>
+<instance part="AGND4" gate="VR1" x="185.42" y="154.94" smashed="yes">
+<attribute name="VALUE" x="182.88" y="152.4" size="1.778" layer="96"/>
 </instance>
 <instance part="AGND5" gate="VR1" x="137.16" y="132.08" smashed="yes">
 <attribute name="VALUE" x="134.62" y="129.54" size="1.778" layer="96"/>
@@ -12254,6 +12242,18 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 <attribute name="NAME" x="87.63" y="-5.08" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="87.63" y="-7.62" size="1.778" layer="96" align="center-left"/>
 </instance>
+<instance part="AGND17" gate="VR1" x="198.12" y="132.08" smashed="yes">
+<attribute name="VALUE" x="195.58" y="129.54" size="1.778" layer="96"/>
+</instance>
+<instance part="AGND18" gate="VR1" x="124.46" y="149.86" smashed="yes">
+<attribute name="VALUE" x="121.92" y="147.32" size="1.778" layer="96"/>
+</instance>
+<instance part="+3V5" gate="G$1" x="129.54" y="200.66" smashed="yes">
+<attribute name="VALUE" x="127" y="200.66" size="1.778" layer="96"/>
+</instance>
+<instance part="GND3" gate="1" x="121.92" y="177.8" smashed="yes">
+<attribute name="VALUE" x="119.38" y="175.26" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -12337,19 +12337,13 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 <wire x1="22.86" y1="48.26" x2="22.86" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="215.9" y1="162.56" x2="238.76" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="238.76" y1="162.56" x2="238.76" y2="160.02" width="0.1524" layer="91"/>
-<pinref part="GND1" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="GND6" gate="1" pin="GND"/>
-<wire x1="215.9" y1="137.16" x2="233.68" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="233.68" y1="137.16" x2="233.68" y2="134.62" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="GND7" gate="1" pin="GND"/>
-<wire x1="215.9" y1="182.88" x2="238.76" y2="182.88" width="0.1524" layer="91"/>
-<wire x1="238.76" y1="180.34" x2="238.76" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="182.88" x2="241.3" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="241.3" y1="180.34" x2="241.3" y2="182.88" width="0.1524" layer="91"/>
+<pinref part="JP2" gate="A" pin="12"/>
+<pinref part="JP2" gate="A" pin="11"/>
+<wire x1="213.36" y1="182.88" x2="205.74" y2="182.88" width="0.1524" layer="91"/>
+<junction x="213.36" y="182.88"/>
 </segment>
 <segment>
 <pinref part="C38" gate="G$1" pin="1"/>
@@ -12406,6 +12400,15 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 <wire x1="289.56" y1="165.1" x2="287.02" y2="165.1" width="0.1524" layer="91"/>
 <wire x1="287.02" y1="165.1" x2="287.02" y2="162.56" width="0.1524" layer="91"/>
 <junction x="287.02" y="162.56"/>
+</segment>
+<segment>
+<wire x1="152.4" y1="182.88" x2="144.78" y2="182.88" width="0.1524" layer="91"/>
+<pinref part="JP1" gate="A" pin="11"/>
+<pinref part="JP1" gate="A" pin="12"/>
+<wire x1="144.78" y1="182.88" x2="121.92" y2="182.88" width="0.1524" layer="91"/>
+<junction x="144.78" y="182.88"/>
+<pinref part="GND3" gate="1" pin="GND"/>
+<wire x1="121.92" y1="180.34" x2="121.92" y2="182.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -12472,11 +12475,6 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 <wire x1="119.38" y1="35.56" x2="119.38" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="+3V1" gate="G$1" pin="+3V3"/>
-<wire x1="215.9" y1="139.7" x2="233.68" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="233.68" y1="139.7" x2="233.68" y2="142.24" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="C39" gate="G$1" pin="1"/>
 <pinref part="+3V8" gate="G$1" pin="+3V3"/>
 <wire x1="60.96" y1="198.12" x2="60.96" y2="200.66" width="0.1524" layer="91"/>
@@ -12515,12 +12513,21 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 <pinref part="U2" gate="G1" pin="MODE"/>
 <wire x1="289.56" y1="12.7" x2="289.56" y2="20.32" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="JP1" gate="A" pin="2"/>
+<pinref part="JP1" gate="A" pin="1"/>
+<wire x1="152.4" y1="195.58" x2="144.78" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="195.58" x2="129.54" y2="195.58" width="0.1524" layer="91"/>
+<junction x="144.78" y="195.58"/>
+<wire x1="129.54" y1="195.58" x2="129.54" y2="198.12" width="0.1524" layer="91"/>
+<pinref part="+3V5" gate="G$1" pin="+3V3"/>
+</segment>
 </net>
 <net name="ADC1" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="1"/>
-<wire x1="144.78" y1="195.58" x2="132.08" y2="195.58" width="0.1524" layer="91"/>
-<label x="132.08" y="195.58" size="1.778" layer="95"/>
+<wire x1="144.78" y1="165.1" x2="132.08" y2="165.1" width="0.1524" layer="91"/>
+<label x="132.08" y="165.1" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="25"/>
 </segment>
 <segment>
 <wire x1="50.8" y1="53.34" x2="40.64" y2="53.34" width="0.1524" layer="91"/>
@@ -12611,8 +12618,12 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 <net name="+5V" class="0">
 <segment>
 <pinref part="P+1" gate="1" pin="+5V"/>
-<wire x1="215.9" y1="195.58" x2="223.52" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="195.58" x2="223.52" y2="195.58" width="0.1524" layer="91"/>
 <wire x1="223.52" y1="195.58" x2="223.52" y2="198.12" width="0.1524" layer="91"/>
+<pinref part="JP2" gate="A" pin="2"/>
+<pinref part="JP2" gate="A" pin="1"/>
+<wire x1="205.74" y1="195.58" x2="213.36" y2="195.58" width="0.1524" layer="91"/>
+<junction x="213.36" y="195.58"/>
 </segment>
 <segment>
 <pinref part="C38" gate="G$1" pin="2"/>
@@ -12644,12 +12655,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="ADCREF" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="13"/>
-<pinref part="JP1" gate="A" pin="14"/>
-<wire x1="144.78" y1="180.34" x2="152.4" y2="180.34" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="180.34" x2="167.64" y2="180.34" width="0.1524" layer="91"/>
-<junction x="152.4" y="180.34"/>
-<label x="160.02" y="180.34" size="1.778" layer="95"/>
+<wire x1="152.4" y1="154.94" x2="167.64" y2="154.94" width="0.1524" layer="91"/>
+<label x="160.02" y="154.94" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="34"/>
 </segment>
 <segment>
 <pinref part="C30" gate="G$1" pin="+"/>
@@ -12660,9 +12668,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="ADC2" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="3"/>
-<wire x1="144.78" y1="193.04" x2="132.08" y2="193.04" width="0.1524" layer="91"/>
-<label x="132.08" y="193.04" size="1.778" layer="95"/>
+<wire x1="144.78" y1="162.56" x2="132.08" y2="162.56" width="0.1524" layer="91"/>
+<label x="132.08" y="162.56" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="27"/>
 </segment>
 <segment>
 <wire x1="86.36" y1="63.5" x2="96.52" y2="63.5" width="0.1524" layer="91"/>
@@ -12671,9 +12679,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="ADC3" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="5"/>
-<wire x1="144.78" y1="190.5" x2="132.08" y2="190.5" width="0.1524" layer="91"/>
-<label x="132.08" y="190.5" size="1.778" layer="95"/>
+<wire x1="144.78" y1="160.02" x2="132.08" y2="160.02" width="0.1524" layer="91"/>
+<label x="132.08" y="160.02" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="29"/>
 </segment>
 <segment>
 <wire x1="86.36" y1="43.18" x2="96.52" y2="43.18" width="0.1524" layer="91"/>
@@ -12682,9 +12690,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="ADC4" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="7"/>
-<wire x1="144.78" y1="187.96" x2="132.08" y2="187.96" width="0.1524" layer="91"/>
-<label x="132.08" y="187.96" size="1.778" layer="95"/>
+<wire x1="144.78" y1="157.48" x2="132.08" y2="157.48" width="0.1524" layer="91"/>
+<label x="132.08" y="157.48" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="31"/>
 </segment>
 <segment>
 <wire x1="86.36" y1="58.42" x2="96.52" y2="58.42" width="0.1524" layer="91"/>
@@ -12693,9 +12701,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="ADC5" class="0">
 <segment>
-<wire x1="165.1" y1="195.58" x2="152.4" y2="195.58" width="0.1524" layer="91"/>
-<label x="160.02" y="195.58" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="2"/>
+<wire x1="165.1" y1="165.1" x2="152.4" y2="165.1" width="0.1524" layer="91"/>
+<label x="160.02" y="165.1" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="26"/>
 </segment>
 <segment>
 <wire x1="50.8" y1="55.88" x2="40.64" y2="55.88" width="0.1524" layer="91"/>
@@ -12704,9 +12712,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="ADC6" class="0">
 <segment>
-<wire x1="165.1" y1="193.04" x2="152.4" y2="193.04" width="0.1524" layer="91"/>
-<label x="160.02" y="193.04" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="4"/>
+<wire x1="165.1" y1="162.56" x2="152.4" y2="162.56" width="0.1524" layer="91"/>
+<label x="160.02" y="162.56" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="28"/>
 </segment>
 <segment>
 <wire x1="86.36" y1="60.96" x2="96.52" y2="60.96" width="0.1524" layer="91"/>
@@ -12715,9 +12723,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="ADC7" class="0">
 <segment>
-<wire x1="165.1" y1="190.5" x2="152.4" y2="190.5" width="0.1524" layer="91"/>
-<label x="160.02" y="190.5" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="6"/>
+<wire x1="165.1" y1="160.02" x2="152.4" y2="160.02" width="0.1524" layer="91"/>
+<label x="160.02" y="160.02" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="30"/>
 </segment>
 <segment>
 <wire x1="50.8" y1="38.1" x2="40.64" y2="38.1" width="0.1524" layer="91"/>
@@ -12726,9 +12734,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="ADC8" class="0">
 <segment>
-<wire x1="165.1" y1="187.96" x2="152.4" y2="187.96" width="0.1524" layer="91"/>
-<label x="160.02" y="187.96" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="8"/>
+<wire x1="165.1" y1="157.48" x2="152.4" y2="157.48" width="0.1524" layer="91"/>
+<label x="160.02" y="157.48" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="32"/>
 </segment>
 <segment>
 <wire x1="86.36" y1="55.88" x2="96.52" y2="55.88" width="0.1524" layer="91"/>
@@ -12753,22 +12761,17 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 <junction x="12.7" y="81.28"/>
 </segment>
 <segment>
-<pinref part="JP1" gate="A" pin="12"/>
-<pinref part="JP1" gate="A" pin="11"/>
-<wire x1="152.4" y1="182.88" x2="144.78" y2="182.88" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="182.88" x2="124.46" y2="182.88" width="0.1524" layer="91"/>
-<wire x1="124.46" y1="182.88" x2="124.46" y2="180.34" width="0.1524" layer="91"/>
-<pinref part="AGND3" gate="VR1" pin="AGND"/>
-<junction x="144.78" y="182.88"/>
-</segment>
-<segment>
-<wire x1="124.46" y1="160.02" x2="124.46" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="185.42" y1="157.48" x2="185.42" y2="160.02" width="0.1524" layer="91"/>
 <pinref part="AGND4" gate="VR1" pin="AGND"/>
-<wire x1="144.78" y1="162.56" x2="152.4" y2="162.56" width="0.1524" layer="91"/>
-<pinref part="JP1" gate="A" pin="27"/>
-<pinref part="JP1" gate="A" pin="28"/>
-<wire x1="124.46" y1="162.56" x2="144.78" y2="162.56" width="0.1524" layer="91"/>
-<junction x="144.78" y="162.56"/>
+<wire x1="185.42" y1="160.02" x2="205.74" y2="160.02" width="0.1524" layer="91"/>
+<pinref part="JP2" gate="A" pin="29"/>
+<pinref part="JP2" gate="A" pin="26"/>
+<pinref part="JP2" gate="A" pin="25"/>
+<wire x1="213.36" y1="165.1" x2="205.74" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="205.74" y1="165.1" x2="185.42" y2="165.1" width="0.1524" layer="91"/>
+<junction x="205.74" y="165.1"/>
+<wire x1="185.42" y1="165.1" x2="185.42" y2="160.02" width="0.1524" layer="91"/>
+<junction x="185.42" y="160.02"/>
 </segment>
 <segment>
 <pinref part="AGND5" gate="VR1" pin="AGND"/>
@@ -12864,6 +12867,21 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 <pinref part="C25" gate="G$1" pin="-"/>
 <wire x1="223.52" y1="60.96" x2="223.52" y2="63.5" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="AGND17" gate="VR1" pin="AGND"/>
+<wire x1="198.12" y1="134.62" x2="198.12" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="JP2" gate="A" pin="48"/>
+<wire x1="213.36" y1="137.16" x2="205.74" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="JP2" gate="A" pin="47"/>
+<wire x1="205.74" y1="137.16" x2="198.12" y2="137.16" width="0.1524" layer="91"/>
+<junction x="205.74" y="137.16"/>
+</segment>
+<segment>
+<wire x1="144.78" y1="154.94" x2="124.46" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="154.94" x2="124.46" y2="152.4" width="0.1524" layer="91"/>
+<pinref part="AGND18" gate="VR1" pin="AGND"/>
+<pinref part="JP1" gate="A" pin="33"/>
+</segment>
 </net>
 <net name="+A3V3" class="0">
 <segment>
@@ -12899,9 +12917,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="DAC1" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="9"/>
-<wire x1="144.78" y1="185.42" x2="132.08" y2="185.42" width="0.1524" layer="91"/>
-<label x="132.08" y="185.42" size="1.778" layer="95"/>
+<wire x1="205.74" y1="162.56" x2="190.5" y2="162.56" width="0.1524" layer="91"/>
+<label x="190.5" y="162.56" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="27"/>
 </segment>
 <segment>
 <wire x1="86.36" y1="50.8" x2="96.52" y2="50.8" width="0.1524" layer="91"/>
@@ -12910,9 +12928,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="DAC2" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="10"/>
-<wire x1="152.4" y1="185.42" x2="165.1" y2="185.42" width="0.1524" layer="91"/>
-<label x="160.02" y="185.42" size="1.778" layer="95"/>
+<wire x1="213.36" y1="162.56" x2="226.06" y2="162.56" width="0.1524" layer="91"/>
+<label x="218.44" y="162.56" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="28"/>
 </segment>
 <segment>
 <wire x1="86.36" y1="53.34" x2="96.52" y2="53.34" width="0.1524" layer="91"/>
@@ -12921,12 +12939,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="DACREF" class="0">
 <segment>
-<wire x1="144.78" y1="160.02" x2="152.4" y2="160.02" width="0.1524" layer="91"/>
-<label x="160.02" y="160.02" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="29"/>
-<pinref part="JP1" gate="A" pin="30"/>
-<wire x1="152.4" y1="160.02" x2="167.64" y2="160.02" width="0.1524" layer="91"/>
-<junction x="152.4" y="160.02"/>
+<label x="218.44" y="160.02" size="1.778" layer="95"/>
+<wire x1="213.36" y1="160.02" x2="226.06" y2="160.02" width="0.1524" layer="91"/>
+<pinref part="JP2" gate="A" pin="30"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VCOMDA"/>
@@ -12937,9 +12952,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AIN1+" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="15"/>
-<wire x1="144.78" y1="177.8" x2="132.08" y2="177.8" width="0.1524" layer="91"/>
-<label x="132.08" y="177.8" size="1.778" layer="95"/>
+<wire x1="144.78" y1="152.4" x2="132.08" y2="152.4" width="0.1524" layer="91"/>
+<label x="132.08" y="152.4" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="35"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VIN1+"/>
@@ -12949,9 +12964,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AIN2+" class="0">
 <segment>
-<wire x1="144.78" y1="175.26" x2="132.08" y2="175.26" width="0.1524" layer="91"/>
-<label x="132.08" y="175.26" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="17"/>
+<wire x1="144.78" y1="149.86" x2="132.08" y2="149.86" width="0.1524" layer="91"/>
+<label x="132.08" y="149.86" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="37"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VIN2+"/>
@@ -12961,9 +12976,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AIN3+" class="0">
 <segment>
-<wire x1="144.78" y1="172.72" x2="132.08" y2="172.72" width="0.1524" layer="91"/>
-<label x="132.08" y="172.72" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="19"/>
+<wire x1="144.78" y1="147.32" x2="132.08" y2="147.32" width="0.1524" layer="91"/>
+<label x="132.08" y="147.32" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="39"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VIN3+"/>
@@ -12973,9 +12988,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AIN4+" class="0">
 <segment>
-<wire x1="144.78" y1="170.18" x2="132.08" y2="170.18" width="0.1524" layer="91"/>
-<label x="132.08" y="170.18" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="21"/>
+<wire x1="144.78" y1="144.78" x2="132.08" y2="144.78" width="0.1524" layer="91"/>
+<label x="132.08" y="144.78" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="41"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VIN4+"/>
@@ -12985,9 +13000,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AIN5+" class="0">
 <segment>
-<wire x1="144.78" y1="167.64" x2="132.08" y2="167.64" width="0.1524" layer="91"/>
-<label x="132.08" y="167.64" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="23"/>
+<wire x1="144.78" y1="142.24" x2="132.08" y2="142.24" width="0.1524" layer="91"/>
+<label x="132.08" y="142.24" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="43"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VIN5+"/>
@@ -12997,9 +13012,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AIN6+" class="0">
 <segment>
-<wire x1="144.78" y1="165.1" x2="132.08" y2="165.1" width="0.1524" layer="91"/>
-<label x="132.08" y="165.1" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="25"/>
+<wire x1="144.78" y1="139.7" x2="132.08" y2="139.7" width="0.1524" layer="91"/>
+<label x="132.08" y="139.7" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="45"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VIN6+"/>
@@ -13009,9 +13024,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AIN1-" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="16"/>
-<wire x1="152.4" y1="177.8" x2="165.1" y2="177.8" width="0.1524" layer="91"/>
-<label x="160.02" y="177.8" size="1.778" layer="95"/>
+<wire x1="152.4" y1="152.4" x2="165.1" y2="152.4" width="0.1524" layer="91"/>
+<label x="160.02" y="152.4" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="36"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VIN1-"/>
@@ -13021,9 +13036,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AIN2-" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="18"/>
-<wire x1="152.4" y1="175.26" x2="165.1" y2="175.26" width="0.1524" layer="91"/>
-<label x="160.02" y="175.26" size="1.778" layer="95"/>
+<wire x1="152.4" y1="149.86" x2="165.1" y2="149.86" width="0.1524" layer="91"/>
+<label x="160.02" y="149.86" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="38"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VIN2-"/>
@@ -13033,9 +13048,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AIN3-" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="20"/>
-<wire x1="152.4" y1="172.72" x2="165.1" y2="172.72" width="0.1524" layer="91"/>
-<label x="160.02" y="172.72" size="1.778" layer="95"/>
+<wire x1="152.4" y1="147.32" x2="165.1" y2="147.32" width="0.1524" layer="91"/>
+<label x="160.02" y="147.32" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="40"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VIN3-"/>
@@ -13045,9 +13060,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AIN4-" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="22"/>
-<wire x1="152.4" y1="170.18" x2="165.1" y2="170.18" width="0.1524" layer="91"/>
-<label x="160.02" y="170.18" size="1.778" layer="95"/>
+<wire x1="152.4" y1="144.78" x2="165.1" y2="144.78" width="0.1524" layer="91"/>
+<label x="160.02" y="144.78" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="42"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VIN4-"/>
@@ -13057,9 +13072,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AIN5-" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="24"/>
-<wire x1="152.4" y1="167.64" x2="165.1" y2="167.64" width="0.1524" layer="91"/>
-<label x="160.02" y="167.64" size="1.778" layer="95"/>
+<wire x1="152.4" y1="142.24" x2="165.1" y2="142.24" width="0.1524" layer="91"/>
+<label x="160.02" y="142.24" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="44"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VIN5-"/>
@@ -13069,9 +13084,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AIN6-" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="26"/>
-<wire x1="152.4" y1="165.1" x2="165.1" y2="165.1" width="0.1524" layer="91"/>
-<label x="160.02" y="165.1" size="1.778" layer="95"/>
+<wire x1="152.4" y1="139.7" x2="165.1" y2="139.7" width="0.1524" layer="91"/>
+<label x="160.02" y="139.7" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="46"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VIN6-"/>
@@ -13081,9 +13096,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AOUT1+" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="31"/>
-<wire x1="144.78" y1="157.48" x2="129.54" y2="157.48" width="0.1524" layer="91"/>
-<label x="129.54" y="157.48" size="1.778" layer="95"/>
+<wire x1="205.74" y1="157.48" x2="190.5" y2="157.48" width="0.1524" layer="91"/>
+<label x="190.5" y="157.48" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="31"/>
 </segment>
 <segment>
 <wire x1="350.52" y1="83.82" x2="337.82" y2="83.82" width="0.1524" layer="91"/>
@@ -13093,9 +13108,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AOUT3+" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="35"/>
-<wire x1="144.78" y1="152.4" x2="129.54" y2="152.4" width="0.1524" layer="91"/>
-<label x="129.54" y="152.4" size="1.778" layer="95"/>
+<wire x1="205.74" y1="152.4" x2="190.5" y2="152.4" width="0.1524" layer="91"/>
+<label x="190.5" y="152.4" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="35"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VOUT3+"/>
@@ -13105,9 +13120,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AOUT4+" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="37"/>
-<wire x1="144.78" y1="149.86" x2="129.54" y2="149.86" width="0.1524" layer="91"/>
-<label x="129.54" y="149.86" size="1.778" layer="95"/>
+<wire x1="205.74" y1="149.86" x2="190.5" y2="149.86" width="0.1524" layer="91"/>
+<label x="190.5" y="149.86" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="37"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VOUT4+"/>
@@ -13117,9 +13132,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AOUT5+" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="39"/>
-<wire x1="144.78" y1="147.32" x2="129.54" y2="147.32" width="0.1524" layer="91"/>
-<label x="129.54" y="147.32" size="1.778" layer="95"/>
+<wire x1="205.74" y1="147.32" x2="190.5" y2="147.32" width="0.1524" layer="91"/>
+<label x="190.5" y="147.32" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="39"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VOUT5+"/>
@@ -13129,9 +13144,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AOUT6+" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="41"/>
-<wire x1="144.78" y1="144.78" x2="129.54" y2="144.78" width="0.1524" layer="91"/>
-<label x="129.54" y="144.78" size="1.778" layer="95"/>
+<wire x1="205.74" y1="144.78" x2="190.5" y2="144.78" width="0.1524" layer="91"/>
+<label x="190.5" y="144.78" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="41"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VOUT6+"/>
@@ -13141,9 +13156,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AOUT7+" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="43"/>
-<wire x1="144.78" y1="142.24" x2="129.54" y2="142.24" width="0.1524" layer="91"/>
-<label x="129.54" y="142.24" size="1.778" layer="95"/>
+<wire x1="205.74" y1="142.24" x2="190.5" y2="142.24" width="0.1524" layer="91"/>
+<label x="190.5" y="142.24" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="43"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VOUT7+"/>
@@ -13153,9 +13168,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AOUT8+" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="45"/>
-<wire x1="144.78" y1="139.7" x2="129.54" y2="139.7" width="0.1524" layer="91"/>
-<label x="129.54" y="139.7" size="1.778" layer="95"/>
+<wire x1="205.74" y1="139.7" x2="190.5" y2="139.7" width="0.1524" layer="91"/>
+<label x="190.5" y="139.7" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="45"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VOUT8+"/>
@@ -13165,9 +13180,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AOUT2+" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="33"/>
-<wire x1="144.78" y1="154.94" x2="129.54" y2="154.94" width="0.1524" layer="91"/>
-<label x="129.54" y="154.94" size="1.778" layer="95"/>
+<wire x1="205.74" y1="154.94" x2="190.5" y2="154.94" width="0.1524" layer="91"/>
+<label x="190.5" y="154.94" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="33"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VOUT2+"/>
@@ -13177,9 +13192,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AOUT1-" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="32"/>
-<wire x1="152.4" y1="157.48" x2="167.64" y2="157.48" width="0.1524" layer="91"/>
-<label x="160.02" y="157.48" size="1.778" layer="95"/>
+<wire x1="213.36" y1="157.48" x2="226.06" y2="157.48" width="0.1524" layer="91"/>
+<label x="218.44" y="157.48" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="32"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VOUT1-"/>
@@ -13189,9 +13204,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AOUT2-" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="34"/>
-<wire x1="152.4" y1="154.94" x2="167.64" y2="154.94" width="0.1524" layer="91"/>
-<label x="160.02" y="154.94" size="1.778" layer="95"/>
+<wire x1="213.36" y1="154.94" x2="226.06" y2="154.94" width="0.1524" layer="91"/>
+<label x="218.44" y="154.94" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="34"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VOUT2-"/>
@@ -13201,9 +13216,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AOUT3-" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="36"/>
-<wire x1="152.4" y1="152.4" x2="167.64" y2="152.4" width="0.1524" layer="91"/>
-<label x="160.02" y="152.4" size="1.778" layer="95"/>
+<wire x1="213.36" y1="152.4" x2="226.06" y2="152.4" width="0.1524" layer="91"/>
+<label x="218.44" y="152.4" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="36"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VOUT3-"/>
@@ -13213,9 +13228,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AOUT4-" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="38"/>
-<wire x1="152.4" y1="149.86" x2="167.64" y2="149.86" width="0.1524" layer="91"/>
-<label x="160.02" y="149.86" size="1.778" layer="95"/>
+<wire x1="213.36" y1="149.86" x2="226.06" y2="149.86" width="0.1524" layer="91"/>
+<label x="218.44" y="149.86" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="38"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VOUT4-"/>
@@ -13225,9 +13240,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AOUT5-" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="40"/>
-<wire x1="152.4" y1="147.32" x2="167.64" y2="147.32" width="0.1524" layer="91"/>
-<label x="160.02" y="147.32" size="1.778" layer="95"/>
+<wire x1="213.36" y1="147.32" x2="226.06" y2="147.32" width="0.1524" layer="91"/>
+<label x="218.44" y="147.32" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="40"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VOUT5-"/>
@@ -13237,9 +13252,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AOUT6-" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="42"/>
-<wire x1="152.4" y1="144.78" x2="167.64" y2="144.78" width="0.1524" layer="91"/>
-<label x="160.02" y="144.78" size="1.778" layer="95"/>
+<wire x1="213.36" y1="144.78" x2="226.06" y2="144.78" width="0.1524" layer="91"/>
+<label x="218.44" y="144.78" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="42"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VOUT6-"/>
@@ -13249,9 +13264,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AOUT7-" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="44"/>
-<wire x1="152.4" y1="142.24" x2="167.64" y2="142.24" width="0.1524" layer="91"/>
-<label x="160.02" y="142.24" size="1.778" layer="95"/>
+<wire x1="213.36" y1="142.24" x2="226.06" y2="142.24" width="0.1524" layer="91"/>
+<label x="218.44" y="142.24" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="44"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VOUT7-"/>
@@ -13261,9 +13276,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="AOUT8-" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="46"/>
-<wire x1="152.4" y1="139.7" x2="167.64" y2="139.7" width="0.1524" layer="91"/>
-<label x="160.02" y="139.7" size="1.778" layer="95"/>
+<wire x1="213.36" y1="139.7" x2="226.06" y2="139.7" width="0.1524" layer="91"/>
+<label x="218.44" y="139.7" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="46"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G1" pin="VOUT8-"/>
@@ -13273,8 +13288,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="USBD_VBUS" class="0">
 <segment>
-<wire x1="203.2" y1="193.04" x2="185.42" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="205.74" y1="193.04" x2="185.42" y2="193.04" width="0.1524" layer="91"/>
 <label x="185.42" y="193.04" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="3"/>
 </segment>
 <segment>
 <wire x1="154.94" y1="55.88" x2="139.7" y2="55.88" width="0.1524" layer="91"/>
@@ -13288,8 +13304,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="USBD_D-" class="0">
 <segment>
-<wire x1="203.2" y1="190.5" x2="185.42" y2="190.5" width="0.1524" layer="91"/>
+<wire x1="205.74" y1="190.5" x2="185.42" y2="190.5" width="0.1524" layer="91"/>
 <label x="185.42" y="190.5" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="5"/>
 </segment>
 <segment>
 <wire x1="154.94" y1="50.8" x2="139.7" y2="50.8" width="0.1524" layer="91"/>
@@ -13303,8 +13320,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="USBD_D+" class="0">
 <segment>
-<wire x1="203.2" y1="187.96" x2="185.42" y2="187.96" width="0.1524" layer="91"/>
+<wire x1="205.74" y1="187.96" x2="185.42" y2="187.96" width="0.1524" layer="91"/>
 <label x="185.42" y="187.96" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="7"/>
 </segment>
 <segment>
 <wire x1="154.94" y1="48.26" x2="139.7" y2="48.26" width="0.1524" layer="91"/>
@@ -13318,8 +13336,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="USBD_ID" class="0">
 <segment>
-<wire x1="203.2" y1="185.42" x2="185.42" y2="185.42" width="0.1524" layer="91"/>
+<wire x1="205.74" y1="185.42" x2="185.42" y2="185.42" width="0.1524" layer="91"/>
 <label x="185.42" y="185.42" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="9"/>
 </segment>
 <segment>
 <wire x1="154.94" y1="53.34" x2="139.7" y2="53.34" width="0.1524" layer="91"/>
@@ -13333,8 +13352,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="USBH_VBUS" class="0">
 <segment>
-<wire x1="215.9" y1="193.04" x2="233.68" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="193.04" x2="233.68" y2="193.04" width="0.1524" layer="91"/>
 <label x="220.98" y="193.04" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="4"/>
 </segment>
 <segment>
 <wire x1="154.94" y1="96.52" x2="137.16" y2="96.52" width="0.1524" layer="91"/>
@@ -13343,8 +13363,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="USBH_D-" class="0">
 <segment>
-<wire x1="215.9" y1="190.5" x2="231.14" y2="190.5" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="190.5" x2="231.14" y2="190.5" width="0.1524" layer="91"/>
 <label x="220.98" y="190.5" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="6"/>
 </segment>
 <segment>
 <wire x1="154.94" y1="93.98" x2="137.16" y2="93.98" width="0.1524" layer="91"/>
@@ -13353,8 +13374,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="USBH_D+" class="0">
 <segment>
-<wire x1="215.9" y1="187.96" x2="231.14" y2="187.96" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="187.96" x2="231.14" y2="187.96" width="0.1524" layer="91"/>
 <label x="220.98" y="187.96" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="8"/>
 </segment>
 <segment>
 <wire x1="154.94" y1="91.44" x2="137.16" y2="91.44" width="0.1524" layer="91"/>
@@ -13363,8 +13385,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="USBH_ID" class="0">
 <segment>
-<wire x1="215.9" y1="185.42" x2="231.14" y2="185.42" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="185.42" x2="231.14" y2="185.42" width="0.1524" layer="91"/>
 <label x="220.98" y="185.42" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="10"/>
 </segment>
 <segment>
 <wire x1="154.94" y1="99.06" x2="137.16" y2="99.06" width="0.1524" layer="91"/>
@@ -13373,8 +13396,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="SPI4_SCK" class="0">
 <segment>
-<wire x1="203.2" y1="180.34" x2="187.96" y2="180.34" width="0.1524" layer="91"/>
-<label x="187.96" y="180.34" size="1.778" layer="95"/>
+<wire x1="205.74" y1="175.26" x2="185.42" y2="175.26" width="0.1524" layer="91"/>
+<label x="185.42" y="175.26" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="17"/>
 </segment>
 <segment>
 <wire x1="86.36" y1="86.36" x2="99.06" y2="86.36" width="0.1524" layer="91"/>
@@ -13383,8 +13407,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="SPI4_MISO" class="0">
 <segment>
-<wire x1="203.2" y1="177.8" x2="187.96" y2="177.8" width="0.1524" layer="91"/>
-<label x="187.96" y="177.8" size="1.778" layer="95"/>
+<wire x1="205.74" y1="172.72" x2="185.42" y2="172.72" width="0.1524" layer="91"/>
+<label x="185.42" y="172.72" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="19"/>
 </segment>
 <segment>
 <wire x1="86.36" y1="88.9" x2="99.06" y2="88.9" width="0.1524" layer="91"/>
@@ -13393,8 +13418,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="SPI4_MOSI" class="0">
 <segment>
-<wire x1="203.2" y1="175.26" x2="187.96" y2="175.26" width="0.1524" layer="91"/>
-<label x="187.96" y="175.26" size="1.778" layer="95"/>
+<wire x1="205.74" y1="170.18" x2="185.42" y2="170.18" width="0.1524" layer="91"/>
+<label x="185.42" y="170.18" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="21"/>
 </segment>
 <segment>
 <wire x1="86.36" y1="91.44" x2="99.06" y2="91.44" width="0.1524" layer="91"/>
@@ -13403,8 +13429,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="UART1_TX" class="0">
 <segment>
-<wire x1="203.2" y1="172.72" x2="187.96" y2="172.72" width="0.1524" layer="91"/>
-<label x="187.96" y="172.72" size="1.778" layer="95"/>
+<wire x1="205.74" y1="180.34" x2="185.42" y2="180.34" width="0.1524" layer="91"/>
+<label x="185.42" y="180.34" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="13"/>
 </segment>
 <segment>
 <wire x1="190.5" y1="71.12" x2="203.2" y2="71.12" width="0.1524" layer="91"/>
@@ -13413,8 +13440,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="UART1_RX" class="0">
 <segment>
-<wire x1="203.2" y1="170.18" x2="187.96" y2="170.18" width="0.1524" layer="91"/>
-<label x="187.96" y="170.18" size="1.778" layer="95"/>
+<wire x1="205.74" y1="177.8" x2="185.42" y2="177.8" width="0.1524" layer="91"/>
+<label x="185.42" y="177.8" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="15"/>
 </segment>
 <segment>
 <wire x1="190.5" y1="73.66" x2="203.2" y2="73.66" width="0.1524" layer="91"/>
@@ -13423,8 +13451,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="TIM1_CH1" class="0">
 <segment>
-<wire x1="203.2" y1="167.64" x2="187.96" y2="167.64" width="0.1524" layer="91"/>
-<label x="187.96" y="167.64" size="1.778" layer="95"/>
+<wire x1="144.78" y1="180.34" x2="127" y2="180.34" width="0.1524" layer="91"/>
+<label x="127" y="180.34" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="13"/>
 </segment>
 <segment>
 <wire x1="190.5" y1="81.28" x2="205.74" y2="81.28" width="0.1524" layer="91"/>
@@ -13433,8 +13462,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="TIM2_CH1" class="0">
 <segment>
-<wire x1="203.2" y1="165.1" x2="187.96" y2="165.1" width="0.1524" layer="91"/>
-<label x="187.96" y="165.1" size="1.778" layer="95"/>
+<wire x1="144.78" y1="177.8" x2="127" y2="177.8" width="0.1524" layer="91"/>
+<label x="127" y="177.8" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="15"/>
 </segment>
 <segment>
 <wire x1="190.5" y1="48.26" x2="205.74" y2="48.26" width="0.1524" layer="91"/>
@@ -13443,8 +13473,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="TIM2_CH2" class="0">
 <segment>
-<wire x1="215.9" y1="165.1" x2="233.68" y2="165.1" width="0.1524" layer="91"/>
-<label x="220.98" y="165.1" size="1.778" layer="95"/>
+<wire x1="152.4" y1="177.8" x2="172.72" y2="177.8" width="0.1524" layer="91"/>
+<label x="160.02" y="177.8" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="16"/>
 </segment>
 <segment>
 <wire x1="190.5" y1="78.74" x2="205.74" y2="78.74" width="0.1524" layer="91"/>
@@ -13453,8 +13484,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="TIM1_CH2" class="0">
 <segment>
-<wire x1="215.9" y1="167.64" x2="233.68" y2="167.64" width="0.1524" layer="91"/>
-<label x="220.98" y="167.64" size="1.778" layer="95"/>
+<wire x1="152.4" y1="180.34" x2="172.72" y2="180.34" width="0.1524" layer="91"/>
+<label x="160.02" y="180.34" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="14"/>
 </segment>
 <segment>
 <wire x1="190.5" y1="83.82" x2="205.74" y2="83.82" width="0.1524" layer="91"/>
@@ -13463,8 +13495,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="UART2_RX" class="0">
 <segment>
-<wire x1="215.9" y1="170.18" x2="233.68" y2="170.18" width="0.1524" layer="91"/>
-<label x="220.98" y="170.18" size="1.778" layer="95"/>
+<wire x1="213.36" y1="177.8" x2="233.68" y2="177.8" width="0.1524" layer="91"/>
+<label x="220.98" y="177.8" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="16"/>
 </segment>
 <segment>
 <wire x1="154.94" y1="86.36" x2="139.7" y2="86.36" width="0.1524" layer="91"/>
@@ -13473,8 +13506,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="UART2_TX" class="0">
 <segment>
-<wire x1="215.9" y1="172.72" x2="233.68" y2="172.72" width="0.1524" layer="91"/>
-<label x="220.98" y="172.72" size="1.778" layer="95"/>
+<wire x1="213.36" y1="180.34" x2="233.68" y2="180.34" width="0.1524" layer="91"/>
+<label x="220.98" y="180.34" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="14"/>
 </segment>
 <segment>
 <wire x1="154.94" y1="88.9" x2="139.7" y2="88.9" width="0.1524" layer="91"/>
@@ -13483,8 +13517,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="SPI3_MOSI" class="0">
 <segment>
-<wire x1="215.9" y1="175.26" x2="233.68" y2="175.26" width="0.1524" layer="91"/>
-<label x="220.98" y="175.26" size="1.778" layer="95"/>
+<wire x1="213.36" y1="170.18" x2="233.68" y2="170.18" width="0.1524" layer="91"/>
+<label x="220.98" y="170.18" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="22"/>
 </segment>
 <segment>
 <wire x1="190.5" y1="55.88" x2="205.74" y2="55.88" width="0.1524" layer="91"/>
@@ -13493,8 +13528,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="SPI3_MISO" class="0">
 <segment>
-<wire x1="215.9" y1="177.8" x2="233.68" y2="177.8" width="0.1524" layer="91"/>
-<label x="220.98" y="177.8" size="1.778" layer="95"/>
+<wire x1="213.36" y1="172.72" x2="233.68" y2="172.72" width="0.1524" layer="91"/>
+<label x="220.98" y="172.72" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="20"/>
 </segment>
 <segment>
 <wire x1="190.5" y1="53.34" x2="205.74" y2="53.34" width="0.1524" layer="91"/>
@@ -13503,8 +13539,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="SPI3_SCK" class="0">
 <segment>
-<wire x1="215.9" y1="180.34" x2="233.68" y2="180.34" width="0.1524" layer="91"/>
-<label x="220.98" y="180.34" size="1.778" layer="95"/>
+<wire x1="213.36" y1="175.26" x2="233.68" y2="175.26" width="0.1524" layer="91"/>
+<label x="220.98" y="175.26" size="1.778" layer="95"/>
+<pinref part="JP2" gate="A" pin="18"/>
 </segment>
 <segment>
 <wire x1="190.5" y1="50.8" x2="205.74" y2="50.8" width="0.1524" layer="91"/>
@@ -13513,8 +13550,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="TIM3_CH1" class="0">
 <segment>
-<wire x1="203.2" y1="160.02" x2="187.96" y2="160.02" width="0.1524" layer="91"/>
-<label x="187.96" y="160.02" size="1.778" layer="95"/>
+<wire x1="144.78" y1="175.26" x2="127" y2="175.26" width="0.1524" layer="91"/>
+<label x="127" y="175.26" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="17"/>
 </segment>
 <segment>
 <wire x1="86.36" y1="78.74" x2="101.6" y2="78.74" width="0.1524" layer="91"/>
@@ -13523,8 +13561,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="TIM4_CH1" class="0">
 <segment>
-<wire x1="203.2" y1="157.48" x2="187.96" y2="157.48" width="0.1524" layer="91"/>
-<label x="187.96" y="157.48" size="1.778" layer="95"/>
+<wire x1="144.78" y1="172.72" x2="127" y2="172.72" width="0.1524" layer="91"/>
+<label x="127" y="172.72" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="19"/>
 </segment>
 <segment>
 <wire x1="154.94" y1="78.74" x2="139.7" y2="78.74" width="0.1524" layer="91"/>
@@ -13533,8 +13572,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="TIM5_CH1" class="0">
 <segment>
-<wire x1="203.2" y1="154.94" x2="187.96" y2="154.94" width="0.1524" layer="91"/>
-<label x="187.96" y="154.94" size="1.778" layer="95"/>
+<wire x1="144.78" y1="170.18" x2="127" y2="170.18" width="0.1524" layer="91"/>
+<label x="127" y="170.18" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="21"/>
 </segment>
 <segment>
 <wire x1="50.8" y1="43.18" x2="38.1" y2="43.18" width="0.1524" layer="91"/>
@@ -13543,8 +13583,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="TIM6_CH1" class="0">
 <segment>
-<wire x1="203.2" y1="152.4" x2="187.96" y2="152.4" width="0.1524" layer="91"/>
-<label x="187.96" y="152.4" size="1.778" layer="95"/>
+<wire x1="144.78" y1="167.64" x2="127" y2="167.64" width="0.1524" layer="91"/>
+<label x="127" y="167.64" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="23"/>
 </segment>
 <segment>
 <wire x1="154.94" y1="68.58" x2="139.7" y2="68.58" width="0.1524" layer="91"/>
@@ -13553,8 +13594,8 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="EXTI1" class="0">
 <segment>
-<wire x1="203.2" y1="149.86" x2="193.04" y2="149.86" width="0.1524" layer="91"/>
-<label x="193.04" y="149.86" size="1.778" layer="95"/>
+<wire x1="139.7" y1="193.04" x2="129.54" y2="193.04" width="0.1524" layer="91"/>
+<label x="129.54" y="193.04" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="190.5" y1="86.36" x2="200.66" y2="86.36" width="0.1524" layer="91"/>
@@ -13563,8 +13604,8 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="EXTI2" class="0">
 <segment>
-<wire x1="203.2" y1="147.32" x2="193.04" y2="147.32" width="0.1524" layer="91"/>
-<label x="193.04" y="147.32" size="1.778" layer="95"/>
+<wire x1="139.7" y1="190.5" x2="129.54" y2="190.5" width="0.1524" layer="91"/>
+<label x="129.54" y="190.5" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="190.5" y1="68.58" x2="200.66" y2="68.58" width="0.1524" layer="91"/>
@@ -13573,8 +13614,8 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="EXTI3" class="0">
 <segment>
-<wire x1="203.2" y1="144.78" x2="193.04" y2="144.78" width="0.1524" layer="91"/>
-<label x="193.04" y="144.78" size="1.778" layer="95"/>
+<wire x1="139.7" y1="187.96" x2="129.54" y2="187.96" width="0.1524" layer="91"/>
+<label x="129.54" y="187.96" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="190.5" y1="63.5" x2="200.66" y2="63.5" width="0.1524" layer="91"/>
@@ -13583,8 +13624,8 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="EXTI4" class="0">
 <segment>
-<wire x1="203.2" y1="142.24" x2="193.04" y2="142.24" width="0.1524" layer="91"/>
-<label x="193.04" y="142.24" size="1.778" layer="95"/>
+<wire x1="139.7" y1="185.42" x2="129.54" y2="185.42" width="0.1524" layer="91"/>
+<label x="129.54" y="185.42" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="200.66" y1="58.42" x2="190.5" y2="58.42" width="0.1524" layer="91"/>
@@ -13593,28 +13634,31 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="I2C_SCL" class="0">
 <segment>
-<wire x1="203.2" y1="139.7" x2="190.5" y2="139.7" width="0.1524" layer="91"/>
-<label x="190.5" y="139.7" size="1.778" layer="95"/>
-</segment>
-<segment>
 <wire x1="86.36" y1="96.52" x2="99.06" y2="96.52" width="0.1524" layer="91"/>
 <label x="88.9" y="96.52" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="205.74" y1="167.64" x2="190.5" y2="167.64" width="0.1524" layer="91"/>
+<pinref part="JP2" gate="A" pin="23"/>
+<label x="190.5" y="167.64" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="I2C_SDA" class="0">
 <segment>
-<wire x1="203.2" y1="137.16" x2="190.5" y2="137.16" width="0.1524" layer="91"/>
-<label x="190.5" y="137.16" size="1.778" layer="95"/>
-</segment>
-<segment>
 <wire x1="86.36" y1="99.06" x2="99.06" y2="99.06" width="0.1524" layer="91"/>
 <label x="88.9" y="99.06" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="231.14" y1="167.64" x2="213.36" y2="167.64" width="0.1524" layer="91"/>
+<pinref part="JP2" gate="A" pin="24"/>
+<label x="220.98" y="167.64" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TIM3_CH2" class="0">
 <segment>
-<wire x1="215.9" y1="160.02" x2="233.68" y2="160.02" width="0.1524" layer="91"/>
-<label x="220.98" y="160.02" size="1.778" layer="95"/>
+<wire x1="152.4" y1="175.26" x2="172.72" y2="175.26" width="0.1524" layer="91"/>
+<label x="160.02" y="175.26" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="18"/>
 </segment>
 <segment>
 <wire x1="86.36" y1="83.82" x2="101.6" y2="83.82" width="0.1524" layer="91"/>
@@ -13623,8 +13667,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="TIM5_CH2" class="0">
 <segment>
-<wire x1="215.9" y1="154.94" x2="233.68" y2="154.94" width="0.1524" layer="91"/>
-<label x="220.98" y="154.94" size="1.778" layer="95"/>
+<wire x1="152.4" y1="170.18" x2="172.72" y2="170.18" width="0.1524" layer="91"/>
+<label x="160.02" y="170.18" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="22"/>
 </segment>
 <segment>
 <wire x1="50.8" y1="40.64" x2="38.1" y2="40.64" width="0.1524" layer="91"/>
@@ -13633,8 +13678,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="TIM6_CH2" class="0">
 <segment>
-<wire x1="215.9" y1="152.4" x2="233.68" y2="152.4" width="0.1524" layer="91"/>
-<label x="220.98" y="152.4" size="1.778" layer="95"/>
+<wire x1="152.4" y1="167.64" x2="172.72" y2="167.64" width="0.1524" layer="91"/>
+<label x="160.02" y="167.64" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="24"/>
 </segment>
 <segment>
 <wire x1="154.94" y1="66.04" x2="139.7" y2="66.04" width="0.1524" layer="91"/>
@@ -13643,8 +13689,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="EXTI5" class="0">
 <segment>
-<wire x1="215.9" y1="149.86" x2="228.6" y2="149.86" width="0.1524" layer="91"/>
-<label x="220.98" y="149.86" size="1.778" layer="95"/>
+<wire x1="152.4" y1="193.04" x2="167.64" y2="193.04" width="0.1524" layer="91"/>
+<label x="160.02" y="193.04" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="4"/>
 </segment>
 <segment>
 <wire x1="38.1" y1="73.66" x2="50.8" y2="73.66" width="0.1524" layer="91"/>
@@ -13653,8 +13700,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="EXTI6" class="0">
 <segment>
-<wire x1="215.9" y1="147.32" x2="228.6" y2="147.32" width="0.1524" layer="91"/>
-<label x="220.98" y="147.32" size="1.778" layer="95"/>
+<wire x1="152.4" y1="190.5" x2="167.64" y2="190.5" width="0.1524" layer="91"/>
+<label x="160.02" y="190.5" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="6"/>
 </segment>
 <segment>
 <wire x1="190.5" y1="76.2" x2="200.66" y2="76.2" width="0.1524" layer="91"/>
@@ -13663,8 +13711,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="EXTI7" class="0">
 <segment>
-<wire x1="215.9" y1="144.78" x2="228.6" y2="144.78" width="0.1524" layer="91"/>
-<label x="220.98" y="144.78" size="1.778" layer="95"/>
+<wire x1="152.4" y1="187.96" x2="167.64" y2="187.96" width="0.1524" layer="91"/>
+<label x="160.02" y="187.96" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="8"/>
 </segment>
 <segment>
 <wire x1="38.1" y1="71.12" x2="50.8" y2="71.12" width="0.1524" layer="91"/>
@@ -13673,8 +13722,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="EXTI8" class="0">
 <segment>
-<wire x1="215.9" y1="142.24" x2="228.6" y2="142.24" width="0.1524" layer="91"/>
-<label x="220.98" y="142.24" size="1.778" layer="95"/>
+<wire x1="152.4" y1="185.42" x2="167.64" y2="185.42" width="0.1524" layer="91"/>
+<label x="160.02" y="185.42" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="10"/>
 </segment>
 <segment>
 <wire x1="190.5" y1="60.96" x2="200.66" y2="60.96" width="0.1524" layer="91"/>
@@ -13683,8 +13733,9 @@ Source: &lt;a href="http://www.micron.com/~/media/Documents/Products/Data Sheet/
 </net>
 <net name="TIM4_CH2" class="0">
 <segment>
-<wire x1="215.9" y1="157.48" x2="233.68" y2="157.48" width="0.1524" layer="91"/>
-<label x="220.98" y="157.48" size="1.778" layer="95"/>
+<wire x1="152.4" y1="172.72" x2="172.72" y2="172.72" width="0.1524" layer="91"/>
+<label x="160.02" y="172.72" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="20"/>
 </segment>
 <segment>
 <wire x1="154.94" y1="76.2" x2="139.7" y2="76.2" width="0.1524" layer="91"/>
