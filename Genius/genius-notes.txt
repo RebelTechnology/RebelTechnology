@@ -150,7 +150,31 @@ todo:
 - make din-MIDI expansion
 
 Genius todo:
-- add USB protection: USBLC6-2
+/ add USB protection: USBLC6-2
 
 -----------------------------------------------
 
+SOUL patches
+make PATCHSOURCE=~/devel/SOUL/examples/patches/clarinetMIDI/ SOUL=clarinetMIDI SOULCLASS=clarinetMIDI_poly
+Err 04 Memory overflow
+
+make PATCHSOURCE=~/devel/SOUL/examples/patches/DiodeClipper SOUL=DiodeClipper SOULCLASS=Diode
+crashes
+
+make PATCHSOURCE=~/devel/SOUL/examples/patches/Reverb SOUL=Reverb
+works: 26%
+
+SineSynth
+works: 17%
+
+PadSynth
+crashes
+
+ClassicRingtone
+works: 2%
+
+LatelyBass works
+make PATCHSOURCE=~/devel/SOUL/examples/patches/TX/ElectroPiano SOUL=ElectroPiano SOULCLASS=ElectoPiano
+works
+make PATCHSOURCE=~/devel/SOUL/examples/patches/TX/ElecBass1 SOUL=ElecBass1 SOULCLASS=ElecBass
+works
