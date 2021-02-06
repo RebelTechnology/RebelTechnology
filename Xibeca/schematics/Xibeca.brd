@@ -53,11 +53,11 @@
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
 <layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
@@ -1462,7 +1462,7 @@
 <vertex x="9.18011875" y="40.757003125"/>
 <vertex x="9.18011875" y="41.656625"/>
 </polygon>
-<text x="15.927" y="18.368" size="1.4224" layer="22" font="vector" rot="SMR270" align="center-left">Noctua Rev02</text>
+<text x="15.927" y="18.368" size="1.4224" layer="22" font="vector" rot="SMR270" align="center-left">Xibeca Rev03</text>
 <text x="25.32" y="1.83" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">50 49</text>
 <text x="25.32" y="4.37" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">52</text>
 <text x="25.32" y="6.91" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">54</text>
