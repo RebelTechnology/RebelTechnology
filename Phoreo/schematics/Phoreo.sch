@@ -21468,53 +21468,53 @@ Published under the GNU GPL v2</text>
 <attribute name="NAME" x="81.28" y="-170.815" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="81.28" y="-162.56" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="P+19" gate="1" x="220.98" y="58.42" smashed="yes">
-<attribute name="VALUE" x="220.98" y="60.96" size="1.778" layer="96" rot="R180"/>
+<instance part="P+19" gate="1" x="228.6" y="12.7" smashed="yes">
+<attribute name="VALUE" x="228.6" y="15.24" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="P+20" gate="1" x="180.34" y="58.42" smashed="yes">
-<attribute name="VALUE" x="177.8" y="53.34" size="1.778" layer="96" rot="R90"/>
+<instance part="P+20" gate="1" x="187.96" y="12.7" smashed="yes">
+<attribute name="VALUE" x="185.42" y="7.62" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="C1" gate="G$1" x="190.5" y="45.72" smashed="yes">
-<attribute name="NAME" x="191.643" y="46.2026" size="1.778" layer="95"/>
-<attribute name="VALUE" x="191.643" y="41.1226" size="1.778" layer="96"/>
+<instance part="C1" gate="G$1" x="198.12" y="0" smashed="yes">
+<attribute name="NAME" x="199.263" y="0.4826" size="1.778" layer="95"/>
+<attribute name="VALUE" x="199.263" y="-4.5974" size="1.778" layer="96"/>
 </instance>
-<instance part="D1" gate="G$1" x="175.26" y="43.18" smashed="yes">
-<attribute name="NAME" x="172.974" y="45.085" size="1.778" layer="95"/>
-<attribute name="VALUE" x="172.974" y="39.751" size="1.778" layer="96"/>
+<instance part="D1" gate="G$1" x="182.88" y="-2.54" smashed="yes">
+<attribute name="NAME" x="180.594" y="-0.635" size="1.778" layer="95"/>
+<attribute name="VALUE" x="180.594" y="-5.969" size="1.778" layer="96"/>
 </instance>
-<instance part="GND20" gate="1" x="170.18" y="25.4" smashed="yes">
-<attribute name="VALUE" x="167.64" y="22.86" size="1.778" layer="96"/>
+<instance part="GND20" gate="1" x="177.8" y="-20.32" smashed="yes">
+<attribute name="VALUE" x="175.26" y="-22.86" size="1.778" layer="96"/>
 </instance>
-<instance part="GND23" gate="1" x="190.5" y="35.56" smashed="yes">
-<attribute name="VALUE" x="187.96" y="33.02" size="1.778" layer="96"/>
+<instance part="GND23" gate="1" x="198.12" y="-10.16" smashed="yes">
+<attribute name="VALUE" x="195.58" y="-12.7" size="1.778" layer="96"/>
 </instance>
-<instance part="IC3" gate="A1" x="205.74" y="50.8" smashed="yes">
-<attribute name="NAME" x="198.12" y="48.895" size="1.778" layer="95"/>
-<attribute name="VALUE" x="198.12" y="53.975" size="1.778" layer="96"/>
+<instance part="IC3" gate="A1" x="213.36" y="5.08" smashed="yes">
+<attribute name="NAME" x="205.74" y="3.175" size="1.778" layer="95"/>
+<attribute name="VALUE" x="205.74" y="8.255" size="1.778" layer="96"/>
 </instance>
-<instance part="PWR" gate="G$1" x="157.48" y="38.1" smashed="yes">
-<attribute name="VALUE" x="153.67" y="27.94" size="1.778" layer="96"/>
-<attribute name="NAME" x="153.67" y="46.482" size="1.778" layer="95"/>
+<instance part="PWR" gate="G$1" x="165.1" y="-7.62" smashed="yes">
+<attribute name="VALUE" x="161.29" y="-17.78" size="1.778" layer="96"/>
+<attribute name="NAME" x="161.29" y="0.762" size="1.778" layer="95"/>
 </instance>
-<instance part="P+21" gate="1" x="190.5" y="58.42" smashed="yes">
-<attribute name="VALUE" x="187.96" y="53.34" size="1.778" layer="96" rot="R90"/>
+<instance part="P+21" gate="1" x="198.12" y="12.7" smashed="yes">
+<attribute name="VALUE" x="195.58" y="7.62" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="GND25" gate="1" x="205.74" y="35.56" smashed="yes">
-<attribute name="VALUE" x="203.2" y="33.02" size="1.778" layer="96"/>
+<instance part="GND25" gate="1" x="213.36" y="-10.16" smashed="yes">
+<attribute name="VALUE" x="210.82" y="-12.7" size="1.778" layer="96"/>
 </instance>
-<instance part="C2" gate="G$1" x="220.98" y="45.72" smashed="yes">
-<attribute name="NAME" x="221.996" y="46.355" size="1.778" layer="95"/>
-<attribute name="VALUE" x="221.996" y="41.529" size="1.778" layer="96"/>
+<instance part="C2" gate="G$1" x="228.6" y="0" smashed="yes">
+<attribute name="NAME" x="229.616" y="0.635" size="1.778" layer="95"/>
+<attribute name="VALUE" x="229.616" y="-4.191" size="1.778" layer="96"/>
 </instance>
-<instance part="GND34" gate="1" x="220.98" y="35.56" smashed="yes">
-<attribute name="VALUE" x="218.44" y="33.02" size="1.778" layer="96"/>
+<instance part="GND34" gate="1" x="228.6" y="-10.16" smashed="yes">
+<attribute name="VALUE" x="226.06" y="-12.7" size="1.778" layer="96"/>
 </instance>
-<instance part="D2" gate="G$1" x="144.78" y="33.02" smashed="yes">
-<attribute name="NAME" x="142.494" y="34.925" size="1.778" layer="95"/>
-<attribute name="VALUE" x="142.494" y="29.591" size="1.778" layer="96"/>
+<instance part="D2" gate="G$1" x="152.4" y="-12.7" smashed="yes">
+<attribute name="NAME" x="150.114" y="-10.795" size="1.778" layer="95"/>
+<attribute name="VALUE" x="150.114" y="-16.129" size="1.778" layer="96"/>
 </instance>
-<instance part="P-6" gate="1" x="139.7" y="25.4" smashed="yes">
-<attribute name="VALUE" x="137.16" y="22.86" size="1.778" layer="96" rot="R90"/>
+<instance part="P-6" gate="1" x="147.32" y="-20.32" smashed="yes">
+<attribute name="VALUE" x="144.78" y="-22.86" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -21558,18 +21558,18 @@ Published under the GNU GPL v2</text>
 </segment>
 <segment>
 <pinref part="P+20" gate="1" pin="+12V"/>
-<wire x1="180.34" y1="55.88" x2="180.34" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="177.8" y1="43.18" x2="180.34" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="187.96" y1="10.16" x2="187.96" y2="-2.54" width="0.1524" layer="91"/>
+<wire x1="185.42" y1="-2.54" x2="187.96" y2="-2.54" width="0.1524" layer="91"/>
 <pinref part="D1" gate="G$1" pin="C"/>
 </segment>
 <segment>
 <pinref part="IC3" gate="A1" pin="VI"/>
 <pinref part="P+21" gate="1" pin="+12V"/>
-<wire x1="195.58" y1="50.8" x2="190.5" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="190.5" y1="50.8" x2="190.5" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="5.08" x2="198.12" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="5.08" x2="198.12" y2="10.16" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="+"/>
-<wire x1="190.5" y1="50.8" x2="190.5" y2="48.26" width="0.1524" layer="91"/>
-<junction x="190.5" y="50.8"/>
+<wire x1="198.12" y1="5.08" x2="198.12" y2="2.54" width="0.1524" layer="91"/>
+<junction x="198.12" y="5.08"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -21810,20 +21810,20 @@ Published under the GNU GPL v2</text>
 <wire x1="132.08" y1="-175.26" x2="132.08" y2="-182.88" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="149.86" y1="35.56" x2="165.1" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="165.1" y1="35.56" x2="170.18" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="170.18" y1="35.56" x2="170.18" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="170.18" y1="38.1" x2="165.1" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="165.1" y1="38.1" x2="149.86" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="170.18" y1="38.1" x2="170.18" y2="35.56" width="0.1524" layer="91"/>
-<junction x="170.18" y="35.56"/>
-<wire x1="149.86" y1="40.64" x2="165.1" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="165.1" y1="40.64" x2="170.18" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="170.18" y1="40.64" x2="170.18" y2="38.1" width="0.1524" layer="91"/>
-<junction x="170.18" y="38.1"/>
-<junction x="165.1" y="35.56"/>
-<junction x="165.1" y="38.1"/>
-<junction x="165.1" y="40.64"/>
+<wire x1="157.48" y1="-10.16" x2="172.72" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="-10.16" x2="177.8" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="-10.16" x2="177.8" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="-7.62" x2="172.72" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="-7.62" x2="157.48" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="-7.62" x2="177.8" y2="-10.16" width="0.1524" layer="91"/>
+<junction x="177.8" y="-10.16"/>
+<wire x1="157.48" y1="-5.08" x2="172.72" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="-5.08" x2="177.8" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="-5.08" x2="177.8" y2="-7.62" width="0.1524" layer="91"/>
+<junction x="177.8" y="-7.62"/>
+<junction x="172.72" y="-10.16"/>
+<junction x="172.72" y="-7.62"/>
+<junction x="172.72" y="-5.08"/>
 <pinref part="GND20" gate="1" pin="GND"/>
 <pinref part="PWR" gate="G$1" pin="3"/>
 <pinref part="PWR" gate="G$1" pin="5"/>
@@ -21835,17 +21835,17 @@ Published under the GNU GPL v2</text>
 <segment>
 <pinref part="C1" gate="G$1" pin="-"/>
 <pinref part="GND23" gate="1" pin="GND"/>
-<wire x1="190.5" y1="38.1" x2="190.5" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="-7.62" x2="198.12" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC3" gate="A1" pin="GND"/>
 <pinref part="GND25" gate="1" pin="GND"/>
-<wire x1="205.74" y1="38.1" x2="205.74" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="-7.62" x2="213.36" y2="-2.54" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C2" gate="G$1" pin="2"/>
 <pinref part="GND34" gate="1" pin="GND"/>
-<wire x1="220.98" y1="40.64" x2="220.98" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="228.6" y1="-5.08" x2="228.6" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -21912,8 +21912,8 @@ Published under the GNU GPL v2</text>
 <segment>
 <pinref part="D2" gate="G$1" pin="A"/>
 <pinref part="P-6" gate="1" pin="-12V"/>
-<wire x1="142.24" y1="33.02" x2="139.7" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="33.02" x2="139.7" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="-12.7" x2="147.32" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="-12.7" x2="147.32" y2="-17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -21999,12 +21999,12 @@ Published under the GNU GPL v2</text>
 </segment>
 <segment>
 <pinref part="P+19" gate="1" pin="+5V"/>
-<wire x1="220.98" y1="55.88" x2="220.98" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="228.6" y1="10.16" x2="228.6" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="A1" pin="VO"/>
-<wire x1="215.9" y1="50.8" x2="220.98" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="223.52" y1="5.08" x2="228.6" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="C2" gate="G$1" pin="1"/>
-<wire x1="220.98" y1="50.8" x2="220.98" y2="48.26" width="0.1524" layer="91"/>
-<junction x="220.98" y="50.8"/>
+<wire x1="228.6" y1="5.08" x2="228.6" y2="2.54" width="0.1524" layer="91"/>
+<junction x="228.6" y="5.08"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -22504,9 +22504,9 @@ Published under the GNU GPL v2</text>
 </net>
 <net name="N$40" class="0">
 <segment>
-<wire x1="149.86" y1="43.18" x2="165.1" y2="43.18" width="0.1524" layer="91"/>
-<junction x="165.1" y="43.18"/>
-<wire x1="165.1" y1="43.18" x2="172.72" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="-2.54" x2="172.72" y2="-2.54" width="0.1524" layer="91"/>
+<junction x="172.72" y="-2.54"/>
+<wire x1="172.72" y1="-2.54" x2="180.34" y2="-2.54" width="0.1524" layer="91"/>
 <pinref part="D1" gate="G$1" pin="A"/>
 <pinref part="PWR" gate="G$1" pin="9"/>
 <pinref part="PWR" gate="G$1" pin="10"/>
@@ -22516,10 +22516,10 @@ Published under the GNU GPL v2</text>
 <segment>
 <pinref part="PWR" gate="G$1" pin="2"/>
 <pinref part="D2" gate="G$1" pin="C"/>
-<wire x1="149.86" y1="33.02" x2="147.32" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="-12.7" x2="154.94" y2="-12.7" width="0.1524" layer="91"/>
 <pinref part="PWR" gate="G$1" pin="1"/>
-<wire x1="165.1" y1="33.02" x2="149.86" y2="33.02" width="0.1524" layer="91"/>
-<junction x="149.86" y="33.02"/>
+<wire x1="172.72" y1="-12.7" x2="157.48" y2="-12.7" width="0.1524" layer="91"/>
+<junction x="157.48" y="-12.7"/>
 </segment>
 </net>
 </nets>
