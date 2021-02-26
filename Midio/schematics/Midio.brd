@@ -2420,9 +2420,9 @@ design rules under a new name.</description>
 <attribute name="NAME" x="36.322" y="26.162" size="1.27" layer="26" ratio="10" rot="MR270"/>
 <attribute name="VALUE" x="41.021" y="26.162" size="1.27" layer="28" ratio="10" rot="MR270"/>
 </element>
-<element name="C1" library="Rebel" package="C050-024X044" value="100n" x="69.85" y="41.91" smashed="yes">
-<attribute name="NAME" x="67.691" y="43.307" size="1.27" layer="25" ratio="10"/>
-<attribute name="VALUE" x="67.691" y="39.243" size="1.27" layer="27" ratio="10"/>
+<element name="C1" library="Rebel" package="C050-024X044" value="100n" x="34.29" y="78.74" smashed="yes">
+<attribute name="NAME" x="32.131" y="80.137" size="1.27" layer="25" ratio="10"/>
+<attribute name="VALUE" x="32.131" y="76.073" size="1.27" layer="27" ratio="10"/>
 </element>
 <element name="C3" library="Rebel" package="C050-024X044" value="100n 16v" x="38.1" y="46.99" smashed="yes" rot="R90">
 <attribute name="NAME" x="36.703" y="44.831" size="1.27" layer="25" ratio="10" rot="R90"/>
@@ -2436,31 +2436,26 @@ design rules under a new name.</description>
 <attribute name="NAME" x="30.915" y="39.245" size="1.27" layer="26" rot="MR90"/>
 <attribute name="VALUE" x="40.585" y="38.55" size="1.27" layer="28" rot="MR90"/>
 </element>
-<element name="IC2" library="optocoupler" library_urn="urn:adsk.eagle:library:320" package="DIL08" package3d_urn="urn:adsk.eagle:package:21941/1" value="6N137" x="69.85" y="33.02" smashed="yes">
-<attribute name="MF" value="" x="69.85" y="33.02" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="6N137" x="69.85" y="33.02" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="64.516" y="30.099" size="1.27" layer="25" ratio="10" rot="R90"/>
-<attribute name="OC_FARNELL" value="1328376" x="69.85" y="33.02" size="1.778" layer="27" display="off"/>
-<attribute name="OC_NEWARK" value="52M1895" x="69.85" y="33.02" size="1.778" layer="27" display="off"/>
-<attribute name="POPULARITY" value="2" x="69.85" y="33.02" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="66.294" y="32.385" size="1.27" layer="27" ratio="10"/>
+<element name="IC2" library="optocoupler" library_urn="urn:adsk.eagle:library:320" package="DIL08" package3d_urn="urn:adsk.eagle:package:21941/1" value="6N137" x="34.29" y="71.12" smashed="yes">
+<attribute name="MF" value="" x="34.29" y="71.12" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="6N137" x="34.29" y="71.12" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="28.956" y="68.199" size="1.27" layer="25" ratio="10" rot="R90"/>
+<attribute name="OC_FARNELL" value="1328376" x="34.29" y="71.12" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="52M1895" x="34.29" y="71.12" size="1.778" layer="27" display="off"/>
+<attribute name="POPULARITY" value="2" x="34.29" y="71.12" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="30.734" y="70.485" size="1.27" layer="27" ratio="10"/>
 </element>
-<element name="R1" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0204/7" package3d_urn="urn:adsk.eagle:package:15457752/1" value="220R" x="67.31" y="16.51" smashed="yes">
-<attribute name="NAME" x="65.6844" y="16.0274" size="1.016" layer="25" font="vector" ratio="10"/>
-<attribute name="VALUE" x="64.77" y="17.8054" size="1.016" layer="27" font="vector" ratio="10"/>
+<element name="R1" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0204/7" package3d_urn="urn:adsk.eagle:package:15457752/1" value="220R" x="34.29" y="59.69" smashed="yes" rot="R180">
+<attribute name="NAME" x="35.9156" y="60.1726" size="1.016" layer="25" font="vector" ratio="10" rot="R180"/>
+<attribute name="VALUE" x="36.83" y="58.3946" size="1.016" layer="27" font="vector" ratio="10" rot="R180"/>
 </element>
-<element name="D1" library="diode" library_urn="urn:adsk.eagle:library:210" package="DO35-7" package3d_urn="urn:adsk.eagle:package:43339/2" value="1N4148DO35-7" x="68.58" y="22.86" smashed="yes">
-<attribute name="NAME" x="66.294" y="24.13" size="1.27" layer="25" ratio="10"/>
-<attribute name="POPULARITY" value="58" x="68.58" y="19.05" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="66.294" y="20.193" size="1.27" layer="27" ratio="10"/>
+<element name="D1" library="diode" library_urn="urn:adsk.eagle:library:210" package="DO35-7" package3d_urn="urn:adsk.eagle:package:43339/2" value="1N4148DO35-7" x="34.29" y="63.5" smashed="yes">
+<attribute name="NAME" x="32.004" y="64.77" size="1.27" layer="25" ratio="10"/>
+<attribute name="POPULARITY" value="58" x="34.29" y="59.69" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R2" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0204/7" package3d_urn="urn:adsk.eagle:package:15457752/1" value="10k" x="77.47" y="16.51" smashed="yes">
-<attribute name="NAME" x="75.8444" y="16.0274" size="1.016" layer="25" font="vector" ratio="10"/>
-<attribute name="VALUE" x="74.93" y="17.8054" size="1.016" layer="27" font="vector" ratio="10"/>
-</element>
-<element name="R3" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0204/7" package3d_urn="urn:adsk.eagle:package:15457752/1" value="220R" x="67.31" y="12.7" smashed="yes">
-<attribute name="NAME" x="65.6844" y="12.2174" size="1.016" layer="25" font="vector" ratio="10"/>
-<attribute name="VALUE" x="64.77" y="13.9954" size="1.016" layer="27" font="vector" ratio="10"/>
+<element name="R2" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0204/7" package3d_urn="urn:adsk.eagle:package:15457752/1" value="10k" x="34.29" y="81.28" smashed="yes">
+<attribute name="NAME" x="32.6644" y="80.7974" size="1.016" layer="25" font="vector" ratio="10"/>
+<attribute name="VALUE" x="31.75" y="82.5754" size="1.016" layer="27" font="vector" ratio="10"/>
 </element>
 <element name="MIDI_OUT" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="THONKICONN_STEREO" package3d_urn="urn:adsk.eagle:package:15809357/2" value="THONKICONN_STEREO" x="31.369" y="25.527" locked="yes" smashed="yes">
 <attribute name="NAME" x="31.369" y="28.067" locked="yes" size="1.27" layer="104" font="vector" align="bottom-center"/>
@@ -2468,9 +2463,9 @@ design rules under a new name.</description>
 <element name="MIDI_IN" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="THONKICONN_STEREO" package3d_urn="urn:adsk.eagle:package:15809357/2" value="THONKICONN_STEREO" x="18.669" y="25.527" locked="yes" smashed="yes">
 <attribute name="NAME" x="18.669" y="28.067" locked="yes" size="1.27" layer="104" font="vector" align="bottom-center"/>
 </element>
-<element name="R4" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0204/7" package3d_urn="urn:adsk.eagle:package:15457752/1" value="220R" x="77.47" y="12.7" smashed="yes">
-<attribute name="NAME" x="75.8444" y="12.2174" size="1.016" layer="25" font="vector" ratio="10"/>
-<attribute name="VALUE" x="74.93" y="13.9954" size="1.016" layer="27" font="vector" ratio="10"/>
+<element name="R4" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0204/7" package3d_urn="urn:adsk.eagle:package:15457752/1" value="220R" x="34.29" y="83.82" smashed="yes">
+<attribute name="NAME" x="32.6644" y="83.3374" size="1.016" layer="25" font="vector" ratio="10"/>
+<attribute name="VALUE" x="31.75" y="85.1154" size="1.016" layer="27" font="vector" ratio="10"/>
 </element>
 </elements>
 <signals>
@@ -2679,8 +2674,8 @@ design rules under a new name.</description>
 <wire x1="18.669" y1="80.772" x2="17.399" y2="86.36" width="0" layer="19" extent="1-1"/>
 <wire x1="18.669" y1="78.232" x2="18.669" y2="80.772" width="0" layer="19" extent="1-1"/>
 <wire x1="26.289" y1="65.532" x2="38.1" y2="57.15" width="0" layer="19" extent="1-1"/>
-<wire x1="72.39" y1="41.91" x2="44.069" y2="39.077" width="0" layer="19" extent="1-1"/>
-<wire x1="73.66" y1="36.83" x2="72.39" y2="41.91" width="0" layer="19" extent="1-1"/>
+<wire x1="36.83" y1="78.74" x2="44.069" y2="39.077" width="0" layer="19" extent="1-1"/>
+<wire x1="38.1" y1="74.93" x2="36.83" y2="78.74" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+5V">
 <contactref element="IC7" pad="1"/>
@@ -2690,14 +2685,12 @@ design rules under a new name.</description>
 <contactref element="JP1" pad="1"/>
 <contactref element="IC2" pad="8"/>
 <contactref element="R2" pad="1"/>
-<contactref element="R3" pad="1"/>
 <contactref element="R4" pad="1"/>
 <contactref element="U1" pad="2"/>
-<wire x1="66.04" y1="36.83" x2="67.31" y2="41.91" width="0" layer="19" extent="1-1"/>
-<wire x1="73.66" y1="16.51" x2="66.04" y2="36.83" width="0" layer="19" extent="1-1"/>
-<wire x1="73.66" y1="12.7" x2="73.66" y2="16.51" width="0" layer="19" extent="1-1"/>
-<wire x1="63.5" y1="12.7" x2="73.66" y2="12.7" width="0" layer="19" extent="1-1"/>
-<wire x1="38.1" y1="36.83" x2="66.04" y2="36.83" width="0" layer="19" extent="1-1"/>
+<wire x1="30.48" y1="74.93" x2="31.75" y2="78.74" width="0" layer="19" extent="1-1"/>
+<wire x1="30.48" y1="81.28" x2="30.48" y2="74.93" width="0" layer="19" extent="1-1"/>
+<wire x1="30.48" y1="83.82" x2="30.48" y2="81.28" width="0" layer="19" extent="1-1"/>
+<wire x1="38.1" y1="36.83" x2="30.48" y2="74.93" width="0" layer="19" extent="1-1"/>
 <wire x1="38.1" y1="31.75" x2="38.1" y2="36.83" width="0" layer="19" extent="1-1"/>
 <wire x1="26.289" y1="32.512" x2="38.1" y2="31.75" width="0" layer="19" extent="1-1"/>
 <wire x1="14.09" y1="8.57" x2="26.289" y2="32.512" width="0" layer="19" extent="1-1"/>
@@ -2857,33 +2850,31 @@ design rules under a new name.</description>
 <signal name="MIDI_RX">
 <contactref element="IC2" pad="6"/>
 <contactref element="R2" pad="2"/>
-<wire x1="81.28" y1="16.51" x2="71.12" y2="36.83" width="0" layer="19" extent="1-1"/>
+<wire x1="38.1" y1="81.28" x2="35.56" y2="74.93" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$4">
 <contactref element="R1" pad="2"/>
 <contactref element="IC2" pad="2"/>
 <contactref element="D1" pad="C"/>
-<wire x1="64.77" y1="22.86" x2="68.58" y2="29.21" width="0" layer="19" extent="1-1"/>
-<wire x1="71.12" y1="16.51" x2="64.77" y2="22.86" width="0" layer="19" extent="1-1"/>
+<wire x1="30.48" y1="63.5" x2="33.02" y2="67.31" width="0" layer="19" extent="1-1"/>
+<wire x1="30.48" y1="59.69" x2="30.48" y2="63.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MIDI_IN_RING">
 <contactref element="IC2" pad="3"/>
 <contactref element="D1" pad="A"/>
 <contactref element="MIDI_IN" pad="P$2"/>
-<wire x1="72.39" y1="22.86" x2="71.12" y2="29.21" width="0" layer="19" extent="1-1"/>
-<wire x1="18.669" y1="22.147" x2="71.12" y2="29.21" width="0" layer="19" extent="1-1"/>
+<wire x1="38.1" y1="63.5" x2="35.56" y2="67.31" width="0" layer="19" extent="1-1"/>
+<wire x1="18.669" y1="22.147" x2="35.56" y2="67.31" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MIDI_IN_TIP">
 <contactref element="R1" pad="1"/>
 <contactref element="MIDI_IN" pad="P$3"/>
-<wire x1="18.669" y1="30.447" x2="63.5" y2="16.51" width="0" layer="19" extent="1-1"/>
+<wire x1="18.669" y1="30.447" x2="38.1" y2="59.69" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MIDI_OUT_TIP">
-<contactref element="R3" pad="2"/>
 <contactref element="MIDI_OUT" pad="P$3"/>
 <contactref element="R4" pad="2"/>
-<wire x1="71.12" y1="12.7" x2="81.28" y2="12.7" width="0" layer="19" extent="1-1"/>
-<wire x1="31.369" y1="30.447" x2="71.12" y2="12.7" width="0" layer="19" extent="1-1"/>
+<wire x1="31.369" y1="30.447" x2="38.1" y2="83.82" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MIDI_TX">
 <contactref element="MIDI_OUT" pad="P$2"/>

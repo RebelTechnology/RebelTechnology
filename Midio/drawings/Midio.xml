@@ -29,12 +29,11 @@
   <!-- 0.96" viewing area -->
   <rect x="0.0" y="0.9" width="23.94" height="12.06"/>
 
-  <!-- 1.3" viewing area SH1106 -->
-  <rect x="0.0" y="0.9" width="16.70" height="31.42"/>
+  <!-- <!-\- 1.3" viewing area SH1106 -\-> -->
+  <!-- <rect x="0.0" y="0.9" width="16.70" height="31.42"/> -->
 
-  <!-- MCOT128064BY 128x64 -->
-  
-  <rect x="0.0" y="0.9" width="19.516" height="37.052"/>
+  <!-- <!-\- MCOT128064BY 128x64 -\-> -->
+  <!-- <rect x="0.0" y="0.9" width="19.516" height="37.052"/> -->
 
   <!-- Encoder -->
   <hole x="0.00" y="1.75" radius="3.75"/>
