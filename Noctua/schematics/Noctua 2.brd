@@ -3011,16 +3011,16 @@ design rules under a new name.
 <wire x1="13.55" y1="18.55" x2="13.55" y2="16.6" width="0.254" layer="1"/>
 <wire x1="12.95" y1="18.55" x2="13.55" y2="18.55" width="0.254" layer="1"/>
 <wire x1="7.925" y1="19.75" x2="8.2" y2="19.75" width="0.3048" layer="1"/>
-<wire x1="8.2" y1="19.75" x2="9.25" y2="20.8" width="0.254" layer="1"/>
+<wire x1="8.2" y1="19.75" x2="9.1" y2="20.65" width="0.254" layer="1"/>
 <wire x1="13.35" y1="22.65" x2="13.55" y2="22.45" width="0.254" layer="1"/>
-<wire x1="13.55" y1="18.55" x2="13.55" y2="20.8" width="0.254" layer="1"/>
+<wire x1="13.55" y1="18.55" x2="13.55" y2="20.65" width="0.254" layer="1"/>
 <via x="13.35" y="22.65" extent="1-16" drill="0.3048"/>
 <contactref element="CN1" pad="G2"/>
 <contactref element="CN1" pad="G4"/>
 <contactref element="CN1" pad="G"/>
 <contactref element="CN1" pad="G3"/>
 <contactref element="CN1" pad="5"/>
-<wire x1="13.55" y1="20.8" x2="13.55" y2="22.45" width="0.254" layer="1"/>
+<wire x1="13.55" y1="20.65" x2="13.55" y2="22.45" width="0.254" layer="1"/>
 <via x="23.34925" y="6.104" extent="1-16" drill="0.3048"/>
 <wire x1="21.95" y1="22.85" x2="21.95" y2="22.365" width="0.254" layer="16"/>
 <wire x1="21.95" y1="22.365" x2="22.25" y2="22.05" width="0.254" layer="16"/>
@@ -3078,7 +3078,7 @@ design rules under a new name.
 <vertex x="4.475803125" y="31.23610625"/>
 <vertex x="0.056740625" y="31.26584375"/>
 </polygon>
-<wire x1="9.25" y1="20.8" x2="13.55" y2="20.8" width="0.254" layer="1"/>
+<wire x1="9.1" y1="20.65" x2="13.55" y2="20.65" width="0.254" layer="1"/>
 <wire x1="6.3" y1="24.2" x2="6.3" y2="23.2" width="0.254" layer="1"/>
 <wire x1="6.3" y1="23.2" x2="6.25" y2="23.15" width="0.254" layer="1"/>
 <wire x1="7.3" y1="23.2" x2="6.3" y2="23.2" width="0.254" layer="1"/>
@@ -3671,7 +3671,7 @@ design rules under a new name.
 <wire x1="20.81725" y1="10.831" x2="19.269" y2="10.831" width="0.3048" layer="1"/>
 <wire x1="19.25" y1="10.85" x2="16.8" y2="10.85" width="0.3048" layer="1"/>
 <wire x1="19.269" y1="10.831" x2="19.25" y2="10.85" width="0.3048" layer="1"/>
-<via x="12.75" y="21.45" extent="1-16" drill="0.3048"/>
+<via x="12.75" y="21.2" extent="1-16" drill="0.3048"/>
 <via x="6.3" y="9.15" extent="1-16" drill="0.3048"/>
 <via x="6.1" y="5.25" extent="1-16" drill="0.3048"/>
 <wire x1="6.2" y1="21.4" x2="5.2" y2="21.4" width="0.254" layer="1"/>
