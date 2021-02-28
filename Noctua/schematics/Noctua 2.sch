@@ -12975,9 +12975,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="JP1" gate="A" pin="25"/>
 </segment>
 <segment>
-<wire x1="167.64" y1="73.66" x2="157.48" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="PA2"/>
-<label x="160.02" y="73.66" size="1.778" layer="95"/>
+<wire x1="157.48" y1="149.86" x2="167.64" y2="149.86" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PC0"/>
+<label x="160.02" y="149.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="BOOT" class="0">
@@ -13108,9 +13108,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="JP1" gate="A" pin="27"/>
 </segment>
 <segment>
-<wire x1="157.48" y1="149.86" x2="167.64" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="PC0"/>
-<label x="160.02" y="149.86" size="1.778" layer="95"/>
+<wire x1="167.64" y1="73.66" x2="157.48" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PA2"/>
+<label x="160.02" y="73.66" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC3" class="0">
@@ -13120,9 +13120,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="JP1" gate="A" pin="29"/>
 </segment>
 <segment>
-<wire x1="157.48" y1="71.12" x2="167.64" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="PA6"/>
-<label x="160.02" y="71.12" size="1.778" layer="95"/>
+<wire x1="167.64" y1="30.48" x2="157.48" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PB1"/>
+<label x="160.02" y="30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC4" class="0">
@@ -13132,9 +13132,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="JP1" gate="A" pin="31"/>
 </segment>
 <segment>
-<wire x1="157.48" y1="147.32" x2="167.64" y2="147.32" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="PC1"/>
-<label x="160.02" y="147.32" size="1.778" layer="95"/>
+<wire x1="167.64" y1="66.04" x2="157.48" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PC5"/>
+<label x="160.02" y="66.04" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC5" class="0">
@@ -13144,9 +13144,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="JP1" gate="A" pin="26"/>
 </segment>
 <segment>
-<wire x1="167.64" y1="30.48" x2="157.48" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="PB1"/>
-<label x="160.02" y="30.48" size="1.778" layer="95"/>
+<wire x1="157.48" y1="147.32" x2="167.64" y2="147.32" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PC1"/>
+<label x="160.02" y="147.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC6" class="0">
@@ -13156,9 +13156,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="JP1" gate="A" pin="28"/>
 </segment>
 <segment>
-<wire x1="167.64" y1="27.94" x2="157.48" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="PB0"/>
-<label x="160.02" y="27.94" size="1.778" layer="95"/>
+<wire x1="157.48" y1="71.12" x2="167.64" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PA6"/>
+<label x="160.02" y="71.12" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC7" class="0">
@@ -13168,9 +13168,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="JP1" gate="A" pin="30"/>
 </segment>
 <segment>
-<wire x1="167.64" y1="66.04" x2="157.48" y2="66.04" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="PC5"/>
-<label x="160.02" y="66.04" size="1.778" layer="95"/>
+<wire x1="167.64" y1="27.94" x2="157.48" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PB0"/>
+<label x="160.02" y="27.94" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC8" class="0">
@@ -13865,8 +13865,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="JP1" gate="A" pin="15"/>
 </segment>
 <segment>
-<wire x1="149.86" y1="332.74" x2="162.56" y2="332.74" width="0.1524" layer="91"/>
-<label x="149.86" y="332.74" size="1.778" layer="95"/>
+<wire x1="93.98" y1="223.52" x2="109.22" y2="223.52" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PA15"/>
+<label x="93.98" y="223.52" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TIM2_CH2" class="0">
@@ -13876,8 +13877,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="JP1" gate="A" pin="16"/>
 </segment>
 <segment>
-<wire x1="149.86" y1="330.2" x2="162.56" y2="330.2" width="0.1524" layer="91"/>
-<label x="149.86" y="330.2" size="1.778" layer="95"/>
+<pinref part="IC1" gate="G$1" pin="PA1"/>
+<wire x1="157.48" y1="111.76" x2="172.72" y2="111.76" width="0.1524" layer="91"/>
+<label x="160.02" y="111.76" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TIM1_CH2" class="0">
@@ -13958,9 +13960,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="JP1" gate="A" pin="17"/>
 </segment>
 <segment>
-<wire x1="93.98" y1="228.6" x2="109.22" y2="228.6" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="PD7"/>
-<label x="93.98" y="228.6" size="1.778" layer="95"/>
+<pinref part="IC1" gate="G$1" pin="PC6"/>
+<wire x1="157.48" y1="241.3" x2="175.26" y2="241.3" width="0.1524" layer="91"/>
+<label x="160.02" y="241.3" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TIM4_CH1" class="0">
@@ -13970,8 +13972,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="JP1" gate="A" pin="19"/>
 </segment>
 <segment>
-<wire x1="162.56" y1="322.58" x2="149.86" y2="322.58" width="0.1524" layer="91"/>
-<label x="149.86" y="322.58" size="1.778" layer="95"/>
+<pinref part="IC1" gate="G$1" pin="PD12"/>
+<wire x1="157.48" y1="83.82" x2="172.72" y2="83.82" width="0.1524" layer="91"/>
+<label x="160.02" y="83.82" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TIM5_CH1" class="0">
@@ -13998,50 +14001,50 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 </net>
 <net name="EXTI1" class="0">
 <segment>
-<wire x1="259.08" y1="256.54" x2="243.84" y2="256.54" width="0.1524" layer="91"/>
-<label x="243.84" y="256.54" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="3"/>
-</segment>
-<segment>
 <pinref part="IC1" gate="G$1" pin="PA0"/>
 <wire x1="157.48" y1="109.22" x2="167.64" y2="109.22" width="0.1524" layer="91"/>
 <label x="160.02" y="109.22" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="266.7" y1="248.92" x2="281.94" y2="248.92" width="0.1524" layer="91"/>
+<label x="274.32" y="248.92" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="10"/>
+</segment>
 </net>
 <net name="EXTI2" class="0">
-<segment>
-<wire x1="259.08" y1="254" x2="243.84" y2="254" width="0.1524" layer="91"/>
-<label x="243.84" y="254" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="5"/>
-</segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="PA3"/>
 <wire x1="157.48" y1="35.56" x2="167.64" y2="35.56" width="0.1524" layer="91"/>
 <label x="160.02" y="35.56" size="1.778" layer="95"/>
 </segment>
-</net>
-<net name="EXTI3" class="0">
-<segment>
-<wire x1="259.08" y1="251.46" x2="243.84" y2="251.46" width="0.1524" layer="91"/>
-<label x="243.84" y="251.46" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="7"/>
-</segment>
-<segment>
-<wire x1="93.98" y1="81.28" x2="109.22" y2="81.28" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="PC15-_OSC32__OUT"/>
-<label x="93.98" y="81.28" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="EXTI4" class="0">
 <segment>
 <wire x1="259.08" y1="248.92" x2="243.84" y2="248.92" width="0.1524" layer="91"/>
 <label x="243.84" y="248.92" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="9"/>
 </segment>
+</net>
+<net name="EXTI3" class="0">
+<segment>
+<wire x1="93.98" y1="81.28" x2="109.22" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PC15-_OSC32__OUT"/>
+<label x="93.98" y="81.28" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="266.7" y1="254" x2="281.94" y2="254" width="0.1524" layer="91"/>
+<label x="274.32" y="254" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="6"/>
+</segment>
+</net>
+<net name="EXTI4" class="0">
 <segment>
 <wire x1="93.98" y1="101.6" x2="109.22" y2="101.6" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="PC14-_OSC32_IN"/>
 <label x="93.98" y="101.6" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="259.08" y1="256.54" x2="243.84" y2="256.54" width="0.1524" layer="91"/>
+<label x="243.84" y="256.54" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="3"/>
 </segment>
 </net>
 <net name="I2C_SCL" class="0">
@@ -14075,9 +14078,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="JP1" gate="A" pin="18"/>
 </segment>
 <segment>
-<wire x1="157.48" y1="33.02" x2="170.18" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="PA7"/>
-<label x="160.02" y="33.02" size="1.778" layer="95"/>
+<pinref part="IC1" gate="G$1" pin="PC7"/>
+<wire x1="109.22" y1="17.78" x2="93.98" y2="17.78" width="0.1524" layer="91"/>
+<label x="93.98" y="17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TIM5_CH2" class="0">
@@ -14116,38 +14119,38 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 </net>
 <net name="EXTI6" class="0">
 <segment>
-<wire x1="266.7" y1="254" x2="281.94" y2="254" width="0.1524" layer="91"/>
-<label x="274.32" y="254" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="6"/>
-</segment>
-<segment>
 <wire x1="93.98" y1="111.76" x2="109.22" y2="111.76" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="PD2"/>
 <label x="93.98" y="111.76" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="259.08" y1="254" x2="243.84" y2="254" width="0.1524" layer="91"/>
+<label x="243.84" y="254" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="5"/>
+</segment>
 </net>
 <net name="EXTI7" class="0">
-<segment>
-<wire x1="266.7" y1="251.46" x2="281.94" y2="251.46" width="0.1524" layer="91"/>
-<label x="274.32" y="251.46" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="8"/>
-</segment>
 <segment>
 <wire x1="99.06" y1="20.32" x2="109.22" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="PC8"/>
 <label x="99.06" y="20.32" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="259.08" y1="251.46" x2="243.84" y2="251.46" width="0.1524" layer="91"/>
+<label x="243.84" y="251.46" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="7"/>
+</segment>
 </net>
 <net name="EXTI8" class="0">
-<segment>
-<wire x1="266.7" y1="248.92" x2="281.94" y2="248.92" width="0.1524" layer="91"/>
-<label x="274.32" y="248.92" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="10"/>
-</segment>
 <segment>
 <wire x1="99.06" y1="53.34" x2="109.22" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="PC9"/>
 <label x="99.06" y="53.34" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="266.7" y1="251.46" x2="281.94" y2="251.46" width="0.1524" layer="91"/>
+<label x="274.32" y="251.46" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="8"/>
 </segment>
 </net>
 <net name="TIM4_CH2" class="0">
@@ -14157,8 +14160,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="JP1" gate="A" pin="20"/>
 </segment>
 <segment>
-<wire x1="162.56" y1="320.04" x2="149.86" y2="320.04" width="0.1524" layer="91"/>
-<label x="149.86" y="320.04" size="1.778" layer="95"/>
+<pinref part="IC1" gate="G$1" pin="PD13"/>
+<wire x1="157.48" y1="116.84" x2="172.72" y2="116.84" width="0.1524" layer="91"/>
+<label x="160.02" y="116.84" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="+A5V" class="0">
@@ -14332,8 +14336,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="U2" gate="G1" pin="MS/ADR0/MD0"/>
 </segment>
 <segment>
-<wire x1="109.22" y1="335.28" x2="127" y2="335.28" width="0.1524" layer="91"/>
-<label x="111.76" y="335.28" size="1.778" layer="95"/>
+<wire x1="157.48" y1="7.62" x2="175.26" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PB11"/>
+<label x="160.02" y="7.62" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC_RST" class="0">
@@ -14343,8 +14348,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="U2" gate="G1" pin="RST"/>
 </segment>
 <segment>
-<wire x1="109.22" y1="337.82" x2="124.46" y2="337.82" width="0.1524" layer="91"/>
-<label x="111.76" y="337.82" size="1.778" layer="95"/>
+<wire x1="157.48" y1="175.26" x2="172.72" y2="175.26" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PG3"/>
+<label x="160.02" y="175.26" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A4" class="0">
@@ -14714,8 +14720,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <label x="48.26" y="238.76" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="109.22" y1="345.44" x2="124.46" y2="345.44" width="0.1524" layer="91"/>
-<label x="111.76" y="345.44" size="1.778" layer="95"/>
+<wire x1="127" y1="309.88" x2="142.24" y2="309.88" width="0.1524" layer="91"/>
+<label x="127" y="309.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A9" class="0">
@@ -14749,9 +14755,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <label x="48.26" y="231.14" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="93.98" y1="223.52" x2="109.22" y2="223.52" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="PA15"/>
-<label x="93.98" y="223.52" size="1.778" layer="95"/>
+<wire x1="93.98" y1="228.6" x2="109.22" y2="228.6" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PD7"/>
+<label x="93.98" y="228.6" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_!RAS" class="0">
