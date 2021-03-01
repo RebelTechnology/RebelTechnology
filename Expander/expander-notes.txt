@@ -197,5 +197,29 @@ https://solectroshop.com/es/pantalla-oled/638-pantalla-oled-096-128x64-blanco-sp
 96x64
 Resistors for 4SPI: R3 and R4 4k7 (code 472)
 
+GND : ground
+VCC : 5V
+D0  : SCL/SCK
+D1  : SDA/MOSI
+RES : reset
+DC  : A0 data/command
+CS  : chip select
+
+PB8 : CAN1_RX, I2C1_SCL, TIM10_CH1, TIM2_CH1, TIM4_CH3
+PB9 : CAN1_TX, I2C1_SDA, TIM11_CH1, TIM2_CH2, TIM4_CH4
+PC13: SYS_WKUP1
+
+PA9 : USBH_VBUS, TIM1_CH2, SPI2_SCK, USART1_TX
+PA10: USBH_ID, TIM1_CH3, USART1_RX,
+
+PB13: USBD_VBUS, CAN2_TX
+
+PB12: USBD_ID, CAN2_RX
+
+PB14: USBD_DM, SPI2_MISO, TIM12_CH1, TIM1_CH2N, TIM8_CH2N
+PB15: USBD_DP, SPI2_MOSI, TIM12_CH2, TIM1_CH3N, TIM8_CH3N
+PA11: USBH_DM, CAN1_RX, TIM1_CH4
+PA12: USBH_DP, CAN1_TX
+
 --------------------------------------------------------------------------------
 
