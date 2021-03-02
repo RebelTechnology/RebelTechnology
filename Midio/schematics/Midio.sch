@@ -22708,7 +22708,7 @@ http://www.fairchildsemi.com/ds/LM/LM7805.pdf</description>
 <part name="R20" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="IC2" library="optocoupler" library_urn="urn:adsk.eagle:library:320" deviceset="6N137" device="" package3d_urn="urn:adsk.eagle:package:21941/1"/>
 <part name="R21" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="220R"/>
-<part name="D1" library="adafruit" deviceset="DIODE" device="SOT23_REFLOW"/>
+<part name="D1" library="adafruit" deviceset="DIODE" device="SOT23_REFLOW" value="BAT54"/>
 <part name="R22" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="10k"/>
 <part name="P+2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
@@ -22918,10 +22918,10 @@ http://www.fairchildsemi.com/ds/LM/LM7805.pdf</description>
 <instance part="GND103" gate="1" x="33.02" y="-121.92" smashed="yes">
 <attribute name="VALUE" x="30.48" y="-124.46" size="1.778" layer="96"/>
 </instance>
-<instance part="GND104" gate="1" x="162.56" y="-162.56" smashed="yes">
-<attribute name="VALUE" x="160.02" y="-165.1" size="1.778" layer="96"/>
+<instance part="GND104" gate="1" x="139.7" y="-162.56" smashed="yes">
+<attribute name="VALUE" x="137.16" y="-165.1" size="1.778" layer="96"/>
 </instance>
-<instance part="X2" gate="G$1" x="165.1" y="-157.48" smashed="yes"/>
+<instance part="X2" gate="G$1" x="142.24" y="-157.48" smashed="yes"/>
 <instance part="JP1" gate="G$1" x="347.98" y="53.34" smashed="yes" rot="R180">
 <attribute name="VALUE" x="347.98" y="53.34" size="1.778" layer="96" rot="R180"/>
 <attribute name="NAME" x="347.98" y="-3.81" size="1.778" layer="95" rot="R180"/>
@@ -23642,7 +23642,7 @@ http://www.fairchildsemi.com/ds/LM/LM7805.pdf</description>
 </segment>
 <segment>
 <pinref part="GND104" gate="1" pin="GND"/>
-<wire x1="162.56" y1="-157.48" x2="162.56" y2="-160.02" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="-157.48" x2="139.7" y2="-160.02" width="0.1524" layer="91"/>
 <pinref part="X2" gate="G$1" pin="GND"/>
 </segment>
 <segment>
@@ -24041,11 +24041,6 @@ http://www.fairchildsemi.com/ds/LM/LM7805.pdf</description>
 </net>
 <net name="USBD_DP" class="0">
 <segment>
-<label x="142.24" y="-149.86" size="1.778" layer="95"/>
-<wire x1="162.56" y1="-149.86" x2="142.24" y2="-149.86" width="0.1524" layer="91"/>
-<pinref part="X2" gate="G$1" pin="D+"/>
-</segment>
-<segment>
 <pinref part="JP1" gate="G$1" pin="4"/>
 <wire x1="337.82" y1="40.64" x2="312.42" y2="40.64" width="0.1524" layer="91"/>
 <label x="312.42" y="40.64" size="1.778" layer="95"/>
@@ -24058,9 +24053,11 @@ http://www.fairchildsemi.com/ds/LM/LM7805.pdf</description>
 </net>
 <net name="USBD_VBUS" class="0">
 <segment>
-<wire x1="162.56" y1="-154.94" x2="142.24" y2="-154.94" width="0.1524" layer="91"/>
-<label x="142.24" y="-154.94" size="1.778" layer="95"/>
+<wire x1="139.7" y1="-154.94" x2="111.506" y2="-154.94" width="0.1524" layer="91"/>
+<label x="149.86" y="-154.94" size="1.778" layer="95"/>
 <pinref part="X2" gate="G$1" pin="VBUS"/>
+<pinref part="IC10" gate="G$1" pin="VBUS"/>
+<label x="119.38" y="-154.94" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="JP1" gate="G$1" pin="2"/>
@@ -24069,11 +24066,6 @@ http://www.fairchildsemi.com/ds/LM/LM7805.pdf</description>
 </segment>
 </net>
 <net name="USBD_DM" class="0">
-<segment>
-<label x="142.24" y="-152.4" size="1.778" layer="95"/>
-<wire x1="142.24" y1="-152.4" x2="162.56" y2="-152.4" width="0.1524" layer="91"/>
-<pinref part="X2" gate="G$1" pin="D-"/>
-</segment>
 <segment>
 <pinref part="JP1" gate="G$1" pin="3"/>
 <wire x1="337.82" y1="43.18" x2="312.42" y2="43.18" width="0.1524" layer="91"/>
@@ -24613,22 +24605,22 @@ http://www.fairchildsemi.com/ds/LM/LM7805.pdf</description>
 <label x="312.42" y="35.56" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="USBD_VBUS1" class="0">
-<segment>
-<pinref part="IC10" gate="G$1" pin="VBUS"/>
-<wire x1="129.54" y1="-154.94" x2="111.506" y2="-154.94" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$22" class="0">
 <segment>
 <pinref part="IC10" gate="G$1" pin="I/O1"/>
-<wire x1="111.506" y1="-149.86" x2="129.54" y2="-149.86" width="0.1524" layer="91"/>
+<wire x1="111.506" y1="-149.86" x2="114.3" y2="-149.86" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="-149.86" x2="114.3" y2="-152.4" width="0.1524" layer="91"/>
+<pinref part="X2" gate="G$1" pin="D-"/>
+<wire x1="114.3" y1="-152.4" x2="139.7" y2="-152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$55" class="0">
+<net name="N$23" class="0">
 <segment>
+<pinref part="X2" gate="G$1" pin="D+"/>
+<wire x1="139.7" y1="-149.86" x2="116.84" y2="-149.86" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="-149.86" x2="116.84" y2="-160.02" width="0.1524" layer="91"/>
 <pinref part="IC10" gate="G$1" pin="I/O2"/>
-<wire x1="129.54" y1="-160.02" x2="111.506" y2="-160.02" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="-160.02" x2="111.506" y2="-160.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
