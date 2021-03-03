@@ -9,34 +9,34 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="10" fill="1" visible="no" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="13" fill="1" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="10" fill="1" visible="yes" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="13" fill="1" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -45,8 +45,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -54,20 +54,20 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="58" name="bCAD" color="11" fill="1" visible="no" active="no"/>
-<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
-<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="58" name="bCAD" color="11" fill="1" visible="yes" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="yes" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="yes" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -12136,8 +12136,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <instance part="+3V5" gate="G$1" x="243.84" y="264.16" smashed="yes">
 <attribute name="VALUE" x="241.3" y="264.16" size="1.778" layer="96"/>
 </instance>
-<instance part="GND3" gate="1" x="236.22" y="241.3" smashed="yes">
-<attribute name="VALUE" x="233.68" y="238.76" size="1.778" layer="96"/>
+<instance part="GND3" gate="1" x="233.68" y="236.22" smashed="yes">
+<attribute name="VALUE" x="231.14" y="233.68" size="1.778" layer="96"/>
 </instance>
 <instance part="IC2" gate="G$1" x="10.16" y="248.92" smashed="yes">
 <attribute name="NAME" x="26.67" y="256.54" size="1.778" layer="95" align="center-left"/>
@@ -12427,15 +12427,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <junction x="330.2" y="147.32"/>
 </segment>
 <segment>
-<wire x1="266.7" y1="246.38" x2="259.08" y2="246.38" width="0.1524" layer="91"/>
-<pinref part="JP1" gate="A" pin="11"/>
-<pinref part="JP1" gate="A" pin="12"/>
-<wire x1="259.08" y1="246.38" x2="236.22" y2="246.38" width="0.1524" layer="91"/>
-<junction x="259.08" y="246.38"/>
-<pinref part="GND3" gate="1" pin="GND"/>
-<wire x1="236.22" y1="243.84" x2="236.22" y2="246.38" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="IC2" gate="G$1" pin="VSS_2"/>
 <wire x1="10.16" y1="172.72" x2="-7.62" y2="172.72" width="0.1524" layer="91"/>
 <pinref part="GND1" gate="1" pin="GND"/>
@@ -12721,6 +12712,14 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="C40" gate="G$1" pin="2"/>
 <wire x1="111.76" y1="269.24" x2="111.76" y2="271.78" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<wire x1="266.7" y1="241.3" x2="259.08" y2="241.3" width="0.1524" layer="91"/>
+<pinref part="JP1" gate="A" pin="15"/>
+<pinref part="JP1" gate="A" pin="16"/>
+<wire x1="259.08" y1="241.3" x2="233.68" y2="241.3" width="0.1524" layer="91"/>
+<pinref part="GND3" gate="1" pin="GND"/>
+<wire x1="233.68" y1="238.76" x2="233.68" y2="241.3" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+3V3" class="0">
 <segment>
@@ -12983,8 +12982,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 </net>
 <net name="ADC_IN10" class="0">
 <segment>
-<wire x1="259.08" y1="228.6" x2="246.38" y2="228.6" width="0.1524" layer="91"/>
-<label x="246.38" y="228.6" size="1.778" layer="95"/>
+<wire x1="259.08" y1="228.6" x2="241.3" y2="228.6" width="0.1524" layer="91"/>
+<label x="241.3" y="228.6" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="25"/>
 </segment>
 <segment>
@@ -13116,8 +13115,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 </net>
 <net name="ADC_IN14" class="0">
 <segment>
-<wire x1="259.08" y1="226.06" x2="246.38" y2="226.06" width="0.1524" layer="91"/>
-<label x="246.38" y="226.06" size="1.778" layer="95"/>
+<wire x1="259.08" y1="226.06" x2="241.3" y2="226.06" width="0.1524" layer="91"/>
+<label x="241.3" y="226.06" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="27"/>
 </segment>
 <segment>
@@ -13128,20 +13127,20 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 </net>
 <net name="ADC_IN5" class="0">
 <segment>
-<wire x1="259.08" y1="223.52" x2="246.38" y2="223.52" width="0.1524" layer="91"/>
-<label x="246.38" y="223.52" size="1.778" layer="95"/>
+<wire x1="259.08" y1="223.52" x2="241.3" y2="223.52" width="0.1524" layer="91"/>
+<label x="241.3" y="223.52" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="29"/>
 </segment>
 <segment>
-<wire x1="167.64" y1="30.48" x2="157.48" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="170.18" y1="30.48" x2="157.48" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="PB1"/>
 <label x="160.02" y="30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC_IN8" class="0">
 <segment>
-<wire x1="259.08" y1="220.98" x2="246.38" y2="220.98" width="0.1524" layer="91"/>
-<label x="246.38" y="220.98" size="1.778" layer="95"/>
+<wire x1="259.08" y1="220.98" x2="241.3" y2="220.98" width="0.1524" layer="91"/>
+<label x="241.3" y="220.98" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="31"/>
 </segment>
 <segment>
@@ -13181,7 +13180,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="JP1" gate="A" pin="30"/>
 </segment>
 <segment>
-<wire x1="167.64" y1="27.94" x2="157.48" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="170.18" y1="27.94" x2="157.48" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="PB0"/>
 <label x="160.02" y="27.94" size="1.778" layer="95"/>
 </segment>
@@ -13860,23 +13859,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <label x="160.02" y="48.26" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="TIM1_CH1" class="0">
-<segment>
-<wire x1="259.08" y1="243.84" x2="241.3" y2="243.84" width="0.1524" layer="91"/>
-<label x="241.3" y="243.84" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="13"/>
-</segment>
-<segment>
-<wire x1="149.86" y1="337.82" x2="162.56" y2="337.82" width="0.1524" layer="91"/>
-<label x="149.86" y="337.82" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="TIM2_CH1" class="0">
-<segment>
-<wire x1="259.08" y1="241.3" x2="241.3" y2="241.3" width="0.1524" layer="91"/>
-<label x="241.3" y="241.3" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="15"/>
-</segment>
 <segment>
 <wire x1="93.98" y1="223.52" x2="109.22" y2="223.52" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="PA15"/>
@@ -13890,11 +13873,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 </net>
 <net name="TIM2_CH2" class="0">
 <segment>
-<wire x1="266.7" y1="241.3" x2="287.02" y2="241.3" width="0.1524" layer="91"/>
-<label x="274.32" y="241.3" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="16"/>
-</segment>
-<segment>
 <pinref part="IC1" gate="G$1" pin="PA1"/>
 <wire x1="157.48" y1="111.76" x2="172.72" y2="111.76" width="0.1524" layer="91"/>
 <label x="160.02" y="111.76" size="1.778" layer="95"/>
@@ -13903,17 +13881,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <wire x1="266.7" y1="236.22" x2="287.02" y2="236.22" width="0.1524" layer="91"/>
 <label x="274.32" y="236.22" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="20"/>
-</segment>
-</net>
-<net name="TIM1_CH2" class="0">
-<segment>
-<wire x1="266.7" y1="243.84" x2="287.02" y2="243.84" width="0.1524" layer="91"/>
-<label x="274.32" y="243.84" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="14"/>
-</segment>
-<segment>
-<wire x1="149.86" y1="335.28" x2="162.56" y2="335.28" width="0.1524" layer="91"/>
-<label x="149.86" y="335.28" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="UART7_RX" class="0">
@@ -13935,9 +13902,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="JP2" gate="A" pin="14"/>
 </segment>
 <segment>
-<wire x1="93.98" y1="233.68" x2="109.22" y2="233.68" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="PB4"/>
-<label x="93.98" y="233.68" size="1.778" layer="95"/>
+<wire x1="157.48" y1="205.74" x2="172.72" y2="205.74" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PF7"/>
+<label x="160.02" y="205.74" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SPI3_MOSI" class="0">
@@ -13978,19 +13945,14 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 </net>
 <net name="TIM3_CH1" class="0">
 <segment>
-<wire x1="259.08" y1="238.76" x2="241.3" y2="238.76" width="0.1524" layer="91"/>
-<label x="241.3" y="238.76" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="17"/>
-</segment>
-<segment>
 <pinref part="IC1" gate="G$1" pin="PC6"/>
 <wire x1="157.48" y1="241.3" x2="175.26" y2="241.3" width="0.1524" layer="91"/>
 <label x="160.02" y="241.3" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="259.08" y1="231.14" x2="241.3" y2="231.14" width="0.1524" layer="91"/>
-<label x="241.3" y="231.14" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="23"/>
+<wire x1="259.08" y1="233.68" x2="241.3" y2="233.68" width="0.1524" layer="91"/>
+<label x="241.3" y="233.68" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="21"/>
 </segment>
 </net>
 <net name="TIM4_CH1" class="0">
@@ -14000,21 +13962,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <label x="160.02" y="83.82" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="259.08" y1="233.68" x2="241.3" y2="233.68" width="0.1524" layer="91"/>
-<label x="241.3" y="233.68" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="21"/>
-</segment>
-</net>
-<net name="TIM5_CH1" class="0">
-<segment>
-<wire x1="162.56" y1="317.5" x2="149.86" y2="317.5" width="0.1524" layer="91"/>
-<label x="149.86" y="317.5" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="TIM6_CH1" class="0">
-<segment>
-<wire x1="162.56" y1="312.42" x2="149.86" y2="312.42" width="0.1524" layer="91"/>
-<label x="149.86" y="312.42" size="1.778" layer="95"/>
+<wire x1="259.08" y1="231.14" x2="241.3" y2="231.14" width="0.1524" layer="91"/>
+<label x="241.3" y="231.14" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="23"/>
 </segment>
 </net>
 <net name="EXTI0" class="0">
@@ -14031,24 +13981,14 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 </net>
 <net name="EXTI3" class="0">
 <segment>
+<wire x1="281.94" y1="243.84" x2="266.7" y2="243.84" width="0.1524" layer="91"/>
+<pinref part="JP1" gate="A" pin="14"/>
+<label x="274.32" y="243.84" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="170.18" y1="35.56" x2="157.48" y2="35.56" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="PA3"/>
-<wire x1="157.48" y1="35.56" x2="167.64" y2="35.56" width="0.1524" layer="91"/>
 <label x="160.02" y="35.56" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="259.08" y1="248.92" x2="243.84" y2="248.92" width="0.1524" layer="91"/>
-<label x="243.84" y="248.92" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="9"/>
-</segment>
-<segment>
-<wire x1="93.98" y1="111.76" x2="109.22" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="PD2"/>
-<label x="93.98" y="111.76" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="259.08" y1="254" x2="243.84" y2="254" width="0.1524" layer="91"/>
-<label x="243.84" y="254" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="5"/>
 </segment>
 </net>
 <net name="EXTI15" class="0">
@@ -14058,9 +13998,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <label x="93.98" y="81.28" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="266.7" y1="254" x2="281.94" y2="254" width="0.1524" layer="91"/>
-<label x="274.32" y="254" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="6"/>
+<wire x1="266.7" y1="246.38" x2="281.94" y2="246.38" width="0.1524" layer="91"/>
+<pinref part="JP1" gate="A" pin="12"/>
+<label x="274.32" y="246.38" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="EXTI14" class="0">
@@ -14070,9 +14010,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <label x="93.98" y="101.6" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="259.08" y1="256.54" x2="243.84" y2="256.54" width="0.1524" layer="91"/>
-<label x="243.84" y="256.54" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="3"/>
+<wire x1="259.08" y1="248.92" x2="243.84" y2="248.92" width="0.1524" layer="91"/>
+<pinref part="JP1" gate="A" pin="9"/>
+<label x="243.84" y="248.92" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="I2C_SCL" class="0">
@@ -14101,31 +14041,14 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 </net>
 <net name="TIM3_CH2" class="0">
 <segment>
-<wire x1="266.7" y1="238.76" x2="287.02" y2="238.76" width="0.1524" layer="91"/>
-<label x="274.32" y="238.76" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="18"/>
-</segment>
-<segment>
 <pinref part="IC1" gate="G$1" pin="PC7"/>
 <wire x1="109.22" y1="17.78" x2="93.98" y2="17.78" width="0.1524" layer="91"/>
 <label x="93.98" y="17.78" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="266.7" y1="231.14" x2="287.02" y2="231.14" width="0.1524" layer="91"/>
-<label x="274.32" y="231.14" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="24"/>
-</segment>
-</net>
-<net name="TIM5_CH2" class="0">
-<segment>
-<wire x1="162.56" y1="314.96" x2="149.86" y2="314.96" width="0.1524" layer="91"/>
-<label x="149.86" y="314.96" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="TIM6_CH2" class="0">
-<segment>
-<wire x1="162.56" y1="309.88" x2="149.86" y2="309.88" width="0.1524" layer="91"/>
-<label x="149.86" y="309.88" size="1.778" layer="95"/>
+<wire x1="266.7" y1="233.68" x2="287.02" y2="233.68" width="0.1524" layer="91"/>
+<label x="274.32" y="233.68" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="22"/>
 </segment>
 </net>
 <net name="EXTI13" class="0">
@@ -14171,9 +14094,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <label x="160.02" y="116.84" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="266.7" y1="233.68" x2="287.02" y2="233.68" width="0.1524" layer="91"/>
-<label x="274.32" y="233.68" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="22"/>
+<wire x1="266.7" y1="231.14" x2="287.02" y2="231.14" width="0.1524" layer="91"/>
+<label x="274.32" y="231.14" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="24"/>
 </segment>
 </net>
 <net name="+A5V" class="0">
@@ -14731,10 +14654,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <label x="48.26" y="238.76" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="127" y1="309.88" x2="142.24" y2="309.88" width="0.1524" layer="91"/>
-<label x="127" y="309.88" size="1.778" layer="95"/>
-</segment>
-<segment>
 <wire x1="93.98" y1="73.66" x2="109.22" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="PH2"/>
 <label x="93.98" y="73.66" size="1.778" layer="95"/>
@@ -15174,9 +15093,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="JP2" gate="A" pin="19"/>
 </segment>
 <segment>
-<wire x1="93.98" y1="198.12" x2="109.22" y2="198.12" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="PG12"/>
-<label x="93.98" y="198.12" size="1.778" layer="95"/>
+<wire x1="93.98" y1="233.68" x2="109.22" y2="233.68" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PB4"/>
+<label x="93.98" y="233.68" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SPI6_SCK" class="0">
@@ -15222,6 +15141,66 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="IC1" gate="G$1" pin="PDR_ON"/>
 <wire x1="109.22" y1="165.1" x2="83.82" y2="165.1" width="0.1524" layer="91"/>
 <label x="93.98" y="165.1" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="LPTIM1_CH1" class="0">
+<segment>
+<wire x1="259.08" y1="238.76" x2="238.76" y2="238.76" width="0.1524" layer="91"/>
+<label x="238.76" y="238.76" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="17"/>
+</segment>
+<segment>
+<wire x1="91.44" y1="198.12" x2="109.22" y2="198.12" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PG12"/>
+<label x="91.44" y="198.12" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="LPTIM1_CH2" class="0">
+<segment>
+<wire x1="266.7" y1="238.76" x2="287.02" y2="238.76" width="0.1524" layer="91"/>
+<label x="274.32" y="238.76" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="18"/>
+</segment>
+<segment>
+<wire x1="91.44" y1="195.58" x2="109.22" y2="195.58" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PG11"/>
+<label x="91.44" y="195.58" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="EXTI2" class="0">
+<segment>
+<wire x1="93.98" y1="111.76" x2="109.22" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PD2"/>
+<label x="93.98" y="111.76" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="259.08" y1="254" x2="243.84" y2="254" width="0.1524" layer="91"/>
+<label x="243.84" y="254" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="5"/>
+</segment>
+</net>
+<net name="EXTI7" class="0">
+<segment>
+<wire x1="170.18" y1="33.02" x2="157.48" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PA7"/>
+<label x="160.02" y="33.02" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP1" gate="A" pin="13"/>
+<wire x1="259.08" y1="243.84" x2="243.84" y2="243.84" width="0.1524" layer="91"/>
+<label x="243.84" y="243.84" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="EXTI4" class="0">
+<segment>
+<wire x1="93.98" y1="7.62" x2="109.22" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PH4"/>
+<label x="93.98" y="7.62" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="243.84" y1="246.38" x2="259.08" y2="246.38" width="0.1524" layer="91"/>
+<pinref part="JP1" gate="A" pin="11"/>
+<label x="243.84" y="246.38" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
