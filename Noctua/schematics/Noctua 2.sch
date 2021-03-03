@@ -12270,11 +12270,11 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <attribute name="NAME" x="136.144" y="277.241" size="1.778" layer="95"/>
 <attribute name="VALUE" x="136.144" y="272.161" size="1.778" layer="96"/>
 </instance>
-<instance part="+3V9" gate="G$1" x="134.62" y="287.02" smashed="yes">
-<attribute name="VALUE" x="132.08" y="287.02" size="1.778" layer="96"/>
+<instance part="+3V9" gate="G$1" x="142.24" y="287.02" smashed="yes">
+<attribute name="VALUE" x="139.7" y="287.02" size="1.778" layer="96"/>
 </instance>
-<instance part="GND19" gate="1" x="134.62" y="264.16" smashed="yes">
-<attribute name="VALUE" x="132.08" y="261.62" size="1.778" layer="96"/>
+<instance part="GND19" gate="1" x="142.24" y="264.16" smashed="yes">
+<attribute name="VALUE" x="139.7" y="261.62" size="1.778" layer="96"/>
 </instance>
 <instance part="C8" gate="G$1" x="142.24" y="276.86" smashed="yes">
 <attribute name="NAME" x="143.764" y="277.241" size="1.778" layer="95"/>
@@ -12288,9 +12288,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <attribute name="NAME" x="159.004" y="277.241" size="1.778" layer="95"/>
 <attribute name="VALUE" x="159.004" y="272.161" size="1.778" layer="96"/>
 </instance>
-<instance part="C40" gate="G$1" x="111.76" y="276.86" smashed="yes">
-<attribute name="NAME" x="113.284" y="277.241" size="1.778" layer="95"/>
-<attribute name="VALUE" x="113.284" y="272.161" size="1.778" layer="96"/>
+<instance part="C40" gate="G$1" x="127" y="276.86" smashed="yes">
+<attribute name="NAME" x="128.524" y="277.241" size="1.778" layer="95"/>
+<attribute name="VALUE" x="128.524" y="272.161" size="1.778" layer="96"/>
 </instance>
 <instance part="C10" gate="G$1" x="0" y="276.86" smashed="yes">
 <attribute name="NAME" x="1.524" y="277.241" size="1.778" layer="95"/>
@@ -12694,7 +12694,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <segment>
 <pinref part="C7" gate="G$1" pin="2"/>
 <pinref part="GND19" gate="1" pin="GND"/>
-<wire x1="134.62" y1="266.7" x2="134.62" y2="269.24" width="0.1524" layer="91"/>
 <pinref part="C9" gate="G$1" pin="2"/>
 <wire x1="134.62" y1="269.24" x2="134.62" y2="271.78" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="271.78" x2="149.86" y2="269.24" width="0.1524" layer="91"/>
@@ -12708,9 +12707,10 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <wire x1="157.48" y1="271.78" x2="157.48" y2="269.24" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="269.24" x2="149.86" y2="269.24" width="0.1524" layer="91"/>
 <junction x="149.86" y="269.24"/>
-<wire x1="134.62" y1="269.24" x2="111.76" y2="269.24" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="269.24" x2="127" y2="269.24" width="0.1524" layer="91"/>
 <pinref part="C40" gate="G$1" pin="2"/>
-<wire x1="111.76" y1="269.24" x2="111.76" y2="271.78" width="0.1524" layer="91"/>
+<wire x1="127" y1="269.24" x2="127" y2="271.78" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="266.7" x2="142.24" y2="269.24" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND3" gate="1" pin="GND"/>
@@ -12957,9 +12957,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <segment>
 <pinref part="C7" gate="G$1" pin="1"/>
 <pinref part="+3V9" gate="G$1" pin="+3V3"/>
-<wire x1="134.62" y1="284.48" x2="134.62" y2="281.94" width="0.1524" layer="91"/>
 <wire x1="134.62" y1="281.94" x2="134.62" y2="279.4" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="281.94" x2="134.62" y2="281.94" width="0.1524" layer="91"/>
+<wire x1="127" y1="281.94" x2="134.62" y2="281.94" width="0.1524" layer="91"/>
 <junction x="134.62" y="281.94"/>
 <wire x1="134.62" y1="281.94" x2="142.24" y2="281.94" width="0.1524" layer="91"/>
 <pinref part="C8" gate="G$1" pin="1"/>
@@ -12973,7 +12972,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="C20" gate="G$1" pin="1"/>
 <wire x1="157.48" y1="281.94" x2="157.48" y2="279.4" width="0.1524" layer="91"/>
 <pinref part="C40" gate="G$1" pin="1"/>
-<wire x1="111.76" y1="279.4" x2="111.76" y2="281.94" width="0.1524" layer="91"/>
+<wire x1="127" y1="279.4" x2="127" y2="281.94" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="281.94" x2="142.24" y2="284.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="BOOT1" gate="1" pin="1"/>
@@ -15246,6 +15246,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <approved hash="201,1,335.28,96.52,+5V,+5V\, +A5V,,,,"/>
 <approved hash="201,1,256.54,96.52,+5V,+5V\, +A5V,,,,"/>
 <approved hash="201,1,457.2,215.9,+5V,+5V\, +A5V,,,,"/>
+<approved hash="113,1,262.848,231.366,JP1,,,,,"/>
+<approved hash="113,1,323.808,231.366,JP2,,,,,"/>
 </errors>
 </schematic>
 </drawing>
