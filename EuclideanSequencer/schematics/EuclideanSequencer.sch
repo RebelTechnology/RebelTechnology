@@ -16975,7 +16975,7 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <part name="D3" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="DIODE" device="1N4001" package3d_urn="urn:adsk.eagle:package:15457755/1" value="1N4001"/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
-<part name="IC2" library="linear" deviceset="78*" device="TV" package3d_urn="urn:adsk.eagle:package:16417/1" technology="05"/>
+<part name="IC2" library="linear" deviceset="78*" device="L" package3d_urn="urn:adsk.eagle:package:16416/2" technology="05" value="7805L"/>
 <part name="PWR" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="MA05-2" device="" package3d_urn="urn:adsk.eagle:package:15809360/1"/>
 <part name="P+20" library="supply1" deviceset="+12V" device=""/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
