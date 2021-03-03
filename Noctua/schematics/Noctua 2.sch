@@ -12713,12 +12713,13 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <wire x1="111.76" y1="269.24" x2="111.76" y2="271.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="266.7" y1="241.3" x2="259.08" y2="241.3" width="0.1524" layer="91"/>
+<pinref part="GND3" gate="1" pin="GND"/>
+<wire x1="259.08" y1="241.3" x2="233.68" y2="241.3" width="0.1524" layer="91"/>
+<wire x1="233.68" y1="238.76" x2="233.68" y2="241.3" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="15"/>
 <pinref part="JP1" gate="A" pin="16"/>
-<wire x1="259.08" y1="241.3" x2="233.68" y2="241.3" width="0.1524" layer="91"/>
-<pinref part="GND3" gate="1" pin="GND"/>
-<wire x1="233.68" y1="238.76" x2="233.68" y2="241.3" width="0.1524" layer="91"/>
+<wire x1="259.08" y1="241.3" x2="266.7" y2="241.3" width="0.1524" layer="91"/>
+<junction x="259.08" y="241.3"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -14053,14 +14054,14 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 </net>
 <net name="EXTI13" class="0">
 <segment>
-<wire x1="266.7" y1="256.54" x2="281.94" y2="256.54" width="0.1524" layer="91"/>
-<label x="274.32" y="256.54" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="4"/>
-</segment>
-<segment>
 <wire x1="93.98" y1="139.7" x2="109.22" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="PC13"/>
 <label x="93.98" y="139.7" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="259.08" y1="251.46" x2="243.84" y2="251.46" width="0.1524" layer="91"/>
+<label x="243.84" y="251.46" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="7"/>
 </segment>
 </net>
 <net name="EXTI8" class="0">
@@ -14070,9 +14071,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <label x="99.06" y="20.32" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="259.08" y1="251.46" x2="243.84" y2="251.46" width="0.1524" layer="91"/>
-<label x="243.84" y="251.46" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="7"/>
+<pinref part="JP1" gate="A" pin="6"/>
+<wire x1="266.7" y1="254" x2="281.94" y2="254" width="0.1524" layer="91"/>
+<label x="274.32" y="254" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="EXTI9" class="0">
@@ -14082,9 +14083,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <label x="99.06" y="53.34" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="266.7" y1="251.46" x2="281.94" y2="251.46" width="0.1524" layer="91"/>
-<label x="274.32" y="251.46" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="8"/>
+<wire x1="259.08" y1="254" x2="243.84" y2="254" width="0.1524" layer="91"/>
+<label x="243.84" y="254" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="5"/>
 </segment>
 </net>
 <net name="TIM4_CH2" class="0">
@@ -15174,9 +15175,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <label x="93.98" y="111.76" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="259.08" y1="254" x2="243.84" y2="254" width="0.1524" layer="91"/>
-<label x="243.84" y="254" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="5"/>
+<wire x1="259.08" y1="256.54" x2="243.84" y2="256.54" width="0.1524" layer="91"/>
+<pinref part="JP1" gate="A" pin="3"/>
+<label x="243.84" y="256.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="EXTI7" class="0">
@@ -15201,6 +15202,30 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <wire x1="243.84" y1="246.38" x2="259.08" y2="246.38" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="11"/>
 <label x="243.84" y="246.38" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="EXTI11" class="0">
+<segment>
+<wire x1="93.98" y1="93.98" x2="109.22" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="PI11"/>
+<label x="93.98" y="93.98" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="266.7" y1="251.46" x2="281.94" y2="251.46" width="0.1524" layer="91"/>
+<label x="274.32" y="251.46" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="8"/>
+</segment>
+</net>
+<net name="EXTI10" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="PG10"/>
+<wire x1="109.22" y1="193.04" x2="93.98" y2="193.04" width="0.1524" layer="91"/>
+<label x="93.98" y="193.04" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="266.7" y1="256.54" x2="281.94" y2="256.54" width="0.1524" layer="91"/>
+<label x="274.32" y="256.54" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="4"/>
 </segment>
 </net>
 </nets>
