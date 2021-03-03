@@ -2816,10 +2816,10 @@ design rules under a new name.
 <attribute name="VALUE" x="23.555" y="61.51" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C39" library="Rebel" package="C0402" value="100n" x="14.55925" y="50.8165" smashed="yes" rot="R270">
-<attribute name="NAME" x="14.55225" y="49.06525" size="0.9" layer="25" font="vector" rot="R180" align="bottom-center"/>
+<attribute name="NAME" x="15.18475" y="50.75225" size="0.9" layer="25" font="vector" rot="R270" align="bottom-center"/>
 </element>
 <element name="C38" library="Rebel" package="C0402" value="100n" x="14.55925" y="53.8665" smashed="yes" rot="R90">
-<attribute name="NAME" x="16.438" y="54.054" size="0.9" layer="25" font="vector" align="bottom-center"/>
+<attribute name="NAME" x="15.204" y="53.762" size="0.9" layer="25" font="vector" rot="R270" align="bottom-center"/>
 </element>
 <element name="C24" library="Rebel" package="C0402" value="100n" x="6.65" y="46.25" smashed="yes" rot="R90">
 <attribute name="NAME" x="7.212" y="46.25" size="0.9" layer="25" font="vector" rot="R270" align="bottom-center"/>
@@ -2832,7 +2832,7 @@ design rules under a new name.
 <attribute name="NAME" x="22.85325" y="60.7925" locked="yes" size="0.9" layer="25" font="vector" align="bottom-center"/>
 </element>
 <element name="L1" library="Rebel" package="0603" value="Ferrite Bead" x="6.25" y="22.3" smashed="yes" rot="R90">
-<attribute name="NAME" x="5.899996875" y="23.811996875" size="0.9" layer="25" font="vector" align="bottom-center"/>
+<attribute name="NAME" x="6.399996875" y="23.861996875" size="0.9" layer="25" font="vector" align="bottom-center"/>
 <attribute name="OC_FARNELL" value="2288736" x="6.25" y="22.3" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="C19" library="Rebel" package="UD-4X5,8_NICHICON" value="10u" x="7.71125" y="58.18325" locked="yes" smashed="yes" rot="R90">
@@ -2878,14 +2878,14 @@ design rules under a new name.
 <attribute name="NAME" x="24.938" y="9.2" size="1.016" layer="25" font="vector" rot="R90" align="bottom-center"/>
 </element>
 <element name="C37" library="Rebel" package="C0603" value="1u" x="13.8" y="18.55" smashed="yes" rot="R180">
-<attribute name="NAME" x="13.63" y="19.4945" size="1.016" layer="25" font="vector" align="bottom-center"/>
+<attribute name="NAME" x="13.83" y="19.5445" size="1.016" layer="25" font="vector" align="bottom-center"/>
 </element>
 <element name="C18" library="Rebel" package="UD-4X5,8_NICHICON" value="10u" x="9.35" y="19.75" smashed="yes">
 <attribute name="NAME" x="8" y="22.05" size="0.9" layer="25" font="vector"/>
 <attribute name="VALUE" x="7.2" y="16.475" size="1.016" layer="27"/>
 </element>
 <element name="C25" library="Rebel" package="UD-4X5,8_NICHICON" value="10u" x="18.35" y="19.45" smashed="yes">
-<attribute name="NAME" x="16.2" y="21.5" size="0.9" layer="25" font="vector" rot="R180"/>
+<attribute name="NAME" x="16.95" y="21.6" size="0.9" layer="25" font="vector"/>
 <attribute name="VALUE" x="16.2" y="16.175" size="1.016" layer="27"/>
 </element>
 <element name="CN1" library="Rebel" package="HRS_ZX62RD-AB-5P8" value="" x="15.3" y="59.5" locked="yes" smashed="yes" rot="R180">
@@ -2922,7 +2922,7 @@ design rules under a new name.
 <attribute name="VALUE" x="15.3" y="27.9" locked="yes" size="1.27" layer="27" rot="R270" align="center"/>
 </element>
 <element name="J2" library="borkedlabs-connectors" package="2X5_1.27MM_SMD" value="FTS-105-01-F-DV" x="21.75" y="52.1" smashed="yes" rot="MR180">
-<attribute name="NAME" x="22.52" y="55.36" size="0.9" layer="26" font="vector" rot="MR0"/>
+<attribute name="NAME" x="22.47" y="55.51" size="0.9" layer="26" font="vector" rot="MR0"/>
 <attribute name="PACKAGE" value="2x5_1.27MM_SMD" x="14.2" y="41.15" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="20.48" y="57.18" size="1.016" layer="28" rot="MR180"/>
 </element>
@@ -2975,7 +2975,7 @@ design rules under a new name.
 <attribute name="VALUE" x="8.185" y="40.555" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="C10" library="Rebel" package="C0402" value="100n" x="12.25" y="32.6" smashed="yes" rot="R180">
-<attribute name="NAME" x="10.885" y="33.015" size="0.9" layer="25" font="vector" rot="R180"/>
+<attribute name="NAME" x="11.165" y="33.035" size="0.8" layer="25" font="vector"/>
 <attribute name="VALUE" x="12.885" y="34.505" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="BOOT1" library="SparkFun" package="SJ_2S-NO" value="SOLDERJUMPERNO" x="22.575" y="39.75" smashed="yes" rot="MR270">
