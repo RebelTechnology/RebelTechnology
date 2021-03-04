@@ -3,14 +3,14 @@
 <eagle version="9.6.1">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="1.25" altunitdist="mil" altunit="mil"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="InnerTop" color="10" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
+<layer number="2" name="InnerTop" color="10" fill="1" visible="no" active="yes"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
 <layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
@@ -23,17 +23,17 @@
 <layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
 <layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="InnerBottom" color="13" fill="1" visible="yes" active="yes"/>
+<layer number="15" name="InnerBottom" color="13" fill="1" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
@@ -47,19 +47,19 @@
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
 <layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
@@ -1460,7 +1460,7 @@
 <vertex x="9.18011875" y="40.757003125"/>
 <vertex x="9.18011875" y="41.656625"/>
 </polygon>
-<text x="15.927" y="18.368" size="1.4224" layer="22" font="vector" rot="SMR270" align="center-left">Noctua Rev02</text>
+<text x="15.927" y="18.368" size="1.4224" layer="22" font="vector" rot="SMR270" align="center-left">Xibeca Rev01</text>
 <text x="25.32" y="1.83" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">50 49</text>
 <text x="25.32" y="4.37" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">52</text>
 <text x="25.32" y="6.91" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">54</text>
@@ -1474,18 +1474,16 @@
 <text x="25.32" y="27.23" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">70</text>
 <text x="25.32" y="29.77" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">72</text>
 <text x="25.32" y="32.31" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">74</text>
-<text x="25.32" y="37.39" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">58</text>
-<text x="25.32" y="39.93" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">80</text>
-<text x="25.447" y="42.47" size="0.762" layer="22" font="vector" rot="MR180" align="center-right">82</text>
-<text x="25.447" y="45.01" size="0.762" layer="22" font="vector" rot="MR180" align="center-right">84</text>
-<text x="25.447" y="47.55" size="0.762" layer="22" font="vector" rot="MR180" align="center-right">86</text>
-<text x="25.32" y="50.09" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">88</text>
-<text x="25.32" y="52.63" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">90</text>
-<text x="25.32" y="55.17" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">92</text>
+<text x="25.32" y="37.39" size="0.762" layer="22" font="vector" rot="MR180" align="center-right">78</text>
+<text x="25.32" y="39.93" size="0.762" layer="22" font="vector" rot="MR180" align="center-right">80</text>
+<text x="25.447" y="42.47" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">82</text>
+<text x="25.447" y="45.01" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">84</text>
+<text x="25.447" y="47.55" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">86</text>
 <text x="25.32" y="57.71" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">94</text>
 <text x="25.32" y="60.25" size="1.016" layer="22" font="vector" rot="MR180" align="center-right">96 95</text>
 <text x="21.4" y="36.4" size="0.9" layer="22" font="vector" rot="MR0">BOOT</text>
 <text x="21.4" y="39.2" size="0.9" layer="22" font="vector" rot="MR0">PDR</text>
+<text x="25.32" y="34.85" size="0.762" layer="22" font="vector" rot="MR180" align="center-right">76</text>
 </plain>
 <libraries>
 <library name="Seeed-OPL-crystal-osctllator">
@@ -2921,7 +2919,7 @@ design rules under a new name.
 <attribute name="NAME" x="15.3" y="23.2" locked="yes" size="0.9" layer="25" font="vector" rot="R180" align="center"/>
 <attribute name="VALUE" x="15.3" y="27.9" locked="yes" size="1.27" layer="27" rot="R270" align="center"/>
 </element>
-<element name="J2" library="borkedlabs-connectors" package="2X5_1.27MM_SMD" value="FTS-105-01-F-DV" x="21.75" y="52.1" smashed="yes" rot="MR180">
+<element name="J1" library="borkedlabs-connectors" package="2X5_1.27MM_SMD" value="FTS-105-01-F-DV" x="21.75" y="52.1" smashed="yes" rot="MR180">
 <attribute name="NAME" x="22.47" y="55.51" size="0.9" layer="26" font="vector" rot="MR0"/>
 <attribute name="PACKAGE" value="2x5_1.27MM_SMD" x="14.2" y="41.15" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="20.48" y="57.18" size="1.016" layer="28" rot="MR180"/>
@@ -3112,10 +3110,10 @@ design rules under a new name.
 <wire x1="15.95" y1="39.7" x2="15.65" y2="39.4" width="0.15" layer="1"/>
 <wire x1="14.65" y1="38.4" x2="14.95" y2="38.7" width="0.15" layer="1"/>
 <wire x1="15.65" y1="39.4" x2="15.3" y2="39.05" width="0.15" layer="1"/>
-<contactref element="J2" pad="9"/>
-<contactref element="J2" pad="7"/>
-<contactref element="J2" pad="5"/>
-<contactref element="J2" pad="3"/>
+<contactref element="J1" pad="9"/>
+<contactref element="J1" pad="7"/>
+<contactref element="J1" pad="5"/>
+<contactref element="J1" pad="3"/>
 <wire x1="17.525" y1="56.9" x2="16.825" y2="56.9" width="0.254" layer="1"/>
 <wire x1="16.825" y1="56.9" x2="16.75" y2="56.975" width="0.254" layer="1"/>
 <wire x1="16.75" y1="56.975" x2="16.6" y2="57.225" width="0.254" layer="1"/>
@@ -3380,7 +3378,7 @@ design rules under a new name.
 <wire x1="16.3" y1="42.65" x2="15.95" y2="42.3" width="0.15" layer="1"/>
 <wire x1="16.3" y1="42.65" x2="16.3" y2="42.6" width="0.15" layer="1"/>
 <wire x1="16.6" y1="42.3" x2="16.3" y2="42.6" width="0.15" layer="1"/>
-<contactref element="J2" pad="1"/>
+<contactref element="J1" pad="1"/>
 <wire x1="1.33" y1="60.24" x2="3.87" y2="60.24" width="0.3048" layer="1"/>
 <wire x1="3.87" y1="60.24" x2="6.05" y2="60.24" width="0.3048" layer="1"/>
 <wire x1="6.05" y1="60.24" x2="7.6795" y2="60.24" width="0.3048" layer="1"/>
@@ -3647,7 +3645,7 @@ design rules under a new name.
 <wire x1="18.85" y1="32.65" x2="18.3" y2="32.65" width="0.1524" layer="1"/>
 </signal>
 <signal name="SWDIO">
-<contactref element="J2" pad="2"/>
+<contactref element="J1" pad="2"/>
 <contactref element="IC1" pad="A15"/>
 <wire x1="25.2" y1="34.1" x2="20.7" y2="34.1" width="0.15" layer="1"/>
 <wire x1="20.7" y1="34.1" x2="20.3" y2="34.5" width="0.15" layer="1"/>
@@ -3664,7 +3662,7 @@ design rules under a new name.
 </signal>
 <signal name="NRST">
 <contactref element="C26" pad="1"/>
-<contactref element="J2" pad="10"/>
+<contactref element="J1" pad="10"/>
 <contactref element="IC1" pad="J1"/>
 <via x="18.4" y="50.45" extent="1-16" drill="0.2"/>
 <via x="15.1" y="44.7" extent="1-16" drill="0.2"/>
@@ -6300,7 +6298,7 @@ design rules under a new name.
 <wire x1="11.91795" y1="37.8" x2="11.91635" y2="37.8016" width="0.2" layer="16"/>
 </signal>
 <signal name="SWDCLK">
-<contactref element="J2" pad="4"/>
+<contactref element="J1" pad="4"/>
 <contactref element="IC1" pad="A14"/>
 <wire x1="23.9" y1="34.8" x2="23.7" y2="34.6" width="0.15" layer="1"/>
 <wire x1="23.7" y1="34.6" x2="21" y2="34.6" width="0.15" layer="1"/>
@@ -6317,7 +6315,7 @@ design rules under a new name.
 <wire x1="24.23" y1="50.83" x2="24.85" y2="51.45" width="0.15" layer="16"/>
 </signal>
 <signal name="SWO">
-<contactref element="J2" pad="6"/>
+<contactref element="J1" pad="6"/>
 <contactref element="IC1" pad="A10"/>
 <wire x1="23.35" y1="52.1" x2="24.75" y2="52.1" width="0.15" layer="16"/>
 <wire x1="25.3534" y1="52.731875" x2="25.3534" y2="52.7034" width="0.15" layer="16"/>

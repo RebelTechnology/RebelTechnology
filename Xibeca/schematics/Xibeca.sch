@@ -11708,8 +11708,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <part name="C5" library="Rebel" deviceset="C-EU" device="C0402" value="100n"/>
 <part name="+3V6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="GND18" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="C11" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C12" library="Rebel" deviceset="C-EU" device="C0402" value="1u"/>
+<part name="C11" library="Rebel" deviceset="C-EU" device="C0402" value="100n"/>
+<part name="C12" library="Rebel" deviceset="C-EU" device="C0603" value="1u"/>
 <part name="C13" library="Rebel" deviceset="C-EU" device="C0402" value="2u2"/>
 <part name="C14" library="Rebel" deviceset="C-EU" device="C0402" value="2u2"/>
 <part name="GND79" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -11817,7 +11817,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <part name="+3V23" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="GND21" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
-<part name="J2" library="borkedlabs-connectors" deviceset="ARM_10" device="SMD" value="FTS-105-01-F-DV"/>
+<part name="J1" library="borkedlabs-connectors" deviceset="ARM_10" device="SMD" value="FTS-105-01-F-DV"/>
 <part name="+3V24" library="supply1" deviceset="+3V3" device=""/>
 <part name="IC9" library="Rebel" deviceset="N25Q128A13" device="" value="S25FL064LABMFI010">
 <attribute name="OC_FARNELL" value="2253682"/>
@@ -12221,7 +12221,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <instance part="GND22" gate="1" x="238.76" y="144.78" smashed="yes">
 <attribute name="VALUE" x="236.22" y="142.24" size="1.778" layer="96"/>
 </instance>
-<instance part="J2" gate="G$1" x="259.08" y="154.94" smashed="yes">
+<instance part="J1" gate="G$1" x="259.08" y="154.94" smashed="yes">
 <attribute name="NAME" x="246.38" y="162.56" size="1.778" layer="95"/>
 <attribute name="VALUE" x="246.38" y="144.78" size="1.778" layer="96"/>
 </instance>
@@ -12666,17 +12666,17 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <segment>
 <pinref part="GND22" gate="1" pin="GND"/>
 <wire x1="238.76" y1="147.32" x2="238.76" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="J2" gate="G$1" pin="GND@9"/>
+<pinref part="J1" gate="G$1" pin="GND@9"/>
 <wire x1="238.76" y1="149.86" x2="241.3" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="J2" gate="G$1" pin="GND@7"/>
+<pinref part="J1" gate="G$1" pin="GND@7"/>
 <wire x1="241.3" y1="152.4" x2="238.76" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="238.76" y1="152.4" x2="238.76" y2="149.86" width="0.1524" layer="91"/>
 <junction x="238.76" y="149.86"/>
-<pinref part="J2" gate="G$1" pin="GND@5"/>
+<pinref part="J1" gate="G$1" pin="GND@5"/>
 <wire x1="241.3" y1="154.94" x2="238.76" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="238.76" y1="154.94" x2="238.76" y2="152.4" width="0.1524" layer="91"/>
 <junction x="238.76" y="152.4"/>
-<pinref part="J2" gate="G$1" pin="GND@3"/>
+<pinref part="J1" gate="G$1" pin="GND@3"/>
 <wire x1="241.3" y1="157.48" x2="238.76" y2="157.48" width="0.1524" layer="91"/>
 <wire x1="238.76" y1="157.48" x2="238.76" y2="154.94" width="0.1524" layer="91"/>
 <junction x="238.76" y="154.94"/>
@@ -12940,7 +12940,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <pinref part="+3V23" gate="G$1" pin="+3V3"/>
 </segment>
 <segment>
-<pinref part="J2" gate="G$1" pin="VCC"/>
+<pinref part="J1" gate="G$1" pin="VCC"/>
 <pinref part="+3V24" gate="G$1" pin="+3V3"/>
 <wire x1="241.3" y1="160.02" x2="238.76" y2="160.02" width="0.1524" layer="91"/>
 <wire x1="238.76" y1="160.02" x2="238.76" y2="165.1" width="0.1524" layer="91"/>
@@ -13040,7 +13040,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <segment>
 <wire x1="289.56" y1="160.02" x2="276.86" y2="160.02" width="0.1524" layer="91"/>
 <label x="279.4" y="160.02" size="1.778" layer="95"/>
-<pinref part="J2" gate="G$1" pin="SWDIO/TMS"/>
+<pinref part="J1" gate="G$1" pin="SWDIO/TMS"/>
 </segment>
 <segment>
 <label x="93.98" y="218.44" size="1.778" layer="95"/>
@@ -13059,7 +13059,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <segment>
 <wire x1="276.86" y1="149.86" x2="289.56" y2="149.86" width="0.1524" layer="91"/>
 <label x="279.4" y="149.86" size="1.778" layer="95"/>
-<pinref part="J2" gate="G$1" pin="NRESET"/>
+<pinref part="J1" gate="G$1" pin="NRESET"/>
 <wire x1="292.1" y1="149.86" x2="289.56" y2="149.86" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -14983,7 +14983,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <segment>
 <wire x1="276.86" y1="157.48" x2="289.56" y2="157.48" width="0.1524" layer="91"/>
 <label x="279.4" y="157.48" size="1.778" layer="95"/>
-<pinref part="J2" gate="G$1" pin="SWDCLK/TCK"/>
+<pinref part="J1" gate="G$1" pin="SWDCLK/TCK"/>
 </segment>
 <segment>
 <wire x1="93.98" y1="220.98" x2="109.22" y2="220.98" width="0.1524" layer="91"/>
@@ -14995,7 +14995,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/AS4C16M32MSA-
 <segment>
 <wire x1="276.86" y1="154.94" x2="289.56" y2="154.94" width="0.1524" layer="91"/>
 <label x="279.4" y="154.94" size="1.778" layer="95"/>
-<pinref part="J2" gate="G$1" pin="SWO/TDO"/>
+<pinref part="J1" gate="G$1" pin="SWO/TDO"/>
 </segment>
 <segment>
 <wire x1="93.98" y1="231.14" x2="109.22" y2="231.14" width="0.1524" layer="91"/>
