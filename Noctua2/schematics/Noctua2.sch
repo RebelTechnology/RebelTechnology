@@ -11226,19 +11226,19 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <instance part="GND79" gate="1" x="520.7" y="2.54" smashed="yes">
 <attribute name="VALUE" x="518.16" y="0" size="1.778" layer="96"/>
 </instance>
-<instance part="R1" gate="G$1" x="474.98" y="144.78" smashed="yes" rot="R90">
-<attribute name="NAME" x="473.4814" y="140.97" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="478.282" y="140.97" size="1.778" layer="96" rot="R90"/>
+<instance part="R1" gate="G$1" x="469.9" y="144.78" smashed="yes" rot="R90">
+<attribute name="NAME" x="468.4014" y="140.97" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="473.202" y="140.97" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="GND90" gate="1" x="474.98" y="134.62" smashed="yes">
-<attribute name="VALUE" x="472.44" y="132.08" size="1.778" layer="96"/>
+<instance part="GND90" gate="1" x="469.9" y="134.62" smashed="yes">
+<attribute name="VALUE" x="467.36" y="132.08" size="1.778" layer="96"/>
 </instance>
-<instance part="BOOT" gate="1" x="467.36" y="152.4" smashed="yes">
-<attribute name="NAME" x="464.82" y="154.94" size="1.778" layer="95"/>
-<attribute name="VALUE" x="464.82" y="147.32" size="1.778" layer="96"/>
+<instance part="BOOT" gate="1" x="462.28" y="152.4" smashed="yes">
+<attribute name="NAME" x="459.74" y="154.94" size="1.778" layer="95"/>
+<attribute name="VALUE" x="459.74" y="147.32" size="1.778" layer="96"/>
 </instance>
-<instance part="+3V19" gate="G$1" x="459.74" y="157.48" smashed="yes">
-<attribute name="VALUE" x="457.2" y="152.4" size="1.778" layer="96" rot="R90"/>
+<instance part="+3V19" gate="G$1" x="454.66" y="157.48" smashed="yes">
+<attribute name="VALUE" x="452.12" y="152.4" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="C26" gate="G$1" x="421.64" y="71.12" smashed="yes">
 <attribute name="NAME" x="423.164" y="71.501" size="1.778" layer="95"/>
@@ -11469,8 +11469,8 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <attribute name="NAME" x="486.41" y="104.14" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="486.41" y="101.6" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="+3V5" gate="G$1" x="464.82" y="134.62" smashed="yes">
-<attribute name="VALUE" x="462.28" y="134.62" size="1.778" layer="96"/>
+<instance part="+3V5" gate="G$1" x="464.82" y="137.16" smashed="yes">
+<attribute name="VALUE" x="462.28" y="137.16" size="1.778" layer="96"/>
 </instance>
 <instance part="+3V7" gate="G$1" x="535.94" y="116.84" smashed="yes">
 <attribute name="VALUE" x="533.4" y="116.84" size="1.778" layer="96"/>
@@ -11478,8 +11478,8 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <instance part="GND3" gate="1" x="543.56" y="111.76" smashed="yes">
 <attribute name="VALUE" x="541.02" y="109.22" size="1.778" layer="96"/>
 </instance>
-<instance part="+3V13" gate="G$1" x="452.12" y="134.62" smashed="yes">
-<attribute name="VALUE" x="449.58" y="134.62" size="1.778" layer="96"/>
+<instance part="+3V13" gate="G$1" x="452.12" y="116.84" smashed="yes">
+<attribute name="VALUE" x="449.58" y="116.84" size="1.778" layer="96"/>
 </instance>
 <instance part="GND4" gate="1" x="454.66" y="43.18" smashed="yes">
 <attribute name="VALUE" x="452.12" y="40.64" size="1.778" layer="96"/>
@@ -11577,7 +11577,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <segment>
 <pinref part="R1" gate="G$1" pin="1"/>
 <pinref part="GND90" gate="1" pin="GND"/>
-<wire x1="474.98" y1="137.16" x2="474.98" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="469.9" y1="137.16" x2="469.9" y2="139.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C26" gate="G$1" pin="2"/>
@@ -11738,8 +11738,8 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <segment>
 <pinref part="BOOT" gate="1" pin="1"/>
 <pinref part="+3V19" gate="G$1" pin="+3V3"/>
-<wire x1="462.28" y1="152.4" x2="459.74" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="459.74" y1="152.4" x2="459.74" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="457.2" y1="152.4" x2="454.66" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="454.66" y1="152.4" x2="454.66" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C39" gate="G$1" pin="1"/>
@@ -11783,7 +11783,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <segment>
 <pinref part="IC3" gate="G$1" pin="VDD_5"/>
 <pinref part="+3V5" gate="G$1" pin="+3V3"/>
-<wire x1="464.82" y1="127" x2="464.82" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="464.82" y1="127" x2="464.82" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC3" gate="G$1" pin="VDD_4"/>
@@ -11797,7 +11797,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <pinref part="+3V13" gate="G$1" pin="+3V3"/>
 <wire x1="452.12" y1="83.82" x2="452.12" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="VBAT"/>
-<wire x1="452.12" y1="96.52" x2="452.12" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="452.12" y1="96.52" x2="452.12" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="457.2" y1="96.52" x2="452.12" y2="96.52" width="0.1524" layer="91"/>
 <junction x="452.12" y="96.52"/>
 </segment>
@@ -11831,28 +11831,28 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <wire x1="335.28" y1="162.56" x2="335.28" y2="167.64" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="ADC1" class="0">
+<net name="ADC_IN11" class="0">
 <segment>
 <wire x1="457.2" y1="71.12" x2="439.42" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="PC1"/>
 <label x="439.42" y="71.12" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="472.44" y1="215.9" x2="459.74" y2="215.9" width="0.1524" layer="91"/>
+<wire x1="480.06" y1="215.9" x2="459.74" y2="215.9" width="0.1524" layer="91"/>
 <label x="467.36" y="215.9" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="30"/>
 </segment>
 </net>
 <net name="BOOT" class="0">
 <segment>
-<label x="474.98" y="152.4" size="1.778" layer="95"/>
+<label x="469.9" y="152.4" size="1.778" layer="95"/>
 <pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="474.98" y1="152.4" x2="472.44" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="474.98" y1="149.86" x2="474.98" y2="152.4" width="0.1524" layer="91"/>
-<junction x="474.98" y="152.4"/>
+<wire x1="469.9" y1="152.4" x2="467.36" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="469.9" y1="149.86" x2="469.9" y2="152.4" width="0.1524" layer="91"/>
+<junction x="469.9" y="152.4"/>
 <pinref part="BOOT" gate="1" pin="2"/>
 <pinref part="IC3" gate="G$1" pin="BOOT0"/>
-<wire x1="474.98" y1="152.4" x2="480.06" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="469.9" y1="152.4" x2="480.06" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="480.06" y1="152.4" x2="480.06" y2="127" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -11881,7 +11881,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 </net>
 <net name="SWDIO" class="0">
 <segment>
-<wire x1="551.18" y1="101.6" x2="533.4" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="546.1" y1="101.6" x2="533.4" y2="101.6" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="PA13"/>
 <label x="535.94" y="101.6" size="1.778" layer="95"/>
 </segment>
@@ -11946,7 +11946,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 </net>
 <net name="ADCREF" class="0">
 <segment>
-<wire x1="459.74" y1="210.82" x2="477.52" y2="210.82" width="0.1524" layer="91"/>
+<wire x1="459.74" y1="210.82" x2="480.06" y2="210.82" width="0.1524" layer="91"/>
 <label x="467.36" y="210.82" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="34"/>
 </segment>
@@ -11957,87 +11957,75 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <label x="259.08" y="35.56" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="ADC2" class="0">
+<net name="ADC_IN8" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="PC5"/>
 <wire x1="482.6" y1="30.48" x2="482.6" y2="15.24" width="0.1524" layer="91"/>
 <label x="482.6" y="15.24" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<wire x1="472.44" y1="218.44" x2="459.74" y2="218.44" width="0.1524" layer="91"/>
+<wire x1="480.06" y1="218.44" x2="459.74" y2="218.44" width="0.1524" layer="91"/>
 <label x="467.36" y="218.44" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="28"/>
 </segment>
 </net>
-<net name="ADC3" class="0">
-<segment>
-<pinref part="IC3" gate="G$1" pin="PA3"/>
-<wire x1="457.2" y1="48.26" x2="441.96" y2="48.26" width="0.1524" layer="91"/>
-<label x="441.96" y="48.26" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="472.44" y1="213.36" x2="459.74" y2="213.36" width="0.1524" layer="91"/>
-<label x="467.36" y="213.36" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="32"/>
-</segment>
-</net>
-<net name="ADC4" class="0">
+<net name="ADC_IN7" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="PA7"/>
 <wire x1="477.52" y1="30.48" x2="477.52" y2="15.24" width="0.1524" layer="91"/>
 <label x="477.52" y="15.24" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<wire x1="472.44" y1="220.98" x2="459.74" y2="220.98" width="0.1524" layer="91"/>
+<wire x1="480.06" y1="220.98" x2="459.74" y2="220.98" width="0.1524" layer="91"/>
 <label x="467.36" y="220.98" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="26"/>
 </segment>
 </net>
-<net name="ADC5" class="0">
+<net name="ADC_IN10" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="PC0"/>
 <wire x1="457.2" y1="73.66" x2="439.42" y2="73.66" width="0.1524" layer="91"/>
 <label x="439.42" y="73.66" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="452.12" y1="215.9" x2="439.42" y2="215.9" width="0.1524" layer="91"/>
-<label x="439.42" y="215.9" size="1.778" layer="95"/>
+<wire x1="452.12" y1="215.9" x2="434.34" y2="215.9" width="0.1524" layer="91"/>
+<label x="434.34" y="215.9" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="29"/>
 </segment>
 </net>
-<net name="ADC6" class="0">
+<net name="ADC_IN4" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="PC4"/>
 <wire x1="480.06" y1="30.48" x2="480.06" y2="15.24" width="0.1524" layer="91"/>
 <label x="480.06" y="15.24" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<wire x1="452.12" y1="218.44" x2="439.42" y2="218.44" width="0.1524" layer="91"/>
-<label x="439.42" y="218.44" size="1.778" layer="95"/>
+<wire x1="452.12" y1="218.44" x2="434.34" y2="218.44" width="0.1524" layer="91"/>
+<label x="434.34" y="218.44" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="27"/>
 </segment>
 </net>
-<net name="ADC7" class="0">
+<net name="ADC_IN14" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="PA2"/>
 <wire x1="457.2" y1="50.8" x2="441.96" y2="50.8" width="0.1524" layer="91"/>
 <label x="441.96" y="50.8" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="452.12" y1="213.36" x2="439.42" y2="213.36" width="0.1524" layer="91"/>
-<label x="439.42" y="213.36" size="1.778" layer="95"/>
+<wire x1="452.12" y1="213.36" x2="434.34" y2="213.36" width="0.1524" layer="91"/>
+<label x="434.34" y="213.36" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="31"/>
 </segment>
 </net>
-<net name="ADC8" class="0">
+<net name="ADC_IN3" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="PA6"/>
 <wire x1="474.98" y1="30.48" x2="474.98" y2="15.24" width="0.1524" layer="91"/>
 <label x="474.98" y="15.24" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<wire x1="452.12" y1="220.98" x2="439.42" y2="220.98" width="0.1524" layer="91"/>
-<label x="439.42" y="220.98" size="1.778" layer="95"/>
+<wire x1="452.12" y1="220.98" x2="434.34" y2="220.98" width="0.1524" layer="91"/>
+<label x="434.34" y="220.98" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="25"/>
 </segment>
 </net>
@@ -12212,7 +12200,6 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <pinref part="+A3V4" gate="G$1" pin="+3V3"/>
 <wire x1="429.26" y1="60.96" x2="429.26" y2="83.82" width="0.1524" layer="91"/>
 <junction x="429.26" y="60.96"/>
-<label x="452.12" y="58.42" size="1.778" layer="95" rot="R90"/>
 <pinref part="C10" gate="G$1" pin="1"/>
 <wire x1="429.26" y1="58.42" x2="429.26" y2="55.88" width="0.1524" layer="91"/>
 <junction x="429.26" y="58.42"/>
@@ -12620,7 +12607,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <pinref part="CN1" gate="USB" pin="D-"/>
 </segment>
 <segment>
-<wire x1="543.56" y1="96.52" x2="533.4" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="546.1" y1="96.52" x2="533.4" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="PA11"/>
 <label x="535.94" y="96.52" size="1.778" layer="95"/>
 </segment>
@@ -12637,7 +12624,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <pinref part="CN1" gate="USB" pin="D+"/>
 </segment>
 <segment>
-<wire x1="543.56" y1="99.06" x2="533.4" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="546.1" y1="99.06" x2="533.4" y2="99.06" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="PA12"/>
 <label x="535.94" y="99.06" size="1.778" layer="95"/>
 </segment>
@@ -12678,7 +12665,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <label x="528.32" y="246.38" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="551.18" y1="53.34" x2="533.4" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="548.64" y1="53.34" x2="533.4" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="PB14"/>
 <label x="535.94" y="53.34" size="1.778" layer="95"/>
 </segment>
@@ -12690,7 +12677,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <label x="528.32" y="243.84" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="551.18" y1="55.88" x2="533.4" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="548.64" y1="55.88" x2="533.4" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="PB15"/>
 <label x="535.94" y="55.88" size="1.778" layer="95"/>
 </segment>
@@ -12702,7 +12689,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <label x="528.32" y="241.3" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="533.4" y1="48.26" x2="551.18" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="533.4" y1="48.26" x2="548.64" y2="48.26" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="PB12"/>
 <label x="535.94" y="48.26" size="1.778" layer="95"/>
 </segment>
@@ -12743,7 +12730,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <label x="510.54" y="15.24" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="UART1_TX" class="0">
+<net name="UART2_TX" class="0">
 <segment>
 <wire x1="513.08" y1="236.22" x2="495.3" y2="236.22" width="0.1524" layer="91"/>
 <label x="495.3" y="236.22" size="1.778" layer="95"/>
@@ -12751,11 +12738,11 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 </segment>
 <segment>
 <pinref part="IC3" gate="G$1" pin="PD5"/>
-<wire x1="500.38" y1="127" x2="500.38" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="500.38" y1="127" x2="500.38" y2="142.24" width="0.1524" layer="91"/>
 <label x="500.38" y="129.54" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="UART1_RX" class="0">
+<net name="UART2_RX" class="0">
 <segment>
 <wire x1="513.08" y1="233.68" x2="495.3" y2="233.68" width="0.1524" layer="91"/>
 <label x="495.3" y="233.68" size="1.778" layer="95"/>
@@ -12763,59 +12750,35 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 </segment>
 <segment>
 <pinref part="IC3" gate="G$1" pin="PD6"/>
-<wire x1="497.84" y1="127" x2="497.84" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="497.84" y1="127" x2="497.84" y2="142.24" width="0.1524" layer="91"/>
 <label x="497.84" y="129.54" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="TIM1_CH1" class="0">
-<segment>
-<pinref part="IC3" gate="G$1" pin="PB4"/>
-<wire x1="490.22" y1="127" x2="490.22" y2="144.78" width="0.1524" layer="91"/>
-<label x="490.22" y="129.54" size="1.778" layer="95" rot="R90"/>
-</segment>
-<segment>
-<wire x1="452.12" y1="238.76" x2="434.34" y2="238.76" width="0.1524" layer="91"/>
-<label x="434.34" y="238.76" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="11"/>
-</segment>
-</net>
-<net name="TIM2_CH1" class="0">
+<net name="TIM2_CH1_EXTI15" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="PA15"/>
-<wire x1="523.24" y1="127" x2="523.24" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="523.24" y1="127" x2="523.24" y2="149.86" width="0.1524" layer="91"/>
 <label x="523.24" y="129.54" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<wire x1="452.12" y1="236.22" x2="434.34" y2="236.22" width="0.1524" layer="91"/>
-<label x="434.34" y="236.22" size="1.778" layer="95"/>
+<wire x1="452.12" y1="236.22" x2="426.72" y2="236.22" width="0.1524" layer="91"/>
+<label x="426.72" y="236.22" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="13"/>
 </segment>
 </net>
-<net name="TIM2_CH2" class="0">
+<net name="TIM2_CH2_EXTI3" class="0">
 <segment>
-<wire x1="459.74" y1="236.22" x2="480.06" y2="236.22" width="0.1524" layer="91"/>
+<wire x1="459.74" y1="236.22" x2="487.68" y2="236.22" width="0.1524" layer="91"/>
 <label x="467.36" y="236.22" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="14"/>
 </segment>
 <segment>
-<wire x1="492.76" y1="127" x2="492.76" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="492.76" y1="127" x2="492.76" y2="149.86" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="PB3"/>
 <label x="492.76" y="129.54" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="TIM1_CH2" class="0">
-<segment>
-<wire x1="459.74" y1="238.76" x2="480.06" y2="238.76" width="0.1524" layer="91"/>
-<label x="467.36" y="238.76" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="12"/>
-</segment>
-<segment>
-<pinref part="IC3" gate="G$1" pin="PB5"/>
-<wire x1="487.68" y1="127" x2="487.68" y2="144.78" width="0.1524" layer="91"/>
-<label x="487.68" y="129.54" size="1.778" layer="95" rot="R90"/>
-</segment>
-</net>
-<net name="UART2_RX" class="0">
+<net name="UART3_RX" class="0">
 <segment>
 <wire x1="520.7" y1="233.68" x2="541.02" y2="233.68" width="0.1524" layer="91"/>
 <label x="528.32" y="233.68" size="1.778" layer="95"/>
@@ -12823,11 +12786,11 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 </segment>
 <segment>
 <pinref part="IC3" gate="G$1" pin="PD9"/>
-<wire x1="533.4" y1="60.96" x2="551.18" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="533.4" y1="60.96" x2="548.64" y2="60.96" width="0.1524" layer="91"/>
 <label x="535.94" y="60.96" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="UART2_TX" class="0">
+<net name="UART3_TX" class="0">
 <segment>
 <wire x1="520.7" y1="236.22" x2="541.02" y2="236.22" width="0.1524" layer="91"/>
 <label x="528.32" y="236.22" size="1.778" layer="95"/>
@@ -12835,7 +12798,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 </segment>
 <segment>
 <pinref part="IC3" gate="G$1" pin="PD8"/>
-<wire x1="533.4" y1="58.42" x2="551.18" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="533.4" y1="58.42" x2="548.64" y2="58.42" width="0.1524" layer="91"/>
 <label x="535.94" y="58.42" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -12847,7 +12810,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 </segment>
 <segment>
 <pinref part="IC3" gate="G$1" pin="PC12"/>
-<wire x1="515.62" y1="127" x2="515.62" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="515.62" y1="127" x2="515.62" y2="142.24" width="0.1524" layer="91"/>
 <label x="515.62" y="129.54" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
@@ -12858,7 +12821,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <pinref part="JP2" gate="A" pin="20"/>
 </segment>
 <segment>
-<wire x1="518.16" y1="127" x2="518.16" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="518.16" y1="127" x2="518.16" y2="142.24" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="PC11"/>
 <label x="518.16" y="129.54" size="1.778" layer="95" rot="R90"/>
 </segment>
@@ -12871,7 +12834,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 </segment>
 <segment>
 <pinref part="IC3" gate="G$1" pin="PC10"/>
-<wire x1="520.7" y1="127" x2="520.7" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="520.7" y1="127" x2="520.7" y2="142.24" width="0.1524" layer="91"/>
 <label x="520.7" y="129.54" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
@@ -12882,9 +12845,9 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <pinref part="JP1" gate="A" pin="17"/>
 </segment>
 <segment>
-<pinref part="IC3" gate="G$1" pin="PE9"/>
-<wire x1="497.84" y1="30.48" x2="497.84" y2="15.24" width="0.1524" layer="91"/>
-<label x="497.84" y="15.24" size="1.778" layer="95" rot="R90"/>
+<pinref part="IC3" gate="G$1" pin="PB4"/>
+<wire x1="490.22" y1="127" x2="490.22" y2="142.24" width="0.1524" layer="91"/>
+<label x="490.22" y="129.54" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="TIM4_CH1" class="0">
@@ -12895,7 +12858,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 </segment>
 <segment>
 <pinref part="IC3" gate="G$1" pin="PD12"/>
-<wire x1="533.4" y1="68.58" x2="551.18" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="533.4" y1="68.58" x2="548.64" y2="68.58" width="0.1524" layer="91"/>
 <label x="535.94" y="68.58" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -12911,7 +12874,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <label x="441.96" y="55.88" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="TIM6_CH1" class="0">
+<net name="TIM8_CH1" class="0">
 <segment>
 <wire x1="452.12" y1="223.52" x2="434.34" y2="223.52" width="0.1524" layer="91"/>
 <label x="434.34" y="223.52" size="1.778" layer="95"/>
@@ -12919,56 +12882,32 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 </segment>
 <segment>
 <pinref part="IC3" gate="G$1" pin="PC6"/>
-<wire x1="533.4" y1="78.74" x2="551.18" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="533.4" y1="78.74" x2="548.64" y2="78.74" width="0.1524" layer="91"/>
 <label x="535.94" y="78.74" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="EXTI1" class="0">
-<segment>
-<wire x1="452.12" y1="248.92" x2="439.42" y2="248.92" width="0.1524" layer="91"/>
-<label x="439.42" y="248.92" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="3"/>
-</segment>
-<segment>
-<pinref part="IC3" gate="G$1" pin="PB6"/>
-<wire x1="485.14" y1="127" x2="485.14" y2="144.78" width="0.1524" layer="91"/>
-<label x="485.14" y="129.54" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="EXTI2" class="0">
 <segment>
-<wire x1="452.12" y1="246.38" x2="439.42" y2="246.38" width="0.1524" layer="91"/>
-<label x="439.42" y="246.38" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="5"/>
+<pinref part="IC3" gate="G$1" pin="PD2"/>
+<wire x1="508" y1="127" x2="508" y2="137.16" width="0.1524" layer="91"/>
+<label x="508" y="129.54" size="1.778" layer="95" rot="R90"/>
 </segment>
-<segment>
-<pinref part="IC3" gate="G$1" pin="PD4"/>
-<wire x1="502.92" y1="127" x2="502.92" y2="144.78" width="0.1524" layer="91"/>
-<label x="502.92" y="129.54" size="1.778" layer="95" rot="R90"/>
-</segment>
-</net>
-<net name="EXTI3" class="0">
 <segment>
 <wire x1="452.12" y1="243.84" x2="439.42" y2="243.84" width="0.1524" layer="91"/>
 <label x="439.42" y="243.84" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="7"/>
 </segment>
-<segment>
-<pinref part="IC3" gate="G$1" pin="PD2"/>
-<wire x1="508" y1="127" x2="508" y2="144.78" width="0.1524" layer="91"/>
-<label x="508" y="129.54" size="1.778" layer="95" rot="R90"/>
-</segment>
 </net>
 <net name="EXTI4" class="0">
 <segment>
-<wire x1="452.12" y1="241.3" x2="439.42" y2="241.3" width="0.1524" layer="91"/>
-<label x="439.42" y="241.3" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="9"/>
+<wire x1="502.92" y1="127" x2="502.92" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="IC3" gate="G$1" pin="PD4"/>
+<label x="502.92" y="129.54" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="IC3" gate="G$1" pin="PD0"/>
-<wire x1="513.08" y1="127" x2="513.08" y2="144.78" width="0.1524" layer="91"/>
-<label x="513.08" y="129.54" size="1.778" layer="95" rot="R90"/>
+<wire x1="452.12" y1="246.38" x2="439.42" y2="246.38" width="0.1524" layer="91"/>
+<label x="439.42" y="246.38" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="5"/>
 </segment>
 </net>
 <net name="I2C_SCL" class="0">
@@ -13002,9 +12941,9 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <pinref part="JP1" gate="A" pin="18"/>
 </segment>
 <segment>
-<pinref part="IC3" gate="G$1" pin="PE11"/>
-<wire x1="502.92" y1="30.48" x2="502.92" y2="15.24" width="0.1524" layer="91"/>
-<label x="502.92" y="15.24" size="1.778" layer="95" rot="R90"/>
+<pinref part="IC3" gate="G$1" pin="PB5"/>
+<wire x1="487.68" y1="127" x2="487.68" y2="142.24" width="0.1524" layer="91"/>
+<label x="487.68" y="129.54" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="TIM5_CH2" class="0">
@@ -13019,7 +12958,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <label x="441.96" y="53.34" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="TIM6_CH2" class="0">
+<net name="TIM8_CH2" class="0">
 <segment>
 <wire x1="459.74" y1="223.52" x2="480.06" y2="223.52" width="0.1524" layer="91"/>
 <label x="467.36" y="223.52" size="1.778" layer="95"/>
@@ -13027,47 +12966,35 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 </segment>
 <segment>
 <pinref part="IC3" gate="G$1" pin="PC7"/>
-<wire x1="533.4" y1="81.28" x2="551.18" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="533.4" y1="81.28" x2="548.64" y2="81.28" width="0.1524" layer="91"/>
 <label x="535.94" y="81.28" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="EXTI5" class="0">
-<segment>
-<wire x1="459.74" y1="248.92" x2="474.98" y2="248.92" width="0.1524" layer="91"/>
-<label x="467.36" y="248.92" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="4"/>
-</segment>
-<segment>
-<wire x1="457.2" y1="93.98" x2="441.96" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="PC13"/>
-<label x="441.96" y="93.98" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="EXTI6" class="0">
+<segment>
+<pinref part="IC3" gate="G$1" pin="PB6"/>
+<wire x1="485.14" y1="127" x2="485.14" y2="137.16" width="0.1524" layer="91"/>
+<label x="485.14" y="129.54" size="1.778" layer="95" rot="R90"/>
+</segment>
 <segment>
 <wire x1="459.74" y1="246.38" x2="474.98" y2="246.38" width="0.1524" layer="91"/>
 <label x="467.36" y="246.38" size="1.778" layer="95"/>
 <pinref part="JP1" gate="A" pin="6"/>
 </segment>
-<segment>
-<pinref part="IC3" gate="G$1" pin="PD7"/>
-<wire x1="495.3" y1="127" x2="495.3" y2="144.78" width="0.1524" layer="91"/>
-<label x="495.3" y="129.54" size="1.778" layer="95" rot="R90"/>
-</segment>
 </net>
-<net name="EXTI7" class="0">
-<segment>
-<wire x1="459.74" y1="243.84" x2="474.98" y2="243.84" width="0.1524" layer="91"/>
-<label x="467.36" y="243.84" size="1.778" layer="95"/>
-<pinref part="JP1" gate="A" pin="8"/>
-</segment>
+<net name="EXTI14" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="PC14-OSC32_IN"/>
 <wire x1="457.2" y1="91.44" x2="441.96" y2="91.44" width="0.1524" layer="91"/>
 <label x="441.96" y="91.44" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="459.74" y1="248.92" x2="474.98" y2="248.92" width="0.1524" layer="91"/>
+<label x="467.36" y="248.92" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="4"/>
+</segment>
 </net>
-<net name="EXTI8" class="0">
+<net name="EXTI1" class="0">
 <segment>
 <wire x1="459.74" y1="241.3" x2="474.98" y2="241.3" width="0.1524" layer="91"/>
 <label x="467.36" y="241.3" size="1.778" layer="95"/>
@@ -13075,7 +13002,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 </segment>
 <segment>
 <pinref part="IC3" gate="G$1" pin="PD1"/>
-<wire x1="510.54" y1="127" x2="510.54" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="510.54" y1="127" x2="510.54" y2="137.16" width="0.1524" layer="91"/>
 <label x="510.54" y="129.54" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
@@ -13087,7 +13014,7 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 </segment>
 <segment>
 <pinref part="IC3" gate="G$1" pin="PD13"/>
-<wire x1="533.4" y1="71.12" x2="551.18" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="533.4" y1="71.12" x2="548.64" y2="71.12" width="0.1524" layer="91"/>
 <label x="535.94" y="71.12" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -13262,9 +13189,9 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <pinref part="U2" gate="G1" pin="MS/ADR0/MD0"/>
 </segment>
 <segment>
-<wire x1="500.38" y1="12.7" x2="500.38" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="500.38" y1="7.62" x2="500.38" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="PE10"/>
-<label x="500.38" y="12.7" size="1.778" layer="95" rot="R90"/>
+<label x="500.38" y="7.62" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="ADC_RST" class="0">
@@ -13300,9 +13227,81 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <pinref part="J1" gate="G$1" pin="SWDCLK/TCK"/>
 </segment>
 <segment>
-<wire x1="525.78" y1="127" x2="525.78" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="525.78" y1="127" x2="525.78" y2="142.24" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="PA14"/>
 <label x="525.78" y="129.54" size="1.778" layer="95" rot="R90"/>
+</segment>
+</net>
+<net name="ADC_IN15" class="0">
+<segment>
+<pinref part="IC3" gate="G$1" pin="PA3"/>
+<wire x1="457.2" y1="48.26" x2="441.96" y2="48.26" width="0.1524" layer="91"/>
+<label x="441.96" y="48.26" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="480.06" y1="213.36" x2="459.74" y2="213.36" width="0.1524" layer="91"/>
+<label x="467.36" y="213.36" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="32"/>
+</segment>
+</net>
+<net name="TIM1_CH1_EXTI9" class="0">
+<segment>
+<pinref part="IC3" gate="G$1" pin="PE9"/>
+<wire x1="497.84" y1="30.48" x2="497.84" y2="7.62" width="0.1524" layer="91"/>
+<label x="497.84" y="7.62" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<wire x1="452.12" y1="238.76" x2="426.72" y2="238.76" width="0.1524" layer="91"/>
+<label x="426.72" y="238.76" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="11"/>
+</segment>
+</net>
+<net name="TIM1_CH2_EXTI11" class="0">
+<segment>
+<pinref part="IC3" gate="G$1" pin="PE11"/>
+<wire x1="502.92" y1="30.48" x2="502.92" y2="7.62" width="0.1524" layer="91"/>
+<label x="502.92" y="7.62" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<wire x1="459.74" y1="238.76" x2="487.68" y2="238.76" width="0.1524" layer="91"/>
+<label x="467.36" y="238.76" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="12"/>
+</segment>
+</net>
+<net name="EXTI0" class="0">
+<segment>
+<pinref part="IC3" gate="G$1" pin="PD0"/>
+<wire x1="513.08" y1="127" x2="513.08" y2="137.16" width="0.1524" layer="91"/>
+<label x="513.08" y="129.54" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<wire x1="452.12" y1="241.3" x2="439.42" y2="241.3" width="0.1524" layer="91"/>
+<label x="439.42" y="241.3" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="9"/>
+</segment>
+</net>
+<net name="EXTI7" class="0">
+<segment>
+<pinref part="IC3" gate="G$1" pin="PD7"/>
+<wire x1="495.3" y1="127" x2="495.3" y2="137.16" width="0.1524" layer="91"/>
+<label x="495.3" y="129.54" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<wire x1="459.74" y1="243.84" x2="474.98" y2="243.84" width="0.1524" layer="91"/>
+<label x="467.36" y="243.84" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="8"/>
+</segment>
+</net>
+<net name="EXTI8" class="0">
+<segment>
+<pinref part="IC3" gate="G$1" pin="PB8"/>
+<wire x1="477.52" y1="127" x2="477.52" y2="137.16" width="0.1524" layer="91"/>
+<label x="477.52" y="129.54" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<wire x1="452.12" y1="248.92" x2="439.42" y2="248.92" width="0.1524" layer="91"/>
+<label x="439.42" y="248.92" size="1.778" layer="95"/>
+<pinref part="JP1" gate="A" pin="3"/>
 </segment>
 </net>
 </nets>
@@ -13312,9 +13311,13 @@ Source: &lt;a href="https://www.st.com/resource/en/datasheet/stm32h750vb.pdf"&gt
 <approved hash="102,1,264.16,101.6,+5V,+A5V,,,,"/>
 <approved hash="102,1,342.9,101.6,+5V,+A5V,,,,"/>
 <approved hash="102,1,223.52,73.66,+5V,+A5V,,,,"/>
+<approved hash="201,1,429.26,83.82,+3V3,+3V3\, +A3V3,,,,"/>
+<approved hash="201,1,309.88,254,+3V3,+3V3\, +A3V3,,,,"/>
+<approved hash="201,1,426.72,132.08,+3V3,+3V3\, +A3V3,,,,"/>
 <approved hash="201,1,223.52,73.66,+5V,+5V\, +A5V,,,,"/>
 <approved hash="201,1,342.9,101.6,+5V,+5V\, +A5V,,,,"/>
 <approved hash="201,1,264.16,101.6,+5V,+5V\, +A5V,,,,"/>
+<approved hash="201,1,309.88,223.52,+5V,+5V\, +A5V,,,,"/>
 </errors>
 </schematic>
 </drawing>
