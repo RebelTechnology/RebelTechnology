@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.6.1">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -22730,7 +22730,7 @@ http://www.fairchildsemi.com/ds/LM/LM7805.pdf</description>
 <attribute name="OC_FARNELL" value="1843725"/>
 </part>
 <part name="C6" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
-<part name="C7" library="Rebel" deviceset="C-EU" device="C0603" value="100n 16v"/>
+<part name="C7" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
 <part name="GND57" library="supply1" deviceset="GND" device=""/>
 <part name="GND58" library="supply1" deviceset="GND" device=""/>
