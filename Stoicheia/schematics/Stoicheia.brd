@@ -3,7 +3,7 @@
 <eagle version="9.6.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
@@ -178,7 +178,7 @@
 <wire x1="49.3649" y1="0.635" x2="48.133" y2="-0.635" width="0.3048" layer="20" curve="-90"/>
 <wire x1="48.133" y1="-0.635" x2="1.27" y2="-0.635" width="0.3048" layer="20"/>
 <text x="48.8315" y="25.4" size="1.9304" layer="21" font="vector" rot="SR90">Rebel Technology</text>
-<text x="0.762" y="28.067" size="1.27" layer="21" font="vector">-12v</text>
+<text x="0.762" y="28.067" size="1.4224" layer="21" font="vector">-12v</text>
 <text x="5.588" y="91.186" size="0.762" layer="21">gnd</text>
 <text x="5.588" y="85.725" size="0.762" layer="21" font="vector">5V</text>
 <text x="5.588" y="83.185" size="0.762" layer="21" font="vector">RX</text>
@@ -188,7 +188,7 @@
 <dimension x1="0" y1="96.7105" x2="49.9999" y2="96.7105" x3="24.99995" y3="104.14" textsize="1.778" layer="47"/>
 <dimension x1="1.27" y1="-0.635" x2="1.27" y2="98.298" x3="-7.62" y3="48.8315" textsize="1.778" layer="47"/>
 <text x="15.875" y="58.42" size="1.27" layer="25" font="vector" rot="R90">Y1</text>
-<text x="5.207" y="28.067" size="1.27" layer="22" font="vector" rot="MR0">-12v</text>
+<text x="5.207" y="28.067" size="1.4224" layer="22" font="vector" rot="MR0">-12v</text>
 <wire x1="0" y1="30.861" x2="49.53" y2="30.861" width="0.8128" layer="22"/>
 <text x="38.735" y="91.3765" size="1.9304" layer="22" font="vector" rot="SMR0">Rebel Technology</text>
 <text x="37.592" y="45.9105" size="1.9304" layer="22" font="vector" rot="SMR0">Stoicheia Rev08</text>
@@ -2066,7 +2066,6 @@ design rules under a new name.</description>
 </element>
 <element name="C2" library="rcl" package="E5-6" value="10u" x="3.937" y="64.77" smashed="yes" rot="R180">
 <attribute name="NAME" x="5.334" y="67.437" size="1.27" layer="25" font="vector" ratio="10" rot="R180"/>
-<attribute name="VALUE" x="0.889" y="67.691" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="GND" library="testpad" package="P1-20" value="TPSPAD1-20" x="44.45" y="95.885" smashed="yes" rot="R180">
 <attribute name="NAME" x="39.4335" y="95.4405" size="1.27" layer="25" ratio="10"/>
@@ -2079,14 +2078,12 @@ design rules under a new name.</description>
 </element>
 <element name="C4" library="rcl" package="E5-6" value="10u" x="4.064" y="47.117" smashed="yes" rot="R180">
 <attribute name="NAME" x="5.207" y="45.72" size="1.27" layer="25" ratio="10" rot="R180"/>
-<attribute name="VALUE" x="1.016" y="50.038" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="D3" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="DIODE-1N4001" package3d_urn="urn:adsk.eagle:package:15457755/1" value="1N4001" x="7.366" y="38.227" smashed="yes" rot="R90">
 <attribute name="NAME" x="7.366" y="36.957" size="1.016" layer="25" font="vector" rot="R90" align="center"/>
 </element>
 <element name="IC2" library="linear" package="TO92" package3d_urn="urn:adsk.eagle:package:16416/2" value="7805L" x="3.937" y="53.975" smashed="yes" rot="R270">
 <attribute name="NAME" x="0.8128" y="55.245" size="1.27" layer="25" ratio="10" rot="R270"/>
-<attribute name="VALUE" x="-3.683" y="59.055" size="1.27" layer="27" ratio="10" rot="R270"/>
 </element>
 <element name="PWR" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="MA05-2" package3d_urn="urn:adsk.eagle:package:15809360/1" value="" x="3.048" y="35.941" smashed="yes" rot="MR90">
 <attribute name="MF" value="" x="-18.542" y="35.941" size="1.778" layer="28" rot="MR90" display="off"/>
