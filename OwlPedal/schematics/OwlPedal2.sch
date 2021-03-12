@@ -17576,9 +17576,9 @@ http://www.fairchildsemi.com/ds/LM/LM7805.pdf</description>
 <part name="JP6" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
 <part name="T2" library="NXP_60_26022015" deviceset="2N7002" device="" technology="P"/>
-<part name="R25" library="Rebel" deviceset="R-EU_" device="0603" value="150R"/>
+<part name="R25" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
-<part name="R27" library="Rebel" deviceset="R-EU_" device="0603" value="150R"/>
+<part name="R27" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="IC1" library="linear" library_urn="urn:adsk.eagle:library:262" deviceset="78*" device="TV" package3d_urn="urn:adsk.eagle:package:16417/2" technology="05"/>
 </parts>
 <sheets>
@@ -18093,12 +18093,12 @@ http://www.fairchildsemi.com/ds/LM/LM7805.pdf</description>
 <attribute name="NAME" x="-46.7614" y="138.43" size="1.778" layer="95" rot="R270"/>
 <attribute name="VALUE" x="-51.562" y="138.43" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="+3V5" gate="G$1" x="-116.84" y="147.32" smashed="yes">
-<attribute name="VALUE" x="-119.38" y="142.24" size="1.778" layer="96" rot="R90"/>
+<instance part="+3V5" gate="G$1" x="-116.84" y="144.78" smashed="yes">
+<attribute name="VALUE" x="-119.38" y="139.7" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R27" gate="G$1" x="-116.84" y="137.16" smashed="yes" rot="R270">
-<attribute name="NAME" x="-115.3414" y="140.97" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="-120.142" y="140.97" size="1.778" layer="96" rot="R270"/>
+<instance part="R27" gate="G$1" x="-116.84" y="134.62" smashed="yes" rot="R270">
+<attribute name="NAME" x="-115.3414" y="138.43" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="-120.142" y="138.43" size="1.778" layer="96" rot="R270"/>
 </instance>
 <instance part="IC1" gate="A1" x="172.72" y="96.52" smashed="yes">
 <attribute name="NAME" x="165.1" y="102.235" size="1.778" layer="95"/>
@@ -18920,7 +18920,7 @@ http://www.fairchildsemi.com/ds/LM/LM7805.pdf</description>
 </segment>
 <segment>
 <pinref part="+3V5" gate="G$1" pin="+3V3"/>
-<wire x1="-116.84" y1="142.24" x2="-116.84" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="-116.84" y1="139.7" x2="-116.84" y2="142.24" width="0.1524" layer="91"/>
 <pinref part="R27" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -19330,7 +19330,7 @@ http://www.fairchildsemi.com/ds/LM/LM7805.pdf</description>
 <pinref part="R27" gate="G$1" pin="2"/>
 <wire x1="-116.84" y1="119.38" x2="-116.84" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="J6" gate="G$1" pin="RN"/>
-<wire x1="-116.84" y1="124.46" x2="-116.84" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="-116.84" y1="124.46" x2="-116.84" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="-127" y1="124.46" x2="-116.84" y2="124.46" width="0.1524" layer="91"/>
 <junction x="-116.84" y="124.46"/>
 </segment>
