@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.6.1">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -16784,22 +16784,22 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3d>
 </packages3d>
 <symbols>
-<symbol name="STEREO_JACK" urn="urn:adsk.eagle:symbol:15457345/1" library_version="4" library_locally_modified="yes">
-<pin name="P1" x="-5.08" y="0" length="middle"/>
-<pin name="P2" x="-5.08" y="-5.08" length="middle"/>
-<pin name="P3" x="-5.08" y="-10.16" length="middle"/>
-<wire x1="0" y1="-10.16" x2="17.78" y2="-10.16" width="0.254" layer="94"/>
-<wire x1="17.78" y1="-10.16" x2="17.78" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="17.78" y1="-2.54" x2="17.78" y2="0" width="0.254" layer="94"/>
-<wire x1="17.78" y1="0" x2="15.24" y2="0" width="0.254" layer="94"/>
-<wire x1="15.24" y1="0" x2="15.24" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="17.78" y1="-2.54" x2="15.24" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="-5.08" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="7.62" y2="0" width="0.254" layer="94"/>
-<wire x1="7.62" y1="0" x2="10.16" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-2.54" x2="12.7" y2="0" width="0.254" layer="94"/>
-<wire x1="2.54" y1="-5.08" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-2.54" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
+<symbol name="STEREO_JACK" urn="urn:adsk.eagle:symbol:15457345/1" locally_modified="yes" library_version="4" library_locally_modified="yes">
+<pin name="T" x="-5.08" y="0" length="middle"/>
+<pin name="R" x="-5.08" y="-2.54" length="middle"/>
+<pin name="S" x="-5.08" y="-5.08" length="middle"/>
+<wire x1="0" y1="-5.08" x2="10.16" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-5.08" x2="10.16" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-2.54" x2="10.16" y2="0" width="0.254" layer="94"/>
+<wire x1="10.16" y1="0" x2="9.398" y2="0" width="0.254" layer="94"/>
+<wire x1="9.398" y1="0" x2="9.398" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-2.54" x2="9.398" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="3.81" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-1.27" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-2.54" x2="6.35" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="6.35" y1="-1.27" x2="7.62" y2="-2.54" width="0.254" layer="94"/>
 </symbol>
 <symbol name="R-EU" urn="urn:adsk.eagle:symbol:15457323/1" library_version="4" library_locally_modified="yes">
 <wire x1="-2.54" y1="-0.889" x2="2.54" y2="-0.889" width="0.254" layer="94"/>
@@ -16825,16 +16825,16 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="THONKICONN_STEREO" urn="urn:adsk.eagle:component:15809368/2" library_version="4" library_locally_modified="yes">
+<deviceset name="THONKICONN_STEREO" urn="urn:adsk.eagle:component:15809368/2" locally_modified="yes" library_version="4" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="STEREO_JACK" x="0" y="5.08"/>
 </gates>
 <devices>
 <device name="" package="THONKICONN_STEREO">
 <connects>
-<connect gate="G$1" pin="P1" pad="P$3"/>
-<connect gate="G$1" pin="P2" pad="P$2"/>
-<connect gate="G$1" pin="P3" pad="P$1"/>
+<connect gate="G$1" pin="R" pad="P$2"/>
+<connect gate="G$1" pin="S" pad="P$1"/>
+<connect gate="G$1" pin="T" pad="P$3"/>
 </connects>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:15809357/2"/>
@@ -19423,6 +19423,8 @@ by exp-lbrs.ulp</description>
 <part name="JP9" library="SparkFun" deviceset="M01" device="PTH"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="U2" library="Hangar" deviceset="TSR-1-2450" device=""/>
+<part name="C6" library="Rebel" deviceset="C-EU" device="050-024X044" value="100n"/>
+<part name="R4" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:15457752/1" value="10R"/>
 </parts>
 <sheets>
 <sheet>
@@ -19602,8 +19604,8 @@ by exp-lbrs.ulp</description>
 <attribute name="VALUE" x="166.624" y="175.641" size="1.778" layer="96"/>
 </instance>
 <instance part="X2" gate="G$1" x="208.28" y="142.24" smashed="yes"/>
-<instance part="MIDI_OUT" gate="G$1" x="175.26" y="248.92" smashed="yes"/>
-<instance part="MIDI_IN" gate="G$1" x="175.26" y="215.9" smashed="yes"/>
+<instance part="MIDI_OUT" gate="G$1" x="167.64" y="248.92" smashed="yes"/>
+<instance part="MIDI_IN" gate="G$1" x="99.06" y="256.54" smashed="yes"/>
 <instance part="SW1" gate="1" x="78.74" y="88.9" smashed="yes">
 <attribute name="NAME" x="72.39" y="86.36" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="74.93" y="92.075" size="1.778" layer="96" rot="R90"/>
@@ -19665,18 +19667,18 @@ by exp-lbrs.ulp</description>
 <instance part="GND5" gate="1" x="142.24" y="274.32" smashed="yes">
 <attribute name="VALUE" x="139.7" y="271.78" size="1.778" layer="96"/>
 </instance>
-<instance part="GND6" gate="1" x="167.64" y="200.66" smashed="yes">
-<attribute name="VALUE" x="165.1" y="198.12" size="1.778" layer="96"/>
+<instance part="GND6" gate="1" x="91.44" y="236.22" smashed="yes">
+<attribute name="VALUE" x="88.9" y="233.68" size="1.778" layer="96"/>
 </instance>
-<instance part="GND7" gate="1" x="167.64" y="233.68" smashed="yes">
-<attribute name="VALUE" x="165.1" y="231.14" size="1.778" layer="96"/>
+<instance part="GND7" gate="1" x="160.02" y="238.76" smashed="yes">
+<attribute name="VALUE" x="157.48" y="236.22" size="1.778" layer="96"/>
 </instance>
-<instance part="P+3" gate="1" x="134.62" y="254" smashed="yes">
-<attribute name="VALUE" x="132.08" y="248.92" size="1.778" layer="96" rot="R90"/>
+<instance part="P+3" gate="1" x="157.48" y="266.7" smashed="yes">
+<attribute name="VALUE" x="154.94" y="261.62" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R3" gate="G$1" x="142.24" y="248.92" smashed="yes">
-<attribute name="NAME" x="138.43" y="250.4186" size="1.778" layer="95"/>
-<attribute name="VALUE" x="138.43" y="245.618" size="1.778" layer="96"/>
+<instance part="R3" gate="G$1" x="157.48" y="256.54" smashed="yes" rot="R270">
+<attribute name="NAME" x="158.9786" y="260.35" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="154.178" y="260.35" size="1.778" layer="96" rot="R270"/>
 </instance>
 <instance part="JP1" gate="G$1" x="187.96" y="325.12" smashed="yes">
 <attribute name="VALUE" x="185.42" y="320.04" size="1.778" layer="96"/>
@@ -19704,6 +19706,14 @@ by exp-lbrs.ulp</description>
 <instance part="U2" gate="G$1" x="96.52" y="320.04" smashed="yes">
 <attribute name="NAME" x="88.9" y="326.39" size="1.778" layer="95"/>
 <attribute name="VALUE" x="99.06" y="326.39" size="1.778" layer="96"/>
+</instance>
+<instance part="C6" gate="G$1" x="91.44" y="246.38" smashed="yes">
+<attribute name="NAME" x="92.964" y="246.761" size="1.778" layer="95"/>
+<attribute name="VALUE" x="92.964" y="241.681" size="1.778" layer="96"/>
+</instance>
+<instance part="R4" gate="G$1" x="154.94" y="246.38" smashed="yes">
+<attribute name="NAME" x="151.13" y="247.8786" size="1.778" layer="95"/>
+<attribute name="VALUE" x="151.13" y="243.078" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -19808,8 +19818,7 @@ by exp-lbrs.ulp</description>
 <segment>
 <pinref part="R3" gate="G$1" pin="1"/>
 <pinref part="P+3" gate="1" pin="+5V"/>
-<wire x1="137.16" y1="248.92" x2="134.62" y2="248.92" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="248.92" x2="134.62" y2="251.46" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="261.62" x2="157.48" y2="264.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="UART5_RX" class="0">
@@ -19836,9 +19845,9 @@ by exp-lbrs.ulp</description>
 <pinref part="JP2" gate="G$1" pin="5"/>
 </segment>
 <segment>
-<pinref part="MIDI_OUT" gate="G$1" pin="P2"/>
-<wire x1="170.18" y1="243.84" x2="147.32" y2="243.84" width="0.1524" layer="91"/>
-<label x="147.32" y="243.84" size="1.778" layer="95"/>
+<label x="134.62" y="246.38" size="1.778" layer="95"/>
+<wire x1="149.86" y1="246.38" x2="134.62" y2="246.38" width="0.1524" layer="91"/>
+<pinref part="R4" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="TOP_ENC2_SW" class="0">
@@ -20239,16 +20248,15 @@ by exp-lbrs.ulp</description>
 <wire x1="142.24" y1="279.4" x2="142.24" y2="276.86" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="MIDI_IN" gate="G$1" pin="P3"/>
 <pinref part="GND6" gate="1" pin="GND"/>
-<wire x1="170.18" y1="205.74" x2="167.64" y2="205.74" width="0.1524" layer="91"/>
-<wire x1="167.64" y1="205.74" x2="167.64" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="241.3" x2="91.44" y2="238.76" width="0.1524" layer="91"/>
+<pinref part="C6" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<pinref part="MIDI_OUT" gate="G$1" pin="P3"/>
-<wire x1="170.18" y1="238.76" x2="167.64" y2="238.76" width="0.1524" layer="91"/>
+<pinref part="MIDI_OUT" gate="G$1" pin="S"/>
 <pinref part="GND7" gate="1" pin="GND"/>
-<wire x1="167.64" y1="238.76" x2="167.64" y2="236.22" width="0.1524" layer="91"/>
+<wire x1="162.56" y1="243.84" x2="160.02" y2="243.84" width="0.1524" layer="91"/>
+<wire x1="160.02" y1="243.84" x2="160.02" y2="241.3" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="JP1" gate="G$1" pin="1"/>
@@ -20388,9 +20396,9 @@ by exp-lbrs.ulp</description>
 </net>
 <net name="MIDI_IN_RING" class="0">
 <segment>
-<pinref part="MIDI_IN" gate="G$1" pin="P2"/>
-<wire x1="170.18" y1="210.82" x2="147.32" y2="210.82" width="0.1524" layer="91"/>
-<label x="147.32" y="210.82" size="1.778" layer="95"/>
+<pinref part="MIDI_IN" gate="G$1" pin="R"/>
+<wire x1="93.98" y1="254" x2="71.12" y2="254" width="0.1524" layer="91"/>
+<label x="71.12" y="254" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="A" pin="C"/>
@@ -20406,9 +20414,9 @@ by exp-lbrs.ulp</description>
 </net>
 <net name="MIDI_IN_TIP" class="0">
 <segment>
-<pinref part="MIDI_IN" gate="G$1" pin="P1"/>
-<wire x1="170.18" y1="215.9" x2="147.32" y2="215.9" width="0.1524" layer="91"/>
-<label x="147.32" y="215.9" size="1.778" layer="95"/>
+<pinref part="MIDI_IN" gate="G$1" pin="T"/>
+<wire x1="93.98" y1="256.54" x2="71.12" y2="256.54" width="0.1524" layer="91"/>
+<label x="71.12" y="256.54" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R1" gate="G$1" pin="1"/>
@@ -20418,10 +20426,25 @@ by exp-lbrs.ulp</description>
 </net>
 <net name="MIDI_OUT_TIP" class="0">
 <segment>
-<pinref part="MIDI_OUT" gate="G$1" pin="P1"/>
-<wire x1="170.18" y1="248.92" x2="147.32" y2="248.92" width="0.1524" layer="91"/>
-<label x="147.32" y="248.92" size="1.778" layer="95"/>
+<pinref part="MIDI_OUT" gate="G$1" pin="T"/>
 <pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="162.56" y1="248.92" x2="157.48" y2="248.92" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="248.92" x2="157.48" y2="251.46" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="MIDI_IN" gate="G$1" pin="S"/>
+<wire x1="93.98" y1="251.46" x2="91.44" y2="251.46" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="251.46" x2="91.44" y2="248.92" width="0.1524" layer="91"/>
+<pinref part="C6" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="MIDI_OUT" gate="G$1" pin="R"/>
+<wire x1="162.56" y1="246.38" x2="160.02" y2="246.38" width="0.1524" layer="91"/>
+<pinref part="R4" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>

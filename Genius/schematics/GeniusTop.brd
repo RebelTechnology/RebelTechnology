@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.6.1">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1184,7 +1184,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="23.6" y="11.58" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="X2" library="SparkFun" package="USB-B-PTH-VERTICAL" value="USBPTH-VERTICAL" x="25" y="16.148" smashed="yes">
-<attribute name="NAME" x="30.04" y="27.778" size="1.016" layer="25" font="vector"/>
+<attribute name="NAME" x="24.325" y="22.063" size="1.016" layer="25" font="vector"/>
 <attribute name="VALUE" x="25" y="14.878" size="0.8128" layer="27"/>
 </element>
 <element name="MIDI_OUT" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="THONKICONN_STEREO" package3d_urn="urn:adsk.eagle:package:15809357/2" value="THONKICONN_STEREO" x="31.35" y="28.645" smashed="yes">
@@ -1266,6 +1266,14 @@ design rules under a new name.</description>
 <attribute name="NAME" x="29.208" y="104.594" size="1.27" layer="25" rot="R180"/>
 <attribute name="VALUE" x="29.903" y="94.924" size="1.27" layer="27" rot="R180"/>
 </element>
+<element name="C6" library="Rebel" package="C050-024X044" value="100n" x="25.019" y="26.289" smashed="yes" rot="MR90">
+<attribute name="NAME" x="26.162" y="29.718" size="1.27" layer="26" ratio="10" rot="MR0"/>
+<attribute name="VALUE" x="22.352" y="24.13" size="1.27" layer="28" ratio="10" rot="MR90"/>
+</element>
+<element name="R4" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" package="0204/7" package3d_urn="urn:adsk.eagle:package:15457752/1" value="10R" x="14.859" y="43.18" smashed="yes" rot="MR270">
+<attribute name="NAME" x="15.3416" y="44.8056" size="1.016" layer="26" font="vector" ratio="10" rot="MR270"/>
+<attribute name="VALUE" x="13.5636" y="45.72" size="1.016" layer="28" font="vector" ratio="10" rot="MR270"/>
+</element>
 </elements>
 <signals>
 <signal name="C2P">
@@ -1328,20 +1336,19 @@ design rules under a new name.</description>
 <wire x1="37.717" y1="96.942" x2="36.808" y2="96.942" width="0.4064" layer="1"/>
 <wire x1="36.808" y1="96.942" x2="35.587" y2="98.163" width="0.4064" layer="1"/>
 <wire x1="11.33" y1="91.44" x2="12.346" y2="91.44" width="0.4064" layer="1"/>
-<wire x1="16.029" y1="95.123" x2="12.346" y2="91.44" width="0.4064" layer="1"/>
+<wire x1="12.346" y1="91.44" x2="16.029" y2="95.123" width="0.4064" layer="1"/>
 <wire x1="41.933003125" y1="82.299996875" x2="40.794" y2="83.439" width="0.4064" layer="16"/>
 <wire x1="46.9" y1="82.299996875" x2="41.933003125" y2="82.299996875" width="0.4064" layer="16"/>
 <wire x1="11.33" y1="91.44" x2="8.79" y2="91.44" width="0.254" layer="1"/>
 <wire x1="8.79" y1="91.44" x2="7.52" y2="92.71" width="0.254" layer="1"/>
-<wire x1="30.48" y1="95.123" x2="31.75" y2="96.393" width="0.4064" layer="1"/>
-<wire x1="31.75" y1="97.309" x2="31.75" y2="96.393" width="0.4064" layer="1"/>
-<wire x1="16.029" y1="95.123" x2="30.48" y2="95.123" width="0.4064" layer="1"/>
 <contactref element="U2" pad="3"/>
 <wire x1="31.623" y1="92.61" x2="31.623" y2="97.409" width="0.4064" layer="16"/>
 <wire x1="40.794" y1="83.439" x2="31.623" y2="92.61" width="0.4064" layer="16"/>
-<wire x1="34.733" y1="97.309" x2="31.75" y2="97.309" width="0.4064" layer="1"/>
-<wire x1="35.587" y1="98.163" x2="34.733" y2="97.309" width="0.4064" layer="1"/>
-<wire x1="35.587" y1="98.163" x2="31.623" y2="97.409" width="0" layer="19" extent="1-1"/>
+<wire x1="30.607" y1="95.123" x2="31.623" y2="96.139" width="0.4064" layer="1"/>
+<wire x1="31.623" y1="96.139" x2="31.623" y2="97.409" width="0.4064" layer="1"/>
+<wire x1="16.029" y1="95.123" x2="30.607" y2="95.123" width="0.4064" layer="1"/>
+<wire x1="31.623" y1="97.409" x2="34.833" y2="97.409" width="0.4064" layer="1"/>
+<wire x1="34.833" y1="97.409" x2="35.587" y2="98.163" width="0.4064" layer="1"/>
 </signal>
 <signal name="UART5_RX">
 <contactref element="JP2" pad="4"/>
@@ -1355,28 +1362,21 @@ design rules under a new name.</description>
 </signal>
 <signal name="UART5_TX">
 <contactref element="JP2" pad="5"/>
-<contactref element="MIDI_OUT" pad="P$2"/>
-<wire x1="31.35" y1="25.265" x2="23.387" y2="25.265" width="0.254" layer="16"/>
-<wire x1="23.387" y1="25.265" x2="19.712" y2="21.59" width="0.254" layer="16"/>
-<wire x1="19.712" y1="21.59" x2="17.807" y2="21.59" width="0.254" layer="16"/>
-<wire x1="15.394" y1="45.593" x2="16.41" y2="46.609" width="0.254" layer="16"/>
-<wire x1="16.41" y1="46.609" x2="16.41" y2="60.96" width="0.254" layer="16"/>
+<wire x1="16.41" y1="48.387" x2="16.41" y2="60.96" width="0.254" layer="16"/>
 <wire x1="2.9" y1="87.17" x2="2.9" y2="87.379996875" width="0.254" layer="16"/>
-<wire x1="17.807" y1="21.59" x2="15.394" y2="24.003" width="0.254" layer="16"/>
-<wire x1="15.394" y1="24.003" x2="15.394" y2="45.593" width="0.254" layer="16"/>
 <wire x1="16.41" y1="60.96" x2="13.87" y2="63.5" width="0.254" layer="16"/>
 <wire x1="13.87" y1="63.5" x2="13.87" y2="76.2" width="0.254" layer="16"/>
 <wire x1="13.87" y1="76.2" x2="2.9" y2="87.17" width="0.254" layer="16"/>
+<contactref element="R4" pad="1"/>
+<wire x1="16.41" y1="48.387" x2="15.013" y2="46.99" width="0.254" layer="16"/>
+<wire x1="15.013" y1="46.99" x2="14.859" y2="46.99" width="0.254" layer="16"/>
 </signal>
 <signal name="TOP_ENC1_SW">
 <contactref element="ENC1" pad="SWITCH1"/>
-<wire x1="27.83" y1="85.806" x2="25.548" y2="83.524" width="0.254" layer="1"/>
-<wire x1="25.548" y1="83.524" x2="25.548" y2="76.793" width="0.254" layer="1"/>
-<wire x1="25.548" y1="76.793" x2="22.5" y2="73.745" width="0.254" layer="1"/>
+<wire x1="46.138" y1="97.539996875" x2="22.5" y2="73.901996875" width="0.254" layer="1"/>
+<wire x1="22.5" y1="73.901996875" x2="22.5" y2="73.745" width="0.254" layer="1"/>
 <contactref element="JP3" pad="1"/>
 <wire x1="46.9" y1="97.539996875" x2="46.138" y2="97.539996875" width="0.254" layer="1"/>
-<wire x1="46.138" y1="97.539996875" x2="34.404003125" y2="85.806" width="0.254" layer="1"/>
-<wire x1="34.404003125" y1="85.806" x2="27.83" y2="85.806" width="0.254" layer="1"/>
 </signal>
 <signal name="TOP_ENC1_B">
 <contactref element="ENC1" pad="PINB"/>
@@ -1561,7 +1561,6 @@ design rules under a new name.</description>
 <contactref element="X1" pad="M2"/>
 <contactref element="X1" pad="M1"/>
 <contactref element="IC2" pad="5"/>
-<contactref element="MIDI_IN" pad="P$1"/>
 <contactref element="MIDI_OUT" pad="P$1"/>
 <polygon width="0.204" layer="16">
 <vertex x="-1.64" y="100.5275875"/>
@@ -1576,6 +1575,7 @@ design rules under a new name.</description>
 <contactref element="JP9" pad="1"/>
 <contactref element="INR" pad="P$2"/>
 <contactref element="U2" pad="2"/>
+<contactref element="C6" pad="2"/>
 </signal>
 <signal name="USBD_VBUS">
 <contactref element="JP2" pad="1"/>
@@ -1589,8 +1589,10 @@ design rules under a new name.</description>
 <wire x1="6.355" y1="94.211996875" x2="6.355" y2="84.604" width="0.254" layer="1"/>
 <wire x1="6.355" y1="84.604" x2="15.648" y2="75.311" width="0.254" layer="1"/>
 <wire x1="26.3462" y1="30.1688" x2="26.3462" y2="18.0911" width="0.254" layer="1"/>
-<wire x1="17.426" y1="45.212" x2="17.426" y2="39.089" width="0.254" layer="1"/>
-<wire x1="17.426" y1="39.089" x2="26.3462" y2="30.1688" width="0.254" layer="1"/>
+<wire x1="17.426" y1="45.212" x2="17.426" y2="42.418" width="0.254" layer="1"/>
+<wire x1="20.0025" y1="36.5125" x2="26.3462" y2="30.1688" width="0.254" layer="1"/>
+<wire x1="20.0025" y1="39.8415" x2="17.426" y2="42.418" width="0.254" layer="1"/>
+<wire x1="20.0025" y1="39.8415" x2="20.0025" y2="36.5125" width="0.254" layer="1"/>
 </signal>
 <signal name="USBD_DM">
 <contactref element="JP2" pad="2"/>
@@ -1600,12 +1602,14 @@ design rules under a new name.</description>
 <wire x1="14.759" y1="74.422" x2="14.759" y2="64.135" width="0.254" layer="1"/>
 <wire x1="23.422" y1="31.469" x2="23.422" y2="18.616034375" width="0.254" layer="1"/>
 <wire x1="23.422" y1="18.616034375" x2="23.857" y2="18.0911" width="0.254" layer="1"/>
-<wire x1="23.422" y1="31.469" x2="16.41" y2="38.481" width="0.254" layer="1"/>
-<wire x1="16.41" y1="38.481" x2="16.41" y2="45.466" width="0.254" layer="1"/>
+<wire x1="18.8095" y1="36.0815" x2="23.422" y2="31.469" width="0.254" layer="1"/>
+<wire x1="16.41" y1="45.466" x2="16.41" y2="41.529" width="0.254" layer="1"/>
 <wire x1="16.41" y1="45.466" x2="17.299" y2="46.355" width="0.254" layer="1"/>
 <wire x1="17.299" y1="46.355" x2="17.299" y2="61.595" width="0.254" layer="1"/>
 <wire x1="5.339" y1="92.560996875" x2="5.339" y2="83.842" width="0.254" layer="1"/>
 <wire x1="5.339" y1="83.842" x2="14.759" y2="74.422" width="0.254" layer="1"/>
+<wire x1="16.41" y1="41.529" x2="18.8095" y2="39.1295" width="0.254" layer="1"/>
+<wire x1="18.8095" y1="39.1295" x2="18.8095" y2="36.0815" width="0.254" layer="1"/>
 </signal>
 <signal name="USBD_DP">
 <contactref element="JP2" pad="3"/>
@@ -1613,15 +1617,17 @@ design rules under a new name.</description>
 <wire x1="13.87" y1="63.5" x2="16.41" y2="60.96" width="0.254" layer="1"/>
 <wire x1="13.87" y1="73.533" x2="13.87" y2="63.5" width="0.254" layer="1"/>
 <wire x1="16.41" y1="46.609" x2="15.394" y2="45.593" width="0.254" layer="1"/>
-<wire x1="15.394" y1="45.593" x2="15.394" y2="35.179" width="0.254" layer="1"/>
 <wire x1="22.025" y1="28.548" x2="22.025" y2="17.78" width="0.254" layer="1"/>
 <wire x1="16.41" y1="60.96" x2="16.41" y2="46.609" width="0.254" layer="1"/>
-<wire x1="15.394" y1="35.179" x2="22.025" y2="28.548" width="0.254" layer="1"/>
+<wire x1="17.0315" y1="33.5415" x2="22.025" y2="28.548" width="0.254" layer="1"/>
 <wire x1="2.9" y1="92.459996875" x2="4.323" y2="91.036996875" width="0.254" layer="1"/>
 <wire x1="4.323" y1="91.036996875" x2="4.323" y2="83.08" width="0.254" layer="1"/>
 <wire x1="4.323" y1="83.08" x2="13.87" y2="73.533" width="0.254" layer="1"/>
 <wire x1="22.025" y1="17.78" x2="23.857" y2="15.948" width="0.254" layer="1"/>
 <wire x1="23.857" y1="15.948" x2="23.857" y2="14.8907" width="0.254" layer="1"/>
+<wire x1="17.0315" y1="39.28858125" x2="17.0315" y2="33.5415" width="0.254" layer="1"/>
+<wire x1="15.394" y1="45.593" x2="15.394" y2="40.92608125" width="0.254" layer="1"/>
+<wire x1="15.394" y1="40.92608125" x2="17.0315" y2="39.28858125" width="0.254" layer="1"/>
 </signal>
 <signal name="USBH_VBUS">
 <contactref element="JP2" pad="6"/>
@@ -1729,6 +1735,21 @@ design rules under a new name.</description>
 <contactref element="R3" pad="2"/>
 <wire x1="40.794" y1="75.819" x2="40.794" y2="43.009" width="0.254" layer="16"/>
 <wire x1="40.794" y1="43.009" x2="31.35" y2="33.565" width="0.254" layer="16"/>
+</signal>
+<signal name="N$2">
+<contactref element="MIDI_IN" pad="P$1"/>
+<contactref element="C6" pad="1"/>
+<wire x1="18.65" y1="23.145" x2="24.415" y2="23.145" width="0.254" layer="16"/>
+<wire x1="24.415" y1="23.145" x2="25.019" y2="23.749" width="0.254" layer="16"/>
+</signal>
+<signal name="N$5">
+<contactref element="MIDI_OUT" pad="P$2"/>
+<contactref element="R4" pad="2"/>
+<wire x1="14.859" y1="39.37" x2="14.859" y2="24.511" width="0.254" layer="16"/>
+<wire x1="17.78" y1="21.59" x2="27.686" y2="21.59" width="0.254" layer="16"/>
+<wire x1="27.686" y1="21.59" x2="31.35" y2="25.254" width="0.254" layer="16"/>
+<wire x1="31.35" y1="25.254" x2="31.35" y2="25.265" width="0.254" layer="16"/>
+<wire x1="14.859" y1="24.511" x2="17.78" y2="21.59" width="0.254" layer="16"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
