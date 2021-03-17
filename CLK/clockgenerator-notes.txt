@@ -200,3 +200,13 @@ efuse = 0x07 or 0xFF is the same, because for this chip and fuse only the low 3 
 conclusion: CLK firmware seems to work correctly with internal oscillator
 
 -------------------------------------------------------
+
+Right-angle jacks UJ-3502
+Alternative (different height)
+Switchcraft 35RAPC2AV
+
+Thonk PJ302M: 6mm dia, 5.5m centre height
+UJ-3502:      M6 dia, 5mm centre height
+UJ-3505:      M6 dia, 7mm centre height
+
+-------------------------------------------------------
