@@ -226,3 +226,26 @@ PA12: USBH_DP, CAN1_TX
 1k / 100n RC filter apprx 1600Hz Fc
 
 --------------------------------------------------------------------------------
+
+MIDI Expansion
+TRS In / Thru / Out
+
+74HC14
+74HCT14
+74LS14
+7404
+or CD4584 ?
+TC4584BF 14-pin SOP
+
+
+https://electricdruid.net/wp-content/uploads/2016/04/MIDISchematic-3.jpg
+
+todo: use first stage of inverters on TX and RX (thru) to drive LEDsm and use
+      free stages for second output
+
+IN
+THRU
+OUT
+OUT
+
+--------------------------------------------------------------------------------
