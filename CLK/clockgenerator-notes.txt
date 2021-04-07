@@ -210,3 +210,11 @@ UJ-3502:      M6 dia, 5mm centre height
 UJ-3505:      M6 dia, 7mm centre height
 
 -------------------------------------------------------
+
+jacks PJ302M
+Rev 07 1mm drill, 1mm x 2.2mm (plus curve)
+change footprints to
+Rev 08 0.8mm drill, 0.8mm x 1.8mm 
+
+-------------------------------------------------------
+
