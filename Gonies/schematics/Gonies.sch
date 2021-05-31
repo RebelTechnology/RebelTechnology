@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.2.1">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -9,24 +9,34 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="7" fill="1" visible="no" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="7" fill="1" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="7" fill="1" visible="yes" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="7" fill="1" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -35,8 +45,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -44,20 +54,20 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="1" visible="no" active="no"/>
-<layer number="54" name="bGND_GNDA" color="7" fill="1" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="58" name="bCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
-<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="1" visible="yes" active="no"/>
+<layer number="54" name="bGND_GNDA" color="7" fill="1" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="58" name="bCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="yes" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="yes" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -10953,7 +10963,7 @@ MA = male&lt;p&gt;
 W = angled&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
 <packages>
-<package name="MA05-2">
+<package name="MA05-2" urn="urn:adsk.eagle:footprint:8267/1" locally_modified="yes">
 <description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
 <wire x1="-5.715" y1="2.54" x2="-4.445" y2="2.54" width="0.1524" layer="21"/>
 <wire x1="-4.445" y1="2.54" x2="-3.81" y2="1.905" width="0.1524" layer="21"/>
@@ -10997,10 +11007,8 @@ W = angled&lt;p&gt;
 <pad name="6" x="0" y="1.27" drill="1.016"/>
 <pad name="8" x="2.54" y="1.27" drill="1.016"/>
 <pad name="10" x="5.08" y="1.27" drill="1.016"/>
-<text x="-5.588" y="-4.191" size="1.27" layer="21" ratio="10">1</text>
 <text x="-6.35" y="2.921" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="0" y="-4.191" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-<text x="4.572" y="2.921" size="1.27" layer="21" ratio="10">10</text>
 <rectangle x1="-2.794" y1="-1.524" x2="-2.286" y2="-1.016" layer="51"/>
 <rectangle x1="-5.334" y1="-1.524" x2="-4.826" y2="-1.016" layer="51"/>
 <rectangle x1="-0.254" y1="-1.524" x2="0.254" y2="-1.016" layer="51"/>
@@ -11013,6 +11021,14 @@ W = angled&lt;p&gt;
 <rectangle x1="4.826" y1="1.016" x2="5.334" y2="1.524" layer="51"/>
 </package>
 </packages>
+<packages3d>
+<package3d name="MA05-2" urn="urn:adsk.eagle:package:8329/1" type="box">
+<description>PIN HEADER</description>
+<packageinstances>
+<packageinstance name="MA05-2"/>
+</packageinstances>
+</package3d>
+</packages3d>
 <symbols>
 <symbol name="MA05-2">
 <wire x1="3.81" y1="-7.62" x2="-3.81" y2="-7.62" width="0.4064" layer="94"/>
@@ -11063,12 +11079,16 @@ W = angled&lt;p&gt;
 <connect gate="G$1" pin="8" pad="8"/>
 <connect gate="G$1" pin="9" pad="9"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:8329/1"/>
+</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="MF" value="" constant="no"/>
 <attribute name="MPN" value="" constant="no"/>
 <attribute name="OC_FARNELL" value="unknown" constant="no"/>
 <attribute name="OC_NEWARK" value="unknown" constant="no"/>
+<attribute name="POPULARITY" value="14" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -11507,8 +11527,8 @@ www.irf.com&lt;p&gt;
 </class>
 </classes>
 <parts>
-<part name="R9" library="Rebel" deviceset="R-EU_" device="0603" value="100K"/>
-<part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="10K"/>
+<part name="R9" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
+<part name="R11" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="Q3" library="transistor" deviceset="BC846" device=""/>
 <part name="R10" library="Rebel" deviceset="R-EU_" device="0603" value="1M"/>
@@ -11524,7 +11544,7 @@ www.irf.com&lt;p&gt;
 <part name="R17" library="Rebel" deviceset="R-EU_" device="0603" value="2k"/>
 <part name="GND40" library="supply1" deviceset="GND" device=""/>
 <part name="+3V34" library="supply1" deviceset="+3V3" device=""/>
-<part name="R8" library="Rebel" deviceset="R-EU_" device="0603" value="10K"/>
+<part name="R8" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="L1" library="Rebel" deviceset="INDUCTOR" device=""/>
 <part name="C9" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="C8" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
@@ -11541,7 +11561,7 @@ www.irf.com&lt;p&gt;
 <part name="GND41" library="supply1" deviceset="GND" device=""/>
 <part name="P-3" library="supply1" deviceset="-12V" device=""/>
 <part name="P+3" library="supply1" deviceset="+12V" device=""/>
-<part name="C3" library="Rebel" deviceset="C-EU" device="C0603" value="4.7u"/>
+<part name="C3" library="Rebel" deviceset="C-EU" device="C0603" value="4u7"/>
 <part name="C7" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="+3V310" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
@@ -11571,8 +11591,8 @@ www.irf.com&lt;p&gt;
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="R12" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
-<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="100K"/>
-<part name="R7" library="Rebel" deviceset="R-EU_" device="0603" value="10K"/>
+<part name="R3" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
+<part name="R7" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="Q1" library="transistor" deviceset="BC846" device=""/>
 <part name="R5" library="Rebel" deviceset="R-EU_" device="0603" value="1M"/>
@@ -11590,17 +11610,17 @@ www.irf.com&lt;p&gt;
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="GND38" library="supply1" deviceset="GND" device=""/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
-<part name="C10" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="10u">
+<part name="C10" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="47u">
 <attribute name="FARNELL" value="882-3014"/>
 </part>
-<part name="C19" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="10u">
+<part name="C19" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="47u">
 <attribute name="FARNELL" value="882-3014"/>
 </part>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="+3V38" library="supply1" deviceset="+3V3" device=""/>
 <part name="X1" library="con-molex" deviceset="53?-05" device="048"/>
-<part name="C4" library="Rebel" deviceset="C-EU" device="C0603" value="20pF"/>
-<part name="C6" library="Rebel" deviceset="C-EU" device="C0603" value="20pF"/>
+<part name="C4" library="Rebel" deviceset="C-EU" device="C0603" value="20p"/>
+<part name="C6" library="Rebel" deviceset="C-EU" device="C0603" value="20p"/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
 <part name="Y1" library="Seeed-OPL-crystal-osctllator" deviceset="SMD-CRYSTAL-8MHZ-20PF-20PPM(2P-5.0X3.2MM)" device="" value="8MHz"/>
@@ -11614,7 +11634,7 @@ www.irf.com&lt;p&gt;
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="+12V" device=""/>
-<part name="SV1" library="con-lstb" deviceset="MA05-2" device=""/>
+<part name="SV1" library="con-lstb" deviceset="MA05-2" device="" package3d_urn="urn:adsk.eagle:package:8329/1"/>
 <part name="C13" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND44" library="supply1" deviceset="GND" device=""/>
 <part name="ATTACK1" library="Rebel" deviceset="POT-ALPS-RK09L" device="1140"/>
@@ -11669,8 +11689,8 @@ www.irf.com&lt;p&gt;
 <part name="+3V317" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND57" library="supply1" deviceset="GND" device=""/>
 <part name="D6" library="diode" deviceset="BAT54S" device=""/>
-<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="100K"/>
-<part name="R6" library="Rebel" deviceset="R-EU_" device="0603" value="10K"/>
+<part name="R2" library="Rebel" deviceset="R-EU_" device="0603" value="100k"/>
+<part name="R6" library="Rebel" deviceset="R-EU_" device="0603" value="10k"/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="Q2" library="transistor" deviceset="BC846" device=""/>
 <part name="R4" library="Rebel" deviceset="R-EU_" device="0603" value="1M"/>
@@ -11678,7 +11698,7 @@ www.irf.com&lt;p&gt;
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="TEMPO" library="Rebel" deviceset="THONKICONN" device=""/>
 <part name="+3V31" library="supply1" deviceset="+3V3" device=""/>
-<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="1K"/>
+<part name="R1" library="Rebel" deviceset="R-EU_" device="0603" value="1k"/>
 <part name="LED2" library="Rebel" deviceset="LED" device="3MM"/>
 <part name="LED1" library="Rebel" deviceset="LED" device="3MM"/>
 <part name="P+4" library="supply1" deviceset="+12V" device=""/>
@@ -11695,12 +11715,16 @@ www.irf.com&lt;p&gt;
 <part name="Q5" library="transistor-small-signal" deviceset="BSS123" device="">
 <attribute name="OC_FARNELL" value="1843725"/>
 </part>
+<part name="C20" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C21" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C22" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C23" library="Rebel" deviceset="C-EU" device="C0603" value="100n"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="228.6" y="48.26" size="3.048" layer="97" font="vector">Rebel Technology SlopeGenerator Rev02</text>
-<text x="228.6" y="40.64" size="3.048" layer="97" font="vector">published 2017 under the GNU GPL v2</text>
+<text x="228.6" y="48.26" size="3.048" layer="97" font="vector">Rebel Technology Gonies Rev03</text>
+<text x="228.6" y="40.64" size="3.048" layer="97" font="vector">published 2017/2021 under the GNU GPL v2</text>
 <text x="170.18" y="10.16" size="1.778" layer="97">LP Fc apprx 800Hz</text>
 <text x="124.46" y="170.18" size="1.778" layer="97">-10V</text>
 </plain>
@@ -12369,6 +12393,22 @@ www.irf.com&lt;p&gt;
 <attribute name="OC_FARNELL" x="116.84" y="93.98" size="1.778" layer="96" rot="MR270" display="off"/>
 <attribute name="NAME" x="116.84" y="91.44" size="1.778" layer="95" rot="MR270"/>
 <attribute name="VALUE" x="119.38" y="91.44" size="1.778" layer="96" rot="MR270"/>
+</instance>
+<instance part="C20" gate="G$1" x="251.46" y="124.46" smashed="yes" rot="R90">
+<attribute name="NAME" x="251.079" y="125.984" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="256.159" y="125.984" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="C21" gate="G$1" x="251.46" y="193.04" smashed="yes" rot="R90">
+<attribute name="NAME" x="251.079" y="194.564" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="256.159" y="194.564" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="C22" gate="G$1" x="368.3" y="193.04" smashed="yes" rot="R90">
+<attribute name="NAME" x="367.919" y="194.564" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="372.999" y="194.564" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="C23" gate="G$1" x="368.3" y="124.46" smashed="yes" rot="R90">
+<attribute name="NAME" x="367.919" y="125.984" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="372.999" y="125.984" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -13446,6 +13486,10 @@ www.irf.com&lt;p&gt;
 <pinref part="R21" gate="G$1" pin="2"/>
 <wire x1="233.68" y1="177.8" x2="233.68" y2="203.2" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="203.2" x2="231.14" y2="203.2" width="0.1524" layer="91"/>
+<pinref part="C21" gate="G$1" pin="1"/>
+<wire x1="248.92" y1="193.04" x2="243.84" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="243.84" y1="193.04" x2="243.84" y2="185.42" width="0.1524" layer="91"/>
+<junction x="243.84" y="185.42"/>
 </segment>
 </net>
 <net name="N$21" class="0">
@@ -13465,6 +13509,10 @@ www.irf.com&lt;p&gt;
 <pinref part="IC4" gate="A" pin="OUT"/>
 <wire x1="261.62" y1="175.26" x2="264.16" y2="175.26" width="0.1524" layer="91"/>
 <junction x="264.16" y="175.26"/>
+<pinref part="C21" gate="G$1" pin="2"/>
+<wire x1="256.54" y1="193.04" x2="264.16" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="264.16" y1="193.04" x2="264.16" y2="185.42" width="0.1524" layer="91"/>
+<junction x="264.16" y="185.42"/>
 </segment>
 </net>
 <net name="N$24" class="0">
@@ -13500,6 +13548,10 @@ www.irf.com&lt;p&gt;
 <wire x1="233.68" y1="109.22" x2="233.68" y2="134.62" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="134.62" x2="231.14" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="IC4" gate="B" pin="-IN"/>
+<pinref part="C20" gate="G$1" pin="1"/>
+<wire x1="248.92" y1="124.46" x2="243.84" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="243.84" y1="124.46" x2="243.84" y2="116.84" width="0.1524" layer="91"/>
+<junction x="243.84" y="116.84"/>
 </segment>
 </net>
 <net name="N$28" class="0">
@@ -13519,6 +13571,10 @@ www.irf.com&lt;p&gt;
 <wire x1="261.62" y1="106.68" x2="264.16" y2="106.68" width="0.1524" layer="91"/>
 <junction x="264.16" y="106.68"/>
 <pinref part="IC4" gate="B" pin="OUT"/>
+<pinref part="C20" gate="G$1" pin="2"/>
+<wire x1="256.54" y1="124.46" x2="264.16" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="264.16" y1="124.46" x2="264.16" y2="116.84" width="0.1524" layer="91"/>
+<junction x="264.16" y="116.84"/>
 </segment>
 </net>
 <net name="N$33" class="0">
@@ -13578,6 +13634,10 @@ www.irf.com&lt;p&gt;
 <wire x1="350.52" y1="177.8" x2="350.52" y2="203.2" width="0.1524" layer="91"/>
 <wire x1="350.52" y1="203.2" x2="347.98" y2="203.2" width="0.1524" layer="91"/>
 <pinref part="IC4" gate="D" pin="-IN"/>
+<pinref part="C22" gate="G$1" pin="1"/>
+<wire x1="365.76" y1="193.04" x2="360.68" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="360.68" y1="193.04" x2="360.68" y2="185.42" width="0.1524" layer="91"/>
+<junction x="360.68" y="185.42"/>
 </segment>
 </net>
 <net name="N$37" class="0">
@@ -13597,6 +13657,10 @@ www.irf.com&lt;p&gt;
 <wire x1="378.46" y1="175.26" x2="381" y2="175.26" width="0.1524" layer="91"/>
 <junction x="381" y="175.26"/>
 <pinref part="IC4" gate="D" pin="OUT"/>
+<pinref part="C22" gate="G$1" pin="2"/>
+<wire x1="373.38" y1="193.04" x2="381" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="381" y1="193.04" x2="381" y2="185.42" width="0.1524" layer="91"/>
+<junction x="381" y="185.42"/>
 </segment>
 </net>
 <net name="N$40" class="0">
@@ -13632,6 +13696,10 @@ www.irf.com&lt;p&gt;
 <wire x1="350.52" y1="109.22" x2="350.52" y2="134.62" width="0.1524" layer="91"/>
 <wire x1="350.52" y1="134.62" x2="347.98" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="IC4" gate="C" pin="-IN"/>
+<pinref part="C23" gate="G$1" pin="1"/>
+<wire x1="365.76" y1="124.46" x2="360.68" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="360.68" y1="124.46" x2="360.68" y2="116.84" width="0.1524" layer="91"/>
+<junction x="360.68" y="116.84"/>
 </segment>
 </net>
 <net name="N$43" class="0">
@@ -13651,6 +13719,10 @@ www.irf.com&lt;p&gt;
 <wire x1="378.46" y1="106.68" x2="381" y2="106.68" width="0.1524" layer="91"/>
 <junction x="381" y="106.68"/>
 <pinref part="IC4" gate="C" pin="OUT"/>
+<pinref part="C23" gate="G$1" pin="2"/>
+<wire x1="373.38" y1="124.46" x2="381" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="381" y1="124.46" x2="381" y2="116.84" width="0.1524" layer="91"/>
+<junction x="381" y="116.84"/>
 </segment>
 </net>
 <net name="N$45" class="0">
@@ -13718,4 +13790,16 @@ www.irf.com&lt;p&gt;
 </sheets>
 </schematic>
 </drawing>
+<compatibility>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports URNs for individual library
+assets (packages, symbols, and devices). The URNs of those assets
+will not be understood (or retained) with this version.
+</note>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports the association of 3D packages
+with devices in libraries, schematics, and board files. Those 3D
+packages will not be understood (or retained) with this version.
+</note>
+</compatibility>
 </eagle>
