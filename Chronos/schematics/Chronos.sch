@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.2.1">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -11093,10 +11093,10 @@ www.irf.com&lt;p&gt;
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
 <part name="GND43" library="supply1" deviceset="GND" device=""/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
-<part name="C12" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="10u">
+<part name="C12" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="47u">
 <attribute name="FARNELL" value="882-3014"/>
 </part>
-<part name="C17" library="Rebel" deviceset="CPOL-EU" device="153CLV-0405" value="10u">
+<part name="C17" library="Rebel" deviceset="CPOL-EU" device="153CLV-0505" value="47u">
 <attribute name="FARNELL" value="882-3014"/>
 </part>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
