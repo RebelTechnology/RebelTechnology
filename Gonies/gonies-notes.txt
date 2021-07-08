@@ -219,3 +219,11 @@ Make Noise - ModDemix
 I have installed in my both case:
 Tiptop Audio Mantis
 EOWAVE - 104HP CASE with bus board.
+
+-------------------------------------------------------
+
+pin compatible:
+STM32F100CBTx
+STM32F100C8Tx
+
+-------------------------------------------------------
