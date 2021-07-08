@@ -237,15 +237,19 @@ TRS In / Thru / Out
 or CD4584 ?
 TC4584BF 14-pin SOP
 
-
 https://electricdruid.net/wp-content/uploads/2016/04/MIDISchematic-3.jpg
 
-todo: use first stage of inverters on TX and RX (thru) to drive LEDsm and use
+todo: use first stage of inverters on TX and RX (thru) to drive LEDs and use
       free stages for second output
 
-IN
-THRU
-OUT
-OUT
+IN | THRU | OUT | OUT
+
+2HP: 9.8mm
+4HP: 20mm
+
+--------------------------------------------------------------------------------
+
+Expander:
+- add i2c bus for VCMC (and new MIDI Thing, and PolyVCO)
 
 --------------------------------------------------------------------------------
