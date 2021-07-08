@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.025" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="7" fill="1" visible="yes" active="yes"/>
@@ -2933,7 +2934,7 @@ CONNECTOR, MICRO USB, RECEPTACLE&lt;br/&gt;</description>
 <description>N25Q128A13 Flash Memory SO8W</description>
 <wire x1="2.4" y1="2.45" x2="2.4" y2="-1.9" width="0.2032" layer="51"/>
 <wire x1="2.4" y1="-2.47" x2="2.4" y2="-1.9" width="0.2032" layer="51"/>
-<wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.2032" layer="21"/>
 <wire x1="-2.4" y1="-1.9" x2="-2.4" y2="-2.47" width="0.2032" layer="51"/>
 <wire x1="-2.4" y1="-1.9" x2="-2.4" y2="2.45" width="0.2032" layer="51"/>
 <wire x1="-2.4" y1="2.45" x2="2.4" y2="2.45" width="0.2032" layer="51"/>
