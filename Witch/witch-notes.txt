@@ -99,7 +99,7 @@ LED button: PB6146L
 Pushbutton: TL1105SPF100Q
 Cap: 1RWHT
 
-Use PB6146L-12 bi-colour red/yellow LED pushbuttons ?
+Use PB6146L-12 bi-colour red/yellow LED pushbuttons
 http://www.ledswitches.co.uk/media/pdf/PB614-2016.pdf?PB614M
 
 -----------------------------------------------------------------------------------------------
@@ -125,5 +125,146 @@ THD -76dB at 1kHz
 5V signal
 THD+N -55dB, 0.174% at 1kHz
 THD -67dB, 0.043% at 1kHz
+
+-----------------------------------------------------------------------------------------------
+
+Order:
+20cm White braided mono cables
+40cm Yellow braided mono cables
+60cm Black braided mono cables
+
+-----------------------------------------------------------------------------------------------
+
+patch parameters
+AA attack
+AB sustain
+AC decay
+AD release
+AE Ext L
+AF Ext R
+AG FX Select
+
+AH Waveshape (what else?)
+
+BA CV Attenuvertion A
+...
+BD CV Attenuvertion D
+
+BE LFO1 shape
+BF LFO2 shape
+
+Modulation amount
+Pressure / aftertouch amount
+Pitch bend range (NRPN)
+
+CV Attenuation : slider, and buttons to set range [1V] [5V] [10V] [invert]
+Save settings (per patch)
+
+Load each patch (store?)
+
+About
+
+Specs
+Analog to Digital Conversion: 48k Hz 24 bits
+Digital to Analog Conversion: 48k Hz 24 bits
+Audio Processing: 48k Hz 32 bits
+USB Audio output: 48k Hz 16 bits
+
+Patch documentation
+
+130 x 110 x 70
+97 x 83 mm inside card
+
+- add CRC checksum to resource list
+- add method to read CRC by streaming resource through stack ram
+- prevent re-uploading by checking CRC of stored resource
+- use storage folders (add / in filename) and a resource list service call to store by actual name, e.g.
+  wt/something.wav  (max 20 chars total)
+- update wt patch to reload bank by midi message
+
+-----------------------------------------------------------------------------------------------
+
+https://waveeditonline.com/
+
+-----------------------------------------------------------------------------------------------
+
+Low Frequency Oscillators
+There are two tap-tempo oscillators
+
+-----------------------------------------------------------------------------------------------
+
+Takeover
+If the parameter value does not correspond with the current knob position then the LED above the knob will be fully lit. This can happen if the knob has been moved with the 'mode' button down, or if the parameter value has been changed over MIDI.
+
+ADSR
+note that Attack and Release times are in addition to those controlled by the Envelope Shape setting.
+
+-----------------------------------------------------------------------------------------------
+
+1V/Octave 5V range CV attenuation: 2186
+
+2186/4096 = x*x*2
+
+sqrt((2186/4096)/2) = 2*x -1
+
+128*(sqrt((2186/4096)/2) + 1)/2)
+
+128*(sqrt((2186/4096)/2) + 1)/2) = 97.06
+4096*2*((97/128)*2 - 1)^2 = 2178
+4096*2*((98/128)*2 - 1)^2 = 2312
+(2312 - 2178)/4096 = 3.3% step, 0.65% per octave. 
+Step = 5*(2312 - 2178)/4096 = 163.5mV @ 5V (non-linear)
+
+-----------------------------------------------------------------------------------------------
+
+sox in.wav -r 48k -b 16 out.wav
+
+# remove silence < 1% volume, until sound > 0.1s, from start and end 
+sox in.wav out.wav silence 1 0.1 1% reverse silence 1 0.1 1% reverse;
+
+# conservative: remove silence < 0.2% volume only from end 
+sox in.wav out.wav reverse silence 1 0.04 0.2% reverse;
+
+for nm in Samples\ for\ Martin/*/*.wav;
+do sox "$nm" -r 44100 -b 16 samples/`basename "$nm"` reverse silence 1 0.04 0.5% reverse;
+done
+
+-----------------------------------------------------------------------------------------------
+
+FirmwareSender -in spectral_7.wav -out "OWL*" -name "wavetable1.wav"
+FirmwareSender -in mikeS.wav -out "OWL*" -name "wavetable2.wav"
+
+FirmwareSender -in sample1.wav -out "OWL*" -name sample1.wav 
+FirmwareSender -in sample2.wav -out "OWL*" -name sample2.wav 
+FirmwareSender -in sample3.wav -out "OWL*" -name sample3.wav 
+FirmwareSender -in sample4.wav -out "OWL*" -name sample4.wav 
+
+OwlProgram/witch-compile.sh
+OwlProgram/witch-deploy.sh
+
+-----------------------------------------------------------------------------------------------
+
+todo:
+/ renumber parts (rev 06)
+/ design postcard (with Dani)
+/ Dani source shipping boxes, Alchemist size
+
+- cables and adaptors
+- rubber feet
+
+-----------------------------------------------------------------------------------------------
+
+Release 30 aug
+Communicate to retailers
+14-16 July front panels
+
+-----------------------------------------------------------------------------------------------
+
+witch assembled
+witch kit
+
+-----------------------------------------------------------------------------------------------
+
+DAC output offset 0.085V ?
 
 -----------------------------------------------------------------------------------------------
