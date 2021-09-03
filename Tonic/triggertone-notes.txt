@@ -498,3 +498,83 @@ BSS123 Gate source leakage current Igss = 10-100nA nexperia (onsemi: +/-50nA)
 Removing e.g. Q8 stops LED lighting up erroneously. Current appears to be leaking through mosfet gate
 
 -------------------------------------------------------
+
+ToggleTone / Root
+Resistor divider
+9V | 1k pot + 1k resistance | 470R = 1.71V, roughly Vf
+with 1k | pot | 470R and 9V, range minus 1.7Vf is 0.01V to 3.65V
+
+-------------------------------------------------------
+
+mosfet current buffer as led driver
+https://tinyurl.com/yhj9bbla
+appears to work perfectly but does not switch off when source current is removed
+
+2-stage current amplifier
+https://tinyurl.com/yg3zkaeh
+switches but only provides -45mV to -445mV range
+
+non-inverting summer
+https://tinyurl.com/ygllrse3
+not enough range or too much offset
+
+constant current bjt LED driver with diodes and negative LED supply
+https://tinyurl.com/yz7a3bxh
+perfect range, switches pos/neg, doesn't switch off LED
+
+-------------------------------------------------------
+
+MAX4948 hex SPDT data switch
+
+TS3A27518E
+3.3-V, 2:1 (SPDT), 6-channel analog multiplexer with 1.8-V compatible control inputs
+
+74LV4053D - The 74LV4053 is a triple single-pole double-throw (SPDT) analog switch, suitable for use as an analog or digital multiplexer/demultiplexer
+
+The NX3L4357 is a low-ohmic single-pole triple-throw analog switch suitable for use as an analog or digital 3:1 multiplexer/demultiplexer
+
+The FSA3357 is a high performance, single-pole/triple-throw (SP3T) Analog Switch or 3:1 Multiplexer/Demultiplexer
+
+TS5A3357
+
+MAX4554 2x 3PST
+
+STG3856 2x SP3T
+
+MAX4564 1x SPDT with enable
+Device Enable. Drive EN low for normal SPDT switch operation. If EN is high, both
+NO and NC are disconnected.
+
+
+74LV4053D - Triple single-pole double-throw analog switch
+
+SN74LVC2G53 Single-Pole Double-Throw (SPDT) Analog Switch with inhibit
+
+TS5A3357DCUR Single 5-Ohm SP3T Analog Switch EUR 0.54 @ 100 vssop-8
+
+STG3856QTR 2x SP3T EUR 0.80 @100 QFN12
+
+
+
+12 x SPST or SPDT analog switches (one side float, common to summing node)
+
+PI3A27518ZDEX
+
+HV209FG-G 12 ch
+
+12x mosfet switches grounding the voltages (requires buffers)
+
+or:
+6x mosfet switches grounding before toggle, with ADC reading the voltage to see if toggle is off
+
+mcu:
+6 triggers
+6 leds
+6 mosfets
+6 adc
+
+6x SP3T:
+6 triggers
+6 leds
+12 toggles
+12 switches
