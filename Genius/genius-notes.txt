@@ -178,3 +178,5 @@ make PATCHSOURCE=~/devel/SOUL/examples/patches/TX/ElectroPiano SOUL=ElectroPiano
 works
 make PATCHSOURCE=~/devel/SOUL/examples/patches/TX/ElecBass1 SOUL=ElecBass1 SOULCLASS=ElecBass
 works
+
+-----------------------------------------------
