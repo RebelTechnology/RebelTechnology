@@ -3,7 +3,7 @@
 <eagle version="9.6.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
@@ -2240,7 +2240,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="58.80964375" y="54.688796875" size="0.762" layer="25" font="vector" rot="R90" align="bottom-center"/>
 </element>
 <element name="R24" library="Rebel" package="0603" value="10M" x="90.17" y="29.21" smashed="yes" rot="R180">
-<attribute name="NAME" x="87.692" y="28.802" size="0.762" layer="25" font="vector" align="bottom-center"/>
+<attribute name="NAME" x="90.105" y="30.199" size="0.762" layer="25" font="vector" align="bottom-center"/>
 </element>
 <element name="R11" library="Rebel" package="0603" value="2k" x="60.6425" y="39.116" smashed="yes" rot="R90">
 <attribute name="NAME" x="60.66105625" y="37.57635625" size="0.762" layer="25" font="vector" rot="R180" align="bottom-center"/>
@@ -2336,7 +2336,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="59.563" y="49.53" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C24" library="Rebel" package="C0603" value="10n C0G" x="97.79" y="33.02" smashed="yes">
-<attribute name="NAME" x="101.04" y="32.055" size="0.762" layer="25" font="vector" rot="R90"/>
+<attribute name="NAME" x="96.825" y="34.088" size="0.762" layer="25" font="vector"/>
 <attribute name="VALUE" x="98.475" y="29.785" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="R25" library="Rebel" package="0603" value="10M" x="97.79" y="29.21" smashed="yes" rot="R180">
@@ -2347,7 +2347,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="70.739" y="58.674" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="C23" library="Rebel" package="C0603" value="10n C0G" x="90.17" y="33.02" smashed="yes">
-<attribute name="NAME" x="86.935" y="33.945" size="0.762" layer="25" font="vector" rot="R270"/>
+<attribute name="NAME" x="89.118" y="34.103" size="0.762" layer="25" font="vector"/>
 <attribute name="VALUE" x="87.895" y="29.285" size="1.27" layer="27"/>
 </element>
 <element name="C6" library="resistor" package="C0603" value="220p C0G" x="60.6425" y="52.705" smashed="yes" rot="R180">
@@ -2564,8 +2564,8 @@ design rules under a new name.</description>
 <contactref element="C16" pad="2"/>
 <contactref element="U2" pad="2"/>
 <via x="88.7095" y="21.1455" extent="1-16" drill="0.3048"/>
-<via x="89.2175" y="30.4165" extent="1-16" drill="0.3048"/>
-<via x="96.9645" y="30.2895" extent="1-16" drill="0.3048"/>
+<via x="88.2015" y="29.1465" extent="1-16" drill="0.3048"/>
+<via x="95.9485" y="29.1465" extent="1-16" drill="0.3048"/>
 <via x="90.9955" y="55.9435" extent="1-16" drill="0.3048"/>
 <via x="96.8375" y="55.9435" extent="1-16" drill="0.3048"/>
 <via x="91.8845" y="51.3715" extent="1-16" drill="0.3048"/>
