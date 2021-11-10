@@ -11296,12 +11296,12 @@ by exp-lbrs.ulp</description>
 <part name="R5" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:15457752/1" value="2k7"/>
 <part name="P+3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="R6" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:15457752/1" value="220R"/>
-<part name="C7" library="Rebel" deviceset="C-EU" device="050-024X044" value="10n"/>
-<part name="C8" library="Rebel" deviceset="C-EU" device="050-024X044" value="10n"/>
+<part name="C7" library="Rebel" deviceset="C-EU" device="050-024X044" value="100n"/>
+<part name="C8" library="Rebel" deviceset="C-EU" device="050-024X044" value="100n"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
-<part name="C9" library="Rebel" deviceset="C-EU" device="050-024X044" value="10n"/>
-<part name="C10" library="Rebel" deviceset="C-EU" device="050-024X044" value="10n"/>
+<part name="C9" library="Rebel" deviceset="C-EU" device="050-024X044" value="100n"/>
+<part name="C10" library="Rebel" deviceset="C-EU" device="050-024X044" value="100n"/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 </parts>
@@ -11309,6 +11309,9 @@ by exp-lbrs.ulp</description>
 <sheet>
 <plain>
 <text x="83.82" y="327.66" size="1.778" layer="97">1.2V drop-out Max 15Vin</text>
+<text x="198.12" y="236.22" size="1.778" layer="97">Voltage drop
+Vce(sat) typ 250mV
+at 10mA Ic</text>
 </plain>
 <instances>
 <instance part="CVINB" gate="G$1" x="-12.7" y="218.44" smashed="yes" rot="R180">
@@ -12398,6 +12401,10 @@ by exp-lbrs.ulp</description>
 </schematic>
 </drawing>
 <compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
 <note version="8.2" severity="warning">
 Since Version 8.2, EAGLE supports online libraries. The ids
 of those online libraries will not be understood (or retained)
