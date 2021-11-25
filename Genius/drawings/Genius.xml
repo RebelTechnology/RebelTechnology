@@ -34,8 +34,8 @@
   <hole x="0.25" y="-0.85" radius="3.25"/>
 
   <!-- pushbuttons -->
-  <hole x="0.30" y="0.20" radius="2.55"/>
-  <hole x="-0.30" y="0.20" radius="2.55"/>
+  <hole x="0.30" y="0.225" radius="2.55"/>
+  <hole x="-0.30" y="0.225" radius="2.55"/>
 
   <!-- encoders -->
   <!-- <pot x="0.00" y="0.5"/> -->
@@ -44,7 +44,7 @@
   <hole x="0.00" y="-0.25" radius="3.75"/>
 
   <!-- usb client connector -->
-  <rect x="0.0" y="-1.33" width="12" height="11"/>
+  <rect x="0.0" y="-1.33" width="13" height="11"/>
 
   <!-- usb host connector -->
   <rect x="0.0" y="-1.85" width="14.75" height="7"/>
