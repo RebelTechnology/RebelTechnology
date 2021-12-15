@@ -180,3 +180,514 @@ make PATCHSOURCE=~/devel/SOUL/examples/patches/TX/ElecBass1 SOUL=ElecBass1 SOULC
 works
 
 -----------------------------------------------
+
+usb_host_pwr_fault	PA10	input
+sw_a			PC10	exti10
+sw_b			PC12	exti12
+tr_in_a			PC11	exti11
+tr_in_b			PD2	exti2
+tr_out_a		PD3	output
+tr_out_b		PD4	output
+enc1_sw			PG14
+enc2_sw			PB4
+
+adc0			PA0
+adc1			PA1
+
+-----------------------------------------------
+
+tested working:
+sw a/b
+tr in/out
+cv out
+enc a/b sw
+enc b
+usbd
+oled
+serial midi rx
+serial midi loopback
+serial midi tx
+adc
+usbh (with glitches)
+external ram
+
+not tested/not working:
+bus
+enc a
+spi flash
+bootloader
+check levels: cv 0-10V, audio +/-10v, trigger 0/10v
+
+-----------------------------------------------
+
+usbh midi: lots of false notes when connecting, crashes
+
+-----------------------------------------------
+
+patches:
+- pong (one/two person)
+- defender
+- command interpreter / sequencer:
+  1: 0010110010 # pattern on gate 1
+  r: tri 100    # 100 Hz tri wave on right channel
+  a: sin 0.1    # 0.1 Hz sine out on CV A
+- lotka volterra with screen
+
+-----------------------------------------------
+
+micropython oscillators
+
+
+def sin_osc(freq, duration=1, sr=48000):
+ ph = 0
+ s = 0
+ inc = (2 * math.pi * freq) / sr
+ while s < duration*sr:
+  yield math.sin(ph)
+  ph = (ph + inc) % (2 * math.pi)
+  s += 1
+owl.output(0, sin_osc(440)) # 53% cpu
+
+def sin_osc(freq):
+ ph = 0
+ s = 0
+ inc = (2 * math.pi * freq) / 48000
+ while True:
+  yield math.sin(ph)
+  ph = (ph + inc) % (2 * math.pi)
+  s += 1
+owl.output(0, sin_osc(440)) # 48% cpu
+
+# 23% cpu
+def saw_osc(freq, duration=1, sr=48000):
+ ph = 0
+ s = 0
+ inc = (2 * freq) / sr
+ while s < duration*sr:
+  yield ph
+  s += 1
+  ph += inc
+  if ph >= 1:
+    ph -= 2
+
+## compact
+def saw_osc(freq, dur, sr):
+ ph = 0
+ s = 0
+ inc = (2 * freq) / sr
+ while s < dur*sr:
+  yield ph
+  s += 1
+  ph += inc
+  if ph >= 1:
+    ph -= 2
+owl.output(0, saw_osc(440, 2, 48000))
+
+# 44% cpu
+def tri_osc(freq, dur, sr):
+ ph = 0
+ s = 0
+ inc = (2*freq)/sr
+ while s < dur*sr:
+  yield -2*(abs(ph)-0.5)
+  s += 1
+  ph += inc
+  if ph >= 1:
+    ph -= 2
+owl.output(1, tri_osc(320, 2, 48000))
+
+owl.output(0, iter([math.sin((x * 0.01) % (2 * math.pi)) for x in range(0, 1000)])) ## memory error when > 1000
+
+owl.output(0, range(100)) ## about 2% cpu
+iter([0, 0.5, 1])
+
+owl.output(0, range(0))
+
+class saw():
+ def __init__(self, inc):
+  self.inc = inc
+  self.ph = 0
+ def __iter__(self): return self
+ def __next__(self):
+  self.ph += self.inc
+  if self.ph > 1: self.ph -= 2
+  return self.ph
+owl.output(0, saw(2*440/48000)) ## 46% cpu
+
+def saw(freq):
+ ph = 0
+ inc = (2 * freq) / 48000
+ while True:
+  yield ph
+  ph += inc
+  if ph >= 1:
+    ph -= 2
+
+def gain(it, amt):
+ while True:
+  try:
+   yield amt * next(it)
+  except StopIteration:
+   break
+
+owl.output(0, gain(saw(440), 0.5)) # 40%
+
+## use global variables
+freq = 440
+gain = 0.5
+def saw():
+ ph = 0
+ while True:
+  yield ph*gain
+  ph += (2 * freq) / 48000
+  if ph >= 1:
+   ph -= 2
+owl.output(0, saw()) # 35%
+
+## use OWL parameters for gain and frequency
+def saw():
+ ph = 0
+ while True:
+  yield ph*owl.parameter(0)
+  ph += (2 * owl.parameter(1)) / 48000
+  if ph >= 1:
+   ph -= 2
+owl.output(0, saw())
+
+owl.clear()
+owl.print(10, 10, "A: "+str(owl.parameter(0))+" B: "+str(owl.parameter(1)))
+
+def tri():
+ ph = 0
+ while True:
+  yield gain * -2*(abs(ph)-0.5)
+  ph += (2 * freq) / 48000
+  if ph >= 1:
+   ph -= 2
+owl.output(0, tri()) # 55%
+
+def cycle(p):
+ try:
+  len(p)
+ except TypeError:
+  cache = []
+  for i in p:
+   yield i
+   cache.append(i)
+  p = cache
+ while p:
+  yield from p
+
+owl.output(0, cycle([0, 0.1, 0.2, 0.1, 0, -0.1, -0.2, -0.1])) # 6% cpu
+
+a = [math.sin((2 * math.pi * x * 0.001 / 48000) % (2 * math.pi)) for x in range(32)]
+owl.output(0, cycle(a))
+
+freq = 440
+len = int(48000/freq)
+a = [math.sin(2 * math.pi * x / len) for x in range(0, len)]
+owl.output(0, cycle(a)) ## 6% cpu
+
+owl.delay(1) # AttributeError ?
+
+add:
+- owl.clk(function, interval)
+- owl.blk(function) # runs at block interval
+- owl.scr(function) # runs at screen interval
+- owl.A, B, AA, B1, PUSHBUTTON et c
+- owl.samplerate, owl.blockrate
+
+
+Micropython questions:
+- access array directly from C / faster
+- setattr on usermod causes AttributeError, e.g. setattr(owl, 'bs', 32), owl.bs = 32, globals()['bs'] = 32 (inside module)
+- how to set or change usermod attributes at runtime, ie when interpreter is started
+
+------------------------------------------
+
+itertools for micropython
+https://github.com/pfalcon/pycopy-lib/blob/master/itertools/itertools.py
+
+def count(start=0, step=1):
+    while True:
+        yield start
+        start += step
+
+def cycle(p):
+    try:
+        len(p)
+    except TypeError:
+        cache = []
+        for i in p:
+            yield i
+            cache.append(i)
+        p = cache
+    while p:
+        yield from p
+
+
+def repeat(el, n=None):
+    if n is None:
+        while True:
+            yield el
+    else:
+        for i in range(n):
+            yield el
+
+def chain(*p):
+    for i in p:
+        yield from i
+	
+------------------------------------------
+
+mp_type_list
+extern const mp_obj_type_t mp_type_list;
+
+const mp_obj_type_t *mp_obj_get_type(mp_const_obj_t o_in);
+
+
+#if MICROPY_MEM_STATS
+size_t m_get_total_bytes_allocated(void);
+size_t m_get_current_bytes_allocated(void);
+size_t m_get_peak_bytes_allocated(void);
+#endif
+
+------------------------------------------
+
+build with ulab
+make -j 4 CROSS=1 USER_C_MODULES=../../../ulab all && cp build/libmicropython-cm4.a ~/devel/OwlProgram/MyPatches/
+
+binary grows from 105080 to 186608k, almost 80k
+
+from ulab import numpy as np
+a = np.array(range(1000))/1000 - 1
+owl.output(0, cycle(a))
+
+https://micropython-ulab.readthedocs.io/
+
+------------------------------------------
+
+import owl
+owl.print(x, y, text)
+owl.print(y, text)
+owl.print(text)
+owl.button(id) # get button value
+owl.button(id, value) # set button value (number or boolean)
+owl.parameter(id) # get parameter value
+owl.parameter(id, value) # set parameter value (number or boolean)
+owl.parameter(id, it) # set parameter with iterator (at block rate)
+owl.output(ch, value) # set DC audio output value
+owl.output(ch, it) # set audio output with iterator (at audio rate)
+owl.sr # sample rate
+owl.br # block rate
+owl.bs # block size
+
+------------------------------------------
+
+MC74VHC1G125
+MC74VHC1GT50
+Noninverting Buffer /
+CMOS Logic Level Shifter
+
+TTL−Compatible Inputs
+
+SN74LV1T34
+3.3V to 5V level shifter at 5V VCC
+5V Tolerance on Input Pins
+Absolute Max input voltage: 7V
+
+CMOS, a 4009 is hex inverting buffer, 4010 is hex non-inverting buffer (you'd only need one instead of two). 4049 and 4050 are similar, inverting and non-inverting respectively. 4069 is a hex inverter.
+
+7404N hex inverter
+
+SN74LVC2G04 2ch/dual inverter SMT SC70-6, SOT-363
+74HC2G04G CMOS, 74HCT2G04G TTL
+
+SN74HC05NE4 hex inverter with open drain output
+
+PNP high side TX buffer
+
+Official MIDI low-side dual inverter buffer:
+https://diyaudiocircuits.com/midi-buffer/
+
+https://books.google.co.uk/books?id=kK1PCwAAQBAJ&pg=PA41
+
+http://thebox.myzen.co.uk/Hardware/MIDI_Shield.html
+
+https://branchonmaybe.wordpress.com/2016/09/16/fun-with-electronics/
+the BC212 is now obsolete but can be replaced by a 2N3906
+
+Genius could have used a hex inverter: 2x MIDI TX, 2x gate in, 2x gate out
+
+------------------------------------------
+
+inverting inputs?
+
+saw tooth out 1.8Vpp default gain, 9.9V max gain
+
+saw feeback max gain: 7.8V max gain
+
+inputs are inverted, and every 64th sample corrupted (fits at -128 samples)
+
+input inversion inevitable with inverting op amp
+also invert output with #define CODEC_DAC_INVERT
+0r change int->float conversion
+
+CV out, buffered:
+A: 68mV to 9.84V
+B: 46mV to 9.77V
+
+CV out, buffer off:
+A: -4mV to 9.95V
+A: -26mV to 9.88V
+
+CV out, buffer off, self-calibration: same result
+
+trigger outputs: 5.8V high
+change R904 and R704 : already changed from 1k to 10k (confirm bom)
+
+------------------------------------------
+
+MicroPythonPatch 373c4c1 works with micropython 019de7790
+
+------------------------------------------
+
+uart bus: rx/gnd/tx
+
+------------------------------------------
+
+Genius Bottom x 10  USD 835.00
+PCBWay Order ID: G607477 2020/10/21
+PCB $118, PCBA $685
+Genius Rev01 BOM
+
+------------------------------------------
+
+make clean && make USER_C_MODULES=../../../ulab CROSS=1 staticlib && cp build/libmicropython-*.a ../../../
+
+------------------------------------------
+
+markov patch:
+- params: syncopation/rhythmic range, octave range, random amount, transpose
+
+------------------------------------------
+
+STM32H743
+STM32H743ZI
+STM32H743ZG
+STM32H742ZG
+STM32H753ZI
+
+STM32H750ZB
+STM32H753ZI
+
+STM32H750ZBT6 8,01 € @100
+STM32H742ZGT6 10,60 € @100
+STM32H742ZIT6 11,30 € @100
+STM32H743ZGT6 10,85 € @100
+STM32H743ZIT6 11,82 € @100
+STM32H753ZIT6 12,09 € @100
+
+backordered from Mouser 6/11 2021:
+S25FL064LABMFA013 100 1,76 €
+IS42S16400J-7TL	  108 1,41 €
+STM32H743ZGT6	  100 10,85 €
+
+todo:
+- TSR 1-2450E TRACO POWER TME 2.32 EUR @100
+
+(TSR 1-2450E 10.2mm tall, or 1.5A TSR1.5-2433E 10mm tall open frame)
+
+------------------------------------------
+
+fix codec audio through processing / missing sample
+- check that fix works with OWL2 / Witch et c
+
+------------------------------------------
+
+lv2 wrapper to/from OWL patch
+
+nekobee, nekostring
+https://www.nekosynth.co.uk/browser/
+
+------------------------------------------
+
+drops 2.58dB from 1k to 10k
+weird THD hump from 4k to 12k Hz, apprx +24dB
+
+audio output (left, at 0.5 / 1.77V) looses 38mV with hair dryer (almost 1/4 tone)
+
+------------------------------------------
+
+output filter
+4.7k / 1n / 4.7k / 100p / 10k
+fc = 73412.700957167[Hz]
+Gpk = -2.1276595744681[times]
+
+todo:
+try adding input filter:
+add 220p C0G cap in parallel with (R501 Left and/or) R506 Right
+
+try changing output filter:
+remove C601 and C603 (?)
+add 470p C0G across R602 and R605, or R603 and R606
+
+CS4271
+output full scale: 2.5Vpp single ended / 5Vpp differential
+input full scale: 2.8Vpp single ended
+
+left: hump is gone
+1k to 10k Hz -2.25dB
+THD+N -45dB @1k, -40dB @10k
+
+before: -43dB @1k, -29dB @10k
+
+best results with input: 100p/22k and output: 480p across differential pair
+
+------------------------------------------
+
+CV DAC rise/fall times: < 340uS
+CV out: 9.84Vpp: -7mV to 9.83V
+
+------------------------------------------
+
+Magus I2C:
+SCL / GND / SDA
+
+------------------------------------------
+
+todo:
+/ build new top
+/ verify MIDI TX circuit
+/ buy codecs
+/ order bottom boards
+/ ship components
+/ panel: verify alignments and sizes, adjust USBD cut-out
+/ order panels
+- order screen adaptor pcbs?
+- order parts for assembly: pushbuttons, vregs, encoders, USB, stereo thonk
+
+firmware / patches:
+- screen indicators for button / cv / audio
+- assign / register buttons
+- patch description
+
+------------------------------------------
+
+instead of 2N3906 using BC560C low noise transistor
+reverse position
+2N3906 E B C
+BC560C C B E
+
+------------------------------------------
+
+USD account ending in 2055
+Account holder name
+SHENZHEN KAISHENG PCB CO., LIMITED
+SWIFT / BIC code: HSBCCNSH
+IBAN / Account Number: 009217662055
+
+HSBC BANK (CHINA) COMPANY LIMITED in SHANGHAI
+
+------------------------------------------
+
