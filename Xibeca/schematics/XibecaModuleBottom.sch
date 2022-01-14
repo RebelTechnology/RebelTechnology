@@ -15823,7 +15823,7 @@ NS Package M08A</description>
 Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
 <packages>
-<package name="SOT23-5">
+<package name="SOT23-5" urn="urn:adsk.eagle:footprint:16287/1">
 <description>&lt;b&gt;Small Outline Transistor&lt;/b&gt;, 5 lead</description>
 <wire x1="-1.544" y1="0.713" x2="1.544" y2="0.713" width="0.1524" layer="51"/>
 <wire x1="1.544" y1="0.713" x2="1.544" y2="-0.712" width="0.1524" layer="21"/>
@@ -15842,7 +15842,53 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <rectangle x1="-0.2375" y1="-1.5437" x2="0.2375" y2="-0.7124" layer="51"/>
 <rectangle x1="0.7125" y1="-1.5437" x2="1.1875" y2="-0.7124" layer="51"/>
 </package>
+<package name="SO08" urn="urn:adsk.eagle:footprint:16130/1" locally_modified="yes">
+<description>&lt;b&gt;Small Outline Package 8&lt;/b&gt;&lt;br&gt;
+NS Package M08A</description>
+<wire x1="2.4" y1="1.9" x2="2.4" y2="-1.27" width="0.2032" layer="21"/>
+<wire x1="2.4" y1="-1.27" x2="2.4" y2="-1.4" width="0.2032" layer="21"/>
+<wire x1="2.4" y1="-1.4" x2="2.4" y2="-1.9" width="0.2032" layer="21"/>
+<wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="-2.4" y1="-1.9" x2="-2.4" y2="-1.4" width="0.2032" layer="21"/>
+<wire x1="-2.4" y1="-1.4" x2="-2.4" y2="-1.27" width="0.2032" layer="21"/>
+<wire x1="-2.4" y1="-1.27" x2="-2.4" y2="1.9" width="0.2032" layer="21"/>
+<wire x1="-2.4" y1="1.9" x2="2.4" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="2.4" y1="-1.27" x2="-2.4" y2="-1.27" width="0.2032" layer="21"/>
+<smd name="2" x="-0.635" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="7" x="-0.635" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="1" x="-1.905" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="3" x="0.635" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="4" x="1.905" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="8" x="-1.905" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="6" x="0.635" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="5" x="1.905" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<text x="-2.667" y="-1.905" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="3.937" y="-1.905" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-2.15" y1="-3.1" x2="-1.66" y2="-2" layer="51"/>
+<rectangle x1="-0.88" y1="-3.1" x2="-0.39" y2="-2" layer="51"/>
+<rectangle x1="0.39" y1="-3.1" x2="0.88" y2="-2" layer="51"/>
+<rectangle x1="1.66" y1="-3.1" x2="2.15" y2="-2" layer="51"/>
+<rectangle x1="1.66" y1="2" x2="2.15" y2="3.1" layer="51"/>
+<rectangle x1="0.39" y1="2" x2="0.88" y2="3.1" layer="51"/>
+<rectangle x1="-0.88" y1="2" x2="-0.39" y2="3.1" layer="51"/>
+<rectangle x1="-2.15" y1="2" x2="-1.66" y2="3.1" layer="51"/>
+</package>
 </packages>
+<packages3d>
+<package3d name="SOT23-5" urn="urn:adsk.eagle:package:16456/2" type="model">
+<description>Small Outline Transistor, 5 lead</description>
+<packageinstances>
+<packageinstance name="SOT23-5"/>
+</packageinstances>
+</package3d>
+<package3d name="SO08" urn="urn:adsk.eagle:package:16404/2" type="model">
+<description>Small Outline Package 8
+NS Package M08A</description>
+<packageinstances>
+<packageinstance name="SO08"/>
+</packageinstances>
+</package3d>
+</packages3d>
 <symbols>
 <symbol name="OPAMP+-">
 <wire x1="-5.08" y1="5.08" x2="-5.08" y2="-5.08" width="0.4064" layer="94"/>
@@ -15863,24 +15909,41 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="LM321?*" prefix="IC">
-<description>&lt;b&gt;Low Power Single Op Amp&lt;/b&gt;&lt;p&gt;
-Source: http://cache.national.com/ds/LM/LM321.pdf</description>
+<deviceset name="OPA725" prefix="IC">
+<description>&lt;b&gt;Very Low Noise, High-Speed, 12V CMOS Operational Amplifier&lt;/b&gt;&lt;p&gt;
+Source: http://focus.ti.com/lit/ds/symlink/opa725.pdf</description>
 <gates>
 <gate name="G$1" symbol="OPAMP+-" x="0" y="0"/>
 </gates>
 <devices>
-<device name="MF" package="SOT23-5">
+<device name="DBV" package="SOT23-5">
 <connects>
-<connect gate="G$1" pin="+IN" pad="1"/>
-<connect gate="G$1" pin="-IN" pad="3"/>
-<connect gate="G$1" pin="OUT" pad="4"/>
+<connect gate="G$1" pin="+IN" pad="3"/>
+<connect gate="G$1" pin="-IN" pad="4"/>
+<connect gate="G$1" pin="OUT" pad="1"/>
 <connect gate="G$1" pin="V+" pad="5"/>
 <connect gate="G$1" pin="V-" pad="2"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16456/2"/>
+</package3dinstances>
 <technologies>
 <technology name=""/>
-<technology name="X"/>
+</technologies>
+</device>
+<device name="D" package="SO08">
+<connects>
+<connect gate="G$1" pin="+IN" pad="3"/>
+<connect gate="G$1" pin="-IN" pad="2"/>
+<connect gate="G$1" pin="OUT" pad="6"/>
+<connect gate="G$1" pin="V+" pad="7"/>
+<connect gate="G$1" pin="V-" pad="4"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16404/2"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -16181,11 +16244,9 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="GND97" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="+3V9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="C15" library="Rebel" deviceset="C-EU" device="C0603" value="2u"/>
-<part name="GND95" library="supply1" deviceset="GND" device=""/>
 <part name="C17" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:15457955/3" value="100n"/>
-<part name="GND101" library="supply1" deviceset="GND" device=""/>
 <part name="GND102" library="supply1" deviceset="GND" device=""/>
-<part name="IC3" library="linear" deviceset="LM321?*" device="MF" value="LMV321ILT"/>
+<part name="IC3" library="linear" deviceset="OPA725" device="DBV" package3d_urn="urn:adsk.eagle:package:16456/2" value="TS321"/>
 <part name="C16" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:15457955/3" value="100n"/>
 <part name="GND98" library="supply1" deviceset="GND" device=""/>
 <part name="GND100" library="supply1" deviceset="GND" device=""/>
@@ -16205,8 +16266,10 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="R109" library="Rebel" library_urn="urn:adsk.eagle:library:15457297" deviceset="R-EU_" device="R0603" package3d_urn="urn:adsk.eagle:package:15457735/3" value="4k7"/>
 <part name="+3V5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="+3V6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
-<part name="P+9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
-<part name="P+11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
+<part name="P-9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="-12V" device=""/>
+<part name="P+11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+12V" device=""/>
+<part name="P-8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="-12V" device=""/>
+<part name="P+9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+12V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -17287,15 +17350,9 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <attribute name="NAME" x="72.263" y="-273.8374" size="1.778" layer="95"/>
 <attribute name="VALUE" x="72.263" y="-278.9174" size="1.778" layer="96"/>
 </instance>
-<instance part="GND95" gate="1" x="53.34" y="-284.48" smashed="yes">
-<attribute name="VALUE" x="50.8" y="-287.02" size="1.778" layer="96"/>
-</instance>
 <instance part="C17" gate="G$1" x="53.34" y="-297.18" smashed="yes">
 <attribute name="NAME" x="54.864" y="-296.799" size="1.778" layer="95"/>
 <attribute name="VALUE" x="54.864" y="-301.879" size="1.778" layer="96"/>
-</instance>
-<instance part="GND101" gate="1" x="53.34" y="-307.34" smashed="yes">
-<attribute name="VALUE" x="50.8" y="-309.88" size="1.778" layer="96"/>
 </instance>
 <instance part="GND102" gate="1" x="71.12" y="-284.48" smashed="yes">
 <attribute name="VALUE" x="68.58" y="-287.02" size="1.778" layer="96"/>
@@ -17365,11 +17422,17 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <instance part="+3V6" gate="G$1" x="53.34" y="35.56" smashed="yes">
 <attribute name="VALUE" x="50.8" y="30.48" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="P+9" gate="1" x="53.34" y="-254" smashed="yes">
-<attribute name="VALUE" x="50.8" y="-259.08" size="1.778" layer="96" rot="R90"/>
+<instance part="P-9" gate="1" x="53.34" y="-284.48" smashed="yes">
+<attribute name="VALUE" x="50.8" y="-287.02" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="P+11" gate="1" x="53.34" y="-289.56" smashed="yes">
 <attribute name="VALUE" x="50.8" y="-294.64" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="P-8" gate="1" x="53.34" y="-307.34" smashed="yes">
+<attribute name="VALUE" x="50.8" y="-309.88" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="P+9" gate="1" x="53.34" y="-254" smashed="yes">
+<attribute name="VALUE" x="50.8" y="-259.08" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -17799,16 +17862,6 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <junction x="-241.3" y="-266.7"/>
 </segment>
 <segment>
-<pinref part="GND95" gate="1" pin="GND"/>
-<wire x1="53.34" y1="-281.94" x2="53.34" y2="-274.32" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="V-"/>
-</segment>
-<segment>
-<pinref part="GND101" gate="1" pin="GND"/>
-<pinref part="C17" gate="G$1" pin="2"/>
-<wire x1="53.34" y1="-304.8" x2="53.34" y2="-302.26" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="C15" gate="G$1" pin="2"/>
 <wire x1="71.12" y1="-279.4" x2="71.12" y2="-281.94" width="0.1524" layer="91"/>
 <pinref part="GND102" gate="1" pin="GND"/>
@@ -18223,6 +18276,16 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <junction x="-22.86" y="-246.38"/>
 <pinref part="IC2" gate="P" pin="V+"/>
 </segment>
+<segment>
+<pinref part="C17" gate="G$1" pin="1"/>
+<wire x1="53.34" y1="-294.64" x2="53.34" y2="-292.1" width="0.1524" layer="91"/>
+<pinref part="P+11" gate="1" pin="+12V"/>
+</segment>
+<segment>
+<wire x1="53.34" y1="-256.54" x2="53.34" y2="-259.08" width="0.1524" layer="91"/>
+<pinref part="IC3" gate="G$1" pin="V+"/>
+<pinref part="P+9" gate="1" pin="+12V"/>
+</segment>
 </net>
 <net name="-12V" class="0">
 <segment>
@@ -18286,6 +18349,16 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <pinref part="P-7" gate="1" pin="-12V"/>
 <pinref part="C60" gate="G$1" pin="-"/>
 <wire x1="-391.16" y1="58.42" x2="-391.16" y2="60.96" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="53.34" y1="-281.94" x2="53.34" y2="-274.32" width="0.1524" layer="91"/>
+<pinref part="IC3" gate="G$1" pin="V-"/>
+<pinref part="P-9" gate="1" pin="-12V"/>
+</segment>
+<segment>
+<pinref part="C17" gate="G$1" pin="2"/>
+<wire x1="53.34" y1="-304.8" x2="53.34" y2="-302.26" width="0.1524" layer="91"/>
+<pinref part="P-8" gate="1" pin="-12V"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -18973,16 +19046,6 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <pinref part="U$2" gate="G$2" pin="+5V"/>
 <wire x1="215.9" y1="58.42" x2="223.52" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="P+10" gate="1" pin="+5V"/>
-</segment>
-<segment>
-<wire x1="53.34" y1="-256.54" x2="53.34" y2="-259.08" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="V+"/>
-<pinref part="P+9" gate="1" pin="+5V"/>
-</segment>
-<segment>
-<pinref part="C17" gate="G$1" pin="1"/>
-<wire x1="53.34" y1="-294.64" x2="53.34" y2="-292.1" width="0.1524" layer="91"/>
-<pinref part="P+11" gate="1" pin="+5V"/>
 </segment>
 </net>
 <net name="SW1" class="0">
