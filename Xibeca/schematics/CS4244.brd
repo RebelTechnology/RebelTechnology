@@ -1288,9 +1288,9 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="6.35" y1="2.12" x2="6.311" y2="2.12" width="0.254" layer="1"/>
 <wire x1="6.311" y1="2.12" x2="6.096" y2="1.905" width="0.254" layer="1"/>
 <wire x1="6.096" y1="1.905" x2="3.175" y2="1.905" width="0.254" layer="1"/>
-<wire x1="3.175" y1="1.905" x2="2.667" y2="2.413" width="0.254" layer="1"/>
-<wire x1="2.667" y1="2.413" x2="2.667" y2="12.174" width="0.254" layer="1"/>
-<wire x1="2.667" y1="12.174" x2="3.87" y2="13.377" width="0.254" layer="1"/>
+<wire x1="3.175" y1="1.905" x2="2.413" y2="2.667" width="0.254" layer="1"/>
+<wire x1="2.413" y1="2.667" x2="2.413" y2="11.92" width="0.254" layer="1"/>
+<wire x1="2.413" y1="11.92" x2="3.87" y2="13.377" width="0.254" layer="1"/>
 </signal>
 <signal name="AGND">
 <contactref element="C3" pad="-"/>
@@ -1318,7 +1318,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <vertex x="30.5717" y="-1.33305625"/>
 <vertex x="0" y="-1.27"/>
 </polygon>
-<via x="20.234" y="13.754" extent="1-16" drill="0.3"/>
+<via x="20.361" y="14.77" extent="1-16" drill="0.3"/>
 <contactref element="IC1" pad="21"/>
 <contactref element="IC1" pad="41"/>
 <contactref element="IC1" pad="9"/>
@@ -1347,9 +1347,9 @@ We've spent an enormous amount of time creating and checking these footprints an
 <via x="15.494" y="3.81" extent="1-16" drill="0.3"/>
 <wire x1="15.470365625" y1="4.71565" x2="15.494" y2="4.692015625" width="0.254" layer="1"/>
 <wire x1="15.470365625" y1="4.71565" x2="15.156478125" y2="5.0295375" width="0.254" layer="1"/>
-<wire x1="15.156478125" y1="5.0295375" x2="15.156478125" y2="5.430903125" width="0.254" layer="1"/>
-<wire x1="15.156478125" y1="5.430903125" x2="14.986" y2="5.60138125" width="0.254" layer="1"/>
-<wire x1="14.986" y1="5.60138125" x2="14.986" y2="6.096" width="0.254" layer="1"/>
+<wire x1="15.156478125" y1="5.0295375" x2="15.156478125" y2="5.176903125" width="0.254" layer="1"/>
+<wire x1="15.156478125" y1="5.176903125" x2="14.986" y2="5.34738125" width="0.254" layer="1"/>
+<wire x1="14.986" y1="5.34738125" x2="14.986" y2="6.096" width="0.254" layer="1"/>
 <wire x1="11.673203125" y1="9.21991875" x2="11.6743375" y2="9.21991875" width="0.254" layer="1"/>
 <wire x1="12.51225625" y1="8.382" x2="12.7" y2="8.382" width="0.254" layer="1"/>
 <wire x1="12.51225625" y1="8.382" x2="11.6743375" y2="9.21991875" width="0.254" layer="1"/>
@@ -1371,6 +1371,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <via x="28.193" y="7.005" extent="1-16" drill="0.3"/>
 <via x="28.193" y="4.465" extent="1-16" drill="0.3"/>
 <via x="17.272" y="3.429" extent="1-16" drill="0.3"/>
+<via x="23.028" y="16.167" extent="1-16" drill="0.3"/>
 </signal>
 <signal name="AIN1+">
 <contactref element="IC1" pad="17"/>
@@ -1702,9 +1703,9 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="17.336790625" y1="11.79345" x2="17.41655" y2="11.79345" width="0.2032" layer="1"/>
 <via x="17.41655" y="11.79345" extent="1-16" drill="0.3"/>
 <wire x1="17.41655" y1="11.79345" x2="18.5667" y2="12.9436" width="0.2032" layer="16"/>
-<wire x1="21.48046875" y1="12.9436" x2="18.5667" y2="12.9436" width="0.2032" layer="16"/>
-<wire x1="26.73" y1="13.377" x2="21.91386875" y2="13.377" width="0.2032" layer="16"/>
-<wire x1="21.91386875" y1="13.377" x2="21.48046875" y2="12.9436" width="0.2032" layer="16"/>
+<wire x1="25.92546875" y1="12.9436" x2="18.5667" y2="12.9436" width="0.2032" layer="16"/>
+<wire x1="26.73" y1="13.377" x2="26.35886875" y2="13.377" width="0.2032" layer="16"/>
+<wire x1="26.35886875" y1="13.377" x2="25.92546875" y2="12.9436" width="0.2032" layer="16"/>
 </signal>
 <signal name="I2C_AD1">
 <contactref element="IC1" pad="38"/>
@@ -1712,10 +1713,11 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="16.177471875" y1="11.341240625" x2="16.891" y2="12.05476875" width="0.2032" layer="1"/>
 <wire x1="16.891" y1="12.05476875" x2="16.891" y2="13.716" width="0.2032" layer="1"/>
 <via x="16.891" y="13.716" extent="1-16" drill="0.3"/>
-<wire x1="16.891" y1="13.716" x2="17.78" y2="14.605" width="0.2032" layer="16"/>
-<wire x1="29.27" y1="13.504" x2="28.169" y2="14.605" width="0.2032" layer="16"/>
+<wire x1="16.891" y1="13.716" x2="25.019" y2="13.716" width="0.2032" layer="16"/>
+<wire x1="26.162" y1="14.859" x2="25.019" y2="13.716" width="0.2032" layer="16"/>
+<wire x1="29.27" y1="13.504" x2="27.915" y2="14.859" width="0.2032" layer="16"/>
 <wire x1="29.27" y1="13.504" x2="29.27" y2="13.377" width="0.2032" layer="16"/>
-<wire x1="17.78" y1="14.605" x2="28.169" y2="14.605" width="0.2032" layer="16"/>
+<wire x1="26.162" y1="14.859" x2="27.915" y2="14.859" width="0.2032" layer="16"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
