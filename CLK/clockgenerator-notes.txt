@@ -218,3 +218,19 @@ Rev 08 0.8mm drill, 0.8mm x 1.8mm
 
 -------------------------------------------------------
 
+Range: 40 to 200 BPM, 120 BPM in middle
+1/4 beats (no jumper) 16th notes
+2.66 Hz to 13.33 Hz
+
+1/16 beats (jumper top pos) 64th notes?
+Range 40 to 162 BPM, 108 BPM in the middle ?
+10.8 to 43.4 Hz measured (28.8 Hz in middle)
+max speed 1.04 kHz: 43.4 x 24
+
+1/8 beats (jumper bottom pos) 32th notes?
+5.42 to 24.8
+
+The top knob sets the master clock, ranging from 40 to 200 BPM. The top jack outputs the master clock as 16th notes.
+There are 4x 16th notes in a beat.
+
+-------------------------------------------------------

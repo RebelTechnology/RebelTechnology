@@ -175,9 +175,9 @@ Patch documentation
 130 x 110 x 70
 97 x 83 mm inside card
 
-- add CRC checksum to resource list
-- add method to read CRC by streaming resource through stack ram
-- prevent re-uploading by checking CRC of stored resource
+/ add CRC checksum to resource list
+/ add method to read CRC by streaming resource through stack ram
+/ prevent re-uploading by checking CRC of stored resource
 - use storage folders (add / in filename) and a resource list service call to store by actual name, e.g.
   wt/something.wav  (max 20 chars total)
 - update wt patch to reload bank by midi message
@@ -266,5 +266,16 @@ witch kit
 -----------------------------------------------------------------------------------------------
 
 DAC output offset 0.085V ?
+
+-----------------------------------------------------------------------------------------------
+
+https://github.com/Funkenjaeger/brd2json/blob/eagle/brd2json.ulp
+
+/home/mars/devel/Befaco/Noctua_boards/Witch/schematics/Witch.json
+
+conda install wxpython jsonschema
+python InteractiveHtmlBom/generate_interactive_bom.py /home/mars/devel/Befaco/Noctua_boards/Witch/schematics/Witch.json
+
+Python 3.7.4
 
 -----------------------------------------------------------------------------------------------

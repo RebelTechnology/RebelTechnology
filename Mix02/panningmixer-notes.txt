@@ -185,3 +185,12 @@ X4 switched input channels
 X5 direct master bus output
 
 -----------------------------------------------------------------------------------
+
+production boards, 11/12/2022:
+headphone output too loud compared to l/r out
+l/r too low (about -12dB at middle pos, 1.2x at full gain)
+todo: reduce input gain, boost l/r output gain
+or: boost input gains, reduce hp gain
+
+
+-----------------------------------------------------------------------------------

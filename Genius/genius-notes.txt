@@ -596,7 +596,7 @@ STM32H743ZGT6	  100 10,85 €
 todo:
 - TSR 1-2450E TRACO POWER TME 2.32 EUR @100
 
-(TSR 1-2450E 10.2mm tall, or 1.5A TSR1.5-2433E 10mm tall open frame)
+(TSR 1-2450E 10.2mm tall, or 1.5A TSR1.5-2450E 10mm tall open frame)
 
 ------------------------------------------
 
@@ -691,3 +691,38 @@ HSBC BANK (CHINA) COMPANY LIMITED in SHANGHAI
 
 ------------------------------------------
 
+low profile female pin headers
+3.5mm, 5mm, 5.7mm, 7.1mm, 8.5mm
+E-Simpo on Ali Express
+PIX35-IXX SO BKX000
+  1     2      3
+1: N=Nylon A=PBT
+2: Per row 02 to 40
+e.g. PIN35-I40SOBK
+3: plating
+
+Samtec low-profile socket strips SLW/CES series
+
+Assmann Female header, pitch 2.54mm, straight, single row, 03 - 40-contacts
+A-BL254-EG-Z/G 40 D
+https://www.rutronik24.co.uk/product/assmannwsw/a-bl254-eg-g06d/4097538.html
+https://uk.rs-online.com/web/p/pcb-sockets/6742369
+
+215297-6 TE CONNECTIVITY Socket; pin strips; HV-100; female; PIN: 6; straight; 2.54mm; height 7mm
+https://www.tme.eu/es/en/details/215297-6/pin-headers/te-connectivity/
+
+3M 929870-01-16-RA height
+Low profile permits board stacking as close as .150" (3.81mm)
+
+NINIGI ZL305-06 2.54mm 5mm height female pin strip
+https://www.tme.eu/es/en/details/zl305-06/pin-headers/ninigi/
+or https://e-simpo.aliexpress.com/store/805710
+
+ZL262-24DG
+
+------------------------------------------
+
+Encoders:
+PEC11R-4220F-S0024
+
+------------------------------------------
