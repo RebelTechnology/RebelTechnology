@@ -178,19 +178,25 @@
 <wire x1="0.635" y1="1.016" x2="0.635" y2="28.321" width="0.1524" layer="20"/>
 <wire x1="0.635" y1="28.321" x2="42.672" y2="28.321" width="0.1524" layer="20"/>
 <wire x1="42.672" y1="28.321" x2="42.672" y2="1.016" width="0.1524" layer="20"/>
+<text x="21.59" y="17.78" size="1.778" layer="22" font="vector" rot="MR0" align="bottom-center">Screen Holder Rev02</text>
+<text x="21.59" y="7.62" size="1.778" layer="22" font="vector" rot="MR0" align="bottom-center">Rebel Technology</text>
+<dimension x1="0.635" y1="28.321" x2="0.635" y2="1.016" x3="-1.27" y3="14.6685" textsize="1.778" layer="21"/>
+<dimension x1="0.635" y1="28.321" x2="42.672" y2="28.321" x3="21.6535" y3="30.48" textsize="1.778" layer="21"/>
 </plain>
 <libraries>
 <library name="Rebel" urn="urn:adsk.eagle:library:15457297">
 <packages>
-<package name="OLED_128X64_1_54" urn="urn:adsk.eagle:footprint:30955514/1" library_version="5">
+<package name="OLED_128X64_1_54" urn="urn:adsk.eagle:footprint:30955514/1" locally_modified="yes" library_version="5" library_locally_modified="yes">
 <wire x1="-21.02" y1="11.758" x2="21.02" y2="11.758" width="0.127" layer="21"/>
 <wire x1="21.02" y1="11.758" x2="21.02" y2="-15.462" width="0.127" layer="21"/>
 <wire x1="21.02" y1="-15.462" x2="6.25" y2="-15.462" width="0.127" layer="21"/>
 <wire x1="6.25" y1="-15.462" x2="-6.25" y2="-15.462" width="0.127" layer="21"/>
 <wire x1="-6.25" y1="-15.462" x2="-21.02" y2="-15.462" width="0.127" layer="21"/>
 <wire x1="-21.02" y1="-15.462" x2="-21.02" y2="11.758" width="0.127" layer="21"/>
-<wire x1="-6.25" y1="-15.462" x2="-6.25" y2="-17.78" width="0.127" layer="21"/>
-<wire x1="6.25" y1="-15.462" x2="6.25" y2="-17.78" width="0.127" layer="21"/>
+<wire x1="-6.25" y1="-15.462" x2="-6.25" y2="-16.51" width="0.127" layer="21"/>
+<wire x1="-6.25" y1="-16.51" x2="-6.25" y2="-17.78" width="0.127" layer="21"/>
+<wire x1="6.25" y1="-15.462" x2="6.25" y2="-16.51" width="0.127" layer="21"/>
+<wire x1="6.25" y1="-16.51" x2="6.25" y2="-17.78" width="0.127" layer="21"/>
 <wire x1="-18.526" y1="9.758" x2="18.526" y2="9.758" width="0.127" layer="21"/>
 <wire x1="18.526" y1="9.758" x2="18.526" y2="-9.758" width="0.127" layer="21"/>
 <wire x1="18.526" y1="-9.758" x2="-18.526" y2="-9.758" width="0.127" layer="21"/>
@@ -201,6 +207,8 @@
 <pad name="P$4" x="-2.54" y="-3.81" drill="1.016"/>
 <pad name="P$5" x="0" y="-3.81" drill="1.016"/>
 <pad name="P$6" x="2.54" y="-3.81" drill="1.016"/>
+<wire x1="-6.25" y1="-14.192" x2="-6.25" y2="-16.51" width="0.127" layer="21"/>
+<wire x1="6.25" y1="-14.192" x2="6.25" y2="-16.51" width="0.127" layer="21"/>
 </package>
 </packages>
 <packages3d>

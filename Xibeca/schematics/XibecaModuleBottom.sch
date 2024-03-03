@@ -17832,6 +17832,10 @@ Source: http://focus.ti.com/lit/ds/symlink/opa725.pdf</description>
 <wire x1="170.18" y1="5.08" x2="172.72" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="U$2" gate="G$1" pin="AIN5N"/>
 <junction x="172.72" y="5.08"/>
+<pinref part="U$2" gate="G$1" pin="AIN1N"/>
+<wire x1="170.18" y1="15.24" x2="172.72" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="15.24" x2="172.72" y2="12.7" width="0.1524" layer="91"/>
+<junction x="172.72" y="12.7"/>
 </segment>
 <segment>
 <pinref part="JP8" gate="G$1" pin="1"/>
